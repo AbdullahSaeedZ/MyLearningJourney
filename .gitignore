@@ -1,0 +1,76 @@
+# =========================
+# Visual Studio C++ .gitignore
+# =========================
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio workspace
+.vs/
+
+# Build directories
+[Bb]in/
+[Oo]bj/
+Debug/
+DebugPublic/
+Release/
+x64/
+x86/
+ARM/
+ARM64/
+
+# Visual C++ generated files
+*.VC.db
+*.VC.opendb
+*.obj
+*.o
+*.lo
+*.sbr
+
+# Linking output
+*.lib
+*.dll
+*.exp
+*.exe
+
+# Debugging symbols and logs
+*.pdb
+*.ilk
+*.iobj
+*.ipch
+*.tlog
+*.lastbuildstate
+
+# Visual Studio profiler
+*.psess
+*.vsp
+*.vspx
+
+# CMake build results (if تستخدم CMake)
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+Testing/
+CTestTestfile.cmake
+build/
+
+# VS Code settings (لو تستخدم VS Code جنب VS)
+.vscode/
+
+# Temporary and backup files
+*.log
+*.tmp
+*.cache
+*.bak
+*.old
+*.orig
+*~
+
+# 기타
+*.sdf
+*.opensdf
+*.dbmdl
