@@ -26,6 +26,13 @@ int main()
 
 	cout << "letters are = " << char1 << char2 << char3 << " and reverse is = " << char3 << char2 << char1 << endl;
 
+	// const is a constant which is unchangeable and read-only value unlike a variable 
+	
+	const int Age = 27;
+	const string Name = "Abdullah";
+
+	cout << "my name is " << Name << " and my age is " << Age << endl;
+
 	return 0;
 
 }
