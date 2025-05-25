@@ -4,9 +4,9 @@ using namespace std;
 int main()
 {
 	string MyName = "Abdullah Alzahrani";
-	int MyAge = 27;
+	short int MyAge = 27;
 	string MyJob = "programmer";
-	int Number = 23;
+	short int Number = 23;
 	float FloatNumber = 27.5;
 	double NumberWithDecimels = 27.5453345;
 	char MyLetter = 'A';
@@ -16,9 +16,9 @@ int main()
 
 	cout << MyAge << endl;
 
-	int x = 3;
-	int y = 5;
-	int Sum = x + y;
+	short int x = 3;
+	short int y = 5;
+	short int Sum = x + y;
 
 	cout << Sum << endl;
 
@@ -28,7 +28,7 @@ int main()
 
 	// const is a constant which is unchangeable and read-only value unlike a variable 
 	
-	const int Age = 27;
+	const short int Age = 27;
 	const string Name = "Abdullah";
 
 	cout << "my name is " << Name << " and my age is " << Age << endl;
