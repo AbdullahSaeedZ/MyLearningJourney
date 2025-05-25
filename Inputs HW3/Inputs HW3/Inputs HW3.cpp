@@ -4,12 +4,12 @@ using namespace std;
 int main()
 
 {
-	int Age;
+	short int Age;
 
 	cout << "Enter Your Age:";
 	cin >> Age;
 
-	int FutureAge = Age + 5;
+	short int FutureAge = Age + 5;
 
 	cout << "After 5 years you will be " << FutureAge << " years old." << endl;
 
