@@ -5,8 +5,8 @@ int main()
 {
 
 	string Name = "Abdullah Alzahrani";
-	int Age = 27;   /* using int here is not professional in memory usage cuz int can have a lot of values and
-	im only using a number that will not exceed 100 (age) so we should use */
+	short int Age = 27;   /* using int here is not professional in memory usage cuz it has a big rang of data and
+	im only using a number that will not exceed 100 (age) so we should use short int */
 	string City = "Dammam";
 	string Country = "KSA";
 	float MonthlySalary = 5000; // i wrote int at first then i changed it to float cuz salaries have deciemls ex: 6.549 SAR. better use float.
@@ -25,10 +25,10 @@ int main()
 	cout << "**********\n" << endl;
 
 
-	int x = 20; // or in one variable int x = 20, y = 30, z = 10;
-	int y = 30;
-	int z = 10;
-	int Total = x + y + z;
+	short int x = 20; // or in one variable int x = 20, y = 30, z = 10;
+	short int y = 30;
+	short int z = 10;
+	short int Total = x + y + z;
 
 	cout << x << " +\n" << y << " +\n" << z << endl;
 	cout << "----------------" << endl;
