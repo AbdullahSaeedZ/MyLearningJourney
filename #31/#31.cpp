@@ -13,9 +13,10 @@ int main()
     float Nto3 = pow(Num, 3);
     float Nto4 = pow(Num, 4);
 
-    cout << Num << " to the power of 2 is: " << Nto2 << endl;
-    cout << Num << " to the power of 3 is: " << Nto3 << endl;
-    cout << Num << " to the power of 4 is: " << Nto4 << endl;
+    cout << Num << " to the power of 2 is: " << round(Nto2) << endl;
+    cout << Num << " to the power of 3 is: " << round(Nto3) << endl;
+    cout << Num << " to the power of 4 is: " << round(Nto4) << endl;
 
+    
     return 0;
 }
