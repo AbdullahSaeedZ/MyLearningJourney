@@ -8,9 +8,9 @@ int main()
 	cout << "Enter the Area:" << endl;
 	cin >> A;
 
-	float Area = (3.141592653589793 * A * A) / 4;
+	float Area = (3.141592653589793 * pow(A, 2)) / 4;
 	
-	cout << " the circle area is: " << Area << endl;
+	cout << " the circle area is: " << ceil(Area) << endl;
 
 
 
