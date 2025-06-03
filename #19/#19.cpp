@@ -9,9 +9,9 @@ int main()
     cout << "please enter the diameter:" << endl;
     cin >> D;
 
-    float Area = (3.141592653589793 * D * D) / 4;
+    float Area = (3.141592653589793 * pow(D, 2)) / 4;
 
-    cout << "the Area of the circle is: " << Area << endl;
+    cout << "the Area of the circle is: " << ceil(Area) << endl;
 
 
 
