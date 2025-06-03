@@ -9,9 +9,9 @@ int main()
     cout << "Please enter a number:" << endl;
     cin >> Num;
 
-    float Nto2 = Num * Num;
-    float Nto3 = Num * Num * Num;
-    float Nto4 = Num * Num * Num * Num;
+    float Nto2 = pow(Num, 2);
+    float Nto3 = pow(Num, 3);
+    float Nto4 = pow(Num, 4);
 
     cout << Num << " to the power of 2 is: " << Nto2 << endl;
     cout << Num << " to the power of 3 is: " << Nto3 << endl;
