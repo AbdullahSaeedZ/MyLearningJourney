@@ -11,7 +11,7 @@ int main()
 
     float InSeconds = (D * 86400) + (H * 3600) + (M * 60) + S;
 
-    cout << "Task duration in seconds is: " << InSeconds << endl;
+    cout << "Task duration in seconds is: " << round(InSeconds) << endl;
 
     return 0;
 }
