@@ -25,7 +25,9 @@ short int SumFunction()
 
     return Num1 + Num2;
 }
-
+// in function we shouldnt include reading or printing codes only things that require a return of value
+// we use a procedure to include reading and printing codes only.
+// the above funcitons are only for the homework eventhouh i wrote a funcion with reading and printing.
 
 int main()
 {
