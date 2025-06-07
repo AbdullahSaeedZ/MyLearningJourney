@@ -1,19 +1,30 @@
 #include <iostream>
 using namespace std;
 
-int main()
+void ReadValues(short int& A, short int& B) // no need to redeclare A, B variables since i reference the parameters.
 {
-	short int A;
-	short int B;
-
+	
 	cout << "plaese enter the value of A:" << endl;
 	cin >> A;
 	cout << "Please enter the value of B:" << endl;
 	cin >> B;
 
-	short int Area = A * B;
+}
 
-	cout << "The Area of rectangle is: " << Area << endl;
+short int Area(short int A, short int B)
+{
+	short int Area = A * B;
+	return Area;
+
+}
+
+int main()
+{
+	short int Value1, Value2;
+
+	ReadValues(Value1, Value2);
+
+	cout << "Area is: " << Area(Value1, Value2) << endl;
 
 
 	return 0;
