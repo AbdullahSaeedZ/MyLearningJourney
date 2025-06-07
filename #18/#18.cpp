@@ -2,19 +2,25 @@
 #include <cmath>
 using namespace std;
 
+void ReadInputs(float &R)
+{
+    cout << "enter r value: " << endl;
+    cin >> R;
+}
+
+float CirclArea(float R)
+{
+    float Area = 3.14 * pow(R, 2);
+
+    return Area;
+}
+
 int main()
 {
-    short int r;
+    float R;
+    ReadInputs(R);
 
-    cout << "enter r value: " << endl;
-    cin >> r;
-
-    float Area = 3.14 * pow(r, 2);
-
-    cout << "circle area is: " << ceil(Area) << endl; // using ceil() to round the result to the highest number 
-
-
-
+    cout << "circle area is: " << ceil(CirclArea(R)) << endl; // using ceil() to round the result to the highest number 
 
 
     return 0;
