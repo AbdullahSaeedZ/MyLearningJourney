@@ -1,22 +1,30 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
+
+void ReadInputs(float& Num)
+{
+    cout << "Please enter a number:" << endl;
+    cin >> Num;
+}
+
+void PowerThree(float Num)
+{
+    cout << "power of 2 = " << round(pow(Num, 2)) << endl;
+    cout << "power of 3 = " << round(pow(Num, 3)) << endl;
+    cout << "power of 4 = " << round(pow(Num, 4)) << endl;
+
+}
+
+
 
 int main()
 {
-
-    float Num;
-
-    cout << "Please enter a number:" << endl;
-    cin >> Num;
-
-    float Nto2 = pow(Num, 2);
-    float Nto3 = pow(Num, 3);
-    float Nto4 = pow(Num, 4);
-
-    cout << Num << " to the power of 2 is: " << round(Nto2) << endl;
-    cout << Num << " to the power of 3 is: " << round(Nto3) << endl;
-    cout << Num << " to the power of 4 is: " << round(Nto4) << endl;
+    float Number;
+    ReadInputs(Number);
+    PowerThree(Number);
 
     
     return 0;
 }
+
