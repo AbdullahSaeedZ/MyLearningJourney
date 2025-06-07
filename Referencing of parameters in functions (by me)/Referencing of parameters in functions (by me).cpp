@@ -3,7 +3,7 @@ using namespace std;
 
 //Referencing using & with the parameter will apply the change desired on the original value of the variable used (in this case MyName).
 void AddPrefixToName(string& Name)
-{
+{// since i used referencing mark, i dont redeclare the variable Name, here i only modified the variable, if i redeclare then the referencing wont work
     Name = "Mr. " + Name;
     cout << Name << endl;
 
