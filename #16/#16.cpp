@@ -2,18 +2,30 @@
 #include <cmath>
 using namespace std;
 
+void ReadValues(float& A, float& B)
+{
+    cout << "enter A value: " << endl;
+    cin >> A ;
+    cout << "enter B value: " << endl;
+    cin >> B;
+}
+
+float Area(float A, float B)  // no need for referencing, cuz i will only apply the function and print the result, i dont want the original variables to be changed.
+{
+    float Result = A * sqrt(pow(B, 2) - pow(A, 2));  // using sqrt() and pow(base, power) math functions.
+
+    return Result;
+
+}
+
+
 int main()
 {
-    short int A, B;
+    float Value1, Value2;
 
-    cout << "enter A value then B: " << endl;
-    cin >> A >> B;
+    ReadValues(Value1, Value2);
 
-    float Area = A * sqrt(pow(B, 2) - pow(A, 2));  // using sqrt() and pow(base, power) math functions.
-
-    cout << "the rectangle area is: " << Area << endl;
-
-
+    cout << "the rectangle area is: " << Area(Value1, Value2) << endl;
 
 
     return 0;
