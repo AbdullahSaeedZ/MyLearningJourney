@@ -1,10 +1,8 @@
 #include <iostream>
 using namespace std;
 
-void ReadInputs(short Int &Num1 , short int &Num2)
+void ReadInputs(short int& Num1, short int& Num2)
 {
-	
-
 	cout << "Please enter the first number: " << endl;
 	cin >> Num1;
 	cout << "please enter the second number: " << endl;
@@ -13,11 +11,11 @@ void ReadInputs(short Int &Num1 , short int &Num2)
 	cout << Num1 << endl << Num2 << endl;
 }
 
-struct Swapping{
-	
+struct Swapping {
+
 	int First;
 	int Second;
-	
+
 };
 
 
@@ -35,10 +33,12 @@ Swapping Swap(int Num1, int Num2)
 	return Result;
 }
 
-void Print(int Num1, int Num2)
+void Print(Swapping Final)
 {
-	 
-	cout << Swap(Num1, Num2) << endl;
+	
+	cout << Final.First << endl << Final.Second << endl;
+
+	
 
 }
 
@@ -46,7 +46,10 @@ int main()
 {
 	short int Num1, Num2;
 	ReadInputs(Num1, Num2);
-	Print(Num1, Num2);
+
+	Swapping Final = Swap(Num1, Num2);
+
+	Print(Final);
 
 
 	return 0;
