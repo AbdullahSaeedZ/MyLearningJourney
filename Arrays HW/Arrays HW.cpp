@@ -18,12 +18,16 @@ float Average(float Grade[3])
 	return (Grade[0] + Grade[1] + Grade[2]) / 3;
 }
 
+void Print(float Grade[3])
+{
+	cout << "The average of grades is: " << Average(Grade) << endl;
+}
+
 int main()
 {
 	float Grade[3];
 	ReadInputs(Grade);
-
-	cout << "The average of grades is: " << Average(Grade) << endl;
+	Print(Grade);
 
 
 	return 0;
