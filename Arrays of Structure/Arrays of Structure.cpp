@@ -32,6 +32,7 @@ void PrintUser(stInfo Persons)
     cout << "phone number: " << Persons.Phone << endl;
     cout << "*****************************" << endl;
 }
+
 void ReadUsers(stInfo Persons[2])
 {
     ReadInfo(Persons[0]);
