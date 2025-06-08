@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void ReadInputs(float (&Grade)[3])  // to use by reference, we use (&Grade)[3] to tell him that there is an array called Grade and has 3 elements
-                                    // if we dont put brackets, he will look for the third elemnt in Grade array.
+void ReadInputs(float Grade[3])  // the parameters here when dealing with arrays, are takeing it by-reference by default, no need to use &.
 {
 	cout << "Enter first grade: " << endl;
 	cin >> Grade[0];
