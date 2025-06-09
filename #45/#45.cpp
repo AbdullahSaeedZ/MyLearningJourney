@@ -8,59 +8,51 @@ void ReadMonth(short int& Month)
 }
 
 void PrintMonth(short int Month)
-{
-    if (Month == 1)
+{   
+
+    switch (Month)
     {
-        cout << "It is January!" << endl;
+        case 1 : 
+            cout << "It is January!" << endl;
+            break;
+        case 2: 
+            cout << "It is February!" << endl;
+            break;
+        case 3: 
+            cout << "It is March!" << endl;
+            break;
+        case 4:
+            cout << "It is April!" << endl;
+            break;
+        case 5: 
+            cout << "It is May!" << endl;
+            break;
+        case 6:
+            cout << "It is June!" << endl;
+            break;
+        case 7:
+            cout << "It is July!" << endl;
+            break;
+        case 8: 
+            cout << "It is August!" << endl;
+            break;
+        case 9: 
+            cout << "It is September!" << endl;
+            break;
+        case 10:
+            cout << "It is October!" << endl;
+            break;
+        case 11:
+            cout << "It is November!" << endl;
+            break;
+        case 12:
+            cout << "It is December!" << endl;
+            break;
+        default: cout << "Wrong Number, Try Again!" << endl;
+
     }
-    else if (Month == 2)
-    {
-        cout << "It is February!" << endl;
-    }
-    else if (Month == 3)
-    {
-        cout << "It is March!" << endl;
-    }
-    else if (Month == 4)
-    {
-        cout << "It is April!" << endl;
-    }
-    else if (Month == 5)
-    {
-        cout << "It is May!" << endl;
-    }
-    else if (Month == 6)
-    {
-        cout << "It is June!" << endl;
-    }
-    else if (Month == 7)
-    {
-        cout << "It is July!" << endl;
-    }
-    else if (Month == 8)
-    {
-        cout << "It is August!" << endl;
-    }
-    else if (Month == 9)
-    {
-        cout << "It is September!" << endl;
-    }
-    else if (Month == 10)
-    {
-        cout << "It is October!" << endl;
-    }
-    else if (Month == 11)
-    {
-        cout << "It is November!" << endl;
-    }
-    else if (Month == 12)
-    {
-        cout << "It is December!" << endl;
-    }
-    else
-    {
-        cout << "Wrong Number, Try Again!" << endl;
-    }
+
+
 }
 
 int main()
