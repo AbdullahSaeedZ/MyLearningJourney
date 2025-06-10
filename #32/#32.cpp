@@ -4,20 +4,29 @@ using namespace std;
 
 void ReadInputs(float& Num, float& P)
 {
-    cout << "enter a number and the power: " << endl;
-    cin >> Num >> P;
+    cout << "enter a number: " << endl;
+    cin >> Num;
+    cout << "Enter a Power number: " << endl;
+    cin >> P;
+
 }
 
 float PowerOf(float Number, float Power)
 {
-    float Result = pow(Number, Power);
+    float Counter = Power;
+    float Sum = Number;
 
-    return Result;
+    for (Counter; Counter != 1; Counter--)
+    {
+        Sum = Sum * Number;
+    }
+
+    return Sum;
 }
 
 void ShowResult(float Number, float Power)
 {
-    cout << "the result is: " << round(PowerOf(Number, Power)) << endl;
+    cout << "the result is: " << PowerOf(Number, Power) << endl;
 }
 
 int main()
