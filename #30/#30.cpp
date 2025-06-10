@@ -33,5 +33,7 @@ int main()
 {
     int UserInput = ReadInput();
     cout << GetFactorial(UserInput) << endl;
+
+    return 0;
 }
 
