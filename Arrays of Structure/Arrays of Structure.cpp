@@ -33,26 +33,38 @@ void PrintUser(stInfo Persons)
     cout << "*****************************" << endl;
 }
 
-void ReadUsers(stInfo Persons[2])
+void ReadUsers(stInfo Persons[100], int &Length)
 {
-    ReadInfo(Persons[0]);
-    ReadInfo(Persons[1]);
+    cout << "How many Persons ?" << endl;
+    cin >> Length;
+
+    for (int Counter = 0; Counter < Length; Counter++)
+    {
+        cout << "Enter info of Person " << Counter + 1 << " :" << endl;
+        ReadInfo(Persons[Counter]);
+    }
+        
+    
 }
 
-void PrintUsersInfo(stInfo Persons[2])
+void PrintUsersInfo(stInfo Persons[2], int Length)
 {
-    cout << "*****************" << endl;
-    PrintUser(Persons[0]);
-    cout << "*****************" << endl;
-    PrintUser(Persons[1]);
+   
+    for (int Counter = 0; Counter < Length; Counter++)
+    {
+        cout << "Person " << Counter + 1 << " Info :" << endl;
+        PrintUser(Persons[Counter]);
+
+    }
 }
 
 int main()
 {
-     stInfo Persons[2];
+     stInfo Persons[100];
+     int Length = 0;
 
-     ReadUsers(Persons);
-     PrintUsersInfo(Persons);
+     ReadUsers(Persons, Length);
+     PrintUsersInfo(Persons, Length);
     
     
 
