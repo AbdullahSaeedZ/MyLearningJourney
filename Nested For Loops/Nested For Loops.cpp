@@ -61,7 +61,7 @@ int main()
     }*/
 
 
-    for (int Letter = 65; Letter <= 70; Letter++)
+    /*for (int Letter = 65; Letter <= 70; Letter++)
     {
         for (int L = 65; L <= Letter; L++)
         {
@@ -69,11 +69,21 @@ int main()
         }
 
         cout << endl;
+    }*/
+
+
+
+    for (int Number = 1; Number <= 10; Number++)
+    {
+        cout << "Number = " << Number << endl;
+
+        for (int Num = 1; Num <= 10; Num++)
+        {
+            cout << Number << " * " << Num << " = " << Number * Num << endl;
+        }
+
+        cout << "-----------------------" << endl;
     }
-
-
-
-
 
 
     return 0;
