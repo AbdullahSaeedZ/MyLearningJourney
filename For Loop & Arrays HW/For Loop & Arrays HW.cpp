@@ -27,10 +27,12 @@ void PrintUser(stInfo Persons)
 {
     
     cout << "*****************************\n" << endl;
+
     cout << "First name: " << Persons.FirstName << endl;
     cout << "Last name: " << Persons.LastName << endl;
     cout << "Age: " << Persons.Age << endl;
     cout << "phone number: " << Persons.Phone << endl;
+
     cout << "*****************************" << endl << endl;
 }
 
