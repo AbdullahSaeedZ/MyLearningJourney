@@ -5,9 +5,14 @@ using namespace std;
 int ReadInput()
 {
     int Input;
-    cout << "Enter a number to calculate its factorail:" << endl;
+    cout << "Enter a positive number to calculate its factorial:" << endl;
     cin >> Input;
-    cout << endl;
+    
+    while (Input < 0)
+    {
+        cout << "You entered a negative number! Enter again: " << endl;
+        cin >> Input;
+    }
 
     return Input;
 }
@@ -32,8 +37,8 @@ int GetFactorial(int Input)
 int main()
 {
     int UserInput = ReadInput();
-    cout << GetFactorial(UserInput) << endl;
-
+    cout << "Result is : " << GetFactorial(UserInput) << endl;
+     
     return 0;
 }
 
