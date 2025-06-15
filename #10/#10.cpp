@@ -27,9 +27,9 @@ int Sum(stNumbers UserInputs)
     return UserInputs.Number1 + UserInputs.Number2 + UserInputs.Number3;
 }
 
-int Average(stNumbers UserInput)
+float Average(stNumbers UserInput)
 {
-    return Sum(UserInput)/ 3;
+    return (float)Sum(UserInput)/ 3;
 }
 
 void PrintSum(stNumbers UserInput)
