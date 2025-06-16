@@ -24,9 +24,9 @@ float CalculateArea(Values Inputs)
     return PI * (pow(Inputs.B, 2)/4) * ((2 * Inputs.A - Inputs.B)/(2 * Inputs.A + Inputs.B));
 }
 
-void PrintArea(float Area)
+void PrintArea(float CalculateArea)
 {
-    cout << "Area of Circle is: " << Area << endl;
+    cout << "Area of Circle is: " << CalculateArea << endl;
 }
 
 
