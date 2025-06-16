@@ -1,0 +1,6 @@
+﻿  #20.cpp
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#20\#20.cpp(16,22): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#20\#20.cpp(17,29): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#20\#20.cpp(22,52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#20\#20.cpp(30,24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  #20.vcxproj -> C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#20\x64\Debug\#20.exe
