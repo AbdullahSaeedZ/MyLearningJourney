@@ -1,0 +1,3 @@
+﻿  #17.cpp
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#17\#17.cpp(24,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  #17.vcxproj -> C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#17\x64\Debug\#17.exe
