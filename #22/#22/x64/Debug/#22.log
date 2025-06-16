@@ -1,0 +1,4 @@
+﻿  #22.cpp
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#22\#22.cpp(23,22): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#22\#22.cpp(24,38): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  #22.vcxproj -> C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#22\x64\Debug\#22.exe
