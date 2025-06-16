@@ -26,7 +26,7 @@ float CalculateArea(AreaParameters Area)
 
 void PrintArea(AreaParameters Area)
 {
-    cout << "Area of rectangle is: " << CalculateArea(Area) << endl;
+    cout << "Area of Triangle is: " << CalculateArea(Area) << endl;
 }
 
 
