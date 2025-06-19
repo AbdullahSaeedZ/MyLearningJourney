@@ -1,0 +1,12 @@
+﻿  #36.cpp
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#36\#36.cpp(30,43): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#36\#36.cpp(31,48): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#36\#36.cpp(32,48): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#36\#36.cpp(33,46): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#36\#36.cpp(34,29): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#36\#36.cpp(41,19): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#36\#36.cpp(42,19): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#36\#36.cpp(46,17): error C2065: 'FDGR': undeclared identifier
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#36\#36.cpp(47,1): error C2143: syntax error: missing ';' before '}'
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#36\#36.cpp(48,1): error C2059: syntax error: 'user-defined literal'
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#36\#36.cpp(48,24): error C2059: syntax error: 'constant'
