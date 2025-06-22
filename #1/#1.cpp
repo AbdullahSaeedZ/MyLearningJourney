@@ -17,9 +17,9 @@ void PrintHeader()
 
 void PrintTable()
 {
+    PrintHeader();
 
-
-    for (int Counter = 1; Counter <= 10; Counter++)
+    for (int Counter = 1; Counter <= 10; Counter++)  //printing rows
     {
         if (Counter == 10)
         {
@@ -31,24 +31,19 @@ void PrintTable()
         }
 
 
-        for (int Num = 1; Num <= 10; Num++)
+        for (int Num = 1; Num <= 10; Num++) //printin columns
         {
-
             cout << Num * Counter << "\t";
-
-
-            if (Num == 10)
-            {
-                cout << endl;
-            }
         }
+
+        cout << endl;
     }
 }
 
 
 int main()
 {
-    PrintHeader();
+    
     PrintTable();
 
     return 0;
