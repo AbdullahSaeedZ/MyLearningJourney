@@ -1,30 +1,37 @@
 #include <iostream>
-#include<string>
 using namespace std;
 
-string ReadString(string Message) {
-
-    string Number;
-
-    cout << Message << endl;
-    cin >> Number;
+int ReadPositiveNumber(string Message)
+{
+    int Number = 0;
+    do
+    {
+        cout << Message << endl;
+        cin >> Number;
+    } while (Number <= 0);
 
     return Number;
-
 }
 
+void PrintDigits(int Num)
+{
+    int Remainder = 0;
 
-void ReversedNumberInOrder(string Number) {
+    while (Num > 0)
+    {
+        Remainder = Num % 10;     //this will take the last digit and save it in this variable.
+        cout << Remainder << endl;
 
+        Num = Num / 10;          // this will delete the last digit and prepare the new value for the next process.
+    }
 
-    for (int i = Number.length() - 1 ; i >= 0; i--)
-
-        cout << Number[i] << endl;
 
 }
 
 
 int main()
 {
-    ReversedNumberInOrder(ReadString("Please Enter A Positive Number :\n"));
+    PrintDigits(ReadPositiveNumber("Enter a positive number to print it reversly:"));
+
+    return 0;
 }
