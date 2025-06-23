@@ -12,7 +12,7 @@ int ReadPositiveNumber(string Message)
 
     return Number;
 }
-
+ 
 void PrintDigits(int Num)
 {
     int Remainder = 0;
