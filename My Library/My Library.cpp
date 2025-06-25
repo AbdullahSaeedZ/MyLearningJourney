@@ -1,11 +1,8 @@
+#include <iostream>
 #include <cstdlib>    
 #include <ctime>
-srand((unsigned)time(NULL));
-int RandomNumber(int From, int To)
-{
-    int randNum = rand() % (To - From + 1) + From;
-    return randNum;
-}
+#include <string>
+using namespace std;
 
 
 int ReadPositiveNumber(string Message)
@@ -67,7 +64,6 @@ int GetReverse(int Num)
     return New;
 }
 
-
 bool IsPerfect(int Num)
 {
     int Sum = 0;
@@ -83,20 +79,70 @@ bool IsPerfect(int Num)
     return Sum == Num;    // if its true it returns true, if not, it returns false
 }
 
-enum enInput { SmallLetter = 1, CapitalLetter = 2, SpecialCharacter = 3, Digit = 4 };
-char GetRandom(enInput Type)
+
+// Random Generating
+
+srand((unsigned)time(NULL));
+int RandomNumber(int From, int To)
+{
+    int randNum = rand() % (To - From + 1) + From;
+    return randNum;
+}
+
+enum enCharType { SmallLetter = 1, CapitalLetter = 2, SpecialCharacter = 3, Digit = 4 };
+char GetRandomCharacter(enCharType Type)
 {
 
-    if (Type == enInput::CapitalLetter)
+    if (Type == enCharType::CapitalLetter)
         return char(RandomNumber(65, 90));
 
-    else if (Type == enInput::Digit)
+    else if (Type == enCharType::Digit)
         return char(RandomNumber(49, 57));
 
-    else if (Type == enInput::SmallLetter)
+    else if (Type == enCharType::SmallLetter)
         return char(RandomNumber(97, 122));
 
     else
         return char(RandomNumber(33, 47));
 
 }
+
+string GetRandomWord(enCharType CharType, short Length)
+{
+    string Word = "";
+
+    for (int Counter = 1; Counter <= Length; Counter++)
+    {
+        Word.append(1, GetRandomCharacter(CharType));
+    }
+
+    return Word;
+}
+
+string GenerateKey()
+{
+    string Key = "";
+
+    for (int Counter = 1; Counter <= 4; Counter++)    // 4 is number of slots (how many words in this key to be generated.
+    {
+        if (Counter == 4) // to eliminate the "-" in the end and exit function.
+        {
+            return Key = Key + GetRandomWord(enCharType::CapitalLetter, 4);
+        }
+
+        Key = Key + GetRandomWord(enCharType::CapitalLetter, 4) + "-";
+
+    }
+
+    return Key;
+}
+
+void GenerateKeys(int RequiredKeys)
+{
+    for (int Counter = 1; Counter <= RequiredKeys; Counter++)
+    {
+        cout << "Key [" << Counter << "] : " << GenerateKey() << endl;
+    }
+
+}
+
