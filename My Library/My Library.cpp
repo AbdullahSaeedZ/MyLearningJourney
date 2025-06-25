@@ -82,3 +82,21 @@ bool IsPerfect(int Num)
 
     return Sum == Num;    // if its true it returns true, if not, it returns false
 }
+
+enum enInput { SmallLetter = 1, CapitalLetter = 2, SpecialCharacter = 3, Digit = 4 };
+char GetRandom(enInput Type)
+{
+
+    if (Type == enInput::CapitalLetter)
+        return char(RandomNumber(65, 90));
+
+    else if (Type == enInput::Digit)
+        return char(RandomNumber(49, 57));
+
+    else if (Type == enInput::SmallLetter)
+        return char(RandomNumber(97, 122));
+
+    else
+        return char(RandomNumber(33, 47));
+
+}
