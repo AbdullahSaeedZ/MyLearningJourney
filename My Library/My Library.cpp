@@ -146,3 +146,43 @@ void GenerateKeys(int RequiredKeys)
 
 }
 
+// Arrays
+
+void ReadArray(int Array[100], int& Length)
+{
+    Length = ReadPositiveNumber("Enter how many elements do you need: ");
+
+    cout << "Enter value of elements: " << endl;
+
+    for (int Counter = 0; Counter < Length; Counter++)
+    {
+        cout << "Element [" << Counter + 1 << "] : " << endl;
+        cin >> Array[Counter];
+    }
+}
+
+void PrintArray(int Array[100], int Length)
+{
+
+    for (int Counter = 0; Counter < Length; Counter++)
+    {
+        cout << Array[Counter] << " ";
+    }
+
+    cout << endl;
+}
+
+int GetFreq(int Array[100], int NumToCheck, int Length)
+{
+    int Freq = 0;
+
+    for (int Counter = 0; Counter < Length; Counter++)
+    {
+        if (Array[Counter] == NumToCheck)
+        {
+            Freq++;
+        }
+    }
+
+    return Freq;
+}
