@@ -36,18 +36,17 @@ int GetDigitFreqInNum(int Num, int Digit)
     return Freq;
 }
 
-enum enPrimeNoPrime { Prime = 1, NotPrime = 2 };
-enPrimeNoPrime CheckNumber(int Number)
+bool IsPrimeNum(int Number)
 {
     float M = round(Number / 2);
     for (int Counter = 2; Counter <= M; Counter++)
     {
         if (Number % Counter == 0)
-            return enPrimeNoPrime::NotPrime;
+            return false;
 
     }
 
-    return enPrimeNoPrime::Prime;
+    return true;
 }
 
 int GetReverseNum(int Num)
