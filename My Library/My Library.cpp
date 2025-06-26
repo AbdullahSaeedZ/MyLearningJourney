@@ -17,7 +17,7 @@ int ReadPositiveNumber(string Message)
     return Number;
 }
 
-int GetFreq(int Num, int Digit)
+int GetDigitFreqInNum(int Num, int Digit)
 {
     int Freq = 0, Remainder = 0;
 
@@ -50,7 +50,7 @@ enPrimeNoPrime CheckNumber(int Number)
     return enPrimeNoPrime::Prime;
 }
 
-int GetReverse(int Num)
+int GetReverseNum(int Num)
 {
     int New = 0, Remainder = 0;
 
@@ -64,7 +64,7 @@ int GetReverse(int Num)
     return New;
 }
 
-bool IsPerfect(int Num)
+bool IsPerfectNum(int Num)
 {
     int Sum = 0;
 
@@ -172,7 +172,19 @@ void PrintArray(int Array[100], int Length)
     cout << endl;
 }
 
-int GetFreq(int Array[100], int NumToCheck, int Length)
+void FillRandomNumsInArray(int Array[100], int& Length)
+{
+    cout << endl;
+    Length = ReadPositiveNumber("Enter how many elements do you need:");
+    cout << endl;
+
+    for (int Counter = 0; Counter < Length; Counter++)
+    {
+        Array[Counter] = RandomNumber(1, 100);
+    }
+}
+
+int GetFreqOfNumInArray(int Array[100], int NumToCheck, int Length)
 {
     int Freq = 0;
 
@@ -217,4 +229,16 @@ int FindMinArray(int Array[100], int Length)
     }
 
     return Min;
+}
+
+int SumAllArray(int Array[100], int Length)
+{
+    int Sum = 0;
+
+    for (int Counter = 0; Counter < Length; Counter++)
+    {
+        Sum += Array[Counter];
+    }
+
+    return Sum;
 }
