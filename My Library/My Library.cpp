@@ -241,3 +241,8 @@ int SumAllArray(int Array[100], int Length)
 
     return Sum;
 }
+
+float AvgAllArray(int Array[100], int Length)
+{
+    return (float)SumAllArray(Array, Length) / Length;
+}
