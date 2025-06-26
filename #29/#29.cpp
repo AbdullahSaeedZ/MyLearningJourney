@@ -66,9 +66,10 @@ void CopyPrimeNumInArray(int Original[100], int Length, int Copy[100], int &Leng
     {
         if (IsPrimeNum(Original[Counter]))
         {
+           
+            Copy[Length2Counter] = Original[Counter];
+            cout << Copy[Length2Counter] << " ";
             Length2Counter++;
-            Copy[Counter] = Original[Counter];
-            cout << Copy[Counter] << " ";
         }
     }
     Length2 = Length2Counter;
@@ -89,6 +90,7 @@ int main()
 
     cout << "Prime numbers in Array 2 (copied from array 1): " << endl;
     CopyPrimeNumInArray(Array, Length, Array2, Length2);
+    
     
 
 
