@@ -186,3 +186,35 @@ int GetFreq(int Array[100], int NumToCheck, int Length)
 
     return Freq;
 }
+
+int FindMaxArray(int Array[100], int Length)
+{
+    int Max = Array[0];
+
+    for (int Counter = 0; Counter < Length; Counter++)
+    {
+        if (Array[Counter] > Max)
+        {
+
+            Max = Array[Counter];
+        }
+    }
+
+    return Max;
+}
+
+int FindMinArray(int Array[100], int Length)
+{
+    int Min = Array[0];
+
+    for (int Counter = 0; Counter < Length; Counter++)
+    {
+        if (Array[Counter] < Min)
+        {
+
+            Min = Array[Counter];
+        }
+    }
+
+    return Min;
+}
