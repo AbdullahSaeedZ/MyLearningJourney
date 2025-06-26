@@ -246,3 +246,14 @@ float AvgAllArray(int Array[100], int Length)
 {
     return (float)SumAllArray(Array, Length) / Length;
 }
+
+void CopyArray(int Original[100], int Copy[100], int Length)
+{
+    for (int Counter = 0; Counter < Length; Counter++)
+    {
+        Copy[Counter] = Original[Counter];
+        cout << Copy[Counter] << " ";
+    }
+
+    cout << endl << endl;
+}
