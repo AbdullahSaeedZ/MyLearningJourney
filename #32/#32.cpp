@@ -47,15 +47,13 @@ void PrintArray(int Array[100], int Length)
     cout << endl;
 }
 
-void CopyArray(int Original[100], int Copy[100], int OriginalLength)
+void CopyArrayInReverseOrder(int Original[100], int Copy[100], int OriginalLength)
 {
+
     for (int Counter = 0; Counter < OriginalLength; Counter++)
     {
-        Copy[OriginalLength - 1] = Original[Counter];
-        
+        Copy[Counter] = Original[OriginalLength - 1 - Counter];
     }
-
-    
 }
 
 
@@ -70,7 +68,7 @@ int main()
     cout << "\nArray 1 elements:" << endl;
     PrintArray(Array1, Length);
 
-    CopyArray(Array1, Array2, Length);
+    CopyArrayInReverseOrder(Array1, Array2, Length);
 
     cout << "\nArray 2 elements after copying array 1 in reversed order:" << endl;
     PrintArray(Array2, Length);
