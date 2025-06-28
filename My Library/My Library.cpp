@@ -168,6 +168,26 @@ void ReadArray(int Array[100], int& Length)
     }
 }
 
+void AddArrayElement(int Array[100], int& Length, int Num)
+{
+    Length++;
+    Array[Length - 1] = Num;
+}
+
+void SemiDynamicUserInputArray(int Array[100], int& Length)
+{
+    Length = 0;
+    bool AddMore = true;
+
+    do
+    {
+        AddArrayElement(Array, Length, ReadPositiveNumber("Enter a number:"));
+        cout << "Do you want to add more numbers? [0] No - [1] Yes" << endl;;
+        cin >> AddMore;
+
+    } while (AddMore);
+}
+
 void PrintArray(int Array[100], int Length)
 {
 
