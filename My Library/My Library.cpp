@@ -201,6 +201,16 @@ void FillArrayWith1toN(int Array[100], int& Length)
     }
 }
 
+void FillArrayWithKeys(string Array[100], int& Length)
+{
+    Length = ReadPositiveNumber("Enter how many Keys do you need: ");
+
+    for (int Counter = 0; Counter < Length; Counter++)
+    {
+        Array[Counter] = GenerateKey();
+    }
+}
+
 int GetFreqOfNumInArray(int Array[100], int NumToCheck, int Length)
 {
     int Freq = 0;
