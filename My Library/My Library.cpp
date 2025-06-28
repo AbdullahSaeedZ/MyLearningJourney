@@ -226,6 +226,21 @@ int GetFreqOfNumInArray(int Array[100], int NumToCheck, int Length)
     return Freq;
 }
 
+int FindNumIndexInArray(int Array[100], int NumToFind, int Length)
+{
+
+    for (int Counter = 0; Counter < Length; Counter++)
+    {
+        if (Array[Counter] == NumToFind)
+        {
+            return Counter;
+        }
+
+    }
+
+    return 0;
+}
+
 int FindMaxArray(int Array[100], int Length)
 {
     int Max = Array[0];
