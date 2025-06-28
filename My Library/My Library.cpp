@@ -265,15 +265,12 @@ float AvgAllArray(int Array[100], int Length)
     return (float)SumAllArray(Array, Length) / Length;
 }
 
-void CopyArray(int Original[100], int Copy[100], int OrifinalLength)
+void CopyArray(int Original[100], int Copy[100], int OriginalLength)
 {
-    for (int Counter = 0; Counter < OrifinalLength; Counter++)
+    for (int Counter = 0; Counter < OriginalLength; Counter++)
     {
         Copy[Counter] = Original[Counter];
-        cout << Copy[Counter] << " ";
     }
-
-    cout << endl << endl;
 }
 
 void CopyPrimeNumInArray(int Original[100], int Length, int Copy[100], int& Length2)
@@ -284,15 +281,11 @@ void CopyPrimeNumInArray(int Original[100], int Length, int Copy[100], int& Leng
     {
         if (IsPrimeNum(Original[Counter]))
         {
-
             Copy[Length2Counter] = Original[Counter];
-            cout << Copy[Length2Counter] << " ";
             Length2Counter++;
         }
     }
     Length2 = Length2Counter;
-
-    cout << endl << endl;
 }
 
 void ShuffleArrayElements(int Array[100], int Length)
