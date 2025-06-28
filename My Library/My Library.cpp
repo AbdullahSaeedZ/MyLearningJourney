@@ -288,6 +288,15 @@ void CopyPrimeNumInArray(int Original[100], int Length, int Copy[100], int& Leng
     Length2 = Length2Counter;
 }
 
+void CopyArrayInReverseOrder(int Original[100], int Copy[100], int OriginalLength)
+{
+
+    for (int Counter = 0; Counter < OriginalLength; Counter++)
+    {
+        Copy[Counter] = Original[OriginalLength - 1 - Counter];
+    }
+}
+
 void ShuffleArrayElements(int Array[100], int Length)
 {
 
@@ -298,3 +307,4 @@ void ShuffleArrayElements(int Array[100], int Length)
     }
 
 }
+
