@@ -78,6 +78,14 @@ bool IsPerfectNum(int Num)
     return Sum == Num;    // if its true it returns true, if not, it returns false
 }
 
+void Swap(int& A, int& B)
+{
+    int Temp;
+
+    Temp = A;
+    A = B;
+    B = Temp;
+}
 
 // Random Generating
 
@@ -183,6 +191,16 @@ void FillRandomNumsInArray(int Array[100], int& Length)
     }
 }
 
+void FillArrayWith1toN(int Array[100], int& Length)
+{
+    Length = ReadPositiveNumber("Enter how many Numbers do you need: ");
+
+    for (int Counter = 0; Counter < Length; Counter++)
+    {
+        Array[Counter] = Counter + 1;
+    }
+}
+
 int GetFreqOfNumInArray(int Array[100], int NumToCheck, int Length)
 {
     int Freq = 0;
@@ -275,4 +293,15 @@ void CopyPrimeNumInArray(int Original[100], int Length, int Copy[100], int& Leng
     Length2 = Length2Counter;
 
     cout << endl << endl;
+}
+
+void ShuffleArrayElements(int Array[100], int Length)
+{
+
+
+    for (int Counter = 0; Counter < Length; Counter++)
+    {
+        Swap(Array[RandomNumber(0, Length - 1)], Array[RandomNumber(0, Length - 1)]);
+    }
+
 }
