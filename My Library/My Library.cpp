@@ -258,12 +258,12 @@ int FindNumIndexInArray(int Array[100], int Length, int NumToFind)
 
     }
 
-    return 0;
+    return -1;
 }
 
 bool IsNumInArray(int Array[100], int Length, int NumToFind)
 {
-    return FindNumIndexInArray(Array, Length, NumToFind);
+    return FindNumIndexInArray(Array, Length, NumToFind) != -1;
 }
 
 int FindMaxArray(int Array[100], int Length)
@@ -355,6 +355,15 @@ void CopyPrimeNumArrayUsingAddArrayElement(int Array1[100], int Length1, int Arr
     }
 }
 
+void CopyDistinctArrayUsingAddArrayElement(int Array1[100], int Length1, int Array2[100], int& Length2)
+{
+    for (int Counter = 0; Counter < Length1; Counter++)
+    {
+        if (!IsNumInArray(Array2, Length2, Array1[Counter]))
+            AddArrayElement(Array2, Length2, Array1[Counter]);
+    }
+}
+
 void CopyArrayInReverseOrder(int Original[100], int Copy[100], int OriginalLength)
 {
 
@@ -374,4 +383,8 @@ void ShuffleArrayElements(int Array[100], int Length)
     }
 
 }
+
+
+
+
 
