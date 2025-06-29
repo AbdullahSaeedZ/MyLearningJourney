@@ -337,6 +337,15 @@ void CopyArrayUsingAddArrayElement(int Array1[100], int Length1, int Array2[100]
     }
 }
 
+void CopyOddNumArrayUsingAddArrayElement(int Array1[100], int Length1, int Array2[100], int& Length2)
+{
+    for (int Counter = 0; Counter < Length1; Counter++)
+    {
+        if (Array1[Counter] % 2 != 0)
+            AddArrayElement(Array2, Length2, Array1[Counter]);
+    }
+}
+
 void CopyPrimeNumInArray(int Original[100], int Length, int Copy[100], int& Length2)
 {
     int Length2Counter = 0;
