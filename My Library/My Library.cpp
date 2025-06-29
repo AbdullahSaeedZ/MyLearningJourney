@@ -384,6 +384,18 @@ void ShuffleArrayElements(int Array[100], int Length)
 
 }
 
+bool IsArrayPalindrome(int Array[100], int Length)
+{
+    for (int Counter = 0; Counter < Length / 2; Counter++)
+    {
+        if (Array[Counter] != Array[Length - 1 - Counter])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 
 
 
