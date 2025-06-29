@@ -1,0 +1,4 @@
+﻿  #39.cpp
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-2\#39\#39.cpp(40,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-2\#39\#39.cpp(47,1): warning C4715: 'IsPrimeNum': not all control paths return a value
+  #39.vcxproj -> C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-2\#39\x64\Debug\#39.exe
