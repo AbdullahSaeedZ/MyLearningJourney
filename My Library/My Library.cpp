@@ -246,6 +246,29 @@ int GetFreqOfNumInArray(int Array[100], int NumToCheck, int Length)
     return Freq;
 }
 
+bool IsNumEven(int Num)
+{
+    if (Num % 2 != 0)
+        return false;
+
+    return true;
+}
+
+int GetFreqOfOddNumInArray(int Array[100], int Length)
+{
+    int Freq = 0;
+
+    for (int Counter = 0; Counter < Length; Counter++)
+    {
+        if (!IsNumEven(Array[Counter]))
+        {
+            Freq++;
+        }
+    }
+
+    return Freq;
+}
+
 int FindNumIndexInArray(int Array[100], int Length, int NumToFind)
 {
 
