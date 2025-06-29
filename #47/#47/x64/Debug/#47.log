@@ -1,0 +1,5 @@
+﻿  #47.cpp
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-2\#47\#47.cpp(32,20): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-2\#47\#47.cpp(35,20): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-2\#47\#47.cpp(40,16): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  #47.vcxproj -> C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-2\#47\x64\Debug\#47.exe
