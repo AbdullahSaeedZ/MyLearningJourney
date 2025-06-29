@@ -425,7 +425,7 @@ int CountPositiveNumsInArray(int Array[100], int Length)
 
     for (int Counter = 0; Counter < Length; Counter++)
     {
-        if (Array[Counter] > 0)
+        if (Array[Counter] >= 0)
         {
             Freq++;
         }
