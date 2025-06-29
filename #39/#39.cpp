@@ -36,7 +36,7 @@ void FillRandomNumsInArray(int Array[100], int& Length)
 }
 
 bool IsPrimeNum(int Number)
-{
+{ 
     float M = round(Number / 2);
     for (int Counter = 2; Counter <= M; Counter++)
     {

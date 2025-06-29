@@ -346,19 +346,13 @@ void CopyOddNumArrayUsingAddArrayElement(int Array1[100], int Length1, int Array
     }
 }
 
-void CopyPrimeNumInArray(int Original[100], int Length, int Copy[100], int& Length2)
+void CopyPrimeNumArrayUsingAddArrayElement(int Array1[100], int Length1, int Array2[100], int& Length2)
 {
-    int Length2Counter = 0;
-
-    for (int Counter = 0; Counter < Length; Counter++)
+    for (int Counter = 0; Counter < Length1; Counter++)
     {
-        if (IsPrimeNum(Original[Counter]))
-        {
-            Copy[Length2Counter] = Original[Counter];
-            Length2Counter++;
-        }
+        if (IsPrimeNum(Array1[Counter]))
+            AddArrayElement(Array2, Length2, Array1[Counter]);
     }
-    Length2 = Length2Counter;
 }
 
 void CopyArrayInReverseOrder(int Original[100], int Copy[100], int OriginalLength)
