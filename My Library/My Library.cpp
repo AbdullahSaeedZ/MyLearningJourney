@@ -419,6 +419,22 @@ bool IsArrayPalindrome(int Array[100], int Length)
     return true;
 }
 
+int CountPositiveNumsInArray(int Array[100], int Length)
+{
+    int Freq = 0;
+
+    for (int Counter = 0; Counter < Length; Counter++)
+    {
+        if (Array[Counter] > 0)
+        {
+            Freq++;
+        }
+    }
+
+    return Freq;
+
+}
+
 
 
 
