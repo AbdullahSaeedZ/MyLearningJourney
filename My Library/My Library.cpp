@@ -4,6 +4,38 @@
 #include <string>
 using namespace std;
 
+string Tabs(short N)
+{
+    string t = "\t";
+
+    for (short Counter = 1; Counter <= N; Counter++)
+    {
+        t += "\t";
+    }
+    return t;
+}
+
+short ReadPositiveNumInRange(string Message, short From, short To)
+{
+    int Number = 0;
+    do
+    {
+        cout << Message << endl;
+        cin >> Number;
+
+        if (cin.fail())
+        {
+            // if other than numbers entered system will fail.
+            cin.clear();                // to clear the failure
+            cin.ignore(10000, '\n');    // to ignore what was entered before, to clean the buffer
+            cout << "Invalid input! Please enter a number." << endl;
+            continue;
+        }
+
+    } while (Number < From || Number > To);
+
+    return Number;
+}
 
 int ReadPositiveNumber(string Message)
 {
