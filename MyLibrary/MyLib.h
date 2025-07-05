@@ -219,6 +219,11 @@ namespace MyLib
         }
     }
 
+    void AddArrayElement(int Array[100], int& Length, int Num)
+    {
+        Length++;
+        Array[Length - 1] = Num;
+    }
 
     void SemiDynamicUserInputArray(int Array[100], int& Length)
     {
@@ -392,11 +397,7 @@ namespace MyLib
         }
     }
 
-    void AddArrayElement(int Array[100], int& Length, int Num)
-    {
-        Length++;
-        Array[Length - 1] = Num;
-    }
+    
 
     void CopyArrayUsingAddArrayElement(int Array1[100], int Length1, int Array2[100], int& Length2)
     {
