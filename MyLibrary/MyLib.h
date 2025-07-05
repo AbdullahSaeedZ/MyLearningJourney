@@ -2,11 +2,11 @@
 
 // #include "C:\Users\asz14\Documents\CPP-Level2\MyLibrary\MyLib.h"
 
-#include <iostream>
-#include <cstdlib>    
-#include <ctime>
-#include <string>
-using namespace std;
+//#include <iostream>
+//#include <cstdlib>    
+//#include <ctime>
+//#include <string>
+//using namespace std;
 
 namespace MyLib
 {
