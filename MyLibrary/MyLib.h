@@ -2,19 +2,19 @@
 
 // #include "C:\Users\asz14\Documents\CPP-Level2\MyLibrary\MyLib.h"
 
-//#include <iostream>
-//#include <cstdlib>    
-//#include <ctime>
-//#include <string>
-//using namespace std;
+#include <iostream>
+#include <cstdlib>    
+#include <ctime>
+#include <string>
+
 
 namespace MyLib
 {
 
 
-    string Tabs(short N)
+    std::string Tabs(short N)
     {
-        string t = "\t";
+        std::string t = "\t";
 
         for (short Counter = 1; Counter <= N; Counter++)
         {
@@ -23,20 +23,20 @@ namespace MyLib
         return t;
     }
 
-    short ReadPositiveNumInRange(string Message, short From, short To)
+    short ReadPositiveNumInRange(std::string Message, short From, short To)
     {
         int Number = 0;
         do
         {
-            cout << Message << endl;
-            cin >> Number;
+            std::cout << Message << std::endl;
+            std::cin >> Number;
 
-            if (cin.fail())
+            if (std::cin.fail())
             {
                 // if other than numbers entered system will fail.
-                cin.clear();                // to clear the failure
-                cin.ignore(10000, '\n');    // to ignore what was entered before, to clean the buffer
-                cout << "Invalid input! Please enter a number." << endl;
+                std::cin.clear();                // to clear the failure
+                std::cin.ignore(10000, '\n');    // to ignore what was entered before, to clean the buffer
+                std::cout << "Invalid input! Please enter a number." << std::endl;
                 continue;
             }
 
@@ -45,20 +45,20 @@ namespace MyLib
         return Number;
     }
 
-    int ReadPositiveNumber(string Message)
+    int ReadPositiveNumber(std::string Message)
     {
         int Number = 0;
         do
         {
-            cout << Message << endl;
-            cin >> Number;
+            std::cout << Message << std::endl;
+            std::cin >> Number;
 
-            if (cin.fail())
+            if (std::cin.fail())
             {
                 // if other than numbers entered system will fail.
-                cin.clear();                // to clear the failure
-                cin.ignore(10000, '\n');    // to ignore what was entered before, to clean the buffer
-                cout << "Invalid input! Please enter a number." << endl;
+                std::cin.clear();                // to clear the failure
+                std::cin.ignore(10000, '\n');    // to ignore what was entered before, to clean the buffer
+                std::cout << "Invalid input! Please enter a number." << std::endl;
                 continue;
             }
 
@@ -165,9 +165,9 @@ namespace MyLib
 
     }
 
-    string GetRandomWord(enCharType CharType, short Length)
+    std::string GetRandomWord(enCharType CharType, short Length)
     {
-        string Word = "";
+        std::string Word = "";
 
         for (int Counter = 1; Counter <= Length; Counter++)
         {
@@ -177,9 +177,9 @@ namespace MyLib
         return Word;
     }
 
-    string GenerateKey()
+    std::string GenerateKey()
     {
-        string Key = "";
+        std::string Key = "";
 
         for (int Counter = 1; Counter <= 4; Counter++)    // 4 is number of slots (how many words in this key to be generated.
         {
@@ -199,7 +199,7 @@ namespace MyLib
     {
         for (int Counter = 1; Counter <= RequiredKeys; Counter++)
         {
-            cout << "Key [" << Counter << "] : " << GenerateKey() << endl;
+            std::cout << "Key [" << Counter << "] : " << GenerateKey() << std::endl;
         }
 
     }
@@ -210,12 +210,12 @@ namespace MyLib
     {
         Length = ReadPositiveNumber("Enter how many elements do you need: ");
 
-        cout << "Enter value of elements: " << endl;
+        std::cout << "Enter value of elements: " << std::endl;
 
         for (int Counter = 0; Counter < Length; Counter++)
         {
-            cout << "Element [" << Counter + 1 << "] : " << endl;
-            cin >> Array[Counter];
+            std::cout << "Element [" << Counter + 1 << "] : " << std::endl;
+            std::cin >> Array[Counter];
         }
     }
 
@@ -233,8 +233,8 @@ namespace MyLib
         do
         {
             AddArrayElement(Array, Length, ReadPositiveNumber("Enter a number:"));
-            cout << "Do you want to add more numbers? [0] No - [1] Yes" << endl;;
-            cin >> AddMore;
+            std::cout << "Do you want to add more numbers? [0] No - [1] Yes" << std::endl;;
+            std::cin >> AddMore;
 
         } while (AddMore);
     }
@@ -244,17 +244,17 @@ namespace MyLib
 
         for (int Counter = 0; Counter < Length; Counter++)
         {
-            cout << Array[Counter] << " ";
+            std::cout << Array[Counter] << " ";
         }
 
-        cout << endl;
+        std::cout << std::endl;
     }
 
     void FillRandomNumsInArray(int Array[100], int& Length)
     {
-        cout << endl;
+        std::cout << std::endl;
         Length = ReadPositiveNumber("Enter how many elements do you need:");
-        cout << endl;
+        std::cout << std::endl;
 
         for (int Counter = 0; Counter < Length; Counter++)
         {
@@ -272,7 +272,7 @@ namespace MyLib
         }
     }
 
-    void FillArrayWithKeys(string Array[100], int& Length)
+    void FillArrayWithKeys(std::string Array[100], int& Length)
     {
         Length = ReadPositiveNumber("Enter how many Keys do you need: ");
 
