@@ -3,10 +3,12 @@
 using namespace std;
 using namespace MyLib;
 
+// using ternary, check if number is zero, positive or negative
+
 void CheckNumber(int Num)
 {
     
-    (Num >= 0) ? cout << "Number is Positive" : cout << "Number is negative" ;
+    (Num > 0) ? cout << "Number is Positive" : (Num < 0) ? cout << "Number is negative" : cout << "Number is zero";
 }
 
 int main()
