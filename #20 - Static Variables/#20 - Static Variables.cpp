@@ -14,8 +14,9 @@ void MyFunc()
 } 
 
 
-// in the same function, if we make the variable static it will act similarly like a global variable, when the function fincishes, the variable will stil exist and when calling the same function again
+// in the same function, if we make the variable static it will act similarly like a global variable, when the function fincishes, the variable will still exist and when calling the same function again
 // the value of the variable will be updated from the last function or last update on the static variable.
+// the variabe is still static and not global, so it is not accessible outside its scope since it is local inside this specific function.
 void MyStaticVariableFunc()
 {
 	static int Number = 1;
