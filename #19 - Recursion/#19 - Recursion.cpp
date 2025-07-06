@@ -12,6 +12,11 @@ using namespace std;
 
 // here recursion is used till number 1 becomes more than 5 , so there is 5 recursive calls (trace it through debugging mode), that means the stack is filled with 5 calls of this function.
 // but when we put a very big number in variable M, then the calls will be too much and the stack will be overflowed and program will fail (try a big number in M).
+
+
+// check this vid so easy: https://www.youtube.com/watch?v=Gqn6hmm9HEw
+
+
 void PrintNumber(int N, int M)
 {
     if (N <= M)
