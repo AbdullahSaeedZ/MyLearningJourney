@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 
@@ -12,6 +13,13 @@ int main()
 
     printf("Dear %s, how are you? \n", Name);
     printf("Welcome to %s school! \n\n", SchoolName);
+
+    // or we can use a function to cast from string to char
+
+    string MyName = "Abdullah";
+
+    printf("Hello %s ", MyName.c_str());
+    
 
     char c = 'S';
 
