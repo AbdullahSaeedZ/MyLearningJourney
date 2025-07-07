@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-void MultiplicationTable(int x[100][100])
+void MultiplicationTable(int x[10][10])
 {
     for (int row = 0; row < 10; row++)
     {
@@ -13,7 +13,7 @@ void MultiplicationTable(int x[100][100])
 }
 
 
-void Print2DimensionalArray(int x[100][100])
+void Print2DimensionalArray(int x[10][10])
 {
     for (int row = 0; row < 10; row++)
     {
@@ -28,7 +28,7 @@ void Print2DimensionalArray(int x[100][100])
 
 int main()
 {
-    int x[100][100];
+    int x[10][10];
 
     MultiplicationTable(x);
     Print2DimensionalArray(x);
