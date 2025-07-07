@@ -1,20 +1,28 @@
-// #24 - Float Format (printf).cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+using namespace std;
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    float PI = 3.14159265;
+
+    // precision specification:
+    printf("precision specification of %.*f \n", 1, PI);
+    printf("precision specification of %.*f \n", 2, PI);
+    printf("precision specification of %.*f \n", 3, PI);
+    printf("precision specification of %.*f \n", 4, PI);
+
+    float x = 7.0, y = 9.0;
+    printf("\nthe float division is: %.3f / %.3f = %.3f \n\n", x, y, x / y);
+
+    double d = 12.45;
+    printf("the double value is %.3f \n", d);
+    printf("the double value is %.4f \n", d);
+
+
+
+
+
+    return 0;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
