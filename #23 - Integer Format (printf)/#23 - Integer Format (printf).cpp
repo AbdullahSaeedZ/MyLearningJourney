@@ -15,7 +15,7 @@ int main()
     printf("You are in page %d of %d \n", Page, TotalPages);
 
     //width specification 00 or 000 and so on:
-    printf("the page number is %0*d \n", 2, Page);
+    printf("the page number is %02d \n", Page);
     printf("the page number is %0*d \n", 3, Page);
     printf("the page number is %0*d \n", 4, Page);
     printf("the page number is %0*d \n", 5, Page);
