@@ -6,6 +6,7 @@
 #include <cstdlib>    
 #include <ctime>
 #include <string>
+#include <vector>
 
 
 namespace MyLib
@@ -21,6 +22,28 @@ namespace MyLib
             t += "\t";
         }
         return t;
+    }
+
+    std::string AskY_N(std::string Message)
+    {
+        std::string Answer = " ";
+        do
+        {
+            std::cout << Message << std::endl;
+            std::cin >> Answer;
+
+            if (std::cin.fail())
+            {
+                // if other than string entered system will fail.
+                std::cin.clear();                // to clear the failure
+                std::cin.ignore(10000, '\n');    // to ignore what was entered before, to clean the buffer
+                std::cout << "Invalid input! Please enter a Letter." << std::endl;
+                continue;
+            }
+
+        } while ((Answer != "Y" && Answer != "y") && (Answer != "N" && Answer != "n"));
+
+        return Answer;
     }
 
     short ReadPositiveNumInRange(std::string Message, short From, short To)
@@ -481,4 +504,20 @@ namespace MyLib
         return Freq;
 
     }
+}
+
+// Vectors
+
+void AddElementInVector(std:: vector <int>& vNumbers)
+{
+    int Number = 0;
+    std::string Again = " ";
+    do
+    {
+        Number = MyLib::ReadPositiveNumber("Enter a positive number: ");
+        vNumbers.push_back(Number);
+
+        Again = MyLib::AskY_N("Do you want keep adding? Y/N:");
+
+    } while (Again == "Y" || Again == "y");
 }
