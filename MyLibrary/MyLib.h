@@ -32,15 +32,6 @@ namespace MyLib
             std::cout << Message << std::endl;
             std::cin >> Answer;
 
-            if (std::cin.fail())
-            {
-                // if other than string entered system will fail.
-                std::cin.clear();                // to clear the failure
-                std::cin.ignore(10000, '\n');    // to ignore what was entered before, to clean the buffer
-                std::cout << "Invalid input! Please enter a Letter." << std::endl;
-                continue;
-            }
-
         } while ((Answer != "Y" && Answer != "y") && (Answer != "N" && Answer != "n"));
 
         return Answer;
