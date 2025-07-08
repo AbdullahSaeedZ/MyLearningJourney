@@ -521,3 +521,15 @@ void AddElementInVector(std:: vector <int>& vNumbers)
 
     } while (Again == "Y" || Again == "y");
 }
+
+void PrintVectorElements(std::vector <int>& vNumbers)
+{
+
+    std::cout << "\nvector Numbers are: " << std::endl;
+
+    for (int& item : vNumbers)
+    {
+
+        printf("%04d  \n", item);
+    }
+}
