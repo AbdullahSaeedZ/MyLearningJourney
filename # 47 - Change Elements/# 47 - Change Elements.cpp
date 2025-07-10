@@ -12,6 +12,7 @@ int main()
 	cout << "\ninitial vector values : " << endl;
 
 	// use const and & for better performance when printing
+	// const makes the variable unchangable, so for better error free coding we use it in printing
 	for (const int& i : Numbers) 
 	{
 		cout << i << " ";
