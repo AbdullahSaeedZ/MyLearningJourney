@@ -3,7 +3,7 @@
 using namespace std;
 
 
-// vector iterators are used to print values of a victor using for loop.
+// vector iterators are used to access elements of a victor using for loop.
 
 int main()
 {
