@@ -533,6 +533,18 @@ namespace MyLib
 
     // Files
 
+    void CreateFile(string FileName)
+    {
+        // trying to read a file with this name, if file not created it will fail and no imapct happens.
+
+        ifstream CheckFile(FileName);  // ifstream opens in ios::in by default
+
+        if (CheckFile.is_open())
+            return;
+        else
+            ofstream NewFile(FileName); // ofstream opens in ios::out by default
+    }
+
 
     void PrintFile(const string FilePath)
     {
@@ -621,7 +633,22 @@ namespace MyLib
         }
     }
 
+    void DeleteFileRecord(string FilePath, string Record)
+    {
+        vector <string> Temp;
+        LoadFileToVector(FilePath, Temp);
 
+        for (string& item : Temp)
+        {
+            if (item == Record)
+            {
+                item = "";
+            }
+        }
+
+        LoadVectorToNewFile(FilePath, Temp);
+
+    }
 
 
 }
