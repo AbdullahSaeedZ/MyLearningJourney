@@ -10,8 +10,10 @@ int main()
 
     // this method creates a new file or open existed file with that name.
     // every time the file is opened , the values inside it will be deleted and new values will be saved.
-    MyFile.open("The File.txt", ios::out);  // .open(name of the file, mode desired) out mode is for writing inside the file.
 
+
+    MyFile.open("The File.txt", ios::out);  // .open(path of the file, mode desired) out mode is for writing inside the file.
+                                            //  if file is in the project folder then just write the name.
 
     if (MyFile.is_open()) // to make sure that the open method has worked
     {
