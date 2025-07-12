@@ -89,12 +89,45 @@ void DeletFileRecord(string FilePath, string Record)
 
 }
 
+
+void DeleteFileLine(string FilePath, unsigned short LineNumber)
+{
+    vector <string> Temp;
+    LoadFileToVector(FilePath, Temp);
+
+    Temp.at(LineNumber - 1) = "";
+
+    LoadVectorToNewFile(FilePath, Temp);
+}
+
+void DeleteStringInFile(string FilePath, string str)  
+{  
+    vector<string> Temp;  
+    LoadFileToVector(FilePath, Temp);  
+
+    size_t Index;  
+
+    for (string& item : Temp)  
+    {  
+        Index = item.find(str);  
+
+        while (Index != string::npos)  
+        {  
+            item.erase(Index, str.length()); // Corrected: Removed "+ 1" to match the erase function's expected arguments  
+            Index = item.find(str); // Update Index to find the next occurrence of the string  
+        }  
+    }  
+
+    LoadVectorToNewFile(FilePath, Temp);  
+}
+
+
 int main()
 {
     
     CreateFile("Names.txt");
 
-    DeletFileRecord("Names.txt", "Ali");
+    DeleteStringInFile("Names.txt", "Saeed");
 
     PrintFile("Names.txt");
 

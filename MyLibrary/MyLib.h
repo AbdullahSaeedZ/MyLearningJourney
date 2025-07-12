@@ -633,7 +633,7 @@ namespace MyLib
         }
     }
 
-    void DeleteFileRecord(string FilePath, string Record)
+    void DeleteRecordInFile(string FilePath, string Record)
     {
         vector <string> Temp;
         LoadFileToVector(FilePath, Temp);
@@ -649,6 +649,42 @@ namespace MyLib
         LoadVectorToNewFile(FilePath, Temp);
 
     }
+
+    void DeleteLineInFile(string FilePath, unsigned short LineNumber)
+    {
+        vector <string> Temp;
+        LoadFileToVector(FilePath, Temp);
+
+        Temp.at(LineNumber - 1) = "";
+
+        LoadVectorToNewFile(FilePath, Temp);
+    }
+
+    void DeleteStringInFile(string FilePath, string str)
+    {
+        vector<string> Temp;
+        LoadFileToVector(FilePath, Temp);
+
+        // size_t is unsgined long long int , but better use size_t for perforamce as it is for all systems (64-bit and 32-bit)
+
+        size_t Index;
+
+        for (string& Element : Temp)
+        {
+            Index = Element.find(str);
+
+            while (Index != string::npos)  // search for str in the same element (the whole line)
+            {
+                Element.erase(Index, str.length());
+
+                Index = Element.find(str);    // Update Index to find the next occurrence of the string in the same element, if not found, will result in npos.
+            }
+        }
+
+        LoadVectorToNewFile(FilePath, Temp);
+    }
+
+
 
 
 }
