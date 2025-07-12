@@ -416,8 +416,6 @@ namespace MyLib
         }
     }
 
-
-
     void CopyArrayUsingAddArrayElement(int Array1[100], int Length1, int Array2[100], int& Length2)
     {
         for (int Counter = 0; Counter < Length1; Counter++)
@@ -545,7 +543,6 @@ namespace MyLib
             ofstream NewFile(FileName); // ofstream opens in ios::out by default
     }
 
-
     void PrintFile(const string FilePath)
     {
         fstream File;
@@ -575,7 +572,7 @@ namespace MyLib
         }
     }
 
-    void CopyFile(const string srcFilePath, const string dstFilePath, const bool OverrideDst)
+    void CopyFile(const string srcFilePath, const string dstFilePath, const bool OverrideDst = false)
     {
         fstream src(srcFilePath, ios::in);
         fstream dst(dstFilePath, (OverrideDst) ? ios::out : ios::app);
@@ -660,7 +657,7 @@ namespace MyLib
         LoadVectorToNewFile(FilePath, Temp);
     }
 
-    void DeleteStringInFile(string FilePath, string str)
+    void DeleteStringInLineInFile(string FilePath, string str)
     {
         vector<string> Temp;
         LoadFileToVector(FilePath, Temp);
@@ -684,7 +681,22 @@ namespace MyLib
         LoadVectorToNewFile(FilePath, Temp);
     }
 
+    void UpdateRecordInFile(string FilePath, string Record, string UpdateTo)
+    {
+        vector <string> Temp;
+        LoadFileToVector(FilePath, Temp);
 
+        for (string& item : Temp)
+        {
+            if (item == Record)
+            {
+                item = UpdateTo;
+            }
+        }
+
+        LoadVectorToNewFile(FilePath, Temp);
+
+    }
 
 
 }
