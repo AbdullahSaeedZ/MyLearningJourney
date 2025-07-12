@@ -583,6 +583,23 @@ namespace MyLib
 
     }
 
+    void LoadFileToVector(string FilePath, vector <string>& vFileContent)
+    {
+        fstream File;
+        File.open(FilePath, ios::in);
 
+        if (File.is_open())
+        {
+            string Line;
+
+            while (getline(File, Line))
+            {
+                vFileContent.push_back(Line);
+            }
+
+            File.close();
+        }
+
+    }
 
 }
