@@ -3,19 +3,24 @@
 // #include "C:\Users\asz14\Documents\CPP-Level2\MyLibrary\MyLib.h"
 
 #include <iostream>
-#include <cstdlib>    
-#include <ctime>
-#include <string>
-#include <vector>
+#include <cstdlib>  
+#include <ctime>  
+#include <string>  
+#include <vector>  
+#include <fstream>  
+using namespace MyLib;
+using namespace MyLib;
+
+using namespace std;
 
 
 namespace MyLib
 {
 
 
-    std::string Tabs(short N)
+    string Tabs(short N)
     {
-        std::string t = "\t";
+        string t = "\t";
 
         for (short Counter = 1; Counter <= N; Counter++)
         {
@@ -24,33 +29,33 @@ namespace MyLib
         return t;
     }
 
-    std::string AskY_N(std::string Message)
+    string AskY_N(string Message)
     {
-        std::string Answer = " ";
+        string Answer = " ";
         do
         {
-            std::cout << Message << std::endl;
-            std::cin >> Answer;
+            cout << Message << endl;
+            cin >> Answer;
 
         } while ((Answer != "Y" && Answer != "y") && (Answer != "N" && Answer != "n"));
 
         return Answer;
     }
 
-    short ReadPositiveNumInRange(std::string Message, short From, short To)
+    short ReadPositiveNumInRange(string Message, short From, short To)
     {
         int Number = 0;
         do
         {
-            std::cout << Message << std::endl;
-            std::cin >> Number;
+            cout << Message << endl;
+            cin >> Number;
 
-            if (std::cin.fail())
+            if (cin.fail())
             {
                 // if other than numbers entered system will fail.
-                std::cin.clear();                // to clear the failure
-                std::cin.ignore(10000, '\n');    // to ignore what was entered before, to clean the buffer
-                std::cout << "Invalid input! Please enter a number." << std::endl;
+                cin.clear();                // to clear the failure
+                cin.ignore(10000, '\n');    // to ignore what was entered before, to clean the buffer
+                cout << "Invalid input! Please enter a number." << endl;
                 continue;
             }
 
@@ -59,20 +64,20 @@ namespace MyLib
         return Number;
     }
 
-    int ReadPositiveNumber(std::string Message)
+    int ReadPositiveNumber(string Message)
     {
         int Number = 0;
         do
         {
-            std::cout << Message << std::endl;
-            std::cin >> Number;
+            cout << Message << endl;
+            cin >> Number;
 
-            if (std::cin.fail())
+            if (cin.fail())
             {
                 // if other than numbers entered system will fail.
-                std::cin.clear();                // to clear the failure
-                std::cin.ignore(10000, '\n');    // to ignore what was entered before, to clean the buffer
-                std::cout << "Invalid input! Please enter a number." << std::endl;
+                cin.clear();                // to clear the failure
+                cin.ignore(10000, '\n');    // to ignore what was entered before, to clean the buffer
+                cout << "Invalid input! Please enter a number." << endl;
                 continue;
             }
 
@@ -154,7 +159,7 @@ namespace MyLib
     // Random Generating
 
    // srand((unsigned)time(NULL));
-   
+
     int RandomNumber(int From, int To)
     {
         int randNum = rand() % (To - From + 1) + From;
@@ -179,9 +184,9 @@ namespace MyLib
 
     }
 
-    std::string GetRandomWord(enCharType CharType, short Length)
+    string GetRandomWord(enCharType CharType, short Length)
     {
-        std::string Word = "";
+        string Word = "";
 
         for (int Counter = 1; Counter <= Length; Counter++)
         {
@@ -191,9 +196,9 @@ namespace MyLib
         return Word;
     }
 
-    std::string GenerateKey()
+    string GenerateKey()
     {
-        std::string Key = "";
+        string Key = "";
 
         for (int Counter = 1; Counter <= 4; Counter++)    // 4 is number of slots (how many words in this key to be generated.
         {
@@ -213,7 +218,7 @@ namespace MyLib
     {
         for (int Counter = 1; Counter <= RequiredKeys; Counter++)
         {
-            std::cout << "Key [" << Counter << "] : " << GenerateKey() << std::endl;
+            cout << "Key [" << Counter << "] : " << GenerateKey() << endl;
         }
 
     }
@@ -224,12 +229,12 @@ namespace MyLib
     {
         Length = ReadPositiveNumber("Enter how many elements do you need: ");
 
-        std::cout << "Enter value of elements: " << std::endl;
+        cout << "Enter value of elements: " << endl;
 
         for (int Counter = 0; Counter < Length; Counter++)
         {
-            std::cout << "Element [" << Counter + 1 << "] : " << std::endl;
-            std::cin >> Array[Counter];
+            cout << "Element [" << Counter + 1 << "] : " << endl;
+            cin >> Array[Counter];
         }
     }
 
@@ -247,8 +252,8 @@ namespace MyLib
         do
         {
             AddArrayElement(Array, Length, ReadPositiveNumber("Enter a number:"));
-            std::cout << "Do you want to add more numbers? [0] No - [1] Yes" << std::endl;;
-            std::cin >> AddMore;
+            cout << "Do you want to add more numbers? [0] No - [1] Yes" << endl;;
+            cin >> AddMore;
 
         } while (AddMore);
     }
@@ -258,17 +263,17 @@ namespace MyLib
 
         for (int Counter = 0; Counter < Length; Counter++)
         {
-            std::cout << Array[Counter] << " ";
+            cout << Array[Counter] << " ";
         }
 
-        std::cout << std::endl;
+        cout << endl;
     }
 
     void FillRandomNumsInArray(int Array[100], int& Length)
     {
-        std::cout << std::endl;
+        cout << endl;
         Length = ReadPositiveNumber("Enter how many elements do you need:");
-        std::cout << std::endl;
+        cout << endl;
 
         for (int Counter = 0; Counter < Length; Counter++)
         {
@@ -286,7 +291,7 @@ namespace MyLib
         }
     }
 
-    void FillArrayWithKeys(std::string Array[100], int& Length)
+    void FillArrayWithKeys(string Array[100], int& Length)
     {
         Length = ReadPositiveNumber("Enter how many Keys do you need: ");
 
@@ -411,7 +416,7 @@ namespace MyLib
         }
     }
 
-    
+
 
     void CopyArrayUsingAddArrayElement(int Array1[100], int Length1, int Array2[100], int& Length2)
     {
@@ -495,32 +500,89 @@ namespace MyLib
         return Freq;
 
     }
-}
 
-// Vectors
 
-void AddElementInVector(std:: vector <int>& vNumbers)
-{
-    int Number = 0;
-    std::string Again = " ";
-    do
+    // Vectors
+
+    void AddElementInVector(vector <int>& vNumbers)
     {
-        Number = MyLib::ReadPositiveNumber("Enter a positive number: ");
-        vNumbers.push_back(Number);
+        int Number = 0;
+        string Again = " ";
+        do
+        {
+            Number = ReadPositiveNumber("Enter a positive number: ");
+            vNumbers.push_back(Number);
 
-        Again = MyLib::AskY_N("Do you want keep adding? Y/N:");
+            Again = AskY_N("Do you want keep adding? Y/N:");
 
-    } while (Again == "Y" || Again == "y");
-}
-
-void PrintVectorElements(std::vector <int>& vNumbers)
-{
-
-    std::cout << "\nvector Numbers are: " << std::endl;
-
-    for (int& item : vNumbers)
-    {
-
-        printf("%04d  \n", item);
+        } while (Again == "Y" || Again == "y");
     }
+
+    void PrintVectorElements(vector <int>& vNumbers)
+    {
+
+        cout << "\nvector Numbers are: " << endl;
+
+        for (int& item : vNumbers)
+        {
+
+            printf("%04d  \n", item);
+        }
+    }
+
+
+    // Files
+
+
+    void PrintFile(const string FilePath)
+    {
+        fstream File;
+        File.open(FilePath, ios::in);
+
+        string Line;
+
+        if (File.is_open())
+        {
+            while (getline(File, Line))
+            {
+                cout << Line << endl;
+            }
+
+            File.close();
+        }
+    }
+
+    void ClearFile(const string FilePath)
+    {
+        fstream File;
+        File.open(FilePath, ios::out);
+
+        if (File.is_open())
+        {
+            File.close();
+        }
+    }
+
+    void CopyFile(const string srcFilePath, const string dstFilePath, const bool OverrideDst)
+    {
+        fstream src(srcFilePath, ios::in);
+        fstream dst(dstFilePath, (OverrideDst) ? ios::out : ios::app);
+
+        if (src.is_open() && dst.is_open())
+        {
+            string Line;
+
+            while (getline(src, Line))
+            {
+                dst << Line << endl;
+            }
+
+            src.close();
+            dst.close();
+        }
+
+    }
+
+
+
 }
