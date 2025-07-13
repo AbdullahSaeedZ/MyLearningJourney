@@ -2,6 +2,8 @@
 #include <iostream>
 #include <ctime>
 
+// using pointers here cuz the library is from language C , there was no strings and that is why we use pointers to print chars as a string.
+
 using namespace std;
 
 int main() {
