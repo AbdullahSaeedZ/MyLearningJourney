@@ -1,4 +1,4 @@
-#pragma warning(disable : 4996)
+#pragma warning(disable : 4996)  //this is to ignore an error that is not important (cuz this library is old from C)
 #include <iostream>
 #include <ctime>
 
