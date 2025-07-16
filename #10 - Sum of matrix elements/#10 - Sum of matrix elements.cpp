@@ -19,24 +19,24 @@ void RandomNumsMatrix(int matrix[3][3])
 	}
 }
 
-void PrintMatrixMidRow(int matrix[3][3], int Rows, int cols)
+int SumMatrixElements(int matrix[3][3])
 {
-	int Mid = Rows / 2;
-	for (int col = 0; col < cols; col++)
+	int sum = 0;
+	for (int row = 0; row < 3; row++)
 	{
-		printf("%02d    ", matrix[Mid][col]);
+		for (int col = 0; col < 3; col++)
+		{
+			sum += matrix[row][col];
+		}
 	}
+
+	return sum;
 }
- Mid = cols / 2;
-	for (int row = 0; row < Rows; row++)
-	{
-		printf("%02d    ", matrix[row][Mid]);
-	}
-}
+
 
 void PrintMatrix(int matrix[3][3])
 {
-	
+
 
 	for (int row = 0; row < 3; row++)
 	{
@@ -49,27 +49,21 @@ void PrintMatrix(int matrix[3][3])
 	}
 }
 
-
-
 int main()
 {
 	srand((unsigned)time(NULL));
 
-	// matrix is a 2-dimensional array
 
 	int matrix[3][3];
 
-	cout << "\nMatrix:" << endl;
+	cout << "\nMatrix 1:" << endl;
 	RandomNumsMatrix(matrix);
 	PrintMatrix(matrix);
 
-	cout << "\nMid Row of Matrix:" << endl;
-	PrintMatrixMidRow(matrix, 3, 3);
+	cout << "\nSum of matrix elements = " << SumMatrixElements(matrix) << endl;
+	
 
-	cout << "\n\nMid Column of Matrix:" << endl;
-	PrintMatrixMidCol(matrix, 3, 3);
 
-	cout << "\n\n";
 
 
 	return 0;
