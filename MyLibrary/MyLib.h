@@ -7,7 +7,8 @@
 #include <ctime>  
 #include <string>  
 #include <vector>  
-#include <fstream>  
+#include <fstream>
+#include <iomanip>
 using namespace MyLib;
 using namespace MyLib;
 
@@ -497,6 +498,21 @@ namespace MyLib
 
         return Freq;
 
+    }
+
+    // Matrix
+
+    void PrintMatrix(int matrix[3][3])
+    {
+        cout << "This is an ordered 3x3 matrix:" << endl;
+        for (int row = 0; row < 3; row++)
+        {
+            for (int col = 0; col < 3; col++)
+            {
+                cout << setw(3) << matrix[row][col] << "   ";
+            }
+            cout << endl;
+        }
     }
 
 
