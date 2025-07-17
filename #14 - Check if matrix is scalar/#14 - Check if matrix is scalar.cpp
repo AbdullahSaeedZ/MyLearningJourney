@@ -6,20 +6,18 @@ bool IsMatrixScalar(int matrix1[3][3])
 {
 	// check that diagonal elements are same numbers and the rest are 0
 
-	int num = 0;
-	bool NumSaved = false;
+	int FirstElement = matrix1[0][0];
+	
 
 	for (int row = 0; row < 3; row++)
 	{
 		for (int col = 0; col < 3; col++)
 		{
-			if (row == col && !NumSaved)
-				num = matrix1[row][col];
 
-			if (row == col && matrix1[row][col] != num) // for diagonal elements 
+			if (row == col && matrix1[row][col] != FirstElement) // for checking diagonal elements if all are same numbers
 				return false;
 
-			if (row != col && matrix1[row][col] != 0) // for the rest elements
+			if (row != col && matrix1[row][col] != 0) // for the rest elements to be 0s
 				return false;
 
 		}
