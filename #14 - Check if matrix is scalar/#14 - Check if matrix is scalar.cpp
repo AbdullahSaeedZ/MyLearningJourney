@@ -2,23 +2,28 @@
 using namespace std;
 
 
-bool IsMatrixIdentity(int matrix1[3][3])
+bool IsMatrixScalar(int matrix1[3][3])
 {
-	// check that diagonal elements are 1 and the rest are 0
+	// check that diagonal elements are same numbers and the rest are 0
+
+	int num = 0;
+	bool NumSaved = false;
 
 	for (int row = 0; row < 3; row++)
 	{
 		for (int col = 0; col < 3; col++)
 		{
+			if (row == col && !NumSaved)
+				num = matrix1[row][col];
 
-			if (row == col && matrix1[row][col] != 1) // for diagonal elements 
+			if (row == col && matrix1[row][col] != num) // for diagonal elements 
 				return false;
 
 			if (row != col && matrix1[row][col] != 0) // for the rest elements
 				return false;
 
 		}
-		
+
 	}
 
 	return true;
@@ -26,10 +31,10 @@ bool IsMatrixIdentity(int matrix1[3][3])
 
 void PrintMatrixResult(int matrix1[3][3])
 {
-	if (IsMatrixIdentity(matrix1))
-		cout << "\nYes, matrix is identity" << endl;
+	if (IsMatrixScalar(matrix1))
+		cout << "\nYes, matrix is scalar" << endl;
 	else
-		cout << "\nNo, matrix is not identity" << endl;
+		cout << "\nNo, matrix is not scalar" << endl;
 }
 
 void PrintMatrix(int matrix[3][3])
@@ -49,14 +54,14 @@ void PrintMatrix(int matrix[3][3])
 
 int main()
 {
-	
 
-	// this a diagonal matrix (the shape of 1s and rest are 0s)
-	int matrix1[3][3] = 
+
+	// this a scalar matrix (the shape of diagonal but numbers are same and rest are 0s)
+	int matrix1[3][3] =
 	{
-		{1, 0, 0 },
-		{0, 1, 0 },
-		{0, 0, 1 }
+		{9, 0, 0 },
+		{0, 9, 0 },
+		{0, 0, 9 }
 	};
 
 	cout << "\nMatrix 1:" << endl;
