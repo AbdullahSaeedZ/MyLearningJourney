@@ -73,7 +73,7 @@ int main()
 	RandomNumsMatrix(matrix2);
 	PrintMatrix(matrix2);
 	
-
+	 
 	PrintMatrixResult(matrix1, matrix2);
 
 
