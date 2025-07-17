@@ -1,28 +1,32 @@
 #include <iostream>
 #include <string>
+#include <cctype>
 using namespace std;
+
+void Check(string s1, string s2)
+{
+    for (string i = s2.begin(); i != s2.end(); i++)
+    {
+        
+        if (s2.find(s1) == string::npos)
+        {
+            cout << "Not found" << endl;
+        }
+        else
+        {
+            cout << "found at position: " << s2.find(s1) << endl;
+        }
+        
+    }
+}
 
 int main()
 {
-    
-  /*  string Name = "My name is abdullah";
-    
-    for (int i = 0; i <= Name.length(); i++)
-    {
-        cout << Name.substr(0, i) << endl;
-    }*/
+    string s1 = "abs";
+    string s2 = "fdsj abs";
 
-
-
-    string Email = "Aboood@gmail.com";
-    
-
-    for (int i = 2; i < Email.find("@"); i++)
-    {
-        Email.at(i) = '*';
-    }
-
-    cout << Email << endl;
+    Check(s1, s2);
+  
 
     return 0;
 }
