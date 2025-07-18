@@ -565,7 +565,19 @@ namespace MyLib
         return sum;
     }
 
+    bool IsNumInMatrix(int matrix[3][3], int Number)
+    {
+        for (int row = 0; row < 3; row++)
+        {
+            for (int col = 0; col < 3; col++)
+            {
+                if (matrix[row][col] == Number)
+                    return true;
+            }
+        }
 
+        return false;
+    }
 
 
 
