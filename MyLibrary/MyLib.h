@@ -579,6 +579,19 @@ namespace MyLib
         return false;
     }
 
+    bool IsMatrixPalindrome(int matrix[4][4], int Rows, int Cols)
+    {
+        for (int r = 0; r < Rows; r++)
+        {
+            for (int c = 0; c < Cols / 2; c++)
+            {
+                if (matrix[r][c] != matrix[r][Cols - 1 - c])
+                    return false;
+            }
+        }
+
+        return true;
+    }
 
 
     // Vectors
