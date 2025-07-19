@@ -68,6 +68,24 @@ namespace MyLib
 
     }
 
+    void UppercaseFirstLetters(string str)
+    {
+        bool IsFirstLetter = true;
+
+        for (int i = 0; i < str.size(); i++)
+        {
+
+            if (str[i] != ' ' && IsFirstLetter)
+                str[i] = toupper(str[i]);
+
+            IsFirstLetter = (str[i] != ' ') ? false : true;
+
+        }
+
+        cout << str << endl;
+    }
+
+
     short ReadPositiveNumInRange(string Message, short From, short To)
     {
         int Number = 0;
