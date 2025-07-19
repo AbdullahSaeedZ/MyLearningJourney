@@ -68,7 +68,7 @@ namespace MyLib
 
     }
 
-    void UppercaseFirstLetters(string str)
+    void UppercaseFirstLetters(string &str)
     {
         bool IsFirstLetter = true;
 
@@ -82,7 +82,6 @@ namespace MyLib
 
         }
 
-        cout << str << endl;
     }
 
 
