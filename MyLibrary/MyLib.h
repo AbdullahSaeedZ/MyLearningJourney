@@ -135,6 +135,33 @@ namespace MyLib
         return str;
     }
 
+    short CountCapitalLetters(string str)
+    {
+        short Count = 0;
+
+        for (short i = 0; i < str.length(); i++)
+        {
+            if (isupper(str[i]))
+                Count++;
+        }
+
+        return Count;
+    }
+
+    short CountSmallLetters(string str)
+    {
+        short Count = 0;
+
+        for (short i = 0; i < str.length(); i++)
+        {
+            if (islower(str[i]))
+                Count++;
+        }
+
+        return Count;
+    }
+
+
     short ReadPositiveNumInRange(string Message, short From, short To)
     {
         int Number = 0;
