@@ -13,7 +13,7 @@ string ReadString(string Message)
     return str;
 }
 
-void UppercaseFirstLetters(string str)
+void UppercaseFirstLetters(string &str)
 {
     bool IsFirstLetter = true;
 
@@ -27,17 +27,18 @@ void UppercaseFirstLetters(string str)
 
     }
 
-    cout << str << endl;
+    
 }
 
 
 
 int main()
 {
+    string str = ReadString("enter string:");
 
-    UppercaseFirstLetters(ReadString("enter string:"));
+    UppercaseFirstLetters(str);
 
-
+    cout << str << endl;
 
 
     return 0;
