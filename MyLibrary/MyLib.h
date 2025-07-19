@@ -178,7 +178,7 @@ namespace MyLib
 
         for (short i = 0; i < str.length(); i++)
         {
-            if (str[i] == Letter)
+            if (str[i] == toupper(Letter) || str[i] == tolower(Letter))
                 Count++;
         }
 
