@@ -84,6 +84,22 @@ namespace MyLib
 
     }
 
+    void LowercaseFirstLetters(string& str)
+    {
+        bool IsFirstLetter = true;
+
+        for (int i = 0; i < str.size(); i++)
+        {
+
+            if (str[i] != ' ' && IsFirstLetter)
+                str[i] = tolower(str[i]);
+
+            IsFirstLetter = (str[i] != ' ') ? false : true;
+
+        }
+
+    }
+
 
     short ReadPositiveNumInRange(string Message, short From, short To)
     {
