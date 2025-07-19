@@ -125,6 +125,16 @@ namespace MyLib
         return (isupper(c)) ? tolower(c) : toupper(c);
     }
 
+    string InvertAllLettersCase(string str)
+    {
+        for (int i = 0; i < str.length(); i++)
+        {
+            str[i] = InvertLetterCase(str[i]);
+        }
+
+        return str;
+    }
+
     short ReadPositiveNumInRange(string Message, short From, short To)
     {
         int Number = 0;
