@@ -41,6 +41,33 @@ namespace MyLib
         return Answer;
     }
 
+    string ReadString(string Message)
+    {
+        string str = "";
+
+        cout << Message << endl;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        getline(cin, str);
+
+        return str;
+    }
+
+    void Print1stLettersOfWords(string str)
+    {
+        bool IsFirstLetter = true;
+
+        for (int i = 0; i < str.size(); i++)
+        {
+
+            if (str[i] != ' ' && IsFirstLetter) // will run only if the it is first letter and it is a letter.
+                cout << str[i] << endl;
+
+            IsFirstLetter = (str[i] != ' ') ? false : true; // it will be false for all indexes till a new space comes then it will be true.
+
+        }
+
+    }
+
     short ReadPositiveNumInRange(string Message, short From, short To)
     {
         int Number = 0;
