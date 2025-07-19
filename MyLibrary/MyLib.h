@@ -120,6 +120,11 @@ namespace MyLib
         return str;
     }
 
+    char InvertLetterCase(char c)
+    {
+        return (isupper(c)) ? tolower(c) : toupper(c);
+    }
+
     short ReadPositiveNumInRange(string Message, short From, short To)
     {
         int Number = 0;
