@@ -100,6 +100,25 @@ namespace MyLib
 
     }
 
+    string UppercaseAllString(string str)
+    {
+        for (int i = 0; i < str.length(); i++)
+        {
+            str[i] = toupper(str[i]);
+        }
+
+        return str;
+    }
+
+    string LowercaseAllString(string str)
+    {
+        for (int i = 0; i < str.length(); i++)
+        {
+            str[i] = tolower(str[i]);
+        }
+
+        return str;
+    }
 
     short ReadPositiveNumInRange(string Message, short From, short To)
     {
