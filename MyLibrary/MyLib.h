@@ -52,6 +52,16 @@ namespace MyLib
         return str;
     }
 
+    char ReadChar(string Message)
+    {
+        char c = ' ';
+
+        cout << Message << endl;
+        cin >> c;
+
+        return c;
+    }
+
     void Print1stLettersOfWords(string str)
     {
         bool IsFirstLetter = true;
@@ -161,6 +171,19 @@ namespace MyLib
         return Count;
     }
 
+
+    short CountLetterInString(string str, char Letter)
+    {
+        short Count = 0;
+
+        for (short i = 0; i < str.length(); i++)
+        {
+            if (str[i] == Letter)
+                Count++;
+        }
+
+        return Count;
+    }
 
     short ReadPositiveNumInRange(string Message, short From, short To)
     {
