@@ -3,6 +3,10 @@
 #include <cctype>
 using namespace std;
 
+char InvertLetterCase(char c)  // reusability
+{
+    return (isupper(c)) ? tolower(c) : toupper(c);
+} 
 
 short CountLetterInString(string str, char Letter, bool MatchCase = true)
 {
@@ -36,7 +40,7 @@ int main()
     cin >> letter;
 
     cout << "\nLetter " << letter << " count = " << CountLetterInString(str, letter , false) << endl;
-    cout << "\nLetter " << (char)toupper(letter) << " or " << (char)tolower(letter) << " count = " << CountLetterInString(str, letter, true) << endl;
+    cout << "\nLetter " << letter << " or " << InvertLetterCase(letter) << " count = " << CountLetterInString(str, letter, true) << endl;
 
 
 
