@@ -172,14 +172,23 @@ namespace MyLib
     }
 
 
-    short CountLetterInString(string str, char Letter)
+    short CountLetterInString(string str, char Letter, bool MatchCase = true)
     {
         short Count = 0;
 
         for (short i = 0; i < str.length(); i++)
         {
-            if (str[i] == toupper(Letter) || str[i] == tolower(Letter))
-                Count++;
+            if (MatchCase)
+            {
+                if (tolower(str[i]) == tolower(Letter))
+                    Count++;
+
+            }
+            else
+            {
+                if (str[i] == Letter)
+                    Count++;
+            }
         }
 
         return Count;
