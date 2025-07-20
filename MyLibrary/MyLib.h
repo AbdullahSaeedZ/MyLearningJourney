@@ -194,6 +194,12 @@ namespace MyLib
         return Count;
     }
 
+    bool IsVowel(char letter)
+    {
+        char v = tolower(letter);
+        return ((v == 'a') || (v == 'e') || (v == 'i') || (v == 'o') || (v == 'u'));
+    }
+
     short ReadPositiveNumInRange(string Message, short From, short To)
     {
         int Number = 0;
