@@ -222,6 +222,29 @@ namespace MyLib
         }
     }
 
+    vector<string> SplitStringToVector(string str, string delim = " ")
+    {
+        vector<string> vWords;
+
+        short pos = 0;
+        string sWord;
+
+        while ((pos = str.find(delim)) != string::npos)
+        {
+            sWord = str.substr(0, pos);
+
+            if (sWord != "")
+                vWords.push_back(sWord);
+
+            str.erase(0, pos + delim.length());
+        }
+
+        if (str != "")
+            vWords.push_back(str);
+
+        return vWords;
+    }
+
     short ReadPositiveNumInRange(string Message, short From, short To)
     {
         int Number = 0;
