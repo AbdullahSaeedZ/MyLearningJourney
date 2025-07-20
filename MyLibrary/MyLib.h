@@ -213,6 +213,15 @@ namespace MyLib
         return count;
     }
 
+    void PrintVowelsInString(string str)
+    {
+        for (int i = 0; i < str.length(); i++)
+        {
+            if (IsVowel(str[i]))
+                cout << str[i] << "   ";
+        }
+    }
+
     short ReadPositiveNumInRange(string Message, short From, short To)
     {
         int Number = 0;
