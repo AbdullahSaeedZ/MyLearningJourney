@@ -289,6 +289,18 @@ namespace MyLib
 
     }
 
+    string ReplaceWord(string str, string OldWord, string NewWord)
+    {
+        short pos = 0;
+        while ((pos = str.find(OldWord)) != string::npos)
+        {
+
+            str = str.replace(pos, OldWord.length(), NewWord);
+
+        }
+
+        return str;
+    }
 
     short ReadPositiveNumInRange(string Message, short From, short To)
     {
