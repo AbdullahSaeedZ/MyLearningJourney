@@ -269,6 +269,26 @@ namespace MyLib
         return str.substr(0, str.length() - delim.length());
     }
 
+    string ReverseString(string str)
+    {
+        vector<string> Vector = SplitStringToVector(str, " ");
+        string Reversed = "";
+
+        vector<string>::iterator itr = Vector.end();
+
+        while (itr != Vector.begin())
+        {
+            itr--;
+
+            Reversed += *itr + " ";
+        }
+
+
+
+        return Reversed.substr(0, Reversed.length() - 1);
+
+    }
+
 
     short ReadPositiveNumInRange(string Message, short From, short To)
     {
