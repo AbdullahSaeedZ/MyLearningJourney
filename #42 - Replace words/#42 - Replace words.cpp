@@ -39,7 +39,7 @@ int main()
     string str = "welcome to saudi, saudi is a nice country";
     cout << str << endl;
 
-    str = ReplaceWord(str, "saudi", "UAE");
+    str = ReplaceWord(str, "Saudi", "UAE");
     cout << "\nstring after replaceing:" << endl;
     cout << str << endl;
     
