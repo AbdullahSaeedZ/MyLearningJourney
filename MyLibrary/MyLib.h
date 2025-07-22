@@ -245,6 +245,18 @@ namespace MyLib
         return vWords;
     }
 
+    string JoinVectorToString(const vector<string>& vWords, string delim)
+    {
+        string str = "";
+
+        for (const string& word : vWords)
+        {
+            str = str + word + delim;
+        }
+
+        return str.substr(0, str.length() - delim.length());
+    }
+
     short ReadPositiveNumInRange(string Message, short From, short To)
     {
         int Number = 0;
