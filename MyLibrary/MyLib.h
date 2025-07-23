@@ -180,13 +180,13 @@ namespace MyLib
         {
             if (MatchCase)
             {
-                if (tolower(str[i]) == tolower(Letter))
+                if (str[i] == Letter)
                     Count++;
 
             }
             else
             {
-                if (str[i] == Letter)
+                if (tolower(str[i]) == tolower(Letter))
                     Count++;
             }
         }
@@ -289,17 +289,41 @@ namespace MyLib
 
     }
 
-    string ReplaceWord(string str, string OldWord, string NewWord)
+    string ReplaceWord(string str, string OldWord, string NewWord, bool MatchCase)
     {
-        short pos = 0;
-        while ((pos = str.find(OldWord)) != string::npos)
-        {
+        vector<string> vWords = SplitStringToVector(str, " ");
 
-            str = str.replace(pos, OldWord.length(), NewWord);
+        for (string& word : vWords)
+        {
+            if (MatchCase)
+            {
+                if (word == OldWord)
+                    word = NewWord;
+            }
+            else
+            {
+                if (LowercaseAllString(word) == LowercaseAllString(OldWord))
+                    word = NewWord;
+            }
+        }
+
+        str = JoinToString(vWords, " ");
+
+        return str;
+    }
+
+    string RemoveAllPunctInString(string str)
+    {
+        string New = "";
+
+        for (short i = 0; i < str.length(); i++)
+        {
+            if (!ispunct(str[i]))
+                New += str[i];
 
         }
 
-        return str;
+        return New;
     }
 
     short ReadPositiveNumInRange(string Message, short From, short To)
