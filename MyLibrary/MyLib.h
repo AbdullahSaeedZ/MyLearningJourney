@@ -326,6 +326,64 @@ namespace MyLib
         return New;
     }
 
+    struct stClientData
+    {
+        string ID, PINCode, Name, Phone;
+        double AcctBalance;
+    };
+
+    stClientData ReadClientData()
+    {
+        stClientData Client;
+        cout << "Please fill Client data:\n" << endl;
+
+        Client.ID = ReadString("Enter Account ID:");
+        Client.PINCode = ReadString("Enter Pin Code:");
+        Client.Name = ReadString("Enter Name:");
+        Client.Phone = ReadString("Enter Phone Number:");
+        Client.AcctBalance = ReadPositiveNumber("Enter Account Balance:");
+
+        return Client;
+    }
+
+
+    string ConvertRecordToLine(stClientData Client1, string delim = "#//#")
+    {
+        string str = "";
+
+        str += Client1.ID + delim;
+        str += Client1.Name + delim;
+        str += Client1.PINCode + delim;
+        str += Client1.Phone + delim;
+        str += to_string(Client1.AcctBalance);
+
+        return str;
+    }
+
+    stClientData ConvertDataLineToRecord(string Line, string Delim = "#//#")
+    {
+        vector<string> Records = SplitStringToVector(Line, Delim);
+        stClientData Client;
+
+        Client.ID = Records[0];
+        Client.PINCode = Records[1];
+        Client.Name = Records[2];
+        Client.Phone = Records[3];
+        Client.AcctBalance = stod(Records[4]);
+
+        return Client;
+    }
+
+
+    void PrintDataRecord(stClientData Client)
+    {
+        cout << "Account ID: " << Client.ID << endl;
+        cout << "Pin Code  : " << Client.PINCode << endl;
+        cout << "Name      : " << Client.Name << endl;
+        cout << "Phone     : " << Client.Phone << endl;
+        cout << "Balance   : " << Client.AcctBalance << endl;
+    }
+
     short ReadPositiveNumInRange(string Message, short From, short To)
     {
         int Number = 0;
