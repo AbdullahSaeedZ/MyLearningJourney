@@ -126,7 +126,15 @@
     <ClCompile Include="MyLibrary.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="arr.h" />
+    <ClInclude Include="fs.h" />
+    <ClInclude Include="in.h" />
+    <ClInclude Include="mtrx.h" />
     <ClInclude Include="MyLib.h" />
+    <ClInclude Include="num.h" />
+    <ClInclude Include="rnd.h" />
+    <ClInclude Include="str.h" />
+    <ClInclude Include="vct.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
