@@ -9,13 +9,13 @@ using namespace std;
 
 const string ClientsDataBase = "Clients.txt";
 
-struct stClientData
+struct stClientRecords
 {
     string ID, PINCode, Name, Phone;
     double AcctBalance;
 };
 
-void Header(vector<stClientData> &vAllClients)
+void Header(vector<stClientRecords> &vAllClients)
 {
     cout << setw(70) << "Clients List ("<< vAllClients.size() << ") Clients(s)." << endl;
     cout << "\n--------------------------------------------------------------------------------------------------------------------------\n" << endl;
@@ -23,32 +23,10 @@ void Header(vector<stClientData> &vAllClients)
     cout << "--------------------------------------------------------------------------------------------------------------------------\n" << endl;
 }
 
-vector<string> GetLinesToVector(const string FilePath)
-{
-    vector<string> vLines;
-    fstream File;
-
-    File.open(FilePath, ios::in);
-
-    string Line;
-
-    if (File.is_open())
-    {
-        while (getline(File, Line))
-        {
-            vLines.push_back(Line);
-        }
-
-        File.close();
-    }
-
-    return vLines;
-}
-
-stClientData ConvertDataLineToRecord(string Line, string Delim = "#//#")
+stClientRecords ConvertDataLineToRecord(string Line, string Delim = "#//#")
 {
     vector<string> Records = str::SplitStringToVector(Line, Delim);
-    stClientData Client;
+    stClientRecords Client;
 
     Client.ID = Records[0];
     Client.Name = Records[1];
@@ -59,29 +37,40 @@ stClientData ConvertDataLineToRecord(string Line, string Delim = "#//#")
     return Client;
 }
 
-vector<stClientData> JoinVctLinesToVctSrtuct()
+vector<stClientRecords> LoadClientsDataFromFile(string FilePath)
 {
-    vector<string> ClientsLines = GetLinesToVector(ClientsDataBase);
+    vector<stClientRecords> vAllClients;
+    vector<string> vLines;
+    fstream File;
 
-    vector<stClientData> vAllClients;
-    stClientData stOneClient;
-    string strLine = "";
-
-    for (string& line : ClientsLines)
+    File.open(FilePath, ios::in);
+    if (File.is_open())
     {
-        strLine = line;
-        stOneClient = ConvertDataLineToRecord(strLine, "#//#");
-        vAllClients.push_back(stOneClient);
+        stClientRecords stOneClient;
+        string strLine = "";
+
+        while (getline(File, strLine))
+        {
+            stOneClient = ConvertDataLineToRecord(strLine);
+            vAllClients.push_back(stOneClient);
+        }
+
+        File.close();
     }
+
 
     return vAllClients;
 }
 
-void PrintClients(vector<stClientData>& vAllClients)
+void PrintClients(vector<stClientRecords>& vAllClients)
 {
-    for (stClientData& ClientInfo : vAllClients)
+    for (stClientRecords& ClientInfo : vAllClients)
     {
-        cout  <<  "| " << setw(18) << ClientInfo.ID  << "| " << setw(18) << ClientInfo.PINCode << "| " << setw(48) << ClientInfo.Name << "| " << setw(18) << ClientInfo.Phone << "| " << ClientInfo.AcctBalance << endl;
+        cout << "| " << setw(18) << ClientInfo.ID;
+        cout << "| " << setw(18) << ClientInfo.PINCode;
+        cout << "| " << setw(48) << ClientInfo.Name;
+        cout << "| " << setw(18) << ClientInfo.Phone;
+        cout << "| " << ClientInfo.AcctBalance << endl;
     }
     cout << "\n--------------------------------------------------------------------------------------------------------------------------\n" << endl;
     
@@ -90,7 +79,7 @@ void PrintClients(vector<stClientData>& vAllClients)
 
 void ShowClientsFromFile()
 {
-    vector<stClientData> vAllClients = JoinVctLinesToVctSrtuct();
+    vector<stClientRecords> vAllClients = LoadClientsDataFromFile(ClientsDataBase);
     Header(vAllClients);
     PrintClients(vAllClients);
 
