@@ -1,0 +1,1057 @@
+#pragma once
+
+// #include "C:\Users\asz14\Documents\CPP-Level2\MyLibrary\MyLib.h"
+
+#include <iostream>
+#include <cstdlib>  
+#include <ctime>  
+#include <string>  
+#include <vector>  
+#include <fstream>
+#include <iomanip>
+
+using namespace std;
+
+
+namespace MyLib
+{
+
+
+    string Tabs(short N)
+    {
+        string t = "\t";
+
+        for (short Counter = 1; Counter <= N; Counter++)
+        {
+            t += "\t";
+        }
+        return t;
+    }
+
+    string AskY_N(string Message)
+    {
+        string Answer = " ";
+        do
+        {
+            cout << Message << endl;
+            cin >> Answer;
+
+        } while ((Answer != "Y" && Answer != "y") && (Answer != "N" && Answer != "n"));
+
+        return Answer;
+    }
+
+    string ReadString(string Message)
+    {
+        string str = "";
+
+        cout << Message << endl;
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        getline(cin, str);
+
+        return str;
+    }
+
+    char ReadChar(string Message)
+    {
+        char c = ' ';
+
+        cout << Message << endl;
+        cin >> c;
+
+        return c;
+    }
+
+    void Print1stLettersOfWords(string str)
+    {
+        bool IsFirstLetter = true;
+
+        for (int i = 0; i < str.size(); i++)
+        {
+
+            if (str[i] != ' ' && IsFirstLetter) // will run only if the it is first letter and it is a letter.
+                cout << str[i] << endl;
+
+            IsFirstLetter = (str[i] != ' ') ? false : true; // it will be false for all indexes till a new space comes then it will be true.
+
+        }
+
+    }
+
+    void UppercaseFirstLetters(string &str)
+    {
+        bool IsFirstLetter = true;
+
+        for (int i = 0; i < str.size(); i++)
+        {
+
+            if (str[i] != ' ' && IsFirstLetter)
+                str[i] = toupper(str[i]);
+
+            IsFirstLetter = (str[i] != ' ') ? false : true;
+
+        }
+
+    }
+
+    void LowercaseFirstLetters(string& str)
+    {
+        bool IsFirstLetter = true;
+
+        for (int i = 0; i < str.size(); i++)
+        {
+
+            if (str[i] != ' ' && IsFirstLetter)
+                str[i] = tolower(str[i]);
+
+            IsFirstLetter = (str[i] != ' ') ? false : true;
+
+        }
+
+    }
+
+    string UppercaseAllString(string str)
+    {
+        for (int i = 0; i < str.length(); i++)
+        {
+            str[i] = toupper(str[i]);
+        }
+
+        return str;
+    }
+
+    string LowercaseAllString(string str)
+    {
+        for (int i = 0; i < str.length(); i++)
+        {
+            str[i] = tolower(str[i]);
+        }
+
+        return str;
+    }
+
+    char InvertLetterCase(char c)
+    {
+        return (isupper(c)) ? tolower(c) : toupper(c);
+    }
+
+    string InvertAllLettersCase(string str)
+    {
+        for (int i = 0; i < str.length(); i++)
+        {
+            str[i] = InvertLetterCase(str[i]);
+        }
+
+        return str;
+    }
+
+    short CountCapitalLetters(string str)
+    {
+        short Count = 0;
+
+        for (short i = 0; i < str.length(); i++)
+        {
+            if (isupper(str[i]))
+                Count++;
+        }
+
+        return Count;
+    }
+
+    short CountSmallLetters(string str)
+    {
+        short Count = 0;
+
+        for (short i = 0; i < str.length(); i++)
+        {
+            if (islower(str[i]))
+                Count++;
+        }
+
+        return Count;
+    }
+
+
+    short CountLetterInString(string str, char Letter, bool MatchCase = true)
+    {
+        short Count = 0;
+
+        for (short i = 0; i < str.length(); i++)
+        {
+            if (MatchCase)
+            {
+                if (tolower(str[i]) == tolower(Letter))
+                    Count++;
+
+            }
+            else
+            {
+                if (str[i] == Letter)
+                    Count++;
+            }
+        }
+
+        return Count;
+    }
+
+    bool IsVowel(char letter)
+    {
+        char v = tolower(letter);
+        return ((v == 'a') || (v == 'e') || (v == 'i') || (v == 'o') || (v == 'u'));
+    }
+
+    short CountVowelInString(string str)
+    {
+        short count = 0;
+
+        for (short i = 0; i < str.length(); i++)
+        {
+            if (IsVowel(str[i]))
+                count++;
+        }
+
+        return count;
+    }
+
+    void PrintVowelsInString(string str)
+    {
+        for (int i = 0; i < str.length(); i++)
+        {
+            if (IsVowel(str[i]))
+                cout << str[i] << "   ";
+        }
+    }
+
+    vector<string> SplitStringToVector(string str, string delim = " ")
+    {
+        vector<string> vWords;
+
+        short pos = 0;
+        string sWord;
+
+        while ((pos = str.find(delim)) != string::npos)
+        {
+            sWord = str.substr(0, pos);
+
+            if (sWord != "")
+                vWords.push_back(sWord);
+
+            str.erase(0, pos + delim.length());
+        }
+
+        if (str != "")
+            vWords.push_back(str);
+
+        return vWords;
+    }
+
+    string JoinToString(const vector<string>& vWords, string delim)
+    {
+        string str = "";
+
+        for (const string& word : vWords)
+        {
+            str = str + word + delim;
+        }
+
+        return str.substr(0, str.length() - delim.length());
+    }
+
+    string JoinToString(string array[], short length, string delim)
+    {
+        string str = "";
+
+        for (short i = 0; i < length; i++)
+        {
+            str = str + array[i] + delim;
+        }
+
+        return str.substr(0, str.length() - delim.length());
+    }
+
+    string ReverseString(string str)
+    {
+        vector<string> Vector = SplitStringToVector(str, " ");
+        string Reversed = "";
+
+        vector<string>::iterator itr = Vector.end();
+
+        while (itr != Vector.begin())
+        {
+            itr--;
+
+            Reversed += *itr + " ";
+        }
+
+
+
+        return Reversed.substr(0, Reversed.length() - 1);
+
+    }
+
+    string ReplaceWord(string str, string OldWord, string NewWord)
+    {
+        short pos = 0;
+        while ((pos = str.find(OldWord)) != string::npos)
+        {
+
+            str = str.replace(pos, OldWord.length(), NewWord);
+
+        }
+
+        return str;
+    }
+
+    short ReadPositiveNumInRange(string Message, short From, short To)
+    {
+        int Number = 0;
+        do
+        {
+            cout << Message << endl;
+            cin >> Number;
+
+            if (cin.fail())
+            {
+                // if other than numbers entered system will fail.
+                cin.clear();                // to clear the failure
+                cin.ignore(10000, '\n');    // to ignore what was entered before, to clean the buffer
+                cout << "Invalid input! Please enter a number." << endl;
+                continue;
+            }
+
+        } while (Number < From || Number > To);
+
+        return Number;
+    }
+
+    int ReadPositiveNumber(string Message)
+    {
+        int Number = 0;
+        do
+        {
+            cout << Message << endl;
+            cin >> Number;
+
+            if (cin.fail())
+            {
+                // if other than numbers entered system will fail.
+                cin.clear();                // to clear the failure
+                cin.ignore(10000, '\n');    // to ignore what was entered before, to clean the buffer
+                cout << "Invalid input! Please enter a number." << endl;
+                continue;
+            }
+
+        } while (Number <= 0);
+
+        return Number;
+    }
+
+    short GetDigitFreqInNum(int Num, int Digit)
+    {
+        short Freq = 0, Remainder = 0;
+
+        while (Num > 0)
+        {
+            Remainder = Num % 10;
+
+            if (Remainder == Digit)
+            {
+                Freq += 1;
+            }
+
+            Num = Num / 10;
+        }
+
+        return Freq;
+    }
+
+    bool IsPrimeNum(int Number)
+    {
+        float M = round(Number / 2);
+        for (int Counter = 2; Counter <= M; Counter++)
+        {
+            if (Number % Counter == 0)
+                return false;
+
+        }
+
+        return true;
+    }
+
+    int GetReverseNum(int Num)
+    {
+        int New = 0, Remainder = 0;
+
+        while (Num > 0)
+        {
+            Remainder = Num % 10;
+            Num = Num / 10;
+            New = New * 10 + Remainder;
+
+        }
+        return New;
+    }
+
+    bool IsPerfectNum(int Num)
+    {
+        int Sum = 0;
+
+        for (int Counter = 1; Counter < Num; Counter++)
+        {
+            if (Num % Counter == 0)
+            {
+                Sum += Counter;
+            }
+        }
+
+        return Sum == Num;    // if its true it returns true, if not, it returns false
+    }
+
+    void Swap(int& A, int& B)
+    {
+        int Temp;
+
+        Temp = A;
+        A = B;
+        B = Temp;
+    }
+
+    // Random Generating
+
+   // srand((unsigned)time(NULL));
+
+    int RandomNumber(int From, int To)
+    {
+        int randNum = rand() % (To - From + 1) + From;
+        return randNum;
+    }
+
+    enum enCharType { SmallLetter = 1, CapitalLetter = 2, SpecialCharacter = 3, Digit = 4 };
+    char GetRandomCharacter(enCharType Type)
+    {
+
+        if (Type == enCharType::CapitalLetter)
+            return char(RandomNumber(65, 90));
+
+        else if (Type == enCharType::Digit)
+            return char(RandomNumber(49, 57));
+
+        else if (Type == enCharType::SmallLetter)
+            return char(RandomNumber(97, 122));
+
+        else
+            return char(RandomNumber(33, 47));
+
+    }
+
+    string GetRandomWord(enCharType CharType, short Length)
+    {
+        string Word = "";
+
+        for (int Counter = 1; Counter <= Length; Counter++)
+        {
+            Word.append(1, GetRandomCharacter(CharType));
+        }
+
+        return Word;
+    }
+
+    string GenerateKey()
+    {
+        string Key = "";
+
+        for (int Counter = 1; Counter <= 4; Counter++)    // 4 is number of slots (how many words in this key to be generated.
+        {
+            if (Counter == 4) // to eliminate the "-" in the end and exit function.
+            {
+                return Key = Key + GetRandomWord(enCharType::CapitalLetter, 4);
+            }
+
+            Key = Key + GetRandomWord(enCharType::CapitalLetter, 4) + "-";
+
+        }
+
+        return Key;
+    }
+
+    void GenerateKeys(int RequiredKeys)
+    {
+        for (int Counter = 1; Counter <= RequiredKeys; Counter++)
+        {
+            cout << "Key [" << Counter << "] : " << GenerateKey() << endl;
+        }
+
+    }
+
+    // Arrays
+
+    void ReadArray(int Array[100], int& Length)
+    {
+        Length = ReadPositiveNumber("Enter how many elements do you need: ");
+
+        cout << "Enter value of elements: " << endl;
+
+        for (int Counter = 0; Counter < Length; Counter++)
+        {
+            cout << "Element [" << Counter + 1 << "] : " << endl;
+            cin >> Array[Counter];
+        }
+    }
+
+    void AddArrayElement(int Array[100], int& Length, int Num)
+    {
+        Length++;
+        Array[Length - 1] = Num;
+    }
+
+    void SemiDynamicUserInputArray(int Array[100], int& Length)
+    {
+        Length = 0;
+        bool AddMore = true;
+
+        do
+        {
+            AddArrayElement(Array, Length, ReadPositiveNumber("Enter a number:"));
+            cout << "Do you want to add more numbers? [0] No - [1] Yes" << endl;;
+            cin >> AddMore;
+
+        } while (AddMore);
+    }
+
+    void PrintArray(int Array[100], int Length)
+    {
+
+        for (int Counter = 0; Counter < Length; Counter++)
+        {
+            cout << Array[Counter] << " ";
+        }
+
+        cout << endl;
+    }
+
+    void FillRandomNumsInArray(int Array[100], int& Length)
+    {
+        cout << endl;
+        Length = ReadPositiveNumber("Enter how many elements do you need:");
+        cout << endl;
+
+        for (int Counter = 0; Counter < Length; Counter++)
+        {
+            Array[Counter] = RandomNumber(1, 100);
+        }
+    }
+
+    void FillArrayWith1toN(int Array[100], int& Length)
+    {
+        Length = ReadPositiveNumber("Enter how many Numbers do you need: ");
+
+        for (int Counter = 0; Counter < Length; Counter++)
+        {
+            Array[Counter] = Counter + 1;
+        }
+    }
+
+    void FillArrayWithKeys(string Array[100], int& Length)
+    {
+        Length = ReadPositiveNumber("Enter how many Keys do you need: ");
+
+        for (int Counter = 0; Counter < Length; Counter++)
+        {
+            Array[Counter] = GenerateKey();
+        }
+    }
+
+    int GetFreqOfNumInArray(int Array[100], int NumToCheck, int Length)
+    {
+        int Freq = 0;
+
+        for (int Counter = 0; Counter < Length; Counter++)
+        {
+            if (Array[Counter] == NumToCheck)
+            {
+                Freq++;
+            }
+        }
+
+        return Freq;
+    }
+
+    bool IsNumEven(int Num)
+    {
+        if (Num % 2 != 0)
+            return false;
+
+        return true;
+    }
+
+    int GetFreqOfOddNumInArray(int Array[100], int Length)
+    {
+        int Freq = 0;
+
+        for (int Counter = 0; Counter < Length; Counter++)
+        {
+            if (!IsNumEven(Array[Counter]))
+            {
+                Freq++;
+            }
+        }
+
+        return Freq;
+    }
+
+    int FindNumIndexInArray(int Array[100], int Length, int NumToFind)
+    {
+
+        for (int Counter = 0; Counter < Length; Counter++)
+        {
+            if (Array[Counter] == NumToFind)
+            {
+                return Counter;
+            }
+
+        }
+
+        return -1;
+    }
+
+    bool IsNumInArray(int Array[100], int Length, int NumToFind)
+    {
+        return FindNumIndexInArray(Array, Length, NumToFind) != -1;
+    }
+
+    int FindMaxArray(int Array[100], int Length)
+    {
+        int Max = Array[0];
+
+        for (int Counter = 0; Counter < Length; Counter++)
+        {
+            if (Array[Counter] > Max)
+            {
+
+                Max = Array[Counter];
+            }
+        }
+
+        return Max;
+    }
+
+    int FindMinArray(int Array[100], int Length)
+    {
+        int Min = Array[0];
+
+        for (int Counter = 0; Counter < Length; Counter++)
+        {
+            if (Array[Counter] < Min)
+            {
+
+                Min = Array[Counter];
+            }
+        }
+
+        return Min;
+    }
+
+    int SumAllArray(int Array[100], int Length)
+    {
+        int Sum = 0;
+
+        for (int Counter = 0; Counter < Length; Counter++)
+        {
+            Sum += Array[Counter];
+        }
+
+        return Sum;
+    }
+
+    float AvgAllArray(int Array[100], int Length)
+    {
+        return (float)SumAllArray(Array, Length) / Length;
+    }
+
+    void CopyArray(int Original[100], int Copy[100], int OriginalLength)
+    {
+        for (int Counter = 0; Counter < OriginalLength; Counter++)
+        {
+            Copy[Counter] = Original[Counter];
+        }
+    }
+
+    void CopyArrayUsingAddArrayElement(int Array1[100], int Length1, int Array2[100], int& Length2)
+    {
+        for (int Counter = 0; Counter < Length1; Counter++)
+        {
+            AddArrayElement(Array2, Length2, Array1[Counter]);
+        }
+    }
+
+    void CopyOddNumArrayUsingAddArrayElement(int Array1[100], int Length1, int Array2[100], int& Length2)
+    {
+        for (int Counter = 0; Counter < Length1; Counter++)
+        {
+            if (Array1[Counter] % 2 != 0)
+                AddArrayElement(Array2, Length2, Array1[Counter]);
+        }
+    }
+
+    void CopyPrimeNumArrayUsingAddArrayElement(int Array1[100], int Length1, int Array2[100], int& Length2)
+    {
+        for (int Counter = 0; Counter < Length1; Counter++)
+        {
+            if (IsPrimeNum(Array1[Counter]))
+                AddArrayElement(Array2, Length2, Array1[Counter]);
+        }
+    }
+
+    void CopyDistinctArrayUsingAddArrayElement(int Array1[100], int Length1, int Array2[100], int& Length2)
+    {
+        for (int Counter = 0; Counter < Length1; Counter++)
+        {
+            if (!IsNumInArray(Array2, Length2, Array1[Counter]))
+                AddArrayElement(Array2, Length2, Array1[Counter]);
+        }
+    }
+
+    void CopyArrayInReverseOrder(int Original[100], int Copy[100], int OriginalLength)
+    {
+
+        for (int Counter = 0; Counter < OriginalLength; Counter++)
+        {
+            Copy[Counter] = Original[OriginalLength - 1 - Counter];
+        }
+    }
+
+    void ShuffleArrayElements(int Array[100], int Length)
+    {
+
+
+        for (int Counter = 0; Counter < Length; Counter++)
+        {
+            Swap(Array[RandomNumber(0, Length - 1)], Array[RandomNumber(0, Length - 1)]);
+        }
+
+    }
+
+    bool IsArrayPalindrome(int Array[100], int Length)
+    {
+        for (int Counter = 0; Counter < Length / 2; Counter++)
+        {
+            if (Array[Counter] != Array[Length - 1 - Counter])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    int CountPositiveNumsInArray(int Array[100], int Length)
+    {
+        int Freq = 0;
+
+        for (int Counter = 0; Counter < Length; Counter++)
+        {
+            if (Array[Counter] >= 0)
+            {
+                Freq++;
+            }
+        }
+
+        return Freq;
+
+    }
+
+    // Matrix
+
+    void PrintMatrix(int matrix[3][3])
+    {
+        cout << "This is an ordered 3x3 matrix:" << endl;
+        for (int row = 0; row < 3; row++)
+        {
+            for (int col = 0; col < 3; col++)
+            {
+                cout << setw(3) << matrix[row][col] << "   ";
+            }
+            cout << endl;
+        }
+    }
+
+    void FillRandomNumsMatrix(int matrix[3][3])
+    {
+        for (int row = 0; row < 3; row++)
+        {
+            for (int colmn = 0; colmn < 3; colmn++)
+            {
+                matrix[row][colmn] = RandomNumber(1, 10);
+            }
+        }
+    }
+
+    int CountFreqInMatrix(int matrix[3][3], int Number)
+    {
+
+        int Freq = 0;
+
+        for (int row = 0; row < 3; row++)
+        {
+            for (int col = 0; col < 3; col++)
+            {
+                if (matrix[row][col] == Number)
+                    Freq++;
+            }
+        }
+
+        return Freq;
+    }
+
+    int SumMatrixRow(int array[3][3], int RowNumber, int SizeOfColmn)
+    {
+        int sum = 0;
+
+        for (int colmn = 0; colmn < SizeOfColmn; colmn++)
+        {
+            sum += array[RowNumber][colmn];
+        }
+
+        return sum;
+    }
+
+    int SumMatrixCol(int matrix[3][3], int colNumber, int SizeOfRows)
+    {
+        int sum = 0;
+
+        for (int row = 0; row < SizeOfRows; row++)
+        {
+            sum += matrix[row][colNumber];
+        }
+
+        return sum;
+    }
+
+    bool IsNumInMatrix(int matrix[3][3], int Number)
+    {
+        for (int row = 0; row < 3; row++)
+        {
+            for (int col = 0; col < 3; col++)
+            {
+                if (matrix[row][col] == Number)
+                    return true;
+            }
+        }
+
+        return false;
+    }
+
+    bool IsMatrixPalindrome(int matrix[4][4], int Rows, int Cols)
+    {
+        for (int r = 0; r < Rows; r++)
+        {
+            for (int c = 0; c < Cols / 2; c++)
+            {
+                if (matrix[r][c] != matrix[r][Cols - 1 - c])
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
+
+    // Vectors
+
+    void AddElementInVector(vector <int>& vNumbers)
+    {
+        int Number = 0;
+        string Again = " ";
+        do
+        {
+            Number = ReadPositiveNumber("Enter a positive number: ");
+            vNumbers.push_back(Number);
+
+            Again = AskY_N("Do you want keep adding? Y/N:");
+
+        } while (Again == "Y" || Again == "y");
+    }
+
+    void PrintVectorElements(vector <int>& vNumbers)
+    {
+
+        cout << "\nvector Numbers are: " << endl;
+
+        for (int& item : vNumbers)
+        {
+
+            printf("%04d  \n", item);
+        }
+    }
+
+
+    // Files
+
+    void CreateFile(string FileName)
+    {
+        // trying to read a file with this name, if file not created it will fail and no imapct happens.
+
+        ifstream CheckFile(FileName);  // ifstream opens in ios::in by default
+
+        if (CheckFile.is_open())
+            return;
+        else
+            ofstream NewFile(FileName); // ofstream opens in ios::out by default
+    }
+
+    void PrintFile(const string FilePath)
+    {
+        fstream File;
+        File.open(FilePath, ios::in);
+
+        string Line;
+
+        if (File.is_open())
+        {
+            while (getline(File, Line))
+            {
+                cout << Line << endl;
+            }
+
+            File.close();
+        }
+    }
+
+    void ClearFile(const string FilePath)
+    {
+        fstream File;
+        File.open(FilePath, ios::out);
+
+        if (File.is_open())
+        {
+            File.close();
+        }
+    }
+
+    void CopyFile(const string srcFilePath, const string dstFilePath, const bool OverrideDst = false)
+    {
+        fstream src(srcFilePath, ios::in);
+        fstream dst(dstFilePath, (OverrideDst) ? ios::out : ios::app);
+
+        if (src.is_open() && dst.is_open())
+        {
+            string Line;
+
+            while (getline(src, Line))
+            {
+                dst << Line << endl;
+            }
+
+            src.close();
+            dst.close();
+        }
+
+    }
+
+    void LoadFileToVector(string FilePath, vector <string>& vFileContent)
+    {
+        fstream File;
+        File.open(FilePath, ios::in);
+
+        if (File.is_open())
+        {
+            string Line;
+
+            while (getline(File, Line))
+            {
+                vFileContent.push_back(Line);
+            }
+
+            File.close();
+        }
+
+    }
+
+    void LoadVectorToNewFile(string FilePath, const vector <string>& VectorContent)
+    {
+        fstream File;
+        File.open(FilePath, ios::out); // ios::out  to create a file if not created.
+
+        if (File.is_open())
+        {
+            for (const string& Line : VectorContent)
+            {
+                if (Line != "")   //to ignore if vector element is empty (due to capacity nature)
+                {
+                    File << Line << endl;
+                }
+            }
+
+            File.close();
+        }
+    }
+
+    void DeleteRecordInFile(string FilePath, string Record)
+    {
+        vector <string> Temp;
+        LoadFileToVector(FilePath, Temp);
+
+        for (string& item : Temp)
+        {
+            if (item == Record)
+            {
+                item = "";
+            }
+        }
+
+        LoadVectorToNewFile(FilePath, Temp);
+
+    }
+
+    void DeleteLineInFile(string FilePath, unsigned short LineNumber)
+    {
+        vector <string> Temp;
+        LoadFileToVector(FilePath, Temp);
+
+        Temp.at(LineNumber - 1) = "";
+
+        LoadVectorToNewFile(FilePath, Temp);
+    }
+
+    void DeleteStringInLineInFile(string FilePath, string str)
+    {
+        vector<string> Temp;
+        LoadFileToVector(FilePath, Temp);
+
+        // size_t is unsgined long long int , but better use size_t for perforamce as it is for all systems (64-bit and 32-bit)
+
+        size_t Index;
+
+        for (string& Element : Temp)
+        {
+            Index = Element.find(str);
+
+            while (Index != string::npos)  // search for str in the same element (the whole line)
+            {
+                Element.erase(Index, str.length());
+
+                Index = Element.find(str);    // Update Index to find the next occurrence of the string in the same element, if not found, will result in npos.
+            }
+        }
+
+        LoadVectorToNewFile(FilePath, Temp);
+    }
+
+    void UpdateRecordInFile(string FilePath, string Record, string UpdateTo)
+    {
+        vector <string> Temp;
+        LoadFileToVector(FilePath, Temp);
+
+        for (string& item : Temp)
+        {
+            if (item == Record)
+            {
+                item = UpdateTo;
+            }
+        }
+
+        LoadVectorToNewFile(FilePath, Temp);
+
+    }
+
+
+}
