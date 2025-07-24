@@ -40,7 +40,6 @@ stClientRecords ConvertDataLineToRecord(string Line, string Delim = "#//#")
 vector<stClientRecords> LoadClientsDataFromFile(string FilePath)
 {
     vector<stClientRecords> vAllClients;
-    vector<string> vLines;
     fstream File;
 
     File.open(FilePath, ios::in);
@@ -62,6 +61,14 @@ vector<stClientRecords> LoadClientsDataFromFile(string FilePath)
     return vAllClients;
 }
 
+void ShowClientsFromFile()
+{
+    vector<stClientRecords> vAllClients = LoadClientsDataFromFile(ClientsDataBase);
+    Header(vAllClients);
+    PrintClients(vAllClients);
+
+}
+
 void PrintClients(vector<stClientRecords>& vAllClients)
 {
     for (stClientRecords& ClientInfo : vAllClients)
@@ -75,14 +82,6 @@ void PrintClients(vector<stClientRecords>& vAllClients)
     cout << "\n--------------------------------------------------------------------------------------------------------------------------\n" << endl;
     
     
-}
-
-void ShowClientsFromFile()
-{
-    vector<stClientRecords> vAllClients = LoadClientsDataFromFile(ClientsDataBase);
-    Header(vAllClients);
-    PrintClients(vAllClients);
-
 }
 
 int main()
