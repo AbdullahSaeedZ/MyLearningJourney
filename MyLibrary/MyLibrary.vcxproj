@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="arr.h" />
+    <ClInclude Include="dt.h" />
     <ClInclude Include="fs.h" />
     <ClInclude Include="in.h" />
     <ClInclude Include="mtrx.h" />
