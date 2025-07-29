@@ -118,4 +118,17 @@ namespace dt
 		}
 	}
 
+	void PrintYearCalendar(short year)
+	{
+		printf("\n  -----------------------------");
+		printf("\n           Calendar - %d", year);
+		printf("\n  -----------------------------\n");
+
+		for (short i = 1; i <= 12; i++)
+		{
+			PrintMonthCalendar(year, i);
+			printf("\n  ---------------------------------\n");
+		}
+	}
+
 }
