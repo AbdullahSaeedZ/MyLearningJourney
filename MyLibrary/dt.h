@@ -131,4 +131,18 @@ namespace dt
 		}
 	}
 
+	short DaysFromYearBeginning(short year, short month, short day)
+	{
+		short DaysCount = 0;
+
+		for (short i = 1; i < month; i++)
+		{
+			DaysCount += NumOfMonthDays(year, i);
+		}
+
+		DaysCount += day;
+
+		return DaysCount;
+	}
+
 }
