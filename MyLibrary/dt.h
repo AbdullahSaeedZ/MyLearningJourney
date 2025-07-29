@@ -49,7 +49,7 @@ namespace dt
 		return dayIndex;
 	}
 
-	string DayWeekName(short DayOrder)
+	string WeekDayName(short DayOrder)
 	{
 		string DayName;
 
@@ -66,6 +66,56 @@ namespace dt
 		}
 
 		return DayName;
+	}
+
+	string MonthName(short monthNum)
+	{
+		string MonthName;
+
+		switch (monthNum)
+		{
+		case 1: MonthName = "JAN"; break;
+		case 2: MonthName = "FEB"; break;
+		case 3: MonthName = "MAR"; break;
+		case 4: MonthName = "APR"; break;
+		case 5: MonthName = "MAY"; break;
+		case 6: MonthName = "JUN"; break;
+		case 7: MonthName = "JUL"; break;
+		case 8: MonthName = "AUG"; break;
+		case 9: MonthName = "SEP"; break;
+		case 10: MonthName = "OCT"; break;
+		case 11: MonthName = "NOV"; break;
+		case 12: MonthName = "DEC"; break;
+		default: "None"; break;
+		}
+
+		return MonthName;
+	}
+
+	void PrintMonthCalendar(short year, short month)
+	{
+		string Mon = MonthName(month);
+		short Day1 = GetWeekDayOrder(year, month, 1);
+		short NumOfDays = NumOfMonthDays(year, month);
+
+		printf("\n  _______________%s_______________\n\n", Mon.c_str());
+		printf("  Sun  Mon  Tue  Wed  Thu  Fri  Sat\n");
+
+		short i;
+		for (i = 0; i < Day1; i++)
+			printf("     ");
+
+		for (short num = 1; num <= NumOfDays; num++)
+		{
+			printf("%5d", num);
+			i++;
+
+			if (i == 7)
+			{
+				i = 0;
+				printf("\n");
+			}
+		}
 	}
 
 }
