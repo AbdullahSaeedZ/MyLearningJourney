@@ -84,18 +84,47 @@ stDate DateOfDayNumberInYear(short year, short DayNum)
 	return Date;
 }
 
+
+
+stDate DateAfterAddingDays(stDate Date, short DaysToAdd)
+{
+	short RemingDays = DaysToAdd + DaysFromYearBeginning(Date.year, Date.month, Date.day);
+
+	while (RemingDays > (IsLeapYear(Date.year) ? 366 : 365))
+	{
+		RemingDays -= (IsLeapYear(Date.year) ? 366 : 365);
+		Date.year++;
+
+	}
+
+	Date = DateOfDayNumberInYear(Date.year, RemingDays);
+
+	return Date;
+}
+
+
+
+stDate ReadFullDate()
+{
+	stDate Date;
+	Date.day = ReadDay();
+	Date.month = ReadMonth();
+	Date.year = ReadYear();
+
+	return Date;
+}
+
 int main()
 {
-	short day = ReadDay();
-	short month = ReadMonth();
-	short year = ReadYear();
-	short DayNumber = DaysFromYearBeginning(year, month, day);
+	stDate OldDate = ReadFullDate();
+	short DaysToAdd = 0;
 
-	stDate Date = DateOfDayNumberInYear(year, DayNumber);
+	cout << "\nHow many days to add ? ";
+	cin >> DaysToAdd;
 
-	cout << "\nNumber of Days from the beginning of the year is " << DayNumber << endl;
+	stDate Date = DateAfterAddingDays(OldDate, DaysToAdd);
 
-	cout << "\nDate for " << DayNumber << " is : " << Date.day << "/" << Date.month << "/" << Date.year << endl;
+	cout << "\nDate after adding " << DaysToAdd << " days is : " << Date.day << "/" << Date.month << "/" << Date.year << endl;
 
 
 	return 0;
