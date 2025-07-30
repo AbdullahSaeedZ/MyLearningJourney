@@ -5,6 +5,41 @@ using namespace std;
 
 namespace dt
 {
+	struct stDate {
+		short month = 0, day = 0, year = 0;
+	};
+
+	int ReadPositiveNumber(string Message)
+	{
+		int Number = 0;
+		do
+		{
+			cout << Message << endl;
+			cin >> Number;
+
+			if (cin.fail())
+			{
+				// if other than numbers entered system will fail.
+				cin.clear();                // to clear the failure
+				cin.ignore(10000, '\n');    // to ignore what was entered before, to clean the buffer
+				cout << "Invalid input! Please enter a number." << endl;
+				continue;
+			}
+
+		} while (Number <= 0);
+
+		return Number;
+	}
+
+	stDate ReadDate()
+	{
+		stDate Date;
+		Date.day = ReadPositiveNumber("Enter Day:");
+		Date.month = ReadPositiveNumber("Enter Month:");
+		Date.year = ReadPositiveNumber("Enter year:");
+
+		return Date;
+	}
 
 	bool IsLeapYear(short num)
 	{
@@ -145,11 +180,6 @@ namespace dt
 		return DaysCount;
 	}
 
-
-	struct stDate {
-		short month = 0, day = 0, year = 0;
-	};
-
 	stDate DateOfDayNumberInYear(short year, short DayNum)
 	{
 		stDate Date;
@@ -178,5 +208,25 @@ namespace dt
 
 		return Date;
 	}
+
+	stDate DateAfterAddingDays(stDate CurrentDate, short DaysToAdd)
+	{
+		short RemingDays = DaysToAdd + DaysNumFromYearBeginning(CurrentDate.year, CurrentDate.month, CurrentDate.day);
+
+		while (RemingDays > (IsLeapYear(CurrentDate.year) ? 366 : 365))
+		{
+			RemingDays -= (IsLeapYear(CurrentDate.year) ? 366 : 365);
+			CurrentDate.year++;
+
+		}
+
+		CurrentDate = DateOfDayNumberInYear(CurrentDate.year, RemingDays);
+
+		return CurrentDate;
+	}
+
+
+
+	
 
 }
