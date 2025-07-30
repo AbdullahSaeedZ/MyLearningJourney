@@ -131,7 +131,7 @@ namespace dt
 		}
 	}
 
-	short DaysFromYearBeginning(short year, short month, short day)
+	short DaysNumFromYearBeginning(short year, short month, short day)
 	{
 		short DaysCount = 0;
 
@@ -143,6 +143,40 @@ namespace dt
 		DaysCount += day;
 
 		return DaysCount;
+	}
+
+
+	struct stDate {
+		short month = 0, day = 0, year = 0;
+	};
+
+	stDate DateOfDayNumberInYear(short year, short DayNum)
+	{
+		stDate Date;
+		short monthDays = 0;
+		short RemainingDays = DayNum;
+
+		Date.month = 1;
+		Date.year = year;
+
+		while (true)
+		{
+			monthDays = NumOfMonthDays(year, Date.month);
+
+			if (RemainingDays > monthDays)
+			{
+				RemainingDays -= monthDays;
+				Date.month++;
+			}
+
+			if (RemainingDays < monthDays)
+			{
+				Date.day = RemainingDays;
+				break;
+			}
+		}
+
+		return Date;
 	}
 
 }
