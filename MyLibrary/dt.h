@@ -245,5 +245,33 @@ namespace dt
 		return (month == 12);
 	}
 	
+	stDate IncreaseDateByOneDay(stDate Date)
+	{
+		if (IsLastDayInMonth(Date))
+		{
+			if (IsLastMonthInYear(Date.month))
+			{
+				Date.day = 1;
+				Date.month = 1;
+				Date.year++;
+			}
+			else
+			{
+				Date.day = 1;
+				Date.month++;
+			}
+		}
+		else
+		{
+			Date.day++;
+		}
+
+		return Date;
+	}
+
+	void PrintDate(stDate Date)
+	{
+		cout << Date.day << "/" << Date.month << "/" << Date.year;
+	}
 
 }
