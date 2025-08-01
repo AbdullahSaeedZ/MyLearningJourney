@@ -225,8 +225,25 @@ namespace dt
 		return CurrentDate;
 	}
 
+	bool IsDate1MoreThanDate2(stDate Date1, stDate Date2)
+	{
+		return (Date1.year > Date2.year) ? true : (Date1.year == Date2.year) ? ((Date1.month > Date2.month) ? true : ((Date1.month == Date2.month) ? ((Date1.day > Date2.day) ? true : false ) : false)): false;
+	}
 
+	bool IsDate1EqualToDate2(stDate Date1, stDate Date2)
+	{
+		return (Date1.year == Date2.year) ? ((Date1.month == Date2.month) ? ((Date1.day == Date2.day) ? true : false) : false) : false;
+	}
 
+	bool IsLastDayInMonth(stDate Date)
+	{
+		return (Date.day == NumOfMonthDays(Date.year, Date.month));
+	}
+
+	bool IsLastMonthInYear(short month)
+	{
+		return (month == 12);
+	}
 	
 
 }
