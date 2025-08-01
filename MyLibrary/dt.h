@@ -225,9 +225,9 @@ namespace dt
 		return CurrentDate;
 	}
 
-	bool IsDate1MoreThanDate2(stDate Date1, stDate Date2)
+	bool IsDate1BeforeDate2(stDate Date1, stDate Date2)
 	{
-		return (Date1.year > Date2.year) ? true : (Date1.year == Date2.year) ? ((Date1.month > Date2.month) ? true : ((Date1.month == Date2.month) ? ((Date1.day > Date2.day) ? true : false ) : false)): false;
+		return  (Date1.year < Date2.year) ? true : ((Date1.year == Date2.year) ? (Date1.month < Date2.month ? true : (Date1.month == Date2.month ? Date1.day < Date2.day : false)) : false);
 	}
 
 	bool IsDate1EqualToDate2(stDate Date1, stDate Date2)
@@ -267,6 +267,20 @@ namespace dt
 		}
 
 		return Date;
+	}
+
+	short DaysDiffOfTwoDates(stDate Date1, stDate Date2, bool IncludeEndDay = false)
+	{
+		short Counter = 0;
+
+		while (IsDate1BeforeDate2(Date1, Date2))
+		{
+			Counter++;
+			Date1 = IncreaseDateByOneDay(Date1);
+		}
+
+		return (IncludeEndDay) ? ++Counter : Counter;
+
 	}
 
 	void PrintDate(stDate Date)
