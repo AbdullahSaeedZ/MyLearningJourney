@@ -269,20 +269,6 @@ namespace dt
 		return Date;
 	}
 
-	short DaysDiffOfTwoDates(stDate Date1, stDate Date2, bool IncludeEndDay = false)
-	{
-		short Counter = 0;
-
-		while (IsDate1BeforeDate2(Date1, Date2))
-		{
-			Counter++;
-			Date1 = IncreaseDateByOneDay(Date1);
-		}
-
-		return (IncludeEndDay) ? ++Counter : Counter;
-
-	}
-
 	void PrintDate(stDate Date)
 	{
 		cout << Date.day << "/" << Date.month << "/" << Date.year;
@@ -300,6 +286,44 @@ namespace dt
 		Date.year = now->tm_year + 1900;
 
 		return Date;
+	}
+
+	void  SwapDates(stDate& Date1, stDate& Date2)
+	{
+		stDate TempDate;
+		TempDate.year = Date1.year;
+		TempDate.month = Date1.month;
+		TempDate.day = Date1.day;
+
+		Date1.year = Date2.year;
+		Date1.month = Date2.month;
+		Date1.day = Date2.day;
+
+		Date2.year = TempDate.year;
+		Date2.month = TempDate.month;
+		Date2.day = TempDate.day;
+
+	}
+
+	short DaysDiffOfTwoDates(stDate Date1, stDate Date2, bool IncludeEndDay = false)
+	{
+		int Days = 0;
+		short SawpFlagValue = 1;
+
+		if (!IsDate1BeforeDate2(Date1, Date2))
+		{
+			//Swap Dates 
+			SwapDates(Date1, Date2);
+			SawpFlagValue = -1;
+		}
+
+		while (IsDate1BeforeDate2(Date1, Date2))
+		{
+			Days++;
+			Date1 = IncreaseDateByOneDay(Date1);
+		}
+		return (IncludeEndDay) ? ++Days * SawpFlagValue : Days * SawpFlagValue;
+
 	}
 
 }
