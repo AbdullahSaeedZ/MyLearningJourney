@@ -326,4 +326,113 @@ namespace dt
 
 	}
 
+
+	stDate IncreaseDateByXDays(stDate Date, short x)
+	{
+		for (short i = 1; i <= x; i++)
+		{
+			Date = IncreaseDateByOneDay(Date);
+		}
+
+		return Date;
+	}
+
+	stDate IncreaseDateBy1Week(stDate Date)
+	{
+		for (short i = 1; i <= 7; i++)
+		{
+			Date = IncreaseDateByOneDay(Date);
+		}
+
+		return Date;
+	}
+
+	stDate IncreaseDateByXWeek(stDate Date, short x)
+	{
+		for (short i = 1; i <= x; i++)
+		{
+			Date = IncreaseDateBy1Week(Date);
+		}
+
+		return Date;
+	}
+
+	stDate IncreaseDateBy1Month(stDate Date)
+	{
+		if (Date.month == 12)
+		{
+			Date.month = 1;
+			Date.year++;
+		}
+		else
+		{
+			++Date.month;
+		}
+
+		short EndDay = NumOfMonthDays(Date.year, Date.month);
+		if (Date.day > EndDay)
+			Date.day = EndDay;
+
+
+		return Date;
+	}
+
+	stDate IncreaseDateByXMonth(stDate Date, short x)
+	{
+		for (short i = 1; i <= x; i++)
+		{
+			Date = IncreaseDateBy1Month(Date);
+		}
+
+		return Date;
+	}
+
+	stDate IncreaseDateBy1Year(stDate Date)
+	{
+		++Date.year;
+
+		short EndDay = NumOfMonthDays(Date.year, Date.month);
+
+		if (IsLeapYear(Date.year) && Date.day > EndDay)
+			Date.day = EndDay;
+
+		return Date;
+	}
+
+	stDate IncreaseDateByXYear(stDate Date, short x)
+	{
+		for (short i = 1; i <= x; i++)
+		{
+			Date = IncreaseDateBy1Year(Date);
+		}
+		return Date;
+	}
+
+	stDate IncreaseDateBy1Decade(stDate Date)
+	{
+		Date.year += 10;
+		return Date;
+	}
+
+	stDate IncreaseDateByXDecade(stDate Date, short x)
+	{
+		for (short i = 1; i <= x; i++)
+		{
+			Date = IncreaseDateBy1Decade(Date);
+		}
+		return Date;
+	}
+
+	stDate IncreaseDateBy1Century(stDate Date)
+	{
+		Date.year += 100;
+		return Date;
+	}
+
+	stDate IncreaseDateBy1Millennium(stDate Date)
+	{
+		Date.year += 1000;
+		return Date;
+	}
+
 }
