@@ -288,4 +288,18 @@ namespace dt
 		cout << Date.day << "/" << Date.month << "/" << Date.year;
 	}
 
+	stDate GetSystemDate()
+	{
+		stDate Date;
+
+		time_t t = time(0);
+		tm* now = localtime(&t);
+
+		Date.day = now->tm_mday;
+		Date.month = now->tm_mon + 1;
+		Date.year = now->tm_year + 1900;
+
+		return Date;
+	}
+
 }
