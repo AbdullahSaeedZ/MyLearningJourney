@@ -504,4 +504,18 @@ namespace dt
 		return ((IsLeapYear(Date.year)) ? 366 : 365) - (DaysNumFromYearBeginning(Date.year, Date.month, Date.day));
 	}
 
+	short GetVacationDays(stDate StartDate, stDate EndDate)
+	{
+		short Counter = 0;
+
+		while (!IsDate1EqualToDate2(StartDate, EndDate))
+		{
+			StartDate = IncreaseDateByOneDay(StartDate);
+
+			if (!IsWeekEnd(StartDate))
+				++Counter;
+		}
+		return Counter;
+	}
+
 }
