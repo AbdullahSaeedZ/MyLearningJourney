@@ -52,7 +52,7 @@ stDate DecreaseDateByOneDay(stDate Date)
 		{
 			Date.year--;
 			Date.month = 12;
-			Date.day = NumOfMonthDays(Date.year, Date.month);
+			Date.day = 31;
 		}
 		else
 		{
