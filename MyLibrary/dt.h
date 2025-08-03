@@ -269,6 +269,30 @@ namespace dt
 		return Date;
 	}
 
+	stDate DecreaseDateByOneDay(stDate Date)
+	{
+		if (Date.day == 1)
+		{
+			if (Date.month == 1)
+			{
+				Date.year--;
+				Date.month = 12;
+				Date.day = 31;
+			}
+			else
+			{
+				Date.month--;
+				Date.day = NumOfMonthDays(Date.year, Date.month);
+			}
+		}
+		else
+		{
+			Date.day--;
+		}
+
+		return Date;
+	}
+
 	void PrintDate(stDate Date)
 	{
 		cout << Date.day << "/" << Date.month << "/" << Date.year;
