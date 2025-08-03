@@ -84,6 +84,19 @@ namespace dt
 		return dayIndex;
 	}
 
+	short GetWeekDayOrder(stDate Date)
+	{
+		int a = ((14 - Date.month) / 12);
+		int y = Date.year - a;
+		int m = (Date.month + (12 * a)) - 2;
+
+		// Gregorian formula:
+		// result starts from 0 = sunday ..etc.
+		int dayIndex = (Date.day + y + (y / 4) - (y / 100) + (y / 400) + ((31 * m) / 12)) % 7;
+
+		return dayIndex;
+	}
+
 	string WeekDayName(short DayOrder)
 	{
 		string DayName;
@@ -457,6 +470,38 @@ namespace dt
 	{
 		Date.year += 1000;
 		return Date;
+	}
+
+	
+
+	bool IsEndOfWeek(stDate Date)
+	{
+		return (GetWeekDayOrder(Date) == 6);
+	}
+
+	bool IsBusinessDay(stDate Date)
+	{
+		return (GetWeekDayOrder(Date) <= 4);
+	}
+
+	bool IsWeekEnd(stDate Date)
+	{
+		return (GetWeekDayOrder(Date) >= 5);
+	}
+
+	short DaysUntilEndOfWeek(stDate Date)
+	{
+		return 6 - (GetWeekDayOrder(Date));
+	}
+
+	short DaysUntilEndOfMonth(stDate Date)
+	{
+		return (NumOfMonthDays(Date.year, Date.month)) - Date.day;
+	}
+
+	short DaysUntilEndOfYear(stDate Date)
+	{
+		return ((IsLeapYear(Date.year)) ? 366 : 365) - (DaysNumFromYearBeginning(Date.year, Date.month, Date.day));
 	}
 
 }
