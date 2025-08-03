@@ -518,4 +518,32 @@ namespace dt
 		return Counter;
 	}
 
+	stDate GetVacationReturnDate(stDate Date1, short VacationDays)
+	{
+		short WeekEndCounter = 0;
+
+		// if start day is a weekend then we get rid of it, then start the process wih a business day for the vacation
+		while (IsWeekEnd(Date1))
+		{
+			Date1 = IncreaseDateByOneDay(Date1);
+		}
+
+		//now we increase the date to  reach the return date, once we face a weekend day, we increase weekend counter to control the loop condition
+		for (short i = 1; i <= VacationDays + WeekEndCounter; i++)
+		{
+			if (IsWeekEnd(Date1))
+				WeekEndCounter++;
+
+			Date1 = IncreaseDateByOneDay(Date1);
+		}
+
+		// if return dates happens to be in weekend, we increase till we reach a business day
+		while (IsWeekEnd(Date1))
+		{
+			Date1 = IncreaseDateByOneDay(Date1);
+		}
+
+		return Date1;
+	}
+
 }
