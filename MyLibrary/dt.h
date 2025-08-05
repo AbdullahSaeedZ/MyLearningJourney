@@ -248,6 +248,12 @@ namespace dt
 		return (Date1.year == Date2.year) ? ((Date1.month == Date2.month) ? ((Date1.day == Date2.day) ? true : false) : false) : false;
 	}
 
+	bool IsDate1AfterDate2(stDate Date1, stDate Date2)
+	{
+		return  (!IsDate1BeforeDate2(Date1, Date2) && !IsDate1EqualToDate2(Date1, Date2));
+	}
+
+
 	bool IsLastDayInMonth(stDate Date)
 	{
 		return (Date.day == NumOfMonthDays(Date.year, Date.month));
