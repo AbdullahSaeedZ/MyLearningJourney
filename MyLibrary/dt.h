@@ -389,6 +389,10 @@ namespace dt
 
 	}
 
+	short PeriodLengthInDays(stPeriod Period, bool IncludeEndDate = true)
+	{
+		return DaysDiffOfTwoDates(Period.StartDate, Period.EndDate, IncludeEndDate);
+	}
 
 	stDate IncreaseDateByXDays(stDate Date, short x)
 	{
