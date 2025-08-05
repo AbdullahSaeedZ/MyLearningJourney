@@ -5,8 +5,16 @@ using namespace std;
 
 namespace dt
 {
+
 	struct stDate {
 		short month = 0, day = 0, year = 0;
+	};
+
+	struct stPeriod {
+
+		stDate StartDate;
+		stDate EndDate;
+
 	};
 
 	int ReadPositiveNumber(string Message)
@@ -258,6 +266,12 @@ namespace dt
 	enDateComparison CompareTwoDates(stDate Date1, stDate Date2)
 	{
 		return (IsDate1AfterDate2(Date1, Date2)) ? enDateComparison::After : (IsDate1BeforeDate2(Date1, Date2) ? enDateComparison::Before : enDateComparison::Equal);
+	}
+
+	bool IsOverlapPeriod(stPeriod Period1, stPeriod Period2)
+	{
+		// these two cases if there is no overlaping;
+		return (CompareTwoDates(Period2.EndDate, Period1.StartDate) == enDateComparison::Before || CompareTwoDates(Period2.StartDate, Period1.EndDate) == enDateComparison::After) ? false : true;
 	}
 
 	bool IsLastDayInMonth(stDate Date)
