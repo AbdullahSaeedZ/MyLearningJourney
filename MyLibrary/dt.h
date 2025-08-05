@@ -253,6 +253,12 @@ namespace dt
 		return  (!IsDate1BeforeDate2(Date1, Date2) && !IsDate1EqualToDate2(Date1, Date2));
 	}
 
+	enum enDateComparison { Before = -1, Equal = 0, After = 1 };
+
+	enDateComparison CompareTwoDates(stDate Date1, stDate Date2)
+	{
+		return (IsDate1AfterDate2(Date1, Date2)) ? enDateComparison::After : (IsDate1BeforeDate2(Date1, Date2) ? enDateComparison::Before : enDateComparison::Equal);
+	}
 
 	bool IsLastDayInMonth(stDate Date)
 	{
