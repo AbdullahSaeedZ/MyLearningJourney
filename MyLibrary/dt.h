@@ -576,4 +576,9 @@ namespace dt
 		return Date1;
 	}
 
+	bool IsDateWithinPeriod(stPeriod Period, stDate Date)
+	{
+		return  !(CompareTwoDates(Date, Period.StartDate) == enDateComparison::Before || CompareTwoDates(Date, Period.EndDate) == enDateComparison::After);
+	}
+
 }
