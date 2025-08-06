@@ -49,6 +49,17 @@ namespace dt
 		return Date;
 	}
 
+	stPeriod ReadPeriod()
+	{
+		stPeriod Period;
+		cout << "\nEnter start date:" << endl;
+		Period.StartDate = ReadDate();
+		cout << "\nEnter End date:" << endl;
+		Period.EndDate = ReadDate();
+
+		return Period;
+	}
+
 	bool IsLeapYear(short num)
 	{
 		return ((num % 4 == 0) && (num % 100 != 0)) || ((num % 400 == 0));
@@ -581,4 +592,19 @@ namespace dt
 		return  !(CompareTwoDates(Date, Period.StartDate) == enDateComparison::Before || CompareTwoDates(Date, Period.EndDate) == enDateComparison::After);
 	}
 
+	short GetPeriodsOverlapDays(stPeriod Period1, stPeriod Period2)
+	{
+		if (!IsOverlapPeriod(Period1, Period2))
+			return 0;
+		// take the farest start date of the two periods
+		stDate Start = (CompareTwoDates(Period1.StartDate, Period2.StartDate) == enDateComparison::Before) ? Period2.StartDate : Period1.StartDate;
+
+		// take the closest end date of the two periods
+		stDate End = (CompareTwoDates(Period1.EndDate, Period2.EndDate) == enDateComparison::Before) ? Period1.EndDate : Period2.EndDate;
+
+		return PeriodLengthInDays({ Start, End });
+	}
+
+
+		
 }
