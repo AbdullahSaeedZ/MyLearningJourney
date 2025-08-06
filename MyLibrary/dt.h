@@ -605,6 +605,9 @@ namespace dt
 		return PeriodLengthInDays({ Start, End });
 	}
 
-
+	bool IsValidDate(stDate Date)
+	{
+		return  ((Date.year >= 1) && (Date.month >= 1 && Date.month <= 12) && (Date.day >= 1) && (Date.day <= NumOfMonthDays(Date.year, Date.month)));
+	}
 		
 }
