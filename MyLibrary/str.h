@@ -234,7 +234,20 @@ namespace str
 
     }
 
-    string ReplaceWord(string str, string OldWord, string NewWord, bool MatchCase)
+    string ReplaceExactWord(string str, string OldWord, string NewWord)
+    {
+        short pos = 0;
+        while ((pos = str.find(OldWord)) != string::npos)
+        {
+
+            str = str.replace(pos, OldWord.length(), NewWord);
+
+        }
+
+        return str;
+    }
+
+    string ReplaceWord(string str, string OldWord, string NewWord, bool MatchCase = false)
     {
         vector<string> vWords = SplitStringToVector(str, " ");
 
