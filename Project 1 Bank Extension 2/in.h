@@ -68,7 +68,7 @@ namespace in
         string str = "";
 
         cout << Message << endl;
-        getline(cin, str);
+        getline(cin >> ws, str);
 
         return str;
     }

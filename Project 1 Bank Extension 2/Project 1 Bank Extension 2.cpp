@@ -26,6 +26,7 @@ struct stUser
     string UserName = "";
     string Password = "";
     short Permission = 0;
+    bool MarkForDelete = false;
 };
 
 double ReadAmount(string Message)
@@ -50,9 +51,10 @@ double ReadAmount(string Message)
     return Number;
 }
 
-void ShowMenu()
+void ShowMenu(string UserName)
 {
     system("cls");
+    cout << "Current User: " << UserName << endl;
     cout << "===========================================" << endl;
     cout << "             Main Menu Screen" << endl;
     cout << "===========================================" << endl;
@@ -475,8 +477,9 @@ void ShowClientInfo(vector<stClientData>& vAllClients)
 }
 
 
-void TransactionScreen()
+void TransactionScreen(string Username)
 {
+    cout << "Current User: " << Username << endl;
     cout << "\n--------------------------------" << endl;
     cout << setw(50) << "Transaction Menu Screen" << endl;
     cout << "--------------------------------\n";
@@ -665,14 +668,14 @@ void ShowTotalBalances(const vector<stClientData>& vAllClients)
 
 }
 
-void TransactionProcess(vector<stClientData>& vAllClients)
+void TransactionProcess(vector<stClientData>& vAllClients, string Username)
 {
     short Choice;
 
     do
     {
         system("cls");
-        TransactionScreen();
+        TransactionScreen(Username);
         Choice = in::ReadPositiveNumInRange("Choose what to do from the list [1 to 4]: ", 1, 4);
 
         if (Choice == enTransChoice::Deposit)
@@ -797,9 +800,10 @@ vector<stUser> LoadUsersFromFile(string FilePath)
 }
 
 
-void ShowManageMenu()
+void ShowManageMenu(string Username)
 {
     system("cls");
+    cout << "Current User: " << Username << endl;
     cout << "===========================================" << endl;
     cout << "             Manage Users Menu Screen" << endl;
     cout << "===========================================" << endl;
@@ -962,13 +966,255 @@ void AddNewUserProcess(vector<stUser>& vAllUsers)
 }
 
 
-void ManageUsersProcess(vector<stUser>& vAllUsers)
+void PrintUserRecord(stUser User)
+{
+    cout << "\n--------------------------------" << endl;
+    cout << "Username  : " << User.UserName << endl;
+    cout << "Password  : " << User.Password << endl;
+    cout << "Permission: " << User.Permission << endl;
+    cout << "--------------------------------\n" << endl;
+}
+
+void DeleteUserHeader()
+{
+    cout << "\n--------------------------------" << endl;
+    cout << setw(50) << "Delete User Screen" << endl;
+    cout << "--------------------------------\n" << endl;
+}
+
+void MarkUserForDelete(vector<stUser>& vAllUsers, string UserName)
+{
+    for (stUser& record : vAllUsers)
+    {
+        if (record.UserName == UserName)
+        {
+            record.MarkForDelete = true;
+            break;
+        }
+    }
+}
+
+void UpdateUsersAfterDelete(vector<stUser>& vAllUsers, string UserName)
+{
+    string Line = "";
+    fstream File;
+    File.open(UserBase, ios::out);
+
+    if (File.is_open())
+    {
+        for (stUser& record : vAllUsers)
+        {
+            if (record.MarkForDelete == false)
+            {
+                Line = ConvertUserRecordToLine(record);
+                File << Line << endl;
+            }
+        }
+
+        File.close();
+    }
+}
+
+void DeleteOneUser(vector<stUser>& vAllUsers, string UserName)
+{
+    MarkUserForDelete(vAllUsers, UserName);
+    UpdateUsersAfterDelete(vAllUsers, UserName);
+}
+
+bool IsUserNameFound(const vector<stUser>& vAllUsers, string UserName, stUser &ToBeFilled)
+{
+    for (const stUser& record : vAllUsers)
+    {
+        if (record.UserName == UserName)
+        {
+            ToBeFilled = record;
+            return true;
+        }
+    }
+    return false;
+}
+
+void DeleteUserProcess(vector<stUser>& vAllUsers)
+{
+    stUser User;
+    string Again = "";
+    string sure = "";
+    string UserName = "";
+    
+
+    do
+    {
+        system("cls");
+        DeleteUserHeader();
+
+        UserName = in::ReadString("\nPlease enter Username: ");
+
+        if (UserName == "Admin")
+        {
+            cout << "\nAdmin Cannot be Deleted!" << endl;
+            break;
+        }
+
+        if (IsUserNameFound(vAllUsers, UserName, User))
+        {
+            PrintUserRecord(User);
+
+            sure = in::AskY_N("\nAre you sure you want to delete this User ? y/n ? ");
+            if (sure == "y" || sure == "Y")
+            {
+                DeleteOneUser(vAllUsers, UserName);
+                vAllUsers = LoadUsersFromFile(UserBase);
+                cout << "\nUser Deleted Successfully !" << endl;
+            }
+        }
+        else
+        {
+            cout << "\nUser with this Username Doesn`t exist !" << endl;
+        }
+
+
+        Again = in::AskY_N("\nDo you want to delete other Users? y/n?");
+
+    } while (Again == "y" || Again == "Y");
+
+}
+
+
+void UpdateUserHeader()
+{
+    cout << "\n--------------------------------" << endl;
+    cout << "    Update User Info Screen" << endl;
+    cout << "--------------------------------\n";
+}
+
+stUser ReadUserRecordUpdate(string UserName)
+{
+    stUser User;
+
+    User.UserName = UserName;
+
+    cout << "Enter New Password? ";
+    getline(cin >> ws, User.Password);
+
+    User.Permission = GivePermission();
+
+    return User;
+}
+
+void UpdateOneUser(vector<stUser>& vAllUsers, string UserName)
+{
+    for (stUser& record : vAllUsers)
+    {
+        if (record.UserName == UserName)
+        {
+            record = ReadUserRecordUpdate(UserName);
+            break;
+        }
+    }
+}
+
+void LoadVectorToFile(vector<stUser>& vAllUsers)
+{
+    string Line = "";
+    fstream File;
+    File.open(UserBase, ios::out);
+
+    if (File.is_open())
+    {
+        for (stUser& record : vAllUsers)
+        {
+            Line = ConvertUserRecordToLine(record);
+            File << Line << endl;
+        }
+
+        File.close();
+    }
+}
+
+void UpdateUserProcess(vector<stUser>& vAllUsers)
+{
+    stUser User;
+    string Again = "";
+    string sure = "";
+    string UserName = "";
+
+    do
+    {
+        system("cls");
+        UpdateUserHeader();
+
+        UserName = in::ReadString("\nPlease enter Username: ");
+        if (IsUserNameFound(vAllUsers, UserName, User))
+        {
+            cout << "\nUser Details: " << endl;
+            PrintUserRecord(User);
+
+            sure = in::AskY_N("\nAre you sure you want to update this User ? y/n ? ");
+            if (sure == "y" || sure == "Y")
+            {
+                UpdateOneUser(vAllUsers, UserName);
+                LoadVectorToFile(vAllUsers);
+                vAllUsers = LoadUsersFromFile(UserBase);
+                cout << "\nUser Info Updated Successfully !" << endl;
+            }
+        }
+        else
+        {
+            cout << "\nUser with this Username Doesn`t exist !" << endl;
+        }
+
+
+        Again = in::AskY_N("\nDo you want to update other Users info? y/n?");
+
+    } while (Again == "y" || Again == "Y");
+
+}
+
+
+
+void FindUserHeader()
+{
+    cout << "\n--------------------------------" << endl;
+    cout <<  "     Find User Screen" << endl;
+    cout << "--------------------------------\n";
+}
+
+void ShowUserInfoProcess(vector<stUser>& vAllUsers)
+{
+    stUser User;
+    string Again = "";
+    string UserName = "";
+
+    do
+    {
+        system("cls");
+        FindUserHeader();
+
+        UserName = in::ReadString("\nPlease enter Username: ");
+        if (IsUserNameFound(vAllUsers, UserName, User))
+        {
+            cout << "\nUser Details: " << endl;
+            PrintUserRecord(User);
+        }
+        else
+        {
+            cout << "\nUser with this Username Doesn`t exist !" << endl;
+        }
+
+
+        Again = in::AskY_N("\nDo you want to find other Users info? y/n?");
+
+    } while (Again == "y" || Again == "Y");
+}
+
+
+void ManageUsersProcess(vector<stUser>& vAllUsers, string Username)
 {
     short Choice = 0;
     do
     {
         system("cls");
-        ShowManageMenu();
+        ShowManageMenu(Username);
         Choice = in::ReadPositiveNumInRange("Choose what to do from the list [1 to 6]: ", 1, 6);
 
         if (Choice == enManageOption::eListUser)
@@ -986,25 +1232,31 @@ void ManageUsersProcess(vector<stUser>& vAllUsers)
         else if (Choice == enManageOption::eDeleteUser)
         {
             system("cls");
-            
+            DeleteUserProcess(vAllUsers);
             system("pause");
         }
         else if (Choice == enManageOption::eUpdateUser)
         {
             system("cls");
-            
+            UpdateUserProcess(vAllUsers);
             system("pause");
         }
         else if(Choice == enManageOption::eFindUser)
         {
             system("cls");
-            
+            ShowUserInfoProcess(vAllUsers);
             system("pause");
+        }
+        else
+        {
+            break;
         }
         
 
     } while (Choice != enManageOption::eMainMenu);
 }
+
+
 
 void PrintDeniedAccess()
 {
@@ -1018,7 +1270,7 @@ bool HasPermission(short Permission, enPermission Access)
     return (Permission == -1) || (Permission & Access);
 }
 
-void StartProgram(vector<stUser>& vAllUsers, short Permission)
+void StartProgram(vector<stUser>& vAllUsers, stUser User)
 {
     vector<stClientData> vAllClients = LoadDataFromFile(ClientBase);
     short Choice = 0;
@@ -1026,12 +1278,12 @@ void StartProgram(vector<stUser>& vAllUsers, short Permission)
     do
     {
         system("cls");
-        ShowMenu();
+        ShowMenu(User.UserName);
         Choice = in::ReadPositiveNumInRange("Choose what to do from the list [1 to 8]: ", 1, 8);
 
         if (Choice == enChoice::eShowList)
         {
-            if (HasPermission(Permission, enPermission::pShowClients))
+            if (HasPermission(User.Permission, enPermission::pShowClients))
             {
                 system("cls");
                 ShowClientsList(vAllClients);
@@ -1046,7 +1298,7 @@ void StartProgram(vector<stUser>& vAllUsers, short Permission)
         }
         else if (Choice == enChoice::eAddClient)
         {
-            if (HasPermission(Permission, enPermission::pAddClient))
+            if (HasPermission(User.Permission, enPermission::pAddClient))
             {
                 system("cls");
                 AddNewClient(vAllClients);
@@ -1061,7 +1313,7 @@ void StartProgram(vector<stUser>& vAllUsers, short Permission)
         }
         else if (Choice == enChoice::eDeleteClient)
         {
-            if (HasPermission(Permission, enPermission::pDeleteClient))
+            if (HasPermission(User.Permission, enPermission::pDeleteClient))
             {
                 system("cls");
                 DeleteClientProcess(vAllClients);
@@ -1069,12 +1321,14 @@ void StartProgram(vector<stUser>& vAllUsers, short Permission)
             }
             else
             {
+                system("cls");
                 PrintDeniedAccess();
+                system("pause");
             }
         }
         else if (Choice == enChoice::eUpdateClient)
         {
-            if (HasPermission(Permission, enPermission::pUpdateClient))
+            if (HasPermission(User.Permission, enPermission::pUpdateClient))
             {
                 system("cls");
                 UpdateClientInfo(vAllClients);
@@ -1082,12 +1336,14 @@ void StartProgram(vector<stUser>& vAllUsers, short Permission)
             }
             else
             {
+                system("cls");
                 PrintDeniedAccess();
+                system("pause");
             }
         }
         else if (Choice == enChoice::eFindClient)
         {
-            if (HasPermission(Permission, enPermission::pFindClient))
+            if (HasPermission(User.Permission, enPermission::pFindClient))
             {
                 system("cls");
                 ShowClientInfo(vAllClients);
@@ -1102,11 +1358,10 @@ void StartProgram(vector<stUser>& vAllUsers, short Permission)
         }
         else  if (Choice == enChoice::eTransaction)
         {
-            if (HasPermission(Permission, enPermission::pTransaction))
+            if (HasPermission(User.Permission, enPermission::pTransaction))
             {
                 system("cls");
-                TransactionProcess(vAllClients);
-                system("pause");
+                TransactionProcess(vAllClients, User.UserName);
             }
             else
             {
@@ -1117,11 +1372,10 @@ void StartProgram(vector<stUser>& vAllUsers, short Permission)
         }
         else if (Choice == enChoice::eManageUsers)
         {
-            if (HasPermission(Permission, enPermission::pManageUsers))
+            if (HasPermission(User.Permission, enPermission::pManageUsers))
             {
                 system("cls");
-                ManageUsersProcess(vAllUsers);
-                system("pause");
+                ManageUsersProcess(vAllUsers, User.UserName);
             }
             else
             {
@@ -1129,6 +1383,10 @@ void StartProgram(vector<stUser>& vAllUsers, short Permission)
                 PrintDeniedAccess();
                 system("pause");
             }
+        }
+        else
+        {
+            break;
         }
       
     } while (Choice != enChoice::eLogout);
@@ -1147,7 +1405,7 @@ void Login()
 
         User = ReadAndValidateLogin(vAllUsers);
 
-        StartProgram(vAllUsers, User.Permission);
+        StartProgram(vAllUsers, User);
 
 
     } while (KeepRunning);
