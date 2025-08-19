@@ -2,7 +2,7 @@
 using namespace std;
 
 /*
-1 - A copy constructor initializes a new object by copying data members from an existing object.
+1 - The copy constructor is used to initialize the members of a newly created object by copying the members of an already existing object.
 2 - This process is called copy initialization (or member-wise initialization).
 3 - Member-wise: each member of the new object is copied from the corresponding member of the source object.
 4 - You can explicitly define a copy constructor, but if you don’t, the compiler provides a default one.
