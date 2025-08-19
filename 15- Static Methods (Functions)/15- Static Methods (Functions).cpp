@@ -1,13 +1,15 @@
 #include <iostream>
 using namespace std;
 
-// static function member is the same concept of static data member, it is shared on the level of the class not the object.
-// i can call it from any object, and i can call this static function without creating any object, directly from the class.
+// A static member function belongs to the class itself, not to any specific object.
+// - It can be called directly using the class name (without creating an object).
+// - It can also be called from an object, but it’s still the same single function shared by all objects.
+// - A static function can only access other static members (data or functions) of the class.
+//   It cannot access non-static members, because those require a specific object instance.
 
 class clsA
 {
 public:
-
     static int Func1()
     {
         return 10;
@@ -21,11 +23,9 @@ public:
 
 int main()
 {
-    
-    cout << clsA::Func1() << endl;
-    
-    // if we try calling Func2 which is not static, will not allow.
-    
+    cout << clsA::Func1() << endl;  // valid: call static function directly from class
+
+    // clsA::Func2();  // invalid: cannot call a non-static function without an object
+
     return 0;
 }
-
