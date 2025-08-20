@@ -166,6 +166,38 @@ public:
         return _Department;
     }
 
+    /*
+    void Print() overriding the base class print function(in the sub class only).
+    {
+       we can access the print function of base class this way, using escape scope (baseClassName::)
+     
+        clsPerson::Print();
+     
+       can add any code here
+    }
+    */
+
+
+
+    void Print()
+    {
+
+        //note that here in the sub class i need to use the getters to show values of ID, FirstName and so on.
+
+        cout << "\nInfo\n" << endl;
+        cout << "_________________________________" << endl;
+        cout << "ID        : " << ID() << endl;
+        cout << "First Name: " << FirstName() << endl;
+        cout << "Last Name : " << LastName() << endl;
+        cout << "Full Name : " << FullName() << endl;
+        cout << "Email     : " << Email() << endl;
+        cout << "Phone     : " << PhoneNumber() << endl;
+        cout << "Title     : " << _Title << endl;
+        cout << "Department: " << _Department << endl;
+        cout << "Salary    : " << _Salary << endl;
+        cout << "_________________________________\n" << endl;
+
+    }
 };
 
 
@@ -174,6 +206,8 @@ int main()
 
     clsEmployee koko(200, "koko", "Alzahrani", "Emp@mail.com", "023232432", "Leader", "Network", 23000);
 
+    // before overriding, the print function is derived from the base class, so it wont show the title, department and salary
+    // after overriding, it will show new print format.
     koko.Print();
 
 
