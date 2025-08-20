@@ -1,15 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// the parameterized constructor in the base class, will take the parameters values and store them directly in its private data members.
-// but the issue is, when we declared a sub class and then we inherited those data members and the same constructor.
-// in the sub class, how will we save those parameters values when we dont have direct access and dont have those private members declared in the sub class?
-// in result, when declaring an object of a sub class, it will not allow to enter the constructor values.
 
-// solution is to make a constructor in the sub class that allows us to pass those values to the base constructor then to those data members we inherited.
-// this will be done by using Initializer list.
-
-// base class
 class clsPerson
 {
 private:
@@ -22,6 +14,7 @@ private:
 
 
 public:
+
 
     clsPerson(short ID, string FirstName, string LastName, string Email, string PhoneNumber)
     {
@@ -134,9 +127,7 @@ private:
 public:
 
 
-    // using initializing list to pass values to base constructor, and we can add as much parameters as we need.
-
-    clsEmployee(short ID, string FirstName, string LastName, string Email, string PhoneNumber, /*sub class parameters*/ string Title, string Dept, float Salary)
+    clsEmployee(short ID, string FirstName, string LastName, string Email, string PhoneNumber, string Title, string Dept, float Salary)
         : clsPerson(ID, FirstName, LastName, Email, PhoneNumber)
     {
         _Title = Title;
@@ -185,7 +176,7 @@ int main()
 
     koko.Print();
 
- 
+
 
 
     return 0;
