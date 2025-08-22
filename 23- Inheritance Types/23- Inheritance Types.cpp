@@ -10,8 +10,8 @@ using namespace std;
 // Hierarchical Inheritance
 // Multiple Sub Classes inherit from the same Super Class
 // A -> B
-// A -> C
-// A -> D
+//   -> C
+//   -> D
  
 
 // MultiLevel Inheritance
@@ -26,13 +26,14 @@ using namespace std;
 // Hybrid Inheritance
 // Combination of two or more types of inheritance (e.g., single + multiple)
 // A -> B
-// A -> C
-// B -> D
-// C -> D
+//   -> C
+// 
+// B -> 
+// C -> D 
 
 // Multiple Inheritance (Only in C++)
 // Sub Class inherits from more than one Super Class
-// A -> D
+// A -> 
 // B -> D
 
 
