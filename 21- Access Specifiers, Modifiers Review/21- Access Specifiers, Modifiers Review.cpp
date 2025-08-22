@@ -1,6 +1,12 @@
 #include <iostream>
 using namespace std;
 
+/*
+Private: Accessible only within the same class.
+Protected : Accessible within the same class and all derived classes.
+Public : Accessible within the same class, all derived classes, and from outside(e.g., in main function).
+*/
+
 
 class clsA
 {
