@@ -68,7 +68,7 @@ int main()
 // whats the pooooint ???
 // run this main:
 
-// making one function to print and just pass any object reference
+// making one function to print and just pass any object reference (speed and reuseability)
 /*
 void MyPrint(clsPerson* Person)
 {
