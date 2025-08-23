@@ -1,9 +1,9 @@
 ﻿#include <iostream>
 using namespace std;
 
-// Encapsulation: grouping all functions and data variables into one place (a class),
-// based on the object they belong to.
-//
+// Encapsulation: grouping all functions and data variables into one place (a class), and reach them only through an object.
+
+
 // Abstraction: exposing only the necessary methods of a class to the user 
 // and hiding the implementation details and data members.
 //
@@ -11,6 +11,8 @@ using namespace std;
 // In simple terms, abstraction “displays” only the relevant attributes of objects and “hides” the unnecessary details.
 
 // Abstraction = تعني التجريد , ف انا اجرد التفاصيل الغير ضروريه
+
+//Encapsulation Leads to Abstraction.
 
 class CoffeeMachine {
 private:
@@ -47,7 +49,7 @@ int main()
 {
 
     CoffeeMachine machine;
-    machine.MakeCoffee();  // Easy and clear
+    machine.MakeCoffee();  // Easy and clear, and unnecessary members i cant see here via the object.
 
     return 0;
 }
