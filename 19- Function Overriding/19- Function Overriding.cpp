@@ -1,6 +1,14 @@
-#include <iostream>
+﻿#include <iostream>
 using namespace std;
 
+
+// 1- Function overriding: 
+// Derived class writes a function with the SAME signature as base class.
+// - Without 'virtual' → base function is hidden, not real polymorphism. <- important.
+// - With 'virtual' in base → true overriding, runtime polymorphism works.
+
+
+// so the job done down below is Function hiding not overriding, in other languages, it is always overriding cuz in background they use virtual functions.
 
 class clsPerson
 {

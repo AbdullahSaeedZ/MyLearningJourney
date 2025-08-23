@@ -24,6 +24,7 @@
     <ProjectGuid>{1dd08d10-8c4a-4612-a7ff-a2b8fb744aa7}</ProjectGuid>
     <RootNamespace>My19FunctionOverriding</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>19- Function Hiding Not Overriding</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
