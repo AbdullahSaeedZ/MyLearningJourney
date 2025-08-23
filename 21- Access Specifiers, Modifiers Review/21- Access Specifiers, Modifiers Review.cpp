@@ -39,7 +39,7 @@ public:
 
     // the sub class B can access its own members + class A protected and public members.
     // protected members of class A can be accessed inside the class B, not by any objects, only classes.
-    // accessing is done by using escape scope.
+    // accessing is done by using scope resolution operator (::).
 
     void PublicTestFunction()
     {
