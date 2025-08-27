@@ -25,6 +25,40 @@ private:
 
 		return str;
 	}
+	short ReadPositiveNumber(string Message)
+	{
+		int Number = 0;
+		do
+		{
+			cout << Message << endl;
+			cin >> Number;
+
+			if (cin.fail())
+			{
+				// if other than numbers entered system will fail.
+				cin.clear();                // to clear the failure
+				cin.ignore(10000, '\n');    // to ignore what was entered before, to clean the buffer
+				cout << "Invalid input! Please enter a number." << endl;
+				continue;
+			}
+
+		} while (Number <= 0);
+
+		return Number;
+	}
+	static clsDate GetSystemDate()
+	{
+		clsDate Date;
+		time_t t = time(0);
+		tm now;
+		localtime_s(&now, &t);
+
+		Date._Day = now.tm_mday;
+		Date._Month = now.tm_mon + 1;
+		Date._Year = now.tm_year + 1900;
+
+		return Date;
+	}
 
 public:
 
@@ -38,7 +72,6 @@ public:
 		this->_Month = now.tm_mon + 1;
 		this->_Year = now.tm_year + 1900;
 	}
-
 
 	clsDate(string strDate, string delim = "/")
 	{
@@ -102,6 +135,7 @@ public:
 
 	}
 
+
 	void setDay(short Day)
 	{
 		this->_Day = Day;
@@ -138,30 +172,6 @@ public:
 	
 	__declspec(property(get = getYear, put = setYear)) short Year;
 
-
-
-
-	short ReadPositiveNumber(string Message)
-	{
-		int Number = 0;
-		do
-		{
-			cout << Message << endl;
-			cin >> Number;
-
-			if (cin.fail())
-			{
-				// if other than numbers entered system will fail.
-				cin.clear();                // to clear the failure
-				cin.ignore(10000, '\n');    // to ignore what was entered before, to clean the buffer
-				cout << "Invalid input! Please enter a number." << endl;
-				continue;
-			}
-
-		} while (Number <= 0);
-
-		return Number;
-	}
 
 
 	static void Print(clsDate Date)
@@ -616,6 +626,17 @@ public:
 	void SwapDates(clsDate &Date2)
 	{
 		SwapDates(*this, Date2);
+	}
+
+
+	static short CalculateAgeInDays(clsDate DateOfBirth)
+	{
+		return DaysDiffOfTwoDates(DateOfBirth, clsDate::GetSystemDate(), true);
+	}
+
+	short CalculateAgeInDays()
+	{
+		return CalculateAgeInDays(*this);
 	}
 
 
