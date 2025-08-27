@@ -36,6 +36,54 @@ public:
     __declspec(property(get = getStrValue, put = setStrValue)) string Value;
 
 
+
+    static short Length(string S1)
+    {
+        return S1.length();
+    };
+
+    short Length()
+    {
+        return _strValue.length();
+    };
+
+
+    static short CountWords(string S1)
+    {
+
+        string delim = " "; // delimiter  
+        short Counter = 0;
+        short pos = 0;
+        string sWord; // define a string variable  
+
+        // use find() function to get the position of the delimiters  
+        while ((pos = S1.find(delim)) != std::string::npos)
+        {
+            sWord = S1.substr(0, pos); // store the word   
+            if (sWord != "")
+            {
+                Counter++;
+            }
+
+            //erase() until positon and move to next word.
+            S1.erase(0, pos + delim.length());
+        }
+
+        if (S1 != "")
+        {
+            Counter++; // it counts the last word of the string.
+        }
+
+        return Counter;
+
+    }
+
+    short CountWords()
+    {
+        return CountWords(_strValue);
+    };
+
+
     static void Print1stLettersOfWords(string str)
     {
         bool IsFirstLetter = true;
@@ -58,7 +106,7 @@ public:
     }
 
 
-   static void UppercaseFirstLetters(string& str)
+   static string UppercaseFirstLetters(string str)
     {
         bool IsFirstLetter = true;
 
@@ -72,15 +120,17 @@ public:
 
         }
 
+        return str;
+
     }
 
    void UppercaseFirstLetters()
    {
-       UppercaseFirstLetters(_strValue);
+       _strValue = UppercaseFirstLetters(_strValue);
    }
 
 
-    static void LowercaseFirstLetters(string& str)
+    static string LowercaseFirstLetters(string str)
     {
         bool IsFirstLetter = true;
 
@@ -94,11 +144,12 @@ public:
 
         }
 
+        return str;
     }
 
     void LowercaseFirstLetters()
     {
-        LowercaseFirstLetters(_strValue);
+        _strValue = LowercaseFirstLetters(_strValue);
     }
 
 
@@ -112,9 +163,9 @@ public:
         return str;
     }
 
-    string UppercaseAllString()
+    void UppercaseAllString()
     {
-        return UppercaseAllString(_strValue);
+        _strValue = UppercaseAllString(_strValue);
     }
 
 
@@ -128,9 +179,9 @@ public:
         return str;
     }
 
-    string LowercaseAllString()
+    void LowercaseAllString()
     {
-        return LowercaseAllString(_strValue);
+        _strValue = LowercaseAllString(_strValue);
     }
 
 
@@ -150,9 +201,9 @@ public:
         return str;
     }
 
-    string InvertAllLettersCase()
+    void InvertAllLettersCase()
    {
-       return InvertAllLettersCase(_strValue);
+        _strValue = InvertAllLettersCase(_strValue);
    }
 
 
@@ -194,7 +245,7 @@ public:
     }
 
 
-    static short CountLetterInString(string str, char Letter, bool MatchCase = true)
+    static short CountSpecificLetter(string str, char Letter, bool MatchCase = true)
     {
         short Count = 0;
 
@@ -216,9 +267,9 @@ public:
         return Count;
     }
 
-    short CountLetterInString(char Letter, bool MatchCase = true)
+    short CountSpecificLetter(char Letter, bool MatchCase = true)
     {
-        CountLetterInString(_strValue, Letter, MatchCase);
+        return CountSpecificLetter(_strValue, Letter, MatchCase);
     }
     
 
@@ -229,7 +280,7 @@ public:
     }
 
 
-    static short CountVowelInString(string str)
+    static short CountVowel(string str)
     {
         short count = 0;
 
@@ -242,13 +293,13 @@ public:
         return count;
     }
 
-    short CountVowelInString()
+    short CountVowel()
     {
-        return CountVowelInString(_strValue);
+        return CountVowel(_strValue);
     }
 
 
-    static void PrintVowelsInString(string str)
+    static void PrintVowels(string str)
     {
         for (int i = 0; i < str.length(); i++)
         {
@@ -257,9 +308,9 @@ public:
         }
     }
 
-    void PrintVowelsInString()
+    void PrintVowels()
     {
-        PrintVowelsInString(_strValue);
+        PrintVowels(_strValue);
     }
 
 
@@ -338,9 +389,9 @@ public:
 
     }
 
-    string ReverseString()
+    void ReverseString()
     {
-        return ReverseString(_strValue);
+        _strValue = ReverseString(_strValue);
     }
 
 
@@ -357,9 +408,9 @@ public:
         return str;
     }
 
-    string ReplaceExactWord(string OldWord, string NewWord)
+    void ReplaceExactWord(string OldWord, string NewWord)
     {
-        return ReplaceExactWord(_strValue, OldWord, NewWord);
+        _strValue = ReplaceExactWord(_strValue, OldWord, NewWord);
     }
 
 
@@ -386,14 +437,14 @@ public:
         return str;
     }
 
-    string ReplaceWord(string OldWord, string NewWord, bool MatchCase = false)
+    void ReplaceWord(string OldWord, string NewWord, bool MatchCase = false)
     {
-        return ReplaceWord(_strValue, OldWord, NewWord, MatchCase);
+        _strValue = ReplaceWord(_strValue, OldWord, NewWord, MatchCase);
     }
 
 
 
-    static string RemoveAllPunctInString(string str)
+    static string RemoveAllPunct(string str)
     {
         string New = "";
 
@@ -407,9 +458,61 @@ public:
         return New;
     }
 
-    string RemoveAllPunctInString()
+    void RemoveAllPunct()
     {
-        return RemoveAllPunctInString(_strValue);
+        _strValue = RemoveAllPunct(_strValue);
+    }
+
+
+    static string TrimLeft(string S1)
+    {
+
+
+        for (short i = 0; i < S1.length(); i++)
+        {
+            if (S1[i] != ' ')
+            {
+                return S1.substr(i, S1.length() - i);
+            }
+        }
+        return "";
+    }
+
+    void TrimLeft()
+    {
+        _strValue = TrimLeft(_strValue);
+    }
+
+
+    static string TrimRight(string S1)
+    {
+
+
+        for (short i = S1.length() - 1; i >= 0; i--)
+        {
+            if (S1[i] != ' ')
+            {
+                return S1.substr(0, i + 1);
+            }
+        }
+        return "";
+    }
+
+    void TrimRight()
+    {
+        _strValue = TrimRight(_strValue);
+    }
+
+
+    static string Trim(string S1)
+    {
+        return (TrimLeft(TrimRight(S1)));
+
+    }
+
+    void Trim()
+    {
+        _strValue = Trim(_strValue);
     }
 
 

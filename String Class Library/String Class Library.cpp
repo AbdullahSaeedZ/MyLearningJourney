@@ -6,18 +6,12 @@ using namespace std;
 int main()
 {
 	
-	clsString S1;
-	S1.setStrValue("Fawaz koko");
-	S1.Print1stLettersOfWords();
+	clsString S1("Abdullah Alzahrani");
+
+	S1.UppercaseAllString();
+	cout << S1.getStrValue();
 	
-
-	clsString::Print1stLettersOfWords("Abdullah Saeed");
-	cout << clsString::InvertLetterCase('h');
 	
-
-	cout << S1.CountLetterInString("abdullah", 'l', true);
-
-
 	return 0;
 }
 
