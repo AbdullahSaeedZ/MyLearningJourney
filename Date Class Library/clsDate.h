@@ -46,19 +46,7 @@ private:
 
 		return Number;
 	}
-	static clsDate GetSystemDate()
-	{
-		clsDate Date;
-		time_t t = time(0);
-		tm now;
-		localtime_s(&now, &t);
 
-		Date._Day = now.tm_mday;
-		Date._Month = now.tm_mon + 1;
-		Date._Year = now.tm_year + 1900;
-
-		return Date;
-	}
 
 public:
 
@@ -172,6 +160,20 @@ public:
 	
 	__declspec(property(get = getYear, put = setYear)) short Year;
 
+
+	static clsDate GetSystemDate()
+	{
+		clsDate Date;
+		time_t t = time(0);
+		tm now;
+		localtime_s(&now, &t);
+
+		Date._Day = now.tm_mday;
+		Date._Month = now.tm_mon + 1;
+		Date._Year = now.tm_year + 1900;
+
+		return Date;
+	}
 
 
 	static void Print(clsDate Date)

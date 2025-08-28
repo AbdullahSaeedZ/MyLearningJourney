@@ -12,6 +12,6 @@ int main()
 	clsDate D2;
 
 	cout << D1.IsDateBeforeDate2(D2) << endl;
-
+	
 	return 0;
 }
