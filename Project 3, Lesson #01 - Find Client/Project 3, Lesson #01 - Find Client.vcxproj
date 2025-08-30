@@ -125,6 +125,15 @@
   <ItemGroup>
     <ClCompile Include="Project 3, Lesson #01 - Find Client.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="clsBankClient.h" />
+    <ClInclude Include="clsDate.h" />
+    <ClInclude Include="clsInputValidate.h" />
+    <ClInclude Include="clsPeriod.h" />
+    <ClInclude Include="clsPerson.h" />
+    <ClInclude Include="clsString.h" />
+    <ClInclude Include="clsUtil.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
