@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{bf0670a1-4a2b-4cdb-bcda-78bd532257c6}</ProjectGuid>
-    <RootNamespace>Classes</RootNamespace>
+    <ProjectGuid>{12f57538-e3c3-4e20-8f83-ee3b3e8b6131}</ProjectGuid>
+    <RootNamespace>Project3Lesson01FindClient</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -123,14 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Classes.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="clsDate.h" />
-    <ClInclude Include="clsInputValidate.h" />
-    <ClInclude Include="clsPeriod.h" />
-    <ClInclude Include="clsString.h" />
-    <ClInclude Include="clsUtil.h" />
+    <ClCompile Include="Project 3, Lesson #01 - Find Client.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

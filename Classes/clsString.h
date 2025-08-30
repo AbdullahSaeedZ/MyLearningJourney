@@ -314,6 +314,7 @@ public:
     }
 
 
+
     static vector<string> SplitStringToVector(string str, string delim = " ")
     {
         vector<string> vWords;
@@ -325,7 +326,7 @@ public:
         {
             sWord = str.substr(0, pos);
 
-            if (sWord != "")
+            /*if (sWord != "")*/
                 vWords.push_back(sWord);
 
             str.erase(0, pos + delim.length());
