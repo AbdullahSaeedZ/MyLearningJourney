@@ -20,9 +20,10 @@ public:
 		clsUser UserToDelete;
 
 		string UserName = clsInputValidate::ReadString("Enter User Name:");
-		while (!clsUser::IsUserExist(UserToDelete, UserName))
+
+		while (!clsUser::IsUserExist(UserToDelete, UserName) || UserName == "Admin")
 		{
-			UserName = clsInputValidate::ReadString("User Does Not Exist, Enter Another User Name:");
+			UserName = clsInputValidate::ReadString("User Does Not Exist or Admin User Name Entered, Enter Another User Name:");
 		}
 
 		clsScreen::_PrintUser(UserToDelete);
