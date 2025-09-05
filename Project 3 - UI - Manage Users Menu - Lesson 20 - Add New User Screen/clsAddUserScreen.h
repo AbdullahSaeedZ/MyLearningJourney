@@ -11,58 +11,6 @@ using namespace std;
 
 class clsAddUserScreen : protected clsScreen
 {
-private :
-
-	static void _GivePermissions(clsUser &User)
-	{
-		cout << "\nEnter Permissions: " << endl;
-
-		if (clsInputValidate::ReadBoolean("\nFull Access?"))
-		{
-			User.Permission = -1;
-			return;
-		}
-		
-		if (clsInputValidate::ReadBoolean("\nAccess To Show Clients?"))
-		{
-			User.Permission += clsUser::enPermission::pShowClients;
-		}
-		
-		if (clsInputValidate::ReadBoolean("\nAccess To Add Clients?"))
-		{
-			User.Permission += clsUser::enPermission::pAddClient;
-		}
-
-		if (clsInputValidate::ReadBoolean("\nAccess To Delete Clients?"))
-		{
-			User.Permission += clsUser::enPermission::pDeleteClient;
-		}
-
-		if (clsInputValidate::ReadBoolean("\nAccess To Update Clients?"))
-		{
-			User.Permission += clsUser::enPermission::pUpdateClient;
-		}
-
-		if (clsInputValidate::ReadBoolean("\nAccess To Find Clients?"))
-		{
-			User.Permission += clsUser::enPermission::pFindClient;
-		}
-
-		if (clsInputValidate::ReadBoolean("\nAccess To Transactions?"))
-		{
-			User.Permission += clsUser::enPermission::pTransaction;
-		}
-
-		if (clsInputValidate::ReadBoolean("\nAccess To Manage Users?"))
-		{
-			User.Permission += clsUser::enPermission::pManageUsers;
-		}
-
-	}
-
-	
-
-
 
 public:
 
@@ -81,7 +29,7 @@ public:
 		UserToAdd = clsUser::GetAddNewUserObject(UserName);
 
 		clsScreen::_ReadUserInfo(UserToAdd);
-		_GivePermissions(UserToAdd);
+		clsUser::GivePermissions(UserToAdd);
 		clsScreen::_PrintUser(UserToAdd);
 
 		if (clsInputValidate::ReadBoolean("\nAre You Sure You Want To Add This User?"))

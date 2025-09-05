@@ -136,6 +136,8 @@ private:
 		_AddDataLineToFile(_ConvertObjectToLine(*this));
 	}
 
+	
+
 
 public:
 
@@ -324,5 +326,54 @@ public:
 		return _LoadFileToVector();
 	}
 
+
+	//
+
+	static void GivePermissions(clsUser& User)
+	{
+		cout << "\nEnter Permissions: " << endl;
+
+		if (clsInputValidate::ReadBoolean("\nFull Access?"))
+		{
+			User.Permission = -1;
+			return;
+		}
+
+		if (clsInputValidate::ReadBoolean("\nAccess To Show Clients?"))
+		{
+			User.Permission += enPermission::pShowClients;
+		}
+
+		if (clsInputValidate::ReadBoolean("\nAccess To Add Clients?"))
+		{
+			User.Permission += enPermission::pAddClient;
+		}
+
+		if (clsInputValidate::ReadBoolean("\nAccess To Delete Clients?"))
+		{
+			User.Permission += enPermission::pDeleteClient;
+		}
+
+		if (clsInputValidate::ReadBoolean("\nAccess To Update Clients?"))
+		{
+			User.Permission += enPermission::pUpdateClient;
+		}
+
+		if (clsInputValidate::ReadBoolean("\nAccess To Find Clients?"))
+		{
+			User.Permission += enPermission::pFindClient;
+		}
+
+		if (clsInputValidate::ReadBoolean("\nAccess To Transactions?"))
+		{
+			User.Permission += enPermission::pTransaction;
+		}
+
+		if (clsInputValidate::ReadBoolean("\nAccess To Manage Users?"))
+		{
+			User.Permission += enPermission::pManageUsers;
+		}
+
+	}
 };
 
