@@ -1,0 +1,43 @@
+#pragma once
+
+#include <iostream>
+#include "clsScreen.h"
+#include "clsBankClient.h"
+#include "clsInputValidate.h"
+using namespace std;
+
+
+class clsDeleteClientScreen : protected clsScreen
+{
+
+public: 
+
+    static void DeleteClientScreen()
+    {
+        clsScreen::_DrawScreenHeader("\t\tDelete Client Screen");
+
+
+        clsBankClient ClientToDelete;
+        string AcctNumber = clsInputValidate::ReadString("Enter Account Number:");
+
+        while (!clsBankClient::IsClientExist(ClientToDelete, AcctNumber))
+        {
+            AcctNumber = clsInputValidate::ReadString("Account Number Does not Exist, Enter Account Number:");
+        }
+
+        clsScreen::_PrintClientInfo(ClientToDelete);
+
+        if (clsInputValidate::ReadBoolean("\nAre You sure You Want To Delete The Client ? Y / N : "))
+        {
+            ClientToDelete.Delete();
+
+            cout << "\nClient Deleted Successfully!" << endl;
+            clsScreen::_PrintClientInfo(ClientToDelete);
+        }
+
+    }
+
+
+
+};
+
