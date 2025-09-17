@@ -18,7 +18,7 @@ int main()
 {
 
 
-    cout << Add<int>(3, 7) << endl;
+    cout << Add<int>(3, 7) << endl; // here the <int> will replace all the koko variable inside the function.
     cout << Add<string>("abdullah ", "Alzahrani") << endl;
     return 0;
 }
