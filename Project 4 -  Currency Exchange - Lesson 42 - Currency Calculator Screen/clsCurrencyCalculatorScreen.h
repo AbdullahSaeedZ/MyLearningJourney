@@ -80,7 +80,7 @@ public:
 
 			//
 
-			float Amount = clsInputValidate::ReadFloatNumber("\nEnter Amount to Convert:");
+			float Amount = clsInputValidate::ReadNumber<float>("\nEnter Amount to Convert:");
 			_PrintCalculationsResults(Amount, C1, C2);
 
 		} while (clsInputValidate::ReadBoolean("\n\nDo You Want To Continue Using The Calculator?"));

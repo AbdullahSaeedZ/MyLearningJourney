@@ -46,7 +46,7 @@ public:
 		{
 			cout << "\nUpdate Currency Rate:" << endl;
 			cout << "__________________________" << endl;
-			float NewRate = clsInputValidate::ReadFloatNumber("\nEnter New Rate:");
+			float NewRate = clsInputValidate::ReadNumber<float>("\nEnter New Rate:");
 
 
 			C1.UpdateRate(NewRate);

@@ -72,7 +72,7 @@ protected:
         Client.Email = clsInputValidate::ReadString("\nEnter Email: ");
         Client.PhoneNumber = clsInputValidate::ReadString("\nEnter Phone Number: ");
         Client.PinCode = clsInputValidate::ReadString("\nEnter Pin Code: ");
-        Client.AcctBalance = clsInputValidate::ReadFloatNumber("\nEnter Balance:");
+        Client.AcctBalance = clsInputValidate::ReadNumber<float>("\nEnter Balance:");
     }
 
     static void _PrintClientInfo(clsBankClient &Client , bool ShortCard = false)

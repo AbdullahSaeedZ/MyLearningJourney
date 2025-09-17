@@ -43,7 +43,7 @@ public:
 
 
 
-		float Amount = clsInputValidate::ReadFloatNumber("\nEnter Amount to Transfer: ");
+		float Amount = clsInputValidate::ReadNumber<float>("\nEnter Amount to Transfer: ");
 
 		if (clsInputValidate::ReadBoolean("\nAre You Sure You Want To Perform The Transaction? Y/N:"))
 		{

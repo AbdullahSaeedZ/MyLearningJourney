@@ -27,7 +27,7 @@ public:
 
 		clsScreen::_PrintClientInfo(Client);
 
-		float Amount = clsInputValidate::ReadFloatNumber("\nEnter Amount to Withdraw: ");
+		float Amount = clsInputValidate::ReadNumber<float>("\nEnter Amount to Withdraw: ");
 
 		if (clsInputValidate::ReadBoolean("\nAre You Sure You Want To Perform The Transaction? Y/N:"))
 		{

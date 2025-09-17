@@ -248,7 +248,7 @@ public:
 
     static void ReadArray(int Array[100], int& Length)
     {
-        Length = clsInputValidate::ReadIntNumber("Enter how many elements do you need: ");
+        Length = clsInputValidate::ReadNumber<int>("Enter how many elements do you need: ");
 
         cout << "Enter value of elements: " << endl;
 
@@ -272,7 +272,7 @@ public:
 
         do
         {
-            AddArrayElement(Array, Length, clsInputValidate::ReadIntNumber("Enter a number:"));
+            AddArrayElement(Array, Length, clsInputValidate::ReadNumber<int>("Enter a number:"));
             cout << "Do you want to add more numbers? [0] No - [1] Yes" << endl;;
             cin >> AddMore;
 
@@ -293,7 +293,7 @@ public:
     static void FillRandomNumsInArray(int Array[100], int& Length)
     {
         cout << endl;
-        Length = clsInputValidate::ReadIntNumber("Enter how many elements do you need:");
+        Length = clsInputValidate::ReadNumber<int>("Enter how many elements do you need:");
         cout << endl;
 
         for (int Counter = 0; Counter < Length; Counter++)
@@ -304,7 +304,7 @@ public:
 
     static void FillArrayWith1toN(int Array[100], int& Length)
     {
-        Length = clsInputValidate::ReadIntNumber("Enter how many Numbers do you need: ");
+        Length = clsInputValidate::ReadNumber<int>("Enter how many Numbers do you need: ");
 
         for (int Counter = 0; Counter < Length; Counter++)
         {
@@ -314,7 +314,7 @@ public:
 
     static void FillArrayWithKeys(string Array[100], int& Length)
     {
-        Length = clsInputValidate::ReadIntNumber("Enter how many Keys do you need: ");
+        Length = clsInputValidate::ReadNumber<int>("Enter how many Keys do you need: ");
 
         for (int Counter = 0; Counter < Length; Counter++)
         {
@@ -538,7 +538,7 @@ public:
         
         do
         {
-            Number = clsInputValidate::ReadIntNumber("Enter a positive number: ");
+            Number = clsInputValidate::ReadNumber<int>("Enter a positive number: ");
             vNumbers.push_back(Number);
 
             

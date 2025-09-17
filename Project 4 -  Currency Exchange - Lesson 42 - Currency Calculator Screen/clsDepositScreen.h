@@ -28,7 +28,7 @@ public:
 
 		clsScreen::_PrintClientInfo(Client);
 
-		float Amount = clsInputValidate::ReadFloatNumber("\nEnter Amount to Deposit: ");
+		float Amount = clsInputValidate::ReadNumber<float>("\nEnter Amount to Deposit: ");
 
 		if (clsInputValidate::ReadBoolean("\nAre You Sure You Want To Perform The Transaction? Y/N:"))
 		{
