@@ -9,6 +9,8 @@
 	 so the big O, is a tool to describe this relationship of input size and the time it will take, it describes the change of time(growth rate), not the exact time in seconds or else.
 
 
+	 Big O tells us about the Efficiency of Algorithm.
+
  ------------------------
  Main Types:
  ------------------------
