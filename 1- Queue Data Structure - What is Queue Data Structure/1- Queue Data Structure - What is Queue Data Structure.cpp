@@ -1,7 +1,7 @@
 /*
 Queue Data Structure
 --------------------
-- Linear data structure, follows FIFO (First In, First Out).
+- Linear data structure, follows FIFO (First In, First Out), which means no index access.
 - First element inserted is the first to be removed.
 
 Idea:
