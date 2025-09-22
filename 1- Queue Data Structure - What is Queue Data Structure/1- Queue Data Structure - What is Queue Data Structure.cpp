@@ -6,13 +6,14 @@ Queue Data Structure
 
 Idea:
 - Like a line of people (waiting queue).
-- New elements join at the back (enqueue).
-- Elements leave from the front (dequeue).
+- New elements join at the back (push).
+- Elements leave from the front (pop).
 
-Basic Operations:
-- enqueue(x): insert element at the back.
-- dequeue(): remove element from the front.
-- front(): get the first element without removing it.
+Basic Operations (STL queue):
+- push(x): insert element at the back.
+- pop(): remove element from the front.
+- front(): get the first element (ready to leave).
+- back(): get the last element (latest arrival).
 - empty()/size(): check if queue is empty or get count.
 
 Use Case:
