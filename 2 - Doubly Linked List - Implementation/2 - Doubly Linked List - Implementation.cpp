@@ -27,6 +27,7 @@ int main()
 {
     
     Node* head = NULL;
+    Node* tail = NULL;
 
     Node* node1 = new Node();
     Node* node2 = new Node();
@@ -47,6 +48,7 @@ int main()
 
 
     head = node1;
+    tail = node3;
 
     while (head != NULL) // traverse from left to right using head.
     {
@@ -54,6 +56,13 @@ int main()
         head = head->next;
     }
 
+    cout << "\n\n";
+
+    while (tail != NULL) // traverse from right to left using tail.
+    {
+        cout << tail->value << endl;
+        tail = tail->prev;
+    }
 
     return 0;
 }
