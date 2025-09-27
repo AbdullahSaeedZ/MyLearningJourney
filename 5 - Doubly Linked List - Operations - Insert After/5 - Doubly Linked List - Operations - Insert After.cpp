@@ -49,8 +49,11 @@ Node* Find(Node* head, int Value)
 
 
 
-void InsertAfter(Node* current, int value) {
+void InsertAfter(Node* current, int value) 
+{
 
+    // since current is a pointer , taken it by value will give us access to the memory location it points to, and will let us change its values, 
+    // but not the current it self and where it points, current = new mode; wont work unless we take by-reference
 
     /*  1 - Create a new node with the desired value.
          2-Set the next pointer of the new node to the next node of the current node.
