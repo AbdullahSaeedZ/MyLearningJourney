@@ -13,8 +13,9 @@ int main()
     cout << "inserting at beginning:" << endl;
     List.PrintList();
 
-    cout << "\nvalue of item 3:" << endl;
-    cout << List.GetNodeValueByIndex(2) << endl;
+    List.UpdateNodeValueByIndex(2, 500);
+    cout << "\nlist after updating value of node 3:" << endl;
+    List.PrintList();
 
 
     return 0;
