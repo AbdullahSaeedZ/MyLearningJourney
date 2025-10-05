@@ -14,7 +14,7 @@ int main()
 
 
     cout << "\nStack items:" << endl;
-    MyStack.PrintItems();
+    MyStack.PrintList();
 
     cout << "\n\nStack Size: " << MyStack.Size() << endl;
     cout << "Stack top item: " << MyStack.Top() << endl;
@@ -22,35 +22,35 @@ int main()
 
     MyStack.Pop();
     cout << "\nafter popping (LIFO):" << endl;
-    MyStack.PrintItems();
+    MyStack.PrintList();
 
     cout << "\n\n====== After adding extensions to Stack DS ======" << endl;
 
-    cout << "\nvalue of index 2: " << MyStack.GetItemValueByIndex(2) << endl;
+    cout << "\nvalue of index 2: " << MyStack.GetItemByIndex(2) << endl;
 
     cout << "\nStack after reversing: " << endl;
     MyStack.Reverse();
-    MyStack.PrintItems();
+    MyStack.PrintList();
 
     cout << "\n\nStack after updating index 2:" << endl;
     MyStack.UpdateItemValueByIndex(2, 500);
-    MyStack.PrintItems();
+    MyStack.PrintList();
 
     cout << "\n\nStack after inserting after index 2:" << endl;
-    MyStack.InsertAfterIndex(2, 99);
-    MyStack.PrintItems();
+    MyStack.InsertAfter(2, 99);
+    MyStack.PrintList();
 
     cout << "\n\nStack after inserting at top: " << endl;
     MyStack.InsertAtTop(100);
-    MyStack.PrintItems();
+    MyStack.PrintList();
 
     cout << "\n\nStack after inserting at bottom:" << endl;
     MyStack.InsertAtBottom(400);
-    MyStack.PrintItems();
+    MyStack.PrintList();
 
     cout << "\n\nStack after clearing: " << endl;
     MyStack.Clear();
-    MyStack.PrintItems();
+    MyStack.PrintList();
 
 
     //MyStack.Back() << this shoudnt be accessible here , but they are , cuz they are public in base class, make them protected to be accessible only in classes  and not here in the object.

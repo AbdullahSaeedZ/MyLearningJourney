@@ -1,48 +1,43 @@
 #pragma once
 
 #include <iostream>
-#include "clsDynamicArray.h"
+#include "clsQueueArr.h"
 using namespace std;
 
 template <class T>
-class clsStackArr : public clsDynamicArray<T>
+class clsStackArr : public clsQueueArr<T>
 {
 
 public:
 
 	void Push(const T &Value)
 	{
-		clsDynamicArray<T>::InsertAtEnd(Value);
-	}
-
-	void Pop()
-	{
-		clsDynamicArray<T>::DeleteItemAtEnd();
+		clsQueueArr<T>::InsertAtFront(Value);
 	}
 
 	T Top()
 	{
-		return clsDynamicArray<T>::GetItemValueByIndex(clsDynamicArray<T>::_Size - 1);
+		return clsQueueArr<T>::GetItemByIndex(clsQueueArr<T>::Size() - 1);
 	}
 
 	T Bottom()
 	{
-		return clsDynamicArray<T>::GetItemValueByIndex(0);
+		return clsQueueArr<T>::Back();
 	}
 
 	void UpdateItemValueByIndex(int Index, const T& Value)
 	{
-		clsDynamicArray<T>::SetItem(Index, Value);
+		clsQueueArr<T>::UpdateItemByIndex(Index, Value);
 	}
 
 	void InsertAtTop(const T& Value)
 	{
-		clsDynamicArray<T>::InsertAtEnd(Value);
+		clsQueueArr<T>::InsertAtFront(Value);
 	}
 
 	void InsertAtBottom(const T& Value)
 	{
-		clsDynamicArray<T>::InsertAtBeginning(Value);
+		clsQueueArr<T>::InsertAtBack(Value);
 	}
 
 };
