@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36408.4 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project 4 -  Currency Exchange - Lesson 41 - Update Currency Rate", "Project 4 -  Currency Exchange - Lesson 41 - Update Currency Rate.vcxproj", "{F25256AF-4CD1-4C4A-B7C4-86F5C254F236}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F25256AF-4CD1-4C4A-B7C4-86F5C254F236}.Debug|x64.ActiveCfg = Debug|x64
+		{F25256AF-4CD1-4C4A-B7C4-86F5C254F236}.Debug|x64.Build.0 = Debug|x64
+		{F25256AF-4CD1-4C4A-B7C4-86F5C254F236}.Debug|x86.ActiveCfg = Debug|Win32
+		{F25256AF-4CD1-4C4A-B7C4-86F5C254F236}.Debug|x86.Build.0 = Debug|Win32
+		{F25256AF-4CD1-4C4A-B7C4-86F5C254F236}.Release|x64.ActiveCfg = Release|x64
+		{F25256AF-4CD1-4C4A-B7C4-86F5C254F236}.Release|x64.Build.0 = Release|x64
+		{F25256AF-4CD1-4C4A-B7C4-86F5C254F236}.Release|x86.ActiveCfg = Release|Win32
+		{F25256AF-4CD1-4C4A-B7C4-86F5C254F236}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {11E9FCC9-6BBD-4CEF-B452-6366EA1B296F}
+	EndGlobalSection
+EndGlobal
