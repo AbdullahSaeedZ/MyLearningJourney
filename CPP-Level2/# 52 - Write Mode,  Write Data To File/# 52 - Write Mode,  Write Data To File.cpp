@@ -1,0 +1,36 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+
+int main()
+{
+    
+    fstream MyFile;
+
+    // this method creates a new file or open existed file with that name.
+    // every time the file is opened , the values inside it will be deleted and new values will be saved.
+
+
+    MyFile.open("The File.txt", ios::out);  // .open(path of the file, mode desired) out mode is for writing inside the file.
+                                            //  if file is in the project folder then just write the name.
+
+    if (MyFile.is_open()) // to make sure that the open method has worked
+    {
+        MyFile << "This is the first line\n";
+        MyFile << "this is the second line\n";
+
+        // after finishing, we must close it, otherwise it will be busy when we try to open it again.
+        MyFile.close();
+
+    }
+
+
+  
+    // run the code to execute then see file in solution explorer > right click on project name > open folder in file explorer.
+
+
+
+    return 0;
+}
+
