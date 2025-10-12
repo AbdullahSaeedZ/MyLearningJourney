@@ -1,0 +1,6 @@
+﻿  Project 2.cpp
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-2\Project 2\Project 2.cpp(97,1): warning C4715: 'AddQuestion': not all control paths return a value
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-2\Project 2\Project 2.cpp(138,1): warning C4715: 'SubQuestion': not all control paths return a value
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-2\Project 2\Project 2.cpp(179,1): warning C4715: 'MultQuestion': not all control paths return a value
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-2\Project 2\Project 2.cpp(221,1): warning C4715: 'DivQuestion': not all control paths return a value
+  Project 2.vcxproj -> C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-2\Project 2\x64\Debug\Project 2.exe
