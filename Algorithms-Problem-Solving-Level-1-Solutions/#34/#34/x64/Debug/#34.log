@@ -1,0 +1,6 @@
+﻿  #34.cpp
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#34\#34.cpp(16,16): warning C4305: 'return': truncation from 'double' to 'float'
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#34\#34.cpp(18,16): warning C4305: 'return': truncation from 'double' to 'float'
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#34\#34.cpp(20,16): warning C4305: 'return': truncation from 'double' to 'float'
+C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#34\#34.cpp(22,16): warning C4305: 'return': truncation from 'double' to 'float'
+  #34.vcxproj -> C:\Users\asz14\Documents\Algorithms-Problem-Solving-Level-1-Solutions\#34\x64\Debug\#34.exe
