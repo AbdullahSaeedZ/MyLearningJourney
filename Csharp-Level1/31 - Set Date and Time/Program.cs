@@ -43,7 +43,20 @@ namespace _31___Set_Date_and_Time
             Console.WriteLine("\nprint only date in string: {0}", CurrentDate.ToShortDateString());
             Console.WriteLine("\nprint short time in string: {0}", CurrentDate.ToShortTimeString());
             Console.WriteLine("\nprint long time in string: {0}", CurrentDate.ToLongTimeString());
-            
+
+
+            // using static fields of DateTime structure
+            DateTime currentDateTime = DateTime.Now;  //returns current date and time
+            DateTime todaysDate = DateTime.Today; // returns today's date
+            DateTime currentDateTimeUTC = DateTime.UtcNow;// returns current UTC date and time
+            DateTime maxDateTimeValue = DateTime.MaxValue; // returns max value of DateTime
+            DateTime minDateTimeValue = DateTime.MinValue; // returns min value of DateTime
+
+            Console.WriteLine("\n\n\ncurrentDateTime: " + currentDateTime);
+            Console.WriteLine("\nToday: " + todaysDate);
+            Console.WriteLine("\ncurrentDateTimeUTC: " + currentDateTimeUTC);
+            Console.WriteLine("\nminDateTimeValue: " + minDateTimeValue);
+            Console.WriteLine("\nmaxDateTimeValue: " + maxDateTimeValue);
         }
     }
 }
