@@ -15,6 +15,10 @@ namespace _29___Structures
         public string LastName;
         public int ID;
         float salary; // this is private by default
+
+        // static field → belongs to the struct itself, not to a specific object
+        // all instances share the same static field
+        public static string SchoolName = "Default School";
     }
 
 
@@ -31,7 +35,7 @@ namespace _29___Structures
 
             //using new does not mean it's allocated in heap, it is just for initializing members with default values by constructor.
             //structure is allocated in stack as long as it's not part of class.
-           
+
 
             stStudent Student;
 
@@ -58,6 +62,21 @@ namespace _29___Structures
 
 
 
+            // static field usage:
+            // access it directly using struct name (not from instance)
+            Console.WriteLine(stStudent.SchoolName);
+
+            // change the static field (affects all struct instances)
+            stStudent.SchoolName = "SEU University";
+
+            Console.WriteLine("After update:");
+            Console.WriteLine(stStudent.SchoolName);
+
+            // all struct instances see the same static field value
+            Console.WriteLine(Student.FirstName + " -> " + stStudent.SchoolName);
+            Console.WriteLine(Student2.FirstName + " -> " + stStudent.SchoolName);
+
+            // same as C++: access directly through the type name(class) by using escape resolution :: but in C# it is (.) not (::)
         }
     }
 }
