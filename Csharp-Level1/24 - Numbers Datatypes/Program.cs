@@ -7,7 +7,7 @@ namespace _24___Numbers_Datatypes
         static void Main(string[] args)
         {
 
-            byte b1 = 255; // max of bye (unsigned)
+            byte b1 = 255; // max of byte (unsigned)
             //byte b2 = -128; // compile time error, cant have minus value
 
             sbyte sb1 = 127; // max of singed byte 
@@ -23,7 +23,7 @@ namespace _24___Numbers_Datatypes
 
             short s1 = 32767;
             short s2 = -32768;
-           // short s3 = 40000; // compiler error, cant cast from big to small (big value stored in small data type) (type safe), unlike C++ :(
+           // short s3 = 40000; // compiler error, cant have big value stored in small data type
 
             ushort us1 = 65535;
 
