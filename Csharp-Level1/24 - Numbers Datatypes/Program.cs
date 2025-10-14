@@ -23,7 +23,7 @@ namespace _24___Numbers_Datatypes
 
             short s1 = 32767;
             short s2 = -32768;
-           // short s3 = 40000; // compiler error, cant cast from short to ushort (type safe), unlike C++ :(
+           // short s3 = 40000; // compiler error, cant cast from big to small (big value stored in small data type) (type safe), unlike C++ :(
 
             ushort us1 = 65535;
 
