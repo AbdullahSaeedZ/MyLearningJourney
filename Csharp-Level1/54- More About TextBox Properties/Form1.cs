@@ -16,5 +16,10 @@ namespace _54__More_About_TextBox_Properties
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textBox9.Focus();
+        }
     }
 }
