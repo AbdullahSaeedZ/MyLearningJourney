@@ -9,6 +9,28 @@ namespace Tic_Tac_Toe_Game
     public partial class GameForm : Form
     {
         MainForm mainForm; // to use when going back to main form
+        public GameForm(String Player2, MainForm form)
+        {
+            InitializeComponent();
+            mainForm = form;
+            this.AutoScaleMode = AutoScaleMode.None;
+            this.Font = new Font(this.Font.FontFamily, this.Font.Size, GraphicsUnit.Pixel);
+            this.MaximizeBox = false;
+
+            pictureBox1.Tag = enBoxesNumbers.eBox1;
+            pictureBox2.Tag = enBoxesNumbers.eBox2;
+            pictureBox3.Tag = enBoxesNumbers.eBox3;
+            pictureBox4.Tag = enBoxesNumbers.eBox4;
+            pictureBox5.Tag = enBoxesNumbers.eBox5;
+            pictureBox6.Tag = enBoxesNumbers.eBox6;
+            pictureBox7.Tag = enBoxesNumbers.eBox7;
+            pictureBox8.Tag = enBoxesNumbers.eBox8;
+            pictureBox9.Tag = enBoxesNumbers.eBox9;
+
+            if (Player2 == "Computer")
+                IsPlayer2Computer = true;
+        }
+
 
         // to work with bitwise operations
         enum enBoxesNumbers { eBox1 = 1, eBox2 = 2, eBox3 = 4, eBox4 = 8, eBox5 = 16, eBox6 = 32, eBox7 = 64, eBox8 = 128, eBox9 = 256 };
@@ -32,42 +54,25 @@ namespace Tic_Tac_Toe_Game
         private int Rounds = 1;
         bool IsPlayer2Computer = false;
 
-        public GameForm(String Player2, MainForm form)
+        private void plBoxes_Paint(object sender, PaintEventArgs e)
         {
-            InitializeComponent();
-            mainForm = form;
-            this.AutoScaleMode = AutoScaleMode.Dpi;
-            
-            pictureBox1.Tag = enBoxesNumbers.eBox1;
-            pictureBox2.Tag = enBoxesNumbers.eBox2;
-            pictureBox3.Tag = enBoxesNumbers.eBox3;
-            pictureBox4.Tag = enBoxesNumbers.eBox4;
-            pictureBox5.Tag = enBoxesNumbers.eBox5;
-            pictureBox6.Tag = enBoxesNumbers.eBox6;
-            pictureBox7.Tag = enBoxesNumbers.eBox7;
-            pictureBox8.Tag = enBoxesNumbers.eBox8;
-            pictureBox9.Tag = enBoxesNumbers.eBox9;
-
-            if (Player2 == "Computer")
-                IsPlayer2Computer = true;
-        }
-
-        private void GameForm_Paint(object sender, PaintEventArgs e)
-        {
-            Pen pen = new Pen(Color.FromArgb(255, 220, 0));
-            pen.Width = 6;
+            Pen pen = new Pen(Color.FromArgb(255, 220, 0), 6);
             pen.StartCap = System.Drawing.Drawing2D.LineCap.Flat;
             pen.EndCap = System.Drawing.Drawing2D.LineCap.Flat;
 
+            // using panel-relative coordinates to draw inside the panel itself not the whole form
+            int w = plBoxes.Width;
+            int h = plBoxes.Height;
+
             // vertical lines
-            e.Graphics.DrawLine(pen, 288, 715, 288, 288);
-            e.Graphics.DrawLine(pen, 571, 715, 571, 288);
+            e.Graphics.DrawLine(pen, w / 3, 0, w / 3, h);
+            e.Graphics.DrawLine(pen, 2 * w / 3, 0, 2 * w / 3, h);
+
             // horizontal lines
-            e.Graphics.DrawLine(pen, 40, 420, 820, 420);
-            e.Graphics.DrawLine(pen, 40, 580, 820, 580);
+            e.Graphics.DrawLine(pen, 0, h / 3, w, h / 3);
+            e.Graphics.DrawLine(pen, 0, 2 * h / 3, w, 2 * h / 3);
 
             pen.Dispose();
-
         }
 
         private void SwitchPicBox(PictureBox ClickedBox)
@@ -204,6 +209,7 @@ namespace Tic_Tac_Toe_Game
         }
 
 
+
         // one click handler for all 9 picture boxes
         private void PictureBoxes_Click(object sender, EventArgs e)
         {
@@ -232,6 +238,7 @@ namespace Tic_Tac_Toe_Game
         }
 
 
+
         private void pbBackBtn_Click(object sender, EventArgs e)
         {
             mainForm.Show();
@@ -251,7 +258,7 @@ namespace Tic_Tac_Toe_Game
             Player2Boxes = 0;
 
             lblCurrentPlayer.Text = "Player 1";
-            lblWinner.Text = "In Progress";
+            lblWinner.Text = "-";
             Rounds++;
             Turn = 0;
             lblRoundCounter.Text = Rounds.ToString();
