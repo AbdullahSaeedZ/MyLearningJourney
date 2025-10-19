@@ -17,9 +17,9 @@ namespace Tic_Tac_Toe_Game
             InitializeComponent();
         }
 
-        private void btnFriendOption_Click(object sender, EventArgs e)
+        private void btnOption_Click(object sender, EventArgs e)
         {
-            GameForm temp = new GameForm(((Button)sender).Tag.ToString());
+            GameForm temp = new GameForm(((Button)sender).Tag.ToString() , this);
             temp.Show();
             this.Hide();
             

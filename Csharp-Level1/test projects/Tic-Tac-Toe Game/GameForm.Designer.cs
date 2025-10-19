@@ -49,6 +49,11 @@
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.plBoxes = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.pbBackBtn = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -59,17 +64,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.plBoxes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBackBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Impact", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("OCR A Extended", 28F);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(972, 251);
+            this.label1.Location = new System.Drawing.Point(972, 259);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 63);
+            this.label1.Size = new System.Drawing.Size(162, 49);
             this.label1.TabIndex = 0;
             this.label1.Text = "Turn:";
             // 
@@ -77,11 +85,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Impact", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("OCR A Extended", 28F);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(972, 385);
+            this.label2.Location = new System.Drawing.Point(972, 384);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(187, 63);
+            this.label2.Size = new System.Drawing.Size(218, 49);
             this.label2.TabIndex = 1;
             this.label2.Text = "Winner:";
             // 
@@ -89,11 +97,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Impact", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("OCR A Extended", 28F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(0)))));
-            this.label3.Location = new System.Drawing.Point(972, 509);
+            this.label3.Location = new System.Drawing.Point(972, 520);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(366, 63);
+            this.label3.Size = new System.Drawing.Size(442, 49);
             this.label3.TabIndex = 2;
             this.label3.Text = "Rounds Counter:";
             // 
@@ -101,7 +109,7 @@
             // 
             this.btnNewRound.BackColor = System.Drawing.Color.Black;
             this.btnNewRound.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNewRound.Font = new System.Drawing.Font("Impact", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewRound.Font = new System.Drawing.Font("OCR A Extended", 28F);
             this.btnNewRound.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(0)))));
             this.btnNewRound.Location = new System.Drawing.Point(966, 627);
             this.btnNewRound.Name = "btnNewRound";
@@ -115,7 +123,7 @@
             // 
             this.btnExit.BackColor = System.Drawing.Color.Black;
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExit.Font = new System.Drawing.Font("Impact", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Font = new System.Drawing.Font("OCR A Extended", 28F);
             this.btnExit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(0)))));
             this.btnExit.Location = new System.Drawing.Point(966, 760);
             this.btnExit.Name = "btnExit";
@@ -129,11 +137,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Berlin Sans FB", 70.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("OCR A Extended", 70.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(0)))));
-            this.label4.Location = new System.Drawing.Point(390, 24);
+            this.label4.Location = new System.Drawing.Point(360, 24);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(697, 145);
+            this.label4.Size = new System.Drawing.Size(844, 122);
             this.label4.TabIndex = 5;
             this.label4.Text = "Tic-Tac-Toe";
             // 
@@ -141,11 +149,11 @@
             // 
             this.lblCurrentPlayer.AutoSize = true;
             this.lblCurrentPlayer.BackColor = System.Drawing.Color.Transparent;
-            this.lblCurrentPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.lblCurrentPlayer.Font = new System.Drawing.Font("OCR A Extended", 25F);
             this.lblCurrentPlayer.ForeColor = System.Drawing.Color.OldLace;
-            this.lblCurrentPlayer.Location = new System.Drawing.Point(1202, 259);
+            this.lblCurrentPlayer.Location = new System.Drawing.Point(1195, 264);
             this.lblCurrentPlayer.Name = "lblCurrentPlayer";
-            this.lblCurrentPlayer.Size = new System.Drawing.Size(173, 48);
+            this.lblCurrentPlayer.Size = new System.Drawing.Size(219, 43);
             this.lblCurrentPlayer.TabIndex = 6;
             this.lblCurrentPlayer.Text = "Player 1";
             // 
@@ -153,11 +161,11 @@
             // 
             this.lblWinner.AutoSize = true;
             this.lblWinner.BackColor = System.Drawing.Color.Transparent;
-            this.lblWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.lblWinner.Font = new System.Drawing.Font("OCR A Extended", 25F);
             this.lblWinner.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblWinner.Location = new System.Drawing.Point(1189, 393);
+            this.lblWinner.Location = new System.Drawing.Point(1183, 389);
             this.lblWinner.Name = "lblWinner";
-            this.lblWinner.Size = new System.Drawing.Size(233, 48);
+            this.lblWinner.Size = new System.Drawing.Size(294, 43);
             this.lblWinner.TabIndex = 7;
             this.lblWinner.Text = "In Progress";
             // 
@@ -166,8 +174,8 @@
             this.lblRoundCounter.AutoSize = true;
             this.lblRoundCounter.BackColor = System.Drawing.Color.Transparent;
             this.lblRoundCounter.Font = new System.Drawing.Font("OCR A Extended", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRoundCounter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(0)))));
-            this.lblRoundCounter.Location = new System.Drawing.Point(1370, 518);
+            this.lblRoundCounter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lblRoundCounter.Location = new System.Drawing.Point(1401, 517);
             this.lblRoundCounter.Name = "lblRoundCounter";
             this.lblRoundCounter.Size = new System.Drawing.Size(52, 52);
             this.lblRoundCounter.TabIndex = 8;
@@ -185,6 +193,7 @@
             this.pictureBox7.TabIndex = 9;
             this.pictureBox7.TabStop = false;
             this.pictureBox7.Tag = "";
+            this.pictureBox7.Click += new System.EventHandler(this.PictureBoxes_Click);
             // 
             // pictureBox4
             // 
@@ -198,6 +207,7 @@
             this.pictureBox4.TabIndex = 10;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Tag = "";
+            this.pictureBox4.Click += new System.EventHandler(this.PictureBoxes_Click);
             // 
             // pictureBox1
             // 
@@ -211,6 +221,7 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Tag = "";
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBoxes_Click);
             // 
             // pictureBox2
             // 
@@ -224,6 +235,7 @@
             this.pictureBox2.TabIndex = 14;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Tag = "";
+            this.pictureBox2.Click += new System.EventHandler(this.PictureBoxes_Click);
             // 
             // pictureBox5
             // 
@@ -237,6 +249,7 @@
             this.pictureBox5.TabIndex = 13;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Tag = "";
+            this.pictureBox5.Click += new System.EventHandler(this.PictureBoxes_Click);
             // 
             // pictureBox8
             // 
@@ -250,6 +263,7 @@
             this.pictureBox8.TabIndex = 12;
             this.pictureBox8.TabStop = false;
             this.pictureBox8.Tag = "";
+            this.pictureBox8.Click += new System.EventHandler(this.PictureBoxes_Click);
             // 
             // pictureBox3
             // 
@@ -263,6 +277,7 @@
             this.pictureBox3.TabIndex = 17;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Tag = "";
+            this.pictureBox3.Click += new System.EventHandler(this.PictureBoxes_Click);
             // 
             // pictureBox6
             // 
@@ -276,6 +291,7 @@
             this.pictureBox6.TabIndex = 16;
             this.pictureBox6.TabStop = false;
             this.pictureBox6.Tag = "";
+            this.pictureBox6.Click += new System.EventHandler(this.PictureBoxes_Click);
             // 
             // pictureBox9
             // 
@@ -289,6 +305,7 @@
             this.pictureBox9.TabIndex = 15;
             this.pictureBox9.TabStop = false;
             this.pictureBox9.Tag = "";
+            this.pictureBox9.Click += new System.EventHandler(this.PictureBoxes_Click);
             // 
             // plBoxes
             // 
@@ -311,13 +328,72 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.label5.Font = new System.Drawing.Font("OCR A Extended", 13F);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(0)))));
             this.label5.Location = new System.Drawing.Point(12, 863);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(160, 26);
+            this.label5.Size = new System.Drawing.Size(192, 24);
             this.label5.TabIndex = 19;
             this.label5.Text = "By Abdullah <3";
+            // 
+            // pbBackBtn
+            // 
+            this.pbBackBtn.BackColor = System.Drawing.Color.Transparent;
+            this.pbBackBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pbBackBtn.Image = ((System.Drawing.Image)(resources.GetObject("pbBackBtn.Image")));
+            this.pbBackBtn.Location = new System.Drawing.Point(12, 24);
+            this.pbBackBtn.Name = "pbBackBtn";
+            this.pbBackBtn.Size = new System.Drawing.Size(76, 74);
+            this.pbBackBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbBackBtn.TabIndex = 20;
+            this.pbBackBtn.TabStop = false;
+            this.pbBackBtn.Click += new System.EventHandler(this.pbBackBtn_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("OCR A Extended", 15F);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(0)))));
+            this.label6.Location = new System.Drawing.Point(84, 219);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(132, 26);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Player 1";
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox10.Image = global::Tic_Tac_Toe_Game.Properties.Resources.x1;
+            this.pictureBox10.Location = new System.Drawing.Point(222, 215);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(38, 36);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 22;
+            this.pictureBox10.TabStop = false;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox11.Image = global::Tic_Tac_Toe_Game.Properties.Resources.o2;
+            this.pictureBox11.Location = new System.Drawing.Point(715, 215);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(38, 36);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 24;
+            this.pictureBox11.TabStop = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("OCR A Extended", 15F);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(220)))), ((int)(((byte)(0)))));
+            this.label7.Location = new System.Drawing.Point(577, 219);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(132, 26);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Player 2";
             // 
             // GameForm
             // 
@@ -325,6 +401,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1522, 898);
+            this.Controls.Add(this.pictureBox11);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.pictureBox10);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.pbBackBtn);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblRoundCounter);
             this.Controls.Add(this.lblWinner);
@@ -340,7 +421,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GameForm";
             this.Text = "Tick-Tac-Toe";
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameForm_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -351,6 +432,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.plBoxes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbBackBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -378,6 +462,11 @@
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Panel plBoxes;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pbBackBtn;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.Label label7;
     }
 }
 
