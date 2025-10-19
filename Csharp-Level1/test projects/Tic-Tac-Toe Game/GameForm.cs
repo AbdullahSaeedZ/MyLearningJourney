@@ -5,7 +5,7 @@ using System.Windows.Forms;
 using Tic_Tac_Toe_Game.Properties;
 
 namespace Tic_Tac_Toe_Game
-{
+{ 
     public partial class GameForm : Form
     {
         MainForm mainForm; // to use when going back to main form

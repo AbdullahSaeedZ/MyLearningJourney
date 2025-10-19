@@ -45,7 +45,7 @@ namespace Tic_Tac_Toe_Game
             this.btnFriendOption.Location = new System.Drawing.Point(719, 397);
             this.btnFriendOption.Name = "btnFriendOption";
             this.btnFriendOption.Size = new System.Drawing.Size(266, 86);
-            this.btnFriendOption.TabIndex = 0;
+            this.btnFriendOption.TabIndex = 1;
             this.btnFriendOption.Tag = "Friend";
             this.btnFriendOption.Text = "Friend";
             this.btnFriendOption.UseVisualStyleBackColor = false;
@@ -60,7 +60,7 @@ namespace Tic_Tac_Toe_Game
             this.btnComputerOption.Location = new System.Drawing.Point(236, 397);
             this.btnComputerOption.Name = "btnComputerOption";
             this.btnComputerOption.Size = new System.Drawing.Size(266, 86);
-            this.btnComputerOption.TabIndex = 1;
+            this.btnComputerOption.TabIndex = 0;
             this.btnComputerOption.Tag = "Computer";
             this.btnComputerOption.Text = "Computer";
             this.btnComputerOption.UseVisualStyleBackColor = false;

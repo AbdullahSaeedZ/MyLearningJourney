@@ -19,8 +19,6 @@ namespace Tic_Tac_Toe_Game
             this.Font = new Font(this.Font.FontFamily, this.Font.Size, GraphicsUnit.Pixel);
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-
-
         }
 
         private void MainForm_Paint(object sender, PaintEventArgs e)
