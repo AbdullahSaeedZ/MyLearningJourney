@@ -232,6 +232,7 @@ namespace Tic_Tac_Toe_Game
 
             if (IsPlayer2Computer && Turn % 2 != 0)
             {
+                lblCurrentPlayer.Text = "Computer";
                 ComputerTurn();
                 CheckWinner();
             }
