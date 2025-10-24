@@ -76,6 +76,7 @@
             this.Controls.Add(this.btnDeleteCategory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "DeleteCategoryForm";
             this.Text = "Delete Category";
             this.ResumeLayout(false);
