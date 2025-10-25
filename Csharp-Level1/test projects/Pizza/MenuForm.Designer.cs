@@ -72,11 +72,13 @@
             this.btnResetOrder = new System.Windows.Forms.Button();
             this.label17 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.gbSize.SuspendLayout();
             this.gbToppings.SuspendLayout();
             this.gbCrust.SuspendLayout();
             this.gbWhereToEat.SuspendLayout();
             this.gbSummary.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // gbSize
@@ -486,6 +488,7 @@
             // gbSummary
             // 
             this.gbSummary.BackColor = System.Drawing.Color.Transparent;
+            this.gbSummary.Controls.Add(this.numericUpDown1);
             this.gbSummary.Controls.Add(this.lblWhereToEat);
             this.gbSummary.Controls.Add(this.label9);
             this.gbSummary.Controls.Add(this.lblPrice);
@@ -511,7 +514,7 @@
             // 
             this.lblWhereToEat.AutoSize = true;
             this.lblWhereToEat.Font = new System.Drawing.Font("Segoe Print", 12F);
-            this.lblWhereToEat.Location = new System.Drawing.Point(27, 532);
+            this.lblWhereToEat.Location = new System.Drawing.Point(27, 510);
             this.lblWhereToEat.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWhereToEat.Name = "lblWhereToEat";
             this.lblWhereToEat.Size = new System.Drawing.Size(65, 35);
@@ -522,7 +525,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe Print", 12.25F);
-            this.label9.Location = new System.Drawing.Point(11, 610);
+            this.label9.Location = new System.Drawing.Point(8, 558);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(137, 36);
@@ -678,6 +681,29 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(17, 621);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 44);
+            this.numericUpDown1.TabIndex = 10;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
             // MenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -710,6 +736,7 @@
             this.gbWhereToEat.PerformLayout();
             this.gbSummary.ResumeLayout(false);
             this.gbSummary.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -759,5 +786,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }

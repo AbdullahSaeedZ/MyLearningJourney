@@ -12,11 +12,14 @@ namespace Pizza
 {
     public partial class MenuForm : Form
     {
-        public MenuForm()
+        LandingForm main;
+
+
+        public MenuForm(LandingForm landingForm)
         {
             InitializeComponent();
             this.AutoScaleMode = AutoScaleMode.Dpi;
-
+            main = landingForm;
         }
 
 
@@ -77,7 +80,7 @@ namespace Pizza
 
         void UpdateTotalPrice()
         {
-            lblPrice.Text = "$" + CalculateTotalPrices().ToString();
+            lblPrice.Text = "$" + (CalculateTotalPrices() * numericUpDown1.Value).ToString();
         }
 
 
@@ -320,10 +323,13 @@ namespace Pizza
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            LandingForm Landing = new LandingForm();
-            Landing.Close();
-
+            main.Close();
             this.Close();
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateTotalPrice();
         }
     }
 }
