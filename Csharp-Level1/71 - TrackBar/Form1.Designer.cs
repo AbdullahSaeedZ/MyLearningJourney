@@ -143,7 +143,7 @@
             this.trackBar4.Size = new System.Drawing.Size(485, 56);
             this.trackBar4.SmallChange = 5;
             this.trackBar4.TabIndex = 11;
-            this.trackBar4.Value = 20;
+            this.trackBar4.Value = 100;
             this.trackBar4.Scroll += new System.EventHandler(this.trackBar4_Scroll);
             // 
             // lblForm
@@ -159,7 +159,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.RosyBrown;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1273, 836);
             this.Controls.Add(this.lblForm);
             this.Controls.Add(this.trackBar4);
