@@ -269,6 +269,8 @@ namespace Pizza
         {
             btnConfirmOrder.Enabled = true;
 
+            numericUpDown1.Value = 1;
+
             // re enable all groups
             gbSize.Enabled = true;
             gbCrust.Enabled = true;
