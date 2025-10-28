@@ -11,7 +11,7 @@ namespace Ajr
         {
             return new Dictionary<string, List<string>>
             {
-
+                // key    ,      value
                 { "ادعية",  new List<string>
                     {
                         "اللهم بك أصبحنا وبك أمسينا، وبك نحيا وبك نموت وإليك النشور.",

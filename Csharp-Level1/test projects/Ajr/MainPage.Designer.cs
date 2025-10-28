@@ -42,7 +42,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.timerBalloon = new System.Windows.Forms.Timer(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmShow = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmClose = new System.Windows.Forms.ToolStripMenuItem();
             this.rbStartupOn = new System.Windows.Forms.RadioButton();
             this.rbStartupOff = new System.Windows.Forms.RadioButton();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -53,7 +55,7 @@
             this.rbNotifyOff = new System.Windows.Forms.RadioButton();
             this.rbNotifyOn = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.nudNotificationShowTime)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -223,13 +225,34 @@
             // 
             // notifyIcon1
             // 
-            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.ContextMenuStrip = this.contextMenuStrip1;
+            this.notifyIcon1.Text = "Ajr";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.BalloonTipClicked += new System.EventHandler(this.notifyIcon1_BalloonTipClicked);
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 
-            // errorProvider1
+            // contextMenuStrip1
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmShow,
+            this.tsmClose});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(113, 52);
+            // 
+            // tsmShow
+            // 
+            this.tsmShow.Name = "tsmShow";
+            this.tsmShow.Size = new System.Drawing.Size(112, 24);
+            this.tsmShow.Text = "عرض";
+            this.tsmShow.Click += new System.EventHandler(this.tsmShow_Click);
+            // 
+            // tsmClose
+            // 
+            this.tsmClose.Name = "tsmClose";
+            this.tsmClose.Size = new System.Drawing.Size(112, 24);
+            this.tsmClose.Text = "اغلاق";
+            this.tsmClose.Click += new System.EventHandler(this.tsmClose_Click);
             // 
             // rbStartupOn
             // 
@@ -366,7 +389,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Size = new System.Drawing.Size(425, 548);
             ((System.ComponentModel.ISupportInitialize)(this.nudNotificationShowTime)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -392,7 +415,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Timer timerBalloon;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.RadioButton rbNotifyOff;
         private System.Windows.Forms.RadioButton rbNotifyOn;
@@ -402,5 +424,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.RadioButton rbStartupOff;
         private System.Windows.Forms.RadioButton rbStartupOn;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tsmShow;
+        private System.Windows.Forms.ToolStripMenuItem tsmClose;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pnlSidebar = new System.Windows.Forms.Panel();
             this.btnExit = new ReaLTaiizor.Controls.LostButton();
             this.btnAbout = new ReaLTaiizor.Controls.LostButton();
@@ -183,12 +184,14 @@
             this.Controls.Add(this.pnlPages);
             this.Controls.Add(this.pnlSidebar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.pnlSidebar.ResumeLayout(false);
             this.pnlMadeBy.ResumeLayout(false);
             this.pnlMadeBy.PerformLayout();

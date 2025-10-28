@@ -18,6 +18,7 @@ namespace Ajr
 {
     public partial class MainPage : UserControl
     {
+
         private AppSettings settings;
         private Dictionary<string, List<string>> categories;
         private int timerInterval = 0;
@@ -53,10 +54,9 @@ namespace Ajr
             settings = AppSettings.loadFromJson(); // to save any changes to the json
             categories = categoriesData.GetCategories();
 
-            notifyIcon1.Icon = SystemIcons.Application;
-            notifyIcon1.BalloonTipIcon = ToolTipIcon.Error;
-            notifyIcon1.BalloonTipTitle = categories.Keys.ToString();
-
+            notifyIcon1.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
+            notifyIcon1.BalloonTipIcon = ToolTipIcon.None;
+            
             prepareUserSettings();
         }
 
@@ -103,6 +103,7 @@ namespace Ajr
             int rndElement = rnd.Next(0, categories[selectedCategory].Count);
 
             balloonShowTime = Convert.ToInt32(nudNotificationShowTime.Value) * 1000; // to ms
+            notifyIcon1.BalloonTipTitle = selectedCategory;
             notifyIcon1.BalloonTipText = categories[selectedCategory].ElementAt(rndElement);
         }
         private void updateTimer()
@@ -117,6 +118,7 @@ namespace Ajr
             updateTimer();
             updateBalloonTip();
             settings.saveToJson();
+            
         }
 
 
@@ -136,7 +138,6 @@ namespace Ajr
             settings.balloonShowTime = Convert.ToInt32(((NumericUpDown)sender).Value);
             updateSettings();
         }
-
         private void cbPeriodBetweenNotification_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!eventsEnabled)
@@ -149,7 +150,8 @@ namespace Ajr
       
         private void btnDefaultSettings_Click(object sender, EventArgs e)
         {
-            // saveToJson();
+            updateSettings();
+            notifyIcon1.ShowBalloonTip(balloonShowTime);
         }
 
         private void timerBalloon_Tick(object sender, EventArgs e)
@@ -162,12 +164,10 @@ namespace Ajr
 
             notifyIcon1.ShowBalloonTip(balloonShowTime);
         }
-
         private void notifyIcon1_BalloonTipClicked(object sender, EventArgs e)
         {
             this.Show();
         }
-
         private void radioButtons_CheckedChanged(object sender, EventArgs e)
         {
             if (!eventsEnabled)
@@ -179,6 +179,25 @@ namespace Ajr
 
             updateSettings();
 
+        }
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.ParentForm.Show();
+            this.ParentForm.WindowState = FormWindowState.Normal;
+            this.ParentForm.BringToFront();
+        }
+
+        private void tsmShow_Click(object sender, EventArgs e)
+        {
+            this.ParentForm.Show();
+            this.ParentForm.WindowState = FormWindowState.Normal;
+        }
+
+        private void tsmClose_Click(object sender, EventArgs e)
+        {
+            notifyIcon1.Visible = false;
+            Application.Exit();
         }
     }
 }

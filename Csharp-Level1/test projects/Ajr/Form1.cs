@@ -62,11 +62,21 @@ namespace Ajr
 
             if (page == enPages.eExit)
             {
-                this.Close();
+                Application.Exit();
             }
             
             MoveIndicator(btn);
             ShowPage(page);
+
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                e.Cancel = true;             // نمنع الإغلاق
+                this.Hide();                
+            }
 
         }
     }
