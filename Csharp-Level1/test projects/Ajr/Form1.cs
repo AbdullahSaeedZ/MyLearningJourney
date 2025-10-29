@@ -75,13 +75,27 @@ namespace Ajr
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (e.CloseReason == CloseReason.UserClosing)
-            {
-                e.Cancel = true;             // to keep app running when closing the form
-                this.Hide();                
-            }
-
+            // لا تمنع الإغلاق ولا تسوي Hide
+            // فقط اخفِ أيقونة التراي بشكل نظيف
+            if (homePage != null)
+                homePage.notifyIcon1.Visible = false;
         }
+
+
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+
+                if (homePage != null)
+                    homePage.notifyIcon1.Visible = true;
+            }
+        }
+
+
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

@@ -1,4 +1,6 @@
 ﻿using Microsoft.Win32;
+using System.IO;
+using IWshRuntimeLibrary;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -70,19 +72,28 @@ namespace Ajr
         }
         private void updateStartup(bool enable)
         {
-            string appName = Application.ProductName;
-            string exePath = Application.ExecutablePath;
-            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+            string startupPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+            string shortcutPath = Path.Combine(startupPath, "Ajr.lnk");
 
             if (enable)
             {
-                key.SetValue(appName, exePath); 
+                var shell = new WshShell();
+                IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutPath);
+                shortcut.TargetPath = Application.ExecutablePath;
+                shortcut.WorkingDirectory = Path.GetDirectoryName(Application.ExecutablePath);
+                shortcut.Save();
             }
             else
             {
-                key.DeleteValue(appName, false); 
+                if (System.IO.File.Exists(shortcutPath))
+                    System.IO.File.Delete(shortcutPath);
+
             }
         }
+
+
+
+
         private void updateBalloonTip()
         {
             string selectedCategory = cbNotificationType.SelectedItem.ToString();
@@ -169,14 +180,17 @@ namespace Ajr
         }
         private void notifyIcon1_BalloonTipClicked(object sender, EventArgs e)
         {
-            this.ParentForm.Show();
-            this.ParentForm.WindowState = FormWindowState.Normal;
+            Frm1.Show();
+            Frm1.WindowState = FormWindowState.Normal;
+            notifyIcon1.Visible = false;
+            Frm1.Activate();
         }
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            this.ParentForm.Show();
-            this.ParentForm.WindowState = FormWindowState.Normal;
-            this.ParentForm.BringToFront();
+            Frm1.Show();
+            Frm1.WindowState = FormWindowState.Normal;
+            notifyIcon1.Visible = false;
+            Frm1.Activate();
         }
 
         // to prevent repeated balloons when mutliple clicks on test button

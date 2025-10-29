@@ -328,7 +328,6 @@
         private System.Windows.Forms.ComboBox cbNotificationType;
         private System.Windows.Forms.ComboBox cbPeriodBetweenNotification;
         private System.Windows.Forms.Timer timerBalloon;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.RadioButton rbNotifyOff;
         private System.Windows.Forms.RadioButton rbNotifyOn;
@@ -339,5 +338,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmShow;
         private System.Windows.Forms.ToolStripMenuItem tsmClose;
         private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
