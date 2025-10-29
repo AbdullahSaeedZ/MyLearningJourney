@@ -39,6 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pnlPages = new System.Windows.Forms.Panel();
+            this.pnlDragForm = new System.Windows.Forms.Panel();
             this.pnlSidebar.SuspendLayout();
             this.pnlMadeBy.SuspendLayout();
             this.SuspendLayout();
@@ -52,6 +53,7 @@
             this.pnlSidebar.Controls.Add(this.controlBox1);
             this.pnlSidebar.Controls.Add(this.pnlIndicator);
             this.pnlSidebar.Controls.Add(this.pnlMadeBy);
+            this.pnlSidebar.Controls.Add(this.pnlDragForm);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
             this.pnlSidebar.Name = "pnlSidebar";
@@ -177,6 +179,16 @@
             this.pnlPages.Size = new System.Drawing.Size(471, 451);
             this.pnlPages.TabIndex = 1;
             // 
+            // pnlDragForm
+            // 
+            this.pnlDragForm.Location = new System.Drawing.Point(0, 3);
+            this.pnlDragForm.Name = "pnlDragForm";
+            this.pnlDragForm.Size = new System.Drawing.Size(220, 445);
+            this.pnlDragForm.TabIndex = 12;
+            this.pnlDragForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlDragForm_MouseDown);
+            this.pnlDragForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlDragForm_MouseMove);
+            this.pnlDragForm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlDragForm_MouseUp);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -212,6 +224,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlPages;
         private System.Windows.Forms.Panel pnlMadeBy;
+        private System.Windows.Forms.Panel pnlDragForm;
     }
 }
 

@@ -1,14 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace Ajr
 {
@@ -17,6 +10,11 @@ namespace Ajr
         enum enPages { eMain = 1, eAbout = 2, eExit = 3};
         MainPage homePage = new MainPage();
         AboutPage aboutPage = new AboutPage();
+        
+        // to drag the form since i removed the border
+        private bool isDragging = false;
+        private Point dragStartPoint;
+
 
         public Form1()
         {
@@ -51,7 +49,6 @@ namespace Ajr
                     break;
 
                 case enPages.eAbout:
-                    pnlPages.Controls.Clear();
                     pnlPages.Controls.Add(aboutPage);
                     aboutPage.Dock = DockStyle.Fill;
                     break;
@@ -87,7 +84,27 @@ namespace Ajr
         {
             System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo{ FileName = "https://Abdullahsz.com",UseShellExecute = true} );
         }
-
-    
+        
+        // dragging the form
+        private void pnlDragForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                isDragging = true;
+                dragStartPoint = new Point(e.X, e.Y);
+            }
+        }
+        private void pnlDragForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging)
+            {
+                this.Left += e.X - dragStartPoint.X;
+                this.Top += e.Y - dragStartPoint.Y;
+            }
+        }
+        private void pnlDragForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            isDragging = false;
+        }
     }
 }
