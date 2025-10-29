@@ -8,8 +8,8 @@ namespace Ajr
     public partial class Form1 : Form
     {
         enum enPages { eMain = 1, eAbout = 2, eExit = 3};
-        MainPage homePage = new MainPage();
-        AboutPage aboutPage = new AboutPage();
+        MainPage homePage;
+        AboutPage aboutPage;
         
         // to drag the form since i removed the border
         private bool isDragging = false;
@@ -19,6 +19,9 @@ namespace Ajr
         public Form1()
         {
             InitializeComponent();
+            homePage = new MainPage(this);
+            aboutPage = new AboutPage();
+
             pnlPages.Controls.Add(homePage);
             homePage.Dock = DockStyle.Fill;
         }

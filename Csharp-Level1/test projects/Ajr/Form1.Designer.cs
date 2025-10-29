@@ -30,83 +30,32 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pnlSidebar = new System.Windows.Forms.Panel();
-            this.btnExit = new ReaLTaiizor.Controls.LostButton();
-            this.btnAbout = new ReaLTaiizor.Controls.LostButton();
-            this.btnHome = new ReaLTaiizor.Controls.LostButton();
             this.controlBox1 = new ReaLTaiizor.Controls.ControlBox();
-            this.pnlIndicator = new System.Windows.Forms.Panel();
             this.pnlMadeBy = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.pnlPages = new System.Windows.Forms.Panel();
             this.pnlDragForm = new System.Windows.Forms.Panel();
+            this.btnExit = new ReaLTaiizor.Controls.LostButton();
+            this.btnAbout = new ReaLTaiizor.Controls.LostButton();
+            this.pnlIndicator = new System.Windows.Forms.Panel();
+            this.btnHome = new ReaLTaiizor.Controls.LostButton();
+            this.pnlPages = new System.Windows.Forms.Panel();
             this.pnlSidebar.SuspendLayout();
             this.pnlMadeBy.SuspendLayout();
+            this.pnlDragForm.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(49)))), ((int)(((byte)(69)))));
-            this.pnlSidebar.Controls.Add(this.btnExit);
-            this.pnlSidebar.Controls.Add(this.btnAbout);
-            this.pnlSidebar.Controls.Add(this.btnHome);
             this.pnlSidebar.Controls.Add(this.controlBox1);
-            this.pnlSidebar.Controls.Add(this.pnlIndicator);
             this.pnlSidebar.Controls.Add(this.pnlMadeBy);
             this.pnlSidebar.Controls.Add(this.pnlDragForm);
             this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
             this.pnlSidebar.Name = "pnlSidebar";
-            this.pnlSidebar.Size = new System.Drawing.Size(226, 451);
+            this.pnlSidebar.Size = new System.Drawing.Size(226, 525);
             this.pnlSidebar.TabIndex = 0;
-            // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(49)))), ((int)(((byte)(69)))));
-            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
-            this.btnExit.Image = null;
-            this.btnExit.Location = new System.Drawing.Point(0, 222);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(212, 35);
-            this.btnExit.TabIndex = 2;
-            this.btnExit.Tag = "3";
-            this.btnExit.Text = "خروج";
-            this.btnExit.Click += new System.EventHandler(this.btnHandler_Click);
-            // 
-            // btnAbout
-            // 
-            this.btnAbout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(49)))), ((int)(((byte)(69)))));
-            this.btnAbout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAbout.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnAbout.ForeColor = System.Drawing.Color.White;
-            this.btnAbout.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
-            this.btnAbout.Image = null;
-            this.btnAbout.Location = new System.Drawing.Point(0, 169);
-            this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(212, 35);
-            this.btnAbout.TabIndex = 1;
-            this.btnAbout.Tag = "2";
-            this.btnAbout.Text = "حول التطبيق";
-            this.btnAbout.Click += new System.EventHandler(this.btnHandler_Click);
-            // 
-            // btnHome
-            // 
-            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
-            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.btnHome.ForeColor = System.Drawing.Color.White;
-            this.btnHome.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
-            this.btnHome.Image = null;
-            this.btnHome.Location = new System.Drawing.Point(0, 119);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(212, 35);
-            this.btnHome.TabIndex = 0;
-            this.btnHome.Tag = "1";
-            this.btnHome.Text = "الصفحة الرئيسية";
-            this.btnHome.Click += new System.EventHandler(this.btnHandler_Click);
             // 
             // controlBox1
             // 
@@ -127,20 +76,12 @@
             this.controlBox1.TabIndex = 11;
             this.controlBox1.Text = "controlBox1";
             // 
-            // pnlIndicator
-            // 
-            this.pnlIndicator.BackColor = System.Drawing.Color.White;
-            this.pnlIndicator.Location = new System.Drawing.Point(218, 119);
-            this.pnlIndicator.Name = "pnlIndicator";
-            this.pnlIndicator.Size = new System.Drawing.Size(5, 35);
-            this.pnlIndicator.TabIndex = 2;
-            // 
             // pnlMadeBy
             // 
             this.pnlMadeBy.Controls.Add(this.label1);
             this.pnlMadeBy.Controls.Add(this.linkLabel1);
             this.pnlMadeBy.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlMadeBy.Location = new System.Drawing.Point(0, 408);
+            this.pnlMadeBy.Location = new System.Drawing.Point(0, 482);
             this.pnlMadeBy.Name = "pnlMadeBy";
             this.pnlMadeBy.Size = new System.Drawing.Size(226, 43);
             this.pnlMadeBy.TabIndex = 11;
@@ -161,7 +102,7 @@
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.8F);
             this.linkLabel1.LinkColor = System.Drawing.Color.White;
-            this.linkLabel1.Location = new System.Drawing.Point(60, 18);
+            this.linkLabel1.Location = new System.Drawing.Point(66, 18);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(48, 13);
             this.linkLabel1.TabIndex = 10;
@@ -170,30 +111,90 @@
             this.linkLabel1.VisitedLinkColor = System.Drawing.Color.White;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // pnlDragForm
+            // 
+            this.pnlDragForm.Controls.Add(this.btnExit);
+            this.pnlDragForm.Controls.Add(this.btnAbout);
+            this.pnlDragForm.Controls.Add(this.pnlIndicator);
+            this.pnlDragForm.Controls.Add(this.btnHome);
+            this.pnlDragForm.Location = new System.Drawing.Point(0, 3);
+            this.pnlDragForm.Name = "pnlDragForm";
+            this.pnlDragForm.Size = new System.Drawing.Size(220, 473);
+            this.pnlDragForm.TabIndex = 12;
+            this.pnlDragForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlDragForm_MouseDown);
+            this.pnlDragForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlDragForm_MouseMove);
+            this.pnlDragForm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlDragForm_MouseUp);
+            // 
+            // btnExit
+            // 
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(49)))), ((int)(((byte)(69)))));
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
+            this.btnExit.Image = null;
+            this.btnExit.Location = new System.Drawing.Point(0, 244);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(212, 35);
+            this.btnExit.TabIndex = 2;
+            this.btnExit.Tag = "3";
+            this.btnExit.Text = "خروج";
+            this.btnExit.Click += new System.EventHandler(this.btnHandler_Click);
+            // 
+            // btnAbout
+            // 
+            this.btnAbout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(49)))), ((int)(((byte)(69)))));
+            this.btnAbout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAbout.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnAbout.ForeColor = System.Drawing.Color.White;
+            this.btnAbout.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
+            this.btnAbout.Image = null;
+            this.btnAbout.Location = new System.Drawing.Point(0, 191);
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(212, 35);
+            this.btnAbout.TabIndex = 1;
+            this.btnAbout.Tag = "2";
+            this.btnAbout.Text = "حول التطبيق";
+            this.btnAbout.Click += new System.EventHandler(this.btnHandler_Click);
+            // 
+            // pnlIndicator
+            // 
+            this.pnlIndicator.BackColor = System.Drawing.Color.White;
+            this.pnlIndicator.Location = new System.Drawing.Point(218, 141);
+            this.pnlIndicator.Name = "pnlIndicator";
+            this.pnlIndicator.Size = new System.Drawing.Size(5, 35);
+            this.pnlIndicator.TabIndex = 2;
+            // 
+            // btnHome
+            // 
+            this.btnHome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
+            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHome.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.btnHome.ForeColor = System.Drawing.Color.White;
+            this.btnHome.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
+            this.btnHome.Image = null;
+            this.btnHome.Location = new System.Drawing.Point(0, 141);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(212, 35);
+            this.btnHome.TabIndex = 0;
+            this.btnHome.Tag = "1";
+            this.btnHome.Text = "الصفحة الرئيسية";
+            this.btnHome.Click += new System.EventHandler(this.btnHandler_Click);
+            // 
             // pnlPages
             // 
             this.pnlPages.BackColor = System.Drawing.Color.Transparent;
             this.pnlPages.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPages.Location = new System.Drawing.Point(226, 0);
             this.pnlPages.Name = "pnlPages";
-            this.pnlPages.Size = new System.Drawing.Size(471, 451);
+            this.pnlPages.Size = new System.Drawing.Size(548, 525);
             this.pnlPages.TabIndex = 1;
-            // 
-            // pnlDragForm
-            // 
-            this.pnlDragForm.Location = new System.Drawing.Point(0, 3);
-            this.pnlDragForm.Name = "pnlDragForm";
-            this.pnlDragForm.Size = new System.Drawing.Size(220, 445);
-            this.pnlDragForm.TabIndex = 12;
-            this.pnlDragForm.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlDragForm_MouseDown);
-            this.pnlDragForm.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlDragForm_MouseMove);
-            this.pnlDragForm.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlDragForm_MouseUp);
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
-            this.ClientSize = new System.Drawing.Size(697, 451);
+            this.ClientSize = new System.Drawing.Size(774, 525);
             this.Controls.Add(this.pnlPages);
             this.Controls.Add(this.pnlSidebar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -208,6 +209,7 @@
             this.pnlSidebar.ResumeLayout(false);
             this.pnlMadeBy.ResumeLayout(false);
             this.pnlMadeBy.PerformLayout();
+            this.pnlDragForm.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

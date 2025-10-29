@@ -48,9 +48,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.rbNotifyOff = new System.Windows.Forms.RadioButton();
             this.rbNotifyOn = new System.Windows.Forms.RadioButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.contextMenuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -58,7 +60,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(306, 56);
+            this.label1.Location = new System.Drawing.Point(362, 83);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(125, 25);
@@ -70,7 +72,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(299, 109);
+            this.label3.Location = new System.Drawing.Point(355, 136);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label3.Size = new System.Drawing.Size(132, 25);
@@ -82,7 +84,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(302, 174);
+            this.label4.Location = new System.Drawing.Point(362, 190);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(129, 25);
@@ -94,7 +96,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 8F);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(97, 302);
+            this.label5.Location = new System.Drawing.Point(122, 329);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label5.Size = new System.Drawing.Size(273, 19);
@@ -106,7 +108,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(237, 225);
+            this.label6.Location = new System.Drawing.Point(297, 248);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label6.Size = new System.Drawing.Size(194, 25);
@@ -121,7 +123,7 @@
             this.btnTestNotify.ForeColor = System.Drawing.Color.White;
             this.btnTestNotify.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
             this.btnTestNotify.Image = null;
-            this.btnTestNotify.Location = new System.Drawing.Point(129, 358);
+            this.btnTestNotify.Location = new System.Drawing.Point(154, 385);
             this.btnTestNotify.Name = "btnTestNotify";
             this.btnTestNotify.Size = new System.Drawing.Size(212, 35);
             this.btnTestNotify.TabIndex = 9;
@@ -140,7 +142,7 @@
             "صلاة على النبي",
             "اذكار الصباح و المساء",
             "تذكير متنوع"});
-            this.cbNotificationType.Location = new System.Drawing.Point(35, 56);
+            this.cbNotificationType.Location = new System.Drawing.Point(60, 83);
             this.cbNotificationType.Name = "cbNotificationType";
             this.cbNotificationType.Size = new System.Drawing.Size(183, 25);
             this.cbNotificationType.TabIndex = 3;
@@ -161,7 +163,7 @@
             "كل ثلاثة ساعات",
             "كل اربعة ساعات",
             "كل خمسة ساعات"});
-            this.cbPeriodBetweenNotification.Location = new System.Drawing.Point(35, 109);
+            this.cbPeriodBetweenNotification.Location = new System.Drawing.Point(60, 136);
             this.cbPeriodBetweenNotification.Name = "cbPeriodBetweenNotification";
             this.cbPeriodBetweenNotification.Size = new System.Drawing.Size(183, 25);
             this.cbPeriodBetweenNotification.TabIndex = 4;
@@ -236,18 +238,18 @@
             // 
             this.panel3.Controls.Add(this.rbStartupOff);
             this.panel3.Controls.Add(this.rbStartupOn);
-            this.panel3.Location = new System.Drawing.Point(29, 218);
+            this.panel3.Location = new System.Drawing.Point(54, 245);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(189, 41);
+            this.panel3.Size = new System.Drawing.Size(223, 41);
             this.panel3.TabIndex = 34;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.rbNotifyOff);
             this.panel2.Controls.Add(this.rbNotifyOn);
-            this.panel2.Location = new System.Drawing.Point(29, 158);
+            this.panel2.Location = new System.Drawing.Point(54, 185);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(189, 41);
+            this.panel2.Size = new System.Drawing.Size(223, 41);
             this.panel2.TabIndex = 36;
             // 
             // rbNotifyOff
@@ -278,31 +280,41 @@
             this.rbNotifyOn.UseVisualStyleBackColor = true;
             this.rbNotifyOn.CheckedChanged += new System.EventHandler(this.radioButtons_CheckedChanged);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.cbNotificationType);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.cbPeriodBetweenNotification);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.btnTestNotify);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(548, 525);
+            this.panel1.TabIndex = 37;
+            // 
             // MainPage
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(43)))), ((int)(((byte)(60)))));
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.cbPeriodBetweenNotification);
-            this.Controls.Add(this.cbNotificationType);
-            this.Controls.Add(this.btnTestNotify);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
             this.Name = "MainPage";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Size = new System.Drawing.Size(472, 451);
+            this.Size = new System.Drawing.Size(548, 525);
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -326,5 +338,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tsmShow;
         private System.Windows.Forms.ToolStripMenuItem tsmClose;
+        private System.Windows.Forms.Panel panel1;
     }
 }

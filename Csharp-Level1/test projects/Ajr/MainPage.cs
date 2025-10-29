@@ -10,7 +10,7 @@ namespace Ajr
 {
     public partial class MainPage : UserControl
     {
-
+        Form1 Frm1; // to pass reference of form1 to this user control
         private AppSettings settings; // to load settings from the Json file
         private Dictionary<string, List<string>> categories; // to load the categories from its class
         private int timerInterval = 0;
@@ -19,9 +19,11 @@ namespace Ajr
 
 
 
-        public MainPage()
+        public MainPage(Form1 frm1)
         {
             InitializeComponent();
+
+            Frm1 = frm1;
 
             settings = AppSettings.loadFromJson(); // to save any changes to the json
             categories = categoriesData.getCategories();
@@ -189,8 +191,8 @@ namespace Ajr
         // context menu strips
         private void tsmShow_Click(object sender, EventArgs e)
         {
-            this.ParentForm.Show();
-            this.ParentForm.WindowState = FormWindowState.Normal;
+            Frm1.Show();
+            Frm1.WindowState = FormWindowState.Normal;
         }
         private void tsmClose_Click(object sender, EventArgs e)
         {
