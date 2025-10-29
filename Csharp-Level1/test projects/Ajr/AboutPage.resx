@@ -117,13 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="timerBalloon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>120, 17</value>
-  </metadata>
-  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>254, 17</value>
-  </metadata>
+  <data name="label1.Text" xml:space="preserve">
+    <value>التطبيق مخصص لتنبيه المستخدم بأذكار قصيرة خلال فترات اليوم.
+
+يعمل التطبيق في الخلفية ويعرض إشعارات تلقائية حسب الفاصل الزمني الذي يتم تحديده.
+
+يمكن للمستخدم اختيار نوع الأذكار والفترة الزمنية بين كل إشعار والآخر.
+
+يتم حفظ الإعدادات على الجهاز واستعادتها تلقائياً عند تشغيل التطبيق مرة أخرى.
+
+يمكن للمستخدم تفعيل أو إيقاف تشغيل التطبيق مع بدء تشغيل النظام حسب الرغبة.
+
+يستمر التطبيق بالعمل في الخلفية عند إغلاق النافذة.  
+للإغلاق الكامل، يرجى الضغط على أيقونة التطبيق بجانب الساعة واختيار "إغلاق".
+
+للمزيد من التفاصيل، تفضل بزيارتي على</value>
+  </data>
 </root>

@@ -1,17 +1,9 @@
 ﻿using Microsoft.Win32;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Diagnostics;
 
 
 namespace Ajr
@@ -19,32 +11,12 @@ namespace Ajr
     public partial class MainPage : UserControl
     {
 
-        private AppSettings settings;
-        private Dictionary<string, List<string>> categories;
+        private AppSettings settings; // to load settings from the Json file
+        private Dictionary<string, List<string>> categories; // to load the categories from its class
         private int timerInterval = 0;
-        private int balloonShowTime = 0;
-        private bool eventsEnabled = true;
+        private bool eventsEnabled = true; // to prevent any methods from running during settings loading
+        private bool isBalloonVisible = false;
 
-
-        private void prepareUserSettings()
-        {
-            eventsEnabled = false;
-
-            rbNotifyOn.Checked = settings.isNotifyOn;
-            rbNotifyOff.Checked = !settings.isNotifyOn;
-
-            rbNotifySoundOn.Checked = settings.isNotifySoundOn;
-            rbNotifySoundOff.Checked = !settings.isNotifySoundOn;
-
-            rbStartupOn.Checked = settings.isRunOnStartupOn;
-            rbStartupOff.Checked = !settings.isRunOnStartupOn;
-
-            cbPeriodBetweenNotification.SelectedIndex = settings.timerIntervalIndex;
-            nudNotificationShowTime.Value = settings.balloonShowTime;
-            cbNotificationType.SelectedIndex = settings.selectedCategoryIndex;
-
-            eventsEnabled = true;
-        }
 
 
         public MainPage()
@@ -52,30 +24,30 @@ namespace Ajr
             InitializeComponent();
 
             settings = AppSettings.loadFromJson(); // to save any changes to the json
-            categories = categoriesData.GetCategories();
+            categories = categoriesData.getCategories();
 
             notifyIcon1.Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath);
             notifyIcon1.BalloonTipIcon = ToolTipIcon.None;
             
             prepareUserSettings();
         }
-
-
-        private void setStartup(bool enable)
+        private void prepareUserSettings()
         {
-            string appName = Application.ProductName;
-            string exePath = Application.ExecutablePath;
-            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+            eventsEnabled = false;
 
-            if (enable)
-            {
-                key.SetValue(appName, exePath); 
-            }
-            else
-            {
-                key.DeleteValue(appName, false); 
-            }
+            rbNotifyOn.Checked = settings.isNotifyOn;
+            rbNotifyOff.Checked = !settings.isNotifyOn;
+
+            rbStartupOn.Checked = settings.isRunOnStartupOn;
+            rbStartupOff.Checked = !settings.isRunOnStartupOn;
+
+            cbPeriodBetweenNotification.SelectedIndex = settings.timerIntervalIndex;
+            cbNotificationType.SelectedIndex = settings.selectedCategoryIndex;
+
+            eventsEnabled = true;
         }
+
+        // udpating methods
         private int convertChosenIndexToInterval()
         {
             switch (cbPeriodBetweenNotification.SelectedIndex)
@@ -92,19 +64,43 @@ namespace Ajr
                 default: return 5 * 60 * 1000;
             }
         }
+        private void updateStartup(bool enable)
+        {
+            string appName = Application.ProductName;
+            string exePath = Application.ExecutablePath;
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
+
+            if (enable)
+            {
+                key.SetValue(appName, exePath); 
+            }
+            else
+            {
+                key.DeleteValue(appName, false); 
+            }
+        }
         private void updateBalloonTip()
         {
-
             string selectedCategory = cbNotificationType.SelectedItem.ToString();
             if (!categories.ContainsKey(selectedCategory) || categories[selectedCategory].Count == 0)
                 return;
 
             Random rnd = new Random();
-            int rndElement = rnd.Next(0, categories[selectedCategory].Count);
+            int rndElement;
 
-            balloonShowTime = Convert.ToInt32(nudNotificationShowTime.Value) * 1000; // to ms
+            if (cbNotificationType.SelectedIndex == 3)
+            {
+                bool isAM = (DateTime.Now.Hour < 12);
+                rndElement = isAM ? rnd.Next(0, 8) : rnd.Next(9, categories[selectedCategory].Count);
+            }
+            else
+            {
+                rndElement = rnd.Next(0, categories[selectedCategory].Count);
+            }
+
             notifyIcon1.BalloonTipTitle = selectedCategory;
             notifyIcon1.BalloonTipText = categories[selectedCategory].ElementAt(rndElement);
+            
         }
         private void updateTimer()
         {
@@ -114,28 +110,20 @@ namespace Ajr
         }
         private void updateSettings()
         {
-            setStartup(rbStartupOn.Checked);
+            updateStartup(rbStartupOn.Checked);
             updateTimer();
             updateBalloonTip();
             settings.saveToJson();
             
         }
 
-
+        // combo boxes and buttons
         private void cbNotificationType_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (!eventsEnabled)
                 return;
 
             settings.selectedCategoryIndex = ((ComboBox)sender).SelectedIndex;
-            updateSettings();
-        }
-        private void nudNotificationShowTime_ValueChanged(object sender, EventArgs e)
-        {
-            if (!eventsEnabled)
-                return;
-
-            settings.balloonShowTime = Convert.ToInt32(((NumericUpDown)sender).Value);
             updateSettings();
         }
         private void cbPeriodBetweenNotification_SelectedIndexChanged(object sender, EventArgs e)
@@ -146,41 +134,40 @@ namespace Ajr
             settings.timerIntervalIndex = ((ComboBox)sender).SelectedIndex;
             updateSettings();
         }
-
-      
-        private void btnDefaultSettings_Click(object sender, EventArgs e)
-        {
-            updateSettings();
-            notifyIcon1.ShowBalloonTip(balloonShowTime);
-        }
-
-        private void timerBalloon_Tick(object sender, EventArgs e)
-        {
-            if (rbNotifyOff.Checked)
-                return;
-
-            if (rbNotifySoundOn.Checked)
-                SystemSounds.Asterisk.Play();
-
-            notifyIcon1.ShowBalloonTip(balloonShowTime);
-        }
-        private void notifyIcon1_BalloonTipClicked(object sender, EventArgs e)
-        {
-            this.Show();
-        }
         private void radioButtons_CheckedChanged(object sender, EventArgs e)
         {
             if (!eventsEnabled)
                 return;
 
             settings.isNotifyOn = rbNotifyOn.Checked;
-            settings.isNotifySoundOn = rbNotifySoundOn.Checked;
             settings.isRunOnStartupOn = rbStartupOn.Checked;
 
             updateSettings();
 
         }
+        private void btnTestNotify_Click(object sender, EventArgs e)
+        {
+            if (isBalloonVisible)
+                return;
 
+            updateBalloonTip();
+            notifyIcon1.ShowBalloonTip(10000);
+        }
+
+        // balloon and timer
+        private void timerBalloon_Tick(object sender, EventArgs e)
+        {
+            if (rbNotifyOff.Checked)
+                return;
+
+            updateSettings();
+            notifyIcon1.ShowBalloonTip(10000);
+        }
+        private void notifyIcon1_BalloonTipClicked(object sender, EventArgs e)
+        {
+            this.ParentForm.Show();
+            this.ParentForm.WindowState = FormWindowState.Normal;
+        }
         private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             this.ParentForm.Show();
@@ -188,12 +175,23 @@ namespace Ajr
             this.ParentForm.BringToFront();
         }
 
+        // to prevent repeated balloons when mutliple clicks on test button
+        private void notifyIcon1_BalloonTipShown(object sender, EventArgs e)
+        {
+            isBalloonVisible = true;
+        }
+        private void notifyIcon1_BalloonTipClosed(object sender, EventArgs e)
+        {
+            isBalloonVisible = false;
+        }
+
+
+        // context menu strips
         private void tsmShow_Click(object sender, EventArgs e)
         {
             this.ParentForm.Show();
             this.ParentForm.WindowState = FormWindowState.Normal;
         }
-
         private void tsmClose_Click(object sender, EventArgs e)
         {
             notifyIcon1.Visible = false;
@@ -201,6 +199,3 @@ namespace Ajr
         }
     }
 }
-
-
-

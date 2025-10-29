@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +16,7 @@ namespace Ajr
     {
         enum enPages { eMain = 1, eAbout = 2, eExit = 3};
         MainPage homePage = new MainPage();
+        AboutPage aboutPage = new AboutPage();
 
         public Form1()
         {
@@ -49,7 +51,9 @@ namespace Ajr
                     break;
 
                 case enPages.eAbout:
-                    
+                    pnlPages.Controls.Clear();
+                    pnlPages.Controls.Add(aboutPage);
+                    aboutPage.Dock = DockStyle.Fill;
                     break;
 
             }
@@ -67,17 +71,23 @@ namespace Ajr
             
             MoveIndicator(btn);
             ShowPage(page);
-
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                e.Cancel = true;             // نمنع الإغلاق
+                e.Cancel = true;             // to keep app running when closing the form
                 this.Hide();                
             }
 
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo{ FileName = "https://Abdullahsz.com",UseShellExecute = true} );
+        }
+
+    
     }
 }
