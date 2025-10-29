@@ -47,6 +47,8 @@ namespace Ajr
             cbNotificationType.SelectedIndex = settings.selectedCategoryIndex;
 
             eventsEnabled = true;
+
+            updateSettings(); // to update notifications timer once app is started
         }
 
         // udpating methods
