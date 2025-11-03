@@ -52,6 +52,8 @@ namespace _10___Constructors
 {
     internal class Program
     {
+        
+
         static void Main(string[] args)
         {
         }
