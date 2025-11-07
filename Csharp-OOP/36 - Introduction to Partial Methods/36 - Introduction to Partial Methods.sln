@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "36 - Introduction to Partial Methods", "36 - Introduction to Partial Methods.csproj", "{506EE6A2-7B8D-44FC-AD72-5F6412143ACA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{506EE6A2-7B8D-44FC-AD72-5F6412143ACA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{506EE6A2-7B8D-44FC-AD72-5F6412143ACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{506EE6A2-7B8D-44FC-AD72-5F6412143ACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{506EE6A2-7B8D-44FC-AD72-5F6412143ACA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2D5455B1-4DF9-47B9-A138-3E487C5FF36B}
+	EndGlobalSection
+EndGlobal
