@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 // sealed class is a class that cant be inherited.
 // example of using it is if im selling my class with its methods i worked on, and dont want to let anyone inherit it and extend its methods or anything
-
+// It is the opposite of an abstract class (which must be inherited).
 
 namespace _33___Sealed_Class
 {
@@ -16,7 +16,8 @@ namespace _33___Sealed_Class
     public sealed class Person
     {
         public int MyProperty { get; set; }
-
+        
+        // cant have virtual methods, cuz no one is overriding it
 
     }
 
