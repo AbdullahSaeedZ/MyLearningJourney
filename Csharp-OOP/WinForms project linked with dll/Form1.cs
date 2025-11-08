@@ -4,6 +4,8 @@ using System.Windows.Forms;
 
 // we referenced the dll assembly of class library we made then use it directly 
 
+// i can edit the code of the class library by solution -> add existing project then chose the class  .csproj file
+
 
 using MyLibrary;
 
