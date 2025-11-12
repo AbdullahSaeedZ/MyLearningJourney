@@ -1,0 +1,33 @@
+# Ignore all SQL scripts
+*.sql
+
+# Ignore SQL backup and data files
+*.bak
+*.bacpac
+*.dacpac
+*.trn
+*.mdf
+*.ldf
+*.ndf
+
+# Ignore temporary database export/import files
+*.tmp
+*.log
+*.sqlproj.user
+
+# Ignore VS/SSDT build outputs
+bin/
+obj/
+
+# Ignore local settings and cache from SQL tools
+.vscode/
+.vs/
+.env
+*.user
+*.suo
+*.cache
+
+# Ignore OS/system files
+Thumbs.db
+.DS_Store
+desktop.ini
