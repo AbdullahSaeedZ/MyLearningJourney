@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 
 // see pdf
+// note, MongoDB is non-relational database
 
 
 namespace _9___DBMs_vs_RDBMS_Summary
