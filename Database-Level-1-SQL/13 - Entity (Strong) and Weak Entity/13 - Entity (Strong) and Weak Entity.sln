@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13 - Entity (Strong) and Weak Entity", "13 - Entity (Strong) and Weak Entity.csproj", "{FB9AB6D6-6B6E-408B-946C-3B95173E02DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB9AB6D6-6B6E-408B-946C-3B95173E02DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB9AB6D6-6B6E-408B-946C-3B95173E02DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB9AB6D6-6B6E-408B-946C-3B95173E02DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB9AB6D6-6B6E-408B-946C-3B95173E02DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8C76EB4-3139-42FB-9EBA-5DF62E881729}
+	EndGlobalSection
+EndGlobal
