@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 
 // is the minimum number of times an instance in one entity can be associated with an instance in the related entity. (in other words It specify if it’s
-// (optional / mandatory / required or not).
+// (optional if 0 / mandatory, at least 1 / required or not).
 
 // ex:
 // in the same many-to-one relation nature, we can define ordinality which is the minimum:
@@ -29,7 +29,7 @@ using System.Threading.Tasks;
 //  Customer 1 <-------|place by|----- Order
 // a customer can have minimum 0 orders, but an order atleast must be placed by 1 customers
 // cuz orders cant be created unless a customer places an order !
-// Ordinality here is 0 - 0, which is the minimum
+// Ordinality here is 1 - 0, which is the minimum
 
 
 
@@ -38,6 +38,8 @@ using System.Threading.Tasks;
 //   Customer (1, 1) <-------|place|-----> (0, M) Order
 // cardinality = one to many
 // Ordinality = 1 - 0
+
+// see next lesson to see the common symbols of them.
 
 
 namespace _19___Cardinality_vs_Ordinality
