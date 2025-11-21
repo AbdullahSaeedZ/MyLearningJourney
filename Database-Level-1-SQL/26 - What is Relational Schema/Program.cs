@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 // once we gather requirement of the database, we create  the ERD which is a conceptual design
 // once ERD is ready we convert it into a Relational Schema which is a part of Logical design of data base
-// Relational Schema translates ERD into tables and more details to be ready for building the data base
+// Relational Schema translates ERD into relational tables and more details to be ready for building the data base
 
 // see pdf for pics and examples
 
