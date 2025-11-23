@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "30 - One-to-Many and Many-to-One TO Relational Schema", "30 - One-to-Many and Many-to-One TO Relational Schema.csproj", "{CB842952-FEEE-4386-BF89-2A5E704DB2B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CB842952-FEEE-4386-BF89-2A5E704DB2B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB842952-FEEE-4386-BF89-2A5E704DB2B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB842952-FEEE-4386-BF89-2A5E704DB2B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB842952-FEEE-4386-BF89-2A5E704DB2B8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC17CE5C-83CA-4CE6-B69C-7485DEE80864}
+	EndGlobalSection
+EndGlobal
