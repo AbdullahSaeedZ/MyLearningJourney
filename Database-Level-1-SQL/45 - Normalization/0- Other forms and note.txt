@@ -1,0 +1,11 @@
+Boyce Codd normal form (BCNF) , 4NF and 5NF
+
+BCNF , 4NF, and 5 NF will be discussed in Database Level 2.
+
+
+بالنسبة لل
+Normalization 
+لن نحتاج اكثر من 
+3NF
+ باقي الانواع هي وضعت لمعالجة الاخطاء في الديزاين  وهذا الاخطاء لن نواجهها لطالما استخدمنا سياسة سياسة فرق تسد
+
