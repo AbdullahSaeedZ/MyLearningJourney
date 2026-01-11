@@ -13,11 +13,11 @@ select * from Employees where DepartmentID = 1 or DepartmentID = 2 or Department
 -- used to check if something falls in value set
 select * from Employees where FirstName in ('Jacob','Brooks','Harper');
 
-select * from Employees where DepartmentID in (1,2,5,7); --  (1,2,5,7) there are called set of values
+select * from Employees where DepartmentID in (1,2,5,7); --  (1,2,5,7) they are called set of values
 
 
 
--- returning the departments that have employees with less than 210 salary
+-- returning the department IDs that have employees with less than 210 salary
 select DepartmentID from Employees where MonthlySalary <= 210; -- this resulted in set of values (3,5,7,4) in the result table
 
 -- we can use the above set of values in another way:

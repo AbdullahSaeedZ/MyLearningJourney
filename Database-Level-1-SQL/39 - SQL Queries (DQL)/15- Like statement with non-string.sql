@@ -14,7 +14,7 @@ select ID, FirstName from Employees where cast(ID as varchar) like '1%';
 -- with dates , we use this simple query:
 select FirstName, HireDate from Employees where HireDate >= '1995-1-1';
 
--- but if i need to look for specific patterns then convert and use LIKE :
+-- but if i need to look for specific patterns then, convert and use LIKE :
 
 -- with Dates, each date format or type has different way, but using Convert function will work for all date types:
 -- using CONVERT with style 23 forces any date type to the format yyyy-mm-dd, which makes LIKE workable.

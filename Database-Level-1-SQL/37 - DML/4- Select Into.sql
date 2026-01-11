@@ -3,8 +3,8 @@
 -- it will only copy data, no constraints copoied
 
 -- select * (all columns or specific columns)
--- into new table name
--- from existing table;
+-- into new_table_name
+-- from existing_table;
 
 use DB1;
 

@@ -9,7 +9,7 @@ use HR_Database;
 -- returns all data
 select * from Employees;
 
--- returns top 5 of all columns (not ordered by any thing)
+-- returns top 5 of all columns (not ordered by anything)
 select top 5 * from Employees;
 
 -- returns top 10% of all columns (10% of 1000 is 100)

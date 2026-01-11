@@ -19,7 +19,7 @@ create table Departments
 insert into Departments
 values ('HR');
 
--- deleting all columns of table will not reset the ID incrementing values.
+-- deleting all records of table will not reset the ID incrementing values.
 delete from Departments;
 
 -- now it will be given ID number based on last number was given, even though no IDs available in the table.

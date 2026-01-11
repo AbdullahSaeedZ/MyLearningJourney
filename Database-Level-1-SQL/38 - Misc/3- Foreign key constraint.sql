@@ -33,8 +33,6 @@ create table Orders
 -- if we were to delete Customers table, it will show error, cuz it is referenced by Orders table, the right way is to delete Orders to eleminate any referencing then delete Customers table.
 
 
-
-
 -- Method 2:
 -- we can create another table without referencing in creation phase, then we reference it later this way:
 create table NoLinkTable

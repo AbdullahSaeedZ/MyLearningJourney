@@ -9,7 +9,7 @@ use DB1;
 select * from Employees;
 
 
--- insert one record at a time 
+-- insert one record 
 insert into Employees
 values 
 (1, 'abdullah', '054322', 89000);  -- values must be in the same order of columns
@@ -24,7 +24,7 @@ values
 (4, 'emp4', '23323', 55000);
 
 
--- insert one record at a time with nulls
+-- insert one record with nulls
 insert into Employees
 values 
 (6, 'temp', null, 89000);
@@ -32,7 +32,7 @@ values
 
 
 -- insert records with certain selected fields
-insert into Employees (ID, Name) -- this will be rejected, cuz it will insert Phone field as null, which is not allowed as we specified in constraints
+insert into Employees (ID, Name) -- this will be rejected, cuz it will insert Salary field as null, which is not allowed as we specified in constraints
 values
 (5, 'fofo');
 
@@ -40,4 +40,4 @@ values
 -- insert records with certain selected fields
 insert into Employees (ID, Name, Salary) -- here it is ok, cuz those are mandatory (not null), and the rest are nullable
 values
-(5, 'fofo', 9900);
+(7, 'fofo', 9900);

@@ -1,4 +1,4 @@
--- Delete Statement is to delete records in a table
+E-- Delete Statement is to delete records in a table
 
 -- DELETE FROM table_name
 -- WHERE condition;

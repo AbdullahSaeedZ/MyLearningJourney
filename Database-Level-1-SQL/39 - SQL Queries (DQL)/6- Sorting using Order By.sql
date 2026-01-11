@@ -20,7 +20,7 @@ select ID, FirstName, MonthlySalary from Employees where DepartmentID = 1 order 
 
 -- or by first name (ascending by default):
 select ID, FirstName, MonthlySalary from Employees where DepartmentID = 1 order by FirstName;
--- order by + dec:
+-- order by + desc:
 select ID, FirstName, MonthlySalary from Employees where DepartmentID = 1 order by FirstName desc;
 
 
