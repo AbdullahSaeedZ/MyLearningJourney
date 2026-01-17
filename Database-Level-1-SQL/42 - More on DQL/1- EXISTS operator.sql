@@ -38,4 +38,4 @@ where Exists
 	select top 1 R='y' from Orders where CustomerID = Customers.CustomerID and Amount < 600 -- why * ? no need to return all columns!! we make random column, our final goal is return true or false
 );
 
--- so the EXISTS, tells us does that data exist or not, doesnt care about the data content itself
+-- so the EXISTS, tells us does that data exis t or not, doesnt care about the data content itself

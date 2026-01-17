@@ -20,9 +20,18 @@ on Customers.CustomerID = Orders.CustomerID;
 
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/*
+FULL OUTER JOIN returns:
 
+All matched rows between table1 and table2
 
--- The FULL OUTER JOIN keyword returns all records when there is a match in left (table1) or right (table2) table records.
+Plus the unmatched rows from table1 (table2 columns become NULL)
+
+Plus the unmatched rows from table2 (table1 columns become NULL)
+
+So it’s basically: LEFT JOIN + RIGHT JOIN combined
+
+*/
 
 -- FULL OUTER JOIN and FULL JOIN are the same.
 

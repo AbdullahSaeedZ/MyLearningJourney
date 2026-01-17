@@ -62,6 +62,3 @@ case
 	else 'Unknown'
 end
 from Employees;
-
-
-

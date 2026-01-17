@@ -42,7 +42,7 @@ create table Persons2
 );
 
 -- go to table name then right click -> script table as -> create to -> new query ....
--- new page with script will show, this is the things that are done by default with the creation of the table,
+-- new page with script will show up, this is the things that are done by default with the creation of the table,
 -- we can see the cluster index in ascending order and much more.
 
 ------------------------------------------------------------------------------------------------------
