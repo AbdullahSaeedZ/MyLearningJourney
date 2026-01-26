@@ -1,6 +1,6 @@
 --  Problem 9: Get all vehicles that runs with GAS
 
-
+-- needed columns are from two tables, so we need to join them then choose which columns to show:
 
 select VehicleDetails.*, FuelTypes.FuelTypeName 
 from VehicleDetails join FuelTypes on FuelTypes.FuelTypeID = VehicleDetails.FuelTypeID
