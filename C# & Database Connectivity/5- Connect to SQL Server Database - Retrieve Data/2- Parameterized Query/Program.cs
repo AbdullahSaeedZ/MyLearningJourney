@@ -10,6 +10,13 @@ public class Program
 {
     static string connectionString = "Server=.;Database=ContactsDB;User Id=sa;Password=123456;";
 
+    // Parameters are used to safely pass user-provided values into a SQL query,
+    // preventing SQL injection and keeping values separate from the query logic
+    // Example: WHERE FirstName = @FirstName (value is supplied separately)
+
+
+
+
     // 1 :
     static public void PrintRecordWithFirstName(string FirstName)
     {
