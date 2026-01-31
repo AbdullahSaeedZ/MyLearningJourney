@@ -23,7 +23,7 @@ public class Program
         SqlConnection connection = new SqlConnection(connectionString);
 
         // we can prepare the query with conditions, using concatenation:
-        // string query = "select * from Contacts where FirstName = " + FirstName;
+        // string query = "select * from Contacts where FirstName = " + FirstName + ";
         // but this is risky, see sql injection video, and in EF there is more protection layers.
         // instead, we use a parameterized query (it contains parameter placeholders):
         // @FirstName is a placeholder in the SQL query; its value is supplied later.

@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Configuration;
 using System.Data.SqlClient;
-using System.Dynamic;
+
 
 
 internal class Program
@@ -80,7 +79,7 @@ internal class Program
 
     static void Main(string[] args)
     {
-        clsInfo Contact = clsInfo.findContactByID(11);
+        clsInfo Contact = clsInfo.findContactByID(3);
 
         if (Contact != null)
         {

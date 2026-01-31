@@ -30,7 +30,7 @@ internal class Program
             connection.Open();
 
             // this returns value of first column of first record appear in the result set, even if result set contains 1000 records.
-            // we use Object Type to store value returned which is unknown for now, mighgt be int or string so we use Object type,
+            // we use Object Type to store value returned which is unknown for now, might be int or string so we use Object type,
             // if no value found it will be null
 
             // object type
