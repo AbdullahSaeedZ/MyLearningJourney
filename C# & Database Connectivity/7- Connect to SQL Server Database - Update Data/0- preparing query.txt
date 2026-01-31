@@ -1,0 +1,40 @@
+// In SQL Server:
+// Right-click the Contacts table
+// → Script Table as
+// → UPDATE To, or needed command
+// → New Query Editor Window
+//
+// SQL Server generates an UPDATE template like this:
+
+/*
+USE [ContactsDB]
+
+UPDATE [dbo].[Contacts]
+   SET [FirstName] = <FirstName, nvarchar(50),>
+      ,[LastName] = <LastName, nvarchar(50),>
+      ,[Email] = <Email, nvarchar(100),>
+      ,[Phone] = <Phone, nvarchar(20),>
+      ,[Address] = <Address, nvarchar(200),>
+      ,[CountryID] = <CountryID, int,>
+ WHERE <Search Conditions,,>
+*/
+
+// Everything inside < > is replaced with actual values or parameters.
+
+// Final query used in the program:
+
+/*
+UPDATE Contacts
+SET FirstName = @FirstName,
+    LastName  = @LastName,
+    Email     = @Email,
+    Phone     = @Phone,
+    Address   = @Address,
+    CountryID = @CountryID
+WHERE ContactID = @ContactID
+*/
+
+// Script Table as helps by:
+// - Automatically listing all column names
+// - Generating a clean, structured query
+// - Reducing mistakes in column names or ordering
