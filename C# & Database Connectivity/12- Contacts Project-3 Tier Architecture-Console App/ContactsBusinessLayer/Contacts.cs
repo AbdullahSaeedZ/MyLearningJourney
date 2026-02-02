@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Runtime.Remoting.Messaging;
 using ContactsDataAccessLayer;
 
 namespace ContactsBusinessLayer
@@ -20,9 +21,11 @@ namespace ContactsBusinessLayer
         public int CountryID { get; set; }
 
 
+
+        // this is for a new contact (new object creation), will fill with initial values:
         public clsContact()
         {
-            this.ID = -1;
+            this.ID = -1;  // cuz new contact added to DB will be given new autonumbered ID.
             this.FirstName = "";
             this.LastName = "";
             this.Email = "";
@@ -34,6 +37,9 @@ namespace ContactsBusinessLayer
             this.Mode = enMode.eAddNew;
         }
 
+        // private constructor to prevent any object creation, cuz if we create a new object here, then which ID to give? IDs are coming auto numbered from database.
+        // another reason is to prevent any empty object creation, but using it inside the class here via find method.
+        // so once this constructor is used, it is used to return an object of existent contact for update mode.
         private clsContact(int ID, string FirstName, string LastName, string Email, string Phone, string Address, DateTime DateOfBirth, int CountryID, string ImagePath)
         {
             this.ID = ID;
@@ -50,7 +56,7 @@ namespace ContactsBusinessLayer
 
 
 
-        static public clsContact find(int ID)
+        public static clsContact find(int ID)
         {
             string FirstName = "",  LastName = "",  Email = "",  Phone = "",  Address = "",  ImagePath = "";
             DateTime DateOfBirth = DateTime.Now;
@@ -64,6 +70,48 @@ namespace ContactsBusinessLayer
                 return null;
         }
 
+
+
+
+
+        private bool _AddNewContact()
+        {
+            // this will let dataLayer add contact to DB then return the ID given by DB
+            this.ID = clsContactDataAccess.AddNewContact(this.FirstName, this.LastName, this.Email, this.Phone, this.Address, this.DateOfBirth, this.CountryID, this.ImagePath);
+
+            return (this.ID != -1);
+        }
+
+
+        // this will run in two situations: in adding new contact, and in updating a contact; thats why we have the modes
+        public bool Save()
+        {
+
+            switch(Mode)
+            {
+                case enMode.eAddNew:
+
+                    if (_AddNewContact())
+                    {
+                        Mode = enMode.eUpdate;
+                        return true;
+                    }
+                    else
+                        return false;
+
+                //case enMode.eUpdate:
+
+                //    if ()
+                //        return true;
+                //    else
+                //        return false;
+
+                default: 
+                    return false;
+            }
+
+
+        }
 
 
     }

@@ -2,12 +2,16 @@
 using System.Data;
 using System.Data.SqlClient;
 
+
+// all methods here to be static, so we can call them with no objects
+
+
 namespace ContactsDataAccessLayer
 {
     public class clsContactDataAccess
     {
 
-        static public bool getContactInfoByID(int ID, ref string FirstName, ref string LastName, ref string Email, ref string Phone, ref string Address,
+        public static bool getContactInfoByID(int ID, ref string FirstName, ref string LastName, ref string Email, ref string Phone, ref string Address,
             ref DateTime DateOfBirth, ref int CountryID, ref string ImagePath)
         {
             bool IsFound = false;
@@ -51,6 +55,52 @@ namespace ContactsDataAccessLayer
             }
 
             return IsFound;
+        }
+
+
+
+        public static int AddNewContact(string FirstName, string LastName, string Email, string Phone, string Address, DateTime DateOfBirth, int CountryID, string ImagePath)
+        {
+            int NewID = -1;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+            string query = @"insert into Contacts
+                             values(@FirstName, @LastName, @Email, @Phone, @Address, @DateOfBirth, @CountryID, @ImagePath);
+                            select scope_identity();";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue(@"FirstName", FirstName);
+            command.Parameters.AddWithValue(@"LastName", LastName);
+            command.Parameters.AddWithValue(@"Email", Email);
+            command.Parameters.AddWithValue(@"Phone", Phone);
+            command.Parameters.AddWithValue(@"Address", Address);
+            command.Parameters.AddWithValue(@"DateOfBirth", DateOfBirth);
+            command.Parameters.AddWithValue(@"CountryID", CountryID);
+
+            // this column allows null, so if it is empty in adding phase, we send it to DB as null value.
+            if (ImagePath != "")
+                command.Parameters.AddWithValue(@"ImagePath", ImagePath);
+            else
+                command.Parameters.AddWithValue(@"ImagePath", DBNull.Value);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int temp))
+                    NewID = temp;
+
+            }
+            catch (Exception e)
+            {
+                // logs 
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return NewID;
         }
 
     }
