@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 // static constructor is is called once in the life of the program, unlike non static ones, called with each object.
 // static constructors cant be parameterized
 // We can have only one static constructor in a class. It cannot have any parameters or access modifiers.
-// We cannot call a static constructor directly. However, the static constructor gets called automatically when using memebrs of the static class
+// We cannot call a static constructor directly. However, the static constructor gets called automatically when using members of the static class
 
 namespace _16___Static_Constructor
 {

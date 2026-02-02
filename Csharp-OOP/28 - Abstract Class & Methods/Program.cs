@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace _28___Abstract_Class___Methods
 {
 
-    // this is abstract class, which is like a contract that force its sub classes to implement its terms
+    // this is abstract class, which is like a contract that forces its sub classes to implement its terms
     // no objects of this class allowed
     public abstract class Person
     {

@@ -16,7 +16,7 @@ namespace _6___Static_Properties___Static_Class
     // static class can only have static constructor, cuz the default one needs an object, and objects cant be created with static classes.
     // the static constructor will only run once and with the first use of the class when accessing any of its members, with out using the new keyword.
 
-    // this is preventing objects creation at all , outside on inside the class unlike private constructor way.
+    // this is preventing objects creation at all , outside or inside the class unlike private constructor way.
     static class Settings
     {
 
@@ -40,11 +40,14 @@ namespace _6___Static_Properties___Static_Class
 
         public static string ProjectPath { set; get; }
 
+
+        // If not written explicitly, a static constructor may be generated implicitly
+        // only when initialization requires executing code (not default values).
+
     }
 
 
     // this is preventing objects creating only outside the class
-
     class clsTest
     {
 

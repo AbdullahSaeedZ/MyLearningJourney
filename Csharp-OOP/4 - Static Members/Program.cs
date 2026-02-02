@@ -20,7 +20,8 @@ namespace _4___Static_Members
 
         public int func1() // only accessed by an object
         {
-            // non static methods in objects can use static members as read-only
+            // non static methods in objects can use static members normally
+            x2 += 1000;
             return x1 + x2;
         }
 
@@ -44,18 +45,19 @@ namespace _4___Static_Members
             // here x1 of objA is different from objB x1, different memory locations
             objA.x1 = 5;
             objB.x1 = 10;
+            
 
+            
             // now this static member is accessed only from the class itself to edit.
             clsA.x2 = 400;
 
-            // non static method func1 using static variable x2 as reading
+            // cant update or read static variable from the object:
+            // objA.x2 = 2;   error
+          
+
+            // non-static method func1 can call static variable x2 to update and print
             Console.WriteLine("objA func1 = {0}", objA.func1());
             Console.WriteLine("objB func1 = {0}", objB.func1());
-
-
-
-
-
 
         }
     }

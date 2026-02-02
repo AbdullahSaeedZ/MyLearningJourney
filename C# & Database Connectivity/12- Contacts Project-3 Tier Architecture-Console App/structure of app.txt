@@ -1,0 +1,3 @@
+both businessLayer and DataAccessLayer are class libraries and PresentationLayer is consoleApp, the frontEnd part (presentationLayer) is either console app or windowsFormsApp... and the others are backEndLibraries.
+
+main project created in the begining is the presentation as console app, then the backend layers are created as class libraries added to the solution.

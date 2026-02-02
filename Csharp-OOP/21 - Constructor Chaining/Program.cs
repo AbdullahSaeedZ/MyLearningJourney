@@ -31,7 +31,8 @@ namespace _21___Constructor_Chaining
 
         // this chaining the constructor, benifit is when changing the code, i change it in one place then it is all set.
 
-        // this the the way we pass parameters from sub class constructor to base constructor when inheritance
+        // this is the way we pass parameters from sub class constructor to base constructor when inheritance
+        // when running code, if default constructor is called (no values given in object creation) will run and call the chained constructor (the parametrized one) and pass the arguments
         public Person() : this("Unknown", 0)
         {
         }
