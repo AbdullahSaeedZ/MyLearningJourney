@@ -7,6 +7,7 @@ namespace ContactsBusinessLayer
 {
     public class clsContact
     {
+        // mode type will control flow in the Save method
         public enum enMode { eAddNew = 0, eUpdate = 1};
         public enMode Mode = enMode.eAddNew;
 
@@ -19,8 +20,6 @@ namespace ContactsBusinessLayer
         public DateTime DateOfBirth { get; set; }
         public string ImagePath { get; set; }
         public int CountryID { get; set; }
-
-
 
         // this is for a new contact (new object creation), will fill with initial values:
         public clsContact()
@@ -56,6 +55,7 @@ namespace ContactsBusinessLayer
 
 
 
+
         public static clsContact find(int ID)
         {
             string FirstName = "",  LastName = "",  Email = "",  Phone = "",  Address = "",  ImagePath = "";
@@ -70,10 +70,6 @@ namespace ContactsBusinessLayer
                 return null;
         }
 
-
-
-
-
         private bool _AddNewContact()
         {
             // this will let dataLayer add contact to DB then return the ID given by DB
@@ -82,6 +78,15 @@ namespace ContactsBusinessLayer
             return (this.ID != -1);
         }
 
+        private bool _UpdateContact()
+        {
+            return clsContactDataAccess.UpdateContact(this.ID, this.FirstName, this.LastName, this.Email, this.Phone, this.Address, this.DateOfBirth, this.CountryID, this.ImagePath);
+        }
+
+        public static bool DeleteContact(int ID)
+        {
+            return clsContactDataAccess.DeleteContact(ID);
+        }
 
         // this will run in two situations: in adding new contact, and in updating a contact; thats why we have the modes
         public bool Save()
@@ -90,7 +95,6 @@ namespace ContactsBusinessLayer
             switch(Mode)
             {
                 case enMode.eAddNew:
-
                     if (_AddNewContact())
                     {
                         Mode = enMode.eUpdate;
@@ -99,13 +103,9 @@ namespace ContactsBusinessLayer
                     else
                         return false;
 
-                //case enMode.eUpdate:
-
-                //    if ()
-                //        return true;
-                //    else
-                //        return false;
-
+                case enMode.eUpdate:
+                    return _UpdateContact();
+                
                 default: 
                     return false;
             }
@@ -113,6 +113,17 @@ namespace ContactsBusinessLayer
 
         }
 
+
+
+        public static DataTable GetAllContacts()
+        {
+            return clsContactDataAccess.GetAllContacts();
+        }
+
+        public static bool DoesExist(int ID)
+        {
+            return clsContactDataAccess.DoesExist(ID);
+        }
 
     }
 }

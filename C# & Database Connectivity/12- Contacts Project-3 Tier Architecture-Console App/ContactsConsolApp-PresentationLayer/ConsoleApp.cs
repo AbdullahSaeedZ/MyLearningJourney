@@ -2,6 +2,11 @@
 using System.Data;
 using ContactsBusinessLayer;
 
+
+// this is the presentation Layer , the Front-end, can be a console app or WinForms or a website
+// this layer communicates with the back-end layers
+
+
 namespace ContactsConsoleApp
 {
     internal class ConsoleApp
@@ -57,13 +62,77 @@ namespace ContactsConsoleApp
             }    
         }
 
+        static void UpdateContact(int ID)
+        {
+            clsContact contact = clsContact.find(ID);
+
+            // update whatever
+            contact.FirstName = "boood";
+            contact.LastName = "Alzahrani";
+            contact.Phone = "0999999";
+            contact.Address = "st 1";
+            contact.CountryID = 1;
+            contact.DateOfBirth = new DateTime(1997, 6, 3);
+            contact.ImagePath = "";
+
+            if (contact.Save())
+            {
+                Console.WriteLine("Contact Updated Successfully!");
+            }
+            else
+            {
+                Console.WriteLine("Contact Was Not Updated!");
+                contact = null;
+            }
+        }
+
+        static void DeleteContact(int ID)
+        {
+            // we cn use the find method to show info before deleting if we want.
+
+            if (clsContact.DeleteContact(ID))
+            {
+                Console.WriteLine("Contact Deleted Successfully!");
+            }
+            else
+            {
+                Console.WriteLine("Deletion failed!");
+            }
+
+        }
+
+        // can use this method in delete method, to check does ID exist in DB without using find method hence create an object in memory then delete from DB and remain with object in app 
+        // this method checks and return boolean with no objects at all.
+        static void DoesExist(int ID)
+        {
+            Console.WriteLine($"ID {ID} : {clsContact.DoesExist(ID)}");
+        }
+
+
+        static void ListContacts()
+        {
+            // data table is like a 2d array, it has columns and rows, see next lessons
+            DataTable dataTable = clsContact.GetAllContacts();
+
+            Console.WriteLine("Contacts Data:\n");
+
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Console.WriteLine($"{row["ContactID"]} | {row["FirstName"]} | {row["LastName"]}");
+            }
+
+
+        } 
+
 
         static void Main(string[] args)
         {
-           // FindContact(2);
-            AddNewContact();
-
-
+            //FindContact(2);
+            //AddNewContact();
+            //UpdateContact(10);
+            //DeleteContact(4);
+            // ListContacts();
+            DoesExist(10);
         }
     }
 }
