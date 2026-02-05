@@ -103,11 +103,10 @@ namespace ContactsConsoleApp
 
         // can use this method in delete method, to check does ID exist in DB without using find method hence create an object in memory then delete from DB and remain with object in app 
         // this method checks and return boolean with no objects at all.
-        static void DoesExist(int ID)
+        static void DoesContactExist(int ID)
         {
             Console.WriteLine($"ID {ID} : {clsContact.DoesExist(ID)}");
         }
-
 
         static void ListContacts()
         {
@@ -116,13 +115,143 @@ namespace ContactsConsoleApp
 
             Console.WriteLine("Contacts Data:\n");
 
-            foreach (DataRow row in dataTable.Rows)
+            if (dataTable != null)
             {
-                Console.WriteLine($"{row["ContactID"]} | {row["FirstName"]} | {row["LastName"]}");
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    Console.WriteLine($"{row["ContactID"]} | {row["FirstName"]} | {row["LastName"]}");
+                }
             }
-
-
+            else
+            {
+                Console.WriteLine("No Data Available");
+            }
         } 
+
+
+        //--------------------------------------------------------------------------- Countries ---------------------------------------------
+        
+        static void FindCountry(int ID)
+        {
+            clsCountries country = clsCountries.Find(ID);
+
+            if (country != null)
+            {
+                Console.WriteLine("--------------------------------------");
+                Console.WriteLine($"ID: {country.ID}");
+                Console.WriteLine($"Country Name: {country.CountryName}");
+                Console.WriteLine("--------------------------------------");
+            }
+            else
+            {
+                Console.WriteLine($"Country with ID [{ID}] was not found!!");
+            }
+        }
+
+        //
+        static void FindCountryByName(string CountryName)
+        {
+            clsCountries country = clsCountries.FindByName(CountryName);
+
+            if (country != null)
+            {
+                Console.WriteLine("--------------------------------------");
+                Console.WriteLine($"ID: {country.ID}");
+                Console.WriteLine($"Country Name: {country.CountryName}");
+                Console.WriteLine("--------------------------------------");
+            }
+            else
+            {
+                Console.WriteLine($"Country with Name [{CountryName}] was not found!!");
+            }
+        }
+
+        static void AddNewCountry()
+        {
+            clsCountries country = new clsCountries();
+            country.CountryName = "KSA";
+
+            if (country.Save())
+            {
+                Console.WriteLine("Country Added Successfully!");
+                Console.WriteLine($"New Country ID = {country.ID}");
+            }
+            else
+            {
+                Console.WriteLine("Country was not added !!"); 
+            }
+        }
+
+        static void UpdateCountry(int ID)
+        {
+            clsCountries country = clsCountries.Find(ID);
+            country.CountryName = "Saudi Arabia";
+
+            if (country.Save())
+            {
+                Console.WriteLine("Info Updated Successfully!");
+            }
+            else
+            {
+                Console.WriteLine("Info was not updated!");
+            }
+        }
+
+        static void DeleteCountry(int ID)
+        {
+            if (clsCountries.DeleteCountry(ID))
+            {
+                Console.WriteLine("Country Deleted Successfully!");
+            }
+            else 
+            {
+                Console.WriteLine("Country was not deleted!");
+            }
+        }
+
+        static void DoesCountryExist(int ID)
+        {
+            if (clsCountries.DoesExist(ID))
+            {
+                Console.WriteLine("Country Exists!");
+            }
+            else
+            {
+                Console.WriteLine("Country Does Not Exists!");
+            }
+        }
+        //
+        static void DoesCountryExistByName(string CountryName)
+        {
+            if (clsCountries.DoesExistByName(CountryName))
+            {
+                Console.WriteLine("Country Exists!");
+            }
+            else
+            {
+                Console.WriteLine("Country Does Not Exists!");
+            }
+        }
+
+        static void ListCountries()
+        {
+            DataTable dt = clsCountries.getAllCountries();
+
+            Console.WriteLine("Countries Data:\n");
+
+            if (dt != null)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    Console.WriteLine($" ID: {row["CountryID"]} | Name: {row["CountryName"]}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No Data Available");
+            }
+        }
+
 
 
         static void Main(string[] args)
@@ -132,7 +261,16 @@ namespace ContactsConsoleApp
             //UpdateContact(10);
             //DeleteContact(4);
             // ListContacts();
-            DoesExist(10);
+            //DoesContactExist(10);
+
+            // -------------------- Countries ------- 
+
+            //FindCountry(1);
+            //AddNewCountry();
+            //UpdateCountry(6);
+            //DeleteCountry(3);
+            //DoesCountryExist(1);
+            ListCountries();
         }
     }
 }
