@@ -140,6 +140,8 @@ namespace ContactsConsoleApp
                 Console.WriteLine("--------------------------------------");
                 Console.WriteLine($"ID: {country.ID}");
                 Console.WriteLine($"Country Name: {country.CountryName}");
+                Console.WriteLine($"Country Code: {country.Code}");
+                Console.WriteLine($"Country Phone Code: {country.PhoneCode}");
                 Console.WriteLine("--------------------------------------");
             }
             else
@@ -157,6 +159,8 @@ namespace ContactsConsoleApp
                 Console.WriteLine("--------------------------------------");
                 Console.WriteLine($"ID: {country.ID}");
                 Console.WriteLine($"Country Name: {country.CountryName}");
+                Console.WriteLine($"Country Code: {country.Code}");
+                Console.WriteLine($"Country Phone Code: {country.PhoneCode}");
                 Console.WriteLine("--------------------------------------");
             }
             else
@@ -169,6 +173,8 @@ namespace ContactsConsoleApp
         {
             clsCountries country = new clsCountries();
             country.CountryName = "KSA";
+            country.Code = "1011";
+            country.PhoneCode = "966";
 
             if (country.Save())
             {
@@ -242,7 +248,7 @@ namespace ContactsConsoleApp
             {
                 foreach (DataRow row in dt.Rows)
                 {
-                    Console.WriteLine($" ID: {row["CountryID"]} | Name: {row["CountryName"]}");
+                    Console.WriteLine($" ID: {row["CountryID"]} | Name: {row["CountryName"]} | Code: {row["Code"]} | Phone Code: {row["PhoneCode"]}");
                 }
             }
             else
@@ -264,13 +270,13 @@ namespace ContactsConsoleApp
 
             // -------------------- Countries ------- 
 
-            //FindCountry(1);
+            FindCountry(1);
             //FindCountry("KSA");
             //AddNewCountry();
             //UpdateCountry(6);
             //DeleteCountry(3);
             //DoesCountryExist(1);
-            DoesCountryExist("KSA");
+            //DoesCountryExist("KSA");
             //ListCountries();
         }
     }
