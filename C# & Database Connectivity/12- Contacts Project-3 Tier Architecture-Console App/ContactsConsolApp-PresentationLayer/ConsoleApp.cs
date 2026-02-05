@@ -148,10 +148,9 @@ namespace ContactsConsoleApp
             }
         }
 
-        //
-        static void FindCountryByName(string CountryName)
+        static void FindCountry(string CountryName)
         {
-            clsCountries country = clsCountries.FindByName(CountryName);
+            clsCountries country = clsCountries.Find(CountryName);
 
             if (country != null)
             {
@@ -220,10 +219,10 @@ namespace ContactsConsoleApp
                 Console.WriteLine("Country Does Not Exists!");
             }
         }
-        //
-        static void DoesCountryExistByName(string CountryName)
+
+        static void DoesCountryExist(string CountryName)
         {
-            if (clsCountries.DoesExistByName(CountryName))
+            if (clsCountries.DoesExist(CountryName))
             {
                 Console.WriteLine("Country Exists!");
             }
@@ -266,11 +265,13 @@ namespace ContactsConsoleApp
             // -------------------- Countries ------- 
 
             //FindCountry(1);
+            //FindCountry("KSA");
             //AddNewCountry();
             //UpdateCountry(6);
             //DeleteCountry(3);
             //DoesCountryExist(1);
-            ListCountries();
+            DoesCountryExist("KSA");
+            //ListCountries();
         }
     }
 }

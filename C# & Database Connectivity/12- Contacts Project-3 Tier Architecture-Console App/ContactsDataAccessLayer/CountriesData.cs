@@ -8,7 +8,7 @@ namespace ContactsDataAccessLayer
     public class clsCountriesDataAccess
     {
 
-        public static bool getCountryInfoByID(int ID, ref string CountryName)
+        public static bool getCountryInfo(int ID, ref string CountryName)
         {
             bool IsFound = false;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
@@ -25,6 +25,39 @@ namespace ContactsDataAccessLayer
                 {
                     IsFound = true;
                     CountryName = (string)reader["CountryName"];
+                }
+
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                //logs
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
+        public static bool getCountryInfo(string CountryName, ref int ID)
+        {
+            bool IsFound = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+            string query = "select * from Countries where CountryName = @Name;";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@Name", CountryName);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    IsFound = true;
+                    ID = (int)reader["CountryID"];
                 }
 
                 reader.Close();
@@ -133,9 +166,38 @@ namespace ContactsDataAccessLayer
             bool IsFound = false;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
             string query = @"select found=1 from Countries
-                             where CountryID = @ID";
+                             where CountryID = @ID;";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@ID", ID);
+
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+
+                if (result != null)
+                    IsFound = true;
+            }
+            catch (Exception e)
+            {
+                // logs
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return IsFound;
+        }
+
+        public static bool DoesExist(string CountryName)
+        {
+            bool IsFound = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString);
+            string query = @"select found=1 from Countries
+                             where CountryName = @Name;";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@Name", CountryName);
 
             try
             {

@@ -32,7 +32,19 @@ namespace ContactsBusinessLayer
         {
             string CountryName = "";
 
-            if (clsCountriesDataAccess.getCountryInfoByID(ID, ref CountryName))
+            if (clsCountriesDataAccess.getCountryInfo(ID, ref CountryName))
+            {
+                return new clsCountries(ID, CountryName);
+            }
+            else
+                return null;
+
+        }
+        public static clsCountries Find(string CountryName)
+        {
+            int ID = -1;
+
+            if (clsCountriesDataAccess.getCountryInfo(CountryName, ref ID))
             {
                 return new clsCountries(ID, CountryName);
             }
@@ -81,6 +93,10 @@ namespace ContactsBusinessLayer
         public static bool DoesExist(int ID)
         {
             return clsCountriesDataAccess.DoesExist(ID);
+        }
+        public static bool DoesExist(string CountryName)
+        {
+            return clsCountriesDataAccess.DoesExist(CountryName);
         }
 
         public static DataTable getAllCountries()
