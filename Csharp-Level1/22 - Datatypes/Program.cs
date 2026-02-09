@@ -39,7 +39,8 @@ enum ExampleEnum { Low, Medium, High };
 struct Point { public int X; public int Y; }
 
 // Nullable Types
-// Allow value types to represent null
+// Allow value types like int to represent and have null value
+// used by adding ? as follows:
 int? age = null;
 
 // ------------------- REFERENCE TYPES -------------------
@@ -52,7 +53,10 @@ class MyClass { }  // user-defined class
 
 // Interface Types
 // Define contracts that classes or structs must implement
-interface IShape { void Draw(); }
+interface IShape 
+{ 
+    void Draw();
+}
 
 // Array Types
 // Collection of elements of the same type

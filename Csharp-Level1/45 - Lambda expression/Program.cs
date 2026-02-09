@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 class Program
@@ -30,9 +31,14 @@ class Program
         // ================================================
 
 
-        // Example using Lambda with an array and the Where() method:
-
+        //------------------------------------------------------------------------
+        // Example using Lambda with an array and the Where() method. compare this with the loop below:
         int[] numbers = { 51, -1, 2, 14, 18, 40, 178 };
+        var positives = numbers.Where(n => n > 0);
+
+
+        Console.WriteLine("Positive numbers:");
+        Console.WriteLine(string.Join(", ", positives));
 
         // Here we use a Lambda Expression (n => n > 0)
         // to filter only positive numbers from the array.
@@ -46,10 +52,17 @@ class Program
         // Also, 'positives' holds **multiple values** (a collection),
         // not a single number. It stores all numbers that matched the condition.
 
-        var positives = numbers.Where(n => n > 0);
-        Console.WriteLine("Positive numbers:");
-        Console.WriteLine(string.Join(", ", positives));
 
+        // Lambada and Linq is shorter than doing this:
+        List<int> positives1 = new List<int>();
+
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (numbers[i] > 0)
+                positives1.Add(numbers[i]);
+        }
+
+        //------------------------------------------------------------------------
         // Another example: filter numbers greater than 20
         // Same thing — 'var' holds the filtered collection (multiple values)
         var greaterThan20 = numbers.Where(x => x > 20);

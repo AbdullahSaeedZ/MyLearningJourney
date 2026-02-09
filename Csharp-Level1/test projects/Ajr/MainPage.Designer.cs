@@ -49,6 +49,7 @@
             this.rbNotifyOff = new System.Windows.Forms.RadioButton();
             this.rbNotifyOn = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -63,7 +64,7 @@
             this.label1.Location = new System.Drawing.Point(362, 83);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(125, 25);
+            this.label1.Size = new System.Drawing.Size(112, 23);
             this.label1.TabIndex = 20;
             this.label1.Text = "نوع الاشعارات:";
             // 
@@ -75,7 +76,7 @@
             this.label3.Location = new System.Drawing.Point(355, 136);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(132, 25);
+            this.label3.Size = new System.Drawing.Size(119, 23);
             this.label3.TabIndex = 20;
             this.label3.Text = "تكرار الاشعارات:";
             // 
@@ -87,7 +88,7 @@
             this.label4.Location = new System.Drawing.Point(362, 190);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(129, 25);
+            this.label4.Size = new System.Drawing.Size(116, 23);
             this.label4.TabIndex = 20;
             this.label4.Text = "حالة الاشعارات:";
             // 
@@ -99,7 +100,7 @@
             this.label5.Location = new System.Drawing.Point(122, 329);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(273, 19);
+            this.label5.Size = new System.Drawing.Size(225, 15);
             this.label5.TabIndex = 20;
             this.label5.Text = "صوت الاشعارات يتم التحكم به من قبل النظام";
             // 
@@ -111,7 +112,7 @@
             this.label6.Location = new System.Drawing.Point(297, 248);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label6.Size = new System.Drawing.Size(194, 25);
+            this.label6.Size = new System.Drawing.Size(178, 23);
             this.label6.TabIndex = 20;
             this.label6.Text = "تشغيل البرنامج التلقائي:";
             // 
@@ -144,7 +145,7 @@
             "تذكير متنوع"});
             this.cbNotificationType.Location = new System.Drawing.Point(60, 83);
             this.cbNotificationType.Name = "cbNotificationType";
-            this.cbNotificationType.Size = new System.Drawing.Size(183, 25);
+            this.cbNotificationType.Size = new System.Drawing.Size(183, 21);
             this.cbNotificationType.TabIndex = 3;
             this.cbNotificationType.SelectedIndexChanged += new System.EventHandler(this.cbNotificationType_SelectedIndexChanged);
             // 
@@ -165,7 +166,7 @@
             "كل خمسة ساعات"});
             this.cbPeriodBetweenNotification.Location = new System.Drawing.Point(60, 136);
             this.cbPeriodBetweenNotification.Name = "cbPeriodBetweenNotification";
-            this.cbPeriodBetweenNotification.Size = new System.Drawing.Size(183, 25);
+            this.cbPeriodBetweenNotification.Size = new System.Drawing.Size(183, 21);
             this.cbPeriodBetweenNotification.TabIndex = 4;
             this.cbPeriodBetweenNotification.SelectedIndexChanged += new System.EventHandler(this.cbPeriodBetweenNotification_SelectedIndexChanged);
             // 
@@ -190,19 +191,19 @@
             this.tsmShow,
             this.tsmClose});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(113, 52);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(106, 48);
             // 
             // tsmShow
             // 
             this.tsmShow.Name = "tsmShow";
-            this.tsmShow.Size = new System.Drawing.Size(112, 24);
+            this.tsmShow.Size = new System.Drawing.Size(105, 22);
             this.tsmShow.Text = "عرض";
             this.tsmShow.Click += new System.EventHandler(this.tsmShow_Click);
             // 
             // tsmClose
             // 
             this.tsmClose.Name = "tsmClose";
-            this.tsmClose.Size = new System.Drawing.Size(112, 24);
+            this.tsmClose.Size = new System.Drawing.Size(105, 22);
             this.tsmClose.Text = "اغلاق";
             this.tsmClose.Click += new System.EventHandler(this.tsmClose_Click);
             // 
@@ -213,7 +214,7 @@
             this.rbStartupOn.ForeColor = System.Drawing.Color.White;
             this.rbStartupOn.Location = new System.Drawing.Point(100, 3);
             this.rbStartupOn.Name = "rbStartupOn";
-            this.rbStartupOn.Size = new System.Drawing.Size(85, 29);
+            this.rbStartupOn.Size = new System.Drawing.Size(75, 27);
             this.rbStartupOn.TabIndex = 7;
             this.rbStartupOn.TabStop = true;
             this.rbStartupOn.Text = "تشغيل";
@@ -227,7 +228,7 @@
             this.rbStartupOff.ForeColor = System.Drawing.Color.White;
             this.rbStartupOff.Location = new System.Drawing.Point(5, 3);
             this.rbStartupOff.Name = "rbStartupOff";
-            this.rbStartupOff.Size = new System.Drawing.Size(78, 29);
+            this.rbStartupOff.Size = new System.Drawing.Size(68, 27);
             this.rbStartupOff.TabIndex = 8;
             this.rbStartupOff.TabStop = true;
             this.rbStartupOff.Text = "ايقاف";
@@ -259,7 +260,7 @@
             this.rbNotifyOff.ForeColor = System.Drawing.Color.White;
             this.rbNotifyOff.Location = new System.Drawing.Point(5, 3);
             this.rbNotifyOff.Name = "rbNotifyOff";
-            this.rbNotifyOff.Size = new System.Drawing.Size(78, 29);
+            this.rbNotifyOff.Size = new System.Drawing.Size(68, 27);
             this.rbNotifyOff.TabIndex = 6;
             this.rbNotifyOff.TabStop = true;
             this.rbNotifyOff.Text = "ايقاف";
@@ -273,7 +274,7 @@
             this.rbNotifyOn.ForeColor = System.Drawing.Color.White;
             this.rbNotifyOn.Location = new System.Drawing.Point(100, 3);
             this.rbNotifyOn.Name = "rbNotifyOn";
-            this.rbNotifyOn.Size = new System.Drawing.Size(85, 29);
+            this.rbNotifyOn.Size = new System.Drawing.Size(75, 27);
             this.rbNotifyOn.TabIndex = 5;
             this.rbNotifyOn.TabStop = true;
             this.rbNotifyOn.Text = "تشغيل";
@@ -282,6 +283,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.cbNotificationType);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cbPeriodBetweenNotification);
@@ -297,6 +299,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(548, 525);
             this.panel1.TabIndex = 37;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(202, 445);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 37;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // MainPage
             // 
@@ -339,5 +350,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmClose;
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.Button button1;
     }
 }

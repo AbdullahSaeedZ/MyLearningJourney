@@ -93,7 +93,7 @@ namespace _57___Draw_Line___ellipse___and_rectangle
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             // Color Black = Color.FromArgb(255, 0, 0, 0);   // we can chose colors with argp.
-            Color Black = Color.Black;     // or from the class ready properties;
+            Color Black = Color.Black;     // or from the Color struct ready properties;
 
             Pen pen = new Pen(Black);      // create a pen with the color we created
             pen.Width = 10;
