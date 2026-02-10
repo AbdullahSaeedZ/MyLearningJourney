@@ -59,7 +59,7 @@ namespace ContactsDataAccessLayer
                 if (reader.Read())
                 {
                     IsFound = true;
-                    CountryName = (string)reader["CountryName"];
+                    ID = (int)reader["CountryID"];
                     Code = reader["Code"] == DBNull.Value ? "Null" : (string)reader["Code"];
                     PhoneCode = reader["PhoneCode"] == DBNull.Value ? "Null" : (string)reader["PhoneCode"];
                 }

@@ -35,7 +35,7 @@ namespace ContactsDataAccessLayer
                     Email = (string)reader["LastName"];
                     Phone = (string)reader["Phone"];
                     Address = (string)reader["Address"];
-                    ImagePath = reader["ImagePath"] == DBNull.Value ? "Null" :(string)reader["ImagePath"];   // do this to all columns that allow null, otherwise it will throw exception.
+                    ImagePath = reader["ImagePath"] == DBNull.Value ? "" :(string)reader["ImagePath"];   // do this to all columns that allow null, otherwise it will throw exception.
                     DateOfBirth = (DateTime)reader["DateOfBirth"];
                     CountryID = (int)reader["CountryID"];
 
@@ -92,6 +92,7 @@ namespace ContactsDataAccessLayer
             catch (Exception e)
             {
                 // logs 
+                throw;
             }
             finally
             {
