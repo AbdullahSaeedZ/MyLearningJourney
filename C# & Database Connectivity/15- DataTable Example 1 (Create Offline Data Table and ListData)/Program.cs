@@ -1,0 +1,47 @@
+﻿using System;
+using System.Data;
+using System.Linq;
+
+
+namespace _15__DataTable_Example_1__Create_Offline_Data_Table_and_ListData_
+{
+    internal class Program
+    {
+
+
+        static void Main(string[] args)
+        {
+            DataTable Employees = new DataTable();
+
+            // we can create a column object to put all constraints then add it separately to the table, will make ID as PK:
+            DataColumn IDcolumn = new DataColumn("ID", typeof(int));
+            IDcolumn.AllowDBNull = false;
+            IDcolumn.AutoIncrement = true;
+            IDcolumn.Unique = true;
+            Employees.Columns.Add(IDcolumn);
+
+            // define the columns
+            Employees.Columns.Add("FirstName", typeof(string));
+            Employees.Columns.Add("LastName", typeof(string));
+            Employees.Columns.Add("Salary", typeof(double));
+            Employees.Columns.Add("Date", typeof(DateTime));
+            // Employees.Columns.Add("Email", typeof(string)).AllowDBNull = false;     we can add constraints this way
+
+
+            // now we add the recoeds
+            Employees.Rows.Add(1, "Abdullah", "Alzahrani", 24000, DateTime.Now);
+            Employees.Rows.Add(2, "Fawaz", "Alzahrani", 24054, DateTime.Now);
+            Employees.Rows.Add(3, "koko", "Alkoko", 22000, DateTime.Now);
+
+
+            Console.WriteLine(" {0, -2} | {1, -10} | {2, -10} | {3, -10} | {4, -10}", "ID", "FirstName", "LastName", "Salary", "Date");
+            foreach(DataRow record in Employees.Rows)
+            {
+                Console.WriteLine(" {0, -2} | {1, -10} | {2, -10} | {3, -10} | {4, -10}", record["ID"], record["FirstName"], record["LastName"], record["Salary"], record["Date"]);
+               // Console.WriteLine($" {record[0]}   {record[1]}   {record[2]}   {record[3]}  {record[4]}");   can use index, but use column name for better readability
+            }
+
+
+        }
+    }
+}
