@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "16- DataTable Example 2 (Count, Sum, Avg, Min, Max)", "16- DataTable Example 2 (Count, Sum, Avg, Min, Max).csproj", "{977498B2-B782-431D-A10D-3D1EF1CEDD2C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{977498B2-B782-431D-A10D-3D1EF1CEDD2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{977498B2-B782-431D-A10D-3D1EF1CEDD2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{977498B2-B782-431D-A10D-3D1EF1CEDD2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{977498B2-B782-431D-A10D-3D1EF1CEDD2C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C43D2810-6772-4727-A797-26F28B086958}
+	EndGlobalSection
+EndGlobal

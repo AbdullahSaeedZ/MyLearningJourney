@@ -17,6 +17,7 @@ namespace _15__DataTable_Example_1__Create_Offline_Data_Table_and_ListData_
             DataColumn IDcolumn = new DataColumn("ID", typeof(int));
             IDcolumn.AllowDBNull = false;
             IDcolumn.AutoIncrement = true;
+            IDcolumn.AutoIncrementSeed = 1;
             IDcolumn.Unique = true;
             Employees.Columns.Add(IDcolumn);
 
@@ -28,10 +29,11 @@ namespace _15__DataTable_Example_1__Create_Offline_Data_Table_and_ListData_
             // Employees.Columns.Add("Email", typeof(string)).AllowDBNull = false;     we can add constraints this way
 
 
-            // now we add the recoeds
-            Employees.Rows.Add(1, "Abdullah", "Alzahrani", 24000, DateTime.Now);
-            Employees.Rows.Add(2, "Fawaz", "Alzahrani", 24054, DateTime.Now);
-            Employees.Rows.Add(3, "koko", "Alkoko", 22000, DateTime.Now);
+            // now we add the records
+            // use null to indicate that this field will be auto incremented
+            Employees.Rows.Add(null, "Abdullah", "Alzahrani", 24000, DateTime.Now);
+            Employees.Rows.Add(null, "Fawaz", "Alzahrani", 24054, DateTime.Now);
+            Employees.Rows.Add(null, "koko", "Alkoko", 22000, DateTime.Now);
 
 
             Console.WriteLine(" {0, -2} | {1, -10} | {2, -10} | {3, -10} | {4, -10}", "ID", "FirstName", "LastName", "Salary", "Date");
