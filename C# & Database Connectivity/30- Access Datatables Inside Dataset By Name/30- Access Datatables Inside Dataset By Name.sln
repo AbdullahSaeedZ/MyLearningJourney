@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "30- Access Datatables Inside Dataset By Name", "30- Access Datatables Inside Dataset By Name.csproj", "{A9F53737-5726-4A38-88C3-DD88A59BD2BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9F53737-5726-4A38-88C3-DD88A59BD2BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9F53737-5726-4A38-88C3-DD88A59BD2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9F53737-5726-4A38-88C3-DD88A59BD2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9F53737-5726-4A38-88C3-DD88A59BD2BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C2D938C-8E3C-4442-9E03-F11E953AE25E}
+	EndGlobalSection
+EndGlobal
