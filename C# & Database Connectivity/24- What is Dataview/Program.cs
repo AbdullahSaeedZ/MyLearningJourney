@@ -13,6 +13,8 @@
 // - Can have multiple Views from the same dataTable for multiple controls.
 
 // Key differences:
+// - Update or Delete in DataView affects DataTable
+// - Filter / Sort in DataView does NOT affect DataTable
 // - DataTable = data owner.
 // - DataView = data viewer (lens over the table).
 // - DataView is better for UI binding and fast filtering/sorting.
