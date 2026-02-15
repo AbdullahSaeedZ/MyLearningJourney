@@ -1,0 +1,30 @@
+// ============================================================
+// 🔹 Full Hierarchy Example (combined view)
+// ============================================================
+//
+// Library (System.Runtime.dll)
+//   → Main Namespace: System
+//       ├── Sub-namespaces (for multiple related purposes)
+//       │     • System.IO              → file handling
+//       │     • System.Collections     → data structures
+//       │     • System.Linq            → query & filtering tools
+//       │     • System.Net             → networking
+//       │     • System.Threading       → multithreading
+//       │
+//       └── Classes (for one dedicated purpose)
+//             • System.Math            → math operations (e.g., Sqrt, Pow)
+//             • System.Console         → input/output (e.g., WriteLine)
+//             • System.DateTime        → date & time handling
+//
+// Example path for a method:
+//   Library (System.Runtime.dll)
+//     → Namespace (System)
+//         → Class (Math)
+//             → Method (Sqrt)
+//
+// Concept summary:
+//   • Library  = physical compiled file (.dll/.exe)
+//   • Namespace = logical folder grouping related types
+//   • Class = single tool with a focused purpose
+//   • Method = action inside a class
+// ============================================================
