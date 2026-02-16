@@ -115,7 +115,75 @@ constraint FK_TestAppointments_LocalLicenseAppID foreign key(LocalLicenseAppID) 
 AppointmentDate datetime not null,
 PaidFees smallmoney not null,
 IsLocked bit not null,
+RetakeTestApplicationID int null, -- filled once applied for a retake
+constraint FK_Licenses_RetakeApplicaitonID foreign key(RetakeTestApplicationID) references Applications(ApplicationID),
 CreatedByUserID int not null,
 constraint FK_TestAppointmentsUserID foreign key(CreatedByUserID) references Users(UserID)
 );
 
+
+
+create table ConductedTests
+(
+ConductedTestID int not null identity(1,1),
+constraint PK_ConductedTestID primary key(ConductedTestID),
+TestAppointmentID int not null,
+constraint FK_ConductedTests_TestAppointmentID foreign key(TestAppointmentID) references TestAppointments(TestAppointmentID),
+TestResult bit not null,
+Notes nvarchar(100),
+CreatedByUserID int not null,
+constraint FK_ConductedTests_UserID foreign key(CreatedByUserID) references Users(UserID)
+);
+
+
+
+create table Drivers
+(
+DriverID int not null identity(1,1),
+constraint PK_DriversID primary key(DriverID),
+CreatedByUserID int not null,
+constraint FK_Drivers_UserID foreign key(CreatedByUserID) references Users(UserID),
+CreatedDate datetime not null
+);
+
+create table Licenses
+(
+LicenseID int not null identity(1,1),
+constraint PK_LicenseID primary key (LicenseID),
+ApplicationID int not null,
+constraint FK_Licenses_ApplicaitonID foreign key(ApplicationID) references Applications(ApplicationID),
+DriverID int not null,
+constraint FK_Licenses_DriverID foreign key(DriverID) references Drivers(DriverID),
+LicenseTypeID int not null,
+constraint FK_Licenses_LicenseTypeID foreign key(LicenseTypeID) references LocalLicenseTypes(LicenseTypeID),
+IssueDate datetime not null,
+ExpDate datetime not null,
+Notes nvarchar(200),
+PaidFees smallmoney not null,
+IssueReason int not null check(IssueReason in (1,2,3,4,5)), -- reasons in design description, will be enum in business layer
+IsActive bit not null,
+CreatedByUserID int not null,
+constraint FK_Licenses_UserID foreign key(CreatedByUserID) references Users(UserID),
+);
+
+
+
+
+create table DetainedLicenses
+(
+DetainID int not null identity(1,1),
+constraint PK_DetainID primary key (DetainID),
+LicenseID int not null,
+constraint FK_DetainedLicenses_LicenseID foreign key(LicenseID) references Licenses(LicenseID),
+DetainDate datetime not null,
+DetentionReason nvarchar(200) not null,
+CreatedByUserID int not null,
+constraint FK_DetainedLicenses_UserID foreign key(CreatedByUserID) references Users(UserID),
+IsReleased bit not null,
+FinePaid smallmoney null,
+ReleaseDate datetime null,
+ReleasedByUserID int null,
+constraint FK_DetainedLicenses_ReleasedByUserID foreign key(ReleasedByUserID) references Users(UserID),
+ReleaseApplicationID int null,
+constraint FK_DetainedLicenses_ApplicaitonID foreign key(ReleaseApplicationID) references Applications(ApplicationID),
+);

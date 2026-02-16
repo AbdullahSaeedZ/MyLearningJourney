@@ -3,7 +3,7 @@
 - each table mostly has separate Data and business layers.
 - user permessionsto be last phase, so we can be sure where to apply them
 - system configurations lke minimum age for driving license, default validity Length amd so on, dont hard code it in the code base.
-- when designing the tables, start table by table based on how the system works, ex:
+- when designing the tables, start table by table based on how the system works, see Schema diagram to understand, ex:
 first a person is created then a person applies for an application.
 so first create a table for people then create a table for applications, connect the relations then continue the process, the application is general and some applications require details like local licesnes -> localLicenses table, and so on.
 
