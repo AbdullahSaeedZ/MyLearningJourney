@@ -187,3 +187,18 @@ constraint FK_DetainedLicenses_ReleasedByUserID foreign key(ReleasedByUserID) re
 ReleaseApplicationID int null,
 constraint FK_DetainedLicenses_ApplicaitonID foreign key(ReleaseApplicationID) references Applications(ApplicationID),
 );
+
+create table InternationalLicenses
+(
+InterLicenseID int not null identity(1,1),
+constraint PK_InterLicenseID primary key (InterLicenseID),
+DriverID int not null,
+constraint FK_InterLicense_DriverID foreign key(DriverID) references Drivers(DriverID),
+IssuedUsingLicenseID int not null,
+constraint FK_InterLicense_LicenseID foreign key(IssuedUsingLicenseID) references Licenses(LicenseID),
+IssueDate datetime not null,
+ExpDate datetime not null,
+IsActive bit not null,
+CreatedByUserID int not null,
+constraint FK_InterLicense_UserID foreign key(CreatedByUserID) references Users(UserID),
+);
