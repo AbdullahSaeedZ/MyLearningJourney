@@ -31,13 +31,20 @@ namespace Introduction_to_Delegates_and_Events
                 Console.WriteLine(n);
 
             // ---------------------------------
+            Console.WriteLine();
             //6-
 
             var output3 = GetFilteredValues(list, 10, isGreater);  //see i passed a function!!! i can use the isLess method also, but will use Lambda in next lesson
+            var output4 = GetFilteredValues(list, 10, isLess); 
 
-            foreach (int n in output3)
+            foreach (int n in output4)
                 Console.WriteLine(n);
         }
+
+
+
+
+
 
         // 1- i want to filter numbers in the list to be only greater than 10:
         static List<int> GetValuesGreaterThan10(List<int> list1)

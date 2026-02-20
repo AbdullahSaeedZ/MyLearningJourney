@@ -27,6 +27,8 @@ namespace Introduction_to_Delegates_and_Events
             delName translator = new delName(EnglishToArabic);
             // delName translator = new delName(EnglishToFrench);      can pass any method with the same signature
 
+            // can declare and initialize this way:
+            delName delTemp = EnglishToChinese;
 
 
             // till this point, the delegate is pointing to a method, but how to use the method ??
