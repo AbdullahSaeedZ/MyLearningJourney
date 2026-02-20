@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5- send Data Back from form2 to form1 Using Delegate", "5- send Data Back from form2 to form1 Using Delegate.csproj", "{8C54FA8A-D452-4EAC-BEC7-8D7F2161CAEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C54FA8A-D452-4EAC-BEC7-8D7F2161CAEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C54FA8A-D452-4EAC-BEC7-8D7F2161CAEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C54FA8A-D452-4EAC-BEC7-8D7F2161CAEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C54FA8A-D452-4EAC-BEC7-8D7F2161CAEA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70E233F4-23A7-4517-8D1B-134CFBAFDE8D}
+	EndGlobalSection
+EndGlobal
