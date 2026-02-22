@@ -71,10 +71,23 @@ namespace _3__Anonymous_Methods___Lambda_Expressions
             return x - y;
         }
 
-
-
     }
 
-
-   
+    /*
+    In lambda expressions, parameter types are usually not required.
+    If the lambda is assigned to a known delegate type (like Func or Action),
+    the compiler uses type inference to automatically determine
+    the parameter types and return type from the delegate signature.
+    
+    Example (type inference works):
+    Func<int, int, int> add = (x, y) => x + y;
+    The compiler knows x and y are int because of Func<int, int, int>.
+    
+    Example (type inference fails without explicit types):
+    var add = (x, y) => x + y;        // ❌ Compile-time error
+    var add = (int x, int y) => x + y; // ✅ Now types are explicit
+    
+    You must explicitly specify parameter types only when
+    the compiler cannot infer them (e.g., when no delegate type is provided).
+    */
 }
