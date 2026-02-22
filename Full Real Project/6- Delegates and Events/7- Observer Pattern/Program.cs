@@ -47,7 +47,7 @@ namespace _7__Observer_Pattern
 
 
         // 5-
-        public void UploadVideo(string Title)
+        public void UploadVideo(string Title) // this is the event method, that will invoke the event-handlers of subscribers
         {
             Console.WriteLine($"\nVideo with title: {Title} , has been uploaded and all subscribers will be notified");
 
@@ -67,7 +67,7 @@ namespace _7__Observer_Pattern
         }
 
         // 3-
-        private void WatchVideo(string title) // event-handler, meaning once publisher notifies me, i will use this method to handle and take action
+        private void WatchVideo(string title) // event-handler, meaning once publisher notifies me(the event occurs), i will use this method to handle and take action
         {
             Console.WriteLine($"event-handler is invoked, user is Watching the new Video: {title}");
         }
