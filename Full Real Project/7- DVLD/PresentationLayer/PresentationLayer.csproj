@@ -116,5 +116,41 @@
     <Folder Include="DashboardControls\" />
     <Folder Include="PeopleControls\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\applications.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\applicationsWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\applicationsNoFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\peopleFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\peopleNoFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\DriversNoFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\DriversFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\usersNoFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\usersFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\usersNoFillBold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\settingNoFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\settingsFill.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
