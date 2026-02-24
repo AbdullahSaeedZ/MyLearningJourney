@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DashboardControls\ctrlDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DashboardControls\ctrlDashboard.Designer.cs">
+      <DependentUpon>ctrlDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DashboardControls\ctrlDashboard.resx">
+      <DependentUpon>ctrlDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,7 +122,6 @@
     <None Include="Resources\ProfileTest.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DashboardControls\" />
     <Folder Include="PeopleControls\" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +159,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\settingsFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\DashboardUserFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\DashboardUserFill32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\DashboardUserFill64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

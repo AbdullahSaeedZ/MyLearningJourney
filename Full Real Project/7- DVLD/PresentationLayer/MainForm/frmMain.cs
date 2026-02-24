@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PresentationLayer.DashboardControls;
 
 namespace PresentationLayer.MainForm
 {
@@ -15,6 +16,9 @@ namespace PresentationLayer.MainForm
         public frmMain()
         {
             InitializeComponent();
+            ctrlDashboard ctr = new ctrlDashboard();
+            pnlControlsContainer.Controls.Add(ctr);
+            pnlControlsContainer.Show();
         }
 
         private void ControlBoxClose_Click(object sender, EventArgs e)
@@ -52,6 +56,13 @@ namespace PresentationLayer.MainForm
             MessageBox.Show("find person");
         }
 
-       
+        private void btnOverview_Click(object sender, EventArgs e)
+        {
+            
+            ctrlDashboard ctr = new ctrlDashboard();
+            pnlControlsContainer.Controls.Add(ctr);
+            pnlControlsContainer.Show();
+            
+        }
     }
 }
