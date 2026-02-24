@@ -112,5 +112,9 @@
   <ItemGroup>
     <None Include="Resources\ProfileTest.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DashboardControls\" />
+    <Folder Include="PeopleControls\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -35,7 +35,7 @@ namespace PresentationLayer.MainForm
             }
             else
             {
-                MessageBox.Show("Invalid ID entered", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("No Valid Value Entered", "Error", MessageBoxButtons.OK);
             }
             
         }
@@ -51,5 +51,7 @@ namespace PresentationLayer.MainForm
         {
             MessageBox.Show("find person");
         }
+
+       
     }
 }
