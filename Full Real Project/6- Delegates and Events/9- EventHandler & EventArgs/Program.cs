@@ -1,7 +1,7 @@
 ﻿using System;
 
-// EventHandler is a built-in delegate in .NEt, see definition of it and will see
-// instead of defining a delegate then declaring instance of it, just create an EvenHandler anywhere directly
+// EventHandler and EventArgs are just predefined delegate types provided by.NET.
+// instead of defining a delegate then declaring instance of it, just create an EvenHandler anywhere directly, cuz its is predefined.
 
 
 namespace _9__EventHandler___EventArgs
