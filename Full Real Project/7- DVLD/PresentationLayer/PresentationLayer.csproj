@@ -169,5 +169,59 @@
   <ItemGroup>
     <None Include="assets\DashboardUserFill64.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\driversNoFillThin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\DriverFillThin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\UsersFillThin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\peopleFillThin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\peopleNoFillThin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\applicationNoFillThin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\overviewFillThin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\overviewNoFillThin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\searchApplicationNoFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\searchApplicationFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\addNoFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\addFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\detainNoFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\detainFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\cardNoFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\cardFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\appointmentNoFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\appointmentFill.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

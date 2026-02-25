@@ -32,19 +32,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblTodayDate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.btnApplications = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
@@ -56,7 +51,6 @@
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.label12 = new System.Windows.Forms.Label();
             this.guna2Panel13 = new Guna.UI2.WinForms.Guna2Panel();
             this.label15 = new System.Windows.Forms.Label();
@@ -65,16 +59,21 @@
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.guna2Panel11 = new Guna.UI2.WinForms.Guna2Panel();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.lblTotalUsers = new System.Windows.Forms.Label();
+            this.lblTotalDrivers = new System.Windows.Forms.Label();
+            this.lblTotalPeople = new System.Windows.Forms.Label();
+            this.lblTotalLicenses = new System.Windows.Forms.Label();
+            this.lblTotalApplicationsCompleted = new System.Windows.Forms.Label();
+            this.lblTotalExamxComplete = new System.Windows.Forms.Label();
+            this.lblTotalFeesThisMonth = new System.Windows.Forms.Label();
+            this.lblTotalFeesAllTime = new System.Windows.Forms.Label();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnApplications = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -88,6 +87,7 @@
             this.guna2Panel13.SuspendLayout();
             this.guna2Panel14.SuspendLayout();
             this.guna2Panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2CircleProgressBar1
@@ -139,17 +139,17 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Total Exams Completed";
             // 
-            // label4
+            // lblTodayDate
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(213, 45);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(181, 22);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "monday, june, 2026  ";
+            this.lblTodayDate.AutoSize = true;
+            this.lblTodayDate.BackColor = System.Drawing.Color.Transparent;
+            this.lblTodayDate.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lblTodayDate.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTodayDate.Location = new System.Drawing.Point(213, 45);
+            this.lblTodayDate.Name = "lblTodayDate";
+            this.lblTodayDate.Size = new System.Drawing.Size(181, 22);
+            this.lblTodayDate.TabIndex = 1;
+            this.lblTodayDate.Text = "monday, june, 2026  ";
             // 
             // label5
             // 
@@ -219,29 +219,17 @@
             this.label10.ForeColor = System.Drawing.Color.DimGray;
             this.label10.Location = new System.Drawing.Point(3, 12);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(118, 23);
+            this.label10.Size = new System.Drawing.Size(146, 23);
             this.label10.TabIndex = 0;
-            this.label10.Text = "Total Users";
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.Image = global::PresentationLayer.Properties.Resources.DashboardUserFill64;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(19, 14);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(54, 53);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 2;
-            this.guna2PictureBox1.TabStop = false;
+            this.label10.Text = "Total Licenses";
             // 
             // guna2Panel1
             // 
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.Controls.Add(this.guna2Button3);
-            this.guna2Panel1.Controls.Add(this.guna2Button2);
             this.guna2Panel1.Controls.Add(this.guna2Button1);
             this.guna2Panel1.Controls.Add(this.guna2Button5);
+            this.guna2Panel1.Controls.Add(this.guna2Button2);
             this.guna2Panel1.Controls.Add(this.btnApplications);
             this.guna2Panel1.Controls.Add(this.label5);
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
@@ -250,114 +238,6 @@
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
             this.guna2Panel1.Size = new System.Drawing.Size(393, 318);
             this.guna2Panel1.TabIndex = 2;
-            // 
-            // guna2Button3
-            // 
-            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.BorderRadius = 10;
-            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
-            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
-            this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2Button3.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button3.HoverState.Image = global::PresentationLayer.Properties.Resources.applicationsNoFill;
-            this.guna2Button3.HoverState.Parent = this.guna2Button3;
-            this.guna2Button3.Image = global::PresentationLayer.Properties.Resources.applications;
-            this.guna2Button3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button3.ImageOffset = new System.Drawing.Point(10, 0);
-            this.guna2Button3.Location = new System.Drawing.Point(7, 249);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.PressedColor = System.Drawing.Color.Blue;
-            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
-            this.guna2Button3.Size = new System.Drawing.Size(241, 45);
-            this.guna2Button3.TabIndex = 2;
-            this.guna2Button3.Text = "Delete User";
-            this.guna2Button3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button3.TextOffset = new System.Drawing.Point(30, 0);
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.BorderRadius = 10;
-            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
-            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
-            this.guna2Button2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2Button2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2Button2.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button2.HoverState.Image = global::PresentationLayer.Properties.Resources.applicationsNoFill;
-            this.guna2Button2.HoverState.Parent = this.guna2Button2;
-            this.guna2Button2.Image = global::PresentationLayer.Properties.Resources.applications;
-            this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button2.ImageOffset = new System.Drawing.Point(10, 0);
-            this.guna2Button2.Location = new System.Drawing.Point(7, 201);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.PressedColor = System.Drawing.Color.Blue;
-            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
-            this.guna2Button2.Size = new System.Drawing.Size(241, 45);
-            this.guna2Button2.TabIndex = 2;
-            this.guna2Button2.Text = "Add User";
-            this.guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button2.TextOffset = new System.Drawing.Point(30, 0);
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
-            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.HoverState.Image = global::PresentationLayer.Properties.Resources.applicationsNoFill;
-            this.guna2Button1.HoverState.Parent = this.guna2Button1;
-            this.guna2Button1.Image = global::PresentationLayer.Properties.Resources.applications;
-            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.ImageOffset = new System.Drawing.Point(10, 0);
-            this.guna2Button1.Location = new System.Drawing.Point(7, 153);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.PressedColor = System.Drawing.Color.Blue;
-            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
-            this.guna2Button1.Size = new System.Drawing.Size(241, 45);
-            this.guna2Button1.TabIndex = 2;
-            this.guna2Button1.Text = "Delete Person";
-            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.TextOffset = new System.Drawing.Point(30, 0);
-            // 
-            // btnApplications
-            // 
-            this.btnApplications.BackColor = System.Drawing.Color.Transparent;
-            this.btnApplications.BorderRadius = 10;
-            this.btnApplications.CheckedState.Parent = this.btnApplications;
-            this.btnApplications.CustomImages.Parent = this.btnApplications;
-            this.btnApplications.FillColor = System.Drawing.Color.Transparent;
-            this.btnApplications.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnApplications.ForeColor = System.Drawing.Color.DimGray;
-            this.btnApplications.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnApplications.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnApplications.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnApplications.HoverState.Image = global::PresentationLayer.Properties.Resources.applicationsNoFill;
-            this.btnApplications.HoverState.Parent = this.btnApplications;
-            this.btnApplications.Image = global::PresentationLayer.Properties.Resources.applications;
-            this.btnApplications.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnApplications.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnApplications.Location = new System.Drawing.Point(7, 105);
-            this.btnApplications.Name = "btnApplications";
-            this.btnApplications.PressedColor = System.Drawing.Color.Blue;
-            this.btnApplications.ShadowDecoration.Parent = this.btnApplications;
-            this.btnApplications.Size = new System.Drawing.Size(241, 45);
-            this.btnApplications.TabIndex = 2;
-            this.btnApplications.Text = "Add Person";
-            this.btnApplications.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnApplications.TextOffset = new System.Drawing.Point(30, 0);
             // 
             // guna2Panel2
             // 
@@ -375,7 +255,7 @@
             // guna2Panel3
             // 
             this.guna2Panel3.BorderRadius = 10;
-            this.guna2Panel3.Controls.Add(this.label21);
+            this.guna2Panel3.Controls.Add(this.lblTotalExamxComplete);
             this.guna2Panel3.Controls.Add(this.guna2CircleProgressBar3);
             this.guna2Panel3.Controls.Add(this.label3);
             this.guna2Panel3.FillColor = System.Drawing.Color.White;
@@ -388,7 +268,7 @@
             // guna2Panel4
             // 
             this.guna2Panel4.BorderRadius = 10;
-            this.guna2Panel4.Controls.Add(this.label20);
+            this.guna2Panel4.Controls.Add(this.lblTotalApplicationsCompleted);
             this.guna2Panel4.Controls.Add(this.label9);
             this.guna2Panel4.Controls.Add(this.guna2CircleProgressBar1);
             this.guna2Panel4.FillColor = System.Drawing.Color.White;
@@ -415,7 +295,7 @@
             // 
             this.guna2Panel5.BorderRadius = 10;
             this.guna2Panel5.Controls.Add(this.label11);
-            this.guna2Panel5.Controls.Add(this.label4);
+            this.guna2Panel5.Controls.Add(this.lblTodayDate);
             this.guna2Panel5.FillColor = System.Drawing.Color.White;
             this.guna2Panel5.Location = new System.Drawing.Point(426, 16);
             this.guna2Panel5.Name = "guna2Panel5";
@@ -431,15 +311,15 @@
             this.label11.ForeColor = System.Drawing.Color.DimGray;
             this.label11.Location = new System.Drawing.Point(3, 7);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(54, 23);
+            this.label11.Size = new System.Drawing.Size(133, 23);
             this.label11.TabIndex = 0;
-            this.label11.Text = "Date";
+            this.label11.Text = "Today\'s Date";
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // guna2Panel6
             // 
             this.guna2Panel6.BorderRadius = 10;
-            this.guna2Panel6.Controls.Add(this.label14);
+            this.guna2Panel6.Controls.Add(this.lblTotalUsers);
             this.guna2Panel6.Controls.Add(this.label8);
             this.guna2Panel6.FillColor = System.Drawing.Color.White;
             this.guna2Panel6.Location = new System.Drawing.Point(426, 639);
@@ -451,7 +331,7 @@
             // guna2Panel7
             // 
             this.guna2Panel7.BorderRadius = 10;
-            this.guna2Panel7.Controls.Add(this.label19);
+            this.guna2Panel7.Controls.Add(this.lblTotalLicenses);
             this.guna2Panel7.Controls.Add(this.label10);
             this.guna2Panel7.FillColor = System.Drawing.Color.White;
             this.guna2Panel7.Location = new System.Drawing.Point(659, 639);
@@ -463,7 +343,7 @@
             // guna2Panel8
             // 
             this.guna2Panel8.BorderRadius = 10;
-            this.guna2Panel8.Controls.Add(this.label17);
+            this.guna2Panel8.Controls.Add(this.lblTotalDrivers);
             this.guna2Panel8.Controls.Add(this.label6);
             this.guna2Panel8.FillColor = System.Drawing.Color.White;
             this.guna2Panel8.Location = new System.Drawing.Point(426, 472);
@@ -475,7 +355,7 @@
             // guna2Panel9
             // 
             this.guna2Panel9.BorderRadius = 10;
-            this.guna2Panel9.Controls.Add(this.label18);
+            this.guna2Panel9.Controls.Add(this.lblTotalPeople);
             this.guna2Panel9.Controls.Add(this.label7);
             this.guna2Panel9.FillColor = System.Drawing.Color.White;
             this.guna2Panel9.Location = new System.Drawing.Point(656, 472);
@@ -496,31 +376,6 @@
             this.guna2Panel10.Size = new System.Drawing.Size(393, 322);
             this.guna2Panel10.TabIndex = 2;
             // 
-            // guna2Button4
-            // 
-            this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.BorderRadius = 10;
-            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
-            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
-            this.guna2Button4.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.guna2Button4.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2Button4.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2Button4.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button4.HoverState.Image = global::PresentationLayer.Properties.Resources.applicationsNoFill;
-            this.guna2Button4.HoverState.Parent = this.guna2Button4;
-            this.guna2Button4.Image = global::PresentationLayer.Properties.Resources.applications;
-            this.guna2Button4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button4.ImageOffset = new System.Drawing.Point(10, 0);
-            this.guna2Button4.Location = new System.Drawing.Point(10, 274);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.PressedColor = System.Drawing.Color.Blue;
-            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
-            this.guna2Button4.Size = new System.Drawing.Size(290, 45);
-            this.guna2Button4.TabIndex = 2;
-            this.guna2Button4.Text = "Show All Appointments";
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -536,7 +391,7 @@
             // guna2Panel13
             // 
             this.guna2Panel13.BorderRadius = 10;
-            this.guna2Panel13.Controls.Add(this.label22);
+            this.guna2Panel13.Controls.Add(this.lblTotalFeesThisMonth);
             this.guna2Panel13.Controls.Add(this.label15);
             this.guna2Panel13.FillColor = System.Drawing.Color.White;
             this.guna2Panel13.Location = new System.Drawing.Point(895, 472);
@@ -560,7 +415,7 @@
             // guna2Panel14
             // 
             this.guna2Panel14.BorderRadius = 10;
-            this.guna2Panel14.Controls.Add(this.label23);
+            this.guna2Panel14.Controls.Add(this.lblTotalFeesAllTime);
             this.guna2Panel14.Controls.Add(this.label16);
             this.guna2Panel14.FillColor = System.Drawing.Color.White;
             this.guna2Panel14.Location = new System.Drawing.Point(895, 639);
@@ -585,7 +440,7 @@
             // 
             this.monthCalendar1.BackColor = System.Drawing.Color.Black;
             this.monthCalendar1.CalendarDimensions = new System.Drawing.Size(1, 2);
-            this.monthCalendar1.Location = new System.Drawing.Point(74, 59);
+            this.monthCalendar1.Location = new System.Drawing.Point(63, 59);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 3;
             // 
@@ -613,101 +468,193 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Calendar";
             // 
-            // label14
+            // lblTotalUsers
             // 
-            this.label14.AutoSize = true;
-            this.label14.BackColor = System.Drawing.Color.Transparent;
-            this.label14.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.label14.ForeColor = System.Drawing.Color.DimGray;
-            this.label14.Location = new System.Drawing.Point(12, 100);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(34, 36);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "0";
+            this.lblTotalUsers.AutoSize = true;
+            this.lblTotalUsers.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalUsers.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTotalUsers.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTotalUsers.Location = new System.Drawing.Point(12, 100);
+            this.lblTotalUsers.Name = "lblTotalUsers";
+            this.lblTotalUsers.Size = new System.Drawing.Size(34, 36);
+            this.lblTotalUsers.TabIndex = 0;
+            this.lblTotalUsers.Text = "0";
             // 
-            // label17
+            // lblTotalDrivers
             // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.Transparent;
-            this.label17.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.label17.ForeColor = System.Drawing.Color.DimGray;
-            this.label17.Location = new System.Drawing.Point(12, 104);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(34, 36);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "0";
+            this.lblTotalDrivers.AutoSize = true;
+            this.lblTotalDrivers.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalDrivers.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTotalDrivers.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTotalDrivers.Location = new System.Drawing.Point(12, 104);
+            this.lblTotalDrivers.Name = "lblTotalDrivers";
+            this.lblTotalDrivers.Size = new System.Drawing.Size(34, 36);
+            this.lblTotalDrivers.TabIndex = 0;
+            this.lblTotalDrivers.Text = "0";
             // 
-            // label18
+            // lblTotalPeople
             // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.label18.ForeColor = System.Drawing.Color.DimGray;
-            this.label18.Location = new System.Drawing.Point(13, 104);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(34, 36);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "0";
+            this.lblTotalPeople.AutoSize = true;
+            this.lblTotalPeople.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalPeople.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTotalPeople.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTotalPeople.Location = new System.Drawing.Point(13, 104);
+            this.lblTotalPeople.Name = "lblTotalPeople";
+            this.lblTotalPeople.Size = new System.Drawing.Size(34, 36);
+            this.lblTotalPeople.TabIndex = 0;
+            this.lblTotalPeople.Text = "0";
             // 
-            // label19
+            // lblTotalLicenses
             // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.label19.ForeColor = System.Drawing.Color.DimGray;
-            this.label19.Location = new System.Drawing.Point(10, 100);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(34, 36);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "0";
+            this.lblTotalLicenses.AutoSize = true;
+            this.lblTotalLicenses.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalLicenses.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTotalLicenses.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTotalLicenses.Location = new System.Drawing.Point(10, 100);
+            this.lblTotalLicenses.Name = "lblTotalLicenses";
+            this.lblTotalLicenses.Size = new System.Drawing.Size(34, 36);
+            this.lblTotalLicenses.TabIndex = 0;
+            this.lblTotalLicenses.Text = "0";
             // 
-            // label20
+            // lblTotalApplicationsCompleted
             // 
-            this.label20.AutoSize = true;
-            this.label20.BackColor = System.Drawing.Color.Transparent;
-            this.label20.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.label20.ForeColor = System.Drawing.Color.DimGray;
-            this.label20.Location = new System.Drawing.Point(12, 95);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(34, 36);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "0";
+            this.lblTotalApplicationsCompleted.AutoSize = true;
+            this.lblTotalApplicationsCompleted.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalApplicationsCompleted.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTotalApplicationsCompleted.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTotalApplicationsCompleted.Location = new System.Drawing.Point(12, 95);
+            this.lblTotalApplicationsCompleted.Name = "lblTotalApplicationsCompleted";
+            this.lblTotalApplicationsCompleted.Size = new System.Drawing.Size(34, 36);
+            this.lblTotalApplicationsCompleted.TabIndex = 0;
+            this.lblTotalApplicationsCompleted.Text = "0";
             // 
-            // label21
+            // lblTotalExamxComplete
             // 
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.label21.ForeColor = System.Drawing.Color.DimGray;
-            this.label21.Location = new System.Drawing.Point(12, 95);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(34, 36);
-            this.label21.TabIndex = 0;
-            this.label21.Text = "0";
+            this.lblTotalExamxComplete.AutoSize = true;
+            this.lblTotalExamxComplete.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalExamxComplete.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTotalExamxComplete.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTotalExamxComplete.Location = new System.Drawing.Point(12, 95);
+            this.lblTotalExamxComplete.Name = "lblTotalExamxComplete";
+            this.lblTotalExamxComplete.Size = new System.Drawing.Size(34, 36);
+            this.lblTotalExamxComplete.TabIndex = 0;
+            this.lblTotalExamxComplete.Text = "0";
             // 
-            // label22
+            // lblTotalFeesThisMonth
             // 
-            this.label22.AutoSize = true;
-            this.label22.BackColor = System.Drawing.Color.Transparent;
-            this.label22.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.label22.ForeColor = System.Drawing.Color.DimGray;
-            this.label22.Location = new System.Drawing.Point(13, 104);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(34, 36);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "0";
+            this.lblTotalFeesThisMonth.AutoSize = true;
+            this.lblTotalFeesThisMonth.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalFeesThisMonth.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTotalFeesThisMonth.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTotalFeesThisMonth.Location = new System.Drawing.Point(13, 104);
+            this.lblTotalFeesThisMonth.Name = "lblTotalFeesThisMonth";
+            this.lblTotalFeesThisMonth.Size = new System.Drawing.Size(34, 36);
+            this.lblTotalFeesThisMonth.TabIndex = 0;
+            this.lblTotalFeesThisMonth.Text = "0";
             // 
-            // label23
+            // lblTotalFeesAllTime
             // 
-            this.label23.AutoSize = true;
-            this.label23.BackColor = System.Drawing.Color.Transparent;
-            this.label23.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.label23.ForeColor = System.Drawing.Color.DimGray;
-            this.label23.Location = new System.Drawing.Point(13, 100);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(34, 36);
-            this.label23.TabIndex = 0;
-            this.label23.Text = "0";
+            this.lblTotalFeesAllTime.AutoSize = true;
+            this.lblTotalFeesAllTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalFeesAllTime.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTotalFeesAllTime.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTotalFeesAllTime.Location = new System.Drawing.Point(13, 100);
+            this.lblTotalFeesAllTime.Name = "lblTotalFeesAllTime";
+            this.lblTotalFeesAllTime.Size = new System.Drawing.Size(34, 36);
+            this.lblTotalFeesAllTime.TabIndex = 0;
+            this.lblTotalFeesAllTime.Text = "0";
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.Image = global::PresentationLayer.Properties.Resources.DashboardUserFill64;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(19, 14);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(54, 53);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 2;
+            this.guna2PictureBox1.TabStop = false;
+            // 
+            // guna2Button4
+            // 
+            this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button4.BorderRadius = 10;
+            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
+            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
+            this.guna2Button4.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button4.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.guna2Button4.ForeColor = System.Drawing.Color.DimGray;
+            this.guna2Button4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.guna2Button4.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.guna2Button4.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button4.HoverState.Image = global::PresentationLayer.Properties.Resources.appointmentFill;
+            this.guna2Button4.HoverState.Parent = this.guna2Button4;
+            this.guna2Button4.Image = global::PresentationLayer.Properties.Resources.appointmentNoFill;
+            this.guna2Button4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button4.ImageOffset = new System.Drawing.Point(5, 0);
+            this.guna2Button4.Location = new System.Drawing.Point(7, 267);
+            this.guna2Button4.Name = "guna2Button4";
+            this.guna2Button4.PressedColor = System.Drawing.Color.Blue;
+            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
+            this.guna2Button4.Size = new System.Drawing.Size(288, 45);
+            this.guna2Button4.TabIndex = 2;
+            this.guna2Button4.Text = "Show All Appointments";
+            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
+            // 
+            // guna2Button3
+            // 
+            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.BorderRadius = 10;
+            this.guna2Button3.CheckedState.Parent = this.guna2Button3;
+            this.guna2Button3.CustomImages.Parent = this.guna2Button3;
+            this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.guna2Button3.ForeColor = System.Drawing.Color.DimGray;
+            this.guna2Button3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.guna2Button3.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button3.HoverState.Image = global::PresentationLayer.Properties.Resources.cardFill;
+            this.guna2Button3.HoverState.Parent = this.guna2Button3;
+            this.guna2Button3.Image = global::PresentationLayer.Properties.Resources.cardNoFill;
+            this.guna2Button3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button3.ImageOffset = new System.Drawing.Point(10, 0);
+            this.guna2Button3.Location = new System.Drawing.Point(7, 104);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.PressedColor = System.Drawing.Color.Blue;
+            this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
+            this.guna2Button3.Size = new System.Drawing.Size(257, 45);
+            this.guna2Button3.TabIndex = 2;
+            this.guna2Button3.Text = "Show License Info";
+            this.guna2Button3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button3.TextOffset = new System.Drawing.Point(30, 0);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderRadius = 10;
+            this.guna2Button1.CheckedState.Parent = this.guna2Button1;
+            this.guna2Button1.CustomImages.Parent = this.guna2Button1;
+            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.DimGray;
+            this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button1.HoverState.Image = global::PresentationLayer.Properties.Resources.detainFill;
+            this.guna2Button1.HoverState.Parent = this.guna2Button1;
+            this.guna2Button1.Image = global::PresentationLayer.Properties.Resources.detainNoFill;
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.ImageOffset = new System.Drawing.Point(10, 0);
+            this.guna2Button1.Location = new System.Drawing.Point(7, 254);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.PressedColor = System.Drawing.Color.Blue;
+            this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
+            this.guna2Button1.Size = new System.Drawing.Size(257, 45);
+            this.guna2Button1.TabIndex = 2;
+            this.guna2Button1.Text = "Detain License";
+            this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.TextOffset = new System.Drawing.Point(30, 0);
             // 
             // guna2Button5
             // 
@@ -721,20 +668,74 @@
             this.guna2Button5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.guna2Button5.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
             this.guna2Button5.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button5.HoverState.Image = global::PresentationLayer.Properties.Resources.applicationsNoFill;
+            this.guna2Button5.HoverState.Image = global::PresentationLayer.Properties.Resources.searchApplicationFill;
             this.guna2Button5.HoverState.Parent = this.guna2Button5;
-            this.guna2Button5.Image = global::PresentationLayer.Properties.Resources.applications;
+            this.guna2Button5.Image = global::PresentationLayer.Properties.Resources.searchApplicationNoFill;
             this.guna2Button5.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button5.ImageOffset = new System.Drawing.Point(10, 0);
             this.guna2Button5.Location = new System.Drawing.Point(7, 54);
             this.guna2Button5.Name = "guna2Button5";
             this.guna2Button5.PressedColor = System.Drawing.Color.Blue;
             this.guna2Button5.ShadowDecoration.Parent = this.guna2Button5;
-            this.guna2Button5.Size = new System.Drawing.Size(241, 45);
+            this.guna2Button5.Size = new System.Drawing.Size(257, 45);
             this.guna2Button5.TabIndex = 2;
             this.guna2Button5.Text = "Show Application Info";
             this.guna2Button5.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button5.TextOffset = new System.Drawing.Point(30, 0);
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button2.BorderRadius = 10;
+            this.guna2Button2.CheckedState.Parent = this.guna2Button2;
+            this.guna2Button2.CustomImages.Parent = this.guna2Button2;
+            this.guna2Button2.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button2.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.guna2Button2.ForeColor = System.Drawing.Color.DimGray;
+            this.guna2Button2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.guna2Button2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.guna2Button2.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button2.HoverState.Image = global::PresentationLayer.Properties.Resources.addFill;
+            this.guna2Button2.HoverState.Parent = this.guna2Button2;
+            this.guna2Button2.Image = global::PresentationLayer.Properties.Resources.addNoFill;
+            this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button2.ImageOffset = new System.Drawing.Point(10, 0);
+            this.guna2Button2.Location = new System.Drawing.Point(7, 204);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.PressedColor = System.Drawing.Color.Blue;
+            this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
+            this.guna2Button2.Size = new System.Drawing.Size(257, 45);
+            this.guna2Button2.TabIndex = 2;
+            this.guna2Button2.Text = "Add User";
+            this.guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button2.TextOffset = new System.Drawing.Point(30, 0);
+            // 
+            // btnApplications
+            // 
+            this.btnApplications.BackColor = System.Drawing.Color.Transparent;
+            this.btnApplications.BorderRadius = 10;
+            this.btnApplications.CheckedState.Parent = this.btnApplications;
+            this.btnApplications.CustomImages.Parent = this.btnApplications;
+            this.btnApplications.FillColor = System.Drawing.Color.Transparent;
+            this.btnApplications.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnApplications.ForeColor = System.Drawing.Color.DimGray;
+            this.btnApplications.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnApplications.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnApplications.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnApplications.HoverState.Image = global::PresentationLayer.Properties.Resources.addFill;
+            this.btnApplications.HoverState.Parent = this.btnApplications;
+            this.btnApplications.Image = global::PresentationLayer.Properties.Resources.addNoFill;
+            this.btnApplications.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnApplications.ImageOffset = new System.Drawing.Point(10, 0);
+            this.btnApplications.Location = new System.Drawing.Point(7, 154);
+            this.btnApplications.Name = "btnApplications";
+            this.btnApplications.PressedColor = System.Drawing.Color.Blue;
+            this.btnApplications.ShadowDecoration.Parent = this.btnApplications;
+            this.btnApplications.Size = new System.Drawing.Size(257, 45);
+            this.btnApplications.TabIndex = 2;
+            this.btnApplications.Text = "Add Person";
+            this.btnApplications.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnApplications.TextOffset = new System.Drawing.Point(30, 0);
             // 
             // ctrlDashboard
             // 
@@ -756,7 +757,6 @@
             this.Controls.Add(this.guna2Panel1);
             this.Name = "ctrlDashboard";
             this.Size = new System.Drawing.Size(1283, 815);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
@@ -783,6 +783,7 @@
             this.guna2Panel14.PerformLayout();
             this.guna2Panel11.ResumeLayout(false);
             this.guna2Panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -792,7 +793,7 @@
         private Guna.UI2.WinForms.Guna2CircleProgressBar guna2CircleProgressBar1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblTodayDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
@@ -815,7 +816,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel10;
         private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button btnApplications;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
@@ -826,14 +826,15 @@
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel11;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label lblTotalExamxComplete;
+        private System.Windows.Forms.Label lblTotalApplicationsCompleted;
+        private System.Windows.Forms.Label lblTotalUsers;
+        private System.Windows.Forms.Label lblTotalLicenses;
+        private System.Windows.Forms.Label lblTotalDrivers;
+        private System.Windows.Forms.Label lblTotalPeople;
+        private System.Windows.Forms.Label lblTotalFeesThisMonth;
+        private System.Windows.Forms.Label lblTotalFeesAllTime;
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
+        private Guna.UI2.WinForms.Guna2Button guna2Button2;
     }
 }

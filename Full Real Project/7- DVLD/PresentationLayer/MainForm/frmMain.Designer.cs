@@ -40,22 +40,22 @@
             this.lblProfilePersonName = new System.Windows.Forms.Label();
             this.pnlControlsContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.pnlSideBar = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlTopBar = new Guna.UI2.WinForms.Guna2Panel();
             this.lblQuickSearch = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btnSettings = new Guna.UI2.WinForms.Guna2Button();
-            this.btnApplications = new Guna.UI2.WinForms.Guna2Button();
-            this.btnUsers = new Guna.UI2.WinForms.Guna2Button();
-            this.btnPeople = new Guna.UI2.WinForms.Guna2Button();
             this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
-            this.pbProfilePic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.btnPeople = new Guna.UI2.WinForms.Guna2Button();
+            this.btnUsers = new Guna.UI2.WinForms.Guna2Button();
+            this.btnSettings = new Guna.UI2.WinForms.Guna2Button();
             this.btnDrivers = new Guna.UI2.WinForms.Guna2Button();
-            this.pnlSideBar = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlTopBar = new Guna.UI2.WinForms.Guna2Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).BeginInit();
+            this.btnApplications = new Guna.UI2.WinForms.Guna2Button();
+            this.pbProfilePic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.pnlSideBar.SuspendLayout();
             this.pnlTopBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -184,196 +184,6 @@
             this.guna2Separator1.Size = new System.Drawing.Size(200, 10);
             this.guna2Separator1.TabIndex = 0;
             // 
-            // lblQuickSearch
-            // 
-            this.lblQuickSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblQuickSearch.BackColor = System.Drawing.Color.White;
-            this.lblQuickSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblQuickSearch.Image = global::PresentationLayer.Properties.Resources.QuickSearch;
-            this.lblQuickSearch.Location = new System.Drawing.Point(1032, 14);
-            this.lblQuickSearch.Name = "lblQuickSearch";
-            this.lblQuickSearch.Size = new System.Drawing.Size(28, 23);
-            this.lblQuickSearch.TabIndex = 4;
-            this.lblQuickSearch.Click += new System.EventHandler(this.lblQuickSearch_Click);
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Image = global::PresentationLayer.Properties.Resources.settingsBig;
-            this.label2.Location = new System.Drawing.Point(9, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 26);
-            this.label2.TabIndex = 1;
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.BackgroundImage = global::PresentationLayer.Properties.Resources.logoSmall;
-            this.guna2PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(54, 0);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(149, 97);
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.UseTransparentBackground = true;
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSettings.BorderRadius = 10;
-            this.btnSettings.CheckedState.Parent = this.btnSettings;
-            this.btnSettings.CustomImages.Parent = this.btnSettings;
-            this.btnSettings.FillColor = System.Drawing.Color.Transparent;
-            this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnSettings.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnSettings.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.HoverState.Image = global::PresentationLayer.Properties.Resources.settingNoFill;
-            this.btnSettings.HoverState.Parent = this.btnSettings;
-            this.btnSettings.Image = global::PresentationLayer.Properties.Resources.settingsFill;
-            this.btnSettings.Location = new System.Drawing.Point(217, 821);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.ShadowDecoration.Parent = this.btnSettings;
-            this.btnSettings.Size = new System.Drawing.Size(33, 32);
-            this.btnSettings.TabIndex = 3;
-            // 
-            // btnApplications
-            // 
-            this.btnApplications.BorderRadius = 10;
-            this.btnApplications.CheckedState.Parent = this.btnApplications;
-            this.btnApplications.CustomImages.Parent = this.btnApplications;
-            this.btnApplications.FillColor = System.Drawing.Color.Transparent;
-            this.btnApplications.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnApplications.ForeColor = System.Drawing.Color.DimGray;
-            this.btnApplications.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnApplications.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnApplications.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnApplications.HoverState.Image = global::PresentationLayer.Properties.Resources.applicationsNoFill;
-            this.btnApplications.HoverState.Parent = this.btnApplications;
-            this.btnApplications.Image = global::PresentationLayer.Properties.Resources.applications;
-            this.btnApplications.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnApplications.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnApplications.Location = new System.Drawing.Point(12, 154);
-            this.btnApplications.Name = "btnApplications";
-            this.btnApplications.PressedColor = System.Drawing.Color.Blue;
-            this.btnApplications.ShadowDecoration.Parent = this.btnApplications;
-            this.btnApplications.Size = new System.Drawing.Size(241, 45);
-            this.btnApplications.TabIndex = 1;
-            this.btnApplications.Text = "Applications";
-            // 
-            // btnUsers
-            // 
-            this.btnUsers.BorderRadius = 10;
-            this.btnUsers.CheckedState.Parent = this.btnUsers;
-            this.btnUsers.CustomImages.Parent = this.btnUsers;
-            this.btnUsers.FillColor = System.Drawing.Color.Transparent;
-            this.btnUsers.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnUsers.ForeColor = System.Drawing.Color.DimGray;
-            this.btnUsers.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnUsers.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnUsers.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnUsers.HoverState.Image = global::PresentationLayer.Properties.Resources.usersNoFillBold;
-            this.btnUsers.HoverState.Parent = this.btnUsers;
-            this.btnUsers.Image = global::PresentationLayer.Properties.Resources.usersFill;
-            this.btnUsers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnUsers.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnUsers.Location = new System.Drawing.Point(12, 307);
-            this.btnUsers.Name = "btnUsers";
-            this.btnUsers.PressedColor = System.Drawing.Color.Blue;
-            this.btnUsers.ShadowDecoration.Parent = this.btnUsers;
-            this.btnUsers.Size = new System.Drawing.Size(241, 45);
-            this.btnUsers.TabIndex = 1;
-            this.btnUsers.Text = "Users";
-            // 
-            // btnPeople
-            // 
-            this.btnPeople.BorderRadius = 10;
-            this.btnPeople.CheckedState.Parent = this.btnPeople;
-            this.btnPeople.CustomImages.Parent = this.btnPeople;
-            this.btnPeople.FillColor = System.Drawing.Color.Transparent;
-            this.btnPeople.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnPeople.ForeColor = System.Drawing.Color.DimGray;
-            this.btnPeople.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnPeople.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnPeople.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnPeople.HoverState.Image = global::PresentationLayer.Properties.Resources.peopleNoFill;
-            this.btnPeople.HoverState.Parent = this.btnPeople;
-            this.btnPeople.Image = global::PresentationLayer.Properties.Resources.peopleFill;
-            this.btnPeople.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnPeople.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnPeople.Location = new System.Drawing.Point(12, 205);
-            this.btnPeople.Name = "btnPeople";
-            this.btnPeople.PressedColor = System.Drawing.Color.Blue;
-            this.btnPeople.ShadowDecoration.Parent = this.btnPeople;
-            this.btnPeople.Size = new System.Drawing.Size(241, 45);
-            this.btnPeople.TabIndex = 1;
-            this.btnPeople.Text = "People";
-            // 
-            // btnOverview
-            // 
-            this.btnOverview.BorderRadius = 10;
-            this.btnOverview.CheckedState.Parent = this.btnOverview;
-            this.btnOverview.CustomImages.Parent = this.btnOverview;
-            this.btnOverview.FillColor = System.Drawing.Color.Transparent;
-            this.btnOverview.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnOverview.ForeColor = System.Drawing.Color.DimGray;
-            this.btnOverview.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnOverview.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnOverview.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnOverview.HoverState.Image = global::PresentationLayer.Properties.Resources.DashboardNoFill;
-            this.btnOverview.HoverState.Parent = this.btnOverview;
-            this.btnOverview.Image = global::PresentationLayer.Properties.Resources.DashboardFill;
-            this.btnOverview.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnOverview.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnOverview.Location = new System.Drawing.Point(12, 103);
-            this.btnOverview.Name = "btnOverview";
-            this.btnOverview.PressedColor = System.Drawing.Color.Blue;
-            this.btnOverview.ShadowDecoration.Parent = this.btnOverview;
-            this.btnOverview.Size = new System.Drawing.Size(241, 45);
-            this.btnOverview.TabIndex = 1;
-            this.btnOverview.Text = "Overview";
-            this.btnOverview.Click += new System.EventHandler(this.btnOverview_Click);
-            // 
-            // pbProfilePic
-            // 
-            this.pbProfilePic.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pbProfilePic.Image = global::PresentationLayer.Properties.Resources.ProfileTest;
-            this.pbProfilePic.Location = new System.Drawing.Point(12, 818);
-            this.pbProfilePic.Name = "pbProfilePic";
-            this.pbProfilePic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pbProfilePic.ShadowDecoration.Parent = this.pbProfilePic;
-            this.pbProfilePic.Size = new System.Drawing.Size(40, 40);
-            this.pbProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbProfilePic.TabIndex = 0;
-            this.pbProfilePic.TabStop = false;
-            // 
-            // btnDrivers
-            // 
-            this.btnDrivers.BorderRadius = 10;
-            this.btnDrivers.CheckedState.Parent = this.btnDrivers;
-            this.btnDrivers.CustomImages.Parent = this.btnDrivers;
-            this.btnDrivers.FillColor = System.Drawing.Color.Transparent;
-            this.btnDrivers.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnDrivers.ForeColor = System.Drawing.Color.DimGray;
-            this.btnDrivers.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnDrivers.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnDrivers.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnDrivers.HoverState.Image = global::PresentationLayer.Properties.Resources.DriversNoFill;
-            this.btnDrivers.HoverState.Parent = this.btnDrivers;
-            this.btnDrivers.Image = global::PresentationLayer.Properties.Resources.DriversFill;
-            this.btnDrivers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnDrivers.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnDrivers.Location = new System.Drawing.Point(12, 256);
-            this.btnDrivers.Name = "btnDrivers";
-            this.btnDrivers.PressedColor = System.Drawing.Color.Blue;
-            this.btnDrivers.ShadowDecoration.Parent = this.btnDrivers;
-            this.btnDrivers.Size = new System.Drawing.Size(241, 45);
-            this.btnDrivers.TabIndex = 1;
-            this.btnDrivers.Text = "Drivers";
-            // 
             // pnlSideBar
             // 
             this.pnlSideBar.BackColor = System.Drawing.Color.White;
@@ -411,6 +221,197 @@
             this.pnlTopBar.Size = new System.Drawing.Size(1283, 59);
             this.pnlTopBar.TabIndex = 6;
             // 
+            // lblQuickSearch
+            // 
+            this.lblQuickSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblQuickSearch.BackColor = System.Drawing.Color.White;
+            this.lblQuickSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblQuickSearch.Image = global::PresentationLayer.Properties.Resources.QuickSearch;
+            this.lblQuickSearch.Location = new System.Drawing.Point(1032, 14);
+            this.lblQuickSearch.Name = "lblQuickSearch";
+            this.lblQuickSearch.Size = new System.Drawing.Size(28, 23);
+            this.lblQuickSearch.TabIndex = 4;
+            this.lblQuickSearch.Click += new System.EventHandler(this.lblQuickSearch_Click);
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Image = global::PresentationLayer.Properties.Resources.settingsBig;
+            this.label2.Location = new System.Drawing.Point(9, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 26);
+            this.label2.TabIndex = 1;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.BackgroundImage = global::PresentationLayer.Properties.Resources.logoSmall;
+            this.guna2PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(54, 0);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(149, 97);
+            this.guna2PictureBox1.TabIndex = 0;
+            this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox1.UseTransparentBackground = true;
+            // 
+            // btnOverview
+            // 
+            this.btnOverview.BorderRadius = 10;
+            this.btnOverview.CheckedState.Parent = this.btnOverview;
+            this.btnOverview.CustomImages.Parent = this.btnOverview;
+            this.btnOverview.FillColor = System.Drawing.Color.Transparent;
+            this.btnOverview.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnOverview.ForeColor = System.Drawing.Color.DimGray;
+            this.btnOverview.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnOverview.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnOverview.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnOverview.HoverState.Image = global::PresentationLayer.Properties.Resources.overviewFillThin;
+            this.btnOverview.HoverState.Parent = this.btnOverview;
+            this.btnOverview.Image = global::PresentationLayer.Properties.Resources.overviewNoFillThin;
+            this.btnOverview.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnOverview.ImageOffset = new System.Drawing.Point(10, 0);
+            this.btnOverview.Location = new System.Drawing.Point(12, 103);
+            this.btnOverview.Name = "btnOverview";
+            this.btnOverview.PressedColor = System.Drawing.Color.Blue;
+            this.btnOverview.ShadowDecoration.Parent = this.btnOverview;
+            this.btnOverview.Size = new System.Drawing.Size(241, 45);
+            this.btnOverview.TabIndex = 1;
+            this.btnOverview.Text = "Overview";
+            this.btnOverview.Click += new System.EventHandler(this.btnOverview_Click);
+            // 
+            // btnPeople
+            // 
+            this.btnPeople.BorderRadius = 10;
+            this.btnPeople.CheckedState.Parent = this.btnPeople;
+            this.btnPeople.CustomImages.Parent = this.btnPeople;
+            this.btnPeople.FillColor = System.Drawing.Color.Transparent;
+            this.btnPeople.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnPeople.ForeColor = System.Drawing.Color.DimGray;
+            this.btnPeople.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnPeople.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnPeople.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnPeople.HoverState.Image = global::PresentationLayer.Properties.Resources.peopleFillThin;
+            this.btnPeople.HoverState.Parent = this.btnPeople;
+            this.btnPeople.Image = global::PresentationLayer.Properties.Resources.peopleNoFillThin;
+            this.btnPeople.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnPeople.ImageOffset = new System.Drawing.Point(10, 0);
+            this.btnPeople.Location = new System.Drawing.Point(12, 205);
+            this.btnPeople.Name = "btnPeople";
+            this.btnPeople.PressedColor = System.Drawing.Color.Blue;
+            this.btnPeople.ShadowDecoration.Parent = this.btnPeople;
+            this.btnPeople.Size = new System.Drawing.Size(241, 45);
+            this.btnPeople.TabIndex = 1;
+            this.btnPeople.Text = "People";
+            // 
+            // btnUsers
+            // 
+            this.btnUsers.BorderRadius = 10;
+            this.btnUsers.CheckedState.Parent = this.btnUsers;
+            this.btnUsers.CustomImages.Parent = this.btnUsers;
+            this.btnUsers.FillColor = System.Drawing.Color.Transparent;
+            this.btnUsers.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnUsers.ForeColor = System.Drawing.Color.DimGray;
+            this.btnUsers.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnUsers.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnUsers.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnUsers.HoverState.Image = global::PresentationLayer.Properties.Resources.UsersFillThin;
+            this.btnUsers.HoverState.Parent = this.btnUsers;
+            this.btnUsers.Image = global::PresentationLayer.Properties.Resources.usersNoFill;
+            this.btnUsers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnUsers.ImageOffset = new System.Drawing.Point(10, 0);
+            this.btnUsers.Location = new System.Drawing.Point(12, 307);
+            this.btnUsers.Name = "btnUsers";
+            this.btnUsers.PressedColor = System.Drawing.Color.Blue;
+            this.btnUsers.ShadowDecoration.Parent = this.btnUsers;
+            this.btnUsers.Size = new System.Drawing.Size(241, 45);
+            this.btnUsers.TabIndex = 1;
+            this.btnUsers.Text = "Users";
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSettings.BorderRadius = 10;
+            this.btnSettings.CheckedState.Parent = this.btnSettings;
+            this.btnSettings.CustomImages.Parent = this.btnSettings;
+            this.btnSettings.FillColor = System.Drawing.Color.Transparent;
+            this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSettings.ForeColor = System.Drawing.Color.White;
+            this.btnSettings.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnSettings.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnSettings.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnSettings.HoverState.Image = global::PresentationLayer.Properties.Resources.settingsFill;
+            this.btnSettings.HoverState.Parent = this.btnSettings;
+            this.btnSettings.Image = global::PresentationLayer.Properties.Resources.settingNoFill;
+            this.btnSettings.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnSettings.Location = new System.Drawing.Point(217, 821);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.ShadowDecoration.Parent = this.btnSettings;
+            this.btnSettings.Size = new System.Drawing.Size(35, 35);
+            this.btnSettings.TabIndex = 3;
+            // 
+            // btnDrivers
+            // 
+            this.btnDrivers.BorderRadius = 10;
+            this.btnDrivers.CheckedState.Parent = this.btnDrivers;
+            this.btnDrivers.CustomImages.Parent = this.btnDrivers;
+            this.btnDrivers.FillColor = System.Drawing.Color.Transparent;
+            this.btnDrivers.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnDrivers.ForeColor = System.Drawing.Color.DimGray;
+            this.btnDrivers.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnDrivers.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnDrivers.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnDrivers.HoverState.Image = global::PresentationLayer.Properties.Resources.DriverFillThin;
+            this.btnDrivers.HoverState.Parent = this.btnDrivers;
+            this.btnDrivers.Image = global::PresentationLayer.Properties.Resources.driversNoFillThin;
+            this.btnDrivers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDrivers.ImageOffset = new System.Drawing.Point(10, 0);
+            this.btnDrivers.Location = new System.Drawing.Point(12, 256);
+            this.btnDrivers.Name = "btnDrivers";
+            this.btnDrivers.PressedColor = System.Drawing.Color.Blue;
+            this.btnDrivers.ShadowDecoration.Parent = this.btnDrivers;
+            this.btnDrivers.Size = new System.Drawing.Size(241, 45);
+            this.btnDrivers.TabIndex = 1;
+            this.btnDrivers.Text = "Drivers";
+            // 
+            // btnApplications
+            // 
+            this.btnApplications.BorderRadius = 10;
+            this.btnApplications.CheckedState.Parent = this.btnApplications;
+            this.btnApplications.CustomImages.Parent = this.btnApplications;
+            this.btnApplications.FillColor = System.Drawing.Color.Transparent;
+            this.btnApplications.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnApplications.ForeColor = System.Drawing.Color.DimGray;
+            this.btnApplications.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnApplications.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnApplications.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnApplications.HoverState.Image = global::PresentationLayer.Properties.Resources.applications;
+            this.btnApplications.HoverState.Parent = this.btnApplications;
+            this.btnApplications.Image = global::PresentationLayer.Properties.Resources.applicationNoFillThin;
+            this.btnApplications.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnApplications.ImageOffset = new System.Drawing.Point(10, 0);
+            this.btnApplications.Location = new System.Drawing.Point(12, 154);
+            this.btnApplications.Name = "btnApplications";
+            this.btnApplications.PressedColor = System.Drawing.Color.Blue;
+            this.btnApplications.ShadowDecoration.Parent = this.btnApplications;
+            this.btnApplications.Size = new System.Drawing.Size(241, 45);
+            this.btnApplications.TabIndex = 1;
+            this.btnApplications.Text = "Applications";
+            // 
+            // pbProfilePic
+            // 
+            this.pbProfilePic.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.pbProfilePic.Image = global::PresentationLayer.Properties.Resources.ProfileTest;
+            this.pbProfilePic.Location = new System.Drawing.Point(12, 818);
+            this.pbProfilePic.Name = "pbProfilePic";
+            this.pbProfilePic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pbProfilePic.ShadowDecoration.Parent = this.pbProfilePic;
+            this.pbProfilePic.Size = new System.Drawing.Size(40, 40);
+            this.pbProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbProfilePic.TabIndex = 0;
+            this.pbProfilePic.TabStop = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -424,12 +425,12 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMain";
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).EndInit();
             this.pnlSideBar.ResumeLayout(false);
             this.pnlSideBar.PerformLayout();
             this.pnlTopBar.ResumeLayout(false);
             this.pnlTopBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).EndInit();
             this.ResumeLayout(false);
 
         }

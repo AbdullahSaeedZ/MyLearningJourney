@@ -63,6 +63,36 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addFill {
+            get {
+                object obj = ResourceManager.GetObject("addFill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap addNoFill {
+            get {
+                object obj = ResourceManager.GetObject("addNoFill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap applicationNoFillThin {
+            get {
+                object obj = ResourceManager.GetObject("applicationNoFillThin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap applications {
             get {
                 object obj = ResourceManager.GetObject("applications", resourceCulture);
@@ -86,6 +116,46 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap applicationsWhite {
             get {
                 object obj = ResourceManager.GetObject("applicationsWhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap appointmentFill {
+            get {
+                object obj = ResourceManager.GetObject("appointmentFill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap appointmentNoFill {
+            get {
+                object obj = ResourceManager.GetObject("appointmentNoFill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cardFill {
+            get {
+                object obj = ResourceManager.GetObject("cardFill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cardNoFill {
+            get {
+                object obj = ResourceManager.GetObject("cardNoFill", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,6 +213,36 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap detainFill {
+            get {
+                object obj = ResourceManager.GetObject("detainFill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap detainNoFill {
+            get {
+                object obj = ResourceManager.GetObject("detainNoFill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DriverFillThin {
+            get {
+                object obj = ResourceManager.GetObject("DriverFillThin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DriversFill {
             get {
                 object obj = ResourceManager.GetObject("DriversFill", resourceCulture);
@@ -156,6 +256,16 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap DriversNoFill {
             get {
                 object obj = ResourceManager.GetObject("DriversNoFill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap driversNoFillThin {
+            get {
+                object obj = ResourceManager.GetObject("driversNoFillThin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,6 +293,26 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap overviewFillThin {
+            get {
+                object obj = ResourceManager.GetObject("overviewFillThin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap overviewNoFillThin {
+            get {
+                object obj = ResourceManager.GetObject("overviewNoFillThin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap peopleFill {
             get {
                 object obj = ResourceManager.GetObject("peopleFill", resourceCulture);
@@ -193,9 +323,29 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap peopleFillThin {
+            get {
+                object obj = ResourceManager.GetObject("peopleFillThin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap peopleNoFill {
             get {
                 object obj = ResourceManager.GetObject("peopleNoFill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap peopleNoFillThin {
+            get {
+                object obj = ResourceManager.GetObject("peopleNoFillThin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -216,6 +366,26 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap QuickSearch {
             get {
                 object obj = ResourceManager.GetObject("QuickSearch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap searchApplicationFill {
+            get {
+                object obj = ResourceManager.GetObject("searchApplicationFill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap searchApplicationNoFill {
+            get {
+                object obj = ResourceManager.GetObject("searchApplicationNoFill", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -266,6 +436,16 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap usersFill {
             get {
                 object obj = ResourceManager.GetObject("usersFill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UsersFillThin {
+            get {
+                object obj = ResourceManager.GetObject("UsersFillThin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
