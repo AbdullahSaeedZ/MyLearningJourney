@@ -278,8 +278,9 @@
             this.btnOverview.ShadowDecoration.Parent = this.btnOverview;
             this.btnOverview.Size = new System.Drawing.Size(241, 45);
             this.btnOverview.TabIndex = 1;
+            this.btnOverview.Tag = "Overview";
             this.btnOverview.Text = "Overview";
-            this.btnOverview.Click += new System.EventHandler(this.btnOverview_Click);
+            this.btnOverview.Click += new System.EventHandler(this.MainOptionsButtonHandler_Click);
             // 
             // btnPeople
             // 
@@ -303,7 +304,9 @@
             this.btnPeople.ShadowDecoration.Parent = this.btnPeople;
             this.btnPeople.Size = new System.Drawing.Size(241, 45);
             this.btnPeople.TabIndex = 1;
+            this.btnPeople.Tag = "People";
             this.btnPeople.Text = "People";
+            this.btnPeople.Click += new System.EventHandler(this.MainOptionsButtonHandler_Click);
             // 
             // btnUsers
             // 
@@ -327,7 +330,9 @@
             this.btnUsers.ShadowDecoration.Parent = this.btnUsers;
             this.btnUsers.Size = new System.Drawing.Size(241, 45);
             this.btnUsers.TabIndex = 1;
+            this.btnUsers.Tag = "Users";
             this.btnUsers.Text = "Users";
+            this.btnUsers.Click += new System.EventHandler(this.MainOptionsButtonHandler_Click);
             // 
             // btnSettings
             // 
@@ -350,6 +355,8 @@
             this.btnSettings.ShadowDecoration.Parent = this.btnSettings;
             this.btnSettings.Size = new System.Drawing.Size(35, 35);
             this.btnSettings.TabIndex = 3;
+            this.btnSettings.Tag = "Settings";
+            this.btnSettings.Click += new System.EventHandler(this.MainOptionsButtonHandler_Click);
             // 
             // btnDrivers
             // 
@@ -373,7 +380,9 @@
             this.btnDrivers.ShadowDecoration.Parent = this.btnDrivers;
             this.btnDrivers.Size = new System.Drawing.Size(241, 45);
             this.btnDrivers.TabIndex = 1;
+            this.btnDrivers.Tag = "Drivers";
             this.btnDrivers.Text = "Drivers";
+            this.btnDrivers.Click += new System.EventHandler(this.MainOptionsButtonHandler_Click);
             // 
             // btnApplications
             // 
@@ -397,7 +406,9 @@
             this.btnApplications.ShadowDecoration.Parent = this.btnApplications;
             this.btnApplications.Size = new System.Drawing.Size(241, 45);
             this.btnApplications.TabIndex = 1;
+            this.btnApplications.Tag = "Applications";
             this.btnApplications.Text = "Applications";
+            this.btnApplications.Click += new System.EventHandler(this.MainOptionsButtonHandler_Click);
             // 
             // pbProfilePic
             // 

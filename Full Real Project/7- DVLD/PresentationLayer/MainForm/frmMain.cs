@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 using PresentationLayer.DashboardControls;
 
 namespace PresentationLayer.MainForm
@@ -16,14 +17,63 @@ namespace PresentationLayer.MainForm
         public frmMain()
         {
             InitializeComponent();
-            ctrlDashboard ctr = new ctrlDashboard();
-            pnlControlsContainer.Controls.Add(ctr);
-            pnlControlsContainer.Show();
+
+            // to start app with overview
+            MainOptionsButtonHandler_Click(btnOverview, EventArgs.Empty);
         }
 
-        private void ControlBoxClose_Click(object sender, EventArgs e)
+        private void _RefreshControlsContainer()
         {
-            Application.Exit();
+            if (pnlControlsContainer.Controls.Count > 0)
+                pnlControlsContainer.Controls.Clear();
+        }
+
+        private void MainOptionsButtonHandler_Click(object sender, EventArgs e)
+        {
+            _RefreshControlsContainer();
+            Guna2Button selectedButten = (Guna2Button)sender;
+            
+            switch (selectedButten.Tag.ToString())
+            {
+                case "Overview":
+                    ctrlDashboard ctr = new ctrlDashboard();
+                    pnlControlsContainer.Controls.Add(ctr);
+                    pnlControlsContainer.Show();
+                    break;
+
+                case "Applications":
+                    
+                    break;
+
+                case "People":
+                    
+                    break;
+
+                case "Drivers":
+                    
+                    break;
+
+                case "Users":
+                   
+                    break;
+
+                case "Settings":
+                   
+                    break;
+
+                default:
+                    ctrlDashboard ct = new ctrlDashboard();
+                    pnlControlsContainer.Controls.Add(ct);
+                    pnlControlsContainer.Show();
+                    break;
+            }
+
+            // to reset unchosen buttons color
+            foreach (Guna2Button btn in pnlSideBar.Controls.OfType<Guna.UI2.WinForms.Guna2Button>())
+                    btn.FillColor = Color.Transparent;
+
+            // to highlight selected color
+            selectedButten.FillColor = Color.FromArgb(242, 245, 250);
         }
 
 
@@ -56,13 +106,11 @@ namespace PresentationLayer.MainForm
             MessageBox.Show("find person");
         }
 
-        private void btnOverview_Click(object sender, EventArgs e)
+        // Closing the app
+        private void ControlBoxClose_Click(object sender, EventArgs e)
         {
-            
-            ctrlDashboard ctr = new ctrlDashboard();
-            pnlControlsContainer.Controls.Add(ctr);
-            pnlControlsContainer.Show();
-            
+            Application.Exit();
         }
+
     }
 }
