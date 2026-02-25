@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.DashboardControls
@@ -15,16 +8,13 @@ namespace PresentationLayer.DashboardControls
         public ctrlDashboard()
         {
             InitializeComponent();
+            lblTodayDate.Text = DateTime.Now.ToLongDateString() + "  |  " + DateTime.Now.ToShortTimeString();
+            lblGoodMorningEvening.Text = "Good " + (DateTime.Now.Hour >= 12 ? "Evening, " : "Morning, ").ToString();
         }
 
-        private void label11_Click(object sender, EventArgs e)
-        {
+       private void ButtonsHandler()
+       {
 
-        }
-
-        private void guna2Button4_Click(object sender, EventArgs e)
-        {
-
-        }
+       }
     }
 }

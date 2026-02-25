@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.guna2CircleProgressBar1 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblGoodMorningEvening = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblTodayDate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -40,42 +40,43 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2CircleProgressBar3 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
-            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.guna2Panel13 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.guna2Panel11 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.lblTotalUsers = new System.Windows.Forms.Label();
-            this.lblTotalDrivers = new System.Windows.Forms.Label();
-            this.lblTotalPeople = new System.Windows.Forms.Label();
-            this.lblTotalLicenses = new System.Windows.Forms.Label();
-            this.lblTotalApplicationsCompleted = new System.Windows.Forms.Label();
-            this.lblTotalExamxComplete = new System.Windows.Forms.Label();
-            this.lblTotalFeesThisMonth = new System.Windows.Forms.Label();
-            this.lblTotalFeesAllTime = new System.Windows.Forms.Label();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.btnApplications = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblTotalExamxComplete = new System.Windows.Forms.Label();
+            this.guna2CircleProgressBar3 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
+            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblTotalApplicationsCompleted = new System.Windows.Forms.Label();
+            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblTotalUsers = new System.Windows.Forms.Label();
+            this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblTotalLicenses = new System.Windows.Forms.Label();
+            this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblTotalDrivers = new System.Windows.Forms.Label();
+            this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblTotalPeople = new System.Windows.Forms.Label();
+            this.guna2Panel10 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.guna2Panel13 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblTotalFeesThisMonth = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.guna2Panel14 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblTotalFeesAllTime = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.guna2Panel11 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label13 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
@@ -87,7 +88,6 @@
             this.guna2Panel13.SuspendLayout();
             this.guna2Panel14.SuspendLayout();
             this.guna2Panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2CircleProgressBar1
@@ -103,29 +103,29 @@
             this.guna2CircleProgressBar1.TabIndex = 0;
             this.guna2CircleProgressBar1.Value = 30;
             // 
-            // label1
+            // lblGoodMorningEvening
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(82, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Good Day";
+            this.lblGoodMorningEvening.AutoSize = true;
+            this.lblGoodMorningEvening.BackColor = System.Drawing.Color.Transparent;
+            this.lblGoodMorningEvening.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold);
+            this.lblGoodMorningEvening.ForeColor = System.Drawing.Color.DimGray;
+            this.lblGoodMorningEvening.Location = new System.Drawing.Point(82, 31);
+            this.lblGoodMorningEvening.Name = "lblGoodMorningEvening";
+            this.lblGoodMorningEvening.Size = new System.Drawing.Size(106, 23);
+            this.lblGoodMorningEvening.TabIndex = 0;
+            this.lblGoodMorningEvening.Text = "Good E/M";
             // 
-            // label2
+            // lblUsername
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(190, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(105, 23);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Username";
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsername.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold);
+            this.lblUsername.ForeColor = System.Drawing.Color.DimGray;
+            this.lblUsername.Location = new System.Drawing.Point(239, 31);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(105, 23);
+            this.lblUsername.TabIndex = 1;
+            this.lblUsername.Text = "Username";
             // 
             // label3
             // 
@@ -145,7 +145,7 @@
             this.lblTodayDate.BackColor = System.Drawing.Color.Transparent;
             this.lblTodayDate.Font = new System.Drawing.Font("Tahoma", 12F);
             this.lblTodayDate.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTodayDate.Location = new System.Drawing.Point(213, 45);
+            this.lblTodayDate.Location = new System.Drawing.Point(14, 59);
             this.lblTodayDate.Name = "lblTodayDate";
             this.lblTodayDate.Size = new System.Drawing.Size(181, 22);
             this.lblTodayDate.TabIndex = 1;
@@ -238,369 +238,6 @@
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
             this.guna2Panel1.Size = new System.Drawing.Size(393, 318);
             this.guna2Panel1.TabIndex = 2;
-            // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.BorderRadius = 10;
-            this.guna2Panel2.Controls.Add(this.guna2PictureBox1);
-            this.guna2Panel2.Controls.Add(this.label1);
-            this.guna2Panel2.Controls.Add(this.label2);
-            this.guna2Panel2.FillColor = System.Drawing.Color.White;
-            this.guna2Panel2.Location = new System.Drawing.Point(16, 16);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
-            this.guna2Panel2.Size = new System.Drawing.Size(393, 91);
-            this.guna2Panel2.TabIndex = 2;
-            // 
-            // guna2Panel3
-            // 
-            this.guna2Panel3.BorderRadius = 10;
-            this.guna2Panel3.Controls.Add(this.lblTotalExamxComplete);
-            this.guna2Panel3.Controls.Add(this.guna2CircleProgressBar3);
-            this.guna2Panel3.Controls.Add(this.label3);
-            this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(426, 122);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.ShadowDecoration.Parent = this.guna2Panel3;
-            this.guna2Panel3.Size = new System.Drawing.Size(459, 150);
-            this.guna2Panel3.TabIndex = 2;
-            // 
-            // guna2Panel4
-            // 
-            this.guna2Panel4.BorderRadius = 10;
-            this.guna2Panel4.Controls.Add(this.lblTotalApplicationsCompleted);
-            this.guna2Panel4.Controls.Add(this.label9);
-            this.guna2Panel4.Controls.Add(this.guna2CircleProgressBar1);
-            this.guna2Panel4.FillColor = System.Drawing.Color.White;
-            this.guna2Panel4.Location = new System.Drawing.Point(426, 290);
-            this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.ShadowDecoration.Parent = this.guna2Panel4;
-            this.guna2Panel4.Size = new System.Drawing.Size(459, 150);
-            this.guna2Panel4.TabIndex = 2;
-            // 
-            // guna2CircleProgressBar3
-            // 
-            this.guna2CircleProgressBar3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2CircleProgressBar3.FillThickness = 15;
-            this.guna2CircleProgressBar3.Location = new System.Drawing.Point(310, 3);
-            this.guna2CircleProgressBar3.Name = "guna2CircleProgressBar3";
-            this.guna2CircleProgressBar3.ProgressThickness = 15;
-            this.guna2CircleProgressBar3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.guna2CircleProgressBar3.ShadowDecoration.Parent = this.guna2CircleProgressBar3;
-            this.guna2CircleProgressBar3.Size = new System.Drawing.Size(146, 141);
-            this.guna2CircleProgressBar3.TabIndex = 0;
-            this.guna2CircleProgressBar3.Value = 30;
-            // 
-            // guna2Panel5
-            // 
-            this.guna2Panel5.BorderRadius = 10;
-            this.guna2Panel5.Controls.Add(this.label11);
-            this.guna2Panel5.Controls.Add(this.lblTodayDate);
-            this.guna2Panel5.FillColor = System.Drawing.Color.White;
-            this.guna2Panel5.Location = new System.Drawing.Point(426, 16);
-            this.guna2Panel5.Name = "guna2Panel5";
-            this.guna2Panel5.ShadowDecoration.Parent = this.guna2Panel5;
-            this.guna2Panel5.Size = new System.Drawing.Size(459, 91);
-            this.guna2Panel5.TabIndex = 2;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.DimGray;
-            this.label11.Location = new System.Drawing.Point(3, 7);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(133, 23);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Today\'s Date";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
-            // guna2Panel6
-            // 
-            this.guna2Panel6.BorderRadius = 10;
-            this.guna2Panel6.Controls.Add(this.lblTotalUsers);
-            this.guna2Panel6.Controls.Add(this.label8);
-            this.guna2Panel6.FillColor = System.Drawing.Color.White;
-            this.guna2Panel6.Location = new System.Drawing.Point(426, 639);
-            this.guna2Panel6.Name = "guna2Panel6";
-            this.guna2Panel6.ShadowDecoration.Parent = this.guna2Panel6;
-            this.guna2Panel6.Size = new System.Drawing.Size(224, 152);
-            this.guna2Panel6.TabIndex = 2;
-            // 
-            // guna2Panel7
-            // 
-            this.guna2Panel7.BorderRadius = 10;
-            this.guna2Panel7.Controls.Add(this.lblTotalLicenses);
-            this.guna2Panel7.Controls.Add(this.label10);
-            this.guna2Panel7.FillColor = System.Drawing.Color.White;
-            this.guna2Panel7.Location = new System.Drawing.Point(659, 639);
-            this.guna2Panel7.Name = "guna2Panel7";
-            this.guna2Panel7.ShadowDecoration.Parent = this.guna2Panel7;
-            this.guna2Panel7.Size = new System.Drawing.Size(226, 152);
-            this.guna2Panel7.TabIndex = 2;
-            // 
-            // guna2Panel8
-            // 
-            this.guna2Panel8.BorderRadius = 10;
-            this.guna2Panel8.Controls.Add(this.lblTotalDrivers);
-            this.guna2Panel8.Controls.Add(this.label6);
-            this.guna2Panel8.FillColor = System.Drawing.Color.White;
-            this.guna2Panel8.Location = new System.Drawing.Point(426, 472);
-            this.guna2Panel8.Name = "guna2Panel8";
-            this.guna2Panel8.ShadowDecoration.Parent = this.guna2Panel8;
-            this.guna2Panel8.Size = new System.Drawing.Size(224, 152);
-            this.guna2Panel8.TabIndex = 2;
-            // 
-            // guna2Panel9
-            // 
-            this.guna2Panel9.BorderRadius = 10;
-            this.guna2Panel9.Controls.Add(this.lblTotalPeople);
-            this.guna2Panel9.Controls.Add(this.label7);
-            this.guna2Panel9.FillColor = System.Drawing.Color.White;
-            this.guna2Panel9.Location = new System.Drawing.Point(656, 472);
-            this.guna2Panel9.Name = "guna2Panel9";
-            this.guna2Panel9.ShadowDecoration.Parent = this.guna2Panel9;
-            this.guna2Panel9.Size = new System.Drawing.Size(226, 152);
-            this.guna2Panel9.TabIndex = 2;
-            // 
-            // guna2Panel10
-            // 
-            this.guna2Panel10.BorderRadius = 10;
-            this.guna2Panel10.Controls.Add(this.guna2Button4);
-            this.guna2Panel10.Controls.Add(this.label12);
-            this.guna2Panel10.FillColor = System.Drawing.Color.White;
-            this.guna2Panel10.Location = new System.Drawing.Point(16, 472);
-            this.guna2Panel10.Name = "guna2Panel10";
-            this.guna2Panel10.ShadowDecoration.Parent = this.guna2Panel10;
-            this.guna2Panel10.Size = new System.Drawing.Size(393, 322);
-            this.guna2Panel10.TabIndex = 2;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.DimGray;
-            this.label12.Location = new System.Drawing.Point(3, 12);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(223, 23);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Today\'s Appointments";
-            // 
-            // guna2Panel13
-            // 
-            this.guna2Panel13.BorderRadius = 10;
-            this.guna2Panel13.Controls.Add(this.lblTotalFeesThisMonth);
-            this.guna2Panel13.Controls.Add(this.label15);
-            this.guna2Panel13.FillColor = System.Drawing.Color.White;
-            this.guna2Panel13.Location = new System.Drawing.Point(895, 472);
-            this.guna2Panel13.Name = "guna2Panel13";
-            this.guna2Panel13.ShadowDecoration.Parent = this.guna2Panel13;
-            this.guna2Panel13.Size = new System.Drawing.Size(373, 152);
-            this.guna2Panel13.TabIndex = 2;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.DimGray;
-            this.label15.Location = new System.Drawing.Point(3, 11);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(268, 23);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Total Paid Fees This Month";
-            // 
-            // guna2Panel14
-            // 
-            this.guna2Panel14.BorderRadius = 10;
-            this.guna2Panel14.Controls.Add(this.lblTotalFeesAllTime);
-            this.guna2Panel14.Controls.Add(this.label16);
-            this.guna2Panel14.FillColor = System.Drawing.Color.White;
-            this.guna2Panel14.Location = new System.Drawing.Point(895, 639);
-            this.guna2Panel14.Name = "guna2Panel14";
-            this.guna2Panel14.ShadowDecoration.Parent = this.guna2Panel14;
-            this.guna2Panel14.Size = new System.Drawing.Size(373, 152);
-            this.guna2Panel14.TabIndex = 2;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.DimGray;
-            this.label16.Location = new System.Drawing.Point(3, 12);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(239, 23);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "Total Paid Fees All Time";
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.BackColor = System.Drawing.Color.Black;
-            this.monthCalendar1.CalendarDimensions = new System.Drawing.Size(1, 2);
-            this.monthCalendar1.Location = new System.Drawing.Point(63, 59);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 3;
-            // 
-            // guna2Panel11
-            // 
-            this.guna2Panel11.BorderRadius = 10;
-            this.guna2Panel11.Controls.Add(this.monthCalendar1);
-            this.guna2Panel11.Controls.Add(this.label13);
-            this.guna2Panel11.FillColor = System.Drawing.Color.White;
-            this.guna2Panel11.Location = new System.Drawing.Point(895, 16);
-            this.guna2Panel11.Name = "guna2Panel11";
-            this.guna2Panel11.ShadowDecoration.Parent = this.guna2Panel11;
-            this.guna2Panel11.Size = new System.Drawing.Size(373, 424);
-            this.guna2Panel11.TabIndex = 2;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.DimGray;
-            this.label13.Location = new System.Drawing.Point(3, 7);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(94, 23);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Calendar";
-            // 
-            // lblTotalUsers
-            // 
-            this.lblTotalUsers.AutoSize = true;
-            this.lblTotalUsers.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalUsers.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTotalUsers.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTotalUsers.Location = new System.Drawing.Point(12, 100);
-            this.lblTotalUsers.Name = "lblTotalUsers";
-            this.lblTotalUsers.Size = new System.Drawing.Size(34, 36);
-            this.lblTotalUsers.TabIndex = 0;
-            this.lblTotalUsers.Text = "0";
-            // 
-            // lblTotalDrivers
-            // 
-            this.lblTotalDrivers.AutoSize = true;
-            this.lblTotalDrivers.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalDrivers.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTotalDrivers.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTotalDrivers.Location = new System.Drawing.Point(12, 104);
-            this.lblTotalDrivers.Name = "lblTotalDrivers";
-            this.lblTotalDrivers.Size = new System.Drawing.Size(34, 36);
-            this.lblTotalDrivers.TabIndex = 0;
-            this.lblTotalDrivers.Text = "0";
-            // 
-            // lblTotalPeople
-            // 
-            this.lblTotalPeople.AutoSize = true;
-            this.lblTotalPeople.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalPeople.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTotalPeople.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTotalPeople.Location = new System.Drawing.Point(13, 104);
-            this.lblTotalPeople.Name = "lblTotalPeople";
-            this.lblTotalPeople.Size = new System.Drawing.Size(34, 36);
-            this.lblTotalPeople.TabIndex = 0;
-            this.lblTotalPeople.Text = "0";
-            // 
-            // lblTotalLicenses
-            // 
-            this.lblTotalLicenses.AutoSize = true;
-            this.lblTotalLicenses.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalLicenses.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTotalLicenses.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTotalLicenses.Location = new System.Drawing.Point(10, 100);
-            this.lblTotalLicenses.Name = "lblTotalLicenses";
-            this.lblTotalLicenses.Size = new System.Drawing.Size(34, 36);
-            this.lblTotalLicenses.TabIndex = 0;
-            this.lblTotalLicenses.Text = "0";
-            // 
-            // lblTotalApplicationsCompleted
-            // 
-            this.lblTotalApplicationsCompleted.AutoSize = true;
-            this.lblTotalApplicationsCompleted.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalApplicationsCompleted.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTotalApplicationsCompleted.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTotalApplicationsCompleted.Location = new System.Drawing.Point(12, 95);
-            this.lblTotalApplicationsCompleted.Name = "lblTotalApplicationsCompleted";
-            this.lblTotalApplicationsCompleted.Size = new System.Drawing.Size(34, 36);
-            this.lblTotalApplicationsCompleted.TabIndex = 0;
-            this.lblTotalApplicationsCompleted.Text = "0";
-            // 
-            // lblTotalExamxComplete
-            // 
-            this.lblTotalExamxComplete.AutoSize = true;
-            this.lblTotalExamxComplete.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalExamxComplete.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTotalExamxComplete.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTotalExamxComplete.Location = new System.Drawing.Point(12, 95);
-            this.lblTotalExamxComplete.Name = "lblTotalExamxComplete";
-            this.lblTotalExamxComplete.Size = new System.Drawing.Size(34, 36);
-            this.lblTotalExamxComplete.TabIndex = 0;
-            this.lblTotalExamxComplete.Text = "0";
-            // 
-            // lblTotalFeesThisMonth
-            // 
-            this.lblTotalFeesThisMonth.AutoSize = true;
-            this.lblTotalFeesThisMonth.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalFeesThisMonth.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTotalFeesThisMonth.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTotalFeesThisMonth.Location = new System.Drawing.Point(13, 104);
-            this.lblTotalFeesThisMonth.Name = "lblTotalFeesThisMonth";
-            this.lblTotalFeesThisMonth.Size = new System.Drawing.Size(34, 36);
-            this.lblTotalFeesThisMonth.TabIndex = 0;
-            this.lblTotalFeesThisMonth.Text = "0";
-            // 
-            // lblTotalFeesAllTime
-            // 
-            this.lblTotalFeesAllTime.AutoSize = true;
-            this.lblTotalFeesAllTime.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalFeesAllTime.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
-            this.lblTotalFeesAllTime.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTotalFeesAllTime.Location = new System.Drawing.Point(13, 100);
-            this.lblTotalFeesAllTime.Name = "lblTotalFeesAllTime";
-            this.lblTotalFeesAllTime.Size = new System.Drawing.Size(34, 36);
-            this.lblTotalFeesAllTime.TabIndex = 0;
-            this.lblTotalFeesAllTime.Text = "0";
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.Image = global::PresentationLayer.Properties.Resources.DashboardUserFill64;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(19, 14);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(54, 53);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 2;
-            this.guna2PictureBox1.TabStop = false;
-            // 
-            // guna2Button4
-            // 
-            this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.BorderRadius = 10;
-            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
-            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
-            this.guna2Button4.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.guna2Button4.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2Button4.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2Button4.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button4.HoverState.Image = global::PresentationLayer.Properties.Resources.appointmentFill;
-            this.guna2Button4.HoverState.Parent = this.guna2Button4;
-            this.guna2Button4.Image = global::PresentationLayer.Properties.Resources.appointmentNoFill;
-            this.guna2Button4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button4.ImageOffset = new System.Drawing.Point(5, 0);
-            this.guna2Button4.Location = new System.Drawing.Point(7, 267);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.PressedColor = System.Drawing.Color.Blue;
-            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
-            this.guna2Button4.Size = new System.Drawing.Size(288, 45);
-            this.guna2Button4.TabIndex = 2;
-            this.guna2Button4.Text = "Show All Appointments";
-            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
             // 
             // guna2Button3
             // 
@@ -737,6 +374,367 @@
             this.btnApplications.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnApplications.TextOffset = new System.Drawing.Point(30, 0);
             // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BorderRadius = 10;
+            this.guna2Panel2.Controls.Add(this.guna2PictureBox1);
+            this.guna2Panel2.Controls.Add(this.lblGoodMorningEvening);
+            this.guna2Panel2.Controls.Add(this.lblUsername);
+            this.guna2Panel2.FillColor = System.Drawing.Color.White;
+            this.guna2Panel2.Location = new System.Drawing.Point(16, 16);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
+            this.guna2Panel2.Size = new System.Drawing.Size(393, 91);
+            this.guna2Panel2.TabIndex = 2;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox1.Image = global::PresentationLayer.Properties.Resources.DashboardUserFill64;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(19, 14);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(54, 53);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 2;
+            this.guna2PictureBox1.TabStop = false;
+            // 
+            // guna2Panel3
+            // 
+            this.guna2Panel3.BorderRadius = 10;
+            this.guna2Panel3.Controls.Add(this.lblTotalExamxComplete);
+            this.guna2Panel3.Controls.Add(this.guna2CircleProgressBar3);
+            this.guna2Panel3.Controls.Add(this.label3);
+            this.guna2Panel3.FillColor = System.Drawing.Color.White;
+            this.guna2Panel3.Location = new System.Drawing.Point(426, 122);
+            this.guna2Panel3.Name = "guna2Panel3";
+            this.guna2Panel3.ShadowDecoration.Parent = this.guna2Panel3;
+            this.guna2Panel3.Size = new System.Drawing.Size(459, 150);
+            this.guna2Panel3.TabIndex = 2;
+            // 
+            // lblTotalExamxComplete
+            // 
+            this.lblTotalExamxComplete.AutoSize = true;
+            this.lblTotalExamxComplete.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalExamxComplete.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTotalExamxComplete.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTotalExamxComplete.Location = new System.Drawing.Point(12, 95);
+            this.lblTotalExamxComplete.Name = "lblTotalExamxComplete";
+            this.lblTotalExamxComplete.Size = new System.Drawing.Size(34, 36);
+            this.lblTotalExamxComplete.TabIndex = 0;
+            this.lblTotalExamxComplete.Text = "0";
+            // 
+            // guna2CircleProgressBar3
+            // 
+            this.guna2CircleProgressBar3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2CircleProgressBar3.FillThickness = 15;
+            this.guna2CircleProgressBar3.Location = new System.Drawing.Point(310, 3);
+            this.guna2CircleProgressBar3.Name = "guna2CircleProgressBar3";
+            this.guna2CircleProgressBar3.ProgressThickness = 15;
+            this.guna2CircleProgressBar3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.guna2CircleProgressBar3.ShadowDecoration.Parent = this.guna2CircleProgressBar3;
+            this.guna2CircleProgressBar3.Size = new System.Drawing.Size(146, 141);
+            this.guna2CircleProgressBar3.TabIndex = 0;
+            this.guna2CircleProgressBar3.Value = 30;
+            // 
+            // guna2Panel4
+            // 
+            this.guna2Panel4.BorderRadius = 10;
+            this.guna2Panel4.Controls.Add(this.lblTotalApplicationsCompleted);
+            this.guna2Panel4.Controls.Add(this.label9);
+            this.guna2Panel4.Controls.Add(this.guna2CircleProgressBar1);
+            this.guna2Panel4.FillColor = System.Drawing.Color.White;
+            this.guna2Panel4.Location = new System.Drawing.Point(426, 290);
+            this.guna2Panel4.Name = "guna2Panel4";
+            this.guna2Panel4.ShadowDecoration.Parent = this.guna2Panel4;
+            this.guna2Panel4.Size = new System.Drawing.Size(459, 150);
+            this.guna2Panel4.TabIndex = 2;
+            // 
+            // lblTotalApplicationsCompleted
+            // 
+            this.lblTotalApplicationsCompleted.AutoSize = true;
+            this.lblTotalApplicationsCompleted.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalApplicationsCompleted.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTotalApplicationsCompleted.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTotalApplicationsCompleted.Location = new System.Drawing.Point(12, 95);
+            this.lblTotalApplicationsCompleted.Name = "lblTotalApplicationsCompleted";
+            this.lblTotalApplicationsCompleted.Size = new System.Drawing.Size(34, 36);
+            this.lblTotalApplicationsCompleted.TabIndex = 0;
+            this.lblTotalApplicationsCompleted.Text = "0";
+            // 
+            // guna2Panel5
+            // 
+            this.guna2Panel5.BorderRadius = 10;
+            this.guna2Panel5.Controls.Add(this.label11);
+            this.guna2Panel5.Controls.Add(this.lblTodayDate);
+            this.guna2Panel5.FillColor = System.Drawing.Color.White;
+            this.guna2Panel5.Location = new System.Drawing.Point(426, 16);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.ShadowDecoration.Parent = this.guna2Panel5;
+            this.guna2Panel5.Size = new System.Drawing.Size(459, 91);
+            this.guna2Panel5.TabIndex = 2;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DimGray;
+            this.label11.Location = new System.Drawing.Point(3, 7);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(133, 23);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Today\'s Date";
+            // 
+            // guna2Panel6
+            // 
+            this.guna2Panel6.BorderRadius = 10;
+            this.guna2Panel6.Controls.Add(this.lblTotalUsers);
+            this.guna2Panel6.Controls.Add(this.label8);
+            this.guna2Panel6.FillColor = System.Drawing.Color.White;
+            this.guna2Panel6.Location = new System.Drawing.Point(426, 639);
+            this.guna2Panel6.Name = "guna2Panel6";
+            this.guna2Panel6.ShadowDecoration.Parent = this.guna2Panel6;
+            this.guna2Panel6.Size = new System.Drawing.Size(224, 152);
+            this.guna2Panel6.TabIndex = 2;
+            // 
+            // lblTotalUsers
+            // 
+            this.lblTotalUsers.AutoSize = true;
+            this.lblTotalUsers.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalUsers.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTotalUsers.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTotalUsers.Location = new System.Drawing.Point(12, 100);
+            this.lblTotalUsers.Name = "lblTotalUsers";
+            this.lblTotalUsers.Size = new System.Drawing.Size(34, 36);
+            this.lblTotalUsers.TabIndex = 0;
+            this.lblTotalUsers.Text = "0";
+            // 
+            // guna2Panel7
+            // 
+            this.guna2Panel7.BorderRadius = 10;
+            this.guna2Panel7.Controls.Add(this.lblTotalLicenses);
+            this.guna2Panel7.Controls.Add(this.label10);
+            this.guna2Panel7.FillColor = System.Drawing.Color.White;
+            this.guna2Panel7.Location = new System.Drawing.Point(659, 639);
+            this.guna2Panel7.Name = "guna2Panel7";
+            this.guna2Panel7.ShadowDecoration.Parent = this.guna2Panel7;
+            this.guna2Panel7.Size = new System.Drawing.Size(226, 152);
+            this.guna2Panel7.TabIndex = 2;
+            // 
+            // lblTotalLicenses
+            // 
+            this.lblTotalLicenses.AutoSize = true;
+            this.lblTotalLicenses.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalLicenses.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTotalLicenses.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTotalLicenses.Location = new System.Drawing.Point(10, 100);
+            this.lblTotalLicenses.Name = "lblTotalLicenses";
+            this.lblTotalLicenses.Size = new System.Drawing.Size(34, 36);
+            this.lblTotalLicenses.TabIndex = 0;
+            this.lblTotalLicenses.Text = "0";
+            // 
+            // guna2Panel8
+            // 
+            this.guna2Panel8.BorderRadius = 10;
+            this.guna2Panel8.Controls.Add(this.lblTotalDrivers);
+            this.guna2Panel8.Controls.Add(this.label6);
+            this.guna2Panel8.FillColor = System.Drawing.Color.White;
+            this.guna2Panel8.Location = new System.Drawing.Point(426, 472);
+            this.guna2Panel8.Name = "guna2Panel8";
+            this.guna2Panel8.ShadowDecoration.Parent = this.guna2Panel8;
+            this.guna2Panel8.Size = new System.Drawing.Size(224, 152);
+            this.guna2Panel8.TabIndex = 2;
+            // 
+            // lblTotalDrivers
+            // 
+            this.lblTotalDrivers.AutoSize = true;
+            this.lblTotalDrivers.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalDrivers.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTotalDrivers.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTotalDrivers.Location = new System.Drawing.Point(12, 104);
+            this.lblTotalDrivers.Name = "lblTotalDrivers";
+            this.lblTotalDrivers.Size = new System.Drawing.Size(34, 36);
+            this.lblTotalDrivers.TabIndex = 0;
+            this.lblTotalDrivers.Text = "0";
+            // 
+            // guna2Panel9
+            // 
+            this.guna2Panel9.BorderRadius = 10;
+            this.guna2Panel9.Controls.Add(this.lblTotalPeople);
+            this.guna2Panel9.Controls.Add(this.label7);
+            this.guna2Panel9.FillColor = System.Drawing.Color.White;
+            this.guna2Panel9.Location = new System.Drawing.Point(656, 472);
+            this.guna2Panel9.Name = "guna2Panel9";
+            this.guna2Panel9.ShadowDecoration.Parent = this.guna2Panel9;
+            this.guna2Panel9.Size = new System.Drawing.Size(226, 152);
+            this.guna2Panel9.TabIndex = 2;
+            // 
+            // lblTotalPeople
+            // 
+            this.lblTotalPeople.AutoSize = true;
+            this.lblTotalPeople.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalPeople.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTotalPeople.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTotalPeople.Location = new System.Drawing.Point(13, 104);
+            this.lblTotalPeople.Name = "lblTotalPeople";
+            this.lblTotalPeople.Size = new System.Drawing.Size(34, 36);
+            this.lblTotalPeople.TabIndex = 0;
+            this.lblTotalPeople.Text = "0";
+            // 
+            // guna2Panel10
+            // 
+            this.guna2Panel10.BorderRadius = 10;
+            this.guna2Panel10.Controls.Add(this.guna2Button4);
+            this.guna2Panel10.Controls.Add(this.label12);
+            this.guna2Panel10.FillColor = System.Drawing.Color.White;
+            this.guna2Panel10.Location = new System.Drawing.Point(16, 472);
+            this.guna2Panel10.Name = "guna2Panel10";
+            this.guna2Panel10.ShadowDecoration.Parent = this.guna2Panel10;
+            this.guna2Panel10.Size = new System.Drawing.Size(393, 322);
+            this.guna2Panel10.TabIndex = 2;
+            // 
+            // guna2Button4
+            // 
+            this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button4.BorderRadius = 10;
+            this.guna2Button4.CheckedState.Parent = this.guna2Button4;
+            this.guna2Button4.CustomImages.Parent = this.guna2Button4;
+            this.guna2Button4.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button4.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.guna2Button4.ForeColor = System.Drawing.Color.DimGray;
+            this.guna2Button4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.guna2Button4.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.guna2Button4.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.guna2Button4.HoverState.Image = global::PresentationLayer.Properties.Resources.appointmentFill;
+            this.guna2Button4.HoverState.Parent = this.guna2Button4;
+            this.guna2Button4.Image = global::PresentationLayer.Properties.Resources.appointmentNoFill;
+            this.guna2Button4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button4.ImageOffset = new System.Drawing.Point(5, 0);
+            this.guna2Button4.Location = new System.Drawing.Point(7, 267);
+            this.guna2Button4.Name = "guna2Button4";
+            this.guna2Button4.PressedColor = System.Drawing.Color.Blue;
+            this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
+            this.guna2Button4.Size = new System.Drawing.Size(288, 45);
+            this.guna2Button4.TabIndex = 2;
+            this.guna2Button4.Text = "Show All Appointments";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.DimGray;
+            this.label12.Location = new System.Drawing.Point(3, 12);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(223, 23);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Today\'s Appointments";
+            // 
+            // guna2Panel13
+            // 
+            this.guna2Panel13.BorderRadius = 10;
+            this.guna2Panel13.Controls.Add(this.lblTotalFeesThisMonth);
+            this.guna2Panel13.Controls.Add(this.label15);
+            this.guna2Panel13.FillColor = System.Drawing.Color.White;
+            this.guna2Panel13.Location = new System.Drawing.Point(895, 472);
+            this.guna2Panel13.Name = "guna2Panel13";
+            this.guna2Panel13.ShadowDecoration.Parent = this.guna2Panel13;
+            this.guna2Panel13.Size = new System.Drawing.Size(373, 152);
+            this.guna2Panel13.TabIndex = 2;
+            // 
+            // lblTotalFeesThisMonth
+            // 
+            this.lblTotalFeesThisMonth.AutoSize = true;
+            this.lblTotalFeesThisMonth.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalFeesThisMonth.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTotalFeesThisMonth.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTotalFeesThisMonth.Location = new System.Drawing.Point(13, 104);
+            this.lblTotalFeesThisMonth.Name = "lblTotalFeesThisMonth";
+            this.lblTotalFeesThisMonth.Size = new System.Drawing.Size(34, 36);
+            this.lblTotalFeesThisMonth.TabIndex = 0;
+            this.lblTotalFeesThisMonth.Text = "0";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.DimGray;
+            this.label15.Location = new System.Drawing.Point(3, 11);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(268, 23);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Total Paid Fees This Month";
+            // 
+            // guna2Panel14
+            // 
+            this.guna2Panel14.BorderRadius = 10;
+            this.guna2Panel14.Controls.Add(this.lblTotalFeesAllTime);
+            this.guna2Panel14.Controls.Add(this.label16);
+            this.guna2Panel14.FillColor = System.Drawing.Color.White;
+            this.guna2Panel14.Location = new System.Drawing.Point(895, 639);
+            this.guna2Panel14.Name = "guna2Panel14";
+            this.guna2Panel14.ShadowDecoration.Parent = this.guna2Panel14;
+            this.guna2Panel14.Size = new System.Drawing.Size(373, 152);
+            this.guna2Panel14.TabIndex = 2;
+            // 
+            // lblTotalFeesAllTime
+            // 
+            this.lblTotalFeesAllTime.AutoSize = true;
+            this.lblTotalFeesAllTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalFeesAllTime.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Bold);
+            this.lblTotalFeesAllTime.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTotalFeesAllTime.Location = new System.Drawing.Point(13, 100);
+            this.lblTotalFeesAllTime.Name = "lblTotalFeesAllTime";
+            this.lblTotalFeesAllTime.Size = new System.Drawing.Size(34, 36);
+            this.lblTotalFeesAllTime.TabIndex = 0;
+            this.lblTotalFeesAllTime.Text = "0";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.DimGray;
+            this.label16.Location = new System.Drawing.Point(3, 12);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(239, 23);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Total Paid Fees All Time";
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.BackColor = System.Drawing.Color.Black;
+            this.monthCalendar1.CalendarDimensions = new System.Drawing.Size(1, 2);
+            this.monthCalendar1.Location = new System.Drawing.Point(63, 59);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 3;
+            // 
+            // guna2Panel11
+            // 
+            this.guna2Panel11.BorderRadius = 10;
+            this.guna2Panel11.Controls.Add(this.monthCalendar1);
+            this.guna2Panel11.Controls.Add(this.label13);
+            this.guna2Panel11.FillColor = System.Drawing.Color.White;
+            this.guna2Panel11.Location = new System.Drawing.Point(895, 16);
+            this.guna2Panel11.Name = "guna2Panel11";
+            this.guna2Panel11.ShadowDecoration.Parent = this.guna2Panel11;
+            this.guna2Panel11.Size = new System.Drawing.Size(373, 424);
+            this.guna2Panel11.TabIndex = 2;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.DimGray;
+            this.label13.Location = new System.Drawing.Point(3, 7);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(94, 23);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Calendar";
+            // 
             // ctrlDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -761,6 +759,7 @@
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
             this.guna2Panel4.ResumeLayout(false);
@@ -783,7 +782,6 @@
             this.guna2Panel14.PerformLayout();
             this.guna2Panel11.ResumeLayout(false);
             this.guna2Panel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -791,8 +789,8 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2CircleProgressBar guna2CircleProgressBar1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label lblGoodMorningEvening;
         private System.Windows.Forms.Label lblTodayDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;

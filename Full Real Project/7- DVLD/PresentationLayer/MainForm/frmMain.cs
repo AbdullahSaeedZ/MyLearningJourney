@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
 using PresentationLayer.DashboardControls;
@@ -38,47 +33,63 @@ namespace PresentationLayer.MainForm
                 case "Overview":
                     ctrlDashboard ctr = new ctrlDashboard();
                     pnlControlsContainer.Controls.Add(ctr);
-                    pnlControlsContainer.Show();
                     break;
 
                 case "Applications":
-                    
+
                     break;
 
                 case "People":
-                    
+
                     break;
 
                 case "Drivers":
-                    
+
                     break;
 
                 case "Users":
-                   
+
                     break;
 
                 case "Settings":
-                   
+
                     break;
 
                 default:
                     ctrlDashboard ct = new ctrlDashboard();
                     pnlControlsContainer.Controls.Add(ct);
-                    pnlControlsContainer.Show();
                     break;
             }
 
-            // to reset unchosen buttons color
+            UpdateButtons(selectedButten);
+        }
+
+        private void UpdateButtons(Guna2Button selectedButten)
+        {
+            // to reset unchosen buttons color and icon
             foreach (Guna2Button btn in pnlSideBar.Controls.OfType<Guna.UI2.WinForms.Guna2Button>())
-                    btn.FillColor = Color.Transparent;
+            {
+                string icon = btn.Tag.ToString();
+                btn.FillColor = Color.Transparent;
+                btn.ForeColor = Color.DimGray;
+                btn.Image =
+                    icon == "Overview" ? Properties.Resources.overviewNoFillThin :
+                    icon == "Applications" ? Properties.Resources.applicationNoFillThin :
+                    icon == "People" ? Properties.Resources.peopleNoFillThin :
+                    icon == "Drivers" ? Properties.Resources.driversNoFillThin :
+                    icon == "Users" ? Properties.Resources.usersNoFill :
+                    icon == "Settings" ? Properties.Resources.settingNoFill : Properties.Resources.overviewNoFillThin;
+
+            }
 
             // to highlight selected color
             selectedButten.FillColor = Color.FromArgb(242, 245, 250);
+            selectedButten.Image = selectedButten.HoverState.Image;
+            selectedButten.ForeColor = Color.Black;
+
+            lblBreadcrumb.Text = selectedButten.Tag.ToString();
+            pbBreadcrumb.Image = selectedButten.HoverState.Image;
         }
-
-
-
-
 
         // PersonID Quick Search
         private void lblQuickSearch_Click(object sender, EventArgs e)

@@ -33,7 +33,7 @@
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.tbQuickSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblBreadcrumb = new System.Windows.Forms.Label();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lblProfileUsername = new System.Windows.Forms.Label();
@@ -43,7 +43,6 @@
             this.pnlSideBar = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlTopBar = new Guna.UI2.WinForms.Guna2Panel();
             this.lblQuickSearch = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
             this.btnPeople = new Guna.UI2.WinForms.Guna2Button();
@@ -52,10 +51,12 @@
             this.btnDrivers = new Guna.UI2.WinForms.Guna2Button();
             this.btnApplications = new Guna.UI2.WinForms.Guna2Button();
             this.pbProfilePic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.pbBreadcrumb = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.pnlSideBar.SuspendLayout();
             this.pnlTopBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -107,16 +108,16 @@
             this.guna2ControlBox3.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox3.TabIndex = 0;
             // 
-            // label1
+            // lblBreadcrumb
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(44, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Overview";
+            this.lblBreadcrumb.AutoSize = true;
+            this.lblBreadcrumb.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBreadcrumb.ForeColor = System.Drawing.Color.DimGray;
+            this.lblBreadcrumb.Location = new System.Drawing.Point(61, 23);
+            this.lblBreadcrumb.Name = "lblBreadcrumb";
+            this.lblBreadcrumb.Size = new System.Drawing.Size(60, 16);
+            this.lblBreadcrumb.TabIndex = 1;
+            this.lblBreadcrumb.Text = "Overview";
             // 
             // guna2ControlBox2
             // 
@@ -210,10 +211,10 @@
             this.pnlTopBar.Controls.Add(this.lblQuickSearch);
             this.pnlTopBar.Controls.Add(this.tbQuickSearch);
             this.pnlTopBar.Controls.Add(this.guna2ControlBox2);
-            this.pnlTopBar.Controls.Add(this.label1);
+            this.pnlTopBar.Controls.Add(this.lblBreadcrumb);
             this.pnlTopBar.Controls.Add(this.guna2ControlBox3);
             this.pnlTopBar.Controls.Add(this.ControlBoxClose);
-            this.pnlTopBar.Controls.Add(this.label2);
+            this.pnlTopBar.Controls.Add(this.pbBreadcrumb);
             this.pnlTopBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTopBar.Location = new System.Drawing.Point(267, 0);
             this.pnlTopBar.Name = "pnlTopBar";
@@ -232,16 +233,6 @@
             this.lblQuickSearch.Size = new System.Drawing.Size(28, 23);
             this.lblQuickSearch.TabIndex = 4;
             this.lblQuickSearch.Click += new System.EventHandler(this.lblQuickSearch_Click);
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Image = global::PresentationLayer.Properties.Resources.settingsBig;
-            this.label2.Location = new System.Drawing.Point(9, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 26);
-            this.label2.TabIndex = 1;
             // 
             // guna2PictureBox1
             // 
@@ -423,6 +414,19 @@
             this.pbProfilePic.TabIndex = 0;
             this.pbProfilePic.TabStop = false;
             // 
+            // pbBreadcrumb
+            // 
+            this.pbBreadcrumb.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pbBreadcrumb.Image = global::PresentationLayer.Properties.Resources.overviewNoFillThin;
+            this.pbBreadcrumb.Location = new System.Drawing.Point(13, 12);
+            this.pbBreadcrumb.Name = "pbBreadcrumb";
+            this.pbBreadcrumb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pbBreadcrumb.ShadowDecoration.Parent = this.pbBreadcrumb;
+            this.pbBreadcrumb.Size = new System.Drawing.Size(43, 38);
+            this.pbBreadcrumb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbBreadcrumb.TabIndex = 0;
+            this.pbBreadcrumb.TabStop = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -442,6 +446,7 @@
             this.pnlTopBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -466,10 +471,10 @@
         private System.Windows.Forms.Label lblProfilePersonName;
         private Guna.UI2.WinForms.Guna2Button btnSettings;
         private Guna.UI2.WinForms.Guna2Panel pnlControlsContainer;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblBreadcrumb;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private Guna.UI2.WinForms.Guna2Panel pnlTopBar;
         private Guna.UI2.WinForms.Guna2Panel pnlSideBar;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox pbBreadcrumb;
     }
 }
