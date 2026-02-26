@@ -69,6 +69,18 @@
     <Compile Include="MainForm\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="PeopleFormsAndControls\AddEditPerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PeopleFormsAndControls\AddEditPerson.Designer.cs">
+      <DependentUpon>AddEditPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PeopleFormsAndControls\ctrlPeople.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PeopleFormsAndControls\ctrlPeople.Designer.cs">
+      <DependentUpon>ctrlPeople.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DashboardControls\ctrlDashboard.resx">
@@ -79,6 +91,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PeopleFormsAndControls\AddEditPerson.resx">
+      <DependentUpon>AddEditPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PeopleFormsAndControls\ctrlPeople.resx">
+      <DependentUpon>ctrlPeople.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -122,7 +140,7 @@
     <None Include="Resources\ProfileTest.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="PeopleControls\" />
+    <None Include="assets\removeNoFill.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\applications.png" />
@@ -222,6 +240,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\appointmentFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\removeFill.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

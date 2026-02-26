@@ -31,18 +31,19 @@
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.pnlTopBar = new Guna.UI2.WinForms.Guna2Panel();
             this.tbQuickSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.lblBreadcrumb = new System.Windows.Forms.Label();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.lblBreadcrumb = new System.Windows.Forms.Label();
+            this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lblProfileUsername = new System.Windows.Forms.Label();
             this.lblProfilePersonName = new System.Windows.Forms.Label();
             this.pnlControlsContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.pnlSideBar = new Guna.UI2.WinForms.Guna2Panel();
-            this.pnlTopBar = new Guna.UI2.WinForms.Guna2Panel();
             this.lblQuickSearch = new System.Windows.Forms.Label();
+            this.pbBreadcrumb = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
             this.btnPeople = new Guna.UI2.WinForms.Guna2Button();
@@ -51,12 +52,11 @@
             this.btnDrivers = new Guna.UI2.WinForms.Guna2Button();
             this.btnApplications = new Guna.UI2.WinForms.Guna2Button();
             this.pbProfilePic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.pbBreadcrumb = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.pnlSideBar.SuspendLayout();
             this.pnlTopBar.SuspendLayout();
+            this.pnlSideBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -67,6 +67,24 @@
             // guna2DragControl1
             // 
             this.guna2DragControl1.TargetControl = this.pnlTopBar;
+            // 
+            // pnlTopBar
+            // 
+            this.pnlTopBar.Controls.Add(this.lblQuickSearch);
+            this.pnlTopBar.Controls.Add(this.tbQuickSearch);
+            this.pnlTopBar.Controls.Add(this.guna2ControlBox2);
+            this.pnlTopBar.Controls.Add(this.lblBreadcrumb);
+            this.pnlTopBar.Controls.Add(this.guna2ControlBox3);
+            this.pnlTopBar.Controls.Add(this.ControlBoxClose);
+            this.pnlTopBar.Controls.Add(this.pbBreadcrumb);
+            this.pnlTopBar.CustomBorderColor = System.Drawing.Color.Silver;
+            this.pnlTopBar.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.pnlTopBar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTopBar.Location = new System.Drawing.Point(267, 0);
+            this.pnlTopBar.Name = "pnlTopBar";
+            this.pnlTopBar.ShadowDecoration.Parent = this.pnlTopBar;
+            this.pnlTopBar.Size = new System.Drawing.Size(1441, 59);
+            this.pnlTopBar.TabIndex = 6;
             // 
             // tbQuickSearch
             // 
@@ -82,9 +100,10 @@
             this.tbQuickSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbQuickSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbQuickSearch.FocusedState.Parent = this.tbQuickSearch;
+            this.tbQuickSearch.ForeColor = System.Drawing.Color.Black;
             this.tbQuickSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbQuickSearch.HoverState.Parent = this.tbQuickSearch;
-            this.tbQuickSearch.Location = new System.Drawing.Point(846, 8);
+            this.tbQuickSearch.Location = new System.Drawing.Point(1004, 8);
             this.tbQuickSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbQuickSearch.Name = "tbQuickSearch";
             this.tbQuickSearch.PasswordChar = '\0';
@@ -95,18 +114,18 @@
             this.tbQuickSearch.TabIndex = 1;
             this.tbQuickSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbQuickSearch_KeyDown);
             // 
-            // guna2ControlBox3
+            // guna2ControlBox2
             // 
-            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBox3.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox3.HoverState.Parent = this.guna2ControlBox3;
-            this.guna2ControlBox3.IconColor = System.Drawing.Color.Gray;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(1143, 3);
-            this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.ShadowDecoration.Parent = this.guna2ControlBox3;
-            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 29);
-            this.guna2ControlBox3.TabIndex = 0;
+            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.guna2ControlBox2.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox2.HoverState.Parent = this.guna2ControlBox2;
+            this.guna2ControlBox2.IconColor = System.Drawing.Color.Gray;
+            this.guna2ControlBox2.Location = new System.Drawing.Point(1347, 3);
+            this.guna2ControlBox2.Name = "guna2ControlBox2";
+            this.guna2ControlBox2.ShadowDecoration.Parent = this.guna2ControlBox2;
+            this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox2.TabIndex = 0;
             // 
             // lblBreadcrumb
             // 
@@ -119,18 +138,18 @@
             this.lblBreadcrumb.TabIndex = 1;
             this.lblBreadcrumb.Text = "Overview";
             // 
-            // guna2ControlBox2
+            // guna2ControlBox3
             // 
-            this.guna2ControlBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.guna2ControlBox2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2ControlBox2.HoverState.Parent = this.guna2ControlBox2;
-            this.guna2ControlBox2.IconColor = System.Drawing.Color.Gray;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(1189, 3);
-            this.guna2ControlBox2.Name = "guna2ControlBox2";
-            this.guna2ControlBox2.ShadowDecoration.Parent = this.guna2ControlBox2;
-            this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
-            this.guna2ControlBox2.TabIndex = 0;
+            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.guna2ControlBox3.FillColor = System.Drawing.Color.Transparent;
+            this.guna2ControlBox3.HoverState.Parent = this.guna2ControlBox3;
+            this.guna2ControlBox3.IconColor = System.Drawing.Color.Gray;
+            this.guna2ControlBox3.Location = new System.Drawing.Point(1301, 3);
+            this.guna2ControlBox3.Name = "guna2ControlBox3";
+            this.guna2ControlBox3.ShadowDecoration.Parent = this.guna2ControlBox3;
+            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 29);
+            this.guna2ControlBox3.TabIndex = 0;
             // 
             // ControlBoxClose
             // 
@@ -138,7 +157,7 @@
             this.ControlBoxClose.FillColor = System.Drawing.Color.Transparent;
             this.ControlBoxClose.HoverState.Parent = this.ControlBoxClose;
             this.ControlBoxClose.IconColor = System.Drawing.Color.Gray;
-            this.ControlBoxClose.Location = new System.Drawing.Point(1235, 3);
+            this.ControlBoxClose.Location = new System.Drawing.Point(1393, 3);
             this.ControlBoxClose.Name = "ControlBoxClose";
             this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
             this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
@@ -151,7 +170,7 @@
             this.lblProfileUsername.AutoSize = true;
             this.lblProfileUsername.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProfileUsername.ForeColor = System.Drawing.Color.Gray;
-            this.lblProfileUsername.Location = new System.Drawing.Point(62, 841);
+            this.lblProfileUsername.Location = new System.Drawing.Point(62, 924);
             this.lblProfileUsername.Name = "lblProfileUsername";
             this.lblProfileUsername.Size = new System.Drawing.Size(43, 16);
             this.lblProfileUsername.TabIndex = 1;
@@ -162,7 +181,7 @@
             this.lblProfilePersonName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblProfilePersonName.AutoSize = true;
             this.lblProfilePersonName.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProfilePersonName.Location = new System.Drawing.Point(62, 821);
+            this.lblProfilePersonName.Location = new System.Drawing.Point(62, 904);
             this.lblProfilePersonName.Name = "lblProfilePersonName";
             this.lblProfilePersonName.Size = new System.Drawing.Size(113, 16);
             this.lblProfilePersonName.TabIndex = 1;
@@ -174,13 +193,13 @@
             this.pnlControlsContainer.Location = new System.Drawing.Point(267, 59);
             this.pnlControlsContainer.Name = "pnlControlsContainer";
             this.pnlControlsContainer.ShadowDecoration.Parent = this.pnlControlsContainer;
-            this.pnlControlsContainer.Size = new System.Drawing.Size(1283, 811);
+            this.pnlControlsContainer.Size = new System.Drawing.Size(1441, 894);
             this.pnlControlsContainer.TabIndex = 2;
             // 
             // guna2Separator1
             // 
             this.guna2Separator1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.guna2Separator1.Location = new System.Drawing.Point(27, 802);
+            this.guna2Separator1.Location = new System.Drawing.Point(27, 885);
             this.guna2Separator1.Name = "guna2Separator1";
             this.guna2Separator1.Size = new System.Drawing.Size(200, 10);
             this.guna2Separator1.TabIndex = 0;
@@ -203,24 +222,8 @@
             this.pnlSideBar.Location = new System.Drawing.Point(0, 0);
             this.pnlSideBar.Name = "pnlSideBar";
             this.pnlSideBar.ShadowDecoration.Parent = this.pnlSideBar;
-            this.pnlSideBar.Size = new System.Drawing.Size(267, 870);
+            this.pnlSideBar.Size = new System.Drawing.Size(267, 953);
             this.pnlSideBar.TabIndex = 6;
-            // 
-            // pnlTopBar
-            // 
-            this.pnlTopBar.Controls.Add(this.lblQuickSearch);
-            this.pnlTopBar.Controls.Add(this.tbQuickSearch);
-            this.pnlTopBar.Controls.Add(this.guna2ControlBox2);
-            this.pnlTopBar.Controls.Add(this.lblBreadcrumb);
-            this.pnlTopBar.Controls.Add(this.guna2ControlBox3);
-            this.pnlTopBar.Controls.Add(this.ControlBoxClose);
-            this.pnlTopBar.Controls.Add(this.pbBreadcrumb);
-            this.pnlTopBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTopBar.Location = new System.Drawing.Point(267, 0);
-            this.pnlTopBar.Name = "pnlTopBar";
-            this.pnlTopBar.ShadowDecoration.Parent = this.pnlTopBar;
-            this.pnlTopBar.Size = new System.Drawing.Size(1283, 59);
-            this.pnlTopBar.TabIndex = 6;
             // 
             // lblQuickSearch
             // 
@@ -228,21 +231,34 @@
             this.lblQuickSearch.BackColor = System.Drawing.Color.White;
             this.lblQuickSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblQuickSearch.Image = global::PresentationLayer.Properties.Resources.QuickSearch;
-            this.lblQuickSearch.Location = new System.Drawing.Point(1032, 14);
+            this.lblQuickSearch.Location = new System.Drawing.Point(1190, 14);
             this.lblQuickSearch.Name = "lblQuickSearch";
             this.lblQuickSearch.Size = new System.Drawing.Size(28, 23);
             this.lblQuickSearch.TabIndex = 4;
             this.lblQuickSearch.Click += new System.EventHandler(this.lblQuickSearch_Click);
+            // 
+            // pbBreadcrumb
+            // 
+            this.pbBreadcrumb.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pbBreadcrumb.Image = global::PresentationLayer.Properties.Resources.overviewNoFillThin;
+            this.pbBreadcrumb.Location = new System.Drawing.Point(13, 12);
+            this.pbBreadcrumb.Name = "pbBreadcrumb";
+            this.pbBreadcrumb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pbBreadcrumb.ShadowDecoration.Parent = this.pbBreadcrumb;
+            this.pbBreadcrumb.Size = new System.Drawing.Size(43, 38);
+            this.pbBreadcrumb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbBreadcrumb.TabIndex = 0;
+            this.pbBreadcrumb.TabStop = false;
             // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox1.BackgroundImage = global::PresentationLayer.Properties.Resources.logoSmall;
             this.guna2PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(54, 0);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(27, 3);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(149, 97);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(207, 168);
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
             this.guna2PictureBox1.UseTransparentBackground = true;
@@ -255,17 +271,16 @@
             this.btnOverview.FillColor = System.Drawing.Color.Transparent;
             this.btnOverview.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnOverview.ForeColor = System.Drawing.Color.DimGray;
-            this.btnOverview.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnOverview.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnOverview.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnOverview.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
             this.btnOverview.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnOverview.HoverState.Image = global::PresentationLayer.Properties.Resources.overviewFillThin;
             this.btnOverview.HoverState.Parent = this.btnOverview;
             this.btnOverview.Image = global::PresentationLayer.Properties.Resources.overviewNoFillThin;
             this.btnOverview.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnOverview.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnOverview.Location = new System.Drawing.Point(12, 103);
+            this.btnOverview.Location = new System.Drawing.Point(12, 193);
             this.btnOverview.Name = "btnOverview";
-            this.btnOverview.PressedColor = System.Drawing.Color.Blue;
             this.btnOverview.ShadowDecoration.Parent = this.btnOverview;
             this.btnOverview.Size = new System.Drawing.Size(241, 45);
             this.btnOverview.TabIndex = 1;
@@ -281,17 +296,16 @@
             this.btnPeople.FillColor = System.Drawing.Color.Transparent;
             this.btnPeople.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnPeople.ForeColor = System.Drawing.Color.DimGray;
-            this.btnPeople.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnPeople.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnPeople.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPeople.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
             this.btnPeople.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnPeople.HoverState.Image = global::PresentationLayer.Properties.Resources.peopleFillThin;
             this.btnPeople.HoverState.Parent = this.btnPeople;
             this.btnPeople.Image = global::PresentationLayer.Properties.Resources.peopleNoFillThin;
             this.btnPeople.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPeople.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnPeople.Location = new System.Drawing.Point(12, 205);
+            this.btnPeople.Location = new System.Drawing.Point(12, 295);
             this.btnPeople.Name = "btnPeople";
-            this.btnPeople.PressedColor = System.Drawing.Color.Blue;
             this.btnPeople.ShadowDecoration.Parent = this.btnPeople;
             this.btnPeople.Size = new System.Drawing.Size(241, 45);
             this.btnPeople.TabIndex = 1;
@@ -307,17 +321,16 @@
             this.btnUsers.FillColor = System.Drawing.Color.Transparent;
             this.btnUsers.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnUsers.ForeColor = System.Drawing.Color.DimGray;
-            this.btnUsers.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnUsers.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnUsers.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnUsers.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
             this.btnUsers.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnUsers.HoverState.Image = global::PresentationLayer.Properties.Resources.UsersFillThin;
             this.btnUsers.HoverState.Parent = this.btnUsers;
             this.btnUsers.Image = global::PresentationLayer.Properties.Resources.usersNoFill;
             this.btnUsers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnUsers.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnUsers.Location = new System.Drawing.Point(12, 307);
+            this.btnUsers.Location = new System.Drawing.Point(12, 397);
             this.btnUsers.Name = "btnUsers";
-            this.btnUsers.PressedColor = System.Drawing.Color.Blue;
             this.btnUsers.ShadowDecoration.Parent = this.btnUsers;
             this.btnUsers.Size = new System.Drawing.Size(241, 45);
             this.btnUsers.TabIndex = 1;
@@ -334,14 +347,14 @@
             this.btnSettings.FillColor = System.Drawing.Color.Transparent;
             this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnSettings.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnSettings.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSettings.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
             this.btnSettings.HoverState.ForeColor = System.Drawing.Color.White;
             this.btnSettings.HoverState.Image = global::PresentationLayer.Properties.Resources.settingsFill;
             this.btnSettings.HoverState.Parent = this.btnSettings;
             this.btnSettings.Image = global::PresentationLayer.Properties.Resources.settingNoFill;
             this.btnSettings.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnSettings.Location = new System.Drawing.Point(217, 821);
+            this.btnSettings.Location = new System.Drawing.Point(217, 904);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.ShadowDecoration.Parent = this.btnSettings;
             this.btnSettings.Size = new System.Drawing.Size(35, 35);
@@ -357,17 +370,16 @@
             this.btnDrivers.FillColor = System.Drawing.Color.Transparent;
             this.btnDrivers.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnDrivers.ForeColor = System.Drawing.Color.DimGray;
-            this.btnDrivers.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnDrivers.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnDrivers.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDrivers.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
             this.btnDrivers.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnDrivers.HoverState.Image = global::PresentationLayer.Properties.Resources.DriverFillThin;
             this.btnDrivers.HoverState.Parent = this.btnDrivers;
             this.btnDrivers.Image = global::PresentationLayer.Properties.Resources.driversNoFillThin;
             this.btnDrivers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDrivers.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnDrivers.Location = new System.Drawing.Point(12, 256);
+            this.btnDrivers.Location = new System.Drawing.Point(12, 346);
             this.btnDrivers.Name = "btnDrivers";
-            this.btnDrivers.PressedColor = System.Drawing.Color.Blue;
             this.btnDrivers.ShadowDecoration.Parent = this.btnDrivers;
             this.btnDrivers.Size = new System.Drawing.Size(241, 45);
             this.btnDrivers.TabIndex = 1;
@@ -383,17 +395,16 @@
             this.btnApplications.FillColor = System.Drawing.Color.Transparent;
             this.btnApplications.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnApplications.ForeColor = System.Drawing.Color.DimGray;
-            this.btnApplications.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnApplications.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnApplications.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnApplications.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
             this.btnApplications.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnApplications.HoverState.Image = global::PresentationLayer.Properties.Resources.applications;
             this.btnApplications.HoverState.Parent = this.btnApplications;
             this.btnApplications.Image = global::PresentationLayer.Properties.Resources.applicationNoFillThin;
             this.btnApplications.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnApplications.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnApplications.Location = new System.Drawing.Point(12, 154);
+            this.btnApplications.Location = new System.Drawing.Point(12, 244);
             this.btnApplications.Name = "btnApplications";
-            this.btnApplications.PressedColor = System.Drawing.Color.Blue;
             this.btnApplications.ShadowDecoration.Parent = this.btnApplications;
             this.btnApplications.Size = new System.Drawing.Size(241, 45);
             this.btnApplications.TabIndex = 1;
@@ -405,7 +416,7 @@
             // 
             this.pbProfilePic.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pbProfilePic.Image = global::PresentationLayer.Properties.Resources.ProfileTest;
-            this.pbProfilePic.Location = new System.Drawing.Point(12, 818);
+            this.pbProfilePic.Location = new System.Drawing.Point(12, 901);
             this.pbProfilePic.Name = "pbProfilePic";
             this.pbProfilePic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.pbProfilePic.ShadowDecoration.Parent = this.pbProfilePic;
@@ -414,25 +425,12 @@
             this.pbProfilePic.TabIndex = 0;
             this.pbProfilePic.TabStop = false;
             // 
-            // pbBreadcrumb
-            // 
-            this.pbBreadcrumb.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pbBreadcrumb.Image = global::PresentationLayer.Properties.Resources.overviewNoFillThin;
-            this.pbBreadcrumb.Location = new System.Drawing.Point(13, 12);
-            this.pbBreadcrumb.Name = "pbBreadcrumb";
-            this.pbBreadcrumb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pbBreadcrumb.ShadowDecoration.Parent = this.pbBreadcrumb;
-            this.pbBreadcrumb.Size = new System.Drawing.Size(43, 38);
-            this.pbBreadcrumb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbBreadcrumb.TabIndex = 0;
-            this.pbBreadcrumb.TabStop = false;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.ClientSize = new System.Drawing.Size(1550, 870);
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(1708, 953);
             this.Controls.Add(this.pnlControlsContainer);
             this.Controls.Add(this.pnlTopBar);
             this.Controls.Add(this.pnlSideBar);
@@ -440,13 +438,13 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMain";
-            this.pnlSideBar.ResumeLayout(false);
-            this.pnlSideBar.PerformLayout();
             this.pnlTopBar.ResumeLayout(false);
             this.pnlTopBar.PerformLayout();
+            this.pnlSideBar.ResumeLayout(false);
+            this.pnlSideBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -118,9 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="DashboardFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\DashboardFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="settingNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\settingNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,6 +136,9 @@
   <data name="detainNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\detainNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="removeNoFill1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\removeNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="driversNoFillThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\driversNoFillThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -150,6 +150,9 @@
   </data>
   <data name="searchApplicationFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\searchApplicationFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ProfileTest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ProfileTest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="usersNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\usersNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,9 +193,6 @@
   <data name="DashboardUserFill64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\DashboardUserFill64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DriversNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\DriversNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="appointmentNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\appointmentNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -211,20 +211,29 @@
   <data name="eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="applicationNoFillThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\applicationNoFillThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="peopleFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\peopleFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="applications" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\applications.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="appointmentFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\appointmentFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cardFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\cardFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="applicationNoFillThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\applicationNoFillThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="applications" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\applications.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DashboardFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\DashboardFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="UsersFillThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\UsersFillThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="removeNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\removeNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="overviewNoFillThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\overviewNoFillThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,13 +241,13 @@
   <data name="settingsFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\settingsFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ProfileTest" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ProfileTest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DriversNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\DriversNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="peopleFillThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\peopleFillThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="appointmentFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\appointmentFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="removeFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\removeFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

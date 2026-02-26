@@ -96,6 +96,8 @@
             this.guna2CircleProgressBar1.FillThickness = 15;
             this.guna2CircleProgressBar1.Location = new System.Drawing.Point(310, 6);
             this.guna2CircleProgressBar1.Name = "guna2CircleProgressBar1";
+            this.guna2CircleProgressBar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(121)))), ((int)(((byte)(6)))));
+            this.guna2CircleProgressBar1.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(121)))), ((int)(((byte)(6)))));
             this.guna2CircleProgressBar1.ProgressThickness = 15;
             this.guna2CircleProgressBar1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleProgressBar1.ShadowDecoration.Parent = this.guna2CircleProgressBar1;
@@ -248,8 +250,8 @@
             this.guna2Button3.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button3.Font = new System.Drawing.Font("Tahoma", 12F);
             this.guna2Button3.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button3.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.guna2Button3.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Button3.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Button3.HoverState.ForeColor = System.Drawing.Color.Black;
             this.guna2Button3.HoverState.Image = global::PresentationLayer.Properties.Resources.cardFill;
             this.guna2Button3.HoverState.Parent = this.guna2Button3;
@@ -258,7 +260,6 @@
             this.guna2Button3.ImageOffset = new System.Drawing.Point(10, 0);
             this.guna2Button3.Location = new System.Drawing.Point(7, 104);
             this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.PressedColor = System.Drawing.Color.Blue;
             this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
             this.guna2Button3.Size = new System.Drawing.Size(257, 45);
             this.guna2Button3.TabIndex = 2;
@@ -275,8 +276,8 @@
             this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button1.Font = new System.Drawing.Font("Tahoma", 12F);
             this.guna2Button1.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.guna2Button1.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.Black;
             this.guna2Button1.HoverState.Image = global::PresentationLayer.Properties.Resources.detainFill;
             this.guna2Button1.HoverState.Parent = this.guna2Button1;
@@ -285,7 +286,6 @@
             this.guna2Button1.ImageOffset = new System.Drawing.Point(10, 0);
             this.guna2Button1.Location = new System.Drawing.Point(7, 254);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.PressedColor = System.Drawing.Color.Blue;
             this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
             this.guna2Button1.Size = new System.Drawing.Size(257, 45);
             this.guna2Button1.TabIndex = 2;
@@ -302,8 +302,8 @@
             this.guna2Button5.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button5.Font = new System.Drawing.Font("Tahoma", 12F);
             this.guna2Button5.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button5.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2Button5.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.guna2Button5.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Button5.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Button5.HoverState.ForeColor = System.Drawing.Color.Black;
             this.guna2Button5.HoverState.Image = global::PresentationLayer.Properties.Resources.searchApplicationFill;
             this.guna2Button5.HoverState.Parent = this.guna2Button5;
@@ -312,7 +312,6 @@
             this.guna2Button5.ImageOffset = new System.Drawing.Point(10, 0);
             this.guna2Button5.Location = new System.Drawing.Point(7, 54);
             this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.PressedColor = System.Drawing.Color.Blue;
             this.guna2Button5.ShadowDecoration.Parent = this.guna2Button5;
             this.guna2Button5.Size = new System.Drawing.Size(257, 45);
             this.guna2Button5.TabIndex = 2;
@@ -329,8 +328,8 @@
             this.guna2Button2.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button2.Font = new System.Drawing.Font("Tahoma", 12F);
             this.guna2Button2.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2Button2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.guna2Button2.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Button2.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Button2.HoverState.ForeColor = System.Drawing.Color.Black;
             this.guna2Button2.HoverState.Image = global::PresentationLayer.Properties.Resources.addFill;
             this.guna2Button2.HoverState.Parent = this.guna2Button2;
@@ -339,7 +338,6 @@
             this.guna2Button2.ImageOffset = new System.Drawing.Point(10, 0);
             this.guna2Button2.Location = new System.Drawing.Point(7, 204);
             this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.PressedColor = System.Drawing.Color.Blue;
             this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
             this.guna2Button2.Size = new System.Drawing.Size(257, 45);
             this.guna2Button2.TabIndex = 2;
@@ -356,8 +354,8 @@
             this.btnApplications.FillColor = System.Drawing.Color.Transparent;
             this.btnApplications.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnApplications.ForeColor = System.Drawing.Color.DimGray;
-            this.btnApplications.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.btnApplications.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.btnApplications.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnApplications.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
             this.btnApplications.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnApplications.HoverState.Image = global::PresentationLayer.Properties.Resources.addFill;
             this.btnApplications.HoverState.Parent = this.btnApplications;
@@ -366,7 +364,6 @@
             this.btnApplications.ImageOffset = new System.Drawing.Point(10, 0);
             this.btnApplications.Location = new System.Drawing.Point(7, 154);
             this.btnApplications.Name = "btnApplications";
-            this.btnApplications.PressedColor = System.Drawing.Color.Blue;
             this.btnApplications.ShadowDecoration.Parent = this.btnApplications;
             this.btnApplications.Size = new System.Drawing.Size(257, 45);
             this.btnApplications.TabIndex = 2;
@@ -406,7 +403,7 @@
             this.guna2Panel3.Controls.Add(this.guna2CircleProgressBar3);
             this.guna2Panel3.Controls.Add(this.label3);
             this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(426, 122);
+            this.guna2Panel3.Location = new System.Drawing.Point(423, 122);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.Parent = this.guna2Panel3;
             this.guna2Panel3.Size = new System.Drawing.Size(459, 150);
@@ -430,6 +427,8 @@
             this.guna2CircleProgressBar3.FillThickness = 15;
             this.guna2CircleProgressBar3.Location = new System.Drawing.Point(310, 3);
             this.guna2CircleProgressBar3.Name = "guna2CircleProgressBar3";
+            this.guna2CircleProgressBar3.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(121)))), ((int)(((byte)(6)))));
+            this.guna2CircleProgressBar3.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(121)))), ((int)(((byte)(6)))));
             this.guna2CircleProgressBar3.ProgressThickness = 15;
             this.guna2CircleProgressBar3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleProgressBar3.ShadowDecoration.Parent = this.guna2CircleProgressBar3;
@@ -444,7 +443,7 @@
             this.guna2Panel4.Controls.Add(this.label9);
             this.guna2Panel4.Controls.Add(this.guna2CircleProgressBar1);
             this.guna2Panel4.FillColor = System.Drawing.Color.White;
-            this.guna2Panel4.Location = new System.Drawing.Point(426, 290);
+            this.guna2Panel4.Location = new System.Drawing.Point(423, 290);
             this.guna2Panel4.Name = "guna2Panel4";
             this.guna2Panel4.ShadowDecoration.Parent = this.guna2Panel4;
             this.guna2Panel4.Size = new System.Drawing.Size(459, 150);
@@ -468,7 +467,7 @@
             this.guna2Panel5.Controls.Add(this.label11);
             this.guna2Panel5.Controls.Add(this.lblTodayDate);
             this.guna2Panel5.FillColor = System.Drawing.Color.White;
-            this.guna2Panel5.Location = new System.Drawing.Point(426, 16);
+            this.guna2Panel5.Location = new System.Drawing.Point(423, 16);
             this.guna2Panel5.Name = "guna2Panel5";
             this.guna2Panel5.ShadowDecoration.Parent = this.guna2Panel5;
             this.guna2Panel5.Size = new System.Drawing.Size(459, 91);
@@ -492,7 +491,7 @@
             this.guna2Panel6.Controls.Add(this.lblTotalUsers);
             this.guna2Panel6.Controls.Add(this.label8);
             this.guna2Panel6.FillColor = System.Drawing.Color.White;
-            this.guna2Panel6.Location = new System.Drawing.Point(426, 639);
+            this.guna2Panel6.Location = new System.Drawing.Point(423, 639);
             this.guna2Panel6.Name = "guna2Panel6";
             this.guna2Panel6.ShadowDecoration.Parent = this.guna2Panel6;
             this.guna2Panel6.Size = new System.Drawing.Size(224, 152);
@@ -516,10 +515,10 @@
             this.guna2Panel7.Controls.Add(this.lblTotalLicenses);
             this.guna2Panel7.Controls.Add(this.label10);
             this.guna2Panel7.FillColor = System.Drawing.Color.White;
-            this.guna2Panel7.Location = new System.Drawing.Point(659, 639);
+            this.guna2Panel7.Location = new System.Drawing.Point(658, 639);
             this.guna2Panel7.Name = "guna2Panel7";
             this.guna2Panel7.ShadowDecoration.Parent = this.guna2Panel7;
-            this.guna2Panel7.Size = new System.Drawing.Size(226, 152);
+            this.guna2Panel7.Size = new System.Drawing.Size(224, 152);
             this.guna2Panel7.TabIndex = 2;
             // 
             // lblTotalLicenses
@@ -540,7 +539,7 @@
             this.guna2Panel8.Controls.Add(this.lblTotalDrivers);
             this.guna2Panel8.Controls.Add(this.label6);
             this.guna2Panel8.FillColor = System.Drawing.Color.White;
-            this.guna2Panel8.Location = new System.Drawing.Point(426, 472);
+            this.guna2Panel8.Location = new System.Drawing.Point(423, 472);
             this.guna2Panel8.Name = "guna2Panel8";
             this.guna2Panel8.ShadowDecoration.Parent = this.guna2Panel8;
             this.guna2Panel8.Size = new System.Drawing.Size(224, 152);
@@ -564,10 +563,10 @@
             this.guna2Panel9.Controls.Add(this.lblTotalPeople);
             this.guna2Panel9.Controls.Add(this.label7);
             this.guna2Panel9.FillColor = System.Drawing.Color.White;
-            this.guna2Panel9.Location = new System.Drawing.Point(656, 472);
+            this.guna2Panel9.Location = new System.Drawing.Point(658, 472);
             this.guna2Panel9.Name = "guna2Panel9";
             this.guna2Panel9.ShadowDecoration.Parent = this.guna2Panel9;
-            this.guna2Panel9.Size = new System.Drawing.Size(226, 152);
+            this.guna2Panel9.Size = new System.Drawing.Size(224, 152);
             this.guna2Panel9.TabIndex = 2;
             // 
             // lblTotalPeople
@@ -591,7 +590,7 @@
             this.guna2Panel10.Location = new System.Drawing.Point(16, 472);
             this.guna2Panel10.Name = "guna2Panel10";
             this.guna2Panel10.ShadowDecoration.Parent = this.guna2Panel10;
-            this.guna2Panel10.Size = new System.Drawing.Size(393, 322);
+            this.guna2Panel10.Size = new System.Drawing.Size(393, 319);
             this.guna2Panel10.TabIndex = 2;
             // 
             // guna2Button4
@@ -739,7 +738,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.guna2Panel4);
             this.Controls.Add(this.guna2Panel3);
             this.Controls.Add(this.guna2Panel2);

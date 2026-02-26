@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
 using PresentationLayer.DashboardControls;
+using PresentationLayer.PeopleFormsAndControls;
 
 namespace PresentationLayer.MainForm
 {
@@ -31,8 +32,8 @@ namespace PresentationLayer.MainForm
             switch (selectedButten.Tag.ToString())
             {
                 case "Overview":
-                    ctrlDashboard ctr = new ctrlDashboard();
-                    pnlControlsContainer.Controls.Add(ctr);
+                    ctrlDashboard dashboard = new ctrlDashboard();
+                    pnlControlsContainer.Controls.Add(dashboard);
                     break;
 
                 case "Applications":
@@ -40,7 +41,8 @@ namespace PresentationLayer.MainForm
                     break;
 
                 case "People":
-
+                    ctrlPeople People = new ctrlPeople();
+                    pnlControlsContainer.Controls.Add(People);
                     break;
 
                 case "Drivers":
@@ -83,7 +85,7 @@ namespace PresentationLayer.MainForm
             }
 
             // to highlight selected color
-            selectedButten.FillColor = Color.FromArgb(242, 245, 250);
+            selectedButten.FillColor = Color.WhiteSmoke;
             selectedButten.Image = selectedButten.HoverState.Image;
             selectedButten.ForeColor = Color.Black;
 
