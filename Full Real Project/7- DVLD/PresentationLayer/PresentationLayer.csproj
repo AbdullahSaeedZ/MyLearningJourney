@@ -69,11 +69,17 @@
     <Compile Include="MainForm\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="PeopleFormsAndControls\AddEditPerson.cs">
+    <Compile Include="PeopleFormsAndControls\ctrlPersonInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PeopleFormsAndControls\ctrlPersonInfo.Designer.cs">
+      <DependentUpon>ctrlPersonInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PeopleFormsAndControls\frmAddEditPerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PeopleFormsAndControls\AddEditPerson.Designer.cs">
-      <DependentUpon>AddEditPerson.cs</DependentUpon>
+    <Compile Include="PeopleFormsAndControls\frmAddEditPerson.Designer.cs">
+      <DependentUpon>frmAddEditPerson.cs</DependentUpon>
     </Compile>
     <Compile Include="PeopleFormsAndControls\ctrlPeople.cs">
       <SubType>UserControl</SubType>
@@ -92,8 +98,11 @@
     <EmbeddedResource Include="MainForm\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PeopleFormsAndControls\AddEditPerson.resx">
-      <DependentUpon>AddEditPerson.cs</DependentUpon>
+    <EmbeddedResource Include="PeopleFormsAndControls\ctrlPersonInfo.resx">
+      <DependentUpon>ctrlPersonInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PeopleFormsAndControls\frmAddEditPerson.resx">
+      <DependentUpon>frmAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PeopleFormsAndControls\ctrlPeople.resx">
       <DependentUpon>ctrlPeople.cs</DependentUpon>
