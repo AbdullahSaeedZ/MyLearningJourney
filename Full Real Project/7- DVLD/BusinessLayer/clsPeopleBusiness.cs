@@ -9,12 +9,12 @@ namespace BusinessLayer
         enMode _mode;
 
         public int PersonID { get; set; }
-        public int NationalID { get; set; }
+        public string NationalID { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
         public string LastName { get; set; }
-        public string Gender { get; set; }
+        public byte Gender { get; set; }
         public DateTime BirthDate { get; set; }
         public string Country { get; set; }
         public string Phone { get; set; }
@@ -26,12 +26,12 @@ namespace BusinessLayer
         clsPeopleBusiness()
         {
             this.PersonID = -1;
-            this.NationalID = -1;
+            this.NationalID = "";
             this.FirstName = "";
             this.SecondName = "";
             this.ThirdName = "";
             this.LastName = "";
-            this.Gender = "";
+            this.Gender = 0;
             this.BirthDate = DateTime.Now;
             this.Country = "";
             this.Phone = "";
@@ -42,7 +42,7 @@ namespace BusinessLayer
         }
 
         // for updating existing persons
-        clsPeopleBusiness(int PersonID, int NationalID, string FirstName, string SecondName, string ThirdName, string LastName, string Gender,
+        clsPeopleBusiness(int PersonID, string NationalID, string FirstName, string SecondName, string ThirdName, string LastName, byte Gender,
             string Country, string Phone, string Email, string Address, string ImagePath, DateTime BirthDate)
         {
             this.PersonID = PersonID;
@@ -62,13 +62,19 @@ namespace BusinessLayer
         }
 
 
-        public static clsPeopleBusiness FindPersonByID(int PersonID)
+        public static clsPeopleBusiness FindPerson(string ID, string Filter)
         {
-            int NationalID = -1;
-            string FirstName = "", SecondName = "", ThirdName = "", LastName = "", Gender = "", Country = "", Phone = "", Email = "", Address = "",ImagePath = "";
-            DateTime BirthDate = DateTime.Now;
+            int PersonID = -1;
+            byte Gender = 0;
+            string FirstName = "", SecondName = "", ThirdName = "", LastName = "", Country = "", Phone = "", Email = "", Address = "",ImagePath = "", NationalID = "";
+            DateTime BirthDate = DateTime.MinValue;
 
-            if (clsPeopleDataAccess.FindPersonByID(PersonID, ref NationalID, ref FirstName, ref SecondName, ref ThirdName,
+            if (Filter == "PersonID")
+                PersonID = int.Parse(ID);
+            else
+                NationalID = ID;
+
+            if (clsPeopleDataAccess.FindPerson(Filter, ref PersonID, ref NationalID, ref FirstName, ref SecondName, ref ThirdName,
                 ref LastName, ref Gender, ref Country, ref Phone, ref Email, ref Address, ref ImagePath, ref BirthDate))
             {
                 return new clsPeopleBusiness(PersonID, NationalID, FirstName, SecondName, ThirdName,
@@ -78,20 +84,9 @@ namespace BusinessLayer
                 return new clsPeopleBusiness();
         }
 
-        public static clsPeopleBusiness FindPersonByNationalID(int NationalID)
+        public static bool DoesExist(int ID, string Filter )
         {
-            int PersonID = -1;
-            string FirstName = "", SecondName = "", ThirdName = "", LastName = "", Gender = "", Country = "", Phone = "", Email = "", Address = "", ImagePath = "";
-            DateTime BirthDate = DateTime.Now;
-
-            if (clsPeopleDataAccess.FindPersonByNationalID(ref PersonID, NationalID, ref FirstName, ref SecondName, ref ThirdName,
-                ref LastName, ref Gender, ref Country, ref Phone, ref Email, ref Address, ref ImagePath, ref BirthDate))
-            {
-                return new clsPeopleBusiness(PersonID, NationalID, FirstName, SecondName, ThirdName,
-                     LastName, Gender, Country, Phone, Email, Address, ImagePath, BirthDate);
-            }
-            else
-                return new clsPeopleBusiness();
+            return clsPeopleDataAccess.DoesExist(ID, Filter);
         }
     }
 }

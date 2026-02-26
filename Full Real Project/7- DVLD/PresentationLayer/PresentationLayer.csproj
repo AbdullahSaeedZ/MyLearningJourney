@@ -87,6 +87,12 @@
     <Compile Include="PeopleFormsAndControls\ctrlPeople.Designer.cs">
       <DependentUpon>ctrlPeople.cs</DependentUpon>
     </Compile>
+    <Compile Include="PeopleFormsAndControls\frmPersonInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PeopleFormsAndControls\frmPersonInfo.Designer.cs">
+      <DependentUpon>frmPersonInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DashboardControls\ctrlDashboard.resx">
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PeopleFormsAndControls\ctrlPeople.resx">
       <DependentUpon>ctrlPeople.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PeopleFormsAndControls\frmPersonInfo.resx">
+      <DependentUpon>frmPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

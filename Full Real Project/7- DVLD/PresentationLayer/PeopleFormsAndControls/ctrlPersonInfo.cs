@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,28 @@ namespace PresentationLayer.PeopleFormsAndControls
 {
     public partial class ctrlPersonInfo : UserControl
     {
+        // control property exposed to be filled by form
+        enum enGender { Male = 0, Female = 1 };
         public ctrlPersonInfo()
         {
             InitializeComponent();
         }
 
-        private void ctrlPersonInfo_Load(object sender, EventArgs e)
+        public void LoadInfo(int personID)
         {
+            clsPeopleBusiness Person = clsPeopleBusiness.FindPerson(personID.ToString(), "PersonID");
+            lblName.Text = Person.FirstName + " " + Person.SecondName + " " + Person.ThirdName + " " + Person.LastName;
+            lblPersonID.Text = Person.PersonID.ToString();
+            lblNationalID.Text = Person.NationalID.ToString();
+            lblCountry.Text = Person.Country;
+            lblEmail.Text = Person.Email;
+            lblBirthDate.Text = Person.BirthDate.ToShortDateString();
+            lblAddress.Text = Person.Address;
+            lblGender.Text = ((enGender)Person.Gender).ToString();
+            lblPhone.Text = Person.Phone;
 
+            pbProfilePic.Image = Person.ImagePath == string.Empty ? Properties.Resources.ProfileTest : Image.FromFile(Person.ImagePath);
         }
+        
     }
 }

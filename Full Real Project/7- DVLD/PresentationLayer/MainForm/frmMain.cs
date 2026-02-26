@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using BusinessLayer;
 using Guna.UI2.WinForms;
 using PresentationLayer.DashboardControls;
 using PresentationLayer.PeopleFormsAndControls;
@@ -112,11 +113,19 @@ namespace PresentationLayer.MainForm
         {
             if (int.TryParse(tbQuickSearch.Text , out int ID))
             {
-                _FindPerson(ID);
+                if (clsPeopleBusiness.DoesExist(ID, "PersonID"))
+                {
+                    frmPersonInfo Info = new frmPersonInfo(ID);
+                    Info.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show($"Person With ID {ID} Does Not Exist", "Error", MessageBoxButtons.OK);
+                }
             }
             else
             {
-                MessageBox.Show("No Valid Value Entered", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("Only Numbers Allowed", "Error", MessageBoxButtons.OK);
             }
             
         }
@@ -128,10 +137,7 @@ namespace PresentationLayer.MainForm
                 lblQuickSearch_Click(sender, EventArgs.Empty);
             }
         }
-        private void _FindPerson(int ID)
-        {
-            MessageBox.Show("find person");
-        }
+       
 
         // Closing the app
         private void ControlBoxClose_Click(object sender, EventArgs e)
