@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -41,6 +42,7 @@
             this.lblNumberOfRecords = new System.Windows.Forms.Label();
             this.btnAddPerson = new Guna.UI2.WinForms.Guna2Button();
             this.lblQuickSearch = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -256,6 +258,12 @@
             this.lblQuickSearch.Size = new System.Drawing.Size(28, 23);
             this.lblQuickSearch.TabIndex = 6;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(18, 18);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(193, 28);
+            // 
             // ctrlPeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -286,5 +294,6 @@
         private System.Windows.Forms.Label lblQuickSearch;
         private Guna.UI2.WinForms.Guna2TextBox tbSearchPerson;
         private Guna.UI2.WinForms.Guna2Button btnAddPerson;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

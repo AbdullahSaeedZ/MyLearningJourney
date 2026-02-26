@@ -12,14 +12,16 @@ namespace PresentationLayer.PeopleFormsAndControls
 {
     public partial class frmAddEditPerson : Form
     {
+
         public frmAddEditPerson()
         {
             InitializeComponent();
+            guna2ShadowForm1.SetShadowForm(this);
         }
 
-        private void frmAddEditPerson_Load(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            guna2ShadowForm1.SetShadowForm(this);
+            this.Close();
         }
     }
 }

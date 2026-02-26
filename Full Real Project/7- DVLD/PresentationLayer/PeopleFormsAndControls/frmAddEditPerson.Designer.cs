@@ -89,6 +89,7 @@
             this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
             this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
             this.ControlBoxClose.TabIndex = 1;
+            this.ControlBoxClose.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // guna2Panel1
             // 
@@ -588,6 +589,7 @@
             this.btnCancel.Size = new System.Drawing.Size(200, 37);
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
@@ -703,7 +705,6 @@
             this.Name = "frmAddEditPerson";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add \\ Edit Person";
-            this.Load += new System.EventHandler(this.frmAddEditPerson_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);

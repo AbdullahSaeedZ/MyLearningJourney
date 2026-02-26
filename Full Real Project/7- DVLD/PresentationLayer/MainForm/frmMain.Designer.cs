@@ -130,11 +130,11 @@
             // lblBreadcrumb
             // 
             this.lblBreadcrumb.AutoSize = true;
-            this.lblBreadcrumb.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBreadcrumb.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBreadcrumb.ForeColor = System.Drawing.Color.DimGray;
             this.lblBreadcrumb.Location = new System.Drawing.Point(61, 23);
             this.lblBreadcrumb.Name = "lblBreadcrumb";
-            this.lblBreadcrumb.Size = new System.Drawing.Size(60, 16);
+            this.lblBreadcrumb.Size = new System.Drawing.Size(81, 18);
             this.lblBreadcrumb.TabIndex = 1;
             this.lblBreadcrumb.Text = "Overview";
             // 
@@ -255,10 +255,11 @@
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2PictureBox1.BackgroundImage = global::PresentationLayer.Properties.Resources.logoSmall;
             this.guna2PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(27, 3);
+            this.guna2PictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(0, 0);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(207, 168);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(267, 187);
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
             this.guna2PictureBox1.UseTransparentBackground = true;

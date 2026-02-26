@@ -10,6 +10,13 @@ namespace PresentationLayer.MainForm
 {
     public partial class frmMain : Form
     {
+
+        public class clsBreadcrumbData : EventArgs
+        {
+            public string title { get; set; }
+            public string operationType { get; set; }
+        }
+
         public frmMain()
         {
             InitializeComponent();
@@ -18,17 +25,11 @@ namespace PresentationLayer.MainForm
             MainOptionsButtonHandler_Click(btnOverview, EventArgs.Empty);
         }
 
-        private void _RefreshControlsContainer()
-        {
-            if (pnlControlsContainer.Controls.Count > 0)
-                pnlControlsContainer.Controls.Clear();
-        }
-
         private void MainOptionsButtonHandler_Click(object sender, EventArgs e)
         {
             _RefreshControlsContainer();
             Guna2Button selectedButten = (Guna2Button)sender;
-            
+
             switch (selectedButten.Tag.ToString())
             {
                 case "Overview":
@@ -43,6 +44,7 @@ namespace PresentationLayer.MainForm
                 case "People":
                     ctrlPeople People = new ctrlPeople();
                     pnlControlsContainer.Controls.Add(People);
+                    People.delUpdateBreadcrumb += UpdateBreadcrumb;
                     break;
 
                 case "Drivers":
@@ -91,6 +93,18 @@ namespace PresentationLayer.MainForm
 
             lblBreadcrumb.Text = selectedButten.Tag.ToString();
             pbBreadcrumb.Image = selectedButten.HoverState.Image;
+        }
+        private void _RefreshControlsContainer()
+        {
+            if (pnlControlsContainer.Controls.Count > 0)
+                pnlControlsContainer.Controls.Clear();
+        }
+        private void UpdateBreadcrumb( object sender, clsBreadcrumbData Data)
+        {
+            if (Data.operationType == "Add")
+                lblBreadcrumb.Text += $" {Data.title}";
+            else
+                lblBreadcrumb.Text = lblBreadcrumb.Text.Remove(lblBreadcrumb.Text.IndexOf(Data.title));
         }
 
         // PersonID Quick Search
