@@ -277,5 +277,17 @@
       <Name>BusinessLayer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\editNoFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\editFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\defaultFemaleProfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\defaultMaleProfile.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

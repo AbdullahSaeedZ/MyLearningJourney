@@ -24,7 +24,7 @@ namespace BusinessLayer
         public string ImagePath { get; set; }
 
         // for adding new person
-        clsPeopleBusiness()
+        public clsPeopleBusiness()
         {
             this.PersonID = -1;
             this.NationalID = "";

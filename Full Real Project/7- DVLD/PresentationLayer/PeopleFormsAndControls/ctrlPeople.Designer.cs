@@ -35,15 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvPeople = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnAddPerson = new Guna.UI2.WinForms.Guna2Button();
-            this.lblQuickSearch = new System.Windows.Forms.Label();
-            this.tbSearchPerson = new Guna.UI2.WinForms.Guna2TextBox();
-            this.cbSearchBy = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblNumberOfRecords = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.colPic = new System.Windows.Forms.DataGridViewImageColumn();
             this.colPersonID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNationalNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,8 +47,22 @@
             this.colCountryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.addNewPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnAddPerson = new Guna.UI2.WinForms.Guna2Button();
+            this.tbSearchPerson = new Guna.UI2.WinForms.Guna2TextBox();
+            this.cbSearchBy = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblNumberOfRecords = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,11 +92,11 @@
             this.dgvPeople.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPeople.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvPeople.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvPeople.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
+            this.dgvPeople.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvPeople.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.DimGray;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
@@ -112,10 +117,11 @@
             this.colCountryName,
             this.colPhone,
             this.colEmail});
+            this.dgvPeople.ContextMenuStrip = this.contextMenuStrip1;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DimGray;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -162,13 +168,195 @@
             this.dgvPeople.ThemeStyle.RowsStyle.Height = 50;
             this.dgvPeople.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DimGray;
             this.dgvPeople.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvPeople.DoubleClick += new System.EventHandler(this.dgvPeople_DoubleClick);
+            // 
+            // colPic
+            // 
+            this.colPic.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPic.DataPropertyName = "Pic";
+            this.colPic.HeaderText = "";
+            this.colPic.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colPic.MinimumWidth = 6;
+            this.colPic.Name = "colPic";
+            this.colPic.ReadOnly = true;
+            this.colPic.Width = 60;
+            // 
+            // colPersonID
+            // 
+            this.colPersonID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPersonID.DataPropertyName = "PersonID";
+            this.colPersonID.HeaderText = "PersonID";
+            this.colPersonID.MinimumWidth = 6;
+            this.colPersonID.Name = "colPersonID";
+            this.colPersonID.ReadOnly = true;
+            this.colPersonID.Width = 80;
+            // 
+            // colNationalNo
+            // 
+            this.colNationalNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colNationalNo.DataPropertyName = "NationalNo";
+            this.colNationalNo.HeaderText = "NationalNo";
+            this.colNationalNo.MinimumWidth = 6;
+            this.colNationalNo.Name = "colNationalNo";
+            this.colNationalNo.ReadOnly = true;
+            this.colNationalNo.Width = 110;
+            // 
+            // colFirstName
+            // 
+            this.colFirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colFirstName.DataPropertyName = "FirstName";
+            this.colFirstName.HeaderText = "FirstName";
+            this.colFirstName.MinimumWidth = 6;
+            this.colFirstName.Name = "colFirstName";
+            this.colFirstName.ReadOnly = true;
+            this.colFirstName.Width = 120;
+            // 
+            // colSecondName
+            // 
+            this.colSecondName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colSecondName.DataPropertyName = "SecondName";
+            this.colSecondName.HeaderText = "SecondName";
+            this.colSecondName.MinimumWidth = 6;
+            this.colSecondName.Name = "colSecondName";
+            this.colSecondName.ReadOnly = true;
+            this.colSecondName.Width = 120;
+            // 
+            // colThirdName
+            // 
+            this.colThirdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colThirdName.DataPropertyName = "ThirdName";
+            this.colThirdName.HeaderText = "ThirdName";
+            this.colThirdName.MinimumWidth = 6;
+            this.colThirdName.Name = "colThirdName";
+            this.colThirdName.ReadOnly = true;
+            this.colThirdName.Width = 120;
+            // 
+            // colLastName
+            // 
+            this.colLastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colLastName.DataPropertyName = "LastName";
+            this.colLastName.HeaderText = "LastName";
+            this.colLastName.MinimumWidth = 6;
+            this.colLastName.Name = "colLastName";
+            this.colLastName.ReadOnly = true;
+            this.colLastName.Width = 120;
+            // 
+            // colGender
+            // 
+            this.colGender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colGender.DataPropertyName = "GenderString";
+            this.colGender.HeaderText = "Gender";
+            this.colGender.MinimumWidth = 6;
+            this.colGender.Name = "colGender";
+            this.colGender.ReadOnly = true;
+            this.colGender.Width = 80;
+            // 
+            // colBirthDate
+            // 
+            this.colBirthDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colBirthDate.DataPropertyName = "DateOfBirth";
+            this.colBirthDate.HeaderText = "BirthDate";
+            this.colBirthDate.MinimumWidth = 6;
+            this.colBirthDate.Name = "colBirthDate";
+            this.colBirthDate.ReadOnly = true;
+            this.colBirthDate.Width = 120;
+            // 
+            // colCountryName
+            // 
+            this.colCountryName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCountryName.DataPropertyName = "CountryName";
+            this.colCountryName.HeaderText = "Country";
+            this.colCountryName.MinimumWidth = 6;
+            this.colCountryName.Name = "colCountryName";
+            this.colCountryName.ReadOnly = true;
+            this.colCountryName.Width = 120;
+            // 
+            // colPhone
+            // 
+            this.colPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPhone.DataPropertyName = "Phone";
+            this.colPhone.HeaderText = "Phone";
+            this.colPhone.MinimumWidth = 6;
+            this.colPhone.Name = "colPhone";
+            this.colPhone.ReadOnly = true;
+            this.colPhone.Width = 130;
+            // 
+            // colEmail
+            // 
+            this.colEmail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colEmail.DataPropertyName = "Email";
+            this.colEmail.HeaderText = "Email";
+            this.colEmail.MinimumWidth = 6;
+            this.colEmail.Name = "colEmail";
+            this.colEmail.ReadOnly = true;
+            this.colEmail.Width = 200;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.BackColor = System.Drawing.Color.White;
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(18, 18);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showDetailsToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.addNewPersonToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.contextMenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.contextMenuStrip1.Size = new System.Drawing.Size(177, 106);
+            // 
+            // showDetailsToolStripMenuItem
+            // 
+            this.showDetailsToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.showDetailsToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.cardNoFill;
+            this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.showDetailsToolStripMenuItem.Tag = "Show Details";
+            this.showDetailsToolStripMenuItem.Text = "Show Details";
+            this.showDetailsToolStripMenuItem.ToolTipText = "Show Person Details";
+            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.AllToolStripMenuHandler_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(173, 6);
+            // 
+            // addNewPersonToolStripMenuItem
+            // 
+            this.addNewPersonToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.addNoFill;
+            this.addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
+            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.addNewPersonToolStripMenuItem.Tag = "Add New Person";
+            this.addNewPersonToolStripMenuItem.Text = "Add New Person";
+            this.addNewPersonToolStripMenuItem.ToolTipText = "Add a New Person";
+            this.addNewPersonToolStripMenuItem.Click += new System.EventHandler(this.AllToolStripMenuHandler_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.editNoFill;
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.editToolStripMenuItem.Tag = "Edit";
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.ToolTipText = "Edit Selected Person Details";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.AllToolStripMenuHandler_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.removeNoFill;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.deleteToolStripMenuItem.Tag = "Delete";
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.ToolTipText = "Delete Selected Person";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.AllToolStripMenuHandler_Click);
             // 
             // guna2Panel2
             // 
             this.guna2Panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Panel2.BorderColor = System.Drawing.Color.Silver;
             this.guna2Panel2.Controls.Add(this.btnAddPerson);
-            this.guna2Panel2.Controls.Add(this.lblQuickSearch);
             this.guna2Panel2.Controls.Add(this.tbSearchPerson);
             this.guna2Panel2.Controls.Add(this.cbSearchBy);
             this.guna2Panel2.Controls.Add(this.label3);
@@ -207,17 +395,6 @@
             this.btnAddPerson.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAddPerson.Click += new System.EventHandler(this.btnAddPerson_Click);
             // 
-            // lblQuickSearch
-            // 
-            this.lblQuickSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblQuickSearch.BackColor = System.Drawing.Color.White;
-            this.lblQuickSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblQuickSearch.Image = global::PresentationLayer.Properties.Resources.QuickSearch;
-            this.lblQuickSearch.Location = new System.Drawing.Point(859, 37);
-            this.lblQuickSearch.Name = "lblQuickSearch";
-            this.lblQuickSearch.Size = new System.Drawing.Size(28, 23);
-            this.lblQuickSearch.TabIndex = 6;
-            // 
             // tbSearchPerson
             // 
             this.tbSearchPerson.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -231,6 +408,7 @@
             this.tbSearchPerson.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbSearchPerson.DisabledState.Parent = this.tbSearchPerson;
             this.tbSearchPerson.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbSearchPerson.Enabled = false;
             this.tbSearchPerson.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.tbSearchPerson.FocusedState.Parent = this.tbSearchPerson;
             this.tbSearchPerson.ForeColor = System.Drawing.Color.Black;
@@ -245,6 +423,7 @@
             this.tbSearchPerson.ShadowDecoration.Parent = this.tbSearchPerson;
             this.tbSearchPerson.Size = new System.Drawing.Size(225, 39);
             this.tbSearchPerson.TabIndex = 5;
+            this.tbSearchPerson.TextChanged += new System.EventHandler(this.tbSearchPerson_TextChanged);
             // 
             // cbSearchBy
             // 
@@ -256,16 +435,30 @@
             this.cbSearchBy.FocusedColor = System.Drawing.Color.Empty;
             this.cbSearchBy.FocusedState.Parent = this.cbSearchBy;
             this.cbSearchBy.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbSearchBy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbSearchBy.ForeColor = System.Drawing.Color.Black;
             this.cbSearchBy.FormattingEnabled = true;
             this.cbSearchBy.HoverState.Parent = this.cbSearchBy;
             this.cbSearchBy.ItemHeight = 30;
+            this.cbSearchBy.Items.AddRange(new object[] {
+            "None",
+            "PersonID",
+            "National No",
+            "First Name",
+            "Second Name",
+            "Third Name",
+            "Last Name",
+            "Nationality",
+            "Gender",
+            "Phone",
+            "Email"});
             this.cbSearchBy.ItemsAppearance.Parent = this.cbSearchBy;
             this.cbSearchBy.Location = new System.Drawing.Point(440, 32);
             this.cbSearchBy.Name = "cbSearchBy";
             this.cbSearchBy.ShadowDecoration.Parent = this.cbSearchBy;
             this.cbSearchBy.Size = new System.Drawing.Size(225, 36);
+            this.cbSearchBy.StartIndex = 0;
             this.cbSearchBy.TabIndex = 2;
+            this.cbSearchBy.SelectedIndexChanged += new System.EventHandler(this.cbSearchBy_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -300,128 +493,6 @@
             this.lblNumberOfRecords.TabIndex = 0;
             this.lblNumberOfRecords.Text = "0";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(18, 18);
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // colPic
-            // 
-            this.colPic.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPic.DataPropertyName = "Pic";
-            this.colPic.HeaderText = "";
-            this.colPic.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.colPic.MinimumWidth = 6;
-            this.colPic.Name = "colPic";
-            this.colPic.ReadOnly = true;
-            this.colPic.Width = 60;
-            // 
-            // colPersonID
-            // 
-            this.colPersonID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPersonID.DataPropertyName = "PersonID";
-            this.colPersonID.HeaderText = "PersonID";
-            this.colPersonID.MinimumWidth = 6;
-            this.colPersonID.Name = "colPersonID";
-            this.colPersonID.ReadOnly = true;
-            this.colPersonID.Width = 80;
-            // 
-            // colNationalNo
-            // 
-            this.colNationalNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colNationalNo.DataPropertyName = "NationalNo";
-            this.colNationalNo.HeaderText = "NationalNo";
-            this.colNationalNo.MinimumWidth = 6;
-            this.colNationalNo.Name = "colNationalNo";
-            this.colNationalNo.ReadOnly = true;
-            // 
-            // colFirstName
-            // 
-            this.colFirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colFirstName.DataPropertyName = "FirstName";
-            this.colFirstName.HeaderText = "FirstName";
-            this.colFirstName.MinimumWidth = 6;
-            this.colFirstName.Name = "colFirstName";
-            this.colFirstName.ReadOnly = true;
-            // 
-            // colSecondName
-            // 
-            this.colSecondName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colSecondName.DataPropertyName = "SecondName";
-            this.colSecondName.HeaderText = "SecondName";
-            this.colSecondName.MinimumWidth = 6;
-            this.colSecondName.Name = "colSecondName";
-            this.colSecondName.ReadOnly = true;
-            // 
-            // colThirdName
-            // 
-            this.colThirdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colThirdName.DataPropertyName = "ThirdName";
-            this.colThirdName.HeaderText = "ThirdName";
-            this.colThirdName.MinimumWidth = 6;
-            this.colThirdName.Name = "colThirdName";
-            this.colThirdName.ReadOnly = true;
-            // 
-            // colLastName
-            // 
-            this.colLastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colLastName.DataPropertyName = "LastName";
-            this.colLastName.HeaderText = "LastName";
-            this.colLastName.MinimumWidth = 6;
-            this.colLastName.Name = "colLastName";
-            this.colLastName.ReadOnly = true;
-            // 
-            // colGender
-            // 
-            this.colGender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colGender.DataPropertyName = "GenderString";
-            this.colGender.HeaderText = "Gender";
-            this.colGender.MinimumWidth = 6;
-            this.colGender.Name = "colGender";
-            this.colGender.ReadOnly = true;
-            this.colGender.Width = 70;
-            // 
-            // colBirthDate
-            // 
-            this.colBirthDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colBirthDate.DataPropertyName = "DateOfBirth";
-            this.colBirthDate.HeaderText = "BirthDate";
-            this.colBirthDate.MinimumWidth = 6;
-            this.colBirthDate.Name = "colBirthDate";
-            this.colBirthDate.ReadOnly = true;
-            this.colBirthDate.Width = 150;
-            // 
-            // colCountryName
-            // 
-            this.colCountryName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colCountryName.DataPropertyName = "CountryName";
-            this.colCountryName.HeaderText = "Country";
-            this.colCountryName.MinimumWidth = 6;
-            this.colCountryName.Name = "colCountryName";
-            this.colCountryName.ReadOnly = true;
-            this.colCountryName.Width = 120;
-            // 
-            // colPhone
-            // 
-            this.colPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPhone.DataPropertyName = "Phone";
-            this.colPhone.HeaderText = "Phone";
-            this.colPhone.MinimumWidth = 6;
-            this.colPhone.Name = "colPhone";
-            this.colPhone.ReadOnly = true;
-            this.colPhone.Width = 130;
-            // 
-            // colEmail
-            // 
-            this.colEmail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colEmail.DataPropertyName = "Email";
-            this.colEmail.HeaderText = "Email";
-            this.colEmail.MinimumWidth = 6;
-            this.colEmail.Name = "colEmail";
-            this.colEmail.ReadOnly = true;
-            this.colEmail.Width = 150;
-            // 
             // ctrlPeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -434,6 +505,7 @@
             this.Size = new System.Drawing.Size(1441, 894);
             this.guna2Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -449,10 +521,14 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblNumberOfRecords;
-        private System.Windows.Forms.Label lblQuickSearch;
         private Guna.UI2.WinForms.Guna2TextBox tbSearchPerson;
         private Guna.UI2.WinForms.Guna2Button btnAddPerson;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem showDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNewPersonToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.DataGridViewImageColumn colPic;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPersonID;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNationalNo;

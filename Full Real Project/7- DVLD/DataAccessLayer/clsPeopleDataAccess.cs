@@ -42,7 +42,7 @@ namespace DataAccessLayer
                             Gender = (byte)reader["Gender"];
                             Country = (string)reader["CountryName"];
                             Phone = (string)reader["Phone"];
-                            Email = (string)reader["Email"];
+                            Email = reader["Email"] == DBNull.Value ? string.Empty : (string)reader["Email"];
                             Address = (string)reader["Address"];
                             BirthDate = (DateTime)reader["DateOfBirth"];
                             ImagePath = reader["ImagePath"] == DBNull.Value ? string.Empty : (string)reader["ImagePath"];

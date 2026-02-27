@@ -213,6 +213,26 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap defaultFemaleProfile {
+            get {
+                object obj = ResourceManager.GetObject("defaultFemaleProfile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap defaultMaleProfile {
+            get {
+                object obj = ResourceManager.GetObject("defaultMaleProfile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap detainFill {
             get {
                 object obj = ResourceManager.GetObject("detainFill", resourceCulture);
@@ -266,6 +286,26 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap driversNoFillThin {
             get {
                 object obj = ResourceManager.GetObject("driversNoFillThin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editFill {
+            get {
+                object obj = ResourceManager.GetObject("editFill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editNoFill {
+            get {
+                object obj = ResourceManager.GetObject("editNoFill", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
