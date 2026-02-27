@@ -632,6 +632,8 @@
             // 
             // guna2Panel13
             // 
+            this.guna2Panel13.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel13.BorderRadius = 10;
             this.guna2Panel13.Controls.Add(this.lblTotalFeesThisMonth);
             this.guna2Panel13.Controls.Add(this.label15);
@@ -668,6 +670,8 @@
             // 
             // guna2Panel14
             // 
+            this.guna2Panel14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel14.BorderRadius = 10;
             this.guna2Panel14.Controls.Add(this.lblTotalFeesAllTime);
             this.guna2Panel14.Controls.Add(this.label16);
@@ -712,6 +716,8 @@
             // 
             // guna2Panel11
             // 
+            this.guna2Panel11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2Panel11.BorderRadius = 10;
             this.guna2Panel11.Controls.Add(this.monthCalendar1);
             this.guna2Panel11.Controls.Add(this.label13);

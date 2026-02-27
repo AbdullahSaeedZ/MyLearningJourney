@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using DataAccessLayer;
 
 namespace BusinessLayer
@@ -62,6 +63,8 @@ namespace BusinessLayer
         }
 
 
+
+
         public static clsPeopleBusiness FindPerson(string ID, string Filter)
         {
             int PersonID = -1;
@@ -83,6 +86,13 @@ namespace BusinessLayer
             else
                 return new clsPeopleBusiness();
         }
+
+
+        public static DataTable GetAllPeople()
+        {
+            return clsPeopleDataAccess.GetAllPeople();
+        }
+
 
         public static bool DoesExist(int ID, string Filter )
         {

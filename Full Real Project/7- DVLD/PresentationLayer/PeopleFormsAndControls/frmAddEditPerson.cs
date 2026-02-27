@@ -12,6 +12,7 @@ namespace PresentationLayer.PeopleFormsAndControls
 {
     public partial class frmAddEditPerson : Form
     {
+       // public event EventHandler delRefreshPeopleTable;
 
         public frmAddEditPerson()
         {
@@ -21,6 +22,7 @@ namespace PresentationLayer.PeopleFormsAndControls
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+           // delRefreshPeopleTable(this, EventArgs.Empty);
             this.Close();
         }
     }

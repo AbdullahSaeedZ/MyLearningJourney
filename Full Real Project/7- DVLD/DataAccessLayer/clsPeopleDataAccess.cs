@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
 
@@ -38,7 +39,7 @@ namespace DataAccessLayer
                             SecondName = (string)reader["SecondName"];
                             ThirdName = (string)reader["ThirdName"];
                             LastName = (string)reader["LastName"];
-                            Gender = (byte)reader["Gendor"];
+                            Gender = (byte)reader["Gender"];
                             Country = (string)reader["CountryName"];
                             Phone = (string)reader["Phone"];
                             Email = (string)reader["Email"];
@@ -59,6 +60,29 @@ namespace DataAccessLayer
             return isFound;
         }
 
+
+        public static DataTable GetAllPeople()
+        {
+            DataTable dt = new DataTable();
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+            {
+                string query = @"select * from viewAllPeople;";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    connection.Open();
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.HasRows)
+                        dt.Load(reader);
+                    else
+                        dt = null;
+                }
+            }
+            return dt;
+        }
 
         public static bool DoesExist(int ID, string filter)
         {
