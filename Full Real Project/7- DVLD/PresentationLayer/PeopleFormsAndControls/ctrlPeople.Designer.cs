@@ -35,18 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvPeople = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.colPic = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colPersonID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNationalNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSecondName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colThirdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colBirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCountryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -60,6 +48,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblNumberOfRecords = new System.Windows.Forms.Label();
+            this.colPic = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colPersonID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNationalNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSecondName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colThirdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colBirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colCountryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -169,127 +169,6 @@
             this.dgvPeople.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DimGray;
             this.dgvPeople.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvPeople.DoubleClick += new System.EventHandler(this.dgvPeople_DoubleClick);
-            // 
-            // colPic
-            // 
-            this.colPic.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPic.DataPropertyName = "Pic";
-            this.colPic.HeaderText = "";
-            this.colPic.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.colPic.MinimumWidth = 6;
-            this.colPic.Name = "colPic";
-            this.colPic.ReadOnly = true;
-            this.colPic.Width = 60;
-            // 
-            // colPersonID
-            // 
-            this.colPersonID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPersonID.DataPropertyName = "PersonID";
-            this.colPersonID.HeaderText = "PersonID";
-            this.colPersonID.MinimumWidth = 6;
-            this.colPersonID.Name = "colPersonID";
-            this.colPersonID.ReadOnly = true;
-            this.colPersonID.Width = 80;
-            // 
-            // colNationalNo
-            // 
-            this.colNationalNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colNationalNo.DataPropertyName = "NationalNo";
-            this.colNationalNo.HeaderText = "NationalNo";
-            this.colNationalNo.MinimumWidth = 6;
-            this.colNationalNo.Name = "colNationalNo";
-            this.colNationalNo.ReadOnly = true;
-            this.colNationalNo.Width = 110;
-            // 
-            // colFirstName
-            // 
-            this.colFirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colFirstName.DataPropertyName = "FirstName";
-            this.colFirstName.HeaderText = "FirstName";
-            this.colFirstName.MinimumWidth = 6;
-            this.colFirstName.Name = "colFirstName";
-            this.colFirstName.ReadOnly = true;
-            this.colFirstName.Width = 120;
-            // 
-            // colSecondName
-            // 
-            this.colSecondName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colSecondName.DataPropertyName = "SecondName";
-            this.colSecondName.HeaderText = "SecondName";
-            this.colSecondName.MinimumWidth = 6;
-            this.colSecondName.Name = "colSecondName";
-            this.colSecondName.ReadOnly = true;
-            this.colSecondName.Width = 120;
-            // 
-            // colThirdName
-            // 
-            this.colThirdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colThirdName.DataPropertyName = "ThirdName";
-            this.colThirdName.HeaderText = "ThirdName";
-            this.colThirdName.MinimumWidth = 6;
-            this.colThirdName.Name = "colThirdName";
-            this.colThirdName.ReadOnly = true;
-            this.colThirdName.Width = 120;
-            // 
-            // colLastName
-            // 
-            this.colLastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colLastName.DataPropertyName = "LastName";
-            this.colLastName.HeaderText = "LastName";
-            this.colLastName.MinimumWidth = 6;
-            this.colLastName.Name = "colLastName";
-            this.colLastName.ReadOnly = true;
-            this.colLastName.Width = 120;
-            // 
-            // colGender
-            // 
-            this.colGender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colGender.DataPropertyName = "GenderString";
-            this.colGender.HeaderText = "Gender";
-            this.colGender.MinimumWidth = 6;
-            this.colGender.Name = "colGender";
-            this.colGender.ReadOnly = true;
-            this.colGender.Width = 80;
-            // 
-            // colBirthDate
-            // 
-            this.colBirthDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colBirthDate.DataPropertyName = "DateOfBirth";
-            this.colBirthDate.HeaderText = "BirthDate";
-            this.colBirthDate.MinimumWidth = 6;
-            this.colBirthDate.Name = "colBirthDate";
-            this.colBirthDate.ReadOnly = true;
-            this.colBirthDate.Width = 120;
-            // 
-            // colCountryName
-            // 
-            this.colCountryName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colCountryName.DataPropertyName = "CountryName";
-            this.colCountryName.HeaderText = "Country";
-            this.colCountryName.MinimumWidth = 6;
-            this.colCountryName.Name = "colCountryName";
-            this.colCountryName.ReadOnly = true;
-            this.colCountryName.Width = 120;
-            // 
-            // colPhone
-            // 
-            this.colPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPhone.DataPropertyName = "Phone";
-            this.colPhone.HeaderText = "Phone";
-            this.colPhone.MinimumWidth = 6;
-            this.colPhone.Name = "colPhone";
-            this.colPhone.ReadOnly = true;
-            this.colPhone.Width = 130;
-            // 
-            // colEmail
-            // 
-            this.colEmail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colEmail.DataPropertyName = "Email";
-            this.colEmail.HeaderText = "Email";
-            this.colEmail.MinimumWidth = 6;
-            this.colEmail.Name = "colEmail";
-            this.colEmail.ReadOnly = true;
-            this.colEmail.Width = 200;
             // 
             // contextMenuStrip1
             // 
@@ -409,10 +288,10 @@
             this.tbSearchPerson.DisabledState.Parent = this.tbSearchPerson;
             this.tbSearchPerson.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbSearchPerson.Enabled = false;
-            this.tbSearchPerson.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbSearchPerson.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbSearchPerson.FocusedState.Parent = this.tbSearchPerson;
             this.tbSearchPerson.ForeColor = System.Drawing.Color.Black;
-            this.tbSearchPerson.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbSearchPerson.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbSearchPerson.HoverState.Parent = this.tbSearchPerson;
             this.tbSearchPerson.Location = new System.Drawing.Point(673, 31);
             this.tbSearchPerson.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -424,6 +303,7 @@
             this.tbSearchPerson.Size = new System.Drawing.Size(225, 39);
             this.tbSearchPerson.TabIndex = 5;
             this.tbSearchPerson.TextChanged += new System.EventHandler(this.tbSearchPerson_TextChanged);
+            this.tbSearchPerson.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearchPerson_KeyPress);
             // 
             // cbSearchBy
             // 
@@ -492,6 +372,127 @@
             this.lblNumberOfRecords.Size = new System.Drawing.Size(22, 23);
             this.lblNumberOfRecords.TabIndex = 0;
             this.lblNumberOfRecords.Text = "0";
+            // 
+            // colPic
+            // 
+            this.colPic.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPic.DataPropertyName = "Pic";
+            this.colPic.HeaderText = "";
+            this.colPic.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colPic.MinimumWidth = 6;
+            this.colPic.Name = "colPic";
+            this.colPic.ReadOnly = true;
+            this.colPic.Width = 60;
+            // 
+            // colPersonID
+            // 
+            this.colPersonID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPersonID.DataPropertyName = "PersonID";
+            this.colPersonID.HeaderText = "PersonID";
+            this.colPersonID.MinimumWidth = 6;
+            this.colPersonID.Name = "colPersonID";
+            this.colPersonID.ReadOnly = true;
+            this.colPersonID.Width = 80;
+            // 
+            // colNationalNo
+            // 
+            this.colNationalNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colNationalNo.DataPropertyName = "NationalNo";
+            this.colNationalNo.HeaderText = "National No";
+            this.colNationalNo.MinimumWidth = 6;
+            this.colNationalNo.Name = "colNationalNo";
+            this.colNationalNo.ReadOnly = true;
+            this.colNationalNo.Width = 110;
+            // 
+            // colFirstName
+            // 
+            this.colFirstName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colFirstName.DataPropertyName = "FirstName";
+            this.colFirstName.HeaderText = "First Name";
+            this.colFirstName.MinimumWidth = 6;
+            this.colFirstName.Name = "colFirstName";
+            this.colFirstName.ReadOnly = true;
+            this.colFirstName.Width = 120;
+            // 
+            // colSecondName
+            // 
+            this.colSecondName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colSecondName.DataPropertyName = "SecondName";
+            this.colSecondName.HeaderText = "Second Name";
+            this.colSecondName.MinimumWidth = 6;
+            this.colSecondName.Name = "colSecondName";
+            this.colSecondName.ReadOnly = true;
+            this.colSecondName.Width = 120;
+            // 
+            // colThirdName
+            // 
+            this.colThirdName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colThirdName.DataPropertyName = "ThirdName";
+            this.colThirdName.HeaderText = "Third Name";
+            this.colThirdName.MinimumWidth = 6;
+            this.colThirdName.Name = "colThirdName";
+            this.colThirdName.ReadOnly = true;
+            this.colThirdName.Width = 120;
+            // 
+            // colLastName
+            // 
+            this.colLastName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colLastName.DataPropertyName = "LastName";
+            this.colLastName.HeaderText = "Last Name";
+            this.colLastName.MinimumWidth = 6;
+            this.colLastName.Name = "colLastName";
+            this.colLastName.ReadOnly = true;
+            this.colLastName.Width = 120;
+            // 
+            // colGender
+            // 
+            this.colGender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colGender.DataPropertyName = "GenderString";
+            this.colGender.HeaderText = "Gender";
+            this.colGender.MinimumWidth = 6;
+            this.colGender.Name = "colGender";
+            this.colGender.ReadOnly = true;
+            this.colGender.Width = 80;
+            // 
+            // colBirthDate
+            // 
+            this.colBirthDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colBirthDate.DataPropertyName = "DateOfBirth";
+            this.colBirthDate.HeaderText = "BirthDate";
+            this.colBirthDate.MinimumWidth = 6;
+            this.colBirthDate.Name = "colBirthDate";
+            this.colBirthDate.ReadOnly = true;
+            this.colBirthDate.Width = 120;
+            // 
+            // colCountryName
+            // 
+            this.colCountryName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colCountryName.DataPropertyName = "CountryName";
+            this.colCountryName.HeaderText = "Country";
+            this.colCountryName.MinimumWidth = 6;
+            this.colCountryName.Name = "colCountryName";
+            this.colCountryName.ReadOnly = true;
+            this.colCountryName.Width = 120;
+            // 
+            // colPhone
+            // 
+            this.colPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colPhone.DataPropertyName = "Phone";
+            this.colPhone.HeaderText = "Phone";
+            this.colPhone.MinimumWidth = 6;
+            this.colPhone.Name = "colPhone";
+            this.colPhone.ReadOnly = true;
+            this.colPhone.Width = 130;
+            // 
+            // colEmail
+            // 
+            this.colEmail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.colEmail.DataPropertyName = "Email";
+            this.colEmail.HeaderText = "Email";
+            this.colEmail.MinimumWidth = 6;
+            this.colEmail.Name = "colEmail";
+            this.colEmail.ReadOnly = true;
+            this.colEmail.Width = 200;
             // 
             // ctrlPeople
             // 

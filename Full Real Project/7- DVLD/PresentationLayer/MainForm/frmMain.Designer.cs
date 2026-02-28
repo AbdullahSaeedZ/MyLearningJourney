@@ -32,18 +32,18 @@
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.pnlTopBar = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblQuickSearch = new System.Windows.Forms.Label();
             this.tbQuickSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lblBreadcrumb = new System.Windows.Forms.Label();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.pbBreadcrumb = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.lblProfileUsername = new System.Windows.Forms.Label();
             this.lblProfilePersonName = new System.Windows.Forms.Label();
             this.pnlControlsContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.pnlSideBar = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblQuickSearch = new System.Windows.Forms.Label();
-            this.pbBreadcrumb = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
             this.btnPeople = new Guna.UI2.WinForms.Guna2Button();
@@ -53,8 +53,8 @@
             this.btnApplications = new Guna.UI2.WinForms.Guna2Button();
             this.pbProfilePic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.pnlTopBar.SuspendLayout();
-            this.pnlSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).BeginInit();
+            this.pnlSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).BeginInit();
             this.SuspendLayout();
@@ -86,6 +86,18 @@
             this.pnlTopBar.Size = new System.Drawing.Size(1441, 59);
             this.pnlTopBar.TabIndex = 6;
             // 
+            // lblQuickSearch
+            // 
+            this.lblQuickSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblQuickSearch.BackColor = System.Drawing.Color.White;
+            this.lblQuickSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblQuickSearch.Image = global::PresentationLayer.Properties.Resources.QuickSearch;
+            this.lblQuickSearch.Location = new System.Drawing.Point(1190, 14);
+            this.lblQuickSearch.Name = "lblQuickSearch";
+            this.lblQuickSearch.Size = new System.Drawing.Size(28, 23);
+            this.lblQuickSearch.TabIndex = 4;
+            this.lblQuickSearch.Click += new System.EventHandler(this.lblQuickSearch_Click);
+            // 
             // tbQuickSearch
             // 
             this.tbQuickSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -98,10 +110,10 @@
             this.tbQuickSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbQuickSearch.DisabledState.Parent = this.tbQuickSearch;
             this.tbQuickSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbQuickSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbQuickSearch.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbQuickSearch.FocusedState.Parent = this.tbQuickSearch;
             this.tbQuickSearch.ForeColor = System.Drawing.Color.Black;
-            this.tbQuickSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbQuickSearch.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbQuickSearch.HoverState.Parent = this.tbQuickSearch;
             this.tbQuickSearch.Location = new System.Drawing.Point(1004, 8);
             this.tbQuickSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -164,6 +176,19 @@
             this.ControlBoxClose.TabIndex = 0;
             this.ControlBoxClose.Click += new System.EventHandler(this.ControlBoxClose_Click);
             // 
+            // pbBreadcrumb
+            // 
+            this.pbBreadcrumb.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pbBreadcrumb.Image = global::PresentationLayer.Properties.Resources.overviewNoFillThin;
+            this.pbBreadcrumb.Location = new System.Drawing.Point(13, 12);
+            this.pbBreadcrumb.Name = "pbBreadcrumb";
+            this.pbBreadcrumb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pbBreadcrumb.ShadowDecoration.Parent = this.pbBreadcrumb;
+            this.pbBreadcrumb.Size = new System.Drawing.Size(43, 38);
+            this.pbBreadcrumb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbBreadcrumb.TabIndex = 0;
+            this.pbBreadcrumb.TabStop = false;
+            // 
             // lblProfileUsername
             // 
             this.lblProfileUsername.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -224,31 +249,6 @@
             this.pnlSideBar.ShadowDecoration.Parent = this.pnlSideBar;
             this.pnlSideBar.Size = new System.Drawing.Size(267, 953);
             this.pnlSideBar.TabIndex = 6;
-            // 
-            // lblQuickSearch
-            // 
-            this.lblQuickSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblQuickSearch.BackColor = System.Drawing.Color.White;
-            this.lblQuickSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblQuickSearch.Image = global::PresentationLayer.Properties.Resources.QuickSearch;
-            this.lblQuickSearch.Location = new System.Drawing.Point(1190, 14);
-            this.lblQuickSearch.Name = "lblQuickSearch";
-            this.lblQuickSearch.Size = new System.Drawing.Size(28, 23);
-            this.lblQuickSearch.TabIndex = 4;
-            this.lblQuickSearch.Click += new System.EventHandler(this.lblQuickSearch_Click);
-            // 
-            // pbBreadcrumb
-            // 
-            this.pbBreadcrumb.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pbBreadcrumb.Image = global::PresentationLayer.Properties.Resources.overviewNoFillThin;
-            this.pbBreadcrumb.Location = new System.Drawing.Point(13, 12);
-            this.pbBreadcrumb.Name = "pbBreadcrumb";
-            this.pbBreadcrumb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pbBreadcrumb.ShadowDecoration.Parent = this.pbBreadcrumb;
-            this.pbBreadcrumb.Size = new System.Drawing.Size(43, 38);
-            this.pbBreadcrumb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbBreadcrumb.TabIndex = 0;
-            this.pbBreadcrumb.TabStop = false;
             // 
             // guna2PictureBox1
             // 
@@ -441,9 +441,9 @@
             this.Text = "frmMain";
             this.pnlTopBar.ResumeLayout(false);
             this.pnlTopBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).EndInit();
             this.pnlSideBar.ResumeLayout(false);
             this.pnlSideBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).EndInit();
             this.ResumeLayout(false);

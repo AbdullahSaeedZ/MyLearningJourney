@@ -63,15 +63,15 @@
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnRemoveImage = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddImage = new Guna.UI2.WinForms.Guna2Button();
             this.pbImage = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -411,10 +411,10 @@
             this.tbAddress.DisabledState.Parent = this.tbAddress;
             this.tbAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbAddress.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.tbAddress.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbAddress.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbAddress.FocusedState.Parent = this.tbAddress;
             this.tbAddress.ForeColor = System.Drawing.Color.Black;
-            this.tbAddress.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbAddress.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbAddress.HoverState.Parent = this.tbAddress;
             this.tbAddress.Location = new System.Drawing.Point(20, 491);
             this.tbAddress.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -439,10 +439,10 @@
             this.tbSecondName.DisabledState.Parent = this.tbSecondName;
             this.tbSecondName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbSecondName.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.tbSecondName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbSecondName.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbSecondName.FocusedState.Parent = this.tbSecondName;
             this.tbSecondName.ForeColor = System.Drawing.Color.Black;
-            this.tbSecondName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbSecondName.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbSecondName.HoverState.Parent = this.tbSecondName;
             this.tbSecondName.Location = new System.Drawing.Point(324, 149);
             this.tbSecondName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -466,17 +466,17 @@
             this.tbPhone.DisabledState.Parent = this.tbPhone;
             this.tbPhone.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbPhone.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.tbPhone.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbPhone.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbPhone.FocusedState.Parent = this.tbPhone;
             this.tbPhone.ForeColor = System.Drawing.Color.Black;
-            this.tbPhone.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbPhone.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbPhone.HoverState.Parent = this.tbPhone;
             this.tbPhone.Location = new System.Drawing.Point(22, 425);
             this.tbPhone.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.PasswordChar = '\0';
             this.tbPhone.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.tbPhone.PlaceholderText = "+966";
+            this.tbPhone.PlaceholderText = "05";
             this.tbPhone.SelectedText = "";
             this.tbPhone.ShadowDecoration.Parent = this.tbPhone;
             this.tbPhone.Size = new System.Drawing.Size(282, 37);
@@ -494,10 +494,10 @@
             this.tbEmail.DisabledState.Parent = this.tbEmail;
             this.tbEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbEmail.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.tbEmail.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbEmail.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbEmail.FocusedState.Parent = this.tbEmail;
             this.tbEmail.ForeColor = System.Drawing.Color.Black;
-            this.tbEmail.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbEmail.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbEmail.HoverState.Parent = this.tbEmail;
             this.tbEmail.Location = new System.Drawing.Point(22, 356);
             this.tbEmail.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -521,10 +521,10 @@
             this.tbNationalNumber.DisabledState.Parent = this.tbNationalNumber;
             this.tbNationalNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbNationalNumber.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.tbNationalNumber.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbNationalNumber.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbNationalNumber.FocusedState.Parent = this.tbNationalNumber;
             this.tbNationalNumber.ForeColor = System.Drawing.Color.Black;
-            this.tbNationalNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbNationalNumber.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbNationalNumber.HoverState.Parent = this.tbNationalNumber;
             this.tbNationalNumber.Location = new System.Drawing.Point(21, 287);
             this.tbNationalNumber.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -548,10 +548,10 @@
             this.tbLastName.DisabledState.Parent = this.tbLastName;
             this.tbLastName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbLastName.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.tbLastName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbLastName.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbLastName.FocusedState.Parent = this.tbLastName;
             this.tbLastName.ForeColor = System.Drawing.Color.Black;
-            this.tbLastName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbLastName.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbLastName.HoverState.Parent = this.tbLastName;
             this.tbLastName.Location = new System.Drawing.Point(325, 218);
             this.tbLastName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -575,10 +575,10 @@
             this.tbThirdName.DisabledState.Parent = this.tbThirdName;
             this.tbThirdName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbThirdName.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.tbThirdName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbThirdName.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbThirdName.FocusedState.Parent = this.tbThirdName;
             this.tbThirdName.ForeColor = System.Drawing.Color.Black;
-            this.tbThirdName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbThirdName.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbThirdName.HoverState.Parent = this.tbThirdName;
             this.tbThirdName.Location = new System.Drawing.Point(21, 218);
             this.tbThirdName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -602,10 +602,10 @@
             this.tbFirstName.DisabledState.Parent = this.tbFirstName;
             this.tbFirstName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbFirstName.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.tbFirstName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbFirstName.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbFirstName.FocusedState.Parent = this.tbFirstName;
             this.tbFirstName.ForeColor = System.Drawing.Color.Black;
-            this.tbFirstName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbFirstName.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbFirstName.HoverState.Parent = this.tbFirstName;
             this.tbFirstName.Location = new System.Drawing.Point(21, 149);
             this.tbFirstName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -681,14 +681,6 @@
             this.guna2Panel2.Size = new System.Drawing.Size(306, 650);
             this.guna2Panel2.TabIndex = 2;
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
             // btnRemoveImage
             // 
             this.btnRemoveImage.BackColor = System.Drawing.Color.Transparent;
@@ -754,6 +746,14 @@
             this.pbImage.TabIndex = 0;
             this.pbImage.TabStop = false;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // frmAddEditPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -769,8 +769,8 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
