@@ -25,10 +25,16 @@ namespace PresentationLayer.PeopleFormsAndControls
             {
                 person = new clsPeopleBusiness();
             }
-            else
+            else 
             {
                 person = clsPeopleBusiness.FindPerson(personID.ToString(), "PersonID");
                 _FillPersonInfoInForm();
+
+                if (person == null)
+                {
+                    MessageBox.Show("Person Does Not Exist, Form will close", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                }
             }
         }
 
@@ -40,6 +46,7 @@ namespace PresentationLayer.PeopleFormsAndControls
             {
                 cbCountry.Items.Add(row["CountryName"]);
             }
+            cbCountry.SelectedIndex = 0;
         }
         private void _FillPersonInfoInForm()
         {
@@ -56,13 +63,12 @@ namespace PresentationLayer.PeopleFormsAndControls
             dtpBirthDate.Value = person.BirthDate;
             tbPhone.Text = person.Phone;
             tbAddress.Text = person.Address;
-            cbCountry.SelectedIndex = cbCountry.FindString(person.Country);
+            cbCountry.SelectedIndex = person.CountryID - 1; //////
 
             if (person.Gender == 0)
                 rbMale.Checked = true;
             else
                 rbFemale.Checked = true;
-
 
             if (!string.IsNullOrEmpty(person.ImagePath))
             {
@@ -78,13 +84,13 @@ namespace PresentationLayer.PeopleFormsAndControls
             person.NationalID = tbNationalNumber.Text;
             person.FirstName = tbFirstName.Text;
             person.SecondName = tbSecondName.Text;
-            person.ThirdName = tbThirdName.Text;
+            person.ThirdName = string.IsNullOrEmpty(tbThirdName.Text) ? "" : tbThirdName.Text;
             person.LastName = tbLastName.Text;
             person.Email = tbEmail.Text;
             person.BirthDate = dtpBirthDate.Value;
             person.Phone = tbPhone.Text;
             person.Address = tbAddress.Text;
-            person.Country = cbCountry.SelectedItem.ToString();
+            person.CountryID = cbCountry.SelectedIndex + 1;
             person.Gender = rbMale.Checked ? (byte)0 : (byte)1;
 
             if (btnRemoveImage.Visible == false)// set default if pic not added
@@ -93,8 +99,16 @@ namespace PresentationLayer.PeopleFormsAndControls
                 person.ImagePath = rbMale.Checked ? _defaultMalePic : _defaultFemalePic;
             }
                   
-            // saving process...
-
+            if (person.Save())
+            {
+                MessageBox.Show($"Data Saved Successfully, PersonID {person.PersonID}","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                lblPersonID.Text = person.PersonID.ToString();
+                lblFormTitle.Text = $"Edit person with ID = {person.PersonID}";
+            }
+            else
+            {
+                MessageBox.Show("Data Was Not Saved!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 

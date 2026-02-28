@@ -13,7 +13,6 @@ namespace PresentationLayer.PeopleFormsAndControls
 {
     public partial class ctrlPersonInfo : UserControl
     {
-        // control property exposed to be filled by form
         enum enGender { Male = 0, Female = 1 };
         public ctrlPersonInfo()
         {
@@ -26,7 +25,7 @@ namespace PresentationLayer.PeopleFormsAndControls
             lblName.Text = Person.FirstName + " " + Person.SecondName + " " + Person.ThirdName + " " + Person.LastName;
             lblPersonID.Text = Person.PersonID.ToString();
             lblNationalID.Text = Person.NationalID.ToString();
-            lblCountry.Text = Person.Country;
+            lblCountry.Text = clsCountriesBusiness.GetCountryNameByID(Person.CountryID);
             lblEmail.Text = Person.Email;
             lblBirthDate.Text = Person.BirthDate.ToShortDateString();
             lblAddress.Text = Person.Address;

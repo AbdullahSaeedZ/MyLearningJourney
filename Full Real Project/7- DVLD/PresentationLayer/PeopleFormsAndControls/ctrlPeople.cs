@@ -41,15 +41,14 @@ namespace PresentationLayer.PeopleFormsAndControls
             dgvPeople.Columns["Gender"].Visible = false;
             lblNumberOfRecords.Text = dgvPeople.RowCount.ToString();
         }
-
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
             delUpdateBreadcrumb(sender,new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Add"});
             frmAddEditPerson addPersonForm = new frmAddEditPerson(-1);
             addPersonForm.ShowDialog();
             delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Remove" });
+            RefreshDataGridView();
         }
-
         private void _EditPerson()
         {
             delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Add" });
@@ -57,15 +56,29 @@ namespace PresentationLayer.PeopleFormsAndControls
             addPersonForm.ShowDialog();
             delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Remove" });
         }
-
+        private void _DeletePerson(int PersonID)
+        {
+            if (MessageBox.Show($"Are you sure to delete person wIth ID{PersonID}?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop) == DialogResult.OK)
+            {
+                if (clsPeopleBusiness.DeletePerson(PersonID))
+                {
+                    MessageBox.Show($"Person with ID {PersonID} was successfully deleted.", "Success", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show($"Person with ID{PersonID} CAN NOT be deleted due to linked data to be deleted first.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
         private void AllToolStripMenuHandler_Click(object sender, EventArgs e)
         {
             ToolStripItem toolStripItem = (ToolStripItem)sender;
+            int PersonID = (int)dgvPeople.SelectedCells[0].Value;
 
             switch (toolStripItem.Text)
             {
                 case "Show Details":
-                    frmPersonInfo personInfo = new frmPersonInfo((int)dgvPeople.SelectedCells[0].Value);
+                    frmPersonInfo personInfo = new frmPersonInfo(PersonID);
                     personInfo.ShowDialog();
                     break;
 
@@ -78,22 +91,22 @@ namespace PresentationLayer.PeopleFormsAndControls
                     break;
 
                 case "Delete":
-
+                    _DeletePerson(PersonID);
                     break;
                 default:
-                    frmPersonInfo d = new frmPersonInfo(Convert.ToInt32(dgvPeople.SelectedCells[0].Value));
-                    d.ShowDialog();
+                    MessageBox.Show("No option chosen from toolstrip");
                     break;
             }
+            RefreshDataGridView();
         }
+
+
 
         private void dgvPeople_DoubleClick(object sender, EventArgs e)
         {
             frmPersonInfo personInfo = new frmPersonInfo(Convert.ToInt32(dgvPeople.SelectedCells[0].Value));
             personInfo.ShowDialog();
         }
-
-
 
         // search people by..
         private void cbSearchBy_SelectedIndexChanged(object sender, EventArgs e)

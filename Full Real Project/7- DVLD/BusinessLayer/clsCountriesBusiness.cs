@@ -10,5 +10,11 @@ namespace BusinessLayer
         {
             return clsCountriesDataAccess.GetAllCountries();
         }
+        
+        public static string GetCountryNameByID(int CountryID)
+        {
+            return clsCountriesDataAccess.GetCountryNameByID(CountryID);
+        }
+
     }
 }
