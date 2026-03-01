@@ -1,11 +1,12 @@
 ﻿using BusinessLayer;
 using Guna.UI2.WinForms;
 using System;
-using System.Data;
-using System.Drawing;
-using System.Windows.Forms;
 using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace PresentationLayer.PeopleFormsAndControls
 {
@@ -16,7 +17,8 @@ namespace PresentationLayer.PeopleFormsAndControls
         private const string _defaultFemalePic = @"D:\defaultFemaleProfile.png";
         private const string _defaultComboBoxCountry = "Saudi Arabia";
         private DateTime _defaultMaxAllowedAge = DateTime.Now.AddYears(-18);
-
+        private bool _isEmailValid = false, _isNationalIDValid = false;
+   
 
         public frmAddEditPerson(int personID)
         {
@@ -83,20 +85,20 @@ namespace PresentationLayer.PeopleFormsAndControls
             }
         }
 
-        private bool AreAllFieldsFilled()
+        private bool AreAllFieldsFilledAndValidated()
         {
             if (string.IsNullOrWhiteSpace(tbFirstName.Text) || string.IsNullOrWhiteSpace(tbSecondName.Text) || string.IsNullOrWhiteSpace(tbLastName.Text) ||
                 string.IsNullOrWhiteSpace(tbAddress.Text) || string.IsNullOrWhiteSpace(tbPhone.Text) || string.IsNullOrWhiteSpace(tbNationalNumber.Text) ||
-                !(rbMale.Checked || rbFemale.Checked))
+                !_isEmailValid || !_isNationalIDValid)
                 return false;
             else
                 return true;
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!AreAllFieldsFilled())
+            if (!AreAllFieldsFilledAndValidated())
             {
-                MessageBox.Show("Fields with * must be filled first", "Missing Fields", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Fields with * must be filled with valid data and not empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
 
@@ -129,6 +131,7 @@ namespace PresentationLayer.PeopleFormsAndControls
                 MessageBox.Show("Data Was Not Saved!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -172,33 +175,34 @@ namespace PresentationLayer.PeopleFormsAndControls
         }
 
 
-        // errorsProvider validation
+
+        // textBoxes error Validation
         private void tbNationalNumber_Validating(object sender, CancelEventArgs e)
         {
+            // if not empty, go to next validation
             if (string.IsNullOrWhiteSpace(((Guna2TextBox)sender).Text))
             {
-                errorProvider1.SetError((Guna2TextBox)sender, "This field is required");
+                tbNationalNumber.BorderColor = Color.Red;
+                _isNationalIDValid = false; // to flag the save button
                 return;
             }
             else
-                errorProvider1.SetError((Guna2TextBox)sender, "");
+                tbNationalNumber.BorderColor = Color.Silver;
 
-
+            // if ID is used 
             if (clsPeopleBusiness.DoesExist(tbNationalNumber.Text, "NationalNo"))
-                errorProvider1.SetError(tbNationalNumber, "Person Exists with this NationalNo");
+            {
+                tbNationalNumber.BorderColor = Color.Red;
+                lblIDExistsError.Visible = true;
+                _isNationalIDValid = false;
+            }
             else
-                errorProvider1.SetError(tbNationalNumber, "");
+            {
+                tbNationalNumber.BorderColor = Color.Silver;
+                lblIDExistsError.Visible = false;
+                _isNationalIDValid = true;
+            }
         }
-
-        // multiple textBoxes subscribed to this event
-        private void EmptyTextBox_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(((Guna2TextBox)sender).Text))
-                errorProvider1.SetError((Guna2TextBox)sender, "This field is required");
-            else
-                errorProvider1.SetError((Guna2TextBox)sender, "");
-        }
-
 
         // not required, but if email entered, needs validation
         private void tbEmail_Validating(object sender, CancelEventArgs e)
@@ -207,9 +211,34 @@ namespace PresentationLayer.PeopleFormsAndControls
             bool isFormatValid = Regex.IsMatch(Email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$",RegexOptions.IgnoreCase); //RegularExpressions same as Java
 
             if (!string.IsNullOrWhiteSpace(tbEmail.Text) && !isFormatValid)
-                errorProvider1.SetError((Guna2TextBox)sender, "Invalid Email Format");
+            {
+                tbEmail.BorderColor = Color.Red;
+                lblEmailFormatError.Visible = true;
+                _isEmailValid = false; // to flag the save button
+            }
             else
-                errorProvider1.SetError((Guna2TextBox)sender, "");
+            {
+                tbEmail.BorderColor = Color.Silver;
+                lblEmailFormatError.Visible = false;
+                _isEmailValid = true;
+            }    
+        }
+
+        // multiple textBoxes subscribed to this event
+        private void EmptyTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(((Guna2TextBox)sender).Text))
+                ((Guna2TextBox)sender).BorderColor = Color.Red;
+            else
+                ((Guna2TextBox)sender).BorderColor = Color.Silver;
+        }
+
+        private void tbPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)// prevent non digit and backspace
+            {
+                e.Handled = true; // will make the event handled which will prevent any input in text box
+            }
         }
     }
 }

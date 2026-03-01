@@ -52,6 +52,7 @@
             this.btnDrivers = new Guna.UI2.WinForms.Guna2Button();
             this.btnApplications = new Guna.UI2.WinForms.Guna2Button();
             this.pbProfilePic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.pnlTopBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).BeginInit();
             this.pnlSideBar.SuspendLayout();
@@ -475,5 +476,6 @@
         private Guna.UI2.WinForms.Guna2Panel pnlTopBar;
         private Guna.UI2.WinForms.Guna2Panel pnlSideBar;
         private Guna.UI2.WinForms.Guna2CirclePictureBox pbBreadcrumb;
+        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
     }
 }

@@ -29,10 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddEditPerson));
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.rbFemale = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.rbMale = new Guna.UI2.WinForms.Guna2CustomRadioButton();
@@ -43,7 +40,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.lblEmailFormatError = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.lblIDExistsError = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -67,18 +66,13 @@
             this.btnRemoveImage = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddImage = new Guna.UI2.WinForms.Guna2Button();
             this.pbImage = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 20;
-            this.guna2Elipse1.TargetControl = this;
             // 
             // ControlBoxClose
             // 
@@ -109,7 +103,9 @@
             this.guna2Panel1.Controls.Add(this.label11);
             this.guna2Panel1.Controls.Add(this.label12);
             this.guna2Panel1.Controls.Add(this.label5);
+            this.guna2Panel1.Controls.Add(this.lblEmailFormatError);
             this.guna2Panel1.Controls.Add(this.label9);
+            this.guna2Panel1.Controls.Add(this.lblIDExistsError);
             this.guna2Panel1.Controls.Add(this.label8);
             this.guna2Panel1.Controls.Add(this.label4);
             this.guna2Panel1.Controls.Add(this.label3);
@@ -181,6 +177,7 @@
             // 
             this.cbCountry.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbCountry.BackColor = System.Drawing.Color.Transparent;
+            this.cbCountry.BorderColor = System.Drawing.Color.Silver;
             this.cbCountry.BorderRadius = 10;
             this.cbCountry.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -202,7 +199,7 @@
             // dtpBirthDate
             // 
             this.dtpBirthDate.BackColor = System.Drawing.Color.Transparent;
-            this.dtpBirthDate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+            this.dtpBirthDate.BorderColor = System.Drawing.Color.Silver;
             this.dtpBirthDate.BorderRadius = 10;
             this.dtpBirthDate.BorderThickness = 1;
             this.dtpBirthDate.CheckedState.Parent = this.dtpBirthDate;
@@ -280,6 +277,19 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Phone *";
             // 
+            // lblEmailFormatError
+            // 
+            this.lblEmailFormatError.AutoSize = true;
+            this.lblEmailFormatError.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmailFormatError.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lblEmailFormatError.ForeColor = System.Drawing.Color.Red;
+            this.lblEmailFormatError.Location = new System.Drawing.Point(134, 337);
+            this.lblEmailFormatError.Name = "lblEmailFormatError";
+            this.lblEmailFormatError.Size = new System.Drawing.Size(83, 14);
+            this.lblEmailFormatError.TabIndex = 10;
+            this.lblEmailFormatError.Text = "Invalid Format";
+            this.lblEmailFormatError.Visible = false;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -291,6 +301,19 @@
             this.label9.Size = new System.Drawing.Size(110, 18);
             this.label9.TabIndex = 10;
             this.label9.Text = "Email (Optional)";
+            // 
+            // lblIDExistsError
+            // 
+            this.lblIDExistsError.AutoSize = true;
+            this.lblIDExistsError.BackColor = System.Drawing.Color.Transparent;
+            this.lblIDExistsError.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.lblIDExistsError.ForeColor = System.Drawing.Color.Red;
+            this.lblIDExistsError.Location = new System.Drawing.Point(118, 269);
+            this.lblIDExistsError.Name = "lblIDExistsError";
+            this.lblIDExistsError.Size = new System.Drawing.Size(53, 14);
+            this.lblIDExistsError.TabIndex = 10;
+            this.lblIDExistsError.Text = "ID Exists";
+            this.lblIDExistsError.Visible = false;
             // 
             // label8
             // 
@@ -403,6 +426,7 @@
             // tbAddress
             // 
             this.tbAddress.BackColor = System.Drawing.Color.Transparent;
+            this.tbAddress.BorderColor = System.Drawing.Color.Silver;
             this.tbAddress.BorderRadius = 10;
             this.tbAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbAddress.DefaultText = "";
@@ -432,6 +456,7 @@
             // tbSecondName
             // 
             this.tbSecondName.BackColor = System.Drawing.Color.Transparent;
+            this.tbSecondName.BorderColor = System.Drawing.Color.Silver;
             this.tbSecondName.BorderRadius = 10;
             this.tbSecondName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbSecondName.DefaultText = "";
@@ -460,6 +485,7 @@
             // tbPhone
             // 
             this.tbPhone.BackColor = System.Drawing.Color.Transparent;
+            this.tbPhone.BorderColor = System.Drawing.Color.Silver;
             this.tbPhone.BorderRadius = 10;
             this.tbPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbPhone.DefaultText = "";
@@ -484,11 +510,13 @@
             this.tbPhone.ShadowDecoration.Parent = this.tbPhone;
             this.tbPhone.Size = new System.Drawing.Size(282, 37);
             this.tbPhone.TabIndex = 9;
+            this.tbPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
             this.tbPhone.Validating += new System.ComponentModel.CancelEventHandler(this.EmptyTextBox_Validating);
             // 
             // tbEmail
             // 
             this.tbEmail.BackColor = System.Drawing.Color.Transparent;
+            this.tbEmail.BorderColor = System.Drawing.Color.Silver;
             this.tbEmail.BorderRadius = 10;
             this.tbEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbEmail.DefaultText = "";
@@ -517,6 +545,7 @@
             // tbNationalNumber
             // 
             this.tbNationalNumber.BackColor = System.Drawing.Color.Transparent;
+            this.tbNationalNumber.BorderColor = System.Drawing.Color.Silver;
             this.tbNationalNumber.BorderRadius = 10;
             this.tbNationalNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbNationalNumber.DefaultText = "";
@@ -545,6 +574,7 @@
             // tbLastName
             // 
             this.tbLastName.BackColor = System.Drawing.Color.Transparent;
+            this.tbLastName.BorderColor = System.Drawing.Color.Silver;
             this.tbLastName.BorderRadius = 10;
             this.tbLastName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbLastName.DefaultText = "";
@@ -573,6 +603,7 @@
             // tbThirdName
             // 
             this.tbThirdName.BackColor = System.Drawing.Color.Transparent;
+            this.tbThirdName.BorderColor = System.Drawing.Color.Silver;
             this.tbThirdName.BorderRadius = 10;
             this.tbThirdName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbThirdName.DefaultText = "";
@@ -600,6 +631,7 @@
             // tbFirstName
             // 
             this.tbFirstName.BackColor = System.Drawing.Color.Transparent;
+            this.tbFirstName.BorderColor = System.Drawing.Color.Silver;
             this.tbFirstName.BorderRadius = 10;
             this.tbFirstName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbFirstName.DefaultText = "";
@@ -754,14 +786,14 @@
             this.pbImage.TabIndex = 0;
             this.pbImage.TabStop = false;
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 20;
+            this.guna2Elipse1.TargetControl = this;
             // 
             // frmAddEditPerson
             // 
@@ -779,16 +811,12 @@
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2ControlBox ControlBoxClose;
-        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2CirclePictureBox pbImage;
@@ -817,7 +845,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private Guna.UI2.WinForms.Guna2TextBox tbAddress;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
         private Guna.UI2.WinForms.Guna2CustomRadioButton rbFemale;
         private Guna.UI2.WinForms.Guna2CustomRadioButton rbMale;
         private System.Windows.Forms.Label lblFemaleRb;
@@ -825,5 +852,9 @@
         private System.Windows.Forms.Label label5;
         private Guna.UI2.WinForms.Guna2TextBox tbPhone;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
+        private System.Windows.Forms.Label lblEmailFormatError;
+        private System.Windows.Forms.Label lblIDExistsError;
     }
 }

@@ -24,6 +24,7 @@ namespace PresentationLayer.MainForm
 
             // to start app with overview
             MainOptionsButtonHandler_Click(btnOverview, EventArgs.Empty);
+            guna2ShadowForm1.SetShadowForm(this);
         }
 
         private void MainOptionsButtonHandler_Click(object sender, EventArgs e)
