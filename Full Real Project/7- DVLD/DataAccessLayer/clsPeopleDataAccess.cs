@@ -211,7 +211,10 @@ namespace DataAccessLayer
             return dt;
         }
 
-        public static bool DoesExist(int ID, string filter)
+        /// <summary>
+        /// filter = PersonID or NationalNo 
+        /// </summary>
+        public static bool DoesExist(string ID, string filter) 
         {
             bool isFound = false;
 

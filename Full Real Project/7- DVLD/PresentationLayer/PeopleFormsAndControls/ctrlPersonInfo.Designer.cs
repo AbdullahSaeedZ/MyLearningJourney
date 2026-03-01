@@ -42,7 +42,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblPersonID = new System.Windows.Forms.Label();
-            this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
+            this.btnEditInfo = new Guna.UI2.WinForms.Guna2Button();
             this.lblName = new System.Windows.Forms.Label();
             this.lblNationalID = new System.Windows.Forms.Label();
             this.lblGender = new System.Windows.Forms.Label();
@@ -203,29 +203,30 @@
             this.lblPersonID.TabIndex = 10;
             this.lblPersonID.Text = "NA";
             // 
-            // btnCancel
+            // btnEditInfo
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancel.BorderColor = System.Drawing.Color.DimGray;
-            this.btnCancel.BorderRadius = 10;
-            this.btnCancel.BorderThickness = 1;
-            this.btnCancel.CheckedState.Parent = this.btnCancel;
-            this.btnCancel.CustomImages.Parent = this.btnCancel;
-            this.btnCancel.FillColor = System.Drawing.Color.Transparent;
-            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnCancel.ForeColor = System.Drawing.Color.DimGray;
-            this.btnCancel.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.btnCancel.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancel.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.HoverState.Parent = this.btnCancel;
-            this.btnCancel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCancel.Location = new System.Drawing.Point(690, 288);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.ShadowDecoration.Parent = this.btnCancel;
-            this.btnCancel.Size = new System.Drawing.Size(136, 37);
-            this.btnCancel.TabIndex = 8;
-            this.btnCancel.Text = "Edit Info";
+            this.btnEditInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEditInfo.BackColor = System.Drawing.Color.Transparent;
+            this.btnEditInfo.BorderColor = System.Drawing.Color.DimGray;
+            this.btnEditInfo.BorderRadius = 10;
+            this.btnEditInfo.BorderThickness = 1;
+            this.btnEditInfo.CheckedState.Parent = this.btnEditInfo;
+            this.btnEditInfo.CustomImages.Parent = this.btnEditInfo;
+            this.btnEditInfo.FillColor = System.Drawing.Color.Transparent;
+            this.btnEditInfo.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnEditInfo.ForeColor = System.Drawing.Color.DimGray;
+            this.btnEditInfo.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.btnEditInfo.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnEditInfo.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnEditInfo.HoverState.Parent = this.btnEditInfo;
+            this.btnEditInfo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnEditInfo.Location = new System.Drawing.Point(690, 288);
+            this.btnEditInfo.Name = "btnEditInfo";
+            this.btnEditInfo.ShadowDecoration.Parent = this.btnEditInfo;
+            this.btnEditInfo.Size = new System.Drawing.Size(136, 37);
+            this.btnEditInfo.TabIndex = 8;
+            this.btnEditInfo.Text = "Edit Info";
+            this.btnEditInfo.Click += new System.EventHandler(this.btnEditInfo_Click);
             // 
             // lblName
             // 
@@ -348,7 +349,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblFormTitle);
-            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnEditInfo);
             this.Name = "ctrlPersonInfo";
             this.Size = new System.Drawing.Size(844, 337);
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).EndInit();
@@ -380,6 +381,6 @@
         private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblGender;
-        private Guna.UI2.WinForms.Guna2Button btnCancel;
+        private Guna.UI2.WinForms.Guna2Button btnEditInfo;
     }
 }

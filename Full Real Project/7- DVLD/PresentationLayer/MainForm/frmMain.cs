@@ -113,7 +113,7 @@ namespace PresentationLayer.MainForm
         {
             if (int.TryParse(tbQuickSearch.Text , out int ID))
             {
-                if (clsPeopleBusiness.DoesExist(ID, "PersonID"))
+                if (clsPeopleBusiness.DoesExist(ID.ToString(), "PersonID"))
                 {
                     frmPersonInfo Info = new frmPersonInfo(ID);
                     Info.ShowDialog();
@@ -131,7 +131,6 @@ namespace PresentationLayer.MainForm
         }
         private void tbQuickSearch_KeyDown(object sender, KeyEventArgs e)
         {
-
             if (e.KeyCode == Keys.Enter)
             {
                 lblQuickSearch_Click(sender, EventArgs.Empty);

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddEditPerson));
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
@@ -426,6 +427,7 @@
             this.tbAddress.ShadowDecoration.Parent = this.tbAddress;
             this.tbAddress.Size = new System.Drawing.Size(586, 83);
             this.tbAddress.TabIndex = 9;
+            this.tbAddress.Validating += new System.ComponentModel.CancelEventHandler(this.EmptyTextBox_Validating);
             // 
             // tbSecondName
             // 
@@ -453,6 +455,7 @@
             this.tbSecondName.ShadowDecoration.Parent = this.tbSecondName;
             this.tbSecondName.Size = new System.Drawing.Size(282, 37);
             this.tbSecondName.TabIndex = 9;
+            this.tbSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.EmptyTextBox_Validating);
             // 
             // tbPhone
             // 
@@ -481,6 +484,7 @@
             this.tbPhone.ShadowDecoration.Parent = this.tbPhone;
             this.tbPhone.Size = new System.Drawing.Size(282, 37);
             this.tbPhone.TabIndex = 9;
+            this.tbPhone.Validating += new System.ComponentModel.CancelEventHandler(this.EmptyTextBox_Validating);
             // 
             // tbEmail
             // 
@@ -508,6 +512,7 @@
             this.tbEmail.ShadowDecoration.Parent = this.tbEmail;
             this.tbEmail.Size = new System.Drawing.Size(282, 37);
             this.tbEmail.TabIndex = 9;
+            this.tbEmail.Validating += new System.ComponentModel.CancelEventHandler(this.tbEmail_Validating);
             // 
             // tbNationalNumber
             // 
@@ -535,6 +540,7 @@
             this.tbNationalNumber.ShadowDecoration.Parent = this.tbNationalNumber;
             this.tbNationalNumber.Size = new System.Drawing.Size(282, 37);
             this.tbNationalNumber.TabIndex = 9;
+            this.tbNationalNumber.Validating += new System.ComponentModel.CancelEventHandler(this.tbNationalNumber_Validating);
             // 
             // tbLastName
             // 
@@ -562,6 +568,7 @@
             this.tbLastName.ShadowDecoration.Parent = this.tbLastName;
             this.tbLastName.Size = new System.Drawing.Size(282, 37);
             this.tbLastName.TabIndex = 9;
+            this.tbLastName.Validating += new System.ComponentModel.CancelEventHandler(this.EmptyTextBox_Validating);
             // 
             // tbThirdName
             // 
@@ -615,7 +622,8 @@
             this.tbFirstName.SelectedText = "";
             this.tbFirstName.ShadowDecoration.Parent = this.tbFirstName;
             this.tbFirstName.Size = new System.Drawing.Size(282, 37);
-            this.tbFirstName.TabIndex = 9;
+            this.tbFirstName.TabIndex = 0;
+            this.tbFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.EmptyTextBox_Validating);
             // 
             // btnCancel
             // 
@@ -749,6 +757,7 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider1.Icon")));
             // 
             // openFileDialog1
             // 

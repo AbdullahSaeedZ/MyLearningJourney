@@ -27,7 +27,6 @@ namespace PresentationLayer.PeopleFormsAndControls
             RefreshDataGridView();
         }
 
-
         private void RefreshDataGridView()
         {
             dt = clsPeopleBusiness.GetAllPeople();
@@ -56,12 +55,21 @@ namespace PresentationLayer.PeopleFormsAndControls
             delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Remove" });
             RefreshDataGridView();
         }
+
+
         private void _EditPerson()
         {
             delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Add" });
             frmAddEditPerson addPersonForm = new frmAddEditPerson((int)dgvPeople.SelectedCells[0].Value);
             addPersonForm.ShowDialog();
             delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Remove" });
+        }
+        private void ShowDetails(int PersonID)
+        {
+            delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Add" });
+            frmPersonInfo personInfo = new frmPersonInfo(PersonID);
+            personInfo.ShowDialog();
+            delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Remove" });
         }
         private void _DeletePerson(int PersonID)
         {
@@ -85,8 +93,7 @@ namespace PresentationLayer.PeopleFormsAndControls
             switch (toolStripItem.Text)
             {
                 case "Show Details":
-                    frmPersonInfo personInfo = new frmPersonInfo(PersonID);
-                    personInfo.ShowDialog();
+                    ShowDetails(PersonID);
                     break;
 
                 case "Add New Person":
@@ -106,13 +113,12 @@ namespace PresentationLayer.PeopleFormsAndControls
             }
             RefreshDataGridView();
         }
-
-
-
         private void dgvPeople_DoubleClick(object sender, EventArgs e)
         {
-            frmPersonInfo personInfo = new frmPersonInfo(Convert.ToInt32(dgvPeople.SelectedCells[0].Value));
+            delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Add" });
+            frmPersonInfo personInfo = new frmPersonInfo((int)dgvPeople.SelectedCells[0].Value);
             personInfo.ShowDialog();
+            delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Remove" });
         }
 
 
@@ -278,15 +284,13 @@ namespace PresentationLayer.PeopleFormsAndControls
 
             DataView view = dt.DefaultView;
             string value = tbSearchPerson.Text;
+            view.RowFilter = $"Convert({_searchFilter}, 'System.String') LIKE '{value}%'"; 
+            dgvPeople.DataSource = view;
 
             // filtering expression uses DataColumn Expression Language
             // it takes column names from dataTable that took them from Database, not names in dgv
-            //since like is for strings only, we cast column type from int to string using this method from DT special language
-                view.RowFilter = $"Convert({_searchFilter}, 'System.String') LIKE '{value}%'"; 
-
-            dgvPeople.DataSource = view;
+            //since like is for strings only and we might get int column, we cast column type to string using this method from DT special language
         }
-
         private void tbSearchPerson_TextChanged(object sender, EventArgs e)
         {
             _FindSearchResult();

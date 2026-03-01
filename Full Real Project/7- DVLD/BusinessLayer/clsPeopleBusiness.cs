@@ -134,7 +134,10 @@ namespace BusinessLayer
             return clsPeopleDataAccess.GetAllPeople();
         }
 
-        public static bool DoesExist(int ID, string Filter )
+        /// <summary>
+        /// filter = PersonID or NationalNo 
+        /// </summary>
+        public static bool DoesExist(string ID, string Filter ) 
         {
             return clsPeopleDataAccess.DoesExist(ID, Filter);
         }

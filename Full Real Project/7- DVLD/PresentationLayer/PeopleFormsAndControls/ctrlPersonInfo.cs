@@ -14,6 +14,7 @@ namespace PresentationLayer.PeopleFormsAndControls
     public partial class ctrlPersonInfo : UserControl
     {
         enum enGender { Male = 0, Female = 1 };
+        private int _personID;
         public ctrlPersonInfo()
         {
             InitializeComponent();
@@ -21,6 +22,7 @@ namespace PresentationLayer.PeopleFormsAndControls
 
         public void LoadInfo(int personID)
         {
+            _personID = personID;
             clsPeopleBusiness Person = clsPeopleBusiness.FindPerson(personID.ToString(), "PersonID");
             lblName.Text = Person.FirstName + " " + Person.SecondName + " " + Person.ThirdName + " " + Person.LastName;
             lblPersonID.Text = Person.PersonID.ToString();
@@ -34,6 +36,11 @@ namespace PresentationLayer.PeopleFormsAndControls
 
             pbProfilePic.Image = Person.ImagePath == string.Empty ? Properties.Resources.ProfileTest : Image.FromFile(Person.ImagePath);
         }
-        
+
+        private void btnEditInfo_Click(object sender, EventArgs e)
+        {
+            frmAddEditPerson editPerson = new frmAddEditPerson(_personID);
+            editPerson.ShowDialog();
+        }
     }
 }
