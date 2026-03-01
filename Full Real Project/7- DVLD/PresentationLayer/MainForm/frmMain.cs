@@ -89,7 +89,7 @@ namespace PresentationLayer.MainForm
             }
 
             // to highlight selected color
-            selectedButten.FillColor = Color.WhiteSmoke;
+            selectedButten.FillColor = Color.White;
             selectedButten.Image = selectedButten.HoverState.Image;
             selectedButten.ForeColor = Color.Black;
 
