@@ -44,7 +44,6 @@
             this.pnlControlsContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.pnlSideBar = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
             this.btnPeople = new Guna.UI2.WinForms.Guna2Button();
             this.btnUsers = new Guna.UI2.WinForms.Guna2Button();
@@ -56,7 +55,6 @@
             this.pnlTopBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).BeginInit();
             this.pnlSideBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +77,6 @@
             this.pnlTopBar.Controls.Add(this.ControlBoxClose);
             this.pnlTopBar.Controls.Add(this.pbBreadcrumb);
             this.pnlTopBar.CustomBorderColor = System.Drawing.Color.Silver;
-            this.pnlTopBar.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.pnlTopBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTopBar.Location = new System.Drawing.Point(267, 0);
             this.pnlTopBar.Name = "pnlTopBar";
@@ -215,6 +212,8 @@
             // 
             // pnlControlsContainer
             // 
+            this.pnlControlsContainer.BackColor = System.Drawing.Color.White;
+            this.pnlControlsContainer.BorderRadius = 20;
             this.pnlControlsContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlControlsContainer.Location = new System.Drawing.Point(267, 59);
             this.pnlControlsContainer.Name = "pnlControlsContainer";
@@ -232,8 +231,7 @@
             // 
             // pnlSideBar
             // 
-            this.pnlSideBar.BackColor = System.Drawing.Color.White;
-            this.pnlSideBar.Controls.Add(this.guna2PictureBox1);
+            this.pnlSideBar.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlSideBar.Controls.Add(this.guna2Separator1);
             this.pnlSideBar.Controls.Add(this.btnOverview);
             this.pnlSideBar.Controls.Add(this.btnPeople);
@@ -251,20 +249,6 @@
             this.pnlSideBar.Size = new System.Drawing.Size(267, 953);
             this.pnlSideBar.TabIndex = 6;
             // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox1.BackgroundImage = global::PresentationLayer.Properties.Resources.logoSmall;
-            this.guna2PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.guna2PictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(267, 187);
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.UseTransparentBackground = true;
-            // 
             // btnOverview
             // 
             this.btnOverview.BorderRadius = 10;
@@ -273,8 +257,8 @@
             this.btnOverview.FillColor = System.Drawing.Color.Transparent;
             this.btnOverview.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnOverview.ForeColor = System.Drawing.Color.DimGray;
-            this.btnOverview.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnOverview.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnOverview.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnOverview.HoverState.FillColor = System.Drawing.Color.White;
             this.btnOverview.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnOverview.HoverState.Image = global::PresentationLayer.Properties.Resources.overviewFillThin;
             this.btnOverview.HoverState.Parent = this.btnOverview;
@@ -298,8 +282,8 @@
             this.btnPeople.FillColor = System.Drawing.Color.Transparent;
             this.btnPeople.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnPeople.ForeColor = System.Drawing.Color.DimGray;
-            this.btnPeople.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPeople.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPeople.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnPeople.HoverState.FillColor = System.Drawing.Color.White;
             this.btnPeople.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnPeople.HoverState.Image = global::PresentationLayer.Properties.Resources.peopleFillThin;
             this.btnPeople.HoverState.Parent = this.btnPeople;
@@ -323,8 +307,8 @@
             this.btnUsers.FillColor = System.Drawing.Color.Transparent;
             this.btnUsers.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnUsers.ForeColor = System.Drawing.Color.DimGray;
-            this.btnUsers.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnUsers.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnUsers.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnUsers.HoverState.FillColor = System.Drawing.Color.White;
             this.btnUsers.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnUsers.HoverState.Image = global::PresentationLayer.Properties.Resources.UsersFillThin;
             this.btnUsers.HoverState.Parent = this.btnUsers;
@@ -349,9 +333,9 @@
             this.btnSettings.FillColor = System.Drawing.Color.Transparent;
             this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSettings.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSettings.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnSettings.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnSettings.HoverState.FillColor = System.Drawing.Color.White;
+            this.btnSettings.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnSettings.HoverState.Image = global::PresentationLayer.Properties.Resources.settingsFill;
             this.btnSettings.HoverState.Parent = this.btnSettings;
             this.btnSettings.Image = global::PresentationLayer.Properties.Resources.settingNoFill;
@@ -372,8 +356,8 @@
             this.btnDrivers.FillColor = System.Drawing.Color.Transparent;
             this.btnDrivers.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnDrivers.ForeColor = System.Drawing.Color.DimGray;
-            this.btnDrivers.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDrivers.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDrivers.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnDrivers.HoverState.FillColor = System.Drawing.Color.White;
             this.btnDrivers.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnDrivers.HoverState.Image = global::PresentationLayer.Properties.Resources.DriverFillThin;
             this.btnDrivers.HoverState.Parent = this.btnDrivers;
@@ -397,8 +381,8 @@
             this.btnApplications.FillColor = System.Drawing.Color.Transparent;
             this.btnApplications.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnApplications.ForeColor = System.Drawing.Color.DimGray;
-            this.btnApplications.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnApplications.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnApplications.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnApplications.HoverState.FillColor = System.Drawing.Color.White;
             this.btnApplications.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnApplications.HoverState.Image = global::PresentationLayer.Properties.Resources.applications;
             this.btnApplications.HoverState.Parent = this.btnApplications;
@@ -445,7 +429,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).EndInit();
             this.pnlSideBar.ResumeLayout(false);
             this.pnlSideBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).EndInit();
             this.ResumeLayout(false);
 
@@ -460,7 +443,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox2;
         private Guna.UI2.WinForms.Guna2TextBox tbQuickSearch;
         private System.Windows.Forms.Label lblQuickSearch;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Button btnUsers;
         private Guna.UI2.WinForms.Guna2Button btnDrivers;
         private Guna.UI2.WinForms.Guna2Button btnPeople;
