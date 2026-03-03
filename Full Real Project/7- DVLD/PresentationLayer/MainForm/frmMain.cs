@@ -70,7 +70,7 @@ namespace PresentationLayer.MainForm
             UpdateButtons(selectedButten);
         }
 
-        private void UpdateButtons(Guna2Button selectedButten)
+        public void UpdateButtons(Guna2Button selectedButten)
         {
             // to reset unchosen buttons color and icon
             foreach (Guna2Button btn in pnlSideBar.Controls.OfType<Guna.UI2.WinForms.Guna2Button>())

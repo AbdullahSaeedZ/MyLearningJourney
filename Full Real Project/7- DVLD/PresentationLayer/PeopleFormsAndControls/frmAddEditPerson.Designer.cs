@@ -40,9 +40,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lblEmailFormatError = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.lblIDExistsError = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -68,10 +66,12 @@
             this.pbImage = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // ControlBoxClose
@@ -81,7 +81,7 @@
             this.ControlBoxClose.FillColor = System.Drawing.Color.Transparent;
             this.ControlBoxClose.HoverState.Parent = this.ControlBoxClose;
             this.ControlBoxClose.IconColor = System.Drawing.Color.Gray;
-            this.ControlBoxClose.Location = new System.Drawing.Point(591, 0);
+            this.ControlBoxClose.Location = new System.Drawing.Point(585, 3);
             this.ControlBoxClose.Name = "ControlBoxClose";
             this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
             this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
@@ -103,9 +103,7 @@
             this.guna2Panel1.Controls.Add(this.label11);
             this.guna2Panel1.Controls.Add(this.label12);
             this.guna2Panel1.Controls.Add(this.label5);
-            this.guna2Panel1.Controls.Add(this.lblEmailFormatError);
             this.guna2Panel1.Controls.Add(this.label9);
-            this.guna2Panel1.Controls.Add(this.lblIDExistsError);
             this.guna2Panel1.Controls.Add(this.label8);
             this.guna2Panel1.Controls.Add(this.label4);
             this.guna2Panel1.Controls.Add(this.label3);
@@ -145,13 +143,12 @@
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.ShadowDecoration.Parent = this.rbFemale;
             this.rbFemale.Size = new System.Drawing.Size(20, 20);
-            this.rbFemale.TabIndex = 13;
+            this.rbFemale.TabIndex = 10;
             this.rbFemale.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rbFemale.UncheckedState.BorderThickness = 2;
             this.rbFemale.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rbFemale.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rbFemale.UncheckedState.Parent = this.rbFemale;
-            this.rbFemale.CheckedChanged += new System.EventHandler(this.rbFemale_CheckedChanged);
             // 
             // rbMale
             // 
@@ -165,7 +162,7 @@
             this.rbMale.Name = "rbMale";
             this.rbMale.ShadowDecoration.Parent = this.rbMale;
             this.rbMale.Size = new System.Drawing.Size(20, 20);
-            this.rbMale.TabIndex = 13;
+            this.rbMale.TabIndex = 9;
             this.rbMale.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rbMale.UncheckedState.BorderThickness = 2;
             this.rbMale.UncheckedState.FillColor = System.Drawing.Color.Transparent;
@@ -194,7 +191,7 @@
             this.cbCountry.Name = "cbCountry";
             this.cbCountry.ShadowDecoration.Parent = this.cbCountry;
             this.cbCountry.Size = new System.Drawing.Size(282, 36);
-            this.cbCountry.TabIndex = 12;
+            this.cbCountry.TabIndex = 7;
             // 
             // dtpBirthDate
             // 
@@ -214,7 +211,7 @@
             this.dtpBirthDate.Name = "dtpBirthDate";
             this.dtpBirthDate.ShadowDecoration.Parent = this.dtpBirthDate;
             this.dtpBirthDate.Size = new System.Drawing.Size(282, 36);
-            this.dtpBirthDate.TabIndex = 11;
+            this.dtpBirthDate.TabIndex = 5;
             this.dtpBirthDate.Value = new System.DateTime(2026, 2, 26, 7, 25, 36, 174);
             // 
             // label6
@@ -277,19 +274,6 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Phone *";
             // 
-            // lblEmailFormatError
-            // 
-            this.lblEmailFormatError.AutoSize = true;
-            this.lblEmailFormatError.BackColor = System.Drawing.Color.Transparent;
-            this.lblEmailFormatError.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lblEmailFormatError.ForeColor = System.Drawing.Color.Red;
-            this.lblEmailFormatError.Location = new System.Drawing.Point(134, 337);
-            this.lblEmailFormatError.Name = "lblEmailFormatError";
-            this.lblEmailFormatError.Size = new System.Drawing.Size(83, 14);
-            this.lblEmailFormatError.TabIndex = 10;
-            this.lblEmailFormatError.Text = "Invalid Format";
-            this.lblEmailFormatError.Visible = false;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -301,19 +285,6 @@
             this.label9.Size = new System.Drawing.Size(110, 18);
             this.label9.TabIndex = 10;
             this.label9.Text = "Email (Optional)";
-            // 
-            // lblIDExistsError
-            // 
-            this.lblIDExistsError.AutoSize = true;
-            this.lblIDExistsError.BackColor = System.Drawing.Color.Transparent;
-            this.lblIDExistsError.Font = new System.Drawing.Font("Tahoma", 8F);
-            this.lblIDExistsError.ForeColor = System.Drawing.Color.Red;
-            this.lblIDExistsError.Location = new System.Drawing.Point(118, 269);
-            this.lblIDExistsError.Name = "lblIDExistsError";
-            this.lblIDExistsError.Size = new System.Drawing.Size(53, 14);
-            this.lblIDExistsError.TabIndex = 10;
-            this.lblIDExistsError.Text = "ID Exists";
-            this.lblIDExistsError.Visible = false;
             // 
             // label8
             // 
@@ -425,6 +396,7 @@
             // 
             // tbAddress
             // 
+            this.tbAddress.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.tbAddress.BackColor = System.Drawing.Color.Transparent;
             this.tbAddress.BorderColor = System.Drawing.Color.Silver;
             this.tbAddress.BorderRadius = 10;
@@ -450,11 +422,12 @@
             this.tbAddress.SelectedText = "";
             this.tbAddress.ShadowDecoration.Parent = this.tbAddress;
             this.tbAddress.Size = new System.Drawing.Size(586, 83);
-            this.tbAddress.TabIndex = 9;
+            this.tbAddress.TabIndex = 11;
             this.tbAddress.Validating += new System.ComponentModel.CancelEventHandler(this.EmptyTextBox_Validating);
             // 
             // tbSecondName
             // 
+            this.tbSecondName.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.tbSecondName.BackColor = System.Drawing.Color.Transparent;
             this.tbSecondName.BorderColor = System.Drawing.Color.Silver;
             this.tbSecondName.BorderRadius = 10;
@@ -479,11 +452,12 @@
             this.tbSecondName.SelectedText = "";
             this.tbSecondName.ShadowDecoration.Parent = this.tbSecondName;
             this.tbSecondName.Size = new System.Drawing.Size(282, 37);
-            this.tbSecondName.TabIndex = 9;
+            this.tbSecondName.TabIndex = 1;
             this.tbSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.EmptyTextBox_Validating);
             // 
             // tbPhone
             // 
+            this.tbPhone.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.tbPhone.BackColor = System.Drawing.Color.Transparent;
             this.tbPhone.BorderColor = System.Drawing.Color.Silver;
             this.tbPhone.BorderRadius = 10;
@@ -509,12 +483,13 @@
             this.tbPhone.SelectedText = "";
             this.tbPhone.ShadowDecoration.Parent = this.tbPhone;
             this.tbPhone.Size = new System.Drawing.Size(282, 37);
-            this.tbPhone.TabIndex = 9;
+            this.tbPhone.TabIndex = 8;
             this.tbPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
             this.tbPhone.Validating += new System.ComponentModel.CancelEventHandler(this.EmptyTextBox_Validating);
             // 
             // tbEmail
             // 
+            this.tbEmail.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.tbEmail.BackColor = System.Drawing.Color.Transparent;
             this.tbEmail.BorderColor = System.Drawing.Color.Silver;
             this.tbEmail.BorderRadius = 10;
@@ -539,11 +514,12 @@
             this.tbEmail.SelectedText = "";
             this.tbEmail.ShadowDecoration.Parent = this.tbEmail;
             this.tbEmail.Size = new System.Drawing.Size(282, 37);
-            this.tbEmail.TabIndex = 9;
+            this.tbEmail.TabIndex = 6;
             this.tbEmail.Validating += new System.ComponentModel.CancelEventHandler(this.tbEmail_Validating);
             // 
             // tbNationalNumber
             // 
+            this.tbNationalNumber.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.tbNationalNumber.BackColor = System.Drawing.Color.Transparent;
             this.tbNationalNumber.BorderColor = System.Drawing.Color.Silver;
             this.tbNationalNumber.BorderRadius = 10;
@@ -568,11 +544,12 @@
             this.tbNationalNumber.SelectedText = "";
             this.tbNationalNumber.ShadowDecoration.Parent = this.tbNationalNumber;
             this.tbNationalNumber.Size = new System.Drawing.Size(282, 37);
-            this.tbNationalNumber.TabIndex = 9;
+            this.tbNationalNumber.TabIndex = 4;
             this.tbNationalNumber.Validating += new System.ComponentModel.CancelEventHandler(this.tbNationalNumber_Validating);
             // 
             // tbLastName
             // 
+            this.tbLastName.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.tbLastName.BackColor = System.Drawing.Color.Transparent;
             this.tbLastName.BorderColor = System.Drawing.Color.Silver;
             this.tbLastName.BorderRadius = 10;
@@ -597,11 +574,12 @@
             this.tbLastName.SelectedText = "";
             this.tbLastName.ShadowDecoration.Parent = this.tbLastName;
             this.tbLastName.Size = new System.Drawing.Size(282, 37);
-            this.tbLastName.TabIndex = 9;
+            this.tbLastName.TabIndex = 3;
             this.tbLastName.Validating += new System.ComponentModel.CancelEventHandler(this.EmptyTextBox_Validating);
             // 
             // tbThirdName
             // 
+            this.tbThirdName.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.tbThirdName.BackColor = System.Drawing.Color.Transparent;
             this.tbThirdName.BorderColor = System.Drawing.Color.Silver;
             this.tbThirdName.BorderRadius = 10;
@@ -626,10 +604,11 @@
             this.tbThirdName.SelectedText = "";
             this.tbThirdName.ShadowDecoration.Parent = this.tbThirdName;
             this.tbThirdName.Size = new System.Drawing.Size(282, 37);
-            this.tbThirdName.TabIndex = 9;
+            this.tbThirdName.TabIndex = 2;
             // 
             // tbFirstName
             // 
+            this.tbFirstName.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.tbFirstName.BackColor = System.Drawing.Color.Transparent;
             this.tbFirstName.BorderColor = System.Drawing.Color.Silver;
             this.tbFirstName.BorderRadius = 10;
@@ -665,6 +644,7 @@
             this.btnCancel.BorderThickness = 1;
             this.btnCancel.CheckedState.Parent = this.btnCancel;
             this.btnCancel.CustomImages.Parent = this.btnCancel;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.FillColor = System.Drawing.Color.Transparent;
             this.btnCancel.Font = new System.Drawing.Font("Tahoma", 12F);
             this.btnCancel.ForeColor = System.Drawing.Color.DimGray;
@@ -677,7 +657,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.ShadowDecoration.Parent = this.btnCancel;
             this.btnCancel.Size = new System.Drawing.Size(200, 37);
-            this.btnCancel.TabIndex = 8;
+            this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -700,7 +680,7 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.ShadowDecoration.Parent = this.btnSave;
             this.btnSave.Size = new System.Drawing.Size(200, 37);
-            this.btnSave.TabIndex = 8;
+            this.btnSave.TabIndex = 12;
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -742,7 +722,7 @@
             this.btnRemoveImage.Name = "btnRemoveImage";
             this.btnRemoveImage.ShadowDecoration.Parent = this.btnRemoveImage;
             this.btnRemoveImage.Size = new System.Drawing.Size(200, 37);
-            this.btnRemoveImage.TabIndex = 8;
+            this.btnRemoveImage.TabIndex = 15;
             this.btnRemoveImage.Text = "Remove Image";
             this.btnRemoveImage.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnRemoveImage.Visible = false;
@@ -769,7 +749,7 @@
             this.btnAddImage.Name = "btnAddImage";
             this.btnAddImage.ShadowDecoration.Parent = this.btnAddImage;
             this.btnAddImage.Size = new System.Drawing.Size(200, 37);
-            this.btnAddImage.TabIndex = 8;
+            this.btnAddImage.TabIndex = 14;
             this.btnAddImage.Text = "Add Image";
             this.btnAddImage.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAddImage.Click += new System.EventHandler(this.btnAddImage_Click);
@@ -792,25 +772,49 @@
             // 
             // guna2Elipse1
             // 
-            this.guna2Elipse1.BorderRadius = 20;
+            this.guna2Elipse1.BorderRadius = 40;
             this.guna2Elipse1.TargetControl = this;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // guna2ShadowPanel1
+            // 
+            this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2ShadowPanel1.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2ShadowPanel1.Location = new System.Drawing.Point(0, 0);
+            this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
+            this.guna2ShadowPanel1.Radius = 10;
+            this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
+            this.guna2ShadowPanel1.ShadowDepth = 240;
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(977, 674);
+            this.guna2ShadowPanel1.TabIndex = 3;
             // 
             // frmAddEditPerson
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.CancelButton = this.btnCancel;
+            this.CausesValidation = false;
             this.ClientSize = new System.Drawing.Size(977, 674);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.guna2ShadowPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAddEditPerson";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add \\ Edit Person";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAddEditPerson_FormClosing);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -853,8 +857,7 @@
         private Guna.UI2.WinForms.Guna2TextBox tbPhone;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
-        private System.Windows.Forms.Label lblEmailFormatError;
-        private System.Windows.Forms.Label lblIDExistsError;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
     }
 }

@@ -2,12 +2,12 @@
 using Guna.UI2.WinForms;
 using PresentationLayer.DashboardControls;
 using PresentationLayer.MainForm;
+using PresentationLayer.Properties;
 using System;
 using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
 
 
 namespace PresentationLayer.PeopleFormsAndControls
@@ -30,14 +30,10 @@ namespace PresentationLayer.PeopleFormsAndControls
         private void RefreshDataGridView()
         {
             dt = clsPeopleBusiness.GetAllPeople();
-            dt.Columns.Add("Pic", typeof(byte[]));
             dt.Columns.Add("GenderString", typeof(string));
 
             foreach (DataRow row in dt.Rows)
             {
-                // replace imagePath column with new column contain pic as bits
-                row["Pic"] = File.ReadAllBytes(row["ImagePath"].ToString());
-
                 string genderType = (byte)row["Gender"] == (byte)enGender.Male ? enGender.Male.ToString() : enGender.Female.ToString();
                 row["GenderString"] = genderType;
             }
@@ -68,6 +64,7 @@ namespace PresentationLayer.PeopleFormsAndControls
         {
             delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Add" });
             frmPersonInfo personInfo = new frmPersonInfo(PersonID);
+            personInfo.delUpdateBreadcrumb2 += (se, ev) => delUpdateBreadcrumb(se, ev);
             personInfo.ShowDialog();
             delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Remove" });
         }
@@ -116,9 +113,15 @@ namespace PresentationLayer.PeopleFormsAndControls
         private void dgvPeople_DoubleClick(object sender, EventArgs e)
         {
             delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Add" });
+
+
             frmPersonInfo personInfo = new frmPersonInfo((int)dgvPeople.SelectedCells[0].Value);
+
+            personInfo.delUpdateBreadcrumb2 += (se, ev) => delUpdateBreadcrumb(se, ev);
             personInfo.ShowDialog();
+
             delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Remove" });
+            RefreshDataGridView();
         }
 
 

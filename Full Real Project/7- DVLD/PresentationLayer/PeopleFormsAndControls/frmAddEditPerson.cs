@@ -3,30 +3,31 @@ using Guna.UI2.WinForms;
 using System;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.IO;
+using PresentationLayer.Properties;
+using System.Diagnostics.Eventing.Reader;
 
 namespace PresentationLayer.PeopleFormsAndControls
 {
     public partial class frmAddEditPerson : Form
     {
         clsPeopleBusiness person;
-        private const string _defaultMalePic = @"D:\defaultMaleProfile.png";
-        private const string _defaultFemalePic = @"D:\defaultFemaleProfile.png";
-        private const string _defaultComboBoxCountry = "Saudi Arabia";
-        private DateTime _defaultMaxAllowedAge = DateTime.Now.AddYears(-18);
-        private bool _isEmailValid = false, _isNationalIDValid = false;
-   
+        private string _newImagePath;
+        public enum enGender { Male = 0, Female = 1 };
+
+
+
 
         public frmAddEditPerson(int personID)
         {
             InitializeComponent();
-            guna2ShadowForm1.SetShadowForm(this);
+           // guna2ShadowForm1.SetShadowForm(this);
             _FillCountriesComboBox();
             rbMale.Checked = true;
-            dtpBirthDate.MaxDate = _defaultMaxAllowedAge;
+            dtpBirthDate.MaxDate = clsBusinessSettings._defaultMinAllowedAge;
 
             if (personID == -1)
             {
@@ -52,7 +53,7 @@ namespace PresentationLayer.PeopleFormsAndControls
             {
                 cbCountry.Items.Add(row["CountryName"]);
             }
-            cbCountry.SelectedItem = _defaultComboBoxCountry;
+            cbCountry.SelectedItem = clsBusinessSettings._defaultComboBoxCountry;
         }
         private void _FillPersonInfoInForm()
         {
@@ -71,68 +72,71 @@ namespace PresentationLayer.PeopleFormsAndControls
             tbAddress.Text = person.Address;
             cbCountry.SelectedIndex = person.CountryID - 1; //////
 
-            if (person.Gender == 0)
+            if (person.Gender == (byte)enGender.Male)
                 rbMale.Checked = true;
             else
                 rbFemale.Checked = true;
 
-            if (!string.IsNullOrEmpty(person.ImagePath))
+            if (string.IsNullOrEmpty(person.ImagePath))
             {
-                pbImage.Image = Image.FromFile(person.ImagePath);
-
-                if(person.ImagePath != _defaultMalePic && person.ImagePath != _defaultFemalePic)
+                pbImage.Image = rbMale.Checked ? Resources.defaultMaleProfile : Resources.defaultFemaleProfile;
+            }
+            else
+            {
+                using (FileStream fs = new FileStream(person.ImagePath, FileMode.Open, FileAccess.Read))
+                {
+                    pbImage.Image = new Bitmap(fs);
+                }
                 btnRemoveImage.Visible = true;
             }
         }
 
-        private bool AreAllFieldsFilledAndValidated()
-        {
-            if (string.IsNullOrWhiteSpace(tbFirstName.Text) || string.IsNullOrWhiteSpace(tbSecondName.Text) || string.IsNullOrWhiteSpace(tbLastName.Text) ||
-                string.IsNullOrWhiteSpace(tbAddress.Text) || string.IsNullOrWhiteSpace(tbPhone.Text) || string.IsNullOrWhiteSpace(tbNationalNumber.Text) ||
-                !_isEmailValid || !_isNationalIDValid)
-                return false;
-            else
-                return true;
-        }
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            if (!AreAllFieldsFilledAndValidated())
+
+       private void btnSave_Click(object sender, EventArgs e)
+       {
+            if (!this.ValidateChildren()) // runs all validations linked to the error Provider
             {
                 MessageBox.Show("Fields with * must be filled with valid data and not empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
 
-            person.NationalID = tbNationalNumber.Text;
-            person.FirstName = tbFirstName.Text;
-            person.SecondName = tbSecondName.Text;
-            person.ThirdName = string.IsNullOrEmpty(tbThirdName.Text) ? "" : tbThirdName.Text;
-            person.LastName = tbLastName.Text;
-            person.Email = tbEmail.Text;
-            person.BirthDate = dtpBirthDate.Value;
-            person.Phone = tbPhone.Text;
-            person.Address = tbAddress.Text;
-            person.CountryID = cbCountry.SelectedIndex + 1;
-            person.Gender = rbMale.Checked ? (byte)0 : (byte)1;
 
-            if (btnRemoveImage.Visible == false)// set default if pic not added
+            string oldPath = string.IsNullOrEmpty(person.ImagePath) ? "" : person.ImagePath; // if empty means no pic before
+            string newPath = string.IsNullOrEmpty(pbImage.ImageLocation) ? "" : pbImage.ImageLocation; // if empty means removed or no pic added in this session, always null, will be filled if new image added.
+
+            // If path doesn't match, user changed something, else person image path will be sent to DB as empty
+            if (oldPath != newPath)
             {
-                pbImage.Image = rbMale.Checked ? Image.FromFile(_defaultMalePic) : Image.FromFile(_defaultFemalePic);
-                person.ImagePath = rbMale.Checked ? _defaultMalePic : _defaultFemalePic;
+                // Handle the physical file replacement/deletion logic
+                // We pass the new location and the old one to the business layer
+                _newImagePath = clsBusinessSettings.CopyImageToServer(pbImage.ImageLocation, person.ImagePath);
+
+                // Update the person object with the new path (could be null if deleted)
+                person.ImagePath = _newImagePath;
             }
-                  
+
+            person.NationalID = tbNationalNumber.Text.Trim();
+            person.FirstName = tbFirstName.Text.Trim();
+            person.SecondName = tbSecondName.Text.Trim();
+            person.ThirdName = string.IsNullOrEmpty(tbThirdName.Text) ? "" : tbThirdName.Text.Trim();
+            person.LastName = tbLastName.Text.Trim();
+            person.Email = tbEmail.Text.Trim();
+            person.Phone = tbPhone.Text.Trim();
+            person.Address = tbAddress.Text.Trim();
+            person.BirthDate = dtpBirthDate.Value;
+            person.CountryID = cbCountry.SelectedIndex + 1; ////////////
+            person.Gender = rbMale.Checked ? (byte)enGender.Male : (byte)enGender.Female;
+
+
             if (person.Save())
             {
-                MessageBox.Show($"Data Saved Successfully, PersonID {person.PersonID}","Success",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show($"Data Saved Successfully, PersonID {person.PersonID}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lblPersonID.Text = person.PersonID.ToString();
                 lblFormTitle.Text = $"Edit person with ID = {person.PersonID}";
             }
             else
-            {
                 MessageBox.Show("Data Was Not Saved!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
+       }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -144,13 +148,20 @@ namespace PresentationLayer.PeopleFormsAndControls
             openFileDialog1.InitialDirectory = @"D:\"; // which folder or place to show when dialog opens
             openFileDialog1.Title = "Choose a Profile Picture";
             openFileDialog1.DefaultExt = "png"; // default extension of file to be saved, user just enters file name then .txt will be attached to it
-            openFileDialog1.Filter = "png (*.png)|*.png";
+            openFileDialog1.Filter = "Image Files|*.png;*.jpeg;*.jpg;*.gif";
             openFileDialog1.FilterIndex = 1; //which extension to be default when dialog opens.(starts from 1)
+            openFileDialog1.RestoreDirectory = true;
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                pbImage.Image = Image.FromFile(openFileDialog1.FileName);
-                person.ImagePath = openFileDialog1.FileName;
+                pbImage.ImageLocation = openFileDialog1.FileName;
+                if (pbImage.Image != null) 
+                    pbImage.Image.Dispose();
+
+                using (FileStream fs = new FileStream(pbImage.ImageLocation, FileMode.Open, FileAccess.Read))
+                {
+                    pbImage.Image = new Bitmap(fs);
+                }
                 btnRemoveImage.Visible = true;
             }
         }
@@ -158,69 +169,68 @@ namespace PresentationLayer.PeopleFormsAndControls
         private void btnRemoveImage_Click(object sender, EventArgs e)
         {
             btnRemoveImage.Visible = false;
-            person.ImagePath = string.Empty;
-            pbImage.Image = rbMale.Checked ? Image.FromFile(_defaultMalePic) : Image.FromFile(_defaultFemalePic);
+            pbImage.ImageLocation = ""; // will indicate that user deleted his pic;
+
+            pbImage.Image = rbMale.Checked ? Resources.defaultMaleProfile : Resources.defaultFemaleProfile;
         }
 
         private void rbMale_CheckedChanged(object sender, EventArgs e)
         {
-            if (btnRemoveImage.Visible == false) // set default if pic not added
-                pbImage.Image = rbMale.Checked ? Image.FromFile(_defaultMalePic) : Image.FromFile(_defaultFemalePic);
+            if (string.IsNullOrEmpty(pbImage.ImageLocation)) // set default if pic not added
+                pbImage.Image = rbMale.Checked ? Resources.defaultMaleProfile : Resources.defaultFemaleProfile;
         }
-
-        private void rbFemale_CheckedChanged(object sender, EventArgs e)
-        {
-            if (btnRemoveImage.Visible == false) // set default if pic not added
-                pbImage.Image = rbMale.Checked ? Image.FromFile(_defaultMalePic) : Image.FromFile(_defaultFemalePic);
-        }
-
 
 
         // textBoxes error Validation
         private void tbNationalNumber_Validating(object sender, CancelEventArgs e)
         {
             // if not empty, go to next validation
-            if (string.IsNullOrWhiteSpace(((Guna2TextBox)sender).Text))
+            if (string.IsNullOrWhiteSpace(tbNationalNumber.Text))
             {
+                e.Cancel = true;  // AutoValidate property to allow focus change, in designer
+                errorProvider1.SetError(tbNationalNumber, "Field is required!");
                 tbNationalNumber.BorderColor = Color.Red;
-                _isNationalIDValid = false; // to flag the save button
                 return;
             }
             else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(tbNationalNumber, null);
                 tbNationalNumber.BorderColor = Color.Silver;
+            }
 
             // if ID is used 
-            if (clsPeopleBusiness.DoesExist(tbNationalNumber.Text, "NationalNo"))
+            if (clsPeopleBusiness.DoesExist(tbNationalNumber.Text.Trim(), "NationalNo") && person.NationalID != tbNationalNumber.Text.Trim())
             {
+                e.Cancel = true;
+                errorProvider1.SetError(tbNationalNumber, "Invalid Email format");
                 tbNationalNumber.BorderColor = Color.Red;
-                lblIDExistsError.Visible = true;
-                _isNationalIDValid = false;
             }
             else
             {
+                e.Cancel = false;
+                errorProvider1.SetError(tbNationalNumber, null);
                 tbNationalNumber.BorderColor = Color.Silver;
-                lblIDExistsError.Visible = false;
-                _isNationalIDValid = true;
             }
         }
 
         // not required, but if email entered, needs validation
         private void tbEmail_Validating(object sender, CancelEventArgs e)
         {
-            string Email = tbEmail.Text.Trim(); // if user forgets space in the end, it will give false
-            bool isFormatValid = Regex.IsMatch(Email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$",RegexOptions.IgnoreCase); //RegularExpressions same as Java
+            // if user forgets space in the end, it will give false
+            bool isFormatValid = clsBusinessSettings.IsEmailFormatValid(tbEmail.Text.Trim());
 
             if (!string.IsNullOrWhiteSpace(tbEmail.Text) && !isFormatValid)
             {
+                e.Cancel = true;
+                errorProvider1.SetError(tbEmail, "Invalid Email format");
                 tbEmail.BorderColor = Color.Red;
-                lblEmailFormatError.Visible = true;
-                _isEmailValid = false; // to flag the save button
             }
             else
             {
+                e.Cancel = false;
+                errorProvider1.SetError(tbEmail, null);
                 tbEmail.BorderColor = Color.Silver;
-                lblEmailFormatError.Visible = false;
-                _isEmailValid = true;
             }    
         }
 
@@ -228,9 +238,17 @@ namespace PresentationLayer.PeopleFormsAndControls
         private void EmptyTextBox_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(((Guna2TextBox)sender).Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError((Guna2TextBox)sender, "Field is required!");
                 ((Guna2TextBox)sender).BorderColor = Color.Red;
+            }
             else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError((Guna2TextBox)sender, null);
                 ((Guna2TextBox)sender).BorderColor = Color.Silver;
+            }
         }
 
         private void tbPhone_KeyPress(object sender, KeyPressEventArgs e)
@@ -238,6 +256,15 @@ namespace PresentationLayer.PeopleFormsAndControls
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)// prevent non digit and backspace
             {
                 e.Handled = true; // will make the event handled which will prevent any input in text box
+            }
+        }
+
+        private void frmAddEditPerson_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (pbImage.Image != null)
+            {
+                pbImage.Image.Dispose();
+                pbImage.Image = null;
             }
         }
     }

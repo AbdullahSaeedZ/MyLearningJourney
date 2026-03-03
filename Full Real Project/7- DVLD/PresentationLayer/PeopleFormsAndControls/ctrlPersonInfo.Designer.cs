@@ -56,7 +56,6 @@
             // 
             // pbProfilePic
             // 
-            this.pbProfilePic.Image = global::PresentationLayer.Properties.Resources.ProfileTest;
             this.pbProfilePic.Location = new System.Drawing.Point(21, 50);
             this.pbProfilePic.Name = "pbProfilePic";
             this.pbProfilePic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;

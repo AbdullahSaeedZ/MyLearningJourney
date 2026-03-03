@@ -453,11 +453,11 @@
         private System.Windows.Forms.Label lblProfilePersonName;
         private Guna.UI2.WinForms.Guna2Button btnSettings;
         private Guna.UI2.WinForms.Guna2Panel pnlControlsContainer;
-        private System.Windows.Forms.Label lblBreadcrumb;
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private Guna.UI2.WinForms.Guna2Panel pnlTopBar;
         private Guna.UI2.WinForms.Guna2Panel pnlSideBar;
         private Guna.UI2.WinForms.Guna2CirclePictureBox pbBreadcrumb;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
+        private System.Windows.Forms.Label lblBreadcrumb;
     }
 }

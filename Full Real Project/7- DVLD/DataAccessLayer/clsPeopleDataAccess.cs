@@ -8,6 +8,9 @@ namespace DataAccessLayer
     public class clsPeopleDataAccess
     {
 
+        /// <summary>
+        /// filter = PersonID or NationalNo 
+        /// </summary>
         public static bool FindPerson(string Filter, ref int PersonID, ref string NationalID, ref string FirstName, ref string SecondName, ref string ThirdName,
                   ref string LastName, ref byte Gender, ref int CountryID, ref string Phone, ref string Email, ref string Address, ref string ImagePath, ref DateTime BirthDate)
         {

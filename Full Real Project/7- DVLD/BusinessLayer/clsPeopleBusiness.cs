@@ -8,7 +8,6 @@ namespace BusinessLayer
     {
         enum enMode { eAddMode = 0, eUpdateMode = 1 };
         enMode _mode;
-        enum enGender { Male = 0, Female = 1 };
         public int PersonID { get; set; }
         public string NationalID { get; set; }
         public string FirstName { get; set; }
@@ -64,7 +63,9 @@ namespace BusinessLayer
 
 
 
-
+        /// <summary>
+        /// filter = PersonID or NationalNo 
+        /// </summary>
         public static clsPeopleBusiness FindPerson(string ID, string Filter)
         {
             int PersonID = -1, CountryID = -1;
@@ -84,7 +85,7 @@ namespace BusinessLayer
                      LastName, Gender, CountryID, Phone, Email, Address, ImagePath, BirthDate);
             }
             else
-                return new clsPeopleBusiness();
+                return null;
         }
 
         private bool _AddNewPerson()
@@ -115,10 +116,7 @@ namespace BusinessLayer
                         return false;
 
                 case enMode.eUpdateMode:
-                    if (_UpdatePerson())
-                        return true;
-                    else
-                        return false;
+                    return _UpdatePerson();
 
                 default: return false;
             }

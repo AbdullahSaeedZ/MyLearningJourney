@@ -97,8 +97,8 @@
             this.guna2CircleProgressBar1.FillThickness = 15;
             this.guna2CircleProgressBar1.Location = new System.Drawing.Point(424, 35);
             this.guna2CircleProgressBar1.Name = "guna2CircleProgressBar1";
-            this.guna2CircleProgressBar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(121)))), ((int)(((byte)(6)))));
-            this.guna2CircleProgressBar1.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(121)))), ((int)(((byte)(6)))));
+            this.guna2CircleProgressBar1.ProgressColor = System.Drawing.Color.Linen;
+            this.guna2CircleProgressBar1.ProgressColor2 = System.Drawing.Color.Lime;
             this.guna2CircleProgressBar1.ProgressThickness = 15;
             this.guna2CircleProgressBar1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleProgressBar1.ShadowDecoration.Parent = this.guna2CircleProgressBar1;
@@ -262,7 +262,7 @@
             this.guna2Button3.Image = global::PresentationLayer.Properties.Resources.cardNoFill;
             this.guna2Button3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button3.ImageOffset = new System.Drawing.Point(10, 0);
-            this.guna2Button3.Location = new System.Drawing.Point(10, 141);
+            this.guna2Button3.Location = new System.Drawing.Point(19, 134);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.ShadowDecoration.Parent = this.guna2Button3;
             this.guna2Button3.Size = new System.Drawing.Size(257, 45);
@@ -288,7 +288,7 @@
             this.guna2Button1.Image = global::PresentationLayer.Properties.Resources.detainNoFill;
             this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button1.ImageOffset = new System.Drawing.Point(10, 0);
-            this.guna2Button1.Location = new System.Drawing.Point(10, 291);
+            this.guna2Button1.Location = new System.Drawing.Point(19, 284);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.ShadowDecoration.Parent = this.guna2Button1;
             this.guna2Button1.Size = new System.Drawing.Size(257, 45);
@@ -314,7 +314,7 @@
             this.guna2Button5.Image = global::PresentationLayer.Properties.Resources.searchApplicationNoFill;
             this.guna2Button5.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button5.ImageOffset = new System.Drawing.Point(10, 0);
-            this.guna2Button5.Location = new System.Drawing.Point(10, 91);
+            this.guna2Button5.Location = new System.Drawing.Point(19, 84);
             this.guna2Button5.Name = "guna2Button5";
             this.guna2Button5.ShadowDecoration.Parent = this.guna2Button5;
             this.guna2Button5.Size = new System.Drawing.Size(257, 45);
@@ -340,7 +340,7 @@
             this.guna2Button2.Image = global::PresentationLayer.Properties.Resources.addNoFill;
             this.guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button2.ImageOffset = new System.Drawing.Point(10, 0);
-            this.guna2Button2.Location = new System.Drawing.Point(10, 241);
+            this.guna2Button2.Location = new System.Drawing.Point(19, 234);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.ShadowDecoration.Parent = this.guna2Button2;
             this.guna2Button2.Size = new System.Drawing.Size(257, 45);
@@ -366,7 +366,7 @@
             this.btnApplications.Image = global::PresentationLayer.Properties.Resources.addNoFill;
             this.btnApplications.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnApplications.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnApplications.Location = new System.Drawing.Point(10, 191);
+            this.btnApplications.Location = new System.Drawing.Point(19, 184);
             this.btnApplications.Name = "btnApplications";
             this.btnApplications.ShadowDecoration.Parent = this.btnApplications;
             this.btnApplications.Size = new System.Drawing.Size(257, 45);
@@ -437,8 +437,8 @@
             this.guna2CircleProgressBar3.FillThickness = 15;
             this.guna2CircleProgressBar3.Location = new System.Drawing.Point(424, 33);
             this.guna2CircleProgressBar3.Name = "guna2CircleProgressBar3";
-            this.guna2CircleProgressBar3.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(121)))), ((int)(((byte)(6)))));
-            this.guna2CircleProgressBar3.ProgressColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(121)))), ((int)(((byte)(6)))));
+            this.guna2CircleProgressBar3.ProgressColor = System.Drawing.Color.Linen;
+            this.guna2CircleProgressBar3.ProgressColor2 = System.Drawing.Color.Lime;
             this.guna2CircleProgressBar3.ProgressThickness = 15;
             this.guna2CircleProgressBar3.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.guna2CircleProgressBar3.ShadowDecoration.Parent = this.guna2CircleProgressBar3;
@@ -634,21 +634,21 @@
             this.guna2Button4.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button4.Font = new System.Drawing.Font("Tahoma", 12F);
             this.guna2Button4.ForeColor = System.Drawing.Color.DimGray;
-            this.guna2Button4.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
-            this.guna2Button4.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(245)))), ((int)(((byte)(250)))));
+            this.guna2Button4.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2Button4.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Button4.HoverState.ForeColor = System.Drawing.Color.Black;
             this.guna2Button4.HoverState.Image = global::PresentationLayer.Properties.Resources.appointmentFill;
             this.guna2Button4.HoverState.Parent = this.guna2Button4;
             this.guna2Button4.Image = global::PresentationLayer.Properties.Resources.appointmentNoFill;
             this.guna2Button4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button4.ImageOffset = new System.Drawing.Point(5, 0);
-            this.guna2Button4.Location = new System.Drawing.Point(7, 267);
+            this.guna2Button4.Location = new System.Drawing.Point(19, 263);
             this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.PressedColor = System.Drawing.Color.Blue;
             this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
-            this.guna2Button4.Size = new System.Drawing.Size(288, 45);
+            this.guna2Button4.Size = new System.Drawing.Size(257, 45);
             this.guna2Button4.TabIndex = 2;
             this.guna2Button4.Text = "Show All Appointments";
+            this.guna2Button4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label12
             // 
@@ -780,7 +780,7 @@
             // 
             // guna2Panel12
             // 
-            this.guna2Panel12.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Panel12.BackColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Panel12.BorderRadius = 20;
             this.guna2Panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel12.FillColor = System.Drawing.Color.White;
