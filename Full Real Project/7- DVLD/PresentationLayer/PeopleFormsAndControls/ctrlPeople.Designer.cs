@@ -174,7 +174,7 @@
             this.tbSearchPerson.PlaceholderText = "Search People";
             this.tbSearchPerson.SelectedText = "";
             this.tbSearchPerson.ShadowDecoration.Parent = this.tbSearchPerson;
-            this.tbSearchPerson.Size = new System.Drawing.Size(225, 39);
+            this.tbSearchPerson.Size = new System.Drawing.Size(225, 36);
             this.tbSearchPerson.TabIndex = 5;
             this.tbSearchPerson.TextChanged += new System.EventHandler(this.tbSearchPerson_TextChanged);
             this.tbSearchPerson.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearchPerson_KeyPress);
@@ -406,7 +406,7 @@
             this.colFirstName.MinimumWidth = 6;
             this.colFirstName.Name = "colFirstName";
             this.colFirstName.ReadOnly = true;
-            this.colFirstName.Width = 120;
+            this.colFirstName.Width = 130;
             // 
             // colSecondName
             // 
@@ -416,7 +416,7 @@
             this.colSecondName.MinimumWidth = 6;
             this.colSecondName.Name = "colSecondName";
             this.colSecondName.ReadOnly = true;
-            this.colSecondName.Width = 120;
+            this.colSecondName.Width = 130;
             // 
             // colThirdName
             // 
@@ -426,7 +426,7 @@
             this.colThirdName.MinimumWidth = 6;
             this.colThirdName.Name = "colThirdName";
             this.colThirdName.ReadOnly = true;
-            this.colThirdName.Width = 120;
+            this.colThirdName.Width = 130;
             // 
             // colLastName
             // 
@@ -436,7 +436,7 @@
             this.colLastName.MinimumWidth = 6;
             this.colLastName.Name = "colLastName";
             this.colLastName.ReadOnly = true;
-            this.colLastName.Width = 120;
+            this.colLastName.Width = 130;
             // 
             // colGender
             // 
@@ -476,7 +476,7 @@
             this.colPhone.MinimumWidth = 6;
             this.colPhone.Name = "colPhone";
             this.colPhone.ReadOnly = true;
-            this.colPhone.Width = 130;
+            this.colPhone.Width = 140;
             // 
             // colEmail
             // 

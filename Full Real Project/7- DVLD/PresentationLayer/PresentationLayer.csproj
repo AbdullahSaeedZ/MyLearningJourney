@@ -69,11 +69,17 @@
     <Compile Include="MainForm\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="PeopleFormsAndControls\ctrlPersonInfo.cs">
+    <Compile Include="PeopleFormsAndControls\ctrlPersonCardWithSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PeopleFormsAndControls\ctrlPersonInfo.Designer.cs">
-      <DependentUpon>ctrlPersonInfo.cs</DependentUpon>
+    <Compile Include="PeopleFormsAndControls\ctrlPersonCardWithSearch.Designer.cs">
+      <DependentUpon>ctrlPersonCardWithSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PeopleFormsAndControls\ctrlPersonCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PeopleFormsAndControls\ctrlPersonCard.Designer.cs">
+      <DependentUpon>ctrlPersonCard.cs</DependentUpon>
     </Compile>
     <Compile Include="PeopleFormsAndControls\frmAddEditPerson.cs">
       <SubType>Form</SubType>
@@ -110,8 +116,11 @@
     <EmbeddedResource Include="MainForm\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PeopleFormsAndControls\ctrlPersonInfo.resx">
-      <DependentUpon>ctrlPersonInfo.cs</DependentUpon>
+    <EmbeddedResource Include="PeopleFormsAndControls\ctrlPersonCardWithSearch.resx">
+      <DependentUpon>ctrlPersonCardWithSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PeopleFormsAndControls\ctrlPersonCard.resx">
+      <DependentUpon>ctrlPersonCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PeopleFormsAndControls\frmAddEditPerson.resx">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
@@ -288,6 +297,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\defaultMaleProfile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\SearchGrayFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\SearchBlackFill.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

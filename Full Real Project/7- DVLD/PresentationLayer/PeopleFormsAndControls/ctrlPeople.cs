@@ -1,12 +1,8 @@
 ﻿using BusinessLayer;
-using Guna.UI2.WinForms;
-using PresentationLayer.DashboardControls;
 using PresentationLayer.MainForm;
-using PresentationLayer.Properties;
 using System;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 
 

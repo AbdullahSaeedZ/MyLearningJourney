@@ -1,13 +1,6 @@
 ﻿using BusinessLayer;
 using PresentationLayer.MainForm;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.PeopleFormsAndControls
@@ -27,7 +20,7 @@ namespace PresentationLayer.PeopleFormsAndControls
 
         private void frmPersonInfo_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ctrlPersonInfo1.Dispose();
+            ctrlPersonInfo1.Dispose(); // to remove bitmap object from ram when closing
         }
     }
 }

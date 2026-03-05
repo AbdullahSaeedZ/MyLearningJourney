@@ -14,3 +14,5 @@ so first create a table for people then create a table for applications, connect
 
 
 - encrypt passwords in DB
+
+- Dont do shortcuts in methods, do overloading even if it will end up with more code to write

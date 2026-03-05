@@ -14,17 +14,17 @@ namespace PresentationLayer.PeopleFormsAndControls
 {
     public partial class frmAddEditPerson : Form
     {
+        public event Action<int> OnUpdateDone; // to notify the personInfo control to update its info when person info is updated here
+        private bool _isOpenedFromPersonInfoCtrl = false;
+        
+
         clsPeopleBusiness person;
-        private string _newImagePath;
+        private string _finalImagePath;
         public enum enGender { Male = 0, Female = 1 };
-
-
-
 
         public frmAddEditPerson(int personID)
         {
             InitializeComponent();
-           // guna2ShadowForm1.SetShadowForm(this);
             _FillCountriesComboBox();
             rbMale.Checked = true;
             dtpBirthDate.MaxDate = clsBusinessSettings._defaultMinAllowedAge;
@@ -35,13 +35,14 @@ namespace PresentationLayer.PeopleFormsAndControls
             }
             else 
             {
-                person = clsPeopleBusiness.FindPerson(personID.ToString(), "PersonID");
+                person = clsPeopleBusiness.FindPerson(personID);
                 if (person == null)
                 {
                     MessageBox.Show("Person Does Not Exist, Form will close", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
                 }
                 _FillPersonInfoInForm();
+                _isOpenedFromPersonInfoCtrl = true;
             }
         }
 
@@ -70,7 +71,7 @@ namespace PresentationLayer.PeopleFormsAndControls
             dtpBirthDate.Value = person.BirthDate;
             tbPhone.Text = person.Phone;
             tbAddress.Text = person.Address;
-            cbCountry.SelectedIndex = person.CountryID - 1; //////
+            cbCountry.SelectedIndex = cbCountry.FindString(person.CountryInfo.CountryName); //////
 
             if (person.Gender == (byte)enGender.Male)
                 rbMale.Checked = true;
@@ -87,6 +88,7 @@ namespace PresentationLayer.PeopleFormsAndControls
                 {
                     pbImage.Image = new Bitmap(fs);
                 }
+                pbImage.ImageLocation = person.ImagePath; // to track if current pic will be changed.
                 btnRemoveImage.Visible = true;
             }
         }
@@ -100,20 +102,12 @@ namespace PresentationLayer.PeopleFormsAndControls
                 return;
             }
 
-
             string oldPath = string.IsNullOrEmpty(person.ImagePath) ? "" : person.ImagePath; // if empty means no pic before
-            string newPath = string.IsNullOrEmpty(pbImage.ImageLocation) ? "" : pbImage.ImageLocation; // if empty means removed or no pic added in this session, always null, will be filled if new image added.
+            string newPath = string.IsNullOrEmpty(pbImage.ImageLocation) ? "" : pbImage.ImageLocation; // if empty means removed or no pic added in this session.
 
-            // If path doesn't match, user changed something, else person image path will be sent to DB as empty
+            // if paths dont match, user changed something.
             if (oldPath != newPath)
-            {
-                // Handle the physical file replacement/deletion logic
-                // We pass the new location and the old one to the business layer
-                _newImagePath = clsBusinessSettings.CopyImageToServer(pbImage.ImageLocation, person.ImagePath);
-
-                // Update the person object with the new path (could be null if deleted)
-                person.ImagePath = _newImagePath;
-            }
+                person.ImagePath = clsBusinessSettings.CopyImageToServer(pbImage.ImageLocation, person.ImagePath);
 
             person.NationalID = tbNationalNumber.Text.Trim();
             person.FirstName = tbFirstName.Text.Trim();
@@ -124,8 +118,8 @@ namespace PresentationLayer.PeopleFormsAndControls
             person.Phone = tbPhone.Text.Trim();
             person.Address = tbAddress.Text.Trim();
             person.BirthDate = dtpBirthDate.Value;
-            person.CountryID = cbCountry.SelectedIndex + 1; ////////////
             person.Gender = rbMale.Checked ? (byte)enGender.Male : (byte)enGender.Female;
+            person.NationalityCountryID = (clsCountriesBusiness.GetCountry(cbCountry.Text)).CountryID;
 
 
             if (person.Save())
@@ -133,6 +127,8 @@ namespace PresentationLayer.PeopleFormsAndControls
                 MessageBox.Show($"Data Saved Successfully, PersonID {person.PersonID}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lblPersonID.Text = person.PersonID.ToString();
                 lblFormTitle.Text = $"Edit person with ID = {person.PersonID}";
+                if (_isOpenedFromPersonInfoCtrl)
+                    OnUpdateDone(person.PersonID);
             }
             else
                 MessageBox.Show("Data Was Not Saved!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -181,7 +177,7 @@ namespace PresentationLayer.PeopleFormsAndControls
         }
 
 
-        // textBoxes error Validation
+        // textBoxes error Validations
         private void tbNationalNumber_Validating(object sender, CancelEventArgs e)
         {
             // if not empty, go to next validation
@@ -200,7 +196,7 @@ namespace PresentationLayer.PeopleFormsAndControls
             }
 
             // if ID is used 
-            if (clsPeopleBusiness.DoesExist(tbNationalNumber.Text.Trim(), "NationalNo") && person.NationalID != tbNationalNumber.Text.Trim())
+            if (clsPeopleBusiness.DoesPersonExist(tbNationalNumber.Text.Trim()) && person.NationalID != tbNationalNumber.Text.Trim())
             {
                 e.Cancel = true;
                 errorProvider1.SetError(tbNationalNumber, "Invalid Email format");
@@ -213,7 +209,6 @@ namespace PresentationLayer.PeopleFormsAndControls
                 tbNationalNumber.BorderColor = Color.Silver;
             }
         }
-
         // not required, but if email entered, needs validation
         private void tbEmail_Validating(object sender, CancelEventArgs e)
         {
@@ -233,7 +228,6 @@ namespace PresentationLayer.PeopleFormsAndControls
                 tbEmail.BorderColor = Color.Silver;
             }    
         }
-
         // multiple textBoxes subscribed to this event
         private void EmptyTextBox_Validating(object sender, CancelEventArgs e)
         {
@@ -250,7 +244,6 @@ namespace PresentationLayer.PeopleFormsAndControls
                 ((Guna2TextBox)sender).BorderColor = Color.Silver;
             }
         }
-
         private void tbPhone_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)// prevent non digit and backspace
@@ -259,9 +252,10 @@ namespace PresentationLayer.PeopleFormsAndControls
             }
         }
 
+        // releasing bitmap objects
         private void frmAddEditPerson_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (pbImage.Image != null)
+            if (pbImage.Image != null) // since im uploading profile pic to ram as bitmap obj, release it when done to avoid memory leaks
             {
                 pbImage.Image.Dispose();
                 pbImage.Image = null;

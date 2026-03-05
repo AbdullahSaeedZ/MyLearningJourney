@@ -1,6 +1,6 @@
 ﻿namespace PresentationLayer.PeopleFormsAndControls
 {
-    partial class ctrlPersonInfo
+    partial class ctrlPersonCard
     {
         /// <summary> 
         /// Required designer variable.
@@ -56,6 +56,7 @@
             // 
             // pbProfilePic
             // 
+            this.pbProfilePic.Image = global::PresentationLayer.Properties.Resources.defaultMaleProfile;
             this.pbProfilePic.Location = new System.Drawing.Point(21, 50);
             this.pbProfilePic.Name = "pbProfilePic";
             this.pbProfilePic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -323,7 +324,7 @@
             this.lblBirthDate.TabIndex = 10;
             this.lblBirthDate.Text = "NA";
             // 
-            // ctrlPersonInfo
+            // ctrlPersonCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -349,7 +350,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblFormTitle);
             this.Controls.Add(this.btnEditInfo);
-            this.Name = "ctrlPersonInfo";
+            this.Name = "ctrlPersonCard";
             this.Size = new System.Drawing.Size(844, 337);
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).EndInit();
             this.ResumeLayout(false);

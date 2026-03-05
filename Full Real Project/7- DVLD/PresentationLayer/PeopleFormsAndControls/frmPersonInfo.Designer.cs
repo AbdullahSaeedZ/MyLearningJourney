@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
-            this.ctrlPersonInfo1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonInfo();
+            this.ctrlPersonInfo1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCard();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.SuspendLayout();
             // 
@@ -80,7 +80,7 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private ctrlPersonInfo ctrlPersonInfo1;
+        private ctrlPersonCard ctrlPersonInfo1;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
         private Guna.UI2.WinForms.Guna2ControlBox ControlBoxClose;
     }

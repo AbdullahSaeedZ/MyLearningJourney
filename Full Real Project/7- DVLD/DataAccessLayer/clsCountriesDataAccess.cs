@@ -36,9 +36,9 @@ namespace DataAccessLayer
             return dt;
         }
 
-        public static string GetCountryNameByID(int CountryID)
+        public static bool GetCountry(int CountryID, ref string CountryName)
         {
-            string countryName = "";
+            bool isFound = false;
 
             try
             {
@@ -53,7 +53,8 @@ namespace DataAccessLayer
                         
                         if (result != null)
                         {
-                            countryName = result.ToString();
+                            CountryName = result.ToString();
+                            isFound = true;
                         }
                     }
                 }
@@ -62,7 +63,37 @@ namespace DataAccessLayer
             {
                 throw;
             }
-            return countryName;
+            return isFound;
+        }
+
+        public static bool GetCountry(ref int CountryID, string CountryName)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = "select CountryID from Countries where CountryName = @CountryName;";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@CountryName", CountryName);
+                        connection.Open();
+                        object result= command.ExecuteScalar();
+                        
+                        if (result != null && int.TryParse(result.ToString() , out int ID))
+                        {
+                            CountryID = ID;
+                            isFound = true;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+            return isFound;
         }
 
     }

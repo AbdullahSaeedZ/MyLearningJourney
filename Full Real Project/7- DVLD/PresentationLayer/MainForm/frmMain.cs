@@ -54,7 +54,8 @@ namespace PresentationLayer.MainForm
                     break;
 
                 case "Users":
-
+                    ctrlPersonCardWithSearch c = new ctrlPersonCardWithSearch();
+                    pnlControlsContainer.Controls.Add(c);
                     break;
 
                 case "Settings":
@@ -114,28 +115,21 @@ namespace PresentationLayer.MainForm
         {
             if (int.TryParse(tbQuickSearch.Text , out int ID))
             {
-                if (clsPeopleBusiness.DoesExist(ID.ToString(), "PersonID"))
+                if (clsPeopleBusiness.DoesPersonExist(ID))
                 {
                     frmPersonInfo Info = new frmPersonInfo(ID);
                     Info.ShowDialog();
                 }
                 else
-                {
                     MessageBox.Show($"Person With ID {ID} Does Not Exist", "Error", MessageBoxButtons.OK);
-                }
             }
             else
-            {
                 MessageBox.Show("Only Numbers Allowed", "Error", MessageBoxButtons.OK);
-            }
-            
         }
         private void tbQuickSearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-            {
                 lblQuickSearch_Click(sender, EventArgs.Empty);
-            }
         }
        
 

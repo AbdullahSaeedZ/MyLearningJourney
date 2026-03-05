@@ -17,44 +17,37 @@ namespace BusinessLayer
 
         // must be in DataAccess ?
         // this is copying files from users computers to our server, so need business and data layers, not helper class in UI.
-
-        /// <summary>
-        /// if OldPicPath is empty and first time to upload a picture, it is handled.
-        /// </summary>
-        /// <param name="sourcePath"></param>
-        /// <param name="OldPicPath"></param>
-        /// <returns></returns>
-        public static string CopyImageToServer(string sourcePath, string oldPicPath)
+        public static string CopyImageToServer(string newPicPath, string oldPicPath) 
         {
             try
             {
-                // 1. If user removed image or source is empty
-                if (string.IsNullOrEmpty(sourcePath))
+                // scenario 1: user removed image to nothing
+                if (string.IsNullOrEmpty(newPicPath))
                 {
                     DeleteFileIfExists(oldPicPath);
-                    return "";
+                    return ""; // empty path to be sent to object then to DB
                 }
 
-                // 2. If no change happened
-                if (sourcePath == oldPicPath) return oldPicPath;
-
-                // 3. Setup Directory
+                // setting up the directory
                 if (!Directory.Exists(_ServerPicturesFolder))
                     Directory.CreateDirectory(_ServerPicturesFolder);
 
-                // 4. Perform Copy
-                string destinationPath = Path.Combine(_ServerPicturesFolder, Guid.NewGuid() + Path.GetExtension(sourcePath));
 
-                if (File.Exists(sourcePath))
+                // perform Copy
+                // scenario 2: no old pic,then new pic added
+                // scenario 3: remove old pic,then new pic added
+                string destinationPath = Path.Combine(_ServerPicturesFolder, Guid.NewGuid() + Path.GetExtension(newPicPath));
+
+                if (File.Exists(newPicPath))
                 {
-                    File.Copy(sourcePath, destinationPath, true);
+                    File.Copy(newPicPath, destinationPath, true);
                     DeleteFileIfExists(oldPicPath); // Clean up old after success
                     return destinationPath;
                 }
             }
             catch (IOException i)
             {
-                // Log your error here: clsLogger.Log(ex.Message);
+                // logs
                 return "";
             }
 
@@ -70,7 +63,7 @@ namespace BusinessLayer
             }
             catch (IOException i)
             {
-                /* Log deletion error */
+                throw;
             }
         }
 
@@ -78,8 +71,5 @@ namespace BusinessLayer
         {
             return Regex.IsMatch(Email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$", RegexOptions.IgnoreCase); //RegularExpressions same as Java
         }
-
-
-     
     }
 }

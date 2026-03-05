@@ -8,11 +8,8 @@ namespace DataAccessLayer
     public class clsPeopleDataAccess
     {
 
-        /// <summary>
-        /// filter = PersonID or NationalNo 
-        /// </summary>
-        public static bool FindPerson(string Filter, ref int PersonID, ref string NationalID, ref string FirstName, ref string SecondName, ref string ThirdName,
-                  ref string LastName, ref byte Gender, ref int CountryID, ref string Phone, ref string Email, ref string Address, ref string ImagePath, ref DateTime BirthDate)
+        public static bool FindPerson(int PersonID, ref string NationalID, ref string FirstName, ref string SecondName, ref string ThirdName,
+                  ref string LastName, ref byte Gender, ref int NationalityCountryID, ref string Phone, ref string Email, ref string Address, ref string ImagePath, ref DateTime BirthDate)
         {
             bool isFound = false;
 
@@ -21,27 +18,66 @@ namespace DataAccessLayer
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
                     connection.Open();
-                    string query = $@"select * from People where {Filter} = @ID;";
+                    string query = $@"select * from People where PersonID = @ID;";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        if (Filter == "PersonID")
-                            command.Parameters.AddWithValue("@ID", PersonID);
-                        else
-                            command.Parameters.AddWithValue("@ID", NationalID);
-
+                        command.Parameters.AddWithValue("@ID", PersonID);
                         SqlDataReader reader = command.ExecuteReader();
 
                         if (reader.Read())
                         {
-                            PersonID = (int)reader["PersonID"];
                             NationalID = (string)reader["NationalNo"];
                             FirstName = (string)reader["FirstName"];
                             SecondName = (string)reader["SecondName"];
                             ThirdName = reader["ThirdName"] == DBNull.Value ? string.Empty : (string)reader["ThirdName"];
                             LastName = (string)reader["LastName"];
                             Gender = (byte)reader["Gender"];
-                            CountryID = (int)reader["NationalityCountryID"];
+                            NationalityCountryID = (int)reader["NationalityCountryID"];
+                            Phone = (string)reader["Phone"];
+                            Email = reader["Email"] == DBNull.Value ? string.Empty : (string)reader["Email"];
+                            Address = (string)reader["Address"];
+                            BirthDate = (DateTime)reader["DateOfBirth"];
+                            ImagePath = reader["ImagePath"] == DBNull.Value ? string.Empty : (string)reader["ImagePath"];
+
+                            isFound = true;
+                        }
+                    }
+                }    
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+
+            return isFound;
+        }
+        public static bool FindPerson(ref int PersonID, string NationalID, ref string FirstName, ref string SecondName, ref string ThirdName,
+                  ref string LastName, ref byte Gender, ref int NationalityCountryID, ref string Phone, ref string Email, ref string Address, ref string ImagePath, ref DateTime BirthDate)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    connection.Open();
+                    string query = $@"select * from People where NationalNo = @ID;";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ID", NationalID);
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            PersonID = (int)reader["PersonID"];
+                            FirstName = (string)reader["FirstName"];
+                            SecondName = (string)reader["SecondName"];
+                            ThirdName = reader["ThirdName"] == DBNull.Value ? string.Empty : (string)reader["ThirdName"];
+                            LastName = (string)reader["LastName"];
+                            Gender = (byte)reader["Gender"];
+                            NationalityCountryID = (int)reader["NationalityCountryID"];
                             Phone = (string)reader["Phone"];
                             Email = reader["Email"] == DBNull.Value ? string.Empty : (string)reader["Email"];
                             Address = (string)reader["Address"];
@@ -62,7 +98,7 @@ namespace DataAccessLayer
         }
 
         public static int AddNewPerson( string NationalID,  string FirstName,  string SecondName,  string ThirdName,
-                   string LastName,  byte Gender,  int CountryID,  string Phone,  string Email,  string Address,  string ImagePath,  DateTime BirthDate)
+                   string LastName,  byte Gender,  int NationalityCountryID,  string Phone,  string Email,  string Address,  string ImagePath,  DateTime BirthDate)
         {
             int newID = -1;
 
@@ -72,7 +108,7 @@ namespace DataAccessLayer
                 {
                     string query = @"insert into People
                                 values(@NationalID, @FirstName, @SecondName, @ThirdName, @LastName, @BirthDate, @Gender, @Address,  
-                                @Phone, @Email, @CountryID, @ImagePath);
+                                @Phone, @Email, @NationalityCountryID, @ImagePath);
                                 select scope_identity();";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -81,7 +117,7 @@ namespace DataAccessLayer
                         command.Parameters.AddWithValue("@SecondName", SecondName);
                         command.Parameters.AddWithValue("@LastName", LastName);
                         command.Parameters.AddWithValue("@Gender", Gender);
-                        command.Parameters.AddWithValue("@CountryID", CountryID);
+                        command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
                         command.Parameters.AddWithValue("@Phone", Phone);
                         command.Parameters.AddWithValue("@Email", Email);
                         command.Parameters.AddWithValue("@Address", Address);
@@ -116,7 +152,7 @@ namespace DataAccessLayer
 
 
         public static bool UpdatePerson( int PersonID, string NationalID,  string FirstName,  string SecondName,  string ThirdName,
-                   string LastName,  byte Gender,  int CountryID,  string Phone,  string Email,  string Address,  string ImagePath,  DateTime BirthDate)
+                   string LastName,  byte Gender,  int NationalityCountryID,  string Phone,  string Email,  string Address,  string ImagePath,  DateTime BirthDate)
         {
             int rowsAffected = 0;
 
@@ -137,7 +173,7 @@ namespace DataAccessLayer
                         command.Parameters.AddWithValue("@SecondName", SecondName);
                         command.Parameters.AddWithValue("@LastName", LastName);
                         command.Parameters.AddWithValue("@Gender", Gender);
-                        command.Parameters.AddWithValue("@CountryID", CountryID);
+                        command.Parameters.AddWithValue("@CountryID", NationalityCountryID);
                         command.Parameters.AddWithValue("@Phone", Phone);
                         command.Parameters.AddWithValue("@Email", Email);
                         command.Parameters.AddWithValue("@Address", Address);
@@ -214,10 +250,7 @@ namespace DataAccessLayer
             return dt;
         }
 
-        /// <summary>
-        /// filter = PersonID or NationalNo 
-        /// </summary>
-        public static bool DoesExist(string ID, string filter) 
+        public static bool DoesPersonExist(int PersonID) 
         {
             bool isFound = false;
 
@@ -226,11 +259,41 @@ namespace DataAccessLayer
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
                     connection.Open();
-                    string query = $@"select A=1 from People where {filter} = @ID";
+                    string query = @"select A=1 from People where PersonID = @ID";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@ID", ID);
+                        command.Parameters.AddWithValue("@ID", PersonID);
+                        object result = command.ExecuteScalar();
+
+                        if (result != null)
+                        {
+                            isFound = true;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+
+            return isFound;
+        }
+        public static bool DoesPersonExist(string NationalID) 
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    connection.Open();
+                    string query = @"select A=1 from People where NationalNo = @ID";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ID", NationalID);
                         object result = command.ExecuteScalar();
 
                         if (result != null)

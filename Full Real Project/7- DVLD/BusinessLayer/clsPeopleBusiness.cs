@@ -16,7 +16,9 @@ namespace BusinessLayer
         public string LastName { get; set; }
         public byte Gender { get; set; }
         public DateTime BirthDate { get; set; }
-        public int CountryID { get; set; }
+        public int NationalityCountryID { get; set; }
+
+        public clsCountriesBusiness CountryInfo;
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
@@ -33,7 +35,7 @@ namespace BusinessLayer
             this.LastName = "";
             this.Gender = 0;
             this.BirthDate = DateTime.Now;
-            this.CountryID = -1;
+            this.NationalityCountryID = -1;
             this.Phone = "";
             this.Email = "";
             this.Address = "";
@@ -41,9 +43,9 @@ namespace BusinessLayer
             this._mode = enMode.eAddMode;
         }
 
-        // for updating existing persons
+        // for getting existing persons
         clsPeopleBusiness(int PersonID, string NationalID, string FirstName, string SecondName, string ThirdName, string LastName, byte Gender,
-            int CountryID, string Phone, string Email, string Address, string ImagePath, DateTime BirthDate)
+            int NationalityCountryID, string Phone, string Email, string Address, string ImagePath, DateTime BirthDate)
         {
             this.PersonID = PersonID;
             this.NationalID = NationalID;
@@ -53,7 +55,8 @@ namespace BusinessLayer
             this.LastName = LastName;
             this.Gender = Gender;
             this.BirthDate = BirthDate;
-            this.CountryID = CountryID;
+            this.NationalityCountryID = NationalityCountryID;
+            this.CountryInfo = clsCountriesBusiness.GetCountry(NationalityCountryID);
             this.Phone = Phone;
             this.Email = Email;
             this.Address = Address;
@@ -62,23 +65,33 @@ namespace BusinessLayer
         }
 
 
+      
 
-        /// <summary>
-        /// filter = PersonID or NationalNo 
-        /// </summary>
-        public static clsPeopleBusiness FindPerson(string ID, string Filter)
+        public static clsPeopleBusiness FindPerson(int PersonID)
+        {
+            int NationalityCountryID = -1;
+            byte Gender = 0;
+            string FirstName = "", SecondName = "", ThirdName = "", LastName = "", Phone = "", Email = "", Address = "", ImagePath = "", NationalID = "";
+            DateTime BirthDate = DateTime.MinValue;
+
+            if (clsPeopleDataAccess.FindPerson(PersonID, ref NationalID, ref FirstName, ref SecondName, ref ThirdName,
+                ref LastName, ref Gender, ref NationalityCountryID, ref Phone, ref Email, ref Address, ref ImagePath, ref BirthDate))
+            {
+                return new clsPeopleBusiness(PersonID, NationalID, FirstName, SecondName, ThirdName,
+                     LastName, Gender, NationalityCountryID, Phone, Email, Address, ImagePath, BirthDate);
+            }
+            else
+                return null;
+        }
+
+        public static clsPeopleBusiness FindPerson(string NationalID)
         {
             int PersonID = -1, CountryID = -1;
             byte Gender = 0;
-            string FirstName = "", SecondName = "", ThirdName = "", LastName = "", Phone = "", Email = "", Address = "",ImagePath = "", NationalID = "";
+            string FirstName = "", SecondName = "", ThirdName = "", LastName = "", Phone = "", Email = "", Address = "", ImagePath = "";
             DateTime BirthDate = DateTime.MinValue;
 
-            if (Filter == "PersonID")
-                PersonID = int.Parse(ID);
-            else
-                NationalID = ID;
-
-            if (clsPeopleDataAccess.FindPerson(Filter, ref PersonID, ref NationalID, ref FirstName, ref SecondName, ref ThirdName,
+            if (clsPeopleDataAccess.FindPerson(ref PersonID, NationalID, ref FirstName, ref SecondName, ref ThirdName,
                 ref LastName, ref Gender, ref CountryID, ref Phone, ref Email, ref Address, ref ImagePath, ref BirthDate))
             {
                 return new clsPeopleBusiness(PersonID, NationalID, FirstName, SecondName, ThirdName,
@@ -91,7 +104,7 @@ namespace BusinessLayer
         private bool _AddNewPerson()
         {
             this.PersonID = clsPeopleDataAccess.AddNewPerson(this.NationalID, this.FirstName, this.SecondName, this.ThirdName,
-                     this.LastName, this.Gender, this.CountryID, this.Phone, this.Email, this.Address, this.ImagePath, this.BirthDate);
+                     this.LastName, this.Gender, this.NationalityCountryID, this.Phone, this.Email, this.Address, this.ImagePath, this.BirthDate);
 
             return (this.PersonID != -1);
         }
@@ -99,7 +112,7 @@ namespace BusinessLayer
         private bool _UpdatePerson()
         {
             return clsPeopleDataAccess.UpdatePerson(this.PersonID, this.NationalID, this.FirstName, this.SecondName, this.ThirdName,
-                     this.LastName, this.Gender, this.CountryID, this.Phone, this.Email, this.Address, this.ImagePath, this.BirthDate);
+                     this.LastName, this.Gender, this.NationalityCountryID, this.Phone, this.Email, this.Address, this.ImagePath, this.BirthDate);
         }
 
         public bool Save()
@@ -135,9 +148,13 @@ namespace BusinessLayer
         /// <summary>
         /// filter = PersonID or NationalNo 
         /// </summary>
-        public static bool DoesExist(string ID, string Filter ) 
+        public static bool DoesPersonExist(int PersonID) 
         {
-            return clsPeopleDataAccess.DoesExist(ID, Filter);
+            return clsPeopleDataAccess.DoesPersonExist(PersonID);
+        }
+        public static bool DoesPersonExist(string NationalID) 
+        {
+            return clsPeopleDataAccess.DoesPersonExist(NationalID);
         }
     }
 }
