@@ -233,7 +233,7 @@ namespace DataAccessLayer
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
             {
-                string query = @"select * from viewAllPeople;";
+                string query = @"select * from viewListPeople;";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {

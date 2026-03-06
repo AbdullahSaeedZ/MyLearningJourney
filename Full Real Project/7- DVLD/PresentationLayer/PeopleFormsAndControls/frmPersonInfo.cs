@@ -17,6 +17,14 @@ namespace PresentationLayer.PeopleFormsAndControls
             ctrlPersonInfo1.delUpdateBreadcrumb3 += (se, ev) => delUpdateBreadcrumb2(se, ev); // linking to frmMain breadcrumb method
             ctrlPersonInfo1.LoadInfo(personID);
         }
+        public frmPersonInfo(string NationalNo)
+        {
+            InitializeComponent();
+            guna2ShadowForm1.SetShadowForm(this);
+            
+            ctrlPersonInfo1.delUpdateBreadcrumb3 += (se, ev) => delUpdateBreadcrumb2(se, ev); // linking to frmMain breadcrumb method
+            ctrlPersonInfo1.LoadInfo(NationalNo);
+        }
 
         private void frmPersonInfo_FormClosing(object sender, FormClosingEventArgs e)
         {

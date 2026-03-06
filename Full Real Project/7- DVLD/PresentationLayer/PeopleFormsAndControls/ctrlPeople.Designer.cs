@@ -330,53 +330,53 @@
             this.contextMenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(177, 106);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 130);
             // 
             // showDetailsToolStripMenuItem
             // 
             this.showDetailsToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.showDetailsToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.cardNoFill;
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.showDetailsToolStripMenuItem.Tag = "Show Details";
             this.showDetailsToolStripMenuItem.Text = "Show Details";
             this.showDetailsToolStripMenuItem.ToolTipText = "Show Person Details";
-            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.AllToolStripMenuHandler_Click);
+            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(173, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(191, 6);
             // 
             // addNewPersonToolStripMenuItem
             // 
             this.addNewPersonToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.addNoFill;
             this.addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
-            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.addNewPersonToolStripMenuItem.Tag = "Add New Person";
             this.addNewPersonToolStripMenuItem.Text = "Add New Person";
             this.addNewPersonToolStripMenuItem.ToolTipText = "Add a New Person";
-            this.addNewPersonToolStripMenuItem.Click += new System.EventHandler(this.AllToolStripMenuHandler_Click);
+            this.addNewPersonToolStripMenuItem.Click += new System.EventHandler(this.btnAddPerson_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.editNoFill;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.editToolStripMenuItem.Tag = "Edit";
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.ToolTipText = "Edit Selected Person Details";
-            this.editToolStripMenuItem.Click += new System.EventHandler(this.AllToolStripMenuHandler_Click);
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.removeNoFill;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.deleteToolStripMenuItem.Tag = "Delete";
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.ToolTipText = "Delete Selected Person";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.AllToolStripMenuHandler_Click);
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // colPersonID
             // 
@@ -441,7 +441,7 @@
             // colGender
             // 
             this.colGender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colGender.DataPropertyName = "GenderString";
+            this.colGender.DataPropertyName = "GenderCaption";
             this.colGender.HeaderText = "Gender";
             this.colGender.MinimumWidth = 6;
             this.colGender.Name = "colGender";
