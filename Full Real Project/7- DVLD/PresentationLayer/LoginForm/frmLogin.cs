@@ -30,10 +30,7 @@ namespace PresentationLayer.LoginForm
             tbPassword.UseSystemPasswordChar = !tbPassword.UseSystemPasswordChar;
         }
 
-        private void guna2PictureBox8_Click(object sender, EventArgs e)
-        {
-
-        }
+      
 
       
     }

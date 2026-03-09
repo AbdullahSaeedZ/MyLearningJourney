@@ -36,7 +36,7 @@
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.tbUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbPassword = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2CheckBox1 = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbRememberMe = new Guna.UI2.WinForms.Guna2CheckBox();
             this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblPasswordEye = new System.Windows.Forms.Label();
             this.guna2PictureBox8 = new Guna.UI2.WinForms.Guna2PictureBox();
@@ -54,7 +54,7 @@
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2ShadowPanel1.Controls.Add(this.guna2PictureBox6);
-            this.guna2ShadowPanel1.Controls.Add(this.guna2CheckBox1);
+            this.guna2ShadowPanel1.Controls.Add(this.chbRememberMe);
             this.guna2ShadowPanel1.Controls.Add(this.label1);
             this.guna2ShadowPanel1.Controls.Add(this.guna2ControlBox1);
             this.guna2ShadowPanel1.Controls.Add(this.lblPasswordEye);
@@ -165,27 +165,27 @@
             this.tbPassword.TabIndex = 2;
             this.tbPassword.UseSystemPasswordChar = true;
             // 
-            // guna2CheckBox1
+            // chbRememberMe
             // 
-            this.guna2CheckBox1.Animated = true;
-            this.guna2CheckBox1.AutoSize = true;
-            this.guna2CheckBox1.Checked = true;
-            this.guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CheckBox1.CheckedState.BorderRadius = 2;
-            this.guna2CheckBox1.CheckedState.BorderThickness = 0;
-            this.guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2CheckBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.guna2CheckBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.guna2CheckBox1.Location = new System.Drawing.Point(84, 377);
-            this.guna2CheckBox1.Name = "guna2CheckBox1";
-            this.guna2CheckBox1.Size = new System.Drawing.Size(103, 18);
-            this.guna2CheckBox1.TabIndex = 18;
-            this.guna2CheckBox1.Text = "Remember Me";
-            this.guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2CheckBox1.UncheckedState.BorderRadius = 2;
-            this.guna2CheckBox1.UncheckedState.BorderThickness = 0;
-            this.guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2CheckBox1.UseVisualStyleBackColor = true;
+            this.chbRememberMe.Animated = true;
+            this.chbRememberMe.AutoSize = true;
+            this.chbRememberMe.Checked = true;
+            this.chbRememberMe.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbRememberMe.CheckedState.BorderRadius = 2;
+            this.chbRememberMe.CheckedState.BorderThickness = 0;
+            this.chbRememberMe.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbRememberMe.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbRememberMe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chbRememberMe.Location = new System.Drawing.Point(84, 377);
+            this.chbRememberMe.Name = "chbRememberMe";
+            this.chbRememberMe.Size = new System.Drawing.Size(103, 18);
+            this.chbRememberMe.TabIndex = 18;
+            this.chbRememberMe.Text = "Remember Me";
+            this.chbRememberMe.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbRememberMe.UncheckedState.BorderRadius = 2;
+            this.chbRememberMe.UncheckedState.BorderThickness = 0;
+            this.chbRememberMe.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbRememberMe.UseVisualStyleBackColor = true;
             // 
             // guna2PictureBox6
             // 
@@ -249,7 +249,7 @@
         private Guna.UI2.WinForms.Guna2TextBox tbUsername;
         private Guna.UI2.WinForms.Guna2TextBox tbPassword;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2CheckBox guna2CheckBox1;
+        private Guna.UI2.WinForms.Guna2CheckBox chbRememberMe;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox8;
     }
