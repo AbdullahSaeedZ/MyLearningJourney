@@ -304,5 +304,47 @@
   <ItemGroup>
     <None Include="assets\SearchBlackFill.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\illu1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\illu2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\illu3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\illu4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\illu5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\illu6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\illu7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\illu8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\illu9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\illu10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\drivingIllu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\illu11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\illu12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\illu13.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
