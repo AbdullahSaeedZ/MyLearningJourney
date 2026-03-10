@@ -169,12 +169,10 @@
             // 
             this.chbRememberMe.Animated = true;
             this.chbRememberMe.AutoSize = true;
-            this.chbRememberMe.Checked = true;
             this.chbRememberMe.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.chbRememberMe.CheckedState.BorderRadius = 2;
             this.chbRememberMe.CheckedState.BorderThickness = 0;
             this.chbRememberMe.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbRememberMe.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chbRememberMe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chbRememberMe.Location = new System.Drawing.Point(84, 377);
             this.chbRememberMe.Name = "chbRememberMe";

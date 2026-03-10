@@ -14,7 +14,7 @@ namespace BusinessLayer
         public string Password { get; set; }
         public bool isActive { get; set; }
 
-        clsPeopleBusiness Person;
+        public clsPeopleBusiness Person;
 
         public clsUserBusiness()
         {

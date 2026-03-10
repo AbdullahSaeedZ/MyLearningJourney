@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
 
@@ -10,9 +8,12 @@ namespace BusinessLayer
 {
     public static class clsBusinessSettings
     {
+        // Add/Edit person form
         public static  string  _ServerPicturesFolder = @"D:\UsersPictures\";
         public readonly static  string _defaultComboBoxCountry = "Saudi Arabia";
         public static DateTime _defaultMinAllowedAge = DateTime.Now.AddYears(-18);
+        // User Login Info remember me
+        public static string _RememberMeFile = @"D:\UserLogin.txt";
 
 
         // must be in DataAccess ?
@@ -71,5 +72,40 @@ namespace BusinessLayer
         {
             return Regex.IsMatch(Email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$", RegexOptions.IgnoreCase); //RegularExpressions same as Java
         }
+
+
+        public static void SaveLoginInfoToFile(string Username, string Password, bool isRememberMeChecked, string del = "#//#")
+        {
+            string str = Username + del + Password + del + isRememberMeChecked.ToString();
+            try
+            {
+                File.WriteAllText(_RememberMeFile, str);
+            }
+            catch (IOException e)
+            {
+                throw;
+            }
+        }
+
+        public static void LoadLoginInfoFromFile(ref string Username, ref string Password, ref bool isRememberMeChecked, string del = "#//#")
+        {
+            try
+            {
+                string Line = File.ReadAllText(_RememberMeFile);
+
+                Username = Line.Substring(0, Line.IndexOf(del));
+                Line = Line.Remove(0, Username.Length + del.Length);
+
+                Password = Line.Substring(0, Line.IndexOf(del));
+                Line = Line.Remove(0, Password.Length + del.Length);
+
+                isRememberMeChecked = Convert.ToBoolean(Line);
+            }
+            catch (IOException e)
+            {
+                throw;
+            }
+        }
+
     }
 }
