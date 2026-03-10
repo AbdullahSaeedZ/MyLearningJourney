@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using DataAccessLayer;
 
 namespace BusinessLayer
@@ -46,6 +47,11 @@ namespace BusinessLayer
                 return new clsUserBusiness( UserID, PersonID, Username, Password, isActive);
             else
                 return null;
+        }
+
+        public static DataTable GetAllUsers()
+        {
+            return clsUserDataAccess.GetAllUsers();
         }
 
     }

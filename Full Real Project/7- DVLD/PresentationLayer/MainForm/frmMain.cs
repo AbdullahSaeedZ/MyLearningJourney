@@ -6,6 +6,7 @@ using BusinessLayer;
 using Guna.UI2.WinForms;
 using PresentationLayer.DashboardControls;
 using PresentationLayer.PeopleFormsAndControls;
+using PresentationLayer.UsersFormsAndControls;
 
 namespace PresentationLayer.MainForm
 {
@@ -54,8 +55,9 @@ namespace PresentationLayer.MainForm
                     break;
 
                 case "Users":
-                    ctrlPersonCardWithSearch c = new ctrlPersonCardWithSearch();
-                    pnlControlsContainer.Controls.Add(c);
+                    ctrlUsers Users = new ctrlUsers();
+                    pnlControlsContainer.Controls.Add(Users);
+                    Users.delUpdateBreadcrumb += UpdateBreadcrumb;
                     break;
 
                 case "Settings":
