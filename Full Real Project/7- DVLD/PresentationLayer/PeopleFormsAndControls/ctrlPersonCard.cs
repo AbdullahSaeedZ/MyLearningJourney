@@ -11,17 +11,42 @@ namespace PresentationLayer.PeopleFormsAndControls
 {
     public partial class ctrlPersonCard : UserControl
     {
-        public event EventHandler<frmMain.clsBreadcrumbData> delUpdateBreadcrumb3;
+        public event EventHandler<frmMain.clsBreadcrumbData> delUpdateBreadcrumbFromPersonCard;
+        public event Action PersonCardUpdated; // custom event that will eventually update DGV in ctrlPeople if invoked
 
-        // outside usage: assign PersonID then use loadInfo method;
+        // outside usage:  use loadInfo method then can use PersonID;
         enum enGender { Male = 0, Female = 1 };
         private int _personID = -1;
-        public int PersonID { get { return _personID; } } // to user current personID outside the control
+        public int PersonID { get { return _personID; } } // to use current personID outside the control
         private clsPeopleBusiness _person;
         public clsPeopleBusiness SelectedPersonInfo { get { return _person; } } // to get person info outside the control
+        public int BorderThickness 
+        {
+            set
+            {
+                pnlFullBorder.BorderThickness = value;
+            }        
+            get
+            {
+                return pnlFullBorder.BorderThickness;
+            }        
+        }
+        public Color BorderColor 
+        {
+            set
+            {
+                pnlFullBorder.BorderColor = value;
+            }        
+            get
+            {
+                return pnlFullBorder.BorderColor;
+            }        
+        }
+
         public ctrlPersonCard()
         {
             InitializeComponent();
+            btnEditInfo.Visible = false;
         }
 
         public void LoadInfo(int personID)
@@ -33,6 +58,8 @@ namespace PresentationLayer.PeopleFormsAndControls
                 MessageBox.Show( $"PersonID = {personID} was not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            btnEditInfo.Visible = true;
+            PersonCardUpdated?.Invoke(); // after editPerson is done , this will eventually update DGV
             _FillPersonInfo();
         }
 
@@ -45,6 +72,8 @@ namespace PresentationLayer.PeopleFormsAndControls
                 MessageBox.Show( $"PersonID = {NationalID} was not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            btnEditInfo.Visible = true;
+            PersonCardUpdated?.Invoke();
             _FillPersonInfo();
         }
 
@@ -94,11 +123,13 @@ namespace PresentationLayer.PeopleFormsAndControls
         }
         private void btnEditInfo_Click(object sender, EventArgs e)
         {
-            delUpdateBreadcrumb3(sender, new frmMain.clsBreadcrumbData() { title = "> Edit Person Info", operationType = "Add" });
+            delUpdateBreadcrumbFromPersonCard(sender, new frmMain.clsBreadcrumbData() { title = "> Edit Person Info", operationType = "Add" });
+
             frmAddEditPerson editPerson = new frmAddEditPerson(_personID);
-            editPerson.OnUpdateDone += LoadInfo;// to update info when info is updated
+            editPerson.OnUpdateDoneForPersonCard += LoadInfo;// to update info here in personCard when info is updated in AddEdit form
             editPerson.ShowDialog();
-            delUpdateBreadcrumb3(sender, new frmMain.clsBreadcrumbData() { title = "> Edit Person Info", operationType = "Remove" });
+
+            delUpdateBreadcrumbFromPersonCard(sender, new frmMain.clsBreadcrumbData() { title = "> Edit Person Info", operationType = "Remove" });
         }
     }
 }

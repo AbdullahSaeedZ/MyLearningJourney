@@ -76,36 +76,33 @@ namespace PresentationLayer.PeopleFormsAndControls
         }
 
 
-        private void dgvPeople_DoubleClick(object sender, EventArgs e)
-        {
-            delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Add" });
-
-            frmPersonInfo personInfo = new frmPersonInfo((int)dgvPeople.SelectedCells[0].Value);
-            personInfo.delUpdateBreadcrumb2 += (se, ev) => delUpdateBreadcrumb(se, ev);
-            personInfo.ShowDialog();
-
-            delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Remove" });
-            RefreshDataGridView();
-        }
-
+    
+        // using event below is to control WHEN to refresh, instead of refreshing once opened and closed the forms even if no update done
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
             delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Add" });
+
             frmAddEditPerson addPersonForm = new frmAddEditPerson(-1);
+            addPersonForm.OnUpdateDoneForDGV += RefreshDataGridView; // to update DGV here if new person added and updated in AddEdit form
             addPersonForm.ShowDialog();
+
             delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Remove" });
-            RefreshDataGridView();
+            
         }
 
 
         // toolstrips menu
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int PersonID = (int)dgvPeople.SelectedCells[0].Value;
+            
             delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Add" });
+
+            int PersonID = (int)dgvPeople.SelectedCells[0].Value;
             frmPersonInfo personInfo = new frmPersonInfo(PersonID);
             personInfo.delUpdateBreadcrumb2 += (se, ev) => delUpdateBreadcrumb(se, ev);
+            personInfo.PersonCardUpdatedInForm += RefreshDataGridView; // to refresh dgv only if person card that is in person info form gets updated
             personInfo.ShowDialog();
+
             delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Remove" });
         }
 
@@ -113,8 +110,11 @@ namespace PresentationLayer.PeopleFormsAndControls
         {
             int PersonID = (int)dgvPeople.SelectedCells[0].Value;
             delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Add" });
-            frmAddEditPerson addPersonForm = new frmAddEditPerson(PersonID);
-            addPersonForm.ShowDialog();
+
+            frmAddEditPerson EditPersonForm = new frmAddEditPerson(PersonID);
+            EditPersonForm.OnUpdateDoneForDGV += RefreshDataGridView;
+            EditPersonForm.ShowDialog();
+
             delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Remove" });
         }
 
@@ -126,6 +126,7 @@ namespace PresentationLayer.PeopleFormsAndControls
                 if (clsPeopleBusiness.DeletePerson(PersonID))
                 {
                     MessageBox.Show($"Person with ID {PersonID} was successfully deleted.", "Success", MessageBoxButtons.OK);
+                    RefreshDataGridView();
                 }
                 else
                     MessageBox.Show($"Person with ID{PersonID} CAN NOT be deleted due to linked data to be deleted first.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);

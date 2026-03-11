@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
-            this.ctrlPersonInfo1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCard();
+            this.ctrlPersonCard1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCard();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.SuspendLayout();
             // 
@@ -40,13 +40,16 @@
             this.guna2Elipse1.BorderRadius = 20;
             this.guna2Elipse1.TargetControl = this;
             // 
-            // ctrlPersonInfo1
+            // ctrlPersonCard1
             // 
-            this.ctrlPersonInfo1.BackColor = System.Drawing.Color.White;
-            this.ctrlPersonInfo1.Location = new System.Drawing.Point(12, 12);
-            this.ctrlPersonInfo1.Name = "ctrlPersonInfo1";
-            this.ctrlPersonInfo1.Size = new System.Drawing.Size(844, 337);
-            this.ctrlPersonInfo1.TabIndex = 2;
+            this.ctrlPersonCard1.BackColor = System.Drawing.Color.White;
+            this.ctrlPersonCard1.BorderColor = System.Drawing.Color.Empty;
+            this.ctrlPersonCard1.BorderThickness = 0;
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(12, 12);
+            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(844, 337);
+            this.ctrlPersonCard1.TabIndex = 2;
+            this.ctrlPersonCard1.PersonCardUpdated += new System.Action(this.ctrlPersonCard1_PersonCardUpdated);
             // 
             // ControlBoxClose
             // 
@@ -67,7 +70,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(867, 361);
             this.Controls.Add(this.ControlBoxClose);
-            this.Controls.Add(this.ctrlPersonInfo1);
+            this.Controls.Add(this.ctrlPersonCard1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPersonInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -80,7 +83,7 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private ctrlPersonCard ctrlPersonInfo1;
+        private ctrlPersonCard ctrlPersonCard1;
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
         private Guna.UI2.WinForms.Guna2ControlBox ControlBoxClose;
     }

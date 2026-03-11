@@ -315,7 +315,7 @@
             this.dgvPeople.ThemeStyle.RowsStyle.Height = 50;
             this.dgvPeople.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
             this.dgvPeople.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvPeople.DoubleClick += new System.EventHandler(this.dgvPeople_DoubleClick);
+            this.dgvPeople.DoubleClick += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
             // colPersonID
             // 

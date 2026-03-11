@@ -28,42 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlPersonCard1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCard();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlFilter = new Guna.UI2.WinForms.Guna2Panel();
             this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddPerson = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbSearchBy = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2Panel2.SuspendLayout();
+            this.pnlCard = new Guna.UI2.WinForms.Guna2Panel();
+            this.ctrlPersonCard1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCard();
+            this.pnlFilter.SuspendLayout();
+            this.pnlCard.SuspendLayout();
             this.SuspendLayout();
             // 
-            // ctrlPersonCard1
+            // pnlFilter
             // 
-            this.ctrlPersonCard1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ctrlPersonCard1.BackColor = System.Drawing.Color.White;
-            this.ctrlPersonCard1.Location = new System.Drawing.Point(11, 75);
-            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
-            this.ctrlPersonCard1.Size = new System.Drawing.Size(844, 337);
-            this.ctrlPersonCard1.TabIndex = 0;
-            // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Panel2.BorderColor = System.Drawing.Color.Gainsboro;
-            this.guna2Panel2.BorderRadius = 15;
-            this.guna2Panel2.BorderThickness = 1;
-            this.guna2Panel2.Controls.Add(this.btnSearch);
-            this.guna2Panel2.Controls.Add(this.btnAddPerson);
-            this.guna2Panel2.Controls.Add(this.label1);
-            this.guna2Panel2.Controls.Add(this.tbSearch);
-            this.guna2Panel2.Controls.Add(this.cbSearchBy);
-            this.guna2Panel2.FillColor = System.Drawing.Color.White;
-            this.guna2Panel2.Location = new System.Drawing.Point(11, 11);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
-            this.guna2Panel2.Size = new System.Drawing.Size(844, 57);
-            this.guna2Panel2.TabIndex = 12;
+            this.pnlFilter.BackColor = System.Drawing.Color.Transparent;
+            this.pnlFilter.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlFilter.BorderRadius = 15;
+            this.pnlFilter.BorderThickness = 1;
+            this.pnlFilter.Controls.Add(this.btnSearch);
+            this.pnlFilter.Controls.Add(this.btnAddPerson);
+            this.pnlFilter.Controls.Add(this.label1);
+            this.pnlFilter.Controls.Add(this.tbSearch);
+            this.pnlFilter.Controls.Add(this.cbSearchBy);
+            this.pnlFilter.FillColor = System.Drawing.Color.White;
+            this.pnlFilter.Location = new System.Drawing.Point(11, 7);
+            this.pnlFilter.Name = "pnlFilter";
+            this.pnlFilter.ShadowDecoration.Parent = this.pnlFilter;
+            this.pnlFilter.Size = new System.Drawing.Size(844, 57);
+            this.pnlFilter.TabIndex = 12;
             // 
             // btnSearch
             // 
@@ -131,6 +124,7 @@
             // tbSearch
             // 
             this.tbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbSearch.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.tbSearch.BackColor = System.Drawing.Color.Transparent;
             this.tbSearch.BorderColor = System.Drawing.Color.Silver;
             this.tbSearch.BorderRadius = 10;
@@ -141,7 +135,6 @@
             this.tbSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbSearch.DisabledState.Parent = this.tbSearch;
             this.tbSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbSearch.Enabled = false;
             this.tbSearch.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbSearch.FocusedState.Parent = this.tbSearch;
             this.tbSearch.ForeColor = System.Drawing.Color.Black;
@@ -152,11 +145,13 @@
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.PasswordChar = '\0';
             this.tbSearch.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.tbSearch.PlaceholderText = "Search People";
+            this.tbSearch.PlaceholderText = "Search People To Add As User";
             this.tbSearch.SelectedText = "";
             this.tbSearch.ShadowDecoration.Parent = this.tbSearch;
             this.tbSearch.Size = new System.Drawing.Size(225, 36);
             this.tbSearch.TabIndex = 5;
+            this.tbSearch.Visible = false;
+            this.tbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearch_KeyPress);
             // 
             // cbSearchBy
             // 
@@ -174,16 +169,8 @@
             this.cbSearchBy.ItemHeight = 30;
             this.cbSearchBy.Items.AddRange(new object[] {
             "None",
-            "PersonID",
-            "National No",
-            "First Name",
-            "Second Name",
-            "Third Name",
-            "Last Name",
-            "Nationality",
-            "Gender",
-            "Phone",
-            "Email"});
+            "Person ID",
+            "National No"});
             this.cbSearchBy.ItemsAppearance.Parent = this.cbSearchBy;
             this.cbSearchBy.Location = new System.Drawing.Point(132, 11);
             this.cbSearchBy.Name = "cbSearchBy";
@@ -191,18 +178,44 @@
             this.cbSearchBy.Size = new System.Drawing.Size(162, 36);
             this.cbSearchBy.StartIndex = 0;
             this.cbSearchBy.TabIndex = 2;
+            this.cbSearchBy.SelectedIndexChanged += new System.EventHandler(this.cbSearchBy_SelectedIndexChanged);
+            // 
+            // pnlCard
+            // 
+            this.pnlCard.BackColor = System.Drawing.Color.White;
+            this.pnlCard.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlCard.BorderRadius = 15;
+            this.pnlCard.BorderThickness = 1;
+            this.pnlCard.Controls.Add(this.ctrlPersonCard1);
+            this.pnlCard.FillColor = System.Drawing.Color.White;
+            this.pnlCard.Location = new System.Drawing.Point(11, 72);
+            this.pnlCard.Name = "pnlCard";
+            this.pnlCard.ShadowDecoration.Parent = this.pnlCard;
+            this.pnlCard.Size = new System.Drawing.Size(844, 338);
+            this.pnlCard.TabIndex = 13;
+            // 
+            // ctrlPersonCard1
+            // 
+            this.ctrlPersonCard1.BackColor = System.Drawing.Color.White;
+            this.ctrlPersonCard1.BorderColor = System.Drawing.Color.Empty;
+            this.ctrlPersonCard1.BorderThickness = 0;
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(3, 3);
+            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(838, 332);
+            this.ctrlPersonCard1.TabIndex = 0;
             // 
             // ctrlPersonCardWithSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.guna2Panel2);
-            this.Controls.Add(this.ctrlPersonCard1);
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.pnlFilter);
+            this.Controls.Add(this.pnlCard);
             this.Name = "ctrlPersonCardWithSearch";
             this.Size = new System.Drawing.Size(868, 419);
-            this.guna2Panel2.ResumeLayout(false);
-            this.guna2Panel2.PerformLayout();
+            this.pnlFilter.ResumeLayout(false);
+            this.pnlFilter.PerformLayout();
+            this.pnlCard.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -210,11 +223,12 @@
         #endregion
 
         private ctrlPersonCard ctrlPersonCard1;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Panel pnlFilter;
         private Guna.UI2.WinForms.Guna2Button btnAddPerson;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2TextBox tbSearch;
         private Guna.UI2.WinForms.Guna2ComboBox cbSearchBy;
         private Guna.UI2.WinForms.Guna2Button btnSearch;
+        private Guna.UI2.WinForms.Guna2Panel pnlCard;
     }
 }

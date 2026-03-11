@@ -4,18 +4,20 @@ using System;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.IO;
 using PresentationLayer.Properties;
-using System.Diagnostics.Eventing.Reader;
 
 namespace PresentationLayer.PeopleFormsAndControls
 {
     public partial class frmAddEditPerson : Form
     {
-        public event Action<int> OnUpdateDone; // to notify the personInfo control to update its info when person info is updated here
-        private bool _isOpenedFromPersonInfoCtrl = false;
+        public event Action<int> OnUpdateDoneForPersonCard; // to send PersonID outside to update any control when person info is updated here
+        public event Action<int> OnNewPersonAdded; // to send PersonID outside to update any control when person info is updated here
+        public event Action OnUpdateDoneForDGV; 
+       
+
+        private bool _isOpenedFromPersonCardCtrl = false;
         
 
         clsPeopleBusiness person;
@@ -42,7 +44,6 @@ namespace PresentationLayer.PeopleFormsAndControls
                     this.Close();
                 }
                 _FillPersonInfoInForm();
-                _isOpenedFromPersonInfoCtrl = true;
             }
         }
 
@@ -127,8 +128,10 @@ namespace PresentationLayer.PeopleFormsAndControls
                 MessageBox.Show($"Data Saved Successfully, PersonID {person.PersonID}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 lblPersonID.Text = person.PersonID.ToString();
                 lblFormTitle.Text = $"Edit person with ID = {person.PersonID}";
-                if (_isOpenedFromPersonInfoCtrl)
-                    OnUpdateDone(person.PersonID);
+
+                OnUpdateDoneForPersonCard?.Invoke(person.PersonID); // update if opened from personCard
+                OnUpdateDoneForDGV?.Invoke();  // update if opened from ctrlPeople, not personCard
+                OnNewPersonAdded?.Invoke(person.PersonID);
             }
             else
                 MessageBox.Show("Data Was Not Saved!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

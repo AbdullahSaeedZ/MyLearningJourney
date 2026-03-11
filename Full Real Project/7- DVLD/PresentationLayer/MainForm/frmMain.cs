@@ -57,7 +57,7 @@ namespace PresentationLayer.MainForm
                 case "Users":
                     ctrlUsers Users = new ctrlUsers();
                     pnlControlsContainer.Controls.Add(Users);
-                    Users.delUpdateBreadcrumb += UpdateBreadcrumb;
+                    Users.delUpdateBreadcrumbFromUserControl += UpdateBreadcrumb;
                     break;
 
                 case "Settings":

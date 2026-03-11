@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,7 +17,7 @@ namespace PresentationLayer.UsersFormsAndControls
     public partial class ctrlUsers : UserControl
     {
 
-        public event EventHandler<frmMain.clsBreadcrumbData> delUpdateBreadcrumb;
+        public event EventHandler<frmMain.clsBreadcrumbData> delUpdateBreadcrumbFromUserControl;
         private DataTable dt;
         private string _searchFilter; // to use in search filters and match DT and DB column names, not dgv names
 
@@ -40,7 +41,7 @@ namespace PresentationLayer.UsersFormsAndControls
         // controlling textBox based on comboBox option
         private void cbSearchBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _searchFilter = cbSearchBy.Text.Replace(" ", ""); // matching database names, not dgv. First Name in dgv, to be FirstName here to match DT & DB
+            _searchFilter = cbSearchBy.Text.Replace(" ", ""); // matching database names, not dgv. User ID in dgv, to be UserID here to match DT & DB
 
             if (_searchFilter == "None")
             {
@@ -89,7 +90,6 @@ namespace PresentationLayer.UsersFormsAndControls
             if (_searchFilter == "PersonID" || _searchFilter == "UserID")
                 e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back; // if Handled == true then will prevent any action
         }
-
         private void cbIsActive_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbIsActive.Text == "All")
@@ -103,46 +103,51 @@ namespace PresentationLayer.UsersFormsAndControls
             lblNumberOfRecords.Text = dgvUsers.RowCount.ToString();
         }
 
-        private void dgvPeople_DoubleClick(object sender, EventArgs e)
-        {
-            delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> User Details", operationType = "Add" });
-
-            frmPersonInfo personInfo = new frmPersonInfo((int)dgvUsers.SelectedCells[0].Value);
-            personInfo.delUpdateBreadcrumb2 += (se, ev) => delUpdateBreadcrumb(se, ev);
-            personInfo.ShowDialog();
-
-            delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> User Details", operationType = "Remove" });
-            RefreshDataGridView();
-        }
-
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit User", operationType = "Add" });
-            frmAddEditPerson addPersonForm = new frmAddEditPerson(-1);
-            addPersonForm.ShowDialog();
-            delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit User", operationType = "Remove" });
+            delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit User", operationType = "Add" });
+            frmAddEditUser addUserForm = new frmAddEditUser(-1);
+            addUserForm.delUpdateBreadcrumbFromAddEditUserForm += (se, ev) => delUpdateBreadcrumbFromUserControl(se, ev);
+            addUserForm.ShowDialog();
+            delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit User", operationType = "Remove" });
             RefreshDataGridView();
         }
 
+
+
+
+        // to be done:
+        private void dgvUsers_DoubleClick(object sender, EventArgs e)
+        {
+            delUpdateBreadcrumbFromUserControl(sender, new frmMain.clsBreadcrumbData() { title = "> User Details", operationType = "Add" });
+
+            // user details form
+            //frmPersonInfo personInfo = new frmPersonInfo((int)dgvUsers.SelectedCells[0].Value);
+            //personInfo.delUpdateBreadcrumb2 += (se, ev) => delUpdateBreadcrumbFromUserControl(se, ev);
+            //personInfo.ShowDialog();
+
+            delUpdateBreadcrumbFromUserControl(sender, new frmMain.clsBreadcrumbData() { title = "> User Details", operationType = "Remove" });
+            RefreshDataGridView();
+        }
 
         // toolstrips menu
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int PersonID = (int)dgvUsers.SelectedCells[0].Value;
-            delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Add" });
+            delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Add" });
             frmPersonInfo personInfo = new frmPersonInfo(PersonID);
-            personInfo.delUpdateBreadcrumb2 += (se, ev) => delUpdateBreadcrumb(se, ev);
+            personInfo.delUpdateBreadcrumb2 += (se, ev) => delUpdateBreadcrumbFromUserControl(se, ev);
             personInfo.ShowDialog();
-            delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Remove" });
+            delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Remove" });
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int PersonID = (int)dgvUsers.SelectedCells[0].Value;
-            delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Add" });
+            delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Add" });
             frmAddEditPerson addPersonForm = new frmAddEditPerson(PersonID);
             addPersonForm.ShowDialog();
-            delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Remove" });
+            delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Remove" });
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -159,6 +164,6 @@ namespace PresentationLayer.UsersFormsAndControls
             }
         }
 
-       
+        
     }
 }

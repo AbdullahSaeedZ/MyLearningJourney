@@ -493,6 +493,16 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap passwordNoFill {
+            get {
+                object obj = ResourceManager.GetObject("passwordNoFill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap peopleFill {
             get {
                 object obj = ResourceManager.GetObject("peopleFill", resourceCulture);

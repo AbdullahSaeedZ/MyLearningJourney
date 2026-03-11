@@ -51,6 +51,7 @@
             this.lblPhone = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblBirthDate = new System.Windows.Forms.Label();
+            this.pnlFullBorder = new Guna.UI2.WinForms.Guna2Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -324,6 +325,15 @@
             this.lblBirthDate.TabIndex = 10;
             this.lblBirthDate.Text = "NA";
             // 
+            // pnlFullBorder
+            // 
+            this.pnlFullBorder.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlFullBorder.Location = new System.Drawing.Point(0, 0);
+            this.pnlFullBorder.Name = "pnlFullBorder";
+            this.pnlFullBorder.ShadowDecoration.Parent = this.pnlFullBorder;
+            this.pnlFullBorder.Size = new System.Drawing.Size(844, 337);
+            this.pnlFullBorder.TabIndex = 11;
+            // 
             // ctrlPersonCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -350,6 +360,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblFormTitle);
             this.Controls.Add(this.btnEditInfo);
+            this.Controls.Add(this.pnlFullBorder);
             this.Name = "ctrlPersonCard";
             this.Size = new System.Drawing.Size(844, 337);
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).EndInit();
@@ -382,5 +393,6 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblGender;
         private Guna.UI2.WinForms.Guna2Button btnEditInfo;
+        private Guna.UI2.WinForms.Guna2Panel pnlFullBorder;
     }
 }
