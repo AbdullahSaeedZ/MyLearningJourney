@@ -106,15 +106,17 @@ namespace PresentationLayer.UsersFormsAndControls
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit User", operationType = "Add" });
+
             frmAddEditUser addUserForm = new frmAddEditUser(-1);
             addUserForm.delUpdateBreadcrumbFromAddEditUserForm += (se, ev) => delUpdateBreadcrumbFromUserControl(se, ev);
             addUserForm.ShowDialog();
+
             delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit User", operationType = "Remove" });
             RefreshDataGridView();
         }
 
 
-
+        // fix all user delegations 
 
         // to be done:
         private void dgvUsers_DoubleClick(object sender, EventArgs e)
@@ -143,11 +145,14 @@ namespace PresentationLayer.UsersFormsAndControls
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int PersonID = (int)dgvUsers.SelectedCells[0].Value;
-            delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Add" });
-            frmAddEditPerson addPersonForm = new frmAddEditPerson(PersonID);
-            addPersonForm.ShowDialog();
-            delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Remove" });
+            delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Edit User", operationType = "Add" });
+
+            frmAddEditUser EditUserForm = new frmAddEditUser((int)dgvUsers.SelectedCells[0].Value);
+            EditUserForm.delUpdateBreadcrumbFromAddEditUserForm += (se, ev) => delUpdateBreadcrumbFromUserControl(se, ev);
+            EditUserForm.ShowDialog();
+
+            delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Edit User", operationType = "Remove" });
+            RefreshDataGridView();
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)

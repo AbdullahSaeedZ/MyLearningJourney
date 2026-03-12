@@ -143,6 +143,16 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BackShortArrow {
+            get {
+                object obj = ResourceManager.GetObject("BackShortArrow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cardFill {
             get {
                 object obj = ResourceManager.GetObject("cardFill", resourceCulture);
@@ -333,6 +343,16 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hidePasswordEye {
+            get {
+                object obj = ResourceManager.GetObject("hidePasswordEye", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap illu1 {
             get {
                 object obj = ResourceManager.GetObject("illu1", resourceCulture);
@@ -466,6 +486,16 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap logoSmall {
             get {
                 object obj = ResourceManager.GetObject("logoSmall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap nextShortArrow {
+            get {
+                object obj = ResourceManager.GetObject("nextShortArrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -633,6 +663,26 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap searchPersonFill {
+            get {
+                object obj = ResourceManager.GetObject("searchPersonFill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap searchPersonNoFill {
+            get {
+                object obj = ResourceManager.GetObject("searchPersonNoFill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap settingNoFill {
             get {
                 object obj = ResourceManager.GetObject("settingNoFill", resourceCulture);
@@ -666,6 +716,16 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap settingSmall {
             get {
                 object obj = ResourceManager.GetObject("settingSmall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap showPasswordEye {
+            get {
+                object obj = ResourceManager.GetObject("showPasswordEye", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

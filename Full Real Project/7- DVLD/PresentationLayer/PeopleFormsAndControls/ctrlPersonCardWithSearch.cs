@@ -2,6 +2,7 @@
 using PresentationLayer.MainForm;
 using System;
 using System.Drawing;
+using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 
 namespace PresentationLayer.PeopleFormsAndControls
@@ -9,6 +10,9 @@ namespace PresentationLayer.PeopleFormsAndControls
     public partial class ctrlPersonCardWithSearch : UserControl
     {
         public event EventHandler<frmMain.clsBreadcrumbData> delUpdateBreadcrumbFromCardWithFilter;
+        public event EventHandler<int> OnPersonSelected;
+       
+
 
         public int FilterBorderThickness
         {
@@ -63,6 +67,7 @@ namespace PresentationLayer.PeopleFormsAndControls
             ctrlPersonCard1.delUpdateBreadcrumbFromPersonCard += (se, ev) => delUpdateBreadcrumbFromCardWithFilter(se, ev);
         }
 
+
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
             delUpdateBreadcrumbFromCardWithFilter(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Add" });
@@ -89,21 +94,27 @@ namespace PresentationLayer.PeopleFormsAndControls
             switch(cbSearchBy.Text)
             {
                 case "Person ID":
-
                     int ID = int.Parse(tbSearch.Text.Trim());
+
                     if (clsPeopleBusiness.DoesPersonExist(ID))
                         ctrlPersonCard1.LoadInfo(ID);
                     else
-                        MessageBox.Show($"PersonID {ID} was not found", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    {
+                        MessageBox.Show($"Person with PersonID {ID} was not found", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return; // to skip invoking event when no Person found
+                    }
 
                         break;
                 case "National No":
-
                     string NationalNo = tbSearch.Text.Trim();
+
                     if (clsPeopleBusiness.DoesPersonExist(NationalNo))
                         ctrlPersonCard1.LoadInfo(NationalNo);
                     else
+                    {
                         MessageBox.Show($"National No {NationalNo} was not found", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
 
                     break;
 
@@ -111,6 +122,9 @@ namespace PresentationLayer.PeopleFormsAndControls
                     MessageBox.Show($"Please select a filter then fill needed data", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
+
+            OnPersonSelected?.Invoke(this, ctrlPersonCard1.PersonID); // custom event invoked to send ID outside when person is selected 
+
         }
         private void cbSearchBy_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -128,6 +142,12 @@ namespace PresentationLayer.PeopleFormsAndControls
         {
             if (cbSearchBy.Text == "Person ID")
                 e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back; // if Handled == true then will prevent any action
+        }
+
+        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btnSearch_Click(sender, EventArgs.Empty);
         }
     }
 }

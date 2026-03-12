@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.pnlFilter = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAddPerson = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tbSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.cbSearchBy = new Guna.UI2.WinForms.Guna2ComboBox();
             this.pnlCard = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddPerson = new Guna.UI2.WinForms.Guna2Button();
             this.ctrlPersonCard1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCard();
             this.pnlFilter.SuspendLayout();
             this.pnlCard.SuspendLayout();
@@ -57,58 +57,6 @@
             this.pnlFilter.ShadowDecoration.Parent = this.pnlFilter;
             this.pnlFilter.Size = new System.Drawing.Size(844, 57);
             this.pnlFilter.TabIndex = 12;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSearch.BorderRadius = 10;
-            this.btnSearch.CheckedState.Parent = this.btnSearch;
-            this.btnSearch.CustomImages.Parent = this.btnSearch;
-            this.btnSearch.FillColor = System.Drawing.Color.Transparent;
-            this.btnSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnSearch.ForeColor = System.Drawing.Color.White;
-            this.btnSearch.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnSearch.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSearch.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnSearch.HoverState.Image = global::PresentationLayer.Properties.Resources.SearchBlackFill;
-            this.btnSearch.HoverState.Parent = this.btnSearch;
-            this.btnSearch.Image = global::PresentationLayer.Properties.Resources.SearchGrayFill;
-            this.btnSearch.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnSearch.Location = new System.Drawing.Point(530, 12);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.ShadowDecoration.Parent = this.btnSearch;
-            this.btnSearch.Size = new System.Drawing.Size(35, 35);
-            this.btnSearch.TabIndex = 8;
-            this.btnSearch.Tag = "Settings";
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // btnAddPerson
-            // 
-            this.btnAddPerson.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnAddPerson.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddPerson.BorderColor = System.Drawing.Color.DimGray;
-            this.btnAddPerson.BorderRadius = 10;
-            this.btnAddPerson.CheckedState.Parent = this.btnAddPerson;
-            this.btnAddPerson.CustomImages.Parent = this.btnAddPerson;
-            this.btnAddPerson.FillColor = System.Drawing.Color.Transparent;
-            this.btnAddPerson.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnAddPerson.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAddPerson.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAddPerson.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAddPerson.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnAddPerson.HoverState.Image = global::PresentationLayer.Properties.Resources.addFill;
-            this.btnAddPerson.HoverState.Parent = this.btnAddPerson;
-            this.btnAddPerson.Image = global::PresentationLayer.Properties.Resources.addNoFill;
-            this.btnAddPerson.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAddPerson.Location = new System.Drawing.Point(693, 10);
-            this.btnAddPerson.Name = "btnAddPerson";
-            this.btnAddPerson.PressedColor = System.Drawing.Color.DimGray;
-            this.btnAddPerson.ShadowDecoration.Parent = this.btnAddPerson;
-            this.btnAddPerson.Size = new System.Drawing.Size(137, 37);
-            this.btnAddPerson.TabIndex = 7;
-            this.btnAddPerson.Text = "Add Person";
-            this.btnAddPerson.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAddPerson.Click += new System.EventHandler(this.btnAddPerson_Click);
             // 
             // label1
             // 
@@ -149,8 +97,9 @@
             this.tbSearch.SelectedText = "";
             this.tbSearch.ShadowDecoration.Parent = this.tbSearch;
             this.tbSearch.Size = new System.Drawing.Size(225, 36);
-            this.tbSearch.TabIndex = 5;
+            this.tbSearch.TabIndex = 1;
             this.tbSearch.Visible = false;
+            this.tbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyDown);
             this.tbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearch_KeyPress);
             // 
             // cbSearchBy
@@ -177,7 +126,7 @@
             this.cbSearchBy.ShadowDecoration.Parent = this.cbSearchBy;
             this.cbSearchBy.Size = new System.Drawing.Size(162, 36);
             this.cbSearchBy.StartIndex = 0;
-            this.cbSearchBy.TabIndex = 2;
+            this.cbSearchBy.TabIndex = 0;
             this.cbSearchBy.SelectedIndexChanged += new System.EventHandler(this.cbSearchBy_SelectedIndexChanged);
             // 
             // pnlCard
@@ -193,6 +142,63 @@
             this.pnlCard.ShadowDecoration.Parent = this.pnlCard;
             this.pnlCard.Size = new System.Drawing.Size(844, 338);
             this.pnlCard.TabIndex = 13;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSearch.BorderColor = System.Drawing.Color.LightGray;
+            this.btnSearch.BorderRadius = 10;
+            this.btnSearch.BorderThickness = 1;
+            this.btnSearch.CheckedState.Parent = this.btnSearch;
+            this.btnSearch.CustomImages.Parent = this.btnSearch;
+            this.btnSearch.FillColor = System.Drawing.Color.Transparent;
+            this.btnSearch.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnSearch.ForeColor = System.Drawing.Color.DimGray;
+            this.btnSearch.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btnSearch.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSearch.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnSearch.HoverState.Image = global::PresentationLayer.Properties.Resources.SearchBlackFill;
+            this.btnSearch.HoverState.Parent = this.btnSearch;
+            this.btnSearch.Image = global::PresentationLayer.Properties.Resources.SearchGrayFill;
+            this.btnSearch.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnSearch.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnSearch.Location = new System.Drawing.Point(530, 11);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.ShadowDecoration.Parent = this.btnSearch;
+            this.btnSearch.Size = new System.Drawing.Size(107, 36);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Tag = "Settings";
+            this.btnSearch.Text = "Search";
+            this.btnSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // btnAddPerson
+            // 
+            this.btnAddPerson.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnAddPerson.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddPerson.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAddPerson.BorderRadius = 10;
+            this.btnAddPerson.CheckedState.Parent = this.btnAddPerson;
+            this.btnAddPerson.CustomImages.Parent = this.btnAddPerson;
+            this.btnAddPerson.FillColor = System.Drawing.Color.Transparent;
+            this.btnAddPerson.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnAddPerson.ForeColor = System.Drawing.Color.DimGray;
+            this.btnAddPerson.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAddPerson.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAddPerson.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnAddPerson.HoverState.Image = global::PresentationLayer.Properties.Resources.addFill;
+            this.btnAddPerson.HoverState.Parent = this.btnAddPerson;
+            this.btnAddPerson.Image = global::PresentationLayer.Properties.Resources.addNoFill;
+            this.btnAddPerson.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAddPerson.Location = new System.Drawing.Point(693, 10);
+            this.btnAddPerson.Name = "btnAddPerson";
+            this.btnAddPerson.PressedColor = System.Drawing.Color.DimGray;
+            this.btnAddPerson.ShadowDecoration.Parent = this.btnAddPerson;
+            this.btnAddPerson.Size = new System.Drawing.Size(137, 37);
+            this.btnAddPerson.TabIndex = 3;
+            this.btnAddPerson.Text = "Add Person";
+            this.btnAddPerson.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAddPerson.Click += new System.EventHandler(this.btnAddPerson_Click);
             // 
             // ctrlPersonCard1
             // 

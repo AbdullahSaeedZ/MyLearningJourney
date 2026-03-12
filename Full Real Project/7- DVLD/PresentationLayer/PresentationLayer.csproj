@@ -367,5 +367,23 @@
   <ItemGroup>
     <None Include="assets\passwordNoFill.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\BackShortArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\nextShortArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\hidePasswordEye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\showPasswordEye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\searchPersonFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\searchPersonNoFill.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

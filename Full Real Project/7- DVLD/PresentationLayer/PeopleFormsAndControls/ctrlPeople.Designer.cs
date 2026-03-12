@@ -206,7 +206,7 @@
             this.cbSearchBy.ItemHeight = 30;
             this.cbSearchBy.Items.AddRange(new object[] {
             "None",
-            "PersonID",
+            "SelectedPersonID",
             "National No",
             "First Name",
             "Second Name",
@@ -320,8 +320,8 @@
             // colPersonID
             // 
             this.colPersonID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPersonID.DataPropertyName = "PersonID";
-            this.colPersonID.HeaderText = "PersonID";
+            this.colPersonID.DataPropertyName = "SelectedPersonID";
+            this.colPersonID.HeaderText = "SelectedPersonID";
             this.colPersonID.MinimumWidth = 6;
             this.colPersonID.Name = "colPersonID";
             this.colPersonID.ReadOnly = true;

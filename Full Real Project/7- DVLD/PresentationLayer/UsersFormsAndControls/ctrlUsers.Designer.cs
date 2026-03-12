@@ -344,7 +344,7 @@
             // colCountryName
             // 
             this.colCountryName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colCountryName.DataPropertyName = "PersonID";
+            this.colCountryName.DataPropertyName = "SelectedPersonID";
             this.colCountryName.HeaderText = "Person ID";
             this.colCountryName.MinimumWidth = 6;
             this.colCountryName.Name = "colCountryName";

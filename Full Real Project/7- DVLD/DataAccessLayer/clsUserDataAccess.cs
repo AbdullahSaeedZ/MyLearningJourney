@@ -44,6 +44,94 @@ namespace DataAccessLayer
             }
             return isFound;
         }
+        public static bool FindUser(int UserID, ref string Username, ref string Password, ref int PersonID, ref bool isActive)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = "select * from Users where UserID = @ID ;";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ID", UserID);
+                        connection.Open();
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            PersonID = (int)reader["PersonID"];
+                            Username = (string)reader["UserName"];
+                            Password = (string)reader["Password"];
+                            isActive = (bool)reader["IsActive"];
+                            isFound = true;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+            }
+            return isFound;
+        }
+        public static bool DoesUserExist(int PersonID)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = "select Found = 1 from Users where PersonID = @ID;";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ID", PersonID);
+                        connection.Open();
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null)
+                            isFound = true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+            }
+            return isFound;
+        }
+
+        public static bool DoesUserExist(string NationalNo)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = "select Found = 1 from Users where NationalNo = @ID;";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ID", NationalNo);
+                        connection.Open();
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null)
+                            isFound = true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+            }
+            return isFound;
+        }
 
         public static DataTable GetAllUsers()
         {

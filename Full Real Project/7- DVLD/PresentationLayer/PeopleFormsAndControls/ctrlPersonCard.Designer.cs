@@ -225,7 +225,7 @@
             this.btnEditInfo.Name = "btnEditInfo";
             this.btnEditInfo.ShadowDecoration.Parent = this.btnEditInfo;
             this.btnEditInfo.Size = new System.Drawing.Size(136, 37);
-            this.btnEditInfo.TabIndex = 8;
+            this.btnEditInfo.TabIndex = 0;
             this.btnEditInfo.Text = "Edit Info";
             this.btnEditInfo.Click += new System.EventHandler(this.btnEditInfo_Click);
             // 
