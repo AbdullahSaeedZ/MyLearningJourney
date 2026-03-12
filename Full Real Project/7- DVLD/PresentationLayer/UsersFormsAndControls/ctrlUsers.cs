@@ -116,9 +116,10 @@ namespace PresentationLayer.UsersFormsAndControls
         }
 
 
-        // fix all user delegations 
 
         // to be done:
+
+        // fix all user delegations 
         private void dgvUsers_DoubleClick(object sender, EventArgs e)
         {
             delUpdateBreadcrumbFromUserControl(sender, new frmMain.clsBreadcrumbData() { title = "> User Details", operationType = "Add" });

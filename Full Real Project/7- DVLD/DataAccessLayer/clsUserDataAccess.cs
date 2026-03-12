@@ -41,6 +41,7 @@ namespace DataAccessLayer
             catch (Exception e)
             {
                 // logs
+                throw;
             }
             return isFound;
         }
@@ -74,6 +75,69 @@ namespace DataAccessLayer
             catch (Exception e)
             {
                 // logs
+                throw;
+            }
+            return isFound;
+        }
+        public static int AddNewUser(int PersonID, string Username, string Password, bool IsActive)
+        {
+            int NewID = -1;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = @"insert into Users 
+                                     values (@PersonID, @Username, @Password, @IsActive);
+                                     select scope_identity();";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@PersonID", PersonID);
+                        command.Parameters.AddWithValue("@Username", Username);
+                        command.Parameters.AddWithValue("@Password", Password);
+                        command.Parameters.AddWithValue("@IsActive", IsActive);
+
+                        connection.Open();
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && int.TryParse(result.ToString(), out int ID))
+                            NewID = ID;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return NewID;
+        }
+        public static bool DoesUsernameExist(string Username)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = "select Found = 1 from Users where Username = @Username;";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Username", Username);
+                        connection.Open();
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null)
+                            isFound = true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
             }
             return isFound;
         }
@@ -101,6 +165,7 @@ namespace DataAccessLayer
             catch (Exception e)
             {
                 // logs
+                throw;
             }
             return isFound;
         }
@@ -129,6 +194,7 @@ namespace DataAccessLayer
             catch (Exception e)
             {
                 // logs
+                throw;
             }
             return isFound;
         }
@@ -157,6 +223,7 @@ namespace DataAccessLayer
             catch (Exception e)
             {
                 // logs
+                throw;
             }
             return dt;
         }

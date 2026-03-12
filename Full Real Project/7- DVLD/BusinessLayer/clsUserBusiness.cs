@@ -41,7 +41,7 @@ namespace BusinessLayer
 
         private bool _AddNewUser()
         {
-            this._userID = clsUserDataAccess.AddNewUser();
+            this._userID = clsUserDataAccess.AddNewUser(this.PersonID, this.Username, this.Password, this.isActive);
 
             return (this.UserID != -1);
         }
@@ -71,6 +71,11 @@ namespace BusinessLayer
                 return new clsUserBusiness( UserID, PersonID, Username, Password, isActive);
             else
                 return null;
+        }
+
+        public static bool DoesUsernameExist(string Username)
+        {
+            return clsUserDataAccess.DoesUsernameExist(Username);
         }
 
         public static bool DoesUserExist(int PersonID)

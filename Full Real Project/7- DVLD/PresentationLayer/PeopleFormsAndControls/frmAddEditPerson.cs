@@ -95,47 +95,51 @@ namespace PresentationLayer.PeopleFormsAndControls
         }
 
 
-       private void btnSave_Click(object sender, EventArgs e)
-       {
-            if (!this.ValidateChildren()) // runs all validations linked to the error Provider
-            {
-                MessageBox.Show("Fields with * must be filled with valid data and not empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                return;
-            }
-
+        private void _HandlePersonImage()
+        {
             string oldPath = string.IsNullOrEmpty(person.ImagePath) ? "" : person.ImagePath; // if empty means no pic before
             string newPath = string.IsNullOrEmpty(pbImage.ImageLocation) ? "" : pbImage.ImageLocation; // if empty means removed or no pic added in this session.
 
             // if paths dont match, user changed something.
             if (oldPath != newPath)
                 person.ImagePath = clsBusinessSettings.CopyImageToServer(pbImage.ImageLocation, person.ImagePath);
+        }
 
-            person.NationalID = tbNationalNumber.Text.Trim();
-            person.FirstName = tbFirstName.Text.Trim();
-            person.SecondName = tbSecondName.Text.Trim();
-            person.ThirdName = string.IsNullOrEmpty(tbThirdName.Text) ? "" : tbThirdName.Text.Trim();
-            person.LastName = tbLastName.Text.Trim();
-            person.Email = tbEmail.Text.Trim();
-            person.Phone = tbPhone.Text.Trim();
-            person.Address = tbAddress.Text.Trim();
-            person.BirthDate = dtpBirthDate.Value;
-            person.Gender = rbMale.Checked ? (byte)enGender.Male : (byte)enGender.Female;
-            person.NationalityCountryID = (clsCountriesBusiness.GetCountry(cbCountry.Text)).CountryID;
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+             if (!this.ValidateChildren()) // runs all validations linked to the error Provider
+             {
+                 MessageBox.Show("Fields with * must be filled with valid data and not empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                 return;
+             }
 
+             _HandlePersonImage();
 
-            if (person.Save())
-            {
-                MessageBox.Show($"Data Saved Successfully, PersonID {person.PersonID}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                lblPersonID.Text = person.PersonID.ToString();
-                lblFormTitle.Text = $"Edit person with ID = {person.PersonID}";
+             person.NationalID = tbNationalNumber.Text.Trim();
+             person.FirstName = tbFirstName.Text.Trim();
+             person.SecondName = tbSecondName.Text.Trim();
+             person.ThirdName = string.IsNullOrEmpty(tbThirdName.Text) ? "" : tbThirdName.Text.Trim();
+             person.LastName = tbLastName.Text.Trim();
+             person.Email = tbEmail.Text.Trim();
+             person.Phone = tbPhone.Text.Trim();
+             person.Address = tbAddress.Text.Trim();
+             person.BirthDate = dtpBirthDate.Value;
+             person.Gender = rbMale.Checked ? (byte)enGender.Male : (byte)enGender.Female;
+             person.NationalityCountryID = (clsCountriesBusiness.GetCountry(cbCountry.Text)).CountryID;
 
-                OnUpdateDoneForPersonCard?.Invoke(person.PersonID); // update if opened from personCard
-                OnUpdateDoneForDGV?.Invoke();  // update if opened from ctrlPeople, not personCard
-                OnNewPersonAdded?.Invoke(person.PersonID);
-            }
-            else
-                MessageBox.Show("Data Was Not Saved!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-       }
+             if (person.Save())
+             {
+                 MessageBox.Show($"Data Saved Successfully, PersonID {person.PersonID}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 lblPersonID.Text = person.PersonID.ToString();
+                 lblFormTitle.Text = $"Edit person with ID = {person.PersonID}";
+
+                 OnUpdateDoneForPersonCard?.Invoke(person.PersonID); // update if opened from personCard
+                 OnUpdateDoneForDGV?.Invoke();  // update if opened from ctrlPeople, not personCard
+                 OnNewPersonAdded?.Invoke(person.PersonID);
+             }
+             else
+                 MessageBox.Show("Data Was Not Saved!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {

@@ -58,15 +58,40 @@ namespace PresentationLayer.PeopleFormsAndControls
                 return pnlCard.BorderColor;
             }
         }
-
+        public bool FilterEnabled 
+        {
+            set
+            {
+                pnlFilter.Enabled = value;
+            }
+            get
+            {
+                return pnlFilter.Enabled;
+            }
+        }
+        public bool FilterVisible
+        {
+            set
+            {
+                pnlFilter.Visible = value;
+            }
+            get
+            {
+                return pnlFilter.Visible;
+            }
+        }
         public int PersonID { get { return ctrlPersonCard1.PersonID; } } // to use current personID outside the control
+
+        public void LoadInfo(int PersonID) // to load person info when user is opened for update
+        {
+            ctrlPersonCard1.LoadInfo(PersonID);
+        }
 
         public ctrlPersonCardWithSearch()
         {
             InitializeComponent();
             ctrlPersonCard1.delUpdateBreadcrumbFromPersonCard += (se, ev) => delUpdateBreadcrumbFromCardWithFilter(se, ev);
         }
-
 
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
