@@ -1,21 +1,18 @@
 ﻿using BusinessLayer;
-using Guna.UI2.HtmlRenderer.Adapters;
-using Guna.UI2.WinForms;
+using Microsoft.VisualBasic.ApplicationServices;
 using PresentationLayer.MainForm;
 using PresentationLayer.Properties;
 using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.IO;
-using System.Net;
 using System.Windows.Forms;
-using static PresentationLayer.PeopleFormsAndControls.frmAddEditPerson;
 
 namespace PresentationLayer.UsersFormsAndControls
 {
     public partial class frmAddEditUser : Form
     {
         public event EventHandler<frmMain.clsBreadcrumbData> delUpdateBreadcrumbFromAddEditUserForm;
+        public event Action OnUpdateDone;
         clsUserBusiness _user;
 
         private enum enMode { eAddNewMode, eUpdateMode };
@@ -33,6 +30,7 @@ namespace PresentationLayer.UsersFormsAndControls
             }
             else
             {
+                // only allowed with permission
                 _user = clsUserBusiness.FindUser(UserID);
                 if (_user == null)
                 {
@@ -58,7 +56,7 @@ namespace PresentationLayer.UsersFormsAndControls
             chbIsActive.Checked = _user.isActive;
         }
 
-        private void btnNext_Click(object sender, EventArgs e)
+        private void btnNext_Click(object sender, EventArgs e) // dont allow to proceed if no permission and in update mode
         {
             if (ctrlPersonCardWithSearch1.PersonID == -1)
             {
@@ -104,20 +102,23 @@ namespace PresentationLayer.UsersFormsAndControls
                 _user.Password = tbPassword.Text.Trim();
                 _user.isActive = chbIsActive.Checked;
             }
-            else
+
+            if (_mode == enMode.eUpdateMode) // PersonID not editable
             {
-                // check password editing..
                 _user.Username = tbUsername.Text.Trim();
+                _user.Password = tbPassword.Text.Trim();
                 _user.isActive = chbIsActive.Checked;
             }
 
             if (_user.Save())
             {
                 MessageBox.Show("Data saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _mode = enMode.eUpdateMode; // to allow next button to proceed when updating a user
                 ctrlPersonCardWithSearch1.FilterVisible = false;
                 lblUserID.Text = _user.UserID.ToString();
                 lblTitle.Text = $"Edit User with ID = {_user.UserID}";
-                _mode = enMode.eUpdateMode; // to allow next button to proceed when updating a user
+
+                OnUpdateDone?.Invoke(); // to refresh dgv if user info is updated
             }
             else
                 MessageBox.Show("Data was not saved successfully", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -212,32 +213,20 @@ namespace PresentationLayer.UsersFormsAndControls
             }
         }
 
-
-        private void btnShowHidePassword2_Click(object sender, EventArgs e)
+        private void btnShowHidePassword_Click(object sender, EventArgs e)
         {
-            if (tbConfirmPassword.UseSystemPasswordChar)
+            tbPassword.UseSystemPasswordChar = !tbPassword.UseSystemPasswordChar;
+            tbConfirmPassword.UseSystemPasswordChar = !tbConfirmPassword.UseSystemPasswordChar;
+
+            if (tbPassword.UseSystemPasswordChar)
             {
-                tbConfirmPassword.UseSystemPasswordChar = false;
+                btnShowHidePassword1.Image = Resources.hidePasswordEye;
                 btnShowHidePassword2.Image = Resources.hidePasswordEye;
             }
             else
             {
-                tbConfirmPassword.UseSystemPasswordChar = true;
-                btnShowHidePassword2.Image = Resources.showPasswordEye;
-            }
-        }
-
-        private void btnShowHidePassword1_Click(object sender, EventArgs e)
-        {
-            if (tbPassword.UseSystemPasswordChar)
-            {
-                tbPassword.UseSystemPasswordChar = false;
-                btnShowHidePassword1.Image = Resources.hidePasswordEye;
-            }
-            else
-            {
-                tbPassword.UseSystemPasswordChar = true;
                 btnShowHidePassword1.Image = Resources.showPasswordEye;
+                btnShowHidePassword2.Image = Resources.showPasswordEye;
             }
         }
 

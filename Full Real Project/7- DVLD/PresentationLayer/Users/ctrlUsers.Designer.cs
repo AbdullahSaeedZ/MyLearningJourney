@@ -35,7 +35,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnAddPerson = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbSearchUsers = new Guna.UI2.WinForms.Guna2TextBox();
@@ -43,18 +42,19 @@
             this.cbIsActive = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbSearchBy = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dgvUsers = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.addNewUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.colPersonID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCountryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEmail = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnAddPerson = new Guna.UI2.WinForms.Guna2Button();
+            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -92,35 +92,8 @@
             this.guna2Panel2.Location = new System.Drawing.Point(18, 27);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
-            this.guna2Panel2.Size = new System.Drawing.Size(1381, 57);
+            this.guna2Panel2.Size = new System.Drawing.Size(1405, 57);
             this.guna2Panel2.TabIndex = 8;
-            // 
-            // btnAddPerson
-            // 
-            this.btnAddPerson.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddPerson.BorderColor = System.Drawing.Color.DimGray;
-            this.btnAddPerson.BorderRadius = 10;
-            this.btnAddPerson.CheckedState.Parent = this.btnAddPerson;
-            this.btnAddPerson.CustomImages.Parent = this.btnAddPerson;
-            this.btnAddPerson.FillColor = System.Drawing.Color.Transparent;
-            this.btnAddPerson.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnAddPerson.ForeColor = System.Drawing.Color.Black;
-            this.btnAddPerson.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAddPerson.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAddPerson.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnAddPerson.HoverState.Image = global::PresentationLayer.Properties.Resources.addFill;
-            this.btnAddPerson.HoverState.Parent = this.btnAddPerson;
-            this.btnAddPerson.Image = global::PresentationLayer.Properties.Resources.addNoFill;
-            this.btnAddPerson.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAddPerson.Location = new System.Drawing.Point(1227, 9);
-            this.btnAddPerson.Name = "btnAddPerson";
-            this.btnAddPerson.PressedColor = System.Drawing.Color.DimGray;
-            this.btnAddPerson.ShadowDecoration.Parent = this.btnAddPerson;
-            this.btnAddPerson.Size = new System.Drawing.Size(137, 37);
-            this.btnAddPerson.TabIndex = 7;
-            this.btnAddPerson.Text = "Add User";
-            this.btnAddPerson.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAddPerson.Click += new System.EventHandler(this.btnAddUser_Click);
             // 
             // label2
             // 
@@ -138,7 +111,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(303, 17);
+            this.label3.Location = new System.Drawing.Point(329, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 23);
             this.label3.TabIndex = 1;
@@ -162,7 +135,7 @@
             this.tbSearchUsers.ForeColor = System.Drawing.Color.Black;
             this.tbSearchUsers.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbSearchUsers.HoverState.Parent = this.tbSearchUsers;
-            this.tbSearchUsers.Location = new System.Drawing.Point(651, 9);
+            this.tbSearchUsers.Location = new System.Drawing.Point(679, 10);
             this.tbSearchUsers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbSearchUsers.Name = "tbSearchUsers";
             this.tbSearchUsers.PasswordChar = '\0';
@@ -206,7 +179,7 @@
             "Yes",
             "No"});
             this.cbIsActive.ItemsAppearance.Parent = this.cbIsActive;
-            this.cbIsActive.Location = new System.Drawing.Point(652, 10);
+            this.cbIsActive.Location = new System.Drawing.Point(687, 9);
             this.cbIsActive.Name = "cbIsActive";
             this.cbIsActive.ShadowDecoration.Parent = this.cbIsActive;
             this.cbIsActive.Size = new System.Drawing.Size(101, 36);
@@ -237,7 +210,7 @@
             "Full Name",
             "IsActive"});
             this.cbSearchBy.ItemsAppearance.Parent = this.cbSearchBy;
-            this.cbSearchBy.Location = new System.Drawing.Point(421, 10);
+            this.cbSearchBy.Location = new System.Drawing.Point(447, 10);
             this.cbSearchBy.Name = "cbSearchBy";
             this.cbSearchBy.ShadowDecoration.Parent = this.cbSearchBy;
             this.cbSearchBy.Size = new System.Drawing.Size(225, 36);
@@ -331,65 +304,6 @@
             this.dgvUsers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvUsers.DoubleClick += new System.EventHandler(this.dgvUsers_DoubleClick);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(18, 18);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showDetailsToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.addNewUserToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.deleteToolStripMenuItem,
-            this.changePasswordToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 154);
-            // 
-            // showDetailsToolStripMenuItem
-            // 
-            this.showDetailsToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.cardNoFill;
-            this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
-            this.showDetailsToolStripMenuItem.Text = "Show Details";
-            this.showDetailsToolStripMenuItem.ToolTipText = "Show User Details";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(191, 6);
-            // 
-            // addNewUserToolStripMenuItem
-            // 
-            this.addNewUserToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.addNoFill;
-            this.addNewUserToolStripMenuItem.Name = "addNewUserToolStripMenuItem";
-            this.addNewUserToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
-            this.addNewUserToolStripMenuItem.Text = "Add New User";
-            this.addNewUserToolStripMenuItem.ToolTipText = "Add New User";
-            this.addNewUserToolStripMenuItem.Click += new System.EventHandler(this.btnAddUser_Click);
-            // 
-            // editToolStripMenuItem
-            // 
-            this.editToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.editNoFill;
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
-            this.editToolStripMenuItem.Text = "Edit";
-            this.editToolStripMenuItem.ToolTipText = "Edit User Info";
-            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.removeNoFill;
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
-            this.deleteToolStripMenuItem.Text = "Delete";
-            this.deleteToolStripMenuItem.ToolTipText = "Delete Selected User";
-            // 
-            // changePasswordToolStripMenuItem
-            // 
-            this.changePasswordToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.passwordNoFill;
-            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
-            this.changePasswordToolStripMenuItem.Text = "Change Password";
-            // 
             // colPersonID
             // 
             this.colPersonID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
@@ -439,6 +353,93 @@
             this.colEmail.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.colEmail.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.colEmail.Width = 200;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(18, 18);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showDetailsToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.addNewUserToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.deleteToolStripMenuItem,
+            this.changePasswordToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(195, 154);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(191, 6);
+            // 
+            // btnAddPerson
+            // 
+            this.btnAddPerson.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddPerson.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAddPerson.BorderRadius = 10;
+            this.btnAddPerson.CheckedState.Parent = this.btnAddPerson;
+            this.btnAddPerson.CustomImages.Parent = this.btnAddPerson;
+            this.btnAddPerson.FillColor = System.Drawing.Color.Transparent;
+            this.btnAddPerson.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnAddPerson.ForeColor = System.Drawing.Color.Black;
+            this.btnAddPerson.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAddPerson.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAddPerson.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnAddPerson.HoverState.Image = global::PresentationLayer.Properties.Resources.addFill;
+            this.btnAddPerson.HoverState.Parent = this.btnAddPerson;
+            this.btnAddPerson.Image = global::PresentationLayer.Properties.Resources.addNoFill;
+            this.btnAddPerson.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAddPerson.Location = new System.Drawing.Point(1253, 9);
+            this.btnAddPerson.Name = "btnAddPerson";
+            this.btnAddPerson.PressedColor = System.Drawing.Color.DimGray;
+            this.btnAddPerson.ShadowDecoration.Parent = this.btnAddPerson;
+            this.btnAddPerson.Size = new System.Drawing.Size(137, 37);
+            this.btnAddPerson.TabIndex = 7;
+            this.btnAddPerson.Text = "Add User";
+            this.btnAddPerson.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAddPerson.Click += new System.EventHandler(this.btnAddUser_Click);
+            // 
+            // showDetailsToolStripMenuItem
+            // 
+            this.showDetailsToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.cardNoFill;
+            this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
+            this.showDetailsToolStripMenuItem.Text = "Show Details";
+            this.showDetailsToolStripMenuItem.ToolTipText = "Show User Details";
+            // 
+            // addNewUserToolStripMenuItem
+            // 
+            this.addNewUserToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.addNoFill;
+            this.addNewUserToolStripMenuItem.Name = "addNewUserToolStripMenuItem";
+            this.addNewUserToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
+            this.addNewUserToolStripMenuItem.Text = "Add New User";
+            this.addNewUserToolStripMenuItem.ToolTipText = "Add New User";
+            this.addNewUserToolStripMenuItem.Click += new System.EventHandler(this.btnAddUser_Click);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.editNoFill;
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.ToolTipText = "Edit User Info";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.removeNoFill;
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.ToolTipText = "Delete Selected User";
+            // 
+            // changePasswordToolStripMenuItem
+            // 
+            this.changePasswordToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.passwordNoFill;
+            this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
+            this.changePasswordToolStripMenuItem.Text = "Change Password";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // ctrlUsers
             // 

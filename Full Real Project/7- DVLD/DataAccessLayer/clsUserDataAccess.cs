@@ -45,7 +45,7 @@ namespace DataAccessLayer
             }
             return isFound;
         }
-        public static bool FindUser(int UserID, ref string Username, ref string Password, ref int PersonID, ref bool isActive)
+        public static bool FindUser(int UserID, ref string Username, ref string Password, ref int PersonID, ref bool IsActive)
         {
             bool isFound = false;
 
@@ -66,7 +66,7 @@ namespace DataAccessLayer
                             PersonID = (int)reader["PersonID"];
                             Username = (string)reader["UserName"];
                             Password = (string)reader["Password"];
-                            isActive = (bool)reader["IsActive"];
+                            IsActive = (bool)reader["IsActive"];
                             isFound = true;
                         }
                     }
@@ -112,6 +112,62 @@ namespace DataAccessLayer
                 throw;
             }
             return NewID;
+        }
+
+        public static bool UpdateUser(int UserID, string Username, string Password, bool IsActive)
+        {
+            int rowsAffected = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = @"update Users 
+                                     set UserName = @Username, Password = @Password, IsActive = @IsActive)
+                                     where UserID = @ID;";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@UserID", UserID);
+                        command.Parameters.AddWithValue("@Username", Username);
+                        command.Parameters.AddWithValue("@Password", Password);
+                        command.Parameters.AddWithValue("@IsActive", IsActive);
+
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return (rowsAffected > 0);
+        }
+
+        public static bool DeleteUser(int UserID)
+        {
+            int rowsAffected = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = "delete from Users where UserID = @ID;";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ID", UserID);
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return (rowsAffected > 0);
         }
         public static bool DoesUsernameExist(string Username)
         {

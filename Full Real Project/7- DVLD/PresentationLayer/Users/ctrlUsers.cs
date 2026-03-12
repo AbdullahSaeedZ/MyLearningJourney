@@ -1,15 +1,9 @@
 ﻿using BusinessLayer;
 using PresentationLayer.MainForm;
 using PresentationLayer.PeopleFormsAndControls;
+using PresentationLayer.Users.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.UsersFormsAndControls
@@ -114,62 +108,70 @@ namespace PresentationLayer.UsersFormsAndControls
             delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit User", operationType = "Remove" });
             RefreshDataGridView();
         }
-
-
-
-        // to be done:
-
-        // fix all user delegations 
         private void dgvUsers_DoubleClick(object sender, EventArgs e)
         {
             delUpdateBreadcrumbFromUserControl(sender, new frmMain.clsBreadcrumbData() { title = "> User Details", operationType = "Add" });
 
-            // user details form
-            //frmPersonInfo personInfo = new frmPersonInfo((int)dgvUsers.SelectedCells[0].Value);
-            //personInfo.delUpdateBreadcrumb2 += (se, ev) => delUpdateBreadcrumbFromUserControl(se, ev);
-            //personInfo.ShowDialog();
+            
+            frmUserInfo UserInfo = new frmUserInfo((int)dgvUsers.SelectedCells[0].Value);
+            UserInfo.delUpdateBreadcrumbFromUserInfoForm += (se, ev) => delUpdateBreadcrumbFromUserControl(se, ev);
+            UserInfo.ShowDialog();
 
             delUpdateBreadcrumbFromUserControl(sender, new frmMain.clsBreadcrumbData() { title = "> User Details", operationType = "Remove" });
-            RefreshDataGridView();
         }
+
+
 
         // toolstrips menu
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int PersonID = (int)dgvUsers.SelectedCells[0].Value;
-            delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Add" });
-            frmPersonInfo personInfo = new frmPersonInfo(PersonID);
-            personInfo.delUpdateBreadcrumb2 += (se, ev) => delUpdateBreadcrumbFromUserControl(se, ev);
-            personInfo.ShowDialog();
-            delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Remove" });
-        }
+            delUpdateBreadcrumbFromUserControl(sender, new frmMain.clsBreadcrumbData() { title = "> User Details", operationType = "Add" });
 
+
+            frmUserInfo UserInfo = new frmUserInfo((int)dgvUsers.SelectedCells[0].Value);
+            UserInfo.delUpdateBreadcrumbFromUserInfoForm += (se, ev) => delUpdateBreadcrumbFromUserControl(se, ev);
+            UserInfo.ShowDialog();
+
+            delUpdateBreadcrumbFromUserControl(sender, new frmMain.clsBreadcrumbData() { title = "> User Details", operationType = "Remove" });
+        }
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
             delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Edit User", operationType = "Add" });
 
             frmAddEditUser EditUserForm = new frmAddEditUser((int)dgvUsers.SelectedCells[0].Value);
             EditUserForm.delUpdateBreadcrumbFromAddEditUserForm += (se, ev) => delUpdateBreadcrumbFromUserControl(se, ev);
+            EditUserForm.OnUpdateDone += RefreshDataGridView;
             EditUserForm.ShowDialog();
 
             delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Edit User", operationType = "Remove" });
-            RefreshDataGridView();
         }
 
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Change User Password", operationType = "Add" });
+
+            frmChangePassword changePassword = new frmChangePassword((int)dgvUsers.SelectedCells[0].Value);
+           // changePassword.delUpdateBreadcrumbFromAddEditUserForm += (se, ev) => delUpdateBreadcrumbFromUserControl(se, ev);
+            changePassword.ShowDialog();
+
+            delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Change User Password", operationType = "Remove" });
+        }
+
+        // to be done:
+
+        // fix all user delegations 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int PersonID = (int)dgvUsers.SelectedCells[0].Value;
-            if (MessageBox.Show($"Are you sure to delete person wIth ID{PersonID}?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop) == DialogResult.OK)
+            int UserID = (int)dgvUsers.SelectedCells[0].Value;
+            if (MessageBox.Show($"Are you sure to delete User wIth ID{UserID}?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop) == DialogResult.OK)
             {
-                if (clsPeopleBusiness.DeletePerson(PersonID))
+                if (clsUserBusiness.DeleteUser(UserID))
                 {
-                    MessageBox.Show($"Person with ID {PersonID} was successfully deleted.", "Success", MessageBoxButtons.OK);
+                    MessageBox.Show($"User with ID {UserID} was successfully deleted.", "Success", MessageBoxButtons.OK);
                 }
                 else
-                    MessageBox.Show($"Person with ID{PersonID} CAN NOT be deleted due to linked data to be deleted first.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"User with ID{UserID} CAN NOT be deleted due to linked data to be deleted first.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        
     }
 }

@@ -31,11 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.pnlLoginInfo = new Guna.UI2.WinForms.Guna2Panel();
             this.chbIsActive = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.btnShowHidePassword2 = new Guna.UI2.WinForms.Guna2Button();
-            this.btnShowHidePassword1 = new Guna.UI2.WinForms.Guna2Button();
             this.tbConfirmPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbPassword = new Guna.UI2.WinForms.Guna2TextBox();
@@ -44,13 +41,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblUserID = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnNext = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
-            this.ctrlPersonCardWithSearch1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCardWithSearch();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
+            this.btnShowHidePassword2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnShowHidePassword1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnNext = new Guna.UI2.WinForms.Guna2Button();
+            this.ctrlPersonCardWithSearch1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCardWithSearch();
             this.guna2ShadowPanel1.SuspendLayout();
             this.pnlLoginInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -80,33 +80,6 @@
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(895, 605);
             this.guna2ShadowPanel1.TabIndex = 0;
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.Transparent;
-            this.btnBack.BorderColor = System.Drawing.Color.DimGray;
-            this.btnBack.BorderRadius = 10;
-            this.btnBack.BorderThickness = 1;
-            this.btnBack.CheckedState.Parent = this.btnBack;
-            this.btnBack.CustomImages.Parent = this.btnBack;
-            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnBack.FillColor = System.Drawing.Color.Transparent;
-            this.btnBack.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnBack.ForeColor = System.Drawing.Color.DimGray;
-            this.btnBack.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.btnBack.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnBack.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnBack.HoverState.Parent = this.btnBack;
-            this.btnBack.Image = global::PresentationLayer.Properties.Resources.BackShortArrow;
-            this.btnBack.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnBack.Location = new System.Drawing.Point(23, 12);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.ShadowDecoration.Parent = this.btnBack;
-            this.btnBack.Size = new System.Drawing.Size(108, 37);
-            this.btnBack.TabIndex = 5;
-            this.btnBack.Text = "Back";
-            this.btnBack.Visible = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // pnlLoginInfo
             // 
@@ -151,52 +124,6 @@
             this.chbIsActive.UncheckedState.BorderThickness = 0;
             this.chbIsActive.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chbIsActive.UseVisualStyleBackColor = true;
-            // 
-            // btnShowHidePassword2
-            // 
-            this.btnShowHidePassword2.BackColor = System.Drawing.Color.Transparent;
-            this.btnShowHidePassword2.BorderColor = System.Drawing.Color.DimGray;
-            this.btnShowHidePassword2.BorderRadius = 10;
-            this.btnShowHidePassword2.CheckedState.Parent = this.btnShowHidePassword2;
-            this.btnShowHidePassword2.CustomImages.Parent = this.btnShowHidePassword2;
-            this.btnShowHidePassword2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnShowHidePassword2.FillColor = System.Drawing.Color.Transparent;
-            this.btnShowHidePassword2.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnShowHidePassword2.ForeColor = System.Drawing.Color.DimGray;
-            this.btnShowHidePassword2.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.btnShowHidePassword2.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHidePassword2.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnShowHidePassword2.HoverState.Parent = this.btnShowHidePassword2;
-            this.btnShowHidePassword2.Image = global::PresentationLayer.Properties.Resources.showPasswordEye;
-            this.btnShowHidePassword2.Location = new System.Drawing.Point(535, 242);
-            this.btnShowHidePassword2.Name = "btnShowHidePassword2";
-            this.btnShowHidePassword2.ShadowDecoration.Parent = this.btnShowHidePassword2;
-            this.btnShowHidePassword2.Size = new System.Drawing.Size(25, 23);
-            this.btnShowHidePassword2.TabIndex = 15;
-            this.btnShowHidePassword2.Click += new System.EventHandler(this.btnShowHidePassword2_Click);
-            // 
-            // btnShowHidePassword1
-            // 
-            this.btnShowHidePassword1.BackColor = System.Drawing.Color.Transparent;
-            this.btnShowHidePassword1.BorderColor = System.Drawing.Color.DimGray;
-            this.btnShowHidePassword1.BorderRadius = 10;
-            this.btnShowHidePassword1.CheckedState.Parent = this.btnShowHidePassword1;
-            this.btnShowHidePassword1.CustomImages.Parent = this.btnShowHidePassword1;
-            this.btnShowHidePassword1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnShowHidePassword1.FillColor = System.Drawing.Color.Transparent;
-            this.btnShowHidePassword1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnShowHidePassword1.ForeColor = System.Drawing.Color.DimGray;
-            this.btnShowHidePassword1.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.btnShowHidePassword1.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHidePassword1.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnShowHidePassword1.HoverState.Parent = this.btnShowHidePassword1;
-            this.btnShowHidePassword1.Image = global::PresentationLayer.Properties.Resources.showPasswordEye;
-            this.btnShowHidePassword1.Location = new System.Drawing.Point(535, 190);
-            this.btnShowHidePassword1.Name = "btnShowHidePassword1";
-            this.btnShowHidePassword1.ShadowDecoration.Parent = this.btnShowHidePassword1;
-            this.btnShowHidePassword1.Size = new System.Drawing.Size(25, 23);
-            this.btnShowHidePassword1.TabIndex = 15;
-            this.btnShowHidePassword1.Click += new System.EventHandler(this.btnShowHidePassword1_Click);
             // 
             // tbConfirmPassword
             // 
@@ -352,32 +279,6 @@
             this.label1.Text = "UserID:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnNext
-            // 
-            this.btnNext.BackColor = System.Drawing.Color.Transparent;
-            this.btnNext.BorderColor = System.Drawing.Color.DimGray;
-            this.btnNext.BorderRadius = 10;
-            this.btnNext.BorderThickness = 1;
-            this.btnNext.CheckedState.Parent = this.btnNext;
-            this.btnNext.CustomImages.Parent = this.btnNext;
-            this.btnNext.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnNext.FillColor = System.Drawing.Color.Transparent;
-            this.btnNext.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnNext.ForeColor = System.Drawing.Color.DimGray;
-            this.btnNext.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.btnNext.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNext.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnNext.HoverState.Parent = this.btnNext;
-            this.btnNext.Image = global::PresentationLayer.Properties.Resources.nextShortArrow;
-            this.btnNext.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.btnNext.Location = new System.Drawing.Point(664, 548);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.ShadowDecoration.Parent = this.btnNext;
-            this.btnNext.Size = new System.Drawing.Size(200, 37);
-            this.btnNext.TabIndex = 4;
-            this.btnNext.Text = "Next";
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Transparent;
@@ -427,18 +328,6 @@
             this.btnSave.Visible = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // ctrlPersonCardWithSearch1
-            // 
-            this.ctrlPersonCardWithSearch1.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlPersonCardWithSearch1.CardBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlPersonCardWithSearch1.CardBorderThickness = 1;
-            this.ctrlPersonCardWithSearch1.FilterBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlPersonCardWithSearch1.FilterBorderThickness = 1;
-            this.ctrlPersonCardWithSearch1.Location = new System.Drawing.Point(9, 121);
-            this.ctrlPersonCardWithSearch1.Name = "ctrlPersonCardWithSearch1";
-            this.ctrlPersonCardWithSearch1.Size = new System.Drawing.Size(867, 421);
-            this.ctrlPersonCardWithSearch1.TabIndex = 3;
-            // 
             // ControlBoxClose
             // 
             this.ControlBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -468,6 +357,119 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BorderColor = System.Drawing.Color.DimGray;
+            this.btnBack.BorderRadius = 10;
+            this.btnBack.BorderThickness = 1;
+            this.btnBack.CheckedState.Parent = this.btnBack;
+            this.btnBack.CustomImages.Parent = this.btnBack;
+            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnBack.FillColor = System.Drawing.Color.Transparent;
+            this.btnBack.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnBack.ForeColor = System.Drawing.Color.DimGray;
+            this.btnBack.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.btnBack.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnBack.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnBack.HoverState.Parent = this.btnBack;
+            this.btnBack.Image = global::PresentationLayer.Properties.Resources.BackShortArrow;
+            this.btnBack.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnBack.Location = new System.Drawing.Point(23, 12);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.ShadowDecoration.Parent = this.btnBack;
+            this.btnBack.Size = new System.Drawing.Size(108, 37);
+            this.btnBack.TabIndex = 5;
+            this.btnBack.Text = "Back";
+            this.btnBack.Visible = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnShowHidePassword2
+            // 
+            this.btnShowHidePassword2.BackColor = System.Drawing.Color.Transparent;
+            this.btnShowHidePassword2.BorderColor = System.Drawing.Color.DimGray;
+            this.btnShowHidePassword2.BorderRadius = 10;
+            this.btnShowHidePassword2.CheckedState.Parent = this.btnShowHidePassword2;
+            this.btnShowHidePassword2.CustomImages.Parent = this.btnShowHidePassword2;
+            this.btnShowHidePassword2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnShowHidePassword2.FillColor = System.Drawing.Color.Transparent;
+            this.btnShowHidePassword2.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnShowHidePassword2.ForeColor = System.Drawing.Color.DimGray;
+            this.btnShowHidePassword2.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.btnShowHidePassword2.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHidePassword2.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnShowHidePassword2.HoverState.Parent = this.btnShowHidePassword2;
+            this.btnShowHidePassword2.Image = global::PresentationLayer.Properties.Resources.showPasswordEye;
+            this.btnShowHidePassword2.Location = new System.Drawing.Point(535, 242);
+            this.btnShowHidePassword2.Name = "btnShowHidePassword2";
+            this.btnShowHidePassword2.ShadowDecoration.Parent = this.btnShowHidePassword2;
+            this.btnShowHidePassword2.Size = new System.Drawing.Size(25, 23);
+            this.btnShowHidePassword2.TabIndex = 15;
+            this.btnShowHidePassword2.Click += new System.EventHandler(this.btnShowHidePassword_Click);
+            // 
+            // btnShowHidePassword1
+            // 
+            this.btnShowHidePassword1.BackColor = System.Drawing.Color.Transparent;
+            this.btnShowHidePassword1.BorderColor = System.Drawing.Color.DimGray;
+            this.btnShowHidePassword1.BorderRadius = 10;
+            this.btnShowHidePassword1.CheckedState.Parent = this.btnShowHidePassword1;
+            this.btnShowHidePassword1.CustomImages.Parent = this.btnShowHidePassword1;
+            this.btnShowHidePassword1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnShowHidePassword1.FillColor = System.Drawing.Color.Transparent;
+            this.btnShowHidePassword1.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnShowHidePassword1.ForeColor = System.Drawing.Color.DimGray;
+            this.btnShowHidePassword1.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.btnShowHidePassword1.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHidePassword1.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnShowHidePassword1.HoverState.Parent = this.btnShowHidePassword1;
+            this.btnShowHidePassword1.Image = global::PresentationLayer.Properties.Resources.showPasswordEye;
+            this.btnShowHidePassword1.Location = new System.Drawing.Point(535, 190);
+            this.btnShowHidePassword1.Name = "btnShowHidePassword1";
+            this.btnShowHidePassword1.ShadowDecoration.Parent = this.btnShowHidePassword1;
+            this.btnShowHidePassword1.Size = new System.Drawing.Size(25, 23);
+            this.btnShowHidePassword1.TabIndex = 15;
+            this.btnShowHidePassword1.Click += new System.EventHandler(this.btnShowHidePassword_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.BackColor = System.Drawing.Color.Transparent;
+            this.btnNext.BorderColor = System.Drawing.Color.DimGray;
+            this.btnNext.BorderRadius = 10;
+            this.btnNext.BorderThickness = 1;
+            this.btnNext.CheckedState.Parent = this.btnNext;
+            this.btnNext.CustomImages.Parent = this.btnNext;
+            this.btnNext.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnNext.FillColor = System.Drawing.Color.Transparent;
+            this.btnNext.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnNext.ForeColor = System.Drawing.Color.DimGray;
+            this.btnNext.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.btnNext.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNext.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnNext.HoverState.Parent = this.btnNext;
+            this.btnNext.Image = global::PresentationLayer.Properties.Resources.nextShortArrow;
+            this.btnNext.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.btnNext.Location = new System.Drawing.Point(664, 548);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.ShadowDecoration.Parent = this.btnNext;
+            this.btnNext.Size = new System.Drawing.Size(200, 37);
+            this.btnNext.TabIndex = 4;
+            this.btnNext.Text = "Next";
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // ctrlPersonCardWithSearch1
+            // 
+            this.ctrlPersonCardWithSearch1.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlPersonCardWithSearch1.CardBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlPersonCardWithSearch1.CardBorderThickness = 1;
+            this.ctrlPersonCardWithSearch1.FilterBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlPersonCardWithSearch1.FilterBorderThickness = 1;
+            this.ctrlPersonCardWithSearch1.FilterEnabled = true;
+            this.ctrlPersonCardWithSearch1.FilterVisible = true;
+            this.ctrlPersonCardWithSearch1.Location = new System.Drawing.Point(9, 121);
+            this.ctrlPersonCardWithSearch1.Name = "ctrlPersonCardWithSearch1";
+            this.ctrlPersonCardWithSearch1.Size = new System.Drawing.Size(867, 421);
+            this.ctrlPersonCardWithSearch1.TabIndex = 3;
             // 
             // frmAddEditUser
             // 

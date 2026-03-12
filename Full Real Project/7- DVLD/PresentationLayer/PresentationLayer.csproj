@@ -51,10 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DashboardControls\ctrlDashboard.cs">
+    <Compile Include="Dashboard\ctrlDashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="DashboardControls\ctrlDashboard.Designer.cs">
+    <Compile Include="Dashboard\ctrlDashboard.Designer.cs">
       <DependentUpon>ctrlDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginForm\frmLogin.cs">
@@ -69,57 +69,69 @@
     <Compile Include="MainForm\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="PeopleFormsAndControls\ctrlPersonCardWithSearch.cs">
+    <Compile Include="People\Controls\ctrlPersonCardWithSearch.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PeopleFormsAndControls\ctrlPersonCardWithSearch.Designer.cs">
+    <Compile Include="People\Controls\ctrlPersonCardWithSearch.Designer.cs">
       <DependentUpon>ctrlPersonCardWithSearch.cs</DependentUpon>
     </Compile>
-    <Compile Include="PeopleFormsAndControls\ctrlPersonCard.cs">
+    <Compile Include="People\Controls\ctrlPersonCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PeopleFormsAndControls\ctrlPersonCard.Designer.cs">
+    <Compile Include="People\Controls\ctrlPersonCard.Designer.cs">
       <DependentUpon>ctrlPersonCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="PeopleFormsAndControls\frmAddEditPerson.cs">
+    <Compile Include="People\Forms\frmAddEditPerson.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PeopleFormsAndControls\frmAddEditPerson.Designer.cs">
+    <Compile Include="People\Forms\frmAddEditPerson.Designer.cs">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="PeopleFormsAndControls\ctrlPeople.cs">
+    <Compile Include="People\ctrlPeople.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PeopleFormsAndControls\ctrlPeople.Designer.cs">
+    <Compile Include="People\ctrlPeople.Designer.cs">
       <DependentUpon>ctrlPeople.cs</DependentUpon>
     </Compile>
-    <Compile Include="PeopleFormsAndControls\frmDashboard.cs">
+    <Compile Include="People\Forms\frmPersonInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PeopleFormsAndControls\frmDashboard.Designer.cs">
-      <DependentUpon>frmDashboard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PeopleFormsAndControls\frmPersonInfo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PeopleFormsAndControls\frmPersonInfo.Designer.cs">
+    <Compile Include="People\Forms\frmPersonInfo.Designer.cs">
       <DependentUpon>frmPersonInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsersFormsAndControls\ctrlUsers.cs">
+    <Compile Include="Users\Controls\ctrlUserCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UsersFormsAndControls\ctrlUsers.Designer.cs">
+    <Compile Include="Users\Controls\ctrlUserCard.Designer.cs">
+      <DependentUpon>ctrlUserCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\ctrlUsers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\ctrlUsers.Designer.cs">
       <DependentUpon>ctrlUsers.cs</DependentUpon>
     </Compile>
-    <Compile Include="UsersFormsAndControls\frmAddEditUser.cs">
+    <Compile Include="Users\Forms\frmAddEditUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UsersFormsAndControls\frmAddEditUser.Designer.cs">
+    <Compile Include="Users\Forms\frmAddEditUser.Designer.cs">
       <DependentUpon>frmAddEditUser.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DashboardControls\ctrlDashboard.resx">
+    <Compile Include="Users\Forms\frmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\Forms\frmChangePassword.Designer.cs">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\Forms\frmUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\Forms\frmUserInfo.Designer.cs">
+      <DependentUpon>frmUserInfo.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Dashboard\ctrlDashboard.resx">
       <DependentUpon>ctrlDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm\frmLogin.resx">
@@ -128,22 +140,19 @@
     <EmbeddedResource Include="MainForm\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PeopleFormsAndControls\ctrlPersonCardWithSearch.resx">
+    <EmbeddedResource Include="People\Controls\ctrlPersonCardWithSearch.resx">
       <DependentUpon>ctrlPersonCardWithSearch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PeopleFormsAndControls\ctrlPersonCard.resx">
+    <EmbeddedResource Include="People\Controls\ctrlPersonCard.resx">
       <DependentUpon>ctrlPersonCard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PeopleFormsAndControls\frmAddEditPerson.resx">
+    <EmbeddedResource Include="People\Forms\frmAddEditPerson.resx">
       <DependentUpon>frmAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PeopleFormsAndControls\ctrlPeople.resx">
+    <EmbeddedResource Include="People\ctrlPeople.resx">
       <DependentUpon>ctrlPeople.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PeopleFormsAndControls\frmDashboard.resx">
-      <DependentUpon>frmDashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PeopleFormsAndControls\frmPersonInfo.resx">
+    <EmbeddedResource Include="People\Forms\frmPersonInfo.resx">
       <DependentUpon>frmPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -156,11 +165,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UsersFormsAndControls\ctrlUsers.resx">
+    <EmbeddedResource Include="Users\Controls\ctrlUserCard.resx">
+      <DependentUpon>ctrlUserCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\ctrlUsers.resx">
       <DependentUpon>ctrlUsers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UsersFormsAndControls\frmAddEditUser.resx">
+    <EmbeddedResource Include="Users\Forms\frmAddEditUser.resx">
       <DependentUpon>frmAddEditUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\Forms\frmChangePassword.resx">
+      <DependentUpon>frmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\Forms\frmUserInfo.resx">
+      <DependentUpon>frmUserInfo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -385,5 +403,6 @@
   <ItemGroup>
     <None Include="assets\searchPersonNoFill.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

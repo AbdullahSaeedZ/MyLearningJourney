@@ -47,7 +47,12 @@ namespace BusinessLayer
         }
         private bool _UpdateUser()
         {
-            return false;
+            return clsUserDataAccess.UpdateUser(this._userID, this.Username, this.Password, this.isActive);
+        }
+
+        public static bool DeleteUser(int UserID)
+        {
+            return clsUserDataAccess.DeleteUser(UserID);
         }
 
         public static clsUserBusiness FindUser(string Username, string Password)
