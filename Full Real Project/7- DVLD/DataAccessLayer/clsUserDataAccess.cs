@@ -123,11 +123,11 @@ namespace DataAccessLayer
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
                     string query = @"update Users 
-                                     set UserName = @Username, Password = @Password, IsActive = @IsActive)
+                                     set UserName = @Username, Password = @Password, IsActive = @IsActive
                                      where UserID = @ID;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@UserID", UserID);
+                        command.Parameters.AddWithValue("@ID", UserID);
                         command.Parameters.AddWithValue("@Username", Username);
                         command.Parameters.AddWithValue("@Password", Password);
                         command.Parameters.AddWithValue("@IsActive", IsActive);
@@ -165,7 +165,8 @@ namespace DataAccessLayer
             catch (Exception e)
             {
                 // logs
-                throw;
+                // referential integrity will cause exception
+                return false;
             }
             return (rowsAffected > 0);
         }

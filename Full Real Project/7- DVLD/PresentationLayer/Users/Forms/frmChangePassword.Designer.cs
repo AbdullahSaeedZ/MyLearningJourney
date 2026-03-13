@@ -45,8 +45,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.guna2ShadowPanel1.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -94,6 +96,7 @@
             this.btnCancel.Size = new System.Drawing.Size(200, 37);
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Close";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // ctrlUserCard1
             // 
@@ -141,7 +144,7 @@
             this.btnSave.Size = new System.Drawing.Size(200, 37);
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "Save";
-            this.btnSave.Visible = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnShowHidePassword2
             // 
@@ -164,6 +167,7 @@
             this.btnShowHidePassword2.ShadowDecoration.Parent = this.btnShowHidePassword2;
             this.btnShowHidePassword2.Size = new System.Drawing.Size(25, 23);
             this.btnShowHidePassword2.TabIndex = 22;
+            this.btnShowHidePassword2.Click += new System.EventHandler(this.btnShowHidePassword_Click);
             // 
             // btnShowHidePassword1
             // 
@@ -186,6 +190,7 @@
             this.btnShowHidePassword1.ShadowDecoration.Parent = this.btnShowHidePassword1;
             this.btnShowHidePassword1.Size = new System.Drawing.Size(25, 23);
             this.btnShowHidePassword1.TabIndex = 23;
+            this.btnShowHidePassword1.Click += new System.EventHandler(this.btnShowHidePassword_Click);
             // 
             // tbConfirmPassword
             // 
@@ -217,6 +222,7 @@
             this.tbConfirmPassword.Size = new System.Drawing.Size(225, 36);
             this.tbConfirmPassword.TabIndex = 21;
             this.tbConfirmPassword.UseSystemPasswordChar = true;
+            this.tbConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbConfirmPassword_Validating);
             // 
             // label4
             // 
@@ -260,6 +266,7 @@
             this.tbNewPassword.Size = new System.Drawing.Size(225, 36);
             this.tbNewPassword.TabIndex = 20;
             this.tbNewPassword.UseSystemPasswordChar = true;
+            this.tbNewPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbNewPassword_Validating);
             // 
             // label3
             // 
@@ -302,6 +309,7 @@
             this.tbCurrentPassword.ShadowDecoration.Parent = this.tbCurrentPassword;
             this.tbCurrentPassword.Size = new System.Drawing.Size(225, 36);
             this.tbCurrentPassword.TabIndex = 18;
+            this.tbCurrentPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbCurrentPassword_Validating);
             // 
             // label2
             // 
@@ -347,6 +355,11 @@
             this.label1.Text = "Change Password";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmChangePassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -360,6 +373,7 @@
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -382,5 +396,6 @@
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -406,6 +406,7 @@
             this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.showDetailsToolStripMenuItem.Text = "Show Details";
             this.showDetailsToolStripMenuItem.ToolTipText = "Show User Details";
+            this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
             // 
             // addNewUserToolStripMenuItem
             // 
@@ -432,6 +433,7 @@
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(194, 24);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.ToolTipText = "Delete Selected User";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // changePasswordToolStripMenuItem
             // 

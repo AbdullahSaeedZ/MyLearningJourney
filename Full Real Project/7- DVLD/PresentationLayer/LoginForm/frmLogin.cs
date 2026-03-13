@@ -1,7 +1,8 @@
-﻿using System;
+﻿using BusinessLayer;
 using PresentationLayer.MainForm;
+using PresentationLayer.Properties;
+using System;
 using System.Windows.Forms;
-using BusinessLayer;
 
 namespace PresentationLayer.LoginForm
 {
@@ -56,9 +57,19 @@ namespace PresentationLayer.LoginForm
             
         }
 
-        private void lblPasswordEye_Click(object sender, EventArgs e)
+        private void btnShowHidePassword_Click(object sender, EventArgs e)
         {
             tbPassword.UseSystemPasswordChar = !tbPassword.UseSystemPasswordChar;
+            
+
+            if (tbPassword.UseSystemPasswordChar)
+            {
+                btnShowHidePassword1.Image = Resources.hidePasswordEye;
+            }
+            else
+            {
+                btnShowHidePassword1.Image = Resources.showPasswordEye;
+            }
         }
     } 
 }

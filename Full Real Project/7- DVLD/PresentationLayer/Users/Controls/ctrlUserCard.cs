@@ -56,6 +56,7 @@ namespace PresentationLayer.Users.Controls
 
 
         private clsUserBusiness _user;
+        public clsUserBusiness SelectedUser { get { return _user; } }
 
         public ctrlUserCard()
         {

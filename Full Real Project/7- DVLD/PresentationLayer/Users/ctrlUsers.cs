@@ -31,8 +31,7 @@ namespace PresentationLayer.UsersFormsAndControls
         }
 
 
-        // search people by..
-        // controlling textBox based on comboBox option
+        // search User by..
         private void cbSearchBy_SelectedIndexChanged(object sender, EventArgs e)
         {
             _searchFilter = cbSearchBy.Text.Replace(" ", ""); // matching database names, not dgv. User ID in dgv, to be UserID here to match DT & DB
@@ -97,6 +96,7 @@ namespace PresentationLayer.UsersFormsAndControls
             lblNumberOfRecords.Text = dgvUsers.RowCount.ToString();
         }
 
+
         private void btnAddUser_Click(object sender, EventArgs e)
         {
             delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit User", operationType = "Add" });
@@ -119,7 +119,6 @@ namespace PresentationLayer.UsersFormsAndControls
 
             delUpdateBreadcrumbFromUserControl(sender, new frmMain.clsBreadcrumbData() { title = "> User Details", operationType = "Remove" });
         }
-
 
 
         // toolstrips menu
@@ -145,32 +144,27 @@ namespace PresentationLayer.UsersFormsAndControls
 
             delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Edit User", operationType = "Remove" });
         }
-
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Change User Password", operationType = "Add" });
 
             frmChangePassword changePassword = new frmChangePassword((int)dgvUsers.SelectedCells[0].Value);
-           // changePassword.delUpdateBreadcrumbFromAddEditUserForm += (se, ev) => delUpdateBreadcrumbFromUserControl(se, ev);
+            changePassword.delUpdateBreadcrumbFromChangePasswordForm += (se, ev) => delUpdateBreadcrumbFromUserControl(se, ev);
             changePassword.ShowDialog();
 
             delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Change User Password", operationType = "Remove" });
         }
-
-        // to be done:
-
-        // fix all user delegations 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int UserID = (int)dgvUsers.SelectedCells[0].Value;
-            if (MessageBox.Show($"Are you sure to delete User wIth ID{UserID}?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop) == DialogResult.OK)
+            if (MessageBox.Show($"Are you sure to delete User wIth ID {UserID}?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
                 if (clsUserBusiness.DeleteUser(UserID))
                 {
-                    MessageBox.Show($"User with ID {UserID} was successfully deleted.", "Success", MessageBoxButtons.OK);
+                    MessageBox.Show($"User with ID {UserID} was successfully deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
-                    MessageBox.Show($"User with ID{UserID} CAN NOT be deleted due to linked data to be deleted first.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"User with ID {UserID} CAN NOT be deleted due to linked data to be deleted first.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
