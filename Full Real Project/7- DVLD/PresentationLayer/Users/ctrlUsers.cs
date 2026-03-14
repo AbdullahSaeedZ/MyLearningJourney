@@ -99,6 +99,11 @@ namespace PresentationLayer.UsersFormsAndControls
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
+            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eAddUser))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit User", operationType = "Add" });
 
             frmAddEditUser addUserForm = new frmAddEditUser(-1);
@@ -135,6 +140,11 @@ namespace PresentationLayer.UsersFormsAndControls
         }
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateUser))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Edit User", operationType = "Add" });
 
             frmAddEditUser EditUserForm = new frmAddEditUser((int)dgvUsers.SelectedCells[0].Value);
@@ -146,6 +156,11 @@ namespace PresentationLayer.UsersFormsAndControls
         }
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateUser))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             delUpdateBreadcrumbFromUserControl(this, new frmMain.clsBreadcrumbData() { title = "> Change User Password", operationType = "Add" });
 
             frmChangePassword changePassword = new frmChangePassword((int)dgvUsers.SelectedCells[0].Value);
@@ -156,12 +171,18 @@ namespace PresentationLayer.UsersFormsAndControls
         }
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eDeleteUser))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             int UserID = (int)dgvUsers.SelectedCells[0].Value;
             if (MessageBox.Show($"Are you sure to delete User wIth ID {UserID}?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
                 if (clsUserBusiness.DeleteUser(UserID))
                 {
                     MessageBox.Show($"User with ID {UserID} was successfully deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshDataGridView();
                 }
                 else
                     MessageBox.Show($"User with ID {UserID} CAN NOT be deleted due to linked data to be deleted first.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);

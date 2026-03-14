@@ -8,6 +8,12 @@ namespace BusinessLayer
 {
     public static class clsBusinessSettings
     {
+        public static clsUserBusiness CurrentUser;
+
+        // all permissions
+        [Flags]
+        public enum enPermissions { eAll = -1, eNone = 0, eListUsers = 2, eAddUser = 4, eUpdateUser = 8, eDeleteUser = 16, eListPeople = 32, eAddPerson = 64, eUpdatePerson = 128, eDeletePerson = 256 };
+
         // Add/Edit person form
         public static  string  _ServerPicturesFolder = @"D:\UsersPictures\";
         public readonly static  string _defaultComboBoxCountry = "Saudi Arabia";
@@ -73,7 +79,14 @@ namespace BusinessLayer
             return Regex.IsMatch(Email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$", RegexOptions.IgnoreCase); //RegularExpressions same as Java
         }
 
+        public static bool IsPasswordFormatValid(string Password)
+        {
+            // at least one small, one capital, one number, one special character, min 8 max 20
+            return Regex.IsMatch(Password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#&*!._%+-]).{8,20}$"); 
+        }
 
+
+        // login remember me methods
         public static void SaveLoginInfoToFile(string Username, string Password, bool isRememberMeChecked, string del = "#//#")
         {
             string str = Username + del + Password + del + isRememberMeChecked.ToString();

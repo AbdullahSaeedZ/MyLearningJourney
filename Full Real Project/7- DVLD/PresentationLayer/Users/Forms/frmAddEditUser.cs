@@ -176,8 +176,20 @@ namespace PresentationLayer.UsersFormsAndControls
                 tbPassword.BorderColor = Color.Silver;
             }
 
-            // password format validation
-
+            // pattern validation
+            if (!clsBusinessSettings.IsPasswordFormatValid(tbPassword.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(tbPassword, "Password must include at least: one lowercase, one uppercase, one digit, and one special character (8-20 Length).");
+                tbPassword.BorderColor = Color.Red;
+                return;
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(tbPassword, null);
+                tbPassword.BorderColor = Color.Silver;
+            }
 
         }
         private void tbConfirmPassword_Validating(object sender, CancelEventArgs e)
@@ -218,7 +230,7 @@ namespace PresentationLayer.UsersFormsAndControls
             tbPassword.UseSystemPasswordChar = !tbPassword.UseSystemPasswordChar;
             tbConfirmPassword.UseSystemPasswordChar = !tbConfirmPassword.UseSystemPasswordChar;
 
-            if (tbPassword.UseSystemPasswordChar)
+            if (!tbPassword.UseSystemPasswordChar)
             {
                 btnShowHidePassword1.Image = Resources.hidePasswordEye;
                 btnShowHidePassword2.Image = Resources.hidePasswordEye;

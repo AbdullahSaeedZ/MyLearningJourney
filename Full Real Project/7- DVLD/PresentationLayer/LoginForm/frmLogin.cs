@@ -8,7 +8,7 @@ namespace PresentationLayer.LoginForm
 {
     public partial class frmLogin : Form
     {
-        clsUserBusiness _User;
+        
         private string _Username;
         private string _Password;
         private bool _wasRememberMeChecked = false;
@@ -34,15 +34,15 @@ namespace PresentationLayer.LoginForm
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            _User = clsUserBusiness.FindUser(tbUsername.Text, tbPassword.Text);
+            clsBusinessSettings.CurrentUser = clsUserBusiness.FindUser(tbUsername.Text, tbPassword.Text);
 
-            if (_User == null)
+            if (clsBusinessSettings.CurrentUser == null)
             {
                 MessageBox.Show("Invalid Username/Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!_User.isActive)
+            if (!clsBusinessSettings.CurrentUser.isActive)
             {
                 MessageBox.Show("Your account is not active, please contact your admin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -53,8 +53,6 @@ namespace PresentationLayer.LoginForm
             frmMain main = new frmMain();
             main.Show();
             this.Hide();
-
-            
         }
 
         private void btnShowHidePassword_Click(object sender, EventArgs e)
@@ -62,7 +60,7 @@ namespace PresentationLayer.LoginForm
             tbPassword.UseSystemPasswordChar = !tbPassword.UseSystemPasswordChar;
             
 
-            if (tbPassword.UseSystemPasswordChar)
+            if (!tbPassword.UseSystemPasswordChar)
             {
                 btnShowHidePassword1.Image = Resources.hidePasswordEye;
             }

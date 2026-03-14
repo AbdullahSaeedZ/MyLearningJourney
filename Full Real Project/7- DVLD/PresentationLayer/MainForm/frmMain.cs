@@ -1,12 +1,16 @@
-﻿using System;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
-using BusinessLayer;
+﻿using BusinessLayer;
 using Guna.UI2.WinForms;
+using Microsoft.VisualBasic.ApplicationServices;
 using PresentationLayer.DashboardControls;
 using PresentationLayer.PeopleFormsAndControls;
+using PresentationLayer.Properties;
+using PresentationLayer.Users.Controls;
 using PresentationLayer.UsersFormsAndControls;
+using System;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace PresentationLayer.MainForm
 {
@@ -22,10 +26,39 @@ namespace PresentationLayer.MainForm
         public frmMain()
         {
             InitializeComponent();
+            guna2ShadowForm1.SetShadowForm(this);
 
             // to start app with overview
-            MainOptionsButtonHandler_Click(btnOverview, EventArgs.Empty);
-            guna2ShadowForm1.SetShadowForm(this);
+            _LoadOverview();
+            _LoadProfileInfo();
+        }
+
+        private void _LoadProfileInfo()
+        {
+            if (clsBusinessSettings.CurrentUser == null)
+            {
+                MessageBox.Show($"Could not find user account", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(clsBusinessSettings.CurrentUser.Person.ImagePath))
+                pbProfilePic.Image = clsBusinessSettings.CurrentUser.Person.Gender == 0 ? Resources.defaultMaleProfile : Resources.defaultFemaleProfile;
+            else
+                using (FileStream fs = new FileStream(clsBusinessSettings.CurrentUser.Person.ImagePath, FileMode.Open, FileAccess.Read))
+                {
+                    pbProfilePic.Image = new Bitmap(fs);
+                }
+
+            lblProfilePersonName.Text = clsBusinessSettings.CurrentUser.Person.FirstName + " " + clsBusinessSettings.CurrentUser.Person.LastName;
+            lblProfileUsername.Text = clsBusinessSettings.CurrentUser.Username;
+        }
+
+        private void _LoadOverview()
+        {
+            _RefreshControlsContainer();
+            ctrlDashboard dashboard = new ctrlDashboard();
+            pnlControlsContainer.Controls.Add(dashboard);
+            UpdateButtons(btnOverview);
         }
 
         private void MainOptionsButtonHandler_Click(object sender, EventArgs e)
@@ -41,10 +74,18 @@ namespace PresentationLayer.MainForm
                     break;
 
                 case "Applications":
-
+                    ctrlAddEditUserPermissions n = new ctrlAddEditUserPermissions();
+                    pnlControlsContainer.Controls.Add(n);
                     break;
 
                 case "People":
+
+                    if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eListPeople))
+                    {
+                        MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _LoadOverview();
+                        return;
+                    }
                     ctrlPeople People = new ctrlPeople();
                     pnlControlsContainer.Controls.Add(People);
                     People.delUpdateBreadcrumb += UpdateBreadcrumb;
@@ -55,6 +96,12 @@ namespace PresentationLayer.MainForm
                     break;
 
                 case "Users":
+                    if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eListUsers))
+                    {
+                        MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _LoadOverview();
+                        return;
+                    }
                     ctrlUsers Users = new ctrlUsers();
                     pnlControlsContainer.Controls.Add(Users);
                     Users.delUpdateBreadcrumbFromUserControl += UpdateBreadcrumb;
@@ -140,7 +187,5 @@ namespace PresentationLayer.MainForm
         {
             Application.Exit();
         }
-
-        
     }
 }

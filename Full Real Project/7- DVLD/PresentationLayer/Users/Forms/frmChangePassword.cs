@@ -1,4 +1,5 @@
-﻿using PresentationLayer.MainForm;
+﻿using BusinessLayer;
+using PresentationLayer.MainForm;
 using PresentationLayer.Properties;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace PresentationLayer.Users.Forms
             ctrlUserCard1.delUpdateBreadcrumbFromUserCard += (se, ev) => delUpdateBreadcrumbFromChangePasswordForm(se, ev);
             ctrlUserCard1.LoadInfo(UserID);
         }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!this.ValidateChildren())
@@ -37,7 +39,6 @@ namespace PresentationLayer.Users.Forms
                 MessageBox.Show("Data saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Data was not saved successfully", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
         }
 
 
@@ -92,6 +93,19 @@ namespace PresentationLayer.Users.Forms
             }
 
             // pattern validation
+            if (!clsBusinessSettings.IsPasswordFormatValid(tbNewPassword.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(tbNewPassword, "Password must include at least: one lowercase, one uppercase, one digit, and one special character (8-20 Length).");
+                tbNewPassword.BorderColor = Color.Red;
+                return;
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(tbNewPassword, null);
+                tbNewPassword.BorderColor = Color.Silver;
+            }
         }
 
         private void tbConfirmPassword_Validating(object sender, CancelEventArgs e)
@@ -131,7 +145,7 @@ namespace PresentationLayer.Users.Forms
             tbNewPassword.UseSystemPasswordChar = !tbNewPassword.UseSystemPasswordChar;
             tbConfirmPassword.UseSystemPasswordChar = !tbConfirmPassword.UseSystemPasswordChar;
 
-            if (tbNewPassword.UseSystemPasswordChar)
+            if (!tbNewPassword.UseSystemPasswordChar)
             {
                 btnShowHidePassword1.Image = Resources.hidePasswordEye;
                 btnShowHidePassword2.Image = Resources.hidePasswordEye;

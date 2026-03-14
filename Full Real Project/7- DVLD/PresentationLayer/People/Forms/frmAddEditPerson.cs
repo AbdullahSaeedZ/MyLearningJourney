@@ -17,9 +17,6 @@ namespace PresentationLayer.PeopleFormsAndControls
         public event Action OnUpdateDoneForDGV; 
        
 
-        private bool _isOpenedFromPersonCardCtrl = false;
-        
-
         clsPeopleBusiness person;
         private string _finalImagePath;
         public enum enGender { Male = 0, Female = 1 };

@@ -77,17 +77,22 @@ namespace PresentationLayer.PeopleFormsAndControls
 
 
     
-        // using event below is to control WHEN to refresh, instead of refreshing once opened and closed the forms even if no update done
+        // using OnUpdate event below is to control WHEN to refresh, instead of refreshing once opened and closed the forms even if no update done
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
+            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eAddPerson))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Add" });
 
             frmAddEditPerson addPersonForm = new frmAddEditPerson(-1);
             addPersonForm.OnUpdateDoneForDGV += RefreshDataGridView; // to update DGV here if new person added and updated in AddEdit form
             addPersonForm.ShowDialog();
 
-            delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Remove" });
-            
+            delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Remove" });         
         }
 
 
@@ -108,6 +113,11 @@ namespace PresentationLayer.PeopleFormsAndControls
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdatePerson))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             int PersonID = (int)dgvPeople.SelectedCells[0].Value;
             delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Add" });
 
@@ -120,8 +130,14 @@ namespace PresentationLayer.PeopleFormsAndControls
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eDeletePerson))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             int PersonID = (int)dgvPeople.SelectedCells[0].Value;
-            if (MessageBox.Show($"Are you sure to delete person wIth ID{PersonID}?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop) == DialogResult.OK)
+            if (MessageBox.Show($"Are you sure to delete person wIth ID{PersonID}?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
                 if (clsPeopleBusiness.DeletePerson(PersonID))
                 {
