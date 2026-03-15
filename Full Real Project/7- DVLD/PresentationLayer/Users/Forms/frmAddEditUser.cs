@@ -30,19 +30,18 @@ namespace PresentationLayer.UsersFormsAndControls
             }
             else
             {
-                // only allowed with permission
                 _user = clsUserBusiness.FindUser(UserID);
                 if (_user == null)
                 {
                     MessageBox.Show("User Does Not Exist, Form will close", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
                 }
-                _FillPersonInfoInForm();
+                _FillUserPersonInfoInForm();
                 _mode = enMode.eUpdateMode;
             }
         }
 
-        private void _FillPersonInfoInForm()
+        private void _FillUserPersonInfoInForm()
         {
 
             ctrlPersonCardWithSearch1.LoadInfo(_user.PersonID);
@@ -54,6 +53,7 @@ namespace PresentationLayer.UsersFormsAndControls
             tbPassword.Text = _user.Password;
             tbConfirmPassword.Text = tbPassword.Text;
             chbIsActive.Checked = _user.isActive;
+            ctrlAddEditUserPermissions1.LoadPermissionsForUpdate(_user.Permissions);
         }
 
         private void btnNext_Click(object sender, EventArgs e) // dont allow to proceed if no permission and in update mode
@@ -96,32 +96,33 @@ namespace PresentationLayer.UsersFormsAndControls
             }
 
             if (_mode == enMode.eAddNewMode)
-            {
                 _user.PersonID = ctrlPersonCardWithSearch1.PersonID; // will not reach here without a valid personID
-                _user.Username = tbUsername.Text.Trim();
-                _user.Password = tbPassword.Text.Trim();
-                _user.isActive = chbIsActive.Checked;
-            }
 
-            if (_mode == enMode.eUpdateMode) // PersonID not editable
+            _user.Username = tbUsername.Text.Trim();
+            _user.Password = tbPassword.Text.Trim();
+            _user.isActive = chbIsActive.Checked;
+            _user.Permissions = ctrlAddEditUserPermissions1.GetSelectedPermissions();
+
+            try
             {
-                _user.Username = tbUsername.Text.Trim();
-                _user.Password = tbPassword.Text.Trim();
-                _user.isActive = chbIsActive.Checked;
-            }
+                if (_user.Save())
+                {
+                    MessageBox.Show("Data saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _mode = enMode.eUpdateMode; // to allow next button to proceed when updating a user
+                    ctrlPersonCardWithSearch1.FilterVisible = false;
+                    lblUserID.Text = _user.UserID.ToString();
+                    lblTitle.Text = $"Edit User with ID = {_user.UserID}";
 
-            if (_user.Save())
+                    OnUpdateDone?.Invoke(); // to refresh dgv if user info is updated
+                }
+                else
+                    MessageBox.Show("Data was not saved successfully", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
             {
-                MessageBox.Show("Data saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                _mode = enMode.eUpdateMode; // to allow next button to proceed when updating a user
-                ctrlPersonCardWithSearch1.FilterVisible = false;
-                lblUserID.Text = _user.UserID.ToString();
-                lblTitle.Text = $"Edit User with ID = {_user.UserID}";
-
-                OnUpdateDone?.Invoke(); // to refresh dgv if user info is updated
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
             }
-            else
-                MessageBox.Show("Data was not saved successfully", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
 

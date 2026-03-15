@@ -29,7 +29,7 @@ namespace PresentationLayer.MainForm
             guna2ShadowForm1.SetShadowForm(this);
 
             // to start app with overview
-            _LoadOverview();
+            btnOverview_Click(btnOverview, EventArgs.Empty);
             _LoadProfileInfo();
         }
 
@@ -52,76 +52,9 @@ namespace PresentationLayer.MainForm
             lblProfilePersonName.Text = clsBusinessSettings.CurrentUser.Person.FirstName + " " + clsBusinessSettings.CurrentUser.Person.LastName;
             lblProfileUsername.Text = clsBusinessSettings.CurrentUser.Username;
         }
-
-        private void _LoadOverview()
+        public void _UpdateButtons(object sender)
         {
-            _RefreshControlsContainer();
-            ctrlDashboard dashboard = new ctrlDashboard();
-            pnlControlsContainer.Controls.Add(dashboard);
-            UpdateButtons(btnOverview);
-        }
-
-        private void MainOptionsButtonHandler_Click(object sender, EventArgs e)
-        {
-            _RefreshControlsContainer();
             Guna2Button selectedButten = (Guna2Button)sender;
-
-            switch (selectedButten.Tag.ToString())
-            {
-                case "Overview":
-                    ctrlDashboard dashboard = new ctrlDashboard();
-                    pnlControlsContainer.Controls.Add(dashboard);
-                    break;
-
-                case "Applications":
-                    ctrlAddEditUserPermissions n = new ctrlAddEditUserPermissions();
-                    pnlControlsContainer.Controls.Add(n);
-                    break;
-
-                case "People":
-
-                    if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eListPeople))
-                    {
-                        MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        _LoadOverview();
-                        return;
-                    }
-                    ctrlPeople People = new ctrlPeople();
-                    pnlControlsContainer.Controls.Add(People);
-                    People.delUpdateBreadcrumb += UpdateBreadcrumb;
-                    break;
-
-                case "Drivers":
-
-                    break;
-
-                case "Users":
-                    if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eListUsers))
-                    {
-                        MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        _LoadOverview();
-                        return;
-                    }
-                    ctrlUsers Users = new ctrlUsers();
-                    pnlControlsContainer.Controls.Add(Users);
-                    Users.delUpdateBreadcrumbFromUserControl += UpdateBreadcrumb;
-                    break;
-
-                case "Settings":
-
-                    break;
-
-                default:
-                    ctrlDashboard ct = new ctrlDashboard();
-                    pnlControlsContainer.Controls.Add(ct);
-                    break;
-            }
-
-            UpdateButtons(selectedButten);
-        }
-
-        public void UpdateButtons(Guna2Button selectedButten)
-        {
             // to reset unchosen buttons color and icon
             foreach (Guna2Button btn in pnlSideBar.Controls.OfType<Guna.UI2.WinForms.Guna2Button>())
             {
@@ -151,13 +84,75 @@ namespace PresentationLayer.MainForm
             if (pnlControlsContainer.Controls.Count > 0)
                 pnlControlsContainer.Controls.Clear();
         }
-        private void UpdateBreadcrumb( object sender, clsBreadcrumbData Data)
+        private void UpdateBreadcrumb(object sender, clsBreadcrumbData Data)
         {
             if (Data.operationType == "Add")
                 lblBreadcrumb.Text += $" {Data.title}";
             else
                 lblBreadcrumb.Text = lblBreadcrumb.Text.Remove(lblBreadcrumb.Text.IndexOf(Data.title));
         }
+
+
+
+        private void btnOverview_Click(object sender, EventArgs e)
+        {
+            _RefreshControlsContainer();
+            ctrlDashboard dashboard = new ctrlDashboard();
+            pnlControlsContainer.Controls.Add(dashboard);
+            _UpdateButtons(sender);
+        }
+
+        private void btnApplications_Click(object sender, EventArgs e)
+        {
+            _RefreshControlsContainer();
+            ctrlAddEditUserPermissions n = new ctrlAddEditUserPermissions();
+            pnlControlsContainer.Controls.Add(n);
+            _UpdateButtons(sender);
+        }
+
+        private void btnPeople_Click(object sender, EventArgs e)
+        {
+            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eListPeople))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            _RefreshControlsContainer();
+            ctrlPeople People = new ctrlPeople();
+            pnlControlsContainer.Controls.Add(People);
+            People.delUpdateBreadcrumb += UpdateBreadcrumb;
+            _UpdateButtons(sender);
+
+        }
+
+        private void btnDrivers_Click(object sender, EventArgs e)
+        {
+            _RefreshControlsContainer();
+
+            _UpdateButtons(sender);
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eListUsers))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            _RefreshControlsContainer();
+            ctrlUsers Users = new ctrlUsers();
+            pnlControlsContainer.Controls.Add(Users);
+            Users.delUpdateBreadcrumbFromUserControl += UpdateBreadcrumb;
+            _UpdateButtons(sender);
+        }
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            _RefreshControlsContainer();
+
+            _UpdateButtons(sender);
+        }
+
+  
 
         // PersonID Quick Search
         private void lblQuickSearch_Click(object sender, EventArgs e)
@@ -187,5 +182,7 @@ namespace PresentationLayer.MainForm
         {
             Application.Exit();
         }
+
+       
     }
 }

@@ -31,9 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.ctrlAddEditUserPermissions1 = new PresentationLayer.Users.Controls.ctrlAddEditUserPermissions();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.ctrlUserCard1 = new PresentationLayer.Users.Controls.ctrlUserCard();
+            this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,6 +46,7 @@
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel1.Controls.Add(this.ctrlAddEditUserPermissions1);
             this.guna2ShadowPanel1.Controls.Add(this.btnCancel);
             this.guna2ShadowPanel1.Controls.Add(this.ctrlUserCard1);
             this.guna2ShadowPanel1.Controls.Add(this.ControlBoxClose);
@@ -54,21 +56,18 @@
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             this.guna2ShadowPanel1.Radius = 10;
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(880, 562);
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(880, 804);
             this.guna2ShadowPanel1.TabIndex = 1;
             // 
-            // ControlBoxClose
+            // ctrlAddEditUserPermissions1
             // 
-            this.ControlBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ControlBoxClose.BackColor = System.Drawing.Color.Transparent;
-            this.ControlBoxClose.FillColor = System.Drawing.Color.Transparent;
-            this.ControlBoxClose.HoverState.Parent = this.ControlBoxClose;
-            this.ControlBoxClose.IconColor = System.Drawing.Color.Gray;
-            this.ControlBoxClose.Location = new System.Drawing.Point(822, 12);
-            this.ControlBoxClose.Name = "ControlBoxClose";
-            this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
-            this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
-            this.ControlBoxClose.TabIndex = 8;
+            this.ctrlAddEditUserPermissions1.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlAddEditUserPermissions1.Location = new System.Drawing.Point(15, 499);
+            this.ctrlAddEditUserPermissions1.Name = "ctrlAddEditUserPermissions1";
+            this.ctrlAddEditUserPermissions1.PermissionsCardBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlAddEditUserPermissions1.PermissionsCardBorderThickness = 1;
+            this.ctrlAddEditUserPermissions1.Size = new System.Drawing.Size(851, 243);
+            this.ctrlAddEditUserPermissions1.TabIndex = 11;
             // 
             // btnCancel
             // 
@@ -87,7 +86,7 @@
             this.btnCancel.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.HoverState.Parent = this.btnCancel;
             this.btnCancel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCancel.Location = new System.Drawing.Point(667, 506);
+            this.btnCancel.Location = new System.Drawing.Point(667, 753);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.ShadowDecoration.Parent = this.btnCancel;
             this.btnCancel.Size = new System.Drawing.Size(200, 37);
@@ -107,11 +106,24 @@
             this.ctrlUserCard1.Size = new System.Drawing.Size(857, 449);
             this.ctrlUserCard1.TabIndex = 9;
             // 
+            // ControlBoxClose
+            // 
+            this.ControlBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ControlBoxClose.BackColor = System.Drawing.Color.Transparent;
+            this.ControlBoxClose.FillColor = System.Drawing.Color.Transparent;
+            this.ControlBoxClose.HoverState.Parent = this.ControlBoxClose;
+            this.ControlBoxClose.IconColor = System.Drawing.Color.Gray;
+            this.ControlBoxClose.Location = new System.Drawing.Point(822, 12);
+            this.ControlBoxClose.Name = "ControlBoxClose";
+            this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
+            this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
+            this.ControlBoxClose.TabIndex = 8;
+            // 
             // frmUserInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 562);
+            this.ClientSize = new System.Drawing.Size(880, 804);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmUserInfo";
@@ -129,5 +141,6 @@
         private Guna.UI2.WinForms.Guna2ControlBox ControlBoxClose;
         private Controls.ctrlUserCard ctrlUserCard1;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
+        private Controls.ctrlAddEditUserPermissions ctrlAddEditUserPermissions1;
     }
 }

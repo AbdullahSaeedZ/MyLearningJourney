@@ -95,7 +95,7 @@
             this.guna2Panel2.Location = new System.Drawing.Point(18, 27);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
-            this.guna2Panel2.Size = new System.Drawing.Size(1381, 57);
+            this.guna2Panel2.Size = new System.Drawing.Size(1405, 57);
             this.guna2Panel2.TabIndex = 8;
             // 
             // btnAddPerson
@@ -115,7 +115,7 @@
             this.btnAddPerson.HoverState.Parent = this.btnAddPerson;
             this.btnAddPerson.Image = global::PresentationLayer.Properties.Resources.addNoFill;
             this.btnAddPerson.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAddPerson.Location = new System.Drawing.Point(1227, 9);
+            this.btnAddPerson.Location = new System.Drawing.Point(1243, 9);
             this.btnAddPerson.Name = "btnAddPerson";
             this.btnAddPerson.PressedColor = System.Drawing.Color.DimGray;
             this.btnAddPerson.ShadowDecoration.Parent = this.btnAddPerson;
@@ -141,7 +141,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(303, 17);
+            this.label3.Location = new System.Drawing.Point(343, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 23);
             this.label3.TabIndex = 1;
@@ -165,7 +165,7 @@
             this.tbSearchPerson.ForeColor = System.Drawing.Color.Black;
             this.tbSearchPerson.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbSearchPerson.HoverState.Parent = this.tbSearchPerson;
-            this.tbSearchPerson.Location = new System.Drawing.Point(651, 9);
+            this.tbSearchPerson.Location = new System.Drawing.Point(704, 9);
             this.tbSearchPerson.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbSearchPerson.Name = "tbSearchPerson";
             this.tbSearchPerson.PasswordChar = '\0';
@@ -217,7 +217,7 @@
             "Phone",
             "Email"});
             this.cbSearchBy.ItemsAppearance.Parent = this.cbSearchBy;
-            this.cbSearchBy.Location = new System.Drawing.Point(421, 10);
+            this.cbSearchBy.Location = new System.Drawing.Point(461, 9);
             this.cbSearchBy.Name = "cbSearchBy";
             this.cbSearchBy.ShadowDecoration.Parent = this.cbSearchBy;
             this.cbSearchBy.Size = new System.Drawing.Size(225, 36);
@@ -486,7 +486,7 @@
             this.colEmail.MinimumWidth = 6;
             this.colEmail.Name = "colEmail";
             this.colEmail.ReadOnly = true;
-            this.colEmail.Width = 200;
+            this.colEmail.Width = 230;
             // 
             // ctrlPeople
             // 

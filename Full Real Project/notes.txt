@@ -16,3 +16,13 @@ so first create a table for people then create a table for applications, connect
 - encrypt passwords in DB
 
 - Dont do shortcuts in methods, do overloading even if it will end up with more code to write
+
+
+- permissions aricles:
+1-  https://softwareengineering.stackexchange.com/questions/400335/check-permissions-on-top-layer-before-going-deeper#:~:text=Always%20try%20to%20bar%20unwanted,project's%20controllers)%20would%20be%20ignored.
+
+2- https://medium.com/@karzanhashem1211/is-it-good-practice-to-use-try-catch-for-every-function-d6464d4e4505
+
+3- https://www.osohq.com/docs/learn/guides/ui
+
+4- https://www.google.com/search?q=using+ry+catch+for+perrsmissions+in+UI&authuser=0&aep=21&mstk=AUtExfBek7SMTCSlqIdflj8POuAi3GxGl2ok-TlSF0aWpcM_tyeKIcoy6rjbBE11iJDNARmlDyN7IBiMVW-NIODTT1IBJxshLQ-Gy7bEz2Wks3bZk5tlhmdFV6vRUPZpgQjQ6_Fdqfme-MJaojWfAGzV5gvMwtvuepgv-eVHEnvFmYnLYKSVtypuj7r69yQ_BdnaR9RxqfQjj0COz3tnXGpYvK5QbP17UTv8EG_IcYJvTg3lxnkkhhIUo9GuNnFMCARd3vw4YGFf9NWS1GBWsEWdoi9hZwfsNZHNPqLrHjzZEqogZERebgVsxjvqWiBvh4lrOHL8Rx6ymnMLxA&csuir=1&mtid=W761aaunJOaP-d8P_Ie7kAE&udm=50

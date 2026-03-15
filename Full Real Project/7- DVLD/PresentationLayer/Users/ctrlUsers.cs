@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using Microsoft.VisualBasic.ApplicationServices;
 using PresentationLayer.MainForm;
 using PresentationLayer.PeopleFormsAndControls;
 using PresentationLayer.Users.Forms;
@@ -131,7 +132,6 @@ namespace PresentationLayer.UsersFormsAndControls
         {
             delUpdateBreadcrumbFromUserControl(sender, new frmMain.clsBreadcrumbData() { title = "> User Details", operationType = "Add" });
 
-
             frmUserInfo UserInfo = new frmUserInfo((int)dgvUsers.SelectedCells[0].Value);
             UserInfo.delUpdateBreadcrumbFromUserInfoForm += (se, ev) => delUpdateBreadcrumbFromUserControl(se, ev);
             UserInfo.ShowDialog();
@@ -176,16 +176,24 @@ namespace PresentationLayer.UsersFormsAndControls
                 MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+
             int UserID = (int)dgvUsers.SelectedCells[0].Value;
-            if (MessageBox.Show($"Are you sure to delete User wIth ID {UserID}?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+            try
             {
-                if (clsUserBusiness.DeleteUser(UserID))
+                if (MessageBox.Show($"Are you sure to delete User wIth ID {UserID}?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
                 {
-                    MessageBox.Show($"User with ID {UserID} was successfully deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RefreshDataGridView();
+                    if (clsUserBusiness.DeleteUser(UserID))
+                    {
+                        MessageBox.Show($"User with ID {UserID} was successfully deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RefreshDataGridView();
+                    }
+                    else
+                        MessageBox.Show($"User with ID {UserID} CAN NOT be deleted due to linked data to be deleted first.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else
-                    MessageBox.Show($"User with ID {UserID} CAN NOT be deleted due to linked data to be deleted first.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

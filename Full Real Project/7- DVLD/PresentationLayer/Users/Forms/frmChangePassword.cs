@@ -1,5 +1,7 @@
 ﻿using BusinessLayer;
+using Microsoft.VisualBasic.ApplicationServices;
 using PresentationLayer.MainForm;
+using PresentationLayer.PeopleFormsAndControls;
 using PresentationLayer.Properties;
 using System;
 using System.Collections.Generic;
@@ -35,10 +37,18 @@ namespace PresentationLayer.Users.Forms
 
             ctrlUserCard1.SelectedUser.Password = tbNewPassword.Text;
 
-            if (ctrlUserCard1.SelectedUser.Save())
-                MessageBox.Show("Data saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            else
-                MessageBox.Show("Data was not saved successfully", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            try
+            {
+                if (ctrlUserCard1.SelectedUser.Save())
+                    MessageBox.Show("Data saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Data was not saved successfully", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
         }
 
 

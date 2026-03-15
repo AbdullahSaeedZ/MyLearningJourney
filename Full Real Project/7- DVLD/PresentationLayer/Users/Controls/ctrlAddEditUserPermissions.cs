@@ -46,13 +46,13 @@ namespace PresentationLayer.Users.Controls
 
         public void LoadPermissionsForUpdate(int Permissions)
         {
-            _permissions = (clsBusinessSettings.enPermissions)Permissions;
-
-            if (_permissions.HasFlag(clsBusinessSettings.enPermissions.eNone))
+            if (Permissions == 0)
             {
                 chbNone.Checked = true;
                 return;
             }
+
+            _permissions = (clsBusinessSettings.enPermissions)Permissions;
 
             if (_permissions.HasFlag(clsBusinessSettings.enPermissions.eAll))
             {
@@ -72,7 +72,6 @@ namespace PresentationLayer.Users.Controls
 
             if (_permissions.HasFlag(clsBusinessSettings.enPermissions.eDeleteUser))
                 chbDeleteUsers.Checked = true;
-
 
             // people
             if (_permissions.HasFlag(clsBusinessSettings.enPermissions.eListPeople))

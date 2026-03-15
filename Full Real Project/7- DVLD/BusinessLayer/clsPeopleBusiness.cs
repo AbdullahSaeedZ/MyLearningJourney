@@ -103,6 +103,9 @@ namespace BusinessLayer
 
         private bool _AddNewPerson()
         {
+            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eAddPerson))
+                throw new UnauthorizedAccessException("You do not have permission to add People");
+
             this.PersonID = clsPeopleDataAccess.AddNewPerson(this.NationalID, this.FirstName, this.SecondName, this.ThirdName,
                      this.LastName, this.Gender, this.NationalityCountryID, this.Phone, this.Email, this.Address, this.ImagePath, this.BirthDate);
 
@@ -111,6 +114,9 @@ namespace BusinessLayer
 
         private bool _UpdatePerson()
         {
+            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdatePerson))
+                throw new UnauthorizedAccessException("You do not have permission to edit People");
+
             return clsPeopleDataAccess.UpdatePerson(this.PersonID, this.NationalID, this.FirstName, this.SecondName, this.ThirdName,
                      this.LastName, this.Gender, this.NationalityCountryID, this.Phone, this.Email, this.Address, this.ImagePath, this.BirthDate);
         }
@@ -137,6 +143,9 @@ namespace BusinessLayer
 
         public static bool DeletePerson(int PersonID)
         {
+            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eDeletePerson))
+                throw new UnauthorizedAccessException("You do not have permission to Add People");
+
             return clsPeopleDataAccess.DeletePerson(PersonID);
         }
 
@@ -145,9 +154,6 @@ namespace BusinessLayer
             return clsPeopleDataAccess.GetAllPeople();
         }
 
-        /// <summary>
-        /// filter = PersonID or NationalNo 
-        /// </summary>
         public static bool DoesPersonExist(int PersonID) 
         {
             return clsPeopleDataAccess.DoesPersonExist(PersonID);

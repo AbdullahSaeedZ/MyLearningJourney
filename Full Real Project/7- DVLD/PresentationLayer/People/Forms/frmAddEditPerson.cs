@@ -1,12 +1,13 @@
 ﻿using BusinessLayer;
 using Guna.UI2.WinForms;
+using Microsoft.VisualBasic.ApplicationServices;
+using PresentationLayer.Properties;
 using System;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Windows.Forms;
 using System.IO;
-using PresentationLayer.Properties;
+using System.Windows.Forms;
 
 namespace PresentationLayer.PeopleFormsAndControls
 {
@@ -124,18 +125,28 @@ namespace PresentationLayer.PeopleFormsAndControls
              person.Gender = rbMale.Checked ? (byte)enGender.Male : (byte)enGender.Female;
              person.NationalityCountryID = (clsCountriesBusiness.GetCountry(cbCountry.Text)).CountryID;
 
-             if (person.Save())
-             {
-                 MessageBox.Show($"Data Saved Successfully, PersonID {person.PersonID}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                 lblPersonID.Text = person.PersonID.ToString();
-                 lblFormTitle.Text = $"Edit person with ID = {person.PersonID}";
+            try
+            {
+                if (person.Save())
+                {
+                    MessageBox.Show($"Data Saved Successfully, PersonID {person.PersonID}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    lblPersonID.Text = person.PersonID.ToString();
+                    lblFormTitle.Text = $"Edit person with ID = {person.PersonID}";
 
-                 OnUpdateDoneForPersonCard?.Invoke(person.PersonID); // update if opened from personCard
-                 OnUpdateDoneForDGV?.Invoke();  // update if opened from ctrlPeople, not personCard
-                 OnNewPersonAdded?.Invoke(person.PersonID);
-             }
-             else
-                 MessageBox.Show("Data Was Not Saved!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    OnUpdateDoneForPersonCard?.Invoke(person.PersonID); // update if opened from personCard
+                    OnUpdateDoneForDGV?.Invoke();  // update if opened from ctrlPeople, not personCard
+                    OnNewPersonAdded?.Invoke(person.PersonID);
+                }
+                else
+                    MessageBox.Show("Data Was Not Saved!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+
+           
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

@@ -123,6 +123,11 @@ namespace PresentationLayer.PeopleFormsAndControls
         }
         private void btnEditInfo_Click(object sender, EventArgs e)
         {
+            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdatePerson))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             delUpdateBreadcrumbFromPersonCard(sender, new frmMain.clsBreadcrumbData() { title = "> Edit Person Info", operationType = "Add" });
 
             frmAddEditPerson editPerson = new frmAddEditPerson(_personID);

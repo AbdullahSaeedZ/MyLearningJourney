@@ -11,6 +11,7 @@ namespace PresentationLayer.Users.Forms
         {
             InitializeComponent();
             ctrlUserCard1.LoadInfo(UserID);
+            ctrlAddEditUserPermissions1.LoadPermissionsForDisplay(ctrlUserCard1.SelectedUser.Permissions);
             ctrlUserCard1.delUpdateBreadcrumbFromUserCard += (se, ev) => delUpdateBreadcrumbFromUserInfoForm(se, ev);
         }
 
