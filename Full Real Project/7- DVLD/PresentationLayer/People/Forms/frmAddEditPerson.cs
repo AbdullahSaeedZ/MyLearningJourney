@@ -1,6 +1,5 @@
 ﻿using BusinessLayer;
 using Guna.UI2.WinForms;
-using Microsoft.VisualBasic.ApplicationServices;
 using PresentationLayer.Properties;
 using System;
 using System.ComponentModel;
@@ -214,7 +213,7 @@ namespace PresentationLayer.PeopleFormsAndControls
             if (clsPeopleBusiness.DoesPersonExist(tbNationalNumber.Text.Trim()) && person.NationalID != tbNationalNumber.Text.Trim())
             {
                 e.Cancel = true;
-                errorProvider1.SetError(tbNationalNumber, "Invalid Email format");
+                errorProvider1.SetError(tbNationalNumber, "National No. is already registered");
                 tbNationalNumber.BorderColor = Color.Red;
             }
             else

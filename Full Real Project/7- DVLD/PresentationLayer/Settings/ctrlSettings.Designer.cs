@@ -30,7 +30,28 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlLoginInfo = new Guna.UI2.WinForms.Guna2Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.lblIsActive = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblUserID = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.tbCurrentPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnShowHidePassword2 = new Guna.UI2.WinForms.Guna2Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnShowHidePassword1 = new Guna.UI2.WinForms.Guna2Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbConfirmPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.tbNewPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnRemoveImage = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAddImage = new Guna.UI2.WinForms.Guna2Button();
+            this.pbImage = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.rbFemale = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.rbMale = new Guna.UI2.WinForms.Guna2CustomRadioButton();
@@ -60,35 +81,15 @@
             this.tbThirdName = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbFirstName = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnSaveChanges = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.tbCurrentPassword = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbConfirmPassword = new Guna.UI2.WinForms.Guna2TextBox();
-            this.tbNewPassword = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.pnlLoginInfo = new Guna.UI2.WinForms.Guna2Panel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.lblIsActive = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.lblUserID = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.btnShowHidePassword2 = new Guna.UI2.WinForms.Guna2Button();
-            this.btnShowHidePassword1 = new Guna.UI2.WinForms.Guna2Button();
-            this.btnRemoveImage = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAddImage = new Guna.UI2.WinForms.Guna2Button();
-            this.pbImage = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.ctrlAddEditUserPermissions1 = new PresentationLayer.Users.Controls.ctrlAddEditUserPermissions();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.ctrlAddEditUserPermissions1 = new PresentationLayer.Users.Controls.ctrlAddEditUserPermissions();
             this.guna2Panel1.SuspendLayout();
-            this.guna2Panel3.SuspendLayout();
-            this.guna2Panel4.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
             this.pnlLoginInfo.SuspendLayout();
+            this.guna2Panel2.SuspendLayout();
+            this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,6 +111,315 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1441, 894);
             this.guna2Panel1.TabIndex = 2;
             // 
+            // pnlLoginInfo
+            // 
+            this.pnlLoginInfo.BackColor = System.Drawing.Color.White;
+            this.pnlLoginInfo.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlLoginInfo.BorderRadius = 20;
+            this.pnlLoginInfo.BorderThickness = 1;
+            this.pnlLoginInfo.Controls.Add(this.label16);
+            this.pnlLoginInfo.Controls.Add(this.label17);
+            this.pnlLoginInfo.Controls.Add(this.lblIsActive);
+            this.pnlLoginInfo.Controls.Add(this.lblUsername);
+            this.pnlLoginInfo.Controls.Add(this.lblUserID);
+            this.pnlLoginInfo.Controls.Add(this.label18);
+            this.pnlLoginInfo.Controls.Add(this.label19);
+            this.pnlLoginInfo.Location = new System.Drawing.Point(323, 348);
+            this.pnlLoginInfo.Name = "pnlLoginInfo";
+            this.pnlLoginInfo.ShadowDecoration.Parent = this.pnlLoginInfo;
+            this.pnlLoginInfo.Size = new System.Drawing.Size(1103, 94);
+            this.pnlLoginInfo.TabIndex = 30;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label16.ForeColor = System.Drawing.Color.DimGray;
+            this.label16.Location = new System.Drawing.Point(722, 53);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(70, 18);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Is Active:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label17.ForeColor = System.Drawing.Color.DimGray;
+            this.label17.Location = new System.Drawing.Point(423, 53);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(80, 18);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Username:";
+            // 
+            // lblIsActive
+            // 
+            this.lblIsActive.AutoSize = true;
+            this.lblIsActive.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lblIsActive.ForeColor = System.Drawing.Color.DimGray;
+            this.lblIsActive.Location = new System.Drawing.Point(821, 53);
+            this.lblIsActive.Name = "lblIsActive";
+            this.lblIsActive.Size = new System.Drawing.Size(27, 18);
+            this.lblIsActive.TabIndex = 0;
+            this.lblIsActive.Text = "NA";
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lblUsername.ForeColor = System.Drawing.Color.DimGray;
+            this.lblUsername.Location = new System.Drawing.Point(529, 53);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(27, 18);
+            this.lblUsername.TabIndex = 0;
+            this.lblUsername.Text = "NA";
+            // 
+            // lblUserID
+            // 
+            this.lblUserID.AutoSize = true;
+            this.lblUserID.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.lblUserID.ForeColor = System.Drawing.Color.DimGray;
+            this.lblUserID.Location = new System.Drawing.Point(274, 53);
+            this.lblUserID.Name = "lblUserID";
+            this.lblUserID.Size = new System.Drawing.Size(27, 18);
+            this.lblUserID.TabIndex = 0;
+            this.lblUserID.Text = "NA";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label18.ForeColor = System.Drawing.Color.DimGray;
+            this.label18.Location = new System.Drawing.Point(189, 53);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(64, 18);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "User ID:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.DimGray;
+            this.label19.Location = new System.Drawing.Point(17, 13);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(184, 23);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Login Information";
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BackColor = System.Drawing.Color.White;
+            this.guna2Panel2.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2Panel2.BorderRadius = 20;
+            this.guna2Panel2.BorderThickness = 1;
+            this.guna2Panel2.Controls.Add(this.tbCurrentPassword);
+            this.guna2Panel2.Controls.Add(this.btnShowHidePassword2);
+            this.guna2Panel2.Controls.Add(this.label1);
+            this.guna2Panel2.Controls.Add(this.label2);
+            this.guna2Panel2.Controls.Add(this.btnShowHidePassword1);
+            this.guna2Panel2.Controls.Add(this.label3);
+            this.guna2Panel2.Controls.Add(this.tbConfirmPassword);
+            this.guna2Panel2.Controls.Add(this.tbNewPassword);
+            this.guna2Panel2.Controls.Add(this.label4);
+            this.guna2Panel2.FillColor = System.Drawing.Color.White;
+            this.guna2Panel2.Location = new System.Drawing.Point(323, 672);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
+            this.guna2Panel2.Size = new System.Drawing.Size(1104, 149);
+            this.guna2Panel2.TabIndex = 29;
+            // 
+            // tbCurrentPassword
+            // 
+            this.tbCurrentPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbCurrentPassword.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.tbCurrentPassword.BackColor = System.Drawing.Color.Transparent;
+            this.tbCurrentPassword.BorderColor = System.Drawing.Color.Silver;
+            this.tbCurrentPassword.BorderRadius = 10;
+            this.tbCurrentPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbCurrentPassword.DefaultText = "";
+            this.tbCurrentPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbCurrentPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbCurrentPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbCurrentPassword.DisabledState.Parent = this.tbCurrentPassword;
+            this.tbCurrentPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbCurrentPassword.FocusedState.BorderColor = System.Drawing.Color.DimGray;
+            this.tbCurrentPassword.FocusedState.Parent = this.tbCurrentPassword;
+            this.tbCurrentPassword.ForeColor = System.Drawing.Color.Black;
+            this.tbCurrentPassword.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.tbCurrentPassword.HoverState.Parent = this.tbCurrentPassword;
+            this.tbCurrentPassword.Location = new System.Drawing.Point(176, 82);
+            this.tbCurrentPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbCurrentPassword.Name = "tbCurrentPassword";
+            this.tbCurrentPassword.PasswordChar = '\0';
+            this.tbCurrentPassword.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.tbCurrentPassword.PlaceholderText = "Enter Current Password";
+            this.tbCurrentPassword.SelectedText = "";
+            this.tbCurrentPassword.ShadowDecoration.Parent = this.tbCurrentPassword;
+            this.tbCurrentPassword.Size = new System.Drawing.Size(225, 36);
+            this.tbCurrentPassword.TabIndex = 18;
+            this.tbCurrentPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbCurrentPassword_Validating);
+            // 
+            // btnShowHidePassword2
+            // 
+            this.btnShowHidePassword2.BackColor = System.Drawing.Color.Transparent;
+            this.btnShowHidePassword2.BorderColor = System.Drawing.Color.DimGray;
+            this.btnShowHidePassword2.BorderRadius = 10;
+            this.btnShowHidePassword2.CheckedState.Parent = this.btnShowHidePassword2;
+            this.btnShowHidePassword2.CustomImages.Parent = this.btnShowHidePassword2;
+            this.btnShowHidePassword2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnShowHidePassword2.FillColor = System.Drawing.Color.White;
+            this.btnShowHidePassword2.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnShowHidePassword2.ForeColor = System.Drawing.Color.DimGray;
+            this.btnShowHidePassword2.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.btnShowHidePassword2.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHidePassword2.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnShowHidePassword2.HoverState.Parent = this.btnShowHidePassword2;
+            this.btnShowHidePassword2.Image = global::PresentationLayer.Properties.Resources.showPasswordEye;
+            this.btnShowHidePassword2.Location = new System.Drawing.Point(865, 86);
+            this.btnShowHidePassword2.Name = "btnShowHidePassword2";
+            this.btnShowHidePassword2.ShadowDecoration.Parent = this.btnShowHidePassword2;
+            this.btnShowHidePassword2.Size = new System.Drawing.Size(25, 23);
+            this.btnShowHidePassword2.TabIndex = 22;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(23, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(179, 23);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Change Password";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(173, 58);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(127, 18);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Current Password:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnShowHidePassword1
+            // 
+            this.btnShowHidePassword1.BackColor = System.Drawing.Color.Transparent;
+            this.btnShowHidePassword1.BorderColor = System.Drawing.Color.DimGray;
+            this.btnShowHidePassword1.BorderRadius = 10;
+            this.btnShowHidePassword1.CheckedState.Parent = this.btnShowHidePassword1;
+            this.btnShowHidePassword1.CustomImages.Parent = this.btnShowHidePassword1;
+            this.btnShowHidePassword1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnShowHidePassword1.FillColor = System.Drawing.Color.Transparent;
+            this.btnShowHidePassword1.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnShowHidePassword1.ForeColor = System.Drawing.Color.DimGray;
+            this.btnShowHidePassword1.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.btnShowHidePassword1.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHidePassword1.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnShowHidePassword1.HoverState.Parent = this.btnShowHidePassword1;
+            this.btnShowHidePassword1.Image = global::PresentationLayer.Properties.Resources.showPasswordEye;
+            this.btnShowHidePassword1.Location = new System.Drawing.Point(617, 86);
+            this.btnShowHidePassword1.Name = "btnShowHidePassword1";
+            this.btnShowHidePassword1.ShadowDecoration.Parent = this.btnShowHidePassword1;
+            this.btnShowHidePassword1.Size = new System.Drawing.Size(25, 23);
+            this.btnShowHidePassword1.TabIndex = 23;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label3.ForeColor = System.Drawing.Color.DimGray;
+            this.label3.Location = new System.Drawing.Point(423, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(107, 18);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "New Password:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // tbConfirmPassword
+            // 
+            this.tbConfirmPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbConfirmPassword.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.tbConfirmPassword.BackColor = System.Drawing.Color.Transparent;
+            this.tbConfirmPassword.BorderColor = System.Drawing.Color.Silver;
+            this.tbConfirmPassword.BorderRadius = 10;
+            this.tbConfirmPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbConfirmPassword.DefaultText = "";
+            this.tbConfirmPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbConfirmPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbConfirmPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbConfirmPassword.DisabledState.Parent = this.tbConfirmPassword;
+            this.tbConfirmPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbConfirmPassword.FocusedState.BorderColor = System.Drawing.Color.DimGray;
+            this.tbConfirmPassword.FocusedState.Parent = this.tbConfirmPassword;
+            this.tbConfirmPassword.ForeColor = System.Drawing.Color.Black;
+            this.tbConfirmPassword.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.tbConfirmPassword.HoverState.Parent = this.tbConfirmPassword;
+            this.tbConfirmPassword.Location = new System.Drawing.Point(674, 82);
+            this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbConfirmPassword.Name = "tbConfirmPassword";
+            this.tbConfirmPassword.PasswordChar = '\0';
+            this.tbConfirmPassword.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.tbConfirmPassword.PlaceholderText = "Enter Password";
+            this.tbConfirmPassword.SelectedText = "";
+            this.tbConfirmPassword.ShadowDecoration.Parent = this.tbConfirmPassword;
+            this.tbConfirmPassword.Size = new System.Drawing.Size(225, 36);
+            this.tbConfirmPassword.TabIndex = 21;
+            this.tbConfirmPassword.UseSystemPasswordChar = true;
+            this.tbConfirmPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbConfirmPassword_Validating);
+            // 
+            // tbNewPassword
+            // 
+            this.tbNewPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbNewPassword.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.tbNewPassword.BackColor = System.Drawing.Color.Transparent;
+            this.tbNewPassword.BorderColor = System.Drawing.Color.Silver;
+            this.tbNewPassword.BorderRadius = 10;
+            this.tbNewPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbNewPassword.DefaultText = "";
+            this.tbNewPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbNewPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbNewPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbNewPassword.DisabledState.Parent = this.tbNewPassword;
+            this.tbNewPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbNewPassword.FocusedState.BorderColor = System.Drawing.Color.DimGray;
+            this.tbNewPassword.FocusedState.Parent = this.tbNewPassword;
+            this.tbNewPassword.ForeColor = System.Drawing.Color.Black;
+            this.tbNewPassword.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.tbNewPassword.HoverState.Parent = this.tbNewPassword;
+            this.tbNewPassword.Location = new System.Drawing.Point(426, 82);
+            this.tbNewPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tbNewPassword.Name = "tbNewPassword";
+            this.tbNewPassword.PasswordChar = '\0';
+            this.tbNewPassword.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.tbNewPassword.PlaceholderText = "Enter Password";
+            this.tbNewPassword.SelectedText = "";
+            this.tbNewPassword.ShadowDecoration.Parent = this.tbNewPassword;
+            this.tbNewPassword.Size = new System.Drawing.Size(225, 36);
+            this.tbNewPassword.TabIndex = 20;
+            this.tbNewPassword.UseSystemPasswordChar = true;
+            this.tbNewPassword.Validating += new System.ComponentModel.CancelEventHandler(this.tbNewPassword_Validating);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Location = new System.Drawing.Point(671, 58);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(129, 18);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Confirm Password:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // guna2Panel3
             // 
             this.guna2Panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -128,6 +438,69 @@
             this.guna2Panel3.ShadowDecoration.Parent = this.guna2Panel3;
             this.guna2Panel3.Size = new System.Drawing.Size(295, 807);
             this.guna2Panel3.TabIndex = 26;
+            // 
+            // btnRemoveImage
+            // 
+            this.btnRemoveImage.BackColor = System.Drawing.Color.Transparent;
+            this.btnRemoveImage.BorderColor = System.Drawing.Color.DimGray;
+            this.btnRemoveImage.BorderRadius = 10;
+            this.btnRemoveImage.CheckedState.Parent = this.btnRemoveImage;
+            this.btnRemoveImage.CustomImages.Parent = this.btnRemoveImage;
+            this.btnRemoveImage.FillColor = System.Drawing.Color.Transparent;
+            this.btnRemoveImage.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnRemoveImage.ForeColor = System.Drawing.Color.DimGray;
+            this.btnRemoveImage.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.btnRemoveImage.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnRemoveImage.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnRemoveImage.HoverState.Image = global::PresentationLayer.Properties.Resources.removeFill;
+            this.btnRemoveImage.HoverState.Parent = this.btnRemoveImage;
+            this.btnRemoveImage.Image = global::PresentationLayer.Properties.Resources.removeNoFill;
+            this.btnRemoveImage.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnRemoveImage.Location = new System.Drawing.Point(47, 324);
+            this.btnRemoveImage.Name = "btnRemoveImage";
+            this.btnRemoveImage.ShadowDecoration.Parent = this.btnRemoveImage;
+            this.btnRemoveImage.Size = new System.Drawing.Size(200, 37);
+            this.btnRemoveImage.TabIndex = 15;
+            this.btnRemoveImage.Text = "Remove Image";
+            this.btnRemoveImage.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnRemoveImage.Visible = false;
+            // 
+            // btnAddImage
+            // 
+            this.btnAddImage.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddImage.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAddImage.BorderRadius = 10;
+            this.btnAddImage.CheckedState.Parent = this.btnAddImage;
+            this.btnAddImage.CustomImages.Parent = this.btnAddImage;
+            this.btnAddImage.FillColor = System.Drawing.Color.Transparent;
+            this.btnAddImage.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnAddImage.ForeColor = System.Drawing.Color.DimGray;
+            this.btnAddImage.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.btnAddImage.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAddImage.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnAddImage.HoverState.Image = global::PresentationLayer.Properties.Resources.addFill;
+            this.btnAddImage.HoverState.Parent = this.btnAddImage;
+            this.btnAddImage.Image = global::PresentationLayer.Properties.Resources.addNoFill;
+            this.btnAddImage.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAddImage.Location = new System.Drawing.Point(47, 272);
+            this.btnAddImage.Name = "btnAddImage";
+            this.btnAddImage.ShadowDecoration.Parent = this.btnAddImage;
+            this.btnAddImage.Size = new System.Drawing.Size(200, 37);
+            this.btnAddImage.TabIndex = 14;
+            this.btnAddImage.Text = "Add Image";
+            this.btnAddImage.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // pbImage
+            // 
+            this.pbImage.Image = global::PresentationLayer.Properties.Resources.defaultMaleProfile;
+            this.pbImage.Location = new System.Drawing.Point(47, 32);
+            this.pbImage.Name = "pbImage";
+            this.pbImage.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pbImage.ShadowDecoration.Parent = this.pbImage;
+            this.pbImage.Size = new System.Drawing.Size(200, 200);
+            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbImage.TabIndex = 0;
+            this.pbImage.TabStop = false;
             // 
             // guna2Panel4
             // 
@@ -461,6 +834,7 @@
             this.tbAddress.ShadowDecoration.Parent = this.tbAddress;
             this.tbAddress.Size = new System.Drawing.Size(527, 37);
             this.tbAddress.TabIndex = 11;
+            this.tbAddress.Validating += new System.ComponentModel.CancelEventHandler(this.EmptyTextBox_Validating);
             // 
             // tbSecondName
             // 
@@ -489,6 +863,7 @@
             this.tbSecondName.ShadowDecoration.Parent = this.tbSecondName;
             this.tbSecondName.Size = new System.Drawing.Size(254, 37);
             this.tbSecondName.TabIndex = 1;
+            this.tbSecondName.Validating += new System.ComponentModel.CancelEventHandler(this.EmptyTextBox_Validating);
             // 
             // tbPhone
             // 
@@ -518,6 +893,7 @@
             this.tbPhone.ShadowDecoration.Parent = this.tbPhone;
             this.tbPhone.Size = new System.Drawing.Size(254, 37);
             this.tbPhone.TabIndex = 8;
+            this.tbPhone.Validating += new System.ComponentModel.CancelEventHandler(this.EmptyTextBox_Validating);
             // 
             // tbEmail
             // 
@@ -546,6 +922,7 @@
             this.tbEmail.ShadowDecoration.Parent = this.tbEmail;
             this.tbEmail.Size = new System.Drawing.Size(254, 37);
             this.tbEmail.TabIndex = 6;
+            this.tbEmail.Validating += new System.ComponentModel.CancelEventHandler(this.tbEmail_Validating);
             // 
             // tbNationalNumber
             // 
@@ -574,6 +951,7 @@
             this.tbNationalNumber.ShadowDecoration.Parent = this.tbNationalNumber;
             this.tbNationalNumber.Size = new System.Drawing.Size(254, 37);
             this.tbNationalNumber.TabIndex = 4;
+            this.tbNationalNumber.Validating += new System.ComponentModel.CancelEventHandler(this.tbNationalNumber_Validating);
             // 
             // tbLastName
             // 
@@ -602,6 +980,7 @@
             this.tbLastName.ShadowDecoration.Parent = this.tbLastName;
             this.tbLastName.Size = new System.Drawing.Size(254, 37);
             this.tbLastName.TabIndex = 3;
+            this.tbLastName.Validating += new System.ComponentModel.CancelEventHandler(this.EmptyTextBox_Validating);
             // 
             // tbThirdName
             // 
@@ -658,6 +1037,7 @@
             this.tbFirstName.ShadowDecoration.Parent = this.tbFirstName;
             this.tbFirstName.Size = new System.Drawing.Size(254, 37);
             this.tbFirstName.TabIndex = 0;
+            this.tbFirstName.Validating += new System.ComponentModel.CancelEventHandler(this.EmptyTextBox_Validating);
             // 
             // btnSaveChanges
             // 
@@ -682,375 +1062,15 @@
             this.btnSaveChanges.Size = new System.Drawing.Size(200, 37);
             this.btnSaveChanges.TabIndex = 13;
             this.btnSaveChanges.Text = "Save Changes";
+            this.btnSaveChanges.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // guna2Panel2
+            // errorProvider1
             // 
-            this.guna2Panel2.BackColor = System.Drawing.Color.White;
-            this.guna2Panel2.BorderColor = System.Drawing.Color.Gainsboro;
-            this.guna2Panel2.BorderRadius = 20;
-            this.guna2Panel2.BorderThickness = 1;
-            this.guna2Panel2.Controls.Add(this.tbCurrentPassword);
-            this.guna2Panel2.Controls.Add(this.btnShowHidePassword2);
-            this.guna2Panel2.Controls.Add(this.label1);
-            this.guna2Panel2.Controls.Add(this.label2);
-            this.guna2Panel2.Controls.Add(this.btnShowHidePassword1);
-            this.guna2Panel2.Controls.Add(this.label3);
-            this.guna2Panel2.Controls.Add(this.tbConfirmPassword);
-            this.guna2Panel2.Controls.Add(this.tbNewPassword);
-            this.guna2Panel2.Controls.Add(this.label4);
-            this.guna2Panel2.FillColor = System.Drawing.Color.White;
-            this.guna2Panel2.Location = new System.Drawing.Point(323, 672);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
-            this.guna2Panel2.Size = new System.Drawing.Size(1104, 149);
-            this.guna2Panel2.TabIndex = 29;
+            this.errorProvider1.ContainerControl = this;
             // 
-            // tbCurrentPassword
+            // openFileDialog1
             // 
-            this.tbCurrentPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbCurrentPassword.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.tbCurrentPassword.BackColor = System.Drawing.Color.Transparent;
-            this.tbCurrentPassword.BorderColor = System.Drawing.Color.Silver;
-            this.tbCurrentPassword.BorderRadius = 10;
-            this.tbCurrentPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbCurrentPassword.DefaultText = "";
-            this.tbCurrentPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbCurrentPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbCurrentPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbCurrentPassword.DisabledState.Parent = this.tbCurrentPassword;
-            this.tbCurrentPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbCurrentPassword.FocusedState.BorderColor = System.Drawing.Color.DimGray;
-            this.tbCurrentPassword.FocusedState.Parent = this.tbCurrentPassword;
-            this.tbCurrentPassword.ForeColor = System.Drawing.Color.Black;
-            this.tbCurrentPassword.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.tbCurrentPassword.HoverState.Parent = this.tbCurrentPassword;
-            this.tbCurrentPassword.Location = new System.Drawing.Point(176, 82);
-            this.tbCurrentPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tbCurrentPassword.Name = "tbCurrentPassword";
-            this.tbCurrentPassword.PasswordChar = '\0';
-            this.tbCurrentPassword.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.tbCurrentPassword.PlaceholderText = "Enter Current Password";
-            this.tbCurrentPassword.SelectedText = "";
-            this.tbCurrentPassword.ShadowDecoration.Parent = this.tbCurrentPassword;
-            this.tbCurrentPassword.Size = new System.Drawing.Size(225, 36);
-            this.tbCurrentPassword.TabIndex = 18;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(23, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 23);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Change Password";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(173, 58);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(127, 18);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Current Password:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(423, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 18);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "New Password:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // tbConfirmPassword
-            // 
-            this.tbConfirmPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbConfirmPassword.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.tbConfirmPassword.BackColor = System.Drawing.Color.Transparent;
-            this.tbConfirmPassword.BorderColor = System.Drawing.Color.Silver;
-            this.tbConfirmPassword.BorderRadius = 10;
-            this.tbConfirmPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbConfirmPassword.DefaultText = "";
-            this.tbConfirmPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbConfirmPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbConfirmPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbConfirmPassword.DisabledState.Parent = this.tbConfirmPassword;
-            this.tbConfirmPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbConfirmPassword.FocusedState.BorderColor = System.Drawing.Color.DimGray;
-            this.tbConfirmPassword.FocusedState.Parent = this.tbConfirmPassword;
-            this.tbConfirmPassword.ForeColor = System.Drawing.Color.Black;
-            this.tbConfirmPassword.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.tbConfirmPassword.HoverState.Parent = this.tbConfirmPassword;
-            this.tbConfirmPassword.Location = new System.Drawing.Point(674, 82);
-            this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tbConfirmPassword.Name = "tbConfirmPassword";
-            this.tbConfirmPassword.PasswordChar = '\0';
-            this.tbConfirmPassword.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.tbConfirmPassword.PlaceholderText = "Enter Password";
-            this.tbConfirmPassword.SelectedText = "";
-            this.tbConfirmPassword.ShadowDecoration.Parent = this.tbConfirmPassword;
-            this.tbConfirmPassword.Size = new System.Drawing.Size(225, 36);
-            this.tbConfirmPassword.TabIndex = 21;
-            this.tbConfirmPassword.UseSystemPasswordChar = true;
-            // 
-            // tbNewPassword
-            // 
-            this.tbNewPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbNewPassword.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.tbNewPassword.BackColor = System.Drawing.Color.Transparent;
-            this.tbNewPassword.BorderColor = System.Drawing.Color.Silver;
-            this.tbNewPassword.BorderRadius = 10;
-            this.tbNewPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbNewPassword.DefaultText = "";
-            this.tbNewPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbNewPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbNewPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbNewPassword.DisabledState.Parent = this.tbNewPassword;
-            this.tbNewPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbNewPassword.FocusedState.BorderColor = System.Drawing.Color.DimGray;
-            this.tbNewPassword.FocusedState.Parent = this.tbNewPassword;
-            this.tbNewPassword.ForeColor = System.Drawing.Color.Black;
-            this.tbNewPassword.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.tbNewPassword.HoverState.Parent = this.tbNewPassword;
-            this.tbNewPassword.Location = new System.Drawing.Point(426, 82);
-            this.tbNewPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tbNewPassword.Name = "tbNewPassword";
-            this.tbNewPassword.PasswordChar = '\0';
-            this.tbNewPassword.PlaceholderForeColor = System.Drawing.Color.Gray;
-            this.tbNewPassword.PlaceholderText = "Enter Password";
-            this.tbNewPassword.SelectedText = "";
-            this.tbNewPassword.ShadowDecoration.Parent = this.tbNewPassword;
-            this.tbNewPassword.Size = new System.Drawing.Size(225, 36);
-            this.tbNewPassword.TabIndex = 20;
-            this.tbNewPassword.UseSystemPasswordChar = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(671, 58);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 18);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Confirm Password:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // pnlLoginInfo
-            // 
-            this.pnlLoginInfo.BackColor = System.Drawing.Color.White;
-            this.pnlLoginInfo.BorderColor = System.Drawing.Color.Gainsboro;
-            this.pnlLoginInfo.BorderRadius = 20;
-            this.pnlLoginInfo.BorderThickness = 1;
-            this.pnlLoginInfo.Controls.Add(this.label16);
-            this.pnlLoginInfo.Controls.Add(this.label17);
-            this.pnlLoginInfo.Controls.Add(this.lblIsActive);
-            this.pnlLoginInfo.Controls.Add(this.lblUsername);
-            this.pnlLoginInfo.Controls.Add(this.lblUserID);
-            this.pnlLoginInfo.Controls.Add(this.label18);
-            this.pnlLoginInfo.Controls.Add(this.label19);
-            this.pnlLoginInfo.Location = new System.Drawing.Point(323, 348);
-            this.pnlLoginInfo.Name = "pnlLoginInfo";
-            this.pnlLoginInfo.ShadowDecoration.Parent = this.pnlLoginInfo;
-            this.pnlLoginInfo.Size = new System.Drawing.Size(1103, 94);
-            this.pnlLoginInfo.TabIndex = 30;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label16.ForeColor = System.Drawing.Color.DimGray;
-            this.label16.Location = new System.Drawing.Point(722, 53);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(70, 18);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "Is Active:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label17.ForeColor = System.Drawing.Color.DimGray;
-            this.label17.Location = new System.Drawing.Point(423, 53);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(80, 18);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Username:";
-            // 
-            // lblIsActive
-            // 
-            this.lblIsActive.AutoSize = true;
-            this.lblIsActive.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.lblIsActive.ForeColor = System.Drawing.Color.DimGray;
-            this.lblIsActive.Location = new System.Drawing.Point(821, 53);
-            this.lblIsActive.Name = "lblIsActive";
-            this.lblIsActive.Size = new System.Drawing.Size(27, 18);
-            this.lblIsActive.TabIndex = 0;
-            this.lblIsActive.Text = "NA";
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.lblUsername.ForeColor = System.Drawing.Color.DimGray;
-            this.lblUsername.Location = new System.Drawing.Point(529, 53);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(27, 18);
-            this.lblUsername.TabIndex = 0;
-            this.lblUsername.Text = "NA";
-            // 
-            // lblUserID
-            // 
-            this.lblUserID.AutoSize = true;
-            this.lblUserID.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.lblUserID.ForeColor = System.Drawing.Color.DimGray;
-            this.lblUserID.Location = new System.Drawing.Point(274, 53);
-            this.lblUserID.Name = "lblUserID";
-            this.lblUserID.Size = new System.Drawing.Size(27, 18);
-            this.lblUserID.TabIndex = 0;
-            this.lblUserID.Text = "NA";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.label18.ForeColor = System.Drawing.Color.DimGray;
-            this.label18.Location = new System.Drawing.Point(189, 53);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(64, 18);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "User ID:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.DimGray;
-            this.label19.Location = new System.Drawing.Point(17, 13);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(184, 23);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Login Information";
-            // 
-            // btnShowHidePassword2
-            // 
-            this.btnShowHidePassword2.BackColor = System.Drawing.Color.Transparent;
-            this.btnShowHidePassword2.BorderColor = System.Drawing.Color.DimGray;
-            this.btnShowHidePassword2.BorderRadius = 10;
-            this.btnShowHidePassword2.CheckedState.Parent = this.btnShowHidePassword2;
-            this.btnShowHidePassword2.CustomImages.Parent = this.btnShowHidePassword2;
-            this.btnShowHidePassword2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnShowHidePassword2.FillColor = System.Drawing.Color.White;
-            this.btnShowHidePassword2.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnShowHidePassword2.ForeColor = System.Drawing.Color.DimGray;
-            this.btnShowHidePassword2.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.btnShowHidePassword2.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHidePassword2.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnShowHidePassword2.HoverState.Parent = this.btnShowHidePassword2;
-            this.btnShowHidePassword2.Image = global::PresentationLayer.Properties.Resources.showPasswordEye;
-            this.btnShowHidePassword2.Location = new System.Drawing.Point(865, 86);
-            this.btnShowHidePassword2.Name = "btnShowHidePassword2";
-            this.btnShowHidePassword2.ShadowDecoration.Parent = this.btnShowHidePassword2;
-            this.btnShowHidePassword2.Size = new System.Drawing.Size(25, 23);
-            this.btnShowHidePassword2.TabIndex = 22;
-            // 
-            // btnShowHidePassword1
-            // 
-            this.btnShowHidePassword1.BackColor = System.Drawing.Color.Transparent;
-            this.btnShowHidePassword1.BorderColor = System.Drawing.Color.DimGray;
-            this.btnShowHidePassword1.BorderRadius = 10;
-            this.btnShowHidePassword1.CheckedState.Parent = this.btnShowHidePassword1;
-            this.btnShowHidePassword1.CustomImages.Parent = this.btnShowHidePassword1;
-            this.btnShowHidePassword1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnShowHidePassword1.FillColor = System.Drawing.Color.Transparent;
-            this.btnShowHidePassword1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnShowHidePassword1.ForeColor = System.Drawing.Color.DimGray;
-            this.btnShowHidePassword1.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.btnShowHidePassword1.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHidePassword1.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnShowHidePassword1.HoverState.Parent = this.btnShowHidePassword1;
-            this.btnShowHidePassword1.Image = global::PresentationLayer.Properties.Resources.showPasswordEye;
-            this.btnShowHidePassword1.Location = new System.Drawing.Point(617, 86);
-            this.btnShowHidePassword1.Name = "btnShowHidePassword1";
-            this.btnShowHidePassword1.ShadowDecoration.Parent = this.btnShowHidePassword1;
-            this.btnShowHidePassword1.Size = new System.Drawing.Size(25, 23);
-            this.btnShowHidePassword1.TabIndex = 23;
-            // 
-            // btnRemoveImage
-            // 
-            this.btnRemoveImage.BackColor = System.Drawing.Color.Transparent;
-            this.btnRemoveImage.BorderColor = System.Drawing.Color.DimGray;
-            this.btnRemoveImage.BorderRadius = 10;
-            this.btnRemoveImage.CheckedState.Parent = this.btnRemoveImage;
-            this.btnRemoveImage.CustomImages.Parent = this.btnRemoveImage;
-            this.btnRemoveImage.FillColor = System.Drawing.Color.Transparent;
-            this.btnRemoveImage.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnRemoveImage.ForeColor = System.Drawing.Color.DimGray;
-            this.btnRemoveImage.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.btnRemoveImage.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnRemoveImage.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnRemoveImage.HoverState.Image = global::PresentationLayer.Properties.Resources.removeFill;
-            this.btnRemoveImage.HoverState.Parent = this.btnRemoveImage;
-            this.btnRemoveImage.Image = global::PresentationLayer.Properties.Resources.removeNoFill;
-            this.btnRemoveImage.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnRemoveImage.Location = new System.Drawing.Point(47, 324);
-            this.btnRemoveImage.Name = "btnRemoveImage";
-            this.btnRemoveImage.ShadowDecoration.Parent = this.btnRemoveImage;
-            this.btnRemoveImage.Size = new System.Drawing.Size(200, 37);
-            this.btnRemoveImage.TabIndex = 15;
-            this.btnRemoveImage.Text = "Remove Image";
-            this.btnRemoveImage.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnRemoveImage.Visible = false;
-            // 
-            // btnAddImage
-            // 
-            this.btnAddImage.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddImage.BorderColor = System.Drawing.Color.DimGray;
-            this.btnAddImage.BorderRadius = 10;
-            this.btnAddImage.CheckedState.Parent = this.btnAddImage;
-            this.btnAddImage.CustomImages.Parent = this.btnAddImage;
-            this.btnAddImage.FillColor = System.Drawing.Color.Transparent;
-            this.btnAddImage.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnAddImage.ForeColor = System.Drawing.Color.DimGray;
-            this.btnAddImage.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.btnAddImage.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAddImage.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnAddImage.HoverState.Image = global::PresentationLayer.Properties.Resources.addFill;
-            this.btnAddImage.HoverState.Parent = this.btnAddImage;
-            this.btnAddImage.Image = global::PresentationLayer.Properties.Resources.addNoFill;
-            this.btnAddImage.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnAddImage.Location = new System.Drawing.Point(47, 272);
-            this.btnAddImage.Name = "btnAddImage";
-            this.btnAddImage.ShadowDecoration.Parent = this.btnAddImage;
-            this.btnAddImage.Size = new System.Drawing.Size(200, 37);
-            this.btnAddImage.TabIndex = 14;
-            this.btnAddImage.Text = "Add Image";
-            this.btnAddImage.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // pbImage
-            // 
-            this.pbImage.Image = global::PresentationLayer.Properties.Resources.defaultMaleProfile;
-            this.pbImage.Location = new System.Drawing.Point(47, 32);
-            this.pbImage.Name = "pbImage";
-            this.pbImage.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pbImage.ShadowDecoration.Parent = this.pbImage;
-            this.pbImage.Size = new System.Drawing.Size(200, 200);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage.TabIndex = 0;
-            this.pbImage.TabStop = false;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // ctrlAddEditUserPermissions1
             // 
@@ -1062,10 +1082,6 @@
             this.ctrlAddEditUserPermissions1.Size = new System.Drawing.Size(1104, 208);
             this.ctrlAddEditUserPermissions1.TabIndex = 28;
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // ctrlSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1074,14 +1090,14 @@
             this.Name = "ctrlSettings";
             this.Size = new System.Drawing.Size(1441, 894);
             this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel3.ResumeLayout(false);
-            this.guna2Panel4.ResumeLayout(false);
-            this.guna2Panel4.PerformLayout();
-            this.guna2Panel2.ResumeLayout(false);
-            this.guna2Panel2.PerformLayout();
             this.pnlLoginInfo.ResumeLayout(false);
             this.pnlLoginInfo.PerformLayout();
+            this.guna2Panel2.ResumeLayout(false);
+            this.guna2Panel2.PerformLayout();
+            this.guna2Panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            this.guna2Panel4.ResumeLayout(false);
+            this.guna2Panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
@@ -1143,5 +1159,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
