@@ -2,8 +2,10 @@
 using Guna.UI2.WinForms;
 using Microsoft.VisualBasic.ApplicationServices;
 using PresentationLayer.DashboardControls;
+using PresentationLayer.LoginForm;
 using PresentationLayer.PeopleFormsAndControls;
 using PresentationLayer.Properties;
+using PresentationLayer.Settings;
 using PresentationLayer.Users.Controls;
 using PresentationLayer.UsersFormsAndControls;
 using System;
@@ -56,20 +58,29 @@ namespace PresentationLayer.MainForm
         {
             Guna2Button selectedButten = (Guna2Button)sender;
             // to reset unchosen buttons color and icon
-            foreach (Guna2Button btn in pnlSideBar.Controls.OfType<Guna.UI2.WinForms.Guna2Button>())
-            {
-                string icon = btn.Tag.ToString();
-                btn.FillColor = Color.Transparent;
-                btn.ForeColor = Color.DimGray;
-                btn.Image =
-                    icon == "Overview" ? Properties.Resources.overviewNoFillThin :
-                    icon == "Applications" ? Properties.Resources.applicationNoFillThin :
-                    icon == "People" ? Properties.Resources.peopleNoFillThin :
-                    icon == "Drivers" ? Properties.Resources.driversNoFillThin :
-                    icon == "Users" ? Properties.Resources.usersNoFill :
-                    icon == "Settings" ? Properties.Resources.settingNoFill : Properties.Resources.overviewNoFillThin;
+            btnOverview.FillColor = Color.Transparent;
+            btnOverview.ForeColor = Color.DimGray;
+            btnOverview.Image = Resources.overviewNoFillThin;
 
-            }
+            btnApplications.FillColor = Color.Transparent;
+            btnApplications.ForeColor = Color.DimGray;
+            btnApplications.Image = Resources.applicationNoFillThin;
+
+            btnPeople.FillColor = Color.Transparent;
+            btnPeople.ForeColor = Color.DimGray;
+            btnPeople.Image = Resources.peopleNoFillThin;
+
+            btnDrivers.FillColor = Color.Transparent;
+            btnDrivers.ForeColor = Color.DimGray;
+            btnDrivers.Image = Resources.driversNoFillThin;
+
+            btnUsers.FillColor = Color.Transparent;
+            btnUsers.ForeColor = Color.DimGray;
+            btnUsers.Image = Resources.usersNoFill;
+
+            btnSettings.FillColor = Color.Transparent;
+            btnSettings.ForeColor = Color.DimGray;
+            btnSettings.Image = Resources.settingNoFill;
 
             // to highlight selected color
             selectedButten.FillColor = Color.White;
@@ -92,8 +103,7 @@ namespace PresentationLayer.MainForm
                 lblBreadcrumb.Text = lblBreadcrumb.Text.Remove(lblBreadcrumb.Text.IndexOf(Data.title));
         }
 
-
-
+        // menu buttons
         private void btnOverview_Click(object sender, EventArgs e)
         {
             _RefreshControlsContainer();
@@ -101,15 +111,12 @@ namespace PresentationLayer.MainForm
             pnlControlsContainer.Controls.Add(dashboard);
             _UpdateButtons(sender);
         }
-
         private void btnApplications_Click(object sender, EventArgs e)
         {
             _RefreshControlsContainer();
-            ctrlAddEditUserPermissions n = new ctrlAddEditUserPermissions();
-            pnlControlsContainer.Controls.Add(n);
+          
             _UpdateButtons(sender);
         }
-
         private void btnPeople_Click(object sender, EventArgs e)
         {
             if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eListPeople))
@@ -124,14 +131,12 @@ namespace PresentationLayer.MainForm
             _UpdateButtons(sender);
 
         }
-
         private void btnDrivers_Click(object sender, EventArgs e)
         {
             _RefreshControlsContainer();
 
             _UpdateButtons(sender);
         }
-
         private void btnUsers_Click(object sender, EventArgs e)
         {
             if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eListUsers))
@@ -148,11 +153,17 @@ namespace PresentationLayer.MainForm
         private void btnSettings_Click(object sender, EventArgs e)
         {
             _RefreshControlsContainer();
-
+            ctrlSettings settings = new ctrlSettings();
+            pnlControlsContainer.Controls.Add(settings);
             _UpdateButtons(sender);
         }
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            frmLogin login = new frmLogin();
+            login.Show();
+        }
 
-  
 
         // PersonID Quick Search
         private void lblQuickSearch_Click(object sender, EventArgs e)
@@ -183,6 +194,6 @@ namespace PresentationLayer.MainForm
             Application.Exit();
         }
 
-       
+      
     }
 }

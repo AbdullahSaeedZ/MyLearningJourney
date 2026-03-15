@@ -69,5 +69,10 @@ namespace PresentationLayer.LoginForm
                 btnShowHidePassword1.Image = Resources.showPasswordEye;
             }
         }
+
+        private void guna2ControlBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     } 
 }

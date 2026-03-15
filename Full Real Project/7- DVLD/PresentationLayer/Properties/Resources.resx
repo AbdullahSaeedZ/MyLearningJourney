@@ -160,6 +160,9 @@
   <data name="illu5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\illu5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DashboardUserFill32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\DashboardUserFill32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="overviewNoFillThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\overviewNoFillThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -180,9 +183,6 @@
   </data>
   <data name="settingsFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\settingsFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="applicationsWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\applicationsWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="settingSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\settingSmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,14 +223,11 @@
   <data name="illu4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\illu4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="illu9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\illu9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="illu13" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\illu13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="appointmentFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\appointmentFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="illu13" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\illu13.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="defaultMaleProfile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\defaultMaleProfile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -252,6 +249,9 @@
   </data>
   <data name="searchApplicationNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\searchApplicationNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="searchPersonFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\searchPersonFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="passwordNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\passwordNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -304,6 +304,9 @@
   <data name="peopleNoFillThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\peopleNoFillThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="illu9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\illu9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="DriverFillThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\DriverFillThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -316,8 +319,11 @@
   <data name="ProfileTest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ProfileTest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DashboardUserFill32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\DashboardUserFill32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="applicationsWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\applicationsWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="searchPersonNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\searchPersonNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="UsersFillThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\UsersFillThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -325,10 +331,10 @@
   <data name="illu10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\illu10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="searchPersonFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\searchPersonFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logoutThick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\logoutThick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="searchPersonNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\searchPersonNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="logoutThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\logoutThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

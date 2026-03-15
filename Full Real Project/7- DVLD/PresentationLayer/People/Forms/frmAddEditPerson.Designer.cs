@@ -392,7 +392,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 18);
             this.label1.TabIndex = 10;
-            this.label1.Text = "SelectedPersonID:";
+            this.label1.Text = "PersonID:";
             // 
             // tbAddress
             // 
