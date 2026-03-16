@@ -32,19 +32,18 @@
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.pnlTopBar = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblQuickSearch = new System.Windows.Forms.Label();
             this.tbQuickSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lblBreadcrumb = new System.Windows.Forms.Label();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.pbBreadcrumb = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.lblProfileUsername = new System.Windows.Forms.Label();
             this.lblProfilePersonName = new System.Windows.Forms.Label();
             this.pnlControlsContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.pnlSideBar = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
-            this.lblQuickSearch = new System.Windows.Forms.Label();
-            this.pbBreadcrumb = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
             this.btnPeople = new Guna.UI2.WinForms.Guna2Button();
             this.btnUsers = new Guna.UI2.WinForms.Guna2Button();
@@ -53,9 +52,10 @@
             this.btnDrivers = new Guna.UI2.WinForms.Guna2Button();
             this.btnApplications = new Guna.UI2.WinForms.Guna2Button();
             this.pbProfilePic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
             this.pnlTopBar.SuspendLayout();
-            this.pnlSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).BeginInit();
+            this.pnlSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,6 +84,18 @@
             this.pnlTopBar.ShadowDecoration.Parent = this.pnlTopBar;
             this.pnlTopBar.Size = new System.Drawing.Size(1441, 59);
             this.pnlTopBar.TabIndex = 6;
+            // 
+            // lblQuickSearch
+            // 
+            this.lblQuickSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblQuickSearch.BackColor = System.Drawing.Color.White;
+            this.lblQuickSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblQuickSearch.Image = global::PresentationLayer.Properties.Resources.QuickSearch;
+            this.lblQuickSearch.Location = new System.Drawing.Point(1190, 14);
+            this.lblQuickSearch.Name = "lblQuickSearch";
+            this.lblQuickSearch.Size = new System.Drawing.Size(28, 23);
+            this.lblQuickSearch.TabIndex = 4;
+            this.lblQuickSearch.Click += new System.EventHandler(this.lblQuickSearch_Click);
             // 
             // tbQuickSearch
             // 
@@ -163,13 +175,26 @@
             this.ControlBoxClose.TabIndex = 0;
             this.ControlBoxClose.Click += new System.EventHandler(this.ControlBoxClose_Click);
             // 
+            // pbBreadcrumb
+            // 
+            this.pbBreadcrumb.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.pbBreadcrumb.Image = global::PresentationLayer.Properties.Resources.overviewNoFillThin;
+            this.pbBreadcrumb.Location = new System.Drawing.Point(13, 12);
+            this.pbBreadcrumb.Name = "pbBreadcrumb";
+            this.pbBreadcrumb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pbBreadcrumb.ShadowDecoration.Parent = this.pbBreadcrumb;
+            this.pbBreadcrumb.Size = new System.Drawing.Size(43, 38);
+            this.pbBreadcrumb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbBreadcrumb.TabIndex = 0;
+            this.pbBreadcrumb.TabStop = false;
+            // 
             // lblProfileUsername
             // 
             this.lblProfileUsername.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblProfileUsername.AutoSize = true;
             this.lblProfileUsername.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProfileUsername.ForeColor = System.Drawing.Color.Gray;
-            this.lblProfileUsername.Location = new System.Drawing.Point(69, 915);
+            this.lblProfileUsername.Location = new System.Drawing.Point(69, 914);
             this.lblProfileUsername.Name = "lblProfileUsername";
             this.lblProfileUsername.Size = new System.Drawing.Size(43, 16);
             this.lblProfileUsername.TabIndex = 1;
@@ -180,7 +205,7 @@
             this.lblProfilePersonName.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblProfilePersonName.AutoSize = true;
             this.lblProfilePersonName.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProfilePersonName.Location = new System.Drawing.Point(69, 890);
+            this.lblProfilePersonName.Location = new System.Drawing.Point(69, 892);
             this.lblProfilePersonName.Name = "lblProfilePersonName";
             this.lblProfilePersonName.Size = new System.Drawing.Size(113, 16);
             this.lblProfilePersonName.TabIndex = 1;
@@ -225,31 +250,6 @@
             this.pnlSideBar.ShadowDecoration.Parent = this.pnlSideBar;
             this.pnlSideBar.Size = new System.Drawing.Size(267, 953);
             this.pnlSideBar.TabIndex = 6;
-            // 
-            // lblQuickSearch
-            // 
-            this.lblQuickSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblQuickSearch.BackColor = System.Drawing.Color.White;
-            this.lblQuickSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblQuickSearch.Image = global::PresentationLayer.Properties.Resources.QuickSearch;
-            this.lblQuickSearch.Location = new System.Drawing.Point(1190, 14);
-            this.lblQuickSearch.Name = "lblQuickSearch";
-            this.lblQuickSearch.Size = new System.Drawing.Size(28, 23);
-            this.lblQuickSearch.TabIndex = 4;
-            this.lblQuickSearch.Click += new System.EventHandler(this.lblQuickSearch_Click);
-            // 
-            // pbBreadcrumb
-            // 
-            this.pbBreadcrumb.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pbBreadcrumb.Image = global::PresentationLayer.Properties.Resources.overviewNoFillThin;
-            this.pbBreadcrumb.Location = new System.Drawing.Point(13, 12);
-            this.pbBreadcrumb.Name = "pbBreadcrumb";
-            this.pbBreadcrumb.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pbBreadcrumb.ShadowDecoration.Parent = this.pbBreadcrumb;
-            this.pbBreadcrumb.Size = new System.Drawing.Size(43, 38);
-            this.pbBreadcrumb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbBreadcrumb.TabIndex = 0;
-            this.pbBreadcrumb.TabStop = false;
             // 
             // btnOverview
             // 
@@ -341,11 +341,10 @@
             this.btnLogout.HoverState.Image = global::PresentationLayer.Properties.Resources.logoutThick;
             this.btnLogout.HoverState.Parent = this.btnLogout;
             this.btnLogout.Image = global::PresentationLayer.Properties.Resources.logoutThin;
-            this.btnLogout.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnLogout.Location = new System.Drawing.Point(218, 906);
+            this.btnLogout.Location = new System.Drawing.Point(223, 908);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.ShadowDecoration.Parent = this.btnLogout;
-            this.btnLogout.Size = new System.Drawing.Size(35, 35);
+            this.btnLogout.Size = new System.Drawing.Size(30, 30);
             this.btnLogout.TabIndex = 3;
             this.btnLogout.Tag = "";
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
@@ -365,11 +364,11 @@
             this.btnSettings.HoverState.Image = global::PresentationLayer.Properties.Resources.settingsFill;
             this.btnSettings.HoverState.Parent = this.btnSettings;
             this.btnSettings.Image = global::PresentationLayer.Properties.Resources.settingNoFill;
-            this.btnSettings.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnSettings.Location = new System.Drawing.Point(177, 906);
+            this.btnSettings.ImageSize = new System.Drawing.Size(22, 22);
+            this.btnSettings.Location = new System.Drawing.Point(187, 908);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.ShadowDecoration.Parent = this.btnSettings;
-            this.btnSettings.Size = new System.Drawing.Size(35, 35);
+            this.btnSettings.Size = new System.Drawing.Size(30, 30);
             this.btnSettings.TabIndex = 3;
             this.btnSettings.Tag = "Settings";
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
@@ -452,9 +451,9 @@
             this.Text = "frmMain";
             this.pnlTopBar.ResumeLayout(false);
             this.pnlTopBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).EndInit();
             this.pnlSideBar.ResumeLayout(false);
             this.pnlSideBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).EndInit();
             this.ResumeLayout(false);
 

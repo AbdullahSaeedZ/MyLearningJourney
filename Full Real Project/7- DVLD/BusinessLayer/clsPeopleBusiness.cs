@@ -114,7 +114,7 @@ namespace BusinessLayer
 
         private bool _UpdatePerson()
         {
-            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdatePerson))
+            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdatePerson) && clsBusinessSettings.CurrentUser.PersonID != this.PersonID) // to allow user editing his own profile
                 throw new UnauthorizedAccessException("You do not have permission to edit People");
 
             return clsPeopleDataAccess.UpdatePerson(this.PersonID, this.NationalID, this.FirstName, this.SecondName, this.ThirdName,

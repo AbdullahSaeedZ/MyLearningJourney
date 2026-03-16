@@ -154,6 +154,7 @@ namespace PresentationLayer.MainForm
         {
             _RefreshControlsContainer();
             ctrlSettings settings = new ctrlSettings();
+            settings.OnProfilePicUpdate += _LoadProfileInfo;
             pnlControlsContainer.Controls.Add(settings);
             _UpdateButtons(sender);
         }

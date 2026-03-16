@@ -58,7 +58,7 @@ namespace BusinessLayer
         }
         private bool _UpdateUser()
         {
-            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateUser))
+            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateUser) && clsBusinessSettings.CurrentUser.UserID != this.UserID) // to allow user editing his own profile
                 throw new UnauthorizedAccessException("You do not have permission to edit users");
 
             return clsUserDataAccess.UpdateUser(this._userID, this.Username, this.Password, this.isActive, this.Permissions);

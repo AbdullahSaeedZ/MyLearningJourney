@@ -1,8 +1,6 @@
 ﻿using BusinessLayer;
 using Guna.UI2.WinForms;
-using Microsoft.VisualBasic.ApplicationServices;
 using PresentationLayer.Properties;
-using PresentationLayer.Users.Controls;
 using System;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +13,9 @@ namespace PresentationLayer.Settings
 {
     public partial class ctrlSettings : UserControl
     {
+
+        public event Action OnProfilePicUpdate;
+
 
         // same logicc of addEditPerson form but i wanted to change UI with extra stuff
         public ctrlSettings()
@@ -118,12 +119,12 @@ namespace PresentationLayer.Settings
             _HandlePersonImage();
             _SavePersonInfo();
 
-            try // fix to ignore persmissions
+            try 
             {
                 if (clsBusinessSettings.CurrentUser.Person.Save())
                 {
                     MessageBox.Show("Data Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                  
+                    OnProfilePicUpdate?.Invoke();
                 }
                 else
                     MessageBox.Show("Data Was Not Saved!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

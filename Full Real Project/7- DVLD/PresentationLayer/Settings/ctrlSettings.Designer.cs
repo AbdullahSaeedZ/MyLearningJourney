@@ -281,6 +281,7 @@
             this.btnShowHidePassword2.ShadowDecoration.Parent = this.btnShowHidePassword2;
             this.btnShowHidePassword2.Size = new System.Drawing.Size(25, 23);
             this.btnShowHidePassword2.TabIndex = 22;
+            this.btnShowHidePassword2.Click += new System.EventHandler(this.btnShowHidePassword_Click);
             // 
             // label1
             // 
@@ -329,6 +330,7 @@
             this.btnShowHidePassword1.ShadowDecoration.Parent = this.btnShowHidePassword1;
             this.btnShowHidePassword1.Size = new System.Drawing.Size(25, 23);
             this.btnShowHidePassword1.TabIndex = 23;
+            this.btnShowHidePassword1.Click += new System.EventHandler(this.btnShowHidePassword_Click);
             // 
             // label3
             // 
@@ -464,6 +466,7 @@
             this.btnRemoveImage.Text = "Remove Image";
             this.btnRemoveImage.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnRemoveImage.Visible = false;
+            this.btnRemoveImage.Click += new System.EventHandler(this.btnRemoveImage_Click);
             // 
             // btnAddImage
             // 
@@ -489,6 +492,7 @@
             this.btnAddImage.TabIndex = 14;
             this.btnAddImage.Text = "Add Image";
             this.btnAddImage.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnAddImage.Click += new System.EventHandler(this.btnAddImage_Click);
             // 
             // pbImage
             // 
@@ -563,6 +567,7 @@
             this.rbFemale.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rbFemale.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rbFemale.UncheckedState.Parent = this.rbFemale;
+            this.rbFemale.Click += new System.EventHandler(this.rbMale_CheckedChanged);
             // 
             // rbMale
             // 
@@ -582,6 +587,7 @@
             this.rbMale.UncheckedState.FillColor = System.Drawing.Color.Transparent;
             this.rbMale.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             this.rbMale.UncheckedState.Parent = this.rbMale;
+            this.rbMale.Click += new System.EventHandler(this.rbMale_CheckedChanged);
             // 
             // cbCountry
             // 
