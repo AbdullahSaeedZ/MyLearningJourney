@@ -11,18 +11,10 @@ namespace PresentationLayer.LoginForm
         
         private string _Username;
         private string _Password;
-        private bool _wasRememberMeChecked = false;
         public frmLogin()
         {
             InitializeComponent();
-
-            clsBusinessSettings.LoadLoginInfoFromFile(ref _Username, ref _Password, ref _wasRememberMeChecked);
-            if (_wasRememberMeChecked)
-            {
-                tbUsername.Text = _Username;
-                tbPassword.Text = _Password;
-                chbRememberMe.Checked = _wasRememberMeChecked;
-            }
+            _LoadCredentials();
         }
 
          // encryption
@@ -32,15 +24,37 @@ namespace PresentationLayer.LoginForm
 
         }
 
+        private void _LoadCredentials()
+        {
+            if (clsBusinessSettings.LoadLoginInfoFromFile(ref _Username, ref _Password))
+            {
+                tbUsername.Text = _Username;
+                tbPassword.Text = _Password;
+                chbRememberMe.Checked = true;
+            }
+            else
+            {
+                tbUsername.Text = "";
+                tbPassword.Text = "";
+                chbRememberMe.Checked = false;
+            }
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            clsBusinessSettings.CurrentUser = clsUserBusiness.FindUser(tbUsername.Text, tbPassword.Text);
+            clsBusinessSettings.CurrentUser = clsUserBusiness.FindUser(tbUsername.Text.Trim(), tbPassword.Text.Trim());
 
             if (clsBusinessSettings.CurrentUser == null)
             {
                 MessageBox.Show("Invalid Username/Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tbUsername.Focus();
                 return;
             }
+
+            if (chbRememberMe.Checked)
+                clsBusinessSettings.SaveLoginInfoToFile(tbUsername.Text.Trim(), tbPassword.Text.Trim());
+            else
+                clsBusinessSettings.SaveLoginInfoToFile("", "");
 
             if (!clsBusinessSettings.CurrentUser.isActive)
             {
@@ -48,11 +62,10 @@ namespace PresentationLayer.LoginForm
                 return;
             }
 
-
-            clsBusinessSettings.SaveLoginInfoToFile(tbUsername.Text, tbPassword.Text, chbRememberMe.Checked);
             frmMain main = new frmMain();
-            main.Show();
             this.Hide();
+            main.ShowDialog(); // dialog to wait for main form to close then continue to next line
+            this.Show(); // once logged out from Main form, this will unhide instead of new object created in memory
         }
 
         private void btnShowHidePassword_Click(object sender, EventArgs e)
@@ -73,6 +86,11 @@ namespace PresentationLayer.LoginForm
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void frmLogin_Activated(object sender, EventArgs e)
+        {
+            _LoadCredentials();
         }
     } 
 }

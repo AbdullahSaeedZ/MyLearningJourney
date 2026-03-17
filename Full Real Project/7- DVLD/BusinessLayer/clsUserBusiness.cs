@@ -9,9 +9,21 @@ namespace BusinessLayer
         enum enMode { eAddMode = 0, eUpdateMode = 1 };
         enMode _mode;
 
-        private int _userID;
-        public int UserID { get { return _userID; } }
-        public int PersonID { get; set; }
+        public int UserID { get; private set; }
+
+        private int _personID;
+        public int PersonID 
+        { 
+            get
+            {
+                return _personID;
+            }
+            set
+            {
+                if (_personID == -1) // to prevent any modification and allow only assignment once user is created
+                    _personID = value;
+            }
+        }
         public string Username { get; set; }
         public string Password { get; set; }
         public bool isActive { get; set; }
@@ -21,8 +33,8 @@ namespace BusinessLayer
 
         public clsUserBusiness()
         {
-            this._userID = -1;
-            this.PersonID = -1;
+            this.UserID = -1;
+            this._personID = -1;
             this.Username = "";
             this.Password = "";
             this.isActive = false;
@@ -32,8 +44,8 @@ namespace BusinessLayer
 
         clsUserBusiness(int UserID, int PersonID, string Username, string Password, bool isActive, int Permissions)
         {
-            this._userID = UserID;
-            this.PersonID = PersonID;
+            this.UserID = UserID;
+            this._personID = PersonID;
             this.Username = Username;
             this.Password = Password;
             this.isActive = isActive;
@@ -52,7 +64,7 @@ namespace BusinessLayer
             if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eAddUser))
                 throw new UnauthorizedAccessException("You do not have permission to Add users");
 
-            this._userID = clsUserDataAccess.AddNewUser(this.PersonID, this.Username, this.Password, this.isActive, this.Permissions);
+            this.UserID = clsUserDataAccess.AddNewUser(this._personID, this.Username, this.Password, this.isActive, this.Permissions);
 
             return (this.UserID != -1);
         }
@@ -61,7 +73,7 @@ namespace BusinessLayer
             if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateUser) && clsBusinessSettings.CurrentUser.UserID != this.UserID) // to allow user editing his own profile
                 throw new UnauthorizedAccessException("You do not have permission to edit users");
 
-            return clsUserDataAccess.UpdateUser(this._userID, this.Username, this.Password, this.isActive, this.Permissions);
+            return clsUserDataAccess.UpdateUser(this.UserID, this.Username, this.Password, this.isActive, this.Permissions);
         }
 
         public static bool DeleteUser(int UserID)

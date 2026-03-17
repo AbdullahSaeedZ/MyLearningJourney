@@ -95,11 +95,26 @@ namespace PresentationLayer.PeopleFormsAndControls
         private void _HandlePersonImage()
         {
             string oldPath = string.IsNullOrEmpty(person.ImagePath) ? "" : person.ImagePath; // if empty means no pic before
-            string newPath = string.IsNullOrEmpty(pbImage.ImageLocation) ? "" : pbImage.ImageLocation; // if empty means removed or no pic added in this session.
+            string newPath = string.IsNullOrEmpty(pbImage.ImageLocation) ? "" : pbImage.ImageLocation; // if empty means removed or no pic added in this session
 
-            // if paths dont match, user changed something.
+            // if paths dont match, user changed something
             if (oldPath != newPath)
                 person.ImagePath = clsBusinessSettings.CopyImageToServer(pbImage.ImageLocation, person.ImagePath);
+        }
+
+        private void _SavePersonInfo()
+        {
+            person.NationalID = tbNationalNumber.Text.Trim();
+            person.FirstName = tbFirstName.Text.Trim();
+            person.SecondName = tbSecondName.Text.Trim();
+            person.ThirdName = string.IsNullOrEmpty(tbThirdName.Text) ? "" : tbThirdName.Text.Trim();
+            person.LastName = tbLastName.Text.Trim();
+            person.Email = tbEmail.Text.Trim();
+            person.Phone = tbPhone.Text.Trim();
+            person.Address = tbAddress.Text.Trim();
+            person.BirthDate = dtpBirthDate.Value;
+            person.Gender = rbMale.Checked ? (byte)enGender.Male : (byte)enGender.Female;
+            person.NationalityCountryID = (clsCountriesBusiness.GetCountry(cbCountry.Text)).CountryID;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -111,18 +126,7 @@ namespace PresentationLayer.PeopleFormsAndControls
              }
 
              _HandlePersonImage();
-
-             person.NationalID = tbNationalNumber.Text.Trim();
-             person.FirstName = tbFirstName.Text.Trim();
-             person.SecondName = tbSecondName.Text.Trim();
-             person.ThirdName = string.IsNullOrEmpty(tbThirdName.Text) ? "" : tbThirdName.Text.Trim();
-             person.LastName = tbLastName.Text.Trim();
-             person.Email = tbEmail.Text.Trim();
-             person.Phone = tbPhone.Text.Trim();
-             person.Address = tbAddress.Text.Trim();
-             person.BirthDate = dtpBirthDate.Value;
-             person.Gender = rbMale.Checked ? (byte)enGender.Male : (byte)enGender.Female;
-             person.NationalityCountryID = (clsCountriesBusiness.GetCountry(cbCountry.Text)).CountryID;
+            _SavePersonInfo();
 
             try
             {
@@ -144,8 +148,6 @@ namespace PresentationLayer.PeopleFormsAndControls
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
-
-           
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

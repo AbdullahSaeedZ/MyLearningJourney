@@ -1,17 +1,13 @@
 ﻿using BusinessLayer;
 using Guna.UI2.WinForms;
-using Microsoft.VisualBasic.ApplicationServices;
 using PresentationLayer.DashboardControls;
-using PresentationLayer.LoginForm;
 using PresentationLayer.PeopleFormsAndControls;
 using PresentationLayer.Properties;
 using PresentationLayer.Settings;
-using PresentationLayer.Users.Controls;
 using PresentationLayer.UsersFormsAndControls;
 using System;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace PresentationLayer.MainForm
@@ -154,15 +150,14 @@ namespace PresentationLayer.MainForm
         {
             _RefreshControlsContainer();
             ctrlSettings settings = new ctrlSettings();
-            settings.OnProfilePicUpdate += _LoadProfileInfo;
+            settings.OnProfileUpdate += _LoadProfileInfo;
             pnlControlsContainer.Controls.Add(settings);
             _UpdateButtons(sender);
         }
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmLogin login = new frmLogin();
-            login.Show();
+            clsBusinessSettings.CurrentUser = null;
         }
 
 

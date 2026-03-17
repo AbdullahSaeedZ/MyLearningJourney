@@ -14,7 +14,7 @@ namespace PresentationLayer.Settings
     public partial class ctrlSettings : UserControl
     {
 
-        public event Action OnProfilePicUpdate;
+        public event Action OnProfileUpdate;
 
 
         // same logicc of addEditPerson form but i wanted to change UI with extra stuff
@@ -124,7 +124,7 @@ namespace PresentationLayer.Settings
                 if (clsBusinessSettings.CurrentUser.Person.Save())
                 {
                     MessageBox.Show("Data Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    OnProfilePicUpdate?.Invoke();
+                    OnProfileUpdate?.Invoke();
                 }
                 else
                     MessageBox.Show("Data Was Not Saved!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -8,7 +8,20 @@ namespace BusinessLayer
     {
         enum enMode { eAddMode = 0, eUpdateMode = 1 };
         enMode _mode;
-        public int PersonID { get; set; }
+
+        private int _personID;
+        public int PersonID
+        {
+            get
+            {
+                return _personID;
+            }
+            set
+            {
+                if (_personID == -1) // to prevent any modification and allow only new person creation
+                    _personID = value;
+            }
+        }
         public string NationalID { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
@@ -27,7 +40,7 @@ namespace BusinessLayer
         // for adding new person
         public clsPeopleBusiness()
         {
-            this.PersonID = -1;
+            this._personID = -1;
             this.NationalID = "";
             this.FirstName = "";
             this.SecondName = "";
@@ -47,7 +60,7 @@ namespace BusinessLayer
         clsPeopleBusiness(int PersonID, string NationalID, string FirstName, string SecondName, string ThirdName, string LastName, byte Gender,
             int NationalityCountryID, string Phone, string Email, string Address, string ImagePath, DateTime BirthDate)
         {
-            this.PersonID = PersonID;
+            this._personID = PersonID;
             this.NationalID = NationalID;
             this.FirstName = FirstName;
             this.SecondName = SecondName;
@@ -106,7 +119,7 @@ namespace BusinessLayer
             if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eAddPerson))
                 throw new UnauthorizedAccessException("You do not have permission to add People");
 
-            this.PersonID = clsPeopleDataAccess.AddNewPerson(this.NationalID, this.FirstName, this.SecondName, this.ThirdName,
+            this._personID = clsPeopleDataAccess.AddNewPerson(this.NationalID, this.FirstName, this.SecondName, this.ThirdName,
                      this.LastName, this.Gender, this.NationalityCountryID, this.Phone, this.Email, this.Address, this.ImagePath, this.BirthDate);
 
             return (this.PersonID != -1);

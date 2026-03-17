@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using System.Text.RegularExpressions;
 
 
@@ -19,7 +20,7 @@ namespace BusinessLayer
         public readonly static  string _defaultComboBoxCountry = "Saudi Arabia";
         public static DateTime _defaultMinAllowedAge = DateTime.Now.AddYears(-18);
         // User Login Info remember me
-        public static string _RememberMeFile = @"D:\UserLogin.txt";
+        public static string _RememberMeFile = @"D:\UserLogin.txt"; // later will be saved professionally
 
 
         // must be in DataAccess ?
@@ -87,36 +88,50 @@ namespace BusinessLayer
 
 
         // login remember me methods
-        public static void SaveLoginInfoToFile(string Username, string Password, bool isRememberMeChecked, string del = "#//#")
+        public static void SaveLoginInfoToFile(string Username, string Password)
         {
-            string str = Username + del + Password + del + isRememberMeChecked.ToString();
-            try
+            string del = "#//#";
+            string str = Username + del + Password;
+            try  
             {
+                if (!File.Exists(_RememberMeFile))
+                    File.Create(_RememberMeFile);
+
+                if (Username == "" || Password == "")
+                    str = "";
+
                 File.WriteAllText(_RememberMeFile, str);
             }
-            catch (IOException e)
+            catch (Exception e)
             {
                 throw;
             }
         }
 
-        public static void LoadLoginInfoFromFile(ref string Username, ref string Password, ref bool isRememberMeChecked, string del = "#//#")
+        public static bool LoadLoginInfoFromFile(ref string Username, ref string Password)
         {
             try
             {
-                string Line = File.ReadAllText(_RememberMeFile);
+                if (File.Exists(_RememberMeFile))
+                {
+                    string del = "#//#";
+                    string Line = File.ReadAllText(_RememberMeFile);
 
-                Username = Line.Substring(0, Line.IndexOf(del));
-                Line = Line.Remove(0, Username.Length + del.Length);
+                    if (string.IsNullOrEmpty(Line))
+                        return false;
 
-                Password = Line.Substring(0, Line.IndexOf(del));
-                Line = Line.Remove(0, Password.Length + del.Length);
+                    Username = Line.Substring(0, Line.IndexOf(del));
+                    Line = Line.Remove(0, Username.Length + del.Length);
 
-                isRememberMeChecked = Convert.ToBoolean(Line);
+                    Password = Line;
+                    return true;
+                }
+                else
+                    return false;
             }
-            catch (IOException e)
+            catch (Exception e)
             {
-                throw;
+                throw new Exception("Error while loading stored credentials");
             }
         }
 
