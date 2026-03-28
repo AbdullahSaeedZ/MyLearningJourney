@@ -76,6 +76,14 @@ namespace BusinessLayer
             return clsUserDataAccess.UpdateUser(this.UserID, this.Username, this.Password, this.isActive, this.Permissions);
         }
 
+        public bool ChangePassword(string NewPassword)
+        {
+            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateUser) && clsBusinessSettings.CurrentUser.UserID != this.UserID) // to allow user editing his own password
+                throw new UnauthorizedAccessException("You do not have permission to edit users");
+
+            return clsUserDataAccess.ChangePassword(this.UserID, NewPassword);
+        }
+
         public static bool DeleteUser(int UserID)
         {
             if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eDeleteUser))

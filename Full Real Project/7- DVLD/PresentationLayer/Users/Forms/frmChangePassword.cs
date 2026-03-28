@@ -35,12 +35,13 @@ namespace PresentationLayer.Users.Forms
                 return;
             }
 
-            ctrlUserCard1.SelectedUser.Password = tbNewPassword.Text;
-
             try
             {
-                if (ctrlUserCard1.SelectedUser.Save())
+                if (ctrlUserCard1.SelectedUser.ChangePassword(tbNewPassword.Text))
+                {
                     MessageBox.Show("Data saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ctrlUserCard1.SelectedUser.Password = tbNewPassword.Text; // to update new password in the current session if form not closed and need to change password again
+                }
                 else
                     MessageBox.Show("Data was not saved successfully", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

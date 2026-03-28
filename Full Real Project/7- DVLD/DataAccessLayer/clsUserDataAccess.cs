@@ -145,6 +145,35 @@ namespace DataAccessLayer
             return (rowsAffected > 0);
         }
 
+        public static bool ChangePassword(int UserID, string NewPassword)
+        {
+            int rowsAffected = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = @"update Users 
+                                     set Password = @NewPassword
+                                     where UserID = @ID;";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ID", UserID);
+                        command.Parameters.AddWithValue("@NewPassword", NewPassword);
+
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return (rowsAffected > 0);
+        }
+
         public static bool DeleteUser(int UserID)
         {
             int rowsAffected = 0;
@@ -170,6 +199,7 @@ namespace DataAccessLayer
             }
             return (rowsAffected > 0);
         }
+
         public static bool DoesUsernameExist(string Username)
         {
             bool isFound = false;
@@ -226,7 +256,6 @@ namespace DataAccessLayer
             }
             return isFound;
         }
-
         public static bool DoesUserExist(string NationalNo)
         {
             bool isFound = false;
