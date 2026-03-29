@@ -51,6 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\ctrlMainServices.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\ctrlMainServices.Designer.cs">
+      <DependentUpon>ctrlMainServices.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard\ctrlDashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     <Compile Include="Users\Forms\frmUserInfo.Designer.cs">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Applications\ctrlMainServices.resx">
+      <DependentUpon>ctrlMainServices.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard\ctrlDashboard.resx">
       <DependentUpon>ctrlDashboard.cs</DependentUpon>
     </EmbeddedResource>
@@ -426,6 +435,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\logoutThin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\LicenseCardNoFill64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\LicenseCardNoFill512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\LicenseCardNoFillGrey512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\LicenseCardFill512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

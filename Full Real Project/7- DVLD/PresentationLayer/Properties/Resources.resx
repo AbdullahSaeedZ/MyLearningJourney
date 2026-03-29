@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="logoutThick" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\logoutThick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="addFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\addFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -184,6 +187,12 @@
   <data name="settingsFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\settingsFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="logoutThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\logoutThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LicenseCardNoFill512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\LicenseCardNoFill512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="settingSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\settingSmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -199,14 +208,17 @@
   <data name="detainNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\detainNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LicenseCardNoFillGrey512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\LicenseCardNoFillGrey512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SearchBlackFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\SearchBlackFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DashboardFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\DashboardFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="searchApplicationFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\searchApplicationFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="searchPersonFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\searchPersonFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DriversNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\DriversNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -249,9 +261,6 @@
   </data>
   <data name="searchApplicationNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\searchApplicationNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="searchPersonFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\searchPersonFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="passwordNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\passwordNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -331,10 +340,13 @@
   <data name="illu10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\illu10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logoutThick" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\logoutThick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LicenseCardNoFill64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\LicenseCardNoFill64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logoutThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\logoutThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="searchApplicationFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\searchApplicationFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LicenseCardFill512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\LicenseCardFill512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

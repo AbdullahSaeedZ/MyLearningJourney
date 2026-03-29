@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using Guna.UI2.WinForms;
+using PresentationLayer.Applications;
 using PresentationLayer.DashboardControls;
 using PresentationLayer.PeopleFormsAndControls;
 using PresentationLayer.Properties;
@@ -110,7 +111,9 @@ namespace PresentationLayer.MainForm
         private void btnApplications_Click(object sender, EventArgs e)
         {
             _RefreshControlsContainer();
-          
+
+            ctrlMainServices MainServices = new ctrlMainServices();
+            pnlControlsContainer.Controls.Add(MainServices);
             _UpdateButtons(sender);
         }
         private void btnPeople_Click(object sender, EventArgs e)

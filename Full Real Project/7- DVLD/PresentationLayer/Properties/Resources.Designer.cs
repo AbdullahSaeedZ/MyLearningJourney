@@ -483,6 +483,46 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LicenseCardFill512 {
+            get {
+                object obj = ResourceManager.GetObject("LicenseCardFill512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LicenseCardNoFill512 {
+            get {
+                object obj = ResourceManager.GetObject("LicenseCardNoFill512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LicenseCardNoFill64 {
+            get {
+                object obj = ResourceManager.GetObject("LicenseCardNoFill64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LicenseCardNoFillGrey512 {
+            get {
+                object obj = ResourceManager.GetObject("LicenseCardNoFillGrey512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logoSmall {
             get {
                 object obj = ResourceManager.GetObject("logoSmall", resourceCulture);
