@@ -2,7 +2,6 @@
 using PresentationLayer.MainForm;
 using System;
 using System.Drawing;
-using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 
 namespace PresentationLayer.PeopleFormsAndControls
@@ -87,6 +86,11 @@ namespace PresentationLayer.PeopleFormsAndControls
             ctrlPersonCard1.LoadInfo(PersonID);
         }
 
+        public void FilterFocus()
+        {
+            cbSearchBy.Focus();
+        }
+
         public ctrlPersonCardWithSearch()
         {
             InitializeComponent();
@@ -148,7 +152,7 @@ namespace PresentationLayer.PeopleFormsAndControls
                     break;
             }
 
-            OnPersonSelected?.Invoke(this, ctrlPersonCard1.PersonID); // custom event invoked to send ID outside when person is selected 
+            OnPersonSelected?.Invoke(this, ctrlPersonCard1.PersonID); // if needed, custom event invoked to send ID outside when person is selected 
 
         }
         private void cbSearchBy_SelectedIndexChanged(object sender, EventArgs e)

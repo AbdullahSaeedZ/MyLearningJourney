@@ -1,7 +1,5 @@
 ﻿using BusinessLayer;
-using Microsoft.VisualBasic.ApplicationServices;
 using PresentationLayer.MainForm;
-using PresentationLayer.PeopleFormsAndControls;
 using PresentationLayer.Users.Forms;
 using System;
 using System.Data;
@@ -25,7 +23,10 @@ namespace PresentationLayer.UsersFormsAndControls
         private void RefreshDataGridView()
         {
             if ((dt = clsUserBusiness.GetAllUsers()) == null)
+            {
+                MessageBox.Show("No Records available", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+            }
 
             dgvUsers.DataSource = dt;
             lblNumberOfRecords.Text = dgvUsers.RowCount.ToString();
@@ -58,6 +59,7 @@ namespace PresentationLayer.UsersFormsAndControls
             tbSearchUsers.Visible = true;
             tbSearchUsers.Text = "";
 
+            // text box placeholder text
             if (_searchFilter == "PersonID" || _searchFilter == "UserID")
                 tbSearchUsers.PlaceholderText = "Only numbers allowed";
             else
@@ -178,6 +180,13 @@ namespace PresentationLayer.UsersFormsAndControls
             }
 
             int UserID = (int)dgvUsers.SelectedCells[0].Value;
+
+            if (UserID == clsBusinessSettings.CurrentUser.UserID)
+            {
+                MessageBox.Show("Current user can not be deleted, log in with different user first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             try
             {
                 if (MessageBox.Show($"Are you sure to delete User wIth ID {UserID}?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)

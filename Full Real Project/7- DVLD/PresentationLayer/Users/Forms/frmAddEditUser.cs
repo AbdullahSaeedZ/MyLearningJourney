@@ -1,5 +1,4 @@
 ﻿using BusinessLayer;
-using Microsoft.VisualBasic.ApplicationServices;
 using PresentationLayer.MainForm;
 using PresentationLayer.Properties;
 using System;
@@ -56,15 +55,16 @@ namespace PresentationLayer.UsersFormsAndControls
             ctrlAddEditUserPermissions1.LoadPermissionsForUpdate(_user.Permissions);
         }
 
-        private void btnNext_Click(object sender, EventArgs e) // dont allow to proceed if no permission and in update mode
+        private void btnNext_Click(object sender, EventArgs e)
         {
             if (ctrlPersonCardWithSearch1.PersonID == -1)
             {
                 MessageBox.Show($"Please select a person to proceed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ctrlPersonCardWithSearch1.FilterFocus();
                 return;
             }
 
-            if (clsUserBusiness.DoesUserExist(ctrlPersonCardWithSearch1.PersonID) && _mode == enMode.eAddNewMode)
+            if (clsUserBusiness.DoesUserExist(ctrlPersonCardWithSearch1.PersonID) && _mode == enMode.eAddNewMode) // will proceed if update mode and user exists
             {
                 MessageBox.Show($"Selected Person is already a user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -148,7 +148,7 @@ namespace PresentationLayer.UsersFormsAndControls
             if (clsUserBusiness.DoesUsernameExist(tbUsername.Text))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(tbUsername, "Username already exists!");
+                errorProvider1.SetError(tbUsername, "Username already taken!");
                 tbUsername.BorderColor = Color.Red;
                 return;
             }

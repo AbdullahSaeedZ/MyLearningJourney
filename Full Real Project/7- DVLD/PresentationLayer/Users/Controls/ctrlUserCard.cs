@@ -66,7 +66,7 @@ namespace PresentationLayer.Users.Controls
 
         public void LoadInfo(int UserID)
         {
-            if((_user = clsUserBusiness.FindUser(UserID)) == null)
+            if ((_user = clsUserBusiness.FindUser(UserID)) == null)
             {
                 MessageBox.Show($"User ID = {UserID} was not found, check again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
