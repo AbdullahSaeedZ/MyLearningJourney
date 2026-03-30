@@ -448,5 +448,32 @@
   <ItemGroup>
     <None Include="assets\LicenseCardFill512.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\DetainLicenseFillGrey512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\DetainLicenseNoFillGrey512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\DetainLicenseFillBlack512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\ManageApplicationsNoFillGrey512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\ManageApplicationsFillBlack512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\ManageApplicationsTypesFillBlack512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\ManageApplicationsTypesNoFillGrey512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\ManageTestTypesFillBlack512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\ManageTestTypesNoFillGrey512.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

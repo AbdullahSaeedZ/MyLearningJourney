@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.pnlMainServicesContainer = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.pnlManageApplicationsTypes = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.pnlManageTestTypes = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.pnlDrivingLicensesServices = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.pnlDetainLicenses = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.pnlManageApplications = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
-            this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
             this.btnManageApplicationsTypes = new Guna.UI2.WinForms.Guna2Button();
             this.btnManageTestTypes = new Guna.UI2.WinForms.Guna2Button();
             this.btnDrivingLicensesServices = new Guna.UI2.WinForms.Guna2Button();
@@ -67,6 +67,22 @@
             this.pnlMainServicesContainer.ShadowDecoration.Parent = this.pnlMainServicesContainer;
             this.pnlMainServicesContainer.Size = new System.Drawing.Size(1441, 894);
             this.pnlMainServicesContainer.TabIndex = 2;
+            // 
+            // guna2Separator2
+            // 
+            this.guna2Separator2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.guna2Separator2.Location = new System.Drawing.Point(31, 594);
+            this.guna2Separator2.Name = "guna2Separator2";
+            this.guna2Separator2.Size = new System.Drawing.Size(1360, 10);
+            this.guna2Separator2.TabIndex = 5;
+            // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.guna2Separator1.Location = new System.Drawing.Point(31, 310);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(1360, 10);
+            this.guna2Separator1.TabIndex = 5;
             // 
             // pnlManageApplicationsTypes
             // 
@@ -134,22 +150,6 @@
             this.pnlManageApplications.Size = new System.Drawing.Size(310, 260);
             this.pnlManageApplications.TabIndex = 3;
             // 
-            // guna2Separator1
-            // 
-            this.guna2Separator1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.guna2Separator1.Location = new System.Drawing.Point(31, 310);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(1360, 10);
-            this.guna2Separator1.TabIndex = 5;
-            // 
-            // guna2Separator2
-            // 
-            this.guna2Separator2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.guna2Separator2.Location = new System.Drawing.Point(31, 594);
-            this.guna2Separator2.Name = "guna2Separator2";
-            this.guna2Separator2.Size = new System.Drawing.Size(1360, 10);
-            this.guna2Separator2.TabIndex = 5;
-            // 
             // btnManageApplicationsTypes
             // 
             this.btnManageApplicationsTypes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -166,11 +166,11 @@
             this.btnManageApplicationsTypes.HoverState.BorderColor = System.Drawing.Color.Gainsboro;
             this.btnManageApplicationsTypes.HoverState.FillColor = System.Drawing.Color.White;
             this.btnManageApplicationsTypes.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnManageApplicationsTypes.HoverState.Image = global::PresentationLayer.Properties.Resources.overviewFillThin;
+            this.btnManageApplicationsTypes.HoverState.Image = global::PresentationLayer.Properties.Resources.ManageApplicationsTypesFillBlack512;
             this.btnManageApplicationsTypes.HoverState.Parent = this.btnManageApplicationsTypes;
-            this.btnManageApplicationsTypes.Image = global::PresentationLayer.Properties.Resources.overviewNoFillThin;
-            this.btnManageApplicationsTypes.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnManageApplicationsTypes.ImageOffset = new System.Drawing.Point(10, -20);
+            this.btnManageApplicationsTypes.Image = global::PresentationLayer.Properties.Resources.ManageApplicationsTypesNoFillGrey512;
+            this.btnManageApplicationsTypes.ImageOffset = new System.Drawing.Point(60, -17);
+            this.btnManageApplicationsTypes.ImageSize = new System.Drawing.Size(100, 100);
             this.btnManageApplicationsTypes.Location = new System.Drawing.Point(8, 7);
             this.btnManageApplicationsTypes.Name = "btnManageApplicationsTypes";
             this.btnManageApplicationsTypes.ShadowDecoration.Parent = this.btnManageApplicationsTypes;
@@ -178,7 +178,7 @@
             this.btnManageApplicationsTypes.TabIndex = 2;
             this.btnManageApplicationsTypes.Tag = "Manage Applications Types";
             this.btnManageApplicationsTypes.Text = "Manage Applications Types";
-            this.btnManageApplicationsTypes.TextOffset = new System.Drawing.Point(0, 20);
+            this.btnManageApplicationsTypes.TextOffset = new System.Drawing.Point(-24, 68);
             this.btnManageApplicationsTypes.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
             this.btnManageApplicationsTypes.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 
@@ -198,11 +198,11 @@
             this.btnManageTestTypes.HoverState.BorderColor = System.Drawing.Color.Gainsboro;
             this.btnManageTestTypes.HoverState.FillColor = System.Drawing.Color.White;
             this.btnManageTestTypes.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnManageTestTypes.HoverState.Image = global::PresentationLayer.Properties.Resources.overviewFillThin;
+            this.btnManageTestTypes.HoverState.Image = global::PresentationLayer.Properties.Resources.ManageTestTypesFillBlack512;
             this.btnManageTestTypes.HoverState.Parent = this.btnManageTestTypes;
-            this.btnManageTestTypes.Image = global::PresentationLayer.Properties.Resources.overviewNoFillThin;
-            this.btnManageTestTypes.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnManageTestTypes.ImageOffset = new System.Drawing.Point(10, -20);
+            this.btnManageTestTypes.Image = global::PresentationLayer.Properties.Resources.ManageTestTypesNoFillGrey512;
+            this.btnManageTestTypes.ImageOffset = new System.Drawing.Point(40, -20);
+            this.btnManageTestTypes.ImageSize = new System.Drawing.Size(100, 100);
             this.btnManageTestTypes.Location = new System.Drawing.Point(9, 7);
             this.btnManageTestTypes.Name = "btnManageTestTypes";
             this.btnManageTestTypes.ShadowDecoration.Parent = this.btnManageTestTypes;
@@ -210,7 +210,7 @@
             this.btnManageTestTypes.TabIndex = 2;
             this.btnManageTestTypes.Tag = "Manage Test Types";
             this.btnManageTestTypes.Text = "Manage Test Types";
-            this.btnManageTestTypes.TextOffset = new System.Drawing.Point(0, 20);
+            this.btnManageTestTypes.TextOffset = new System.Drawing.Point(-25, 70);
             this.btnManageTestTypes.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
             this.btnManageTestTypes.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 
@@ -233,7 +233,7 @@
             this.btnDrivingLicensesServices.HoverState.Image = global::PresentationLayer.Properties.Resources.LicenseCardFill512;
             this.btnDrivingLicensesServices.HoverState.Parent = this.btnDrivingLicensesServices;
             this.btnDrivingLicensesServices.Image = global::PresentationLayer.Properties.Resources.LicenseCardNoFillGrey512;
-            this.btnDrivingLicensesServices.ImageOffset = new System.Drawing.Point(50, -25);
+            this.btnDrivingLicensesServices.ImageOffset = new System.Drawing.Point(50, -20);
             this.btnDrivingLicensesServices.ImageSize = new System.Drawing.Size(100, 100);
             this.btnDrivingLicensesServices.Location = new System.Drawing.Point(9, 7);
             this.btnDrivingLicensesServices.Name = "btnDrivingLicensesServices";
@@ -262,11 +262,11 @@
             this.btnDetainLicenses.HoverState.BorderColor = System.Drawing.Color.Gainsboro;
             this.btnDetainLicenses.HoverState.FillColor = System.Drawing.Color.White;
             this.btnDetainLicenses.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnDetainLicenses.HoverState.Image = global::PresentationLayer.Properties.Resources.overviewFillThin;
+            this.btnDetainLicenses.HoverState.Image = global::PresentationLayer.Properties.Resources.DetainLicenseFillBlack512;
             this.btnDetainLicenses.HoverState.Parent = this.btnDetainLicenses;
-            this.btnDetainLicenses.Image = global::PresentationLayer.Properties.Resources.overviewNoFillThin;
-            this.btnDetainLicenses.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnDetainLicenses.ImageOffset = new System.Drawing.Point(10, -20);
+            this.btnDetainLicenses.Image = global::PresentationLayer.Properties.Resources.DetainLicenseNoFillGrey512;
+            this.btnDetainLicenses.ImageOffset = new System.Drawing.Point(36, -20);
+            this.btnDetainLicenses.ImageSize = new System.Drawing.Size(100, 100);
             this.btnDetainLicenses.Location = new System.Drawing.Point(9, 7);
             this.btnDetainLicenses.Name = "btnDetainLicenses";
             this.btnDetainLicenses.ShadowDecoration.Parent = this.btnDetainLicenses;
@@ -274,7 +274,7 @@
             this.btnDetainLicenses.TabIndex = 2;
             this.btnDetainLicenses.Tag = "Detain Licenses";
             this.btnDetainLicenses.Text = "Detain Licenses";
-            this.btnDetainLicenses.TextOffset = new System.Drawing.Point(0, 20);
+            this.btnDetainLicenses.TextOffset = new System.Drawing.Point(-25, 68);
             this.btnDetainLicenses.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
             this.btnDetainLicenses.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 
@@ -294,11 +294,11 @@
             this.btnManageApplications.HoverState.BorderColor = System.Drawing.Color.Gainsboro;
             this.btnManageApplications.HoverState.FillColor = System.Drawing.Color.White;
             this.btnManageApplications.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnManageApplications.HoverState.Image = global::PresentationLayer.Properties.Resources.overviewFillThin;
+            this.btnManageApplications.HoverState.Image = global::PresentationLayer.Properties.Resources.ManageApplicationsFillBlack512;
             this.btnManageApplications.HoverState.Parent = this.btnManageApplications;
-            this.btnManageApplications.Image = global::PresentationLayer.Properties.Resources.overviewNoFillThin;
-            this.btnManageApplications.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnManageApplications.ImageOffset = new System.Drawing.Point(10, -20);
+            this.btnManageApplications.Image = global::PresentationLayer.Properties.Resources.ManageApplicationsNoFillGrey512;
+            this.btnManageApplications.ImageOffset = new System.Drawing.Point(40, -20);
+            this.btnManageApplications.ImageSize = new System.Drawing.Size(100, 100);
             this.btnManageApplications.Location = new System.Drawing.Point(8, 9);
             this.btnManageApplications.Name = "btnManageApplications";
             this.btnManageApplications.ShadowDecoration.Parent = this.btnManageApplications;
@@ -306,7 +306,7 @@
             this.btnManageApplications.TabIndex = 2;
             this.btnManageApplications.Tag = "Manage Applications";
             this.btnManageApplications.Text = "Manage Applications";
-            this.btnManageApplications.TextOffset = new System.Drawing.Point(0, 20);
+            this.btnManageApplications.TextOffset = new System.Drawing.Point(-25, 68);
             this.btnManageApplications.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
             this.btnManageApplications.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 
