@@ -21,13 +21,15 @@ namespace PresentationLayer.Settings
         public ctrlSettings()
         {
             InitializeComponent();
+        }
+
+        private void ctrlSettings_Load(object sender, EventArgs e)
+        {
             _FillCountriesComboBox();
             _FillPersonInfoInForm();
             _FillLoginInfo();
             ctrlAddEditUserPermissions1.LoadPermissionsForDisplay(clsBusinessSettings.CurrentUser.Permissions);
         }
-
-    
 
 
         private void _FillCountriesComboBox()
@@ -362,5 +364,6 @@ namespace PresentationLayer.Settings
                 pbImage.Image = null;
             }
         }
+
     }
 }

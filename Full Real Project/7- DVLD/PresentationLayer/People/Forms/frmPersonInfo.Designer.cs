@@ -76,6 +76,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmPersonInfo";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPersonInfo_FormClosing);
+            this.Load += new System.EventHandler(this.frmPersonInfo_Load);
             this.ResumeLayout(false);
 
         }

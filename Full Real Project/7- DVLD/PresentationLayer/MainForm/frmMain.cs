@@ -25,6 +25,10 @@ namespace PresentationLayer.MainForm
         public frmMain()
         {
             InitializeComponent();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
             guna2ShadowForm1.SetShadowForm(this);
 
             // to start app with overview
@@ -113,7 +117,10 @@ namespace PresentationLayer.MainForm
             _RefreshControlsContainer();
 
             ctrlMainServices MainServices = new ctrlMainServices();
+            MainServices.delAddToMainFormContainer += pnlControlsContainer.Controls.Add;
+            MainServices.delRemoveFromMainFormContainer += pnlControlsContainer.Controls.Remove;
             pnlControlsContainer.Controls.Add(MainServices);
+
             _UpdateButtons(sender);
         }
         private void btnPeople_Click(object sender, EventArgs e)
@@ -172,6 +179,7 @@ namespace PresentationLayer.MainForm
                 if (clsPeopleBusiness.DoesPersonExist(ID))
                 {
                     frmPersonInfo Info = new frmPersonInfo(ID);
+                    Info.delUpdateBreadcrumb2 += UpdateBreadcrumb;
                     Info.ShowDialog();
                 }
                 else
@@ -193,6 +201,6 @@ namespace PresentationLayer.MainForm
             Application.Exit();
         }
 
-      
+       
     }
 }

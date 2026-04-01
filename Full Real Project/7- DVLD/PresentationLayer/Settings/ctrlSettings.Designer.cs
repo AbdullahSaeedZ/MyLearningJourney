@@ -48,6 +48,7 @@
             this.tbConfirmPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbNewPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.ctrlAddEditUserPermissions1 = new PresentationLayer.Users.Controls.ctrlAddEditUserPermissions();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnRemoveImage = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddImage = new Guna.UI2.WinForms.Guna2Button();
@@ -83,7 +84,6 @@
             this.btnSaveChanges = new Guna.UI2.WinForms.Guna2Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.ctrlAddEditUserPermissions1 = new PresentationLayer.Users.Controls.ctrlAddEditUserPermissions();
             this.guna2Panel1.SuspendLayout();
             this.pnlLoginInfo.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -421,6 +421,16 @@
             this.label4.TabIndex = 16;
             this.label4.Text = "Confirm Password:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ctrlAddEditUserPermissions1
+            // 
+            this.ctrlAddEditUserPermissions1.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlAddEditUserPermissions1.Location = new System.Drawing.Point(322, 453);
+            this.ctrlAddEditUserPermissions1.Name = "ctrlAddEditUserPermissions1";
+            this.ctrlAddEditUserPermissions1.PermissionsCardBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlAddEditUserPermissions1.PermissionsCardBorderThickness = 1;
+            this.ctrlAddEditUserPermissions1.Size = new System.Drawing.Size(1104, 208);
+            this.ctrlAddEditUserPermissions1.TabIndex = 28;
             // 
             // guna2Panel3
             // 
@@ -1078,16 +1088,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // ctrlAddEditUserPermissions1
-            // 
-            this.ctrlAddEditUserPermissions1.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlAddEditUserPermissions1.Location = new System.Drawing.Point(322, 453);
-            this.ctrlAddEditUserPermissions1.Name = "ctrlAddEditUserPermissions1";
-            this.ctrlAddEditUserPermissions1.PermissionsCardBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlAddEditUserPermissions1.PermissionsCardBorderThickness = 1;
-            this.ctrlAddEditUserPermissions1.Size = new System.Drawing.Size(1104, 208);
-            this.ctrlAddEditUserPermissions1.TabIndex = 28;
-            // 
             // ctrlSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1095,6 +1095,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.Name = "ctrlSettings";
             this.Size = new System.Drawing.Size(1441, 894);
+            this.Load += new System.EventHandler(this.ctrlSettings_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.pnlLoginInfo.ResumeLayout(false);
             this.pnlLoginInfo.PerformLayout();

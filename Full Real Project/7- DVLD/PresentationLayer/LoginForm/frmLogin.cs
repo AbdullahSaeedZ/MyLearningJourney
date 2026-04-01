@@ -14,11 +14,14 @@ namespace PresentationLayer.LoginForm
         public frmLogin()
         {
             InitializeComponent();
-            _LoadCredentials();
         }
 
-         // encryption
 
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            _LoadCredentials();
+        }
+      
         private void _ShowWelcome()
         {
 
@@ -92,5 +95,7 @@ namespace PresentationLayer.LoginForm
         {
             _LoadCredentials();
         }
+
+        
     } 
 }

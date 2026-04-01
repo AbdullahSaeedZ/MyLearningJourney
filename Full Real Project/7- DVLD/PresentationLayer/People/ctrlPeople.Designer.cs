@@ -486,7 +486,7 @@
             this.colEmail.MinimumWidth = 6;
             this.colEmail.Name = "colEmail";
             this.colEmail.ReadOnly = true;
-            this.colEmail.Width = 230;
+            this.colEmail.Width = 216;
             // 
             // ctrlPeople
             // 
@@ -497,6 +497,7 @@
             this.Controls.Add(this.guna2Panel1);
             this.Name = "ctrlPeople";
             this.Size = new System.Drawing.Size(1441, 894);
+            this.Load += new System.EventHandler(this.ctrlPeople_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();

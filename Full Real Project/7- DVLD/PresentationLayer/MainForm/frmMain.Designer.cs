@@ -449,6 +449,7 @@
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMain";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.pnlTopBar.ResumeLayout(false);
             this.pnlTopBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).EndInit();

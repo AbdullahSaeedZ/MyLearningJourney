@@ -33,6 +33,7 @@
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.pnlLoginInfo = new Guna.UI2.WinForms.Guna2Panel();
+            this.ctrlAddEditUserPermissions1 = new PresentationLayer.Users.Controls.ctrlAddEditUserPermissions();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnShowHidePassword2 = new Guna.UI2.WinForms.Guna2Button();
             this.tbConfirmPassword = new Guna.UI2.WinForms.Guna2TextBox();
@@ -48,11 +49,10 @@
             this.btnNext = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
+            this.ctrlPersonCardWithSearch1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCardWithSearch();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ctrlAddEditUserPermissions1 = new PresentationLayer.Users.Controls.ctrlAddEditUserPermissions();
-            this.ctrlPersonCardWithSearch1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCardWithSearch();
             this.guna2ShadowPanel1.SuspendLayout();
             this.pnlLoginInfo.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
@@ -124,6 +124,16 @@
             this.pnlLoginInfo.Size = new System.Drawing.Size(844, 421);
             this.pnlLoginInfo.TabIndex = 16;
             this.pnlLoginInfo.Visible = false;
+            // 
+            // ctrlAddEditUserPermissions1
+            // 
+            this.ctrlAddEditUserPermissions1.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlAddEditUserPermissions1.Location = new System.Drawing.Point(3, 168);
+            this.ctrlAddEditUserPermissions1.Name = "ctrlAddEditUserPermissions1";
+            this.ctrlAddEditUserPermissions1.PermissionsCardBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlAddEditUserPermissions1.PermissionsCardBorderThickness = 1;
+            this.ctrlAddEditUserPermissions1.Size = new System.Drawing.Size(838, 243);
+            this.ctrlAddEditUserPermissions1.TabIndex = 17;
             // 
             // guna2Panel1
             // 
@@ -451,6 +461,20 @@
             this.btnSave.Visible = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // ctrlPersonCardWithSearch1
+            // 
+            this.ctrlPersonCardWithSearch1.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlPersonCardWithSearch1.CardBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlPersonCardWithSearch1.CardBorderThickness = 1;
+            this.ctrlPersonCardWithSearch1.FilterBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlPersonCardWithSearch1.FilterBorderThickness = 1;
+            this.ctrlPersonCardWithSearch1.FilterEnabled = true;
+            this.ctrlPersonCardWithSearch1.FilterVisible = true;
+            this.ctrlPersonCardWithSearch1.Location = new System.Drawing.Point(9, 121);
+            this.ctrlPersonCardWithSearch1.Name = "ctrlPersonCardWithSearch1";
+            this.ctrlPersonCardWithSearch1.Size = new System.Drawing.Size(867, 421);
+            this.ctrlPersonCardWithSearch1.TabIndex = 3;
+            // 
             // ControlBoxClose
             // 
             this.ControlBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -481,30 +505,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // ctrlAddEditUserPermissions1
-            // 
-            this.ctrlAddEditUserPermissions1.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlAddEditUserPermissions1.Location = new System.Drawing.Point(3, 168);
-            this.ctrlAddEditUserPermissions1.Name = "ctrlAddEditUserPermissions1";
-            this.ctrlAddEditUserPermissions1.PermissionsCardBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlAddEditUserPermissions1.PermissionsCardBorderThickness = 1;
-            this.ctrlAddEditUserPermissions1.Size = new System.Drawing.Size(838, 243);
-            this.ctrlAddEditUserPermissions1.TabIndex = 17;
-            // 
-            // ctrlPersonCardWithSearch1
-            // 
-            this.ctrlPersonCardWithSearch1.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlPersonCardWithSearch1.CardBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlPersonCardWithSearch1.CardBorderThickness = 1;
-            this.ctrlPersonCardWithSearch1.FilterBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlPersonCardWithSearch1.FilterBorderThickness = 1;
-            this.ctrlPersonCardWithSearch1.FilterEnabled = true;
-            this.ctrlPersonCardWithSearch1.FilterVisible = true;
-            this.ctrlPersonCardWithSearch1.Location = new System.Drawing.Point(9, 121);
-            this.ctrlPersonCardWithSearch1.Name = "ctrlPersonCardWithSearch1";
-            this.ctrlPersonCardWithSearch1.Size = new System.Drawing.Size(867, 421);
-            this.ctrlPersonCardWithSearch1.TabIndex = 3;
-            // 
             // frmAddEditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -515,6 +515,7 @@
             this.Name = "frmAddEditUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddEditUser";
+            this.Load += new System.EventHandler(this.frmAddEditUser_Load);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();
             this.pnlLoginInfo.ResumeLayout(false);

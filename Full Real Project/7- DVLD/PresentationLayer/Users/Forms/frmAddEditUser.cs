@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using Microsoft.VisualBasic.ApplicationServices;
 using PresentationLayer.MainForm;
 using PresentationLayer.Properties;
 using System;
@@ -12,33 +13,44 @@ namespace PresentationLayer.UsersFormsAndControls
     {
         public event EventHandler<frmMain.clsBreadcrumbData> delUpdateBreadcrumbFromAddEditUserForm;
         public event Action OnUpdateDone;
+
+        private int _userID = -1;
         clsUserBusiness _user;
 
         private enum enMode { eAddNewMode, eUpdateMode };
         private enMode _mode;
 
+        public frmAddEditUser()
+        {
+            InitializeComponent();
+            ctrlPersonCardWithSearch1.delUpdateBreadcrumbFromCardWithFilter += (se, ev) => delUpdateBreadcrumbFromAddEditUserForm?.Invoke(se, ev);
+            _mode = enMode.eAddNewMode;
+        }
         public frmAddEditUser(int UserID)
         {
             InitializeComponent();
-            ctrlPersonCardWithSearch1.delUpdateBreadcrumbFromCardWithFilter += (se, ev) => delUpdateBreadcrumbFromAddEditUserForm(se, ev);
+            ctrlPersonCardWithSearch1.delUpdateBreadcrumbFromCardWithFilter += (se, ev) => delUpdateBreadcrumbFromAddEditUserForm?.Invoke(se, ev);
 
-            if (UserID == -1)
-            {
+            _userID = UserID;
+            _mode = enMode.eUpdateMode;
+        }
+
+        private void frmAddEditUser_Load(object sender, EventArgs e)
+        {
+            if (_mode == enMode.eAddNewMode)
                 _user = new clsUserBusiness();
-                _mode = enMode.eAddNewMode;
-            }
             else
             {
-                _user = clsUserBusiness.FindUser(UserID);
+                _user = clsUserBusiness.FindUser(_userID);
                 if (_user == null)
                 {
                     MessageBox.Show("User Does Not Exist, Form will close", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
                 }
                 _FillUserPersonInfoInForm();
-                _mode = enMode.eUpdateMode;
             }
         }
+
 
         private void _FillUserPersonInfoInForm()
         {
@@ -145,7 +157,7 @@ namespace PresentationLayer.UsersFormsAndControls
             }
 
             // does username exist validation
-            if (clsUserBusiness.DoesUsernameExist(tbUsername.Text))
+            if (clsUserBusiness.DoesUsernameExist(tbUsername.Text) && tbUsername.Text != _user.Username) // to avoid validating when username is not changed when updating user info
             {
                 e.Cancel = true;
                 errorProvider1.SetError(tbUsername, "Username already taken!");

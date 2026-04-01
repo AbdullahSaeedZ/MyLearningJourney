@@ -18,13 +18,18 @@ namespace PresentationLayer.Users.Forms
     public partial class frmChangePassword : Form
     {
         public event EventHandler<frmMain.clsBreadcrumbData> delUpdateBreadcrumbFromChangePasswordForm;
-
+        private int _userID;
         
         public frmChangePassword(int UserID)
         {
             InitializeComponent();
-            ctrlUserCard1.delUpdateBreadcrumbFromUserCard += (se, ev) => delUpdateBreadcrumbFromChangePasswordForm(se, ev);
-            ctrlUserCard1.LoadInfo(UserID);
+            ctrlUserCard1.delUpdateBreadcrumbFromUserCard += (se, ev) => delUpdateBreadcrumbFromChangePasswordForm?.Invoke(se, ev);
+            _userID = UserID;
+        }
+
+        private void frmChangePassword_Load(object sender, EventArgs e)
+        {
+            ctrlUserCard1.LoadInfo(_userID);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -172,5 +177,6 @@ namespace PresentationLayer.Users.Forms
         {
             this.Close();
         }
+
     }
 }

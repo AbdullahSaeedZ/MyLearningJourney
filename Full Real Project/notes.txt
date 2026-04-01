@@ -7,6 +7,8 @@
 first a person is created then a person applies for an application.
 so first create a table for people then create a table for applications, connect the relations then continue the process, the application is general and some applications require details like local licesnes -> localLicenses table, and so on.
 
+- dont put heavy logic or DB operations in constructors, cuz from and controls are not fully initialized, only asignment or delegates subsctribtions and light stuff, the heavy logic to be in the form load event.
+
 
 
 

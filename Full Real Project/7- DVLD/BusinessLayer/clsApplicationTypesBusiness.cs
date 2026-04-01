@@ -1,0 +1,73 @@
+﻿using System.Data;
+using System.Runtime.Serialization.Formatters;
+using DataAccessLayer;
+
+namespace BusinessLayer
+{
+    public class clsApplicationTypesBusiness
+    {
+        enum enMode { eAddMode = 0, eUpdateMode = 1 }; // no need for adding functionality for now, but might add later
+        enMode _mode;
+
+        private int _applicationTypeID = -1;
+        public int ApplicationTypeID
+        {
+            get
+            {
+                return _applicationTypeID;
+            }
+
+            set
+            {
+                if (_applicationTypeID == -1)
+                    _applicationTypeID = value;
+            }
+        }
+        public string ApplicationTypeTitle { get; set; }
+        public decimal ApplicationTypeFees { get; set; }
+
+        clsApplicationTypesBusiness(int ID, string Title, decimal Fees)
+        {
+            this.ApplicationTypeID = ID;
+            this.ApplicationTypeTitle = Title;
+            this.ApplicationTypeFees = Fees;
+            _mode = enMode.eUpdateMode;
+        }
+
+        public static clsApplicationTypesBusiness FindApplicationType(int ID)
+        {
+            string applicationTypeTitle = "";
+            decimal applicationTypeFees = -1;
+
+            if (clsApplicationTypesDataAccess.FindApplicationType(ID, ref applicationTypeTitle, ref applicationTypeFees))
+                return new clsApplicationTypesBusiness(ID, applicationTypeTitle, applicationTypeFees);
+            else
+                return null;
+        }
+
+        public static DataTable GetAllApplicationTypes()
+        {
+            return clsApplicationTypesDataAccess.GetAllApplicationTypes();
+        }
+
+        private bool _UpdateApplicationType()
+        {
+            return clsApplicationTypesDataAccess.UpdateApplicationType(this.ApplicationTypeID, this.ApplicationTypeTitle, this.ApplicationTypeFees);
+        }
+
+        public bool Save()
+        {
+            switch (_mode)
+            {
+                case enMode.eAddMode:
+                    _mode = enMode.eUpdateMode;
+                    return false; // to be added when needed
+
+                case enMode.eUpdateMode:
+                    return _UpdateApplicationType();
+
+                default: return false;
+            }
+        }
+    }
+}

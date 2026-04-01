@@ -130,13 +130,13 @@ namespace PresentationLayer.PeopleFormsAndControls
                 MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            delUpdateBreadcrumbFromPersonCard(sender, new frmMain.clsBreadcrumbData() { title = "> Edit Person Info", operationType = "Add" });
+            delUpdateBreadcrumbFromPersonCard?.Invoke(sender, new frmMain.clsBreadcrumbData() { title = "> Edit Person Info", operationType = "Add" });
 
             frmAddEditPerson editPerson = new frmAddEditPerson(_personID);
             editPerson.OnUpdateDoneForPersonCard += LoadInfo;// to update info here in personCard when info is updated in AddEdit form
             editPerson.ShowDialog();
 
-            delUpdateBreadcrumbFromPersonCard(sender, new frmMain.clsBreadcrumbData() { title = "> Edit Person Info", operationType = "Remove" });
+            delUpdateBreadcrumbFromPersonCard?.Invoke(sender, new frmMain.clsBreadcrumbData() { title = "> Edit Person Info", operationType = "Remove" });
         }
     }
 }

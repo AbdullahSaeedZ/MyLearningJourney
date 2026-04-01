@@ -20,6 +20,10 @@ namespace PresentationLayer.PeopleFormsAndControls
         public ctrlPeople()
         {
             InitializeComponent();
+        }
+
+        private void ctrlPeople_Load(object sender, EventArgs e)
+        {
             RefreshDataGridView();
         }
 
@@ -87,13 +91,13 @@ namespace PresentationLayer.PeopleFormsAndControls
                 return;
             }
 
-            delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Add" });
+            delUpdateBreadcrumb?.Invoke(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Add" });
 
             frmAddEditPerson addPersonForm = new frmAddEditPerson(-1);
             addPersonForm.OnUpdateDoneForDGV += RefreshDataGridView; // to update DGV here if new person added and updated in AddEdit form
             addPersonForm.ShowDialog();
 
-            delUpdateBreadcrumb(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Remove" });         
+            delUpdateBreadcrumb?.Invoke(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Remove" });         
         }
 
 
@@ -101,7 +105,7 @@ namespace PresentationLayer.PeopleFormsAndControls
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             
-            delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Add" });
+            delUpdateBreadcrumb?.Invoke(this, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Add" });
 
             int PersonID = (int)dgvPeople.SelectedCells[0].Value;
             frmPersonInfo personInfo = new frmPersonInfo(PersonID);
@@ -109,7 +113,7 @@ namespace PresentationLayer.PeopleFormsAndControls
             personInfo.PersonCardUpdatedInForm += RefreshDataGridView; // to refresh dgv only if person card that is in person info form gets updated
             personInfo.ShowDialog();
 
-            delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Remove" });
+            delUpdateBreadcrumb?.Invoke(this, new frmMain.clsBreadcrumbData() { title = "> Person Details", operationType = "Remove" });
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
@@ -120,13 +124,13 @@ namespace PresentationLayer.PeopleFormsAndControls
                 return;
             }
             int PersonID = (int)dgvPeople.SelectedCells[0].Value;
-            delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Add" });
+            delUpdateBreadcrumb?.Invoke(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Add" });
 
             frmAddEditPerson EditPersonForm = new frmAddEditPerson(PersonID);
             EditPersonForm.OnUpdateDoneForDGV += RefreshDataGridView;
             EditPersonForm.ShowDialog();
 
-            delUpdateBreadcrumb(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Remove" });
+            delUpdateBreadcrumb?.Invoke(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Remove" });
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -156,5 +160,6 @@ namespace PresentationLayer.PeopleFormsAndControls
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+       
     }
 }

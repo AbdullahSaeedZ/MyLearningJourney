@@ -94,18 +94,18 @@ namespace PresentationLayer.PeopleFormsAndControls
         public ctrlPersonCardWithSearch()
         {
             InitializeComponent();
-            ctrlPersonCard1.delUpdateBreadcrumbFromPersonCard += (se, ev) => delUpdateBreadcrumbFromCardWithFilter(se, ev);
+            ctrlPersonCard1.delUpdateBreadcrumbFromPersonCard += (se, ev) => delUpdateBreadcrumbFromCardWithFilter?.Invoke(se, ev);
         }
 
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
-            delUpdateBreadcrumbFromCardWithFilter(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Add" });
+            delUpdateBreadcrumbFromCardWithFilter?.Invoke(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Add" });
 
             frmAddEditPerson addEditPerson = new frmAddEditPerson(-1);
             addEditPerson.OnNewPersonAdded += AddEditPerson_OnNewPersonAdded;
             addEditPerson.ShowDialog();
 
-            delUpdateBreadcrumbFromCardWithFilter(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Remove" });
+            delUpdateBreadcrumbFromCardWithFilter?.Invoke(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Remove" });
         }
         private void AddEditPerson_OnNewPersonAdded(int PersonID) // triggered when new person added
         {

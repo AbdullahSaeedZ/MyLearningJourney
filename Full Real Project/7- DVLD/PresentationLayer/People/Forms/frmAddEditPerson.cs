@@ -14,27 +14,36 @@ namespace PresentationLayer.PeopleFormsAndControls
     {
         public event Action<int> OnUpdateDoneForPersonCard; // to send PersonID outside to update any control when person info is updated here
         public event Action<int> OnNewPersonAdded; // to send PersonID outside to update any control when person info is updated here
-        public event Action OnUpdateDoneForDGV; 
-       
+        public event Action OnUpdateDoneForDGV;
 
+        private int _personID = -1;
         clsPeopleBusiness person;
         private string _finalImagePath;
         public enum enGender { Male = 0, Female = 1 };
 
+        public frmAddEditPerson()
+        {
+            InitializeComponent();
+        }
         public frmAddEditPerson(int personID)
         {
             InitializeComponent();
+            _personID = personID;
+        }
+
+        private void frmAddEditPerson_Load(object sender, EventArgs e)
+        {
             _FillCountriesComboBox();
             rbMale.Checked = true;
             dtpBirthDate.MaxDate = clsBusinessSettings._defaultMinAllowedAge;
 
-            if (personID == -1)
+            if (_personID == -1)
             {
                 person = new clsPeopleBusiness();
             }
-            else 
+            else
             {
-                person = clsPeopleBusiness.FindPerson(personID);
+                person = clsPeopleBusiness.FindPerson(_personID);
                 if (person == null)
                 {
                     MessageBox.Show("Person Does Not Exist, Form will close", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -262,7 +271,7 @@ namespace PresentationLayer.PeopleFormsAndControls
         }
         private void tbPhone_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)// prevent non digit and backspace
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)// prevent non digit and allow backspace
             {
                 e.Handled = true; // will make the event handled which will prevent any input in text box
             }

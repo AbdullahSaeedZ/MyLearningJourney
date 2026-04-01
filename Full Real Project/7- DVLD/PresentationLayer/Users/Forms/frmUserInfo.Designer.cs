@@ -129,6 +129,7 @@
             this.Name = "frmUserInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUserInfo";
+            this.Load += new System.EventHandler(this.frmUserInfo_Load);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
