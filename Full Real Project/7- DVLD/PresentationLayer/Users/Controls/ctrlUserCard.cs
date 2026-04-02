@@ -8,7 +8,6 @@ namespace PresentationLayer.Users.Controls
 {
     public partial class ctrlUserCard : UserControl
     {
-        public event EventHandler<frmMain.clsBreadcrumbData> delUpdateBreadcrumbFromUserCard;
         public int PersonCardBorderThickness
         {
             set
@@ -61,7 +60,6 @@ namespace PresentationLayer.Users.Controls
         public ctrlUserCard()
         {
             InitializeComponent();
-            ctrlPersonCard1.delUpdateBreadcrumbFromPersonCard += (se, ev) => delUpdateBreadcrumbFromUserCard(se, ev); // to update breadcrumb when edit person info is pressed
         }
 
         public void LoadInfo(int UserID)

@@ -1,5 +1,7 @@
 ﻿using Guna.UI2.WinForms;
 using PresentationLayer.Applications.ManageApplicationTypes.Controls;
+using PresentationLayer.Applications.ManageTestTypes.Controls;
+using PresentationLayer.MainForm;
 using System;
 using System.Windows.Forms;
 
@@ -70,6 +72,15 @@ namespace PresentationLayer.Applications
 
             delAddToMainFormContainer?.Invoke(applicationsTypes);
             applicationsTypes.BringToFront();
+        }
+
+        private void btnManageTestTypes_Click(object sender, EventArgs e)
+        {
+            ctrlManageTestTypes testTypes = new ctrlManageTestTypes();
+            testTypes.delRemoveFromMainFormContainer_TestTypes += delRemoveFromMainFormContainer;
+
+            delAddToMainFormContainer?.Invoke(testTypes);
+            testTypes.BringToFront();
         }
     }
 }

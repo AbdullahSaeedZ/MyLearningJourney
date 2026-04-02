@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using PresentationLayer.Global_Classes;
 using PresentationLayer.MainForm;
 using System;
 using System.Drawing;
@@ -8,8 +9,7 @@ namespace PresentationLayer.PeopleFormsAndControls
 {
     public partial class ctrlPersonCardWithSearch : UserControl
     {
-        public event EventHandler<frmMain.clsBreadcrumbData> delUpdateBreadcrumbFromCardWithFilter;
-        public event EventHandler<int> OnPersonSelected;
+        public event Action<int> OnPersonSelected;
        
 
 
@@ -94,18 +94,16 @@ namespace PresentationLayer.PeopleFormsAndControls
         public ctrlPersonCardWithSearch()
         {
             InitializeComponent();
-            ctrlPersonCard1.delUpdateBreadcrumbFromPersonCard += (se, ev) => delUpdateBreadcrumbFromCardWithFilter?.Invoke(se, ev);
         }
 
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
-            delUpdateBreadcrumbFromCardWithFilter?.Invoke(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Add" });
-
             frmAddEditPerson addEditPerson = new frmAddEditPerson(-1);
             addEditPerson.OnNewPersonAdded += AddEditPerson_OnNewPersonAdded;
+            clsUtilities.AddToBreadcrumb("> Add-Edit Person");
             addEditPerson.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb("> Add-Edit Person");
 
-            delUpdateBreadcrumbFromCardWithFilter?.Invoke(sender, new frmMain.clsBreadcrumbData() { title = "> Add-Edit Person", operationType = "Remove" });
         }
         private void AddEditPerson_OnNewPersonAdded(int PersonID) // triggered when new person added
         {
@@ -152,7 +150,7 @@ namespace PresentationLayer.PeopleFormsAndControls
                     break;
             }
 
-            OnPersonSelected?.Invoke(this, ctrlPersonCard1.PersonID); // if needed, custom event invoked to send ID outside when person is selected 
+            OnPersonSelected?.Invoke(ctrlPersonCard1.PersonID); // if needed, custom event invoked to send ID outside when person is selected 
 
         }
         private void cbSearchBy_SelectedIndexChanged(object sender, EventArgs e)

@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using PresentationLayer.Global_Classes;
 using PresentationLayer.MainForm;
 using PresentationLayer.Users.Forms;
 using System;
@@ -10,7 +11,6 @@ namespace PresentationLayer.UsersFormsAndControls
     public partial class ctrlUsers : UserControl
     {
 
-        public event EventHandler<frmMain.clsBreadcrumbData> delUpdateBreadcrumbFromUserControl;
         private DataTable dt;
         private string _searchFilter; // to use in search filters and match DT and DB column names, not dgv names
 
@@ -111,38 +111,30 @@ namespace PresentationLayer.UsersFormsAndControls
                 MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            delUpdateBreadcrumbFromUserControl?.Invoke(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit User", operationType = "Add" });
 
             frmAddEditUser addUserForm = new frmAddEditUser();
-            addUserForm.delUpdateBreadcrumbFromAddEditUserForm += (se, ev) => delUpdateBreadcrumbFromUserControl?.Invoke(se, ev);
+            clsUtilities.AddToBreadcrumb("> Add-Edit User");
             addUserForm.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb("> Add-Edit User");
 
-            delUpdateBreadcrumbFromUserControl?.Invoke(this, new frmMain.clsBreadcrumbData() { title = "> Add-Edit User", operationType = "Remove" });
             RefreshDataGridView();
         }
         private void dgvUsers_DoubleClick(object sender, EventArgs e)
         {
-            delUpdateBreadcrumbFromUserControl(sender, new frmMain.clsBreadcrumbData() { title = "> User Details", operationType = "Add" });
-
-            
             frmUserInfo UserInfo = new frmUserInfo((int)dgvUsers.SelectedCells[0].Value);
-            UserInfo.delUpdateBreadcrumbFromUserInfoForm += (se, ev) => delUpdateBreadcrumbFromUserControl?.Invoke(se, ev);
+            clsUtilities.AddToBreadcrumb("> User Details");
             UserInfo.ShowDialog();
-
-            delUpdateBreadcrumbFromUserControl(sender, new frmMain.clsBreadcrumbData() { title = "> User Details", operationType = "Remove" });
+            clsUtilities.RemoveFromBreadcrumb("> User Details");
         }
 
 
         // toolstrips menu
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            delUpdateBreadcrumbFromUserControl?.Invoke(sender, new frmMain.clsBreadcrumbData() { title = "> User Details", operationType = "Add" });
-
             frmUserInfo UserInfo = new frmUserInfo((int)dgvUsers.SelectedCells[0].Value);
-            UserInfo.delUpdateBreadcrumbFromUserInfoForm += (se, ev) => delUpdateBreadcrumbFromUserControl?.Invoke(se, ev);
+            clsUtilities.AddToBreadcrumb("> User Details");
             UserInfo.ShowDialog();
-
-            delUpdateBreadcrumbFromUserControl?.Invoke(sender, new frmMain.clsBreadcrumbData() { title = "> User Details", operationType = "Remove" });
+            clsUtilities.RemoveFromBreadcrumb("> User Details");
         }
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -151,14 +143,11 @@ namespace PresentationLayer.UsersFormsAndControls
                 MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            delUpdateBreadcrumbFromUserControl?.Invoke(this, new frmMain.clsBreadcrumbData() { title = "> Edit User", operationType = "Add" });
-
             frmAddEditUser EditUserForm = new frmAddEditUser((int)dgvUsers.SelectedCells[0].Value);
-            EditUserForm.delUpdateBreadcrumbFromAddEditUserForm += (se, ev) => delUpdateBreadcrumbFromUserControl?.Invoke(se, ev);
             EditUserForm.OnUpdateDone += RefreshDataGridView;
+            clsUtilities.AddToBreadcrumb("> Edit User");
             EditUserForm.ShowDialog();
-
-            delUpdateBreadcrumbFromUserControl?.Invoke(this, new frmMain.clsBreadcrumbData() { title = "> Edit User", operationType = "Remove" });
+            clsUtilities.RemoveFromBreadcrumb("> Edit User");
         }
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -167,13 +156,10 @@ namespace PresentationLayer.UsersFormsAndControls
                 MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            delUpdateBreadcrumbFromUserControl?.Invoke(this, new frmMain.clsBreadcrumbData() { title = "> Change User Password", operationType = "Add" });
-
             frmChangePassword changePassword = new frmChangePassword((int)dgvUsers.SelectedCells[0].Value);
-            changePassword.delUpdateBreadcrumbFromChangePasswordForm += (se, ev) => delUpdateBreadcrumbFromUserControl?.Invoke(se, ev);
+            clsUtilities.AddToBreadcrumb("> Change User Password");
             changePassword.ShowDialog();
-
-            delUpdateBreadcrumbFromUserControl?.Invoke(this, new frmMain.clsBreadcrumbData() { title = "> Change User Password", operationType = "Remove" });
+            clsUtilities.RemoveFromBreadcrumb("> Change User Password");
         }
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {

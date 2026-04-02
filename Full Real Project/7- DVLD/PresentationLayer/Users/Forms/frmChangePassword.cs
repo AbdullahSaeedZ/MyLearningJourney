@@ -17,13 +17,11 @@ namespace PresentationLayer.Users.Forms
 {
     public partial class frmChangePassword : Form
     {
-        public event EventHandler<frmMain.clsBreadcrumbData> delUpdateBreadcrumbFromChangePasswordForm;
         private int _userID;
         
         public frmChangePassword(int UserID)
         {
             InitializeComponent();
-            ctrlUserCard1.delUpdateBreadcrumbFromUserCard += (se, ev) => delUpdateBreadcrumbFromChangePasswordForm?.Invoke(se, ev);
             _userID = UserID;
         }
 

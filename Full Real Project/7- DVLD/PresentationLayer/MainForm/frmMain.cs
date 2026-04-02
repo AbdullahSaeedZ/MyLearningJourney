@@ -6,6 +6,7 @@ using PresentationLayer.PeopleFormsAndControls;
 using PresentationLayer.Properties;
 using PresentationLayer.Settings;
 using PresentationLayer.UsersFormsAndControls;
+using PresentationLayer.Global_Classes;
 using System;
 using System.Drawing;
 using System.IO;
@@ -16,15 +17,12 @@ namespace PresentationLayer.MainForm
     public partial class frmMain : Form
     {
 
-        public class clsBreadcrumbData : EventArgs
-        {
-            public string title { get; set; }
-            public string operationType { get; set; }
-        }
+        
 
         public frmMain()
         {
             InitializeComponent();
+            clsUtilities.OnBreadcrumbUpdate += UpdateBreadcrumb;
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -88,7 +86,7 @@ namespace PresentationLayer.MainForm
             selectedButten.Image = selectedButten.HoverState.Image;
             selectedButten.ForeColor = Color.Black;
 
-            lblBreadcrumb.Text = selectedButten.Tag.ToString();
+            clsUtilities.BreadcrumbText = selectedButten.Tag.ToString();
             pbBreadcrumb.Image = selectedButten.HoverState.Image;
         }
         private void _RefreshControlsContainer()
@@ -96,12 +94,9 @@ namespace PresentationLayer.MainForm
             if (pnlControlsContainer.Controls.Count > 0)
                 pnlControlsContainer.Controls.Clear();
         }
-        private void UpdateBreadcrumb(object sender, clsBreadcrumbData Data)
+        private void UpdateBreadcrumb()
         {
-            if (Data.operationType == "Add")
-                lblBreadcrumb.Text += $" {Data.title}";
-            else
-                lblBreadcrumb.Text = lblBreadcrumb.Text.Remove(lblBreadcrumb.Text.IndexOf(Data.title));
+            lblBreadcrumb.Text = clsUtilities.BreadcrumbText;
         }
 
         // menu buttons
@@ -133,7 +128,6 @@ namespace PresentationLayer.MainForm
             _RefreshControlsContainer();
             ctrlPeople People = new ctrlPeople();
             pnlControlsContainer.Controls.Add(People);
-            People.delUpdateBreadcrumb += UpdateBreadcrumb;
             _UpdateButtons(sender);
 
         }
@@ -153,7 +147,6 @@ namespace PresentationLayer.MainForm
             _RefreshControlsContainer();
             ctrlUsers Users = new ctrlUsers();
             pnlControlsContainer.Controls.Add(Users);
-            Users.delUpdateBreadcrumbFromUserControl += UpdateBreadcrumb;
             _UpdateButtons(sender);
         }
         private void btnSettings_Click(object sender, EventArgs e)
@@ -179,8 +172,9 @@ namespace PresentationLayer.MainForm
                 if (clsPeopleBusiness.DoesPersonExist(ID))
                 {
                     frmPersonInfo Info = new frmPersonInfo(ID);
-                    Info.delUpdateBreadcrumb2 += UpdateBreadcrumb;
+                    clsUtilities.AddToBreadcrumb("> Person Details");
                     Info.ShowDialog();
+                    clsUtilities.RemoveFromBreadcrumb("> Person Details");
                 }
                 else
                     MessageBox.Show($"Person With ID {ID} Does Not Exist", "Error", MessageBoxButtons.OK);
@@ -200,7 +194,6 @@ namespace PresentationLayer.MainForm
         {
             Application.Exit();
         }
-
        
     }
 }

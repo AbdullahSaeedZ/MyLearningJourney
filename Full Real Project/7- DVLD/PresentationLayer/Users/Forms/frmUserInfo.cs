@@ -7,14 +7,12 @@ namespace PresentationLayer.Users.Forms
 {
     public partial class frmUserInfo : Form
     {
-        public event EventHandler<frmMain.clsBreadcrumbData> delUpdateBreadcrumbFromUserInfoForm;
         private int _userID;
 
         public frmUserInfo(int UserID)
         {
             InitializeComponent();
             _userID = UserID;
-            ctrlUserCard1.delUpdateBreadcrumbFromUserCard += (se, ev) => delUpdateBreadcrumbFromUserInfoForm?.Invoke(se, ev);
         }
         private void frmUserInfo_Load(object sender, EventArgs e)
         {

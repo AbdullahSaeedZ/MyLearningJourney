@@ -7,7 +7,6 @@ namespace PresentationLayer.PeopleFormsAndControls
 {
     public partial class frmPersonInfo : Form
     {
-        public event EventHandler<frmMain.clsBreadcrumbData> delUpdateBreadcrumb2;
         public event Action PersonCardUpdatedInForm; // took refreshDGV method reference, to be invoked when personCard is updated
 
         private int _personID = -1;
@@ -26,7 +25,6 @@ namespace PresentationLayer.PeopleFormsAndControls
         private void frmPersonInfo_Load(object sender, EventArgs e)
         {
             guna2ShadowForm1.SetShadowForm(this);
-            ctrlPersonCard1.delUpdateBreadcrumbFromPersonCard += (se, ev) => delUpdateBreadcrumb2?.Invoke(se, ev); // linking to frmMain breadcrumb method
 
             if (!string.IsNullOrEmpty(_nationalNo))
                 ctrlPersonCard1.LoadInfo(_nationalNo);

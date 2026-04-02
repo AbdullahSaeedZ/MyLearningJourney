@@ -140,7 +140,6 @@
             this.tbApplicationTypeFees.ShadowDecoration.Parent = this.tbApplicationTypeFees;
             this.tbApplicationTypeFees.Size = new System.Drawing.Size(259, 32);
             this.tbApplicationTypeFees.TabIndex = 1;
-            this.tbApplicationTypeFees.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbApplicationTypeFees_KeyPress);
             this.tbApplicationTypeFees.Validating += new System.ComponentModel.CancelEventHandler(this.tbApplicationTypeFees_Validating);
             // 
             // tbApplicationTypeTitle

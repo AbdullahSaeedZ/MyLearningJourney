@@ -222,6 +222,7 @@
             this.btnManageTestTypes.Tag = "Manage Test Types";
             this.btnManageTestTypes.Text = "Manage Test Types";
             this.btnManageTestTypes.TextOffset = new System.Drawing.Point(-25, 70);
+            this.btnManageTestTypes.Click += new System.EventHandler(this.btnManageTestTypes_Click);
             this.btnManageTestTypes.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
             this.btnManageTestTypes.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 

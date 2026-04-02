@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using PresentationLayer.Global_Classes;
 using PresentationLayer.MainForm;
 using PresentationLayer.Properties;
 using System;
@@ -11,7 +12,6 @@ namespace PresentationLayer.PeopleFormsAndControls
 {
     public partial class ctrlPersonCard : UserControl
     {
-        public event EventHandler<frmMain.clsBreadcrumbData> delUpdateBreadcrumbFromPersonCard;
         public event Action PersonCardUpdated; // custom event that will eventually update DGV in ctrlPeople if invoked
 
         // outside usage:  use loadInfo method then can use PersonID;
@@ -130,13 +130,11 @@ namespace PresentationLayer.PeopleFormsAndControls
                 MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            delUpdateBreadcrumbFromPersonCard?.Invoke(sender, new frmMain.clsBreadcrumbData() { title = "> Edit Person Info", operationType = "Add" });
-
             frmAddEditPerson editPerson = new frmAddEditPerson(_personID);
             editPerson.OnUpdateDoneForPersonCard += LoadInfo;// to update info here in personCard when info is updated in AddEdit form
+            clsUtilities.AddToBreadcrumb("> Edit Person Info");
             editPerson.ShowDialog();
-
-            delUpdateBreadcrumbFromPersonCard?.Invoke(sender, new frmMain.clsBreadcrumbData() { title = "> Edit Person Info", operationType = "Remove" });
+            clsUtilities.RemoveFromBreadcrumb("> Edit Person Info");
         }
     }
 }

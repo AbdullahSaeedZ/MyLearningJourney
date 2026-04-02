@@ -1,6 +1,4 @@
 ﻿using BusinessLayer;
-using Microsoft.VisualBasic.ApplicationServices;
-using PresentationLayer.MainForm;
 using PresentationLayer.Properties;
 using System;
 using System.ComponentModel;
@@ -11,7 +9,6 @@ namespace PresentationLayer.UsersFormsAndControls
 {
     public partial class frmAddEditUser : Form
     {
-        public event EventHandler<frmMain.clsBreadcrumbData> delUpdateBreadcrumbFromAddEditUserForm;
         public event Action OnUpdateDone;
 
         private int _userID = -1;
@@ -23,14 +20,11 @@ namespace PresentationLayer.UsersFormsAndControls
         public frmAddEditUser()
         {
             InitializeComponent();
-            ctrlPersonCardWithSearch1.delUpdateBreadcrumbFromCardWithFilter += (se, ev) => delUpdateBreadcrumbFromAddEditUserForm?.Invoke(se, ev);
             _mode = enMode.eAddNewMode;
         }
         public frmAddEditUser(int UserID)
         {
             InitializeComponent();
-            ctrlPersonCardWithSearch1.delUpdateBreadcrumbFromCardWithFilter += (se, ev) => delUpdateBreadcrumbFromAddEditUserForm?.Invoke(se, ev);
-
             _userID = UserID;
             _mode = enMode.eUpdateMode;
         }

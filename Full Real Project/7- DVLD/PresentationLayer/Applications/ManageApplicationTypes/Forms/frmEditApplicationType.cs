@@ -22,7 +22,7 @@ namespace PresentationLayer.Applications.ManageApplicationTypes.Forms
         {
             if (_applicationTypeID == -1)
             {
-                MessageBox.Show("No Valid ApplicationTypeID, form will close", "error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("No Valid ApplicationTypeID", "error", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 this.Close();
                 return;
             }    
@@ -52,8 +52,8 @@ namespace PresentationLayer.Applications.ManageApplicationTypes.Forms
                 return;
             }
 
-            _appType.ApplicationTypeTitle = tbApplicationTypeTitle.Text;
-            _appType.ApplicationTypeFees = Convert.ToDecimal(tbApplicationTypeFees.Text);
+            _appType.ApplicationTypeTitle = tbApplicationTypeTitle.Text.Trim();
+            _appType.ApplicationTypeFees = Convert.ToDecimal(tbApplicationTypeFees.Text.Trim());
 
             if (_appType.Save())
             {
@@ -98,14 +98,15 @@ namespace PresentationLayer.Applications.ManageApplicationTypes.Forms
                 e.Cancel = false;
             }
 
-
-        }
-
-        private void tbApplicationTypeFees_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)// prevent non digit and  allow backspace
+            if (!clsBusinessSettings.IsValidFloat(tbApplicationTypeFees.Text)) 
             {
-                e.Handled = true; // will make the event handled which will prevent any input in text box
+                errorProvider1.SetError(tbApplicationTypeFees, "Only numbers allowed");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.SetError(tbApplicationTypeFees, null);
+                e.Cancel = false;
             }
         }
 

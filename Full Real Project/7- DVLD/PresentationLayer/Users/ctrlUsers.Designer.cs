@@ -43,11 +43,6 @@
             this.cbIsActive = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbSearchBy = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dgvUsers = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.colPersonID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCountryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEmail = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -55,6 +50,11 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PersonID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -273,11 +273,11 @@
             this.dgvUsers.ColumnHeadersHeight = 40;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colPersonID,
-            this.colCountryName,
-            this.Column1,
-            this.colPhone,
-            this.colEmail});
+            this.UserID,
+            this.PersonID,
+            this.FullName,
+            this.Username,
+            this.IsActive});
             this.dgvUsers.ContextMenuStrip = this.contextMenuStrip1;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
@@ -330,56 +330,6 @@
             this.dgvUsers.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
             this.dgvUsers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvUsers.DoubleClick += new System.EventHandler(this.dgvUsers_DoubleClick);
-            // 
-            // colPersonID
-            // 
-            this.colPersonID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPersonID.DataPropertyName = "UserID";
-            this.colPersonID.HeaderText = "User ID";
-            this.colPersonID.MinimumWidth = 6;
-            this.colPersonID.Name = "colPersonID";
-            this.colPersonID.ReadOnly = true;
-            this.colPersonID.Width = 80;
-            // 
-            // colCountryName
-            // 
-            this.colCountryName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colCountryName.DataPropertyName = "PersonID";
-            this.colCountryName.HeaderText = "Person ID";
-            this.colCountryName.MinimumWidth = 6;
-            this.colCountryName.Name = "colCountryName";
-            this.colCountryName.ReadOnly = true;
-            this.colCountryName.Width = 120;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "FullName";
-            this.Column1.HeaderText = "Full Name";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // colPhone
-            // 
-            this.colPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colPhone.DataPropertyName = "Username";
-            this.colPhone.HeaderText = "Username";
-            this.colPhone.MinimumWidth = 6;
-            this.colPhone.Name = "colPhone";
-            this.colPhone.ReadOnly = true;
-            this.colPhone.Width = 200;
-            // 
-            // colEmail
-            // 
-            this.colEmail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colEmail.DataPropertyName = "IsActive";
-            this.colEmail.HeaderText = "Is Active";
-            this.colEmail.MinimumWidth = 6;
-            this.colEmail.Name = "colEmail";
-            this.colEmail.ReadOnly = true;
-            this.colEmail.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colEmail.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colEmail.Width = 200;
             // 
             // contextMenuStrip1
             // 
@@ -443,6 +393,56 @@
             this.changePasswordToolStripMenuItem.Text = "Change Password";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
+            // UserID
+            // 
+            this.UserID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.UserID.DataPropertyName = "UserID";
+            this.UserID.HeaderText = "User ID";
+            this.UserID.MinimumWidth = 6;
+            this.UserID.Name = "UserID";
+            this.UserID.ReadOnly = true;
+            this.UserID.Width = 80;
+            // 
+            // PersonID
+            // 
+            this.PersonID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.PersonID.DataPropertyName = "PersonID";
+            this.PersonID.HeaderText = "Person ID";
+            this.PersonID.MinimumWidth = 6;
+            this.PersonID.Name = "PersonID";
+            this.PersonID.ReadOnly = true;
+            this.PersonID.Width = 120;
+            // 
+            // FullName
+            // 
+            this.FullName.DataPropertyName = "FullName";
+            this.FullName.HeaderText = "Full Name";
+            this.FullName.MinimumWidth = 6;
+            this.FullName.Name = "FullName";
+            this.FullName.ReadOnly = true;
+            // 
+            // Username
+            // 
+            this.Username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Username";
+            this.Username.MinimumWidth = 6;
+            this.Username.Name = "Username";
+            this.Username.ReadOnly = true;
+            this.Username.Width = 200;
+            // 
+            // IsActive
+            // 
+            this.IsActive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.IsActive.DataPropertyName = "IsActive";
+            this.IsActive.HeaderText = "Is Active";
+            this.IsActive.MinimumWidth = 6;
+            this.IsActive.Name = "IsActive";
+            this.IsActive.ReadOnly = true;
+            this.IsActive.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsActive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.IsActive.Width = 200;
+            // 
             // ctrlUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -480,10 +480,10 @@
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPersonID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCountryName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colPhone;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn colEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PersonID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Username;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn IsActive;
     }
 }

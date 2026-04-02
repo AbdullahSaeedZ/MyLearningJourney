@@ -69,12 +69,25 @@
     <Compile Include="Applications\ManageApplicationTypes\Forms\frmEditApplicationType.Designer.cs">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\ManageTestTypes\Controls\ctrlManageTestTypes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\ManageTestTypes\Controls\ctrlManageTestTypes.Designer.cs">
+      <DependentUpon>ctrlManageTestTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\ManageTestTypes\Forms\frmEditTestType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\ManageTestTypes\Forms\frmEditTestType.Designer.cs">
+      <DependentUpon>frmEditTestType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard\ctrlDashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Dashboard\ctrlDashboard.Designer.cs">
       <DependentUpon>ctrlDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global Classes\clsUtilities.cs" />
     <Compile Include="LoginForm\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +182,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\ManageApplicationTypes\Forms\frmEditApplicationType.resx">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\ManageTestTypes\Controls\ctrlManageTestTypes.resx">
+      <DependentUpon>ctrlManageTestTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\ManageTestTypes\Forms\frmEditTestType.resx">
+      <DependentUpon>frmEditTestType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard\ctrlDashboard.resx">
       <DependentUpon>ctrlDashboard.cs</DependentUpon>

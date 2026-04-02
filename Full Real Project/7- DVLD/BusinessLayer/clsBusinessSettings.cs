@@ -75,6 +75,8 @@ namespace BusinessLayer
             }
         }
 
+
+        // validations
         public static bool IsEmailFormatValid(string Email)
         {
             return Regex.IsMatch(Email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]+$", RegexOptions.IgnoreCase); //RegularExpressions same as Java
@@ -84,6 +86,22 @@ namespace BusinessLayer
         {
             // at least one small, one capital, one number, one special character, min 8 max 20
             return Regex.IsMatch(Password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#&*!._%+-]).{8,20}$"); 
+        }
+
+
+        public static bool IsValidInteger(string Number)
+        {
+            return int.TryParse(Number, out int test);
+        }
+
+        public static bool IsValidFloat(string Number)
+        {
+            return float.TryParse(Number, out float test);
+        }
+
+        public static bool IsValidNumber(string Number)
+        {
+            return double.TryParse(Number, out double test); // will return true if text is int or double
         }
 
 
