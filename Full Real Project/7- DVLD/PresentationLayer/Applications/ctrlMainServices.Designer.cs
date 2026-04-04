@@ -268,6 +268,7 @@
             this.btnDrivingLicensesServices.Tag = "Driving Licenses Services";
             this.btnDrivingLicensesServices.Text = "Driving Licenses Services";
             this.btnDrivingLicensesServices.TextOffset = new System.Drawing.Point(-25, 70);
+            this.btnDrivingLicensesServices.Click += new System.EventHandler(this.btnDrivingLicensesServices_Click);
             this.btnDrivingLicensesServices.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
             this.btnDrivingLicensesServices.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 

@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using PresentationLayer.Applications.DrivingLicenses;
 using PresentationLayer.Applications.ManageApplicationTypes.Controls;
 using PresentationLayer.Applications.ManageTestTypes.Controls;
 using PresentationLayer.MainForm;
@@ -81,6 +82,15 @@ namespace PresentationLayer.Applications
 
             delAddToMainFormContainer?.Invoke(testTypes);
             testTypes.BringToFront();
+        }
+
+        private void btnDrivingLicensesServices_Click(object sender, EventArgs e)
+        {
+            ctrlDrivingLicensesServices drivingLicensesServices = new ctrlDrivingLicensesServices();
+            drivingLicensesServices.delRemoveFromMainFormContainer_DrivingLicenses += delRemoveFromMainFormContainer;
+
+            delAddToMainFormContainer?.Invoke(drivingLicensesServices);
+            drivingLicensesServices.BringToFront();
         }
     }
 }

@@ -73,9 +73,29 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AddFillBlack512 {
+            get {
+                object obj = ResourceManager.GetObject("AddFillBlack512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap addNoFill {
             get {
                 object obj = ResourceManager.GetObject("addNoFill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AddNoFillGrey512 {
+            get {
+                object obj = ResourceManager.GetObject("AddNoFillGrey512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -753,6 +773,26 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap releaseFillBlack512 {
+            get {
+                object obj = ResourceManager.GetObject("releaseFillBlack512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap releaseNoFillGrey512 {
+            get {
+                object obj = ResourceManager.GetObject("releaseNoFillGrey512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap removeFill {
             get {
                 object obj = ResourceManager.GetObject("removeFill", resourceCulture);
@@ -776,6 +816,46 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap removeNoFill1 {
             get {
                 object obj = ResourceManager.GetObject("removeNoFill1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap replaceFillBlack512 {
+            get {
+                object obj = ResourceManager.GetObject("replaceFillBlack512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap replaceNoFillGrey512 {
+            get {
+                object obj = ResourceManager.GetObject("replaceNoFillGrey512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap retakeTestFillBlack512 {
+            get {
+                object obj = ResourceManager.GetObject("retakeTestFillBlack512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap retakeTestNoFillGrey512 {
+            get {
+                object obj = ResourceManager.GetObject("retakeTestNoFillGrey512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -886,6 +966,26 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap showPasswordEye {
             get {
                 object obj = ResourceManager.GetObject("showPasswordEye", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UpdateFillBlack512 {
+            get {
+                object obj = ResourceManager.GetObject("UpdateFillBlack512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UpdateNoFillGrey512 {
+            get {
+                object obj = ResourceManager.GetObject("UpdateNoFillGrey512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

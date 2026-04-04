@@ -57,6 +57,12 @@
     <Compile Include="Applications\ctrlMainServices.Designer.cs">
       <DependentUpon>ctrlMainServices.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\DrivingLicenses\ctrlDrivingLicensesServices.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\DrivingLicenses\ctrlDrivingLicensesServices.Designer.cs">
+      <DependentUpon>ctrlDrivingLicensesServices.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\ManageApplicationTypes\Controls\ctrlManageApplicationsTypes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -176,6 +182,9 @@
     </Compile>
     <EmbeddedResource Include="Applications\ctrlMainServices.resx">
       <DependentUpon>ctrlMainServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\DrivingLicenses\ctrlDrivingLicensesServices.resx">
+      <DependentUpon>ctrlDrivingLicensesServices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\ManageApplicationTypes\Controls\ctrlManageApplicationsTypes.resx">
       <DependentUpon>ctrlManageApplicationsTypes.cs</DependentUpon>
@@ -512,6 +521,38 @@
   <ItemGroup>
     <None Include="assets\ManageTestTypesNoFillGrey512.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Applications\ManageApplications\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\AddFillBlack512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\AddNoFillGrey512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\UpdateFillBlack512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\UpdateNoFillGrey512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\replaceFillBlack512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\replaceNoFillGrey512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\releaseFillBlack512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\releaseNoFillGrey512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\retakeTestFillBlack512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\retakeTestNoFillGrey512.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

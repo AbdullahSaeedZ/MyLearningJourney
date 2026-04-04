@@ -9,25 +9,25 @@ namespace PresentationLayer.Applications.ManageTestTypes.Forms
     {
 
         public event Action delRefreshDgv;
-        private int _TestTypeID = -1;
+        private int _testTypeID = -1;
         private clsTestTypesBusiness _testType;
 
         public frmEditTestType(int TestTypeID)
         {
             InitializeComponent();
-            _TestTypeID = TestTypeID;
+            _testTypeID = TestTypeID;
         }
 
         private void frmEditTestType_Load(object sender, EventArgs e)
         {
-            if (_TestTypeID == -1)
+            if (_testTypeID == -1)
             {
                 MessageBox.Show("No Valid TestTypeID", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
                 return;
             }
 
-            _testType = clsTestTypesBusiness.FindTestType(_TestTypeID);
+            _testType = clsTestTypesBusiness.FindTestType(_testTypeID);
             if (_testType == null)
             {
                 MessageBox.Show("Could not retrieve data from database", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
