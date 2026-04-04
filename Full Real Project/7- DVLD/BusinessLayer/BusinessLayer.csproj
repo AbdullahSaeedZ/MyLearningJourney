@@ -48,6 +48,7 @@
     <Compile Include="clsApplicationTypesBusiness.cs" />
     <Compile Include="clsBusinessSettings.cs" />
     <Compile Include="clsCountriesBusiness.cs" />
+    <Compile Include="clsLicenseClassesBusiness.cs" />
     <Compile Include="clsLocalDrivingLicenseApplicationsBusiness.cs" />
     <Compile Include="clsPeopleBusiness.cs" />
     <Compile Include="clsTestTypesBusiness.cs" />

@@ -104,7 +104,7 @@
             this.btnBack.HoverState.Parent = this.btnBack;
             this.btnBack.Image = global::PresentationLayer.Properties.Resources.BackShortArrow;
             this.btnBack.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnBack.Location = new System.Drawing.Point(23, 12);
+            this.btnBack.Location = new System.Drawing.Point(22, 21);
             this.btnBack.Name = "btnBack";
             this.btnBack.ShadowDecoration.Parent = this.btnBack;
             this.btnBack.Size = new System.Drawing.Size(108, 37);

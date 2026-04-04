@@ -114,7 +114,8 @@ namespace BusinessLayer
             _mode = enMode.eUpdateMode;
         }
 
-        public static clsApplicationsBusiness FindApplicationByID(int ApplicationID)
+        // this the base application, cuz will have derived applications of this 
+        public static clsApplicationsBusiness FindBaseApplicationByID(int ApplicationID)
         {
             int applicantPersonID = -1, applicationTypeID = -1, createdByUserID = -1;
             byte applicationStatus = 1;

@@ -35,6 +35,7 @@ namespace DataAccessLayer
                             lastStatusDate = (DateTime)reader["LastStatusDate"];
                             paidFees = (float)reader["PaidFees"];
                             createdByUserID = (int)reader["CreatedByUserID"];
+                            isFound = true;
                         }
                     }
                 }
