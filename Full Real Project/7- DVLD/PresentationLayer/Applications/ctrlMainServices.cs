@@ -31,8 +31,11 @@ namespace PresentationLayer.Applications
                 case "Driving Licenses Services":
                     pnlDrivingLicensesServices.ShadowDepth = 25;
                     break;
-                case "Manage Applications":
-                    pnlManageApplications.ShadowDepth = 25;
+                case "Manage Local Applications":
+                    pnlManageLocalApplications.ShadowDepth = 25;
+                    break;
+                case "Manage International Applications":
+                    pnlManageInternationalApplications.ShadowDepth = 25;
                     break;
                 case "Manage Test Types":
                     pnlManageTestTypes.ShadowDepth = 25;
@@ -54,8 +57,11 @@ namespace PresentationLayer.Applications
                 case "Driving Licenses Services":
                     pnlDrivingLicensesServices.ShadowDepth = 0;
                     break;
-                case "Manage Applications":
-                    pnlManageApplications.ShadowDepth = 0;
+                case "Manage Local Applications":
+                    pnlManageLocalApplications.ShadowDepth = 0;
+                    break;
+                case "Manage International Applications":
+                    pnlManageInternationalApplications.ShadowDepth = 0;
                     break;
                 case "Manage Test Types":
                     pnlManageTestTypes.ShadowDepth = 0;
@@ -66,6 +72,7 @@ namespace PresentationLayer.Applications
             }
         }
 
+        // buttons
         private void btnManageApplicationsTypes_Click(object sender, EventArgs e)
         {
             ctrlManageApplicationsTypes applicationsTypes = new ctrlManageApplicationsTypes();
@@ -74,7 +81,6 @@ namespace PresentationLayer.Applications
             delAddToMainFormContainer?.Invoke(applicationsTypes);
             applicationsTypes.BringToFront();
         }
-
         private void btnManageTestTypes_Click(object sender, EventArgs e)
         {
             ctrlManageTestTypes testTypes = new ctrlManageTestTypes();
@@ -91,6 +97,21 @@ namespace PresentationLayer.Applications
 
             delAddToMainFormContainer?.Invoke(drivingLicensesServices);
             drivingLicensesServices.BringToFront();
+        }
+
+        private void btnManageLocalApplications_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnManageInternationalApplications_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDetainLicenses_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

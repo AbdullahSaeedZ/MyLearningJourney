@@ -1,13 +1,7 @@
 ﻿using Guna.UI2.WinForms;
+using PresentationLayer.Applications.DrivingLicenses.Forms;
 using PresentationLayer.Global_Classes;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Applications.DrivingLicenses
@@ -85,5 +79,39 @@ namespace PresentationLayer.Applications.DrivingLicenses
             }
         }
 
+
+        // buttons
+        private void btnNewLocalLicenseApplication_Click(object sender, EventArgs e)
+        {
+            clsUtilities.AddToBreadcrumb("> New Local Driving License");
+            frmAddEditLocalLicenseApplication addLocalLicense = new frmAddEditLocalLicenseApplication();
+            addLocalLicense.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb("> New Local Driving License");
+        }
+
+        private void btnNewInternationalLicenseApplication_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRenewDrivingLicense_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLicenseReplacement_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRetakeTest_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReleaseDetainedLicense_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

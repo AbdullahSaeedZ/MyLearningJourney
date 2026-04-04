@@ -9,7 +9,7 @@ namespace BusinessLayer
         enum enMode { eAddMode = 0, eUpdateMode = 1 };
         enMode _mode;
 
-        public int UserID { get; private set; }
+        public int UserID { get; private set; } 
 
         private int _personID;
         public int PersonID 
