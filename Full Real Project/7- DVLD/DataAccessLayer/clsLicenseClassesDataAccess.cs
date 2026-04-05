@@ -12,7 +12,7 @@ namespace DataAccessLayer
 
             try
             {
-                using (SqlConnection connection = new SqlConnection())
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
                     string query = @"select * from LicenseClasses
                                  where LicenseClassID = @ID;";
@@ -50,7 +50,7 @@ namespace DataAccessLayer
 
             try
             {
-                using (SqlConnection connection = new SqlConnection())
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
                     string query = @"select * from LicenseClasses
                                  where ClassName = @Name;";
@@ -88,7 +88,7 @@ namespace DataAccessLayer
 
             try
             {
-                using (SqlConnection connection = new SqlConnection())
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
                     string query = @"update LicenseClasses
                                      set ClassName = @ClassName, ClassDescription = @ClassDescription, MinimumAllowedAge = @MinimumAllowedAge, DefaultValidityLength = @DefaultValidityLength, ClassFees = @ClassFees                                  
@@ -122,7 +122,7 @@ namespace DataAccessLayer
 
             try
             {
-                using (SqlConnection connection = new SqlConnection())
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
                     string query = "select * from LicenseClasses;";
 

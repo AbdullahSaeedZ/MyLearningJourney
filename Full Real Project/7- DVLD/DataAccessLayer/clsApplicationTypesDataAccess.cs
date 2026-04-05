@@ -7,7 +7,7 @@ namespace DataAccessLayer
 {
     public class clsApplicationTypesDataAccess
     {
-        public static bool FindApplicationType(int ID, ref string applicationTypeTitle, ref decimal applicationTypeFees)
+        public static bool FindApplicationType(int ID, ref string applicationTypeTitle, ref float applicationTypeFees)
         {
             bool isFound = false;
 
@@ -27,7 +27,7 @@ namespace DataAccessLayer
                         if (reader.Read())
                         {
                             applicationTypeTitle = (string)reader["ApplicationTypeTitle"];
-                            applicationTypeFees = (decimal)reader["ApplicationFees"];
+                            applicationTypeFees = Convert.ToSingle(reader["ApplicationFees"]);
                             isFound = true;
                         }
                     }
@@ -40,7 +40,7 @@ namespace DataAccessLayer
             }
             return isFound;
         }
-        public static bool UpdateApplicationType(int ID, string applicationTypeTitle, decimal applicationTypeFees)
+        public static bool UpdateApplicationType(int ID, string applicationTypeTitle, float applicationTypeFees)
         {
             int rowsAffected = 0;
 

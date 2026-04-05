@@ -53,7 +53,7 @@ namespace PresentationLayer.Applications.ManageApplicationTypes.Forms
             }
 
             _appType.ApplicationTypeTitle = tbApplicationTypeTitle.Text.Trim();
-            _appType.ApplicationTypeFees = Convert.ToDecimal(tbApplicationTypeFees.Text.Trim());
+            _appType.ApplicationTypeFees = Convert.ToSingle(tbApplicationTypeFees.Text.Trim());
 
             if (_appType.Save())
             {

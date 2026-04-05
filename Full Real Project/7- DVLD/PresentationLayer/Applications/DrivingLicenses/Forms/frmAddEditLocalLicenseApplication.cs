@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Applications.DrivingLicenses.Forms
@@ -8,8 +9,9 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
     {
         public event Action OnUpdateDone;
 
-        private int _applicationID = -1;
-        clsUserBusiness _application;
+        private int _localApplicationID = -1;
+        clsLocalDrivingLicenseApplicationsBusiness _localApplication;
+        clsApplicationTypesBusiness _localLicenseApplicationTypeInfo = clsApplicationTypesBusiness.FindApplicationType(1); 
 
         private enum enMode { eAddNewMode, eUpdateMode };
         private enMode _mode;
@@ -19,36 +21,61 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             InitializeComponent();
             _mode = enMode.eAddNewMode;
         }
-        public frmAddEditLocalLicenseApplication(int ApplicationID)
+        public frmAddEditLocalLicenseApplication(int LocalApplicationID)
         {
             InitializeComponent();
-            _applicationID = ApplicationID;
+            _localApplicationID = LocalApplicationID;
             _mode = enMode.eUpdateMode;
         }
 
         private void frmAddEditLocalLicenseApplication_Load(object sender, EventArgs e)
         {
+            _FillLicenseClassesComboBox();
+
             if (_mode == enMode.eAddNewMode)
-                _application = new clsUserBusiness();
+            {
+                _localApplication = new clsLocalDrivingLicenseApplicationsBusiness();
+                _FillApplicationDefaultValues();
+            }
             else
             {
-                _application = clsUserBusiness.FindUser(_applicationID);
-                if (_application == null)
+               // _localApplication = clsLocalDrivingLicenseApplicationsBusiness.(_localApplicationID);
+                if (_localApplication == null)
                 {
                     MessageBox.Show("Application Does Not Exist, Form will close", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
                 }
-                _FillUserPersonInfoInForm();
+                _FillExistentApplicationInfoInForm();
             }
         }
 
-
-        private void _FillUserPersonInfoInForm()
+        private void _FillLicenseClassesComboBox()
         {
-            ctrlPersonCardWithSearch1.LoadInfo(_application.PersonID);
+            DataTable dt = clsLicenseClassesBusiness.GetAllLicenseClasses();
+
+            foreach (DataRow row in dt.Rows)
+            {
+                cbLocalLicenseClasses.Items.Add(row["ClassName"]);
+            }
+        }
+        private void _FillApplicationDefaultValues()
+        {
+            lblApplicationDate.Text = DateTime.Now.ToShortDateString();
+            lblApplicationFees.Text = _localLicenseApplicationTypeInfo.ApplicationTypeFees.ToString();
+            lblCreatedByUser.Text = clsBusinessSettings.CurrentUser.Username;
+            cbLocalLicenseClasses.SelectedIndex = 2;
+        }
+        private void _FillExistentApplicationInfoInForm()
+        {
+            lblTitle.Text =  $"Edit Local Driving License Application with ID = {_localApplication.LocalDrivingLicenseApplicationID}";
+            ctrlPersonCardWithSearch1.LoadInfo(_localApplication.ApplicantPersonID);
             ctrlPersonCardWithSearch1.FilterVisible = false;
-         //   lblTitle.Text = lblTitle.Text = $"Edit Local Driving License Application with ID = {_application.ApplicationID}";
-           // lblApplicationID.Text = _application.ApplicationID.ToString();
+
+            lblApplicationID.Text = _localApplication.LocalDrivingLicenseApplicationID.ToString();
+            lblApplicationDate.Text = _localApplication.ApplicationDate.ToShortDateString();
+            lblApplicationFees.Text = _localApplication.PaidFees.ToString();
+            lblCreatedByUser.Text = _localApplication.CreatedByUserInfo.Username.ToString();
+            cbLocalLicenseClasses.SelectedItem = _localApplication.LicenseClassesInfo.ClassName;
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -59,14 +86,6 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
                 ctrlPersonCardWithSearch1.FilterFocus();
                 return;
             }
-
-            // prevent if already has not completed application
-            //if (clsUserBusiness.DoesUserExist(ctrlPersonCardWithSearch1.PersonID) && _mode == enMode.eAddNewMode) // will proceed if update mode and user exists
-            //{
-            //    MessageBox.Show($"Selected Person is already a user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-
             _ShowHideApplicationInfoPanel();
         }
 
@@ -92,23 +111,39 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
                 return;
             }
 
+            // prevent here if to be 2 application and both are same class and new status
+            // so check if person id has other applications of same class with new status, and show that application id in message box
+            // can have multiple applications with new status but of differenet classes
+
             if (_mode == enMode.eAddNewMode)
-                _application.PersonID = ctrlPersonCardWithSearch1.PersonID; // will not reach here without a valid personID
+            {
+                _localApplication.LicenseClassID = (clsLicenseClassesBusiness.Find(cbLocalLicenseClasses.Text)).LicenseClassID; 
+                _localApplication.ApplicantPersonID = ctrlPersonCardWithSearch1.PersonID;
+                _localApplication.ApplicationStatus = clsApplicationsBusiness.enApplicationStatus.New;
+                _localApplication.ApplicationDate = DateTime.Now;
+                _localApplication.LastStatusDate = DateTime.Now;
+                _localApplication.PaidFees = _localLicenseApplicationTypeInfo.ApplicationTypeFees;
+                _localApplication.ApplicationTypeID = _localLicenseApplicationTypeInfo.ApplicationTypeID;
+                _localApplication.CreatedByUserID = clsBusinessSettings.CurrentUser.UserID;
+            }
 
-       
-
+            if (_mode == enMode.eUpdateMode)
+            {
+                _localApplication.LicenseClassID = (clsLicenseClassesBusiness.Find(cbLocalLicenseClasses.Text)).LicenseClassID;
+                _localApplication.LastStatusDate = DateTime.Now;
+            }
 
             try
             {
-                if (_application.Save())
+                if (_localApplication.Save())
                 {
                     MessageBox.Show("Data saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _mode = enMode.eUpdateMode; // to allow next button to proceed when updating a user
                     ctrlPersonCardWithSearch1.FilterVisible = false;
-                    lblApplicationID.Text = _application.UserID.ToString();
-                  //  lblTitle.Text = lblTitle.Text = $"Edit Local Driving License Application with ID = {_user.UserID}";
+                    lblApplicationID.Text = _localApplication.LocalDrivingLicenseApplicationID.ToString();
+                    lblTitle.Text = $"Edit Local Driving License Application with ID = {_localApplication.LocalDrivingLicenseApplicationID}";
 
-                    OnUpdateDone?.Invoke(); // to refresh dgv if user info is updated
+                    OnUpdateDone?.Invoke(); // to refresh dgv if Application info is updated
                 }
                 else
                     MessageBox.Show("Data was not saved successfully", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -120,15 +155,10 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             }
         }
 
-
-        // validations
-       
-
         private void ControlBoxClose_Click(object sender, EventArgs e)
         {
             ctrlPersonCardWithSearch1.Dispose();
             this.Close();
         }
-
     }
 }

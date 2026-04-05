@@ -2,17 +2,15 @@
 using System.Data;
 using DataAccessLayer;
 
-// do local license classes then do the local licenses applications layers -----------------------------------------------------------------------------------------------
-
 namespace BusinessLayer
 {
     public class clsApplicationsBusiness
     {
         public enum enApplicationStatus { New = 1, Cancelled = 2, Completed = 3}; 
-        enum enMode { eAddMode = 0, eUpdateMode = 1 };
+        public enum enMode { eAddMode = 0, eUpdateMode = 1 };
 
 
-        enMode _mode;
+        protected enMode _mode; // to use inside the derived class only
         public enApplicationStatus ApplicationStatus { set; get; } // will come from DB as numbers
 
 
@@ -98,7 +96,7 @@ namespace BusinessLayer
             _mode = enMode.eAddMode;
         }
 
-        clsApplicationsBusiness(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID, enApplicationStatus ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
+        public clsApplicationsBusiness(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID, enApplicationStatus ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
         {
             this._applicationID = ApplicationID;
             this._applicantPersonID = ApplicantPersonID;

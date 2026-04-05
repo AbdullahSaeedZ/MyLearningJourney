@@ -23,9 +23,9 @@ namespace BusinessLayer
             }
         }
         public string ApplicationTypeTitle { get; set; }
-        public decimal ApplicationTypeFees { get; set; }
+        public float ApplicationTypeFees { get; set; }
 
-        clsApplicationTypesBusiness(int ID, string Title, decimal Fees)
+        clsApplicationTypesBusiness(int ID, string Title, float Fees)
         {
             this.ApplicationTypeID = ID;
             this.ApplicationTypeTitle = Title;
@@ -36,7 +36,7 @@ namespace BusinessLayer
         public static clsApplicationTypesBusiness FindApplicationType(int ID)
         {
             string applicationTypeTitle = "";
-            decimal applicationTypeFees = -1;
+            float applicationTypeFees = -1;
 
             if (clsApplicationTypesDataAccess.FindApplicationType(ID, ref applicationTypeTitle, ref applicationTypeFees))
                 return new clsApplicationTypesBusiness(ID, applicationTypeTitle, applicationTypeFees);

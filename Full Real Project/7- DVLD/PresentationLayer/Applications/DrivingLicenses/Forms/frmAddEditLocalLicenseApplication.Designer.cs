@@ -163,10 +163,10 @@
             this.cbLocalLicenseClasses.HoverState.Parent = this.cbLocalLicenseClasses;
             this.cbLocalLicenseClasses.ItemHeight = 30;
             this.cbLocalLicenseClasses.ItemsAppearance.Parent = this.cbLocalLicenseClasses;
-            this.cbLocalLicenseClasses.Location = new System.Drawing.Point(444, 179);
+            this.cbLocalLicenseClasses.Location = new System.Drawing.Point(404, 180);
             this.cbLocalLicenseClasses.Name = "cbLocalLicenseClasses";
             this.cbLocalLicenseClasses.ShadowDecoration.Parent = this.cbLocalLicenseClasses;
-            this.cbLocalLicenseClasses.Size = new System.Drawing.Size(225, 36);
+            this.cbLocalLicenseClasses.Size = new System.Drawing.Size(288, 36);
             this.cbLocalLicenseClasses.TabIndex = 3;
             // 
             // label9
@@ -175,7 +175,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.DimGray;
-            this.label9.Location = new System.Drawing.Point(169, 266);
+            this.label9.Location = new System.Drawing.Point(129, 267);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(95, 18);
             this.label9.TabIndex = 0;
@@ -188,7 +188,7 @@
             this.lblCreatedByUser.AutoSize = true;
             this.lblCreatedByUser.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCreatedByUser.ForeColor = System.Drawing.Color.Black;
-            this.lblCreatedByUser.Location = new System.Drawing.Point(446, 266);
+            this.lblCreatedByUser.Location = new System.Drawing.Point(406, 267);
             this.lblCreatedByUser.Name = "lblCreatedByUser";
             this.lblCreatedByUser.Size = new System.Drawing.Size(121, 18);
             this.lblCreatedByUser.TabIndex = 0;
@@ -200,7 +200,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(169, 227);
+            this.label7.Location = new System.Drawing.Point(129, 228);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(136, 18);
             this.label7.TabIndex = 0;
@@ -213,7 +213,7 @@
             this.lblApplicationFees.AutoSize = true;
             this.lblApplicationFees.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApplicationFees.ForeColor = System.Drawing.Color.Black;
-            this.lblApplicationFees.Location = new System.Drawing.Point(446, 227);
+            this.lblApplicationFees.Location = new System.Drawing.Point(406, 228);
             this.lblApplicationFees.Name = "lblApplicationFees";
             this.lblApplicationFees.Size = new System.Drawing.Size(121, 18);
             this.lblApplicationFees.TabIndex = 0;
@@ -225,7 +225,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DimGray;
-            this.label5.Location = new System.Drawing.Point(169, 188);
+            this.label5.Location = new System.Drawing.Point(129, 189);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(235, 18);
             this.label5.TabIndex = 0;
@@ -238,7 +238,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(169, 149);
+            this.label3.Location = new System.Drawing.Point(129, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(136, 18);
             this.label3.TabIndex = 0;
@@ -251,7 +251,7 @@
             this.lblApplicationDate.AutoSize = true;
             this.lblApplicationDate.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApplicationDate.ForeColor = System.Drawing.Color.Black;
-            this.lblApplicationDate.Location = new System.Drawing.Point(446, 149);
+            this.lblApplicationDate.Location = new System.Drawing.Point(406, 150);
             this.lblApplicationDate.Name = "lblApplicationDate";
             this.lblApplicationDate.Size = new System.Drawing.Size(121, 18);
             this.lblApplicationDate.TabIndex = 0;
@@ -263,7 +263,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(169, 110);
+            this.label1.Location = new System.Drawing.Point(129, 111);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(239, 18);
             this.label1.TabIndex = 0;
@@ -276,7 +276,7 @@
             this.lblApplicationID.AutoSize = true;
             this.lblApplicationID.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApplicationID.ForeColor = System.Drawing.Color.Black;
-            this.lblApplicationID.Location = new System.Drawing.Point(446, 110);
+            this.lblApplicationID.Location = new System.Drawing.Point(406, 111);
             this.lblApplicationID.Name = "lblApplicationID";
             this.lblApplicationID.Size = new System.Drawing.Size(121, 18);
             this.lblApplicationID.TabIndex = 0;
