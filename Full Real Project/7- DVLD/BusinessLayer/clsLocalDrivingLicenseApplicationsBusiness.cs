@@ -59,6 +59,8 @@ namespace BusinessLayer
                 return null;
         }
 
+
+
         public static clsLocalDrivingLicenseApplicationsBusiness FindLocalLicenseApplicationByApplicationID(int ApplicationID)
         {
             int localApplicationID = -1, licenseClassID = -1;
@@ -87,6 +89,21 @@ namespace BusinessLayer
              return clsLocalDrivingLicenseApplicationsDataAccess.UpdateLocalLicenseApplication( this.LocalDrivingLicenseApplicationID, this.LicenseClassID);
         }
 
+        //public static bool DeleteLocalDrivingLicenseApplication(int LocalLicenseApplicationID)
+        //{
+        //    clsLocalDrivingLicenseApplicationsBusiness localApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID(LocalLicenseApplicationID);
+
+        //    if (localApplication != null && clsLocalDrivingLicenseApplicationsDataAccess.DeleteLocalDrivingLicenseApplication(localApplication.LocalDrivingLicenseApplicationID))
+        //    {
+        //        // local license has no tables connected to it so we delete it first then delete baseApplication (baseApplication will handle all tables connected to it)
+        //        return clsApplicationsBusiness.DeleteApplicationByID(localApplication.ApplicationID);
+        //    }
+        //    else
+        //        return false;
+        //}
+
+
+
         public new bool Save() // hiding base Save method
         {
             if (base.Save()) // adding or updating the baseApplication first then do the derived application
@@ -110,6 +127,12 @@ namespace BusinessLayer
             }
             else
                 return false;
+        }
+
+        public static int GetActiveOrCompletedApplicationID(int ApplicantPersonID, int LicenseClassID)
+        {
+            int activeOrCompletedApplicationID = clsLocalDrivingLicenseApplicationsDataAccess.GetActiveOrCompletedApplicationID(ApplicantPersonID, LicenseClassID);
+            return activeOrCompletedApplicationID;
         }
     }
 }

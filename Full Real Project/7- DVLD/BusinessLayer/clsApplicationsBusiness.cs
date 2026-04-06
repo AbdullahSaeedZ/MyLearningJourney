@@ -140,8 +140,11 @@ namespace BusinessLayer
 
         public static bool DeleteApplicationByID(int ApplicationID)
         {
-            return clsApplicationsDataAccess.DeleteApplicationByID(ApplicationID);
+            // must delete all related records in connected tables then delete the base application
+            
+            // logic 
 
+            return clsApplicationsDataAccess.DeleteApplicationByID(ApplicationID);
         }
 
         public static DataTable GetAllApplications()

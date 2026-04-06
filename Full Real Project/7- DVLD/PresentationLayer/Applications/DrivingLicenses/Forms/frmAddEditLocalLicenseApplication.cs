@@ -104,21 +104,20 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // text boxes validations
-            if (!this.ValidateChildren())
+            int _selectedClassIDInComboBox = (clsLicenseClassesBusiness.Find(cbLocalLicenseClasses.Text)).LicenseClassID;
+            int activeOrCompletedApplicationID = clsLocalDrivingLicenseApplicationsBusiness.GetActiveOrCompletedApplicationID(ctrlPersonCardWithSearch1.PersonID, _selectedClassIDInComboBox);
+
+            if (activeOrCompletedApplicationID != -1) 
             {
-                MessageBox.Show("Fill necessary fields with valid data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"This person already has an active local driving license application of same class with ID = {activeOrCompletedApplicationID}, Please choose another class.",
+                                 "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // prevent here if to be 2 application and both are same class and new status
-            // so check if person id has other applications of same class with new status, and show that application id in message box
-            // can have multiple applications with new status but of differenet classes
-
             if (_mode == enMode.eAddNewMode)
             {
-                _localApplication.LicenseClassID = (clsLicenseClassesBusiness.Find(cbLocalLicenseClasses.Text)).LicenseClassID; 
                 _localApplication.ApplicantPersonID = ctrlPersonCardWithSearch1.PersonID;
+                _localApplication.LicenseClassID = _selectedClassIDInComboBox; 
                 _localApplication.ApplicationStatus = clsApplicationsBusiness.enApplicationStatus.New;
                 _localApplication.ApplicationDate = DateTime.Now;
                 _localApplication.LastStatusDate = DateTime.Now;
@@ -129,7 +128,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
 
             if (_mode == enMode.eUpdateMode)
             {
-                _localApplication.LicenseClassID = (clsLicenseClassesBusiness.Find(cbLocalLicenseClasses.Text)).LicenseClassID;
+                _localApplication.LicenseClassID = _selectedClassIDInComboBox;
                 _localApplication.LastStatusDate = DateTime.Now;
             }
 
