@@ -48,6 +48,7 @@ namespace PresentationLayer.UsersFormsAndControls
                 dt.DefaultView.RowFilter = "";
                 tbSearchUsers.Visible = false;
                 cbIsActive.Visible = false;
+                lblNumberOfRecords.Text = dgvUsers.RowCount.ToString(); // to update number when switching to none after being filtered
                 return;
             }
 
@@ -68,6 +69,7 @@ namespace PresentationLayer.UsersFormsAndControls
                 tbSearchUsers.PlaceholderText = "Only numbers allowed";
             else
                 tbSearchUsers.PlaceholderText = "Search..";
+
         }
         private void tbSearchUsers_TextChanged(object sender, EventArgs e)
         {

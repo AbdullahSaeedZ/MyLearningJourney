@@ -91,7 +91,7 @@ namespace BusinessLayer
             this.ApplicationDate = DateTime.Now;
             this.LastStatusDate = DateTime.Now;
             this.PaidFees = -1;
-            this.CreatedByUserID = -1;
+            this._createdByUserID = -1;
             this.ApplicationStatus = enApplicationStatus.New;
             _mode = enMode.eAddMode;
         }
@@ -128,8 +128,8 @@ namespace BusinessLayer
 
         private bool AddNewApplication()
         {
-            int newID = clsApplicationsDataAccess.AddNewApplication(this._applicantPersonID, this.ApplicationDate, this.ApplicationTypeID, (byte)this.ApplicationStatus, this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
-            return (newID != -1);
+            this.ApplicationID = clsApplicationsDataAccess.AddNewApplication(this._applicantPersonID, this.ApplicationDate, this.ApplicationTypeID, (byte)this.ApplicationStatus, this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
+            return (this.ApplicationID != -1);
         }
 
         private bool UpdateApplication()

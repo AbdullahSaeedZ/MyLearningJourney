@@ -119,7 +119,6 @@ namespace DataAccessLayer
                         command.Parameters.AddWithValue("@Gender", Gender);
                         command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
                         command.Parameters.AddWithValue("@Phone", Phone);
-                        command.Parameters.AddWithValue("@Email", Email);
                         command.Parameters.AddWithValue("@Address", Address);
                         command.Parameters.AddWithValue("@BirthDate", BirthDate);
 
@@ -132,6 +131,11 @@ namespace DataAccessLayer
                             command.Parameters.AddWithValue(@"ThirdName", DBNull.Value);
                         else
                             command.Parameters.AddWithValue("@ThirdName", ThirdName);
+
+                        if (string.IsNullOrEmpty(Email))
+                            command.Parameters.AddWithValue(@"Email", DBNull.Value);
+                        else
+                            command.Parameters.AddWithValue("@Email", Email);
 
 
                         connection.Open();

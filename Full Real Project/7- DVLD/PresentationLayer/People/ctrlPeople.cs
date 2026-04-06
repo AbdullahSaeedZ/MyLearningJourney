@@ -47,6 +47,7 @@ namespace PresentationLayer.PeopleFormsAndControls
             {
                 tbSearchPerson.Text = "";
                 tbSearchPerson.Visible = false;
+                lblNumberOfRecords.Text = dgvPeople.RowCount.ToString(); // to update number when switching to none after being filtered
                 return;
             }
 
@@ -57,6 +58,7 @@ namespace PresentationLayer.PeopleFormsAndControls
                 tbSearchPerson.PlaceholderText = "Only numbers allowed";
             else
                 tbSearchPerson.PlaceholderText = "Search..";
+
         }
         private void tbSearchPerson_TextChanged(object sender, EventArgs e)
         {

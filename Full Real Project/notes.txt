@@ -28,3 +28,12 @@ so first create a table for people then create a table for applications, connect
 3- https://www.osohq.com/docs/learn/guides/ui
 
 4- https://www.google.com/search?q=using+ry+catch+for+perrsmissions+in+UI&authuser=0&aep=21&mstk=AUtExfBek7SMTCSlqIdflj8POuAi3GxGl2ok-TlSF0aWpcM_tyeKIcoy6rjbBE11iJDNARmlDyN7IBiMVW-NIODTT1IBJxshLQ-Gy7bEz2Wks3bZk5tlhmdFV6vRUPZpgQjQ6_Fdqfme-MJaojWfAGzV5gvMwtvuepgv-eVHEnvFmYnLYKSVtypuj7r69yQ_BdnaR9RxqfQjj0COz3tnXGpYvK5QbP17UTv8EG_IcYJvTg3lxnkkhhIUo9GuNnFMCARd3vw4YGFf9NWS1GBWsEWdoi9hZwfsNZHNPqLrHjzZEqogZERebgVsxjvqWiBvh4lrOHL8Rx6ymnMLxA&csuir=1&mtid=W761aaunJOaP-d8P_Ie7kAE&udm=50
+
+
+
+- example of data integrity is when i had this issue of adding new application to DB but there was a bug that sets createdByUserID to 0
+and there is no user with ID = 0, so the  DB refuses to add the application to apllications table cuz of the non existent user id which doesnt 
+exist in the users table, userID is added as a FK in application table which made data integrity stronger, this is the query :
+   string query = @"insert into Applications
+   values ( @ApplicantPersonID, @ApplicationDate, @ApplicationTypeID, @ApplicationStatus, @LastStatusDate, @PaidFees,@CreatedByUserID);
+    select scope_identity();";

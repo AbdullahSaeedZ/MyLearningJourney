@@ -138,7 +138,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
                 if (_localApplication.Save())
                 {
                     MessageBox.Show("Data saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    _mode = enMode.eUpdateMode; // to allow next button to proceed when updating a user
+                    _mode = enMode.eUpdateMode;
                     ctrlPersonCardWithSearch1.FilterVisible = false;
                     lblApplicationID.Text = _localApplication.LocalDrivingLicenseApplicationID.ToString();
                     lblTitle.Text = $"Edit Local Driving License Application with ID = {_localApplication.LocalDrivingLicenseApplicationID}";

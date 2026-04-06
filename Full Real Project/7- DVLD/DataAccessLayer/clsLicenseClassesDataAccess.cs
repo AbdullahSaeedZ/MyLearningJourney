@@ -68,7 +68,7 @@ namespace DataAccessLayer
                             ClassDescription = (string)reader["ClassDescription"];
                             MinimumAllowedAge = (byte)reader["MinimumAllowedAge"];
                             DefaultValidityLength = (byte)reader["DefaultValidityLength"];
-                            ClassFees = (float)reader["ClassFees"];
+                            ClassFees = Convert.ToSingle(reader["ClassFees"]);
                             isFound = true;
                         }
                     }
