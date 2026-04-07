@@ -97,6 +97,7 @@ namespace PresentationLayer.UsersFormsAndControls
             if (cbIsActive.Text == "All")
             {
                 dt.DefaultView.RowFilter = "";
+                lblNumberOfRecords.Text = dgvUsers.RowCount.ToString();
                 return;
             }
 

@@ -33,7 +33,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
         private void RefreshDataGridView()
         {
-            if ((dt = clsLocalDrivingLicenseApplicationsBusiness.GetAllApplications()) == null)
+            if ((dt = clsLocalDrivingLicenseApplicationsBusiness.GetAllLocalDrivingLicenseApplications()) == null)
                 return;
 
             dgvApplications.DataSource = dt;
@@ -45,24 +45,46 @@ namespace PresentationLayer.Applications.ManageLocalApplications
         // controlling textBox based on comboBox option
         private void cbSearchBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _searchFilter = cbSearchBy.Text.Replace(" ", ""); // matching database names, not dgv. First Name in dgv, to be FirstName here to match DT & DB
+            // i will use this filter variable in the data table filter, and it has to match the DB column name not the one i used in combo box, the rest are ok
+            _searchFilter = cbSearchBy.Text == "LDL.Application ID"? "LocalDrivingLicenseApplicationID" : cbSearchBy.Text.Replace(" ", "");
 
             if (_searchFilter == "None")
             {
                 tbSearchApplication.Text = "";
                 tbSearchApplication.Visible = false;
+                cbStatus.Visible = false;
                 lblNumberOfRecords.Text = dgvApplications.RowCount.ToString(); // to update number when switching to none after being filtered
                 return;
             }
 
+            if (_searchFilter == "Status")
+            {
+                tbSearchApplication.Visible = false;
+                cbStatus.Visible = true;
+                return;
+            }
+
+            cbStatus.Visible = false;
             tbSearchApplication.Visible = true;
             tbSearchApplication.Text = "";
 
-            if (_searchFilter == "PersonID" || _searchFilter == "Phone")
+            if (_searchFilter == "LocalDrivingLicenseApplicationID")
                 tbSearchApplication.PlaceholderText = "Only numbers allowed";
             else
                 tbSearchApplication.PlaceholderText = "Search..";
 
+        }
+        private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbStatus.Text == "All")
+            {
+                dt.DefaultView.RowFilter = "";
+                lblNumberOfRecords.Text = dgvApplications.RowCount.ToString();
+                return;
+            }
+
+            dt.DefaultView.RowFilter = $"Status LIKE '{cbStatus.Text}'";
+            lblNumberOfRecords.Text = dgvApplications.RowCount.ToString();
         }
         private void tbSearchApplication_TextChanged(object sender, EventArgs e)
         {
@@ -77,12 +99,12 @@ namespace PresentationLayer.Applications.ManageLocalApplications
             lblNumberOfRecords.Text = dgvApplications.RowCount.ToString();
 
             // filtering expression uses DataColumn Expression Language
-            // it takes column names from dataTable that took them from Database, not names in dgv
+            // it takes column names from dataTable that took them from Database, not header names in dgv
             //since like is for strings only and we might get int column, we cast column type to string using this method from DT special language
         }
         private void tbSearchApplication_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (_searchFilter == "PersonID" || _searchFilter == "Phone")
+            if (_searchFilter == "LDL.ApplicationID")
                 e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back; // if Handled == true then will prevent any action
         }
 
@@ -96,7 +118,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications
                 MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            frmAddEditLocalLicenseApplication addApplicationForm = new frmAddEditLocalLicenseApplication(-1);
+            frmAddEditLocalLicenseApplication addApplicationForm = new frmAddEditLocalLicenseApplication();
             addApplicationForm.OnUpdateDoneForDGV += RefreshDataGridView; // to update DGV here if new person added and updated in AddEdit form
             clsUtilities.AddToBreadcrumb("> Add-Edit Application");
             addApplicationForm.ShowDialog();
@@ -108,5 +130,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications
             clsUtilities.RemoveFromBreadcrumb("> Manage Local Licenses Applications");
             delRemoveFromMainFormContainer_ManageLocalApplications?.Invoke(this);
         }
+
+     
     }
 }

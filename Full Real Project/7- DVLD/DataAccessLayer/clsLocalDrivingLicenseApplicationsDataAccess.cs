@@ -147,7 +147,7 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    string query = "select * from LocalDrivingLicenseApplications_view order by ApplicationDate desc;";
+                    string query = "select * from LocalDrivingLicenseApplications_View order by ApplicationDate desc;";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
