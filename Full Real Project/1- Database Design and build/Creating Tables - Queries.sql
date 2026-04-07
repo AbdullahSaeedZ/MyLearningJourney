@@ -123,16 +123,16 @@ constraint FK_TestAppointmentsUserID foreign key(CreatedByUserID) references Use
 
 
 
-create table ConductedTests
+create table Tests
 (
-ConductedTestID int not null identity(1,1),
-constraint PK_ConductedTestID primary key(ConductedTestID),
+TestID int not null identity(1,1),
+constraint PK_ConductedTestID primary key(TestID),
 TestAppointmentID int not null,
-constraint FK_ConductedTests_TestAppointmentID foreign key(TestAppointmentID) references TestAppointments(TestAppointmentID),
+constraint FK_Tests_TestAppointmentID foreign key(TestAppointmentID) references TestAppointments(TestAppointmentID),
 TestResult bit not null,
 Notes nvarchar(100),
 CreatedByUserID int not null,
-constraint FK_ConductedTests_UserID foreign key(CreatedByUserID) references Users(UserID)
+constraint FK_Tests_UserID foreign key(CreatedByUserID) references Users(UserID)
 );
 
 

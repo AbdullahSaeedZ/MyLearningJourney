@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using DataAccessLayer;
 
 namespace BusinessLayer
@@ -102,7 +103,10 @@ namespace BusinessLayer
         //        return false;
         //}
 
-
+        public static DataTable GetAllLocalDrivingLicenseApplications()
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.GetAllLocalDrivingLicenseApplications();
+        }
 
         public new bool Save() // hiding base Save method
         {

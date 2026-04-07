@@ -81,6 +81,12 @@
     <Compile Include="Applications\ManageApplicationTypes\Forms\frmEditApplicationType.Designer.cs">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\ManageLocalApplications\ctrlManageLocalApplications.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\ManageLocalApplications\ctrlManageLocalApplications.Designer.cs">
+      <DependentUpon>ctrlManageLocalApplications.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\ManageTestTypes\Controls\ctrlManageTestTypes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\ManageApplicationTypes\Forms\frmEditApplicationType.resx">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\ManageLocalApplications\ctrlManageLocalApplications.resx">
+      <DependentUpon>ctrlManageLocalApplications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\ManageTestTypes\Controls\ctrlManageTestTypes.resx">
       <DependentUpon>ctrlManageTestTypes.cs</DependentUpon>
@@ -531,8 +540,9 @@
     <None Include="assets\ManageTestTypesNoFillGrey512.png" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Applications\DetainLicenses\" />
     <Folder Include="Applications\DrivingLicenses\Controls\" />
-    <Folder Include="Applications\ManageApplications\" />
+    <Folder Include="Applications\ManageInternationalApplications\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\AddFillBlack512.png" />

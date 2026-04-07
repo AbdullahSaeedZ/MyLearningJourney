@@ -7,7 +7,9 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
 {
     public partial class frmAddEditLocalLicenseApplication : Form
     {
-        public event Action OnUpdateDone;
+        // public event Action<int> OnUpdateDoneForPersonCard; 
+        // public event Action<int> OnNewPersonAdded; 
+        public event Action OnUpdateDoneForDGV;
 
         private int _localApplicationID = -1;
         clsLocalDrivingLicenseApplicationsBusiness _localApplication;
@@ -39,11 +41,12 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             }
             else
             {
-               // _localApplication = clsLocalDrivingLicenseApplicationsBusiness.(_localApplicationID);
+                _localApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID(_localApplicationID);
                 if (_localApplication == null)
                 {
-                    MessageBox.Show("Application Does Not Exist, Form will close", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Selected Application Does Not Exist, Form will close", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
+                    return;
                 }
                 _FillExistentApplicationInfoInForm();
             }
@@ -142,7 +145,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
                     lblApplicationID.Text = _localApplication.LocalDrivingLicenseApplicationID.ToString();
                     lblTitle.Text = $"Edit Local Driving License Application with ID = {_localApplication.LocalDrivingLicenseApplicationID}";
 
-                    OnUpdateDone?.Invoke(); // to refresh dgv if Application info is updated
+                    OnUpdateDoneForDGV?.Invoke(); // to refresh dgv if Application info is updated
                 }
                 else
                     MessageBox.Show("Data was not saved successfully", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

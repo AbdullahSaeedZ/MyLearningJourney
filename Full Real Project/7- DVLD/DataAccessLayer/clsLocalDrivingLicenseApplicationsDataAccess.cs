@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace DataAccessLayer
 {
@@ -137,6 +137,35 @@ namespace DataAccessLayer
                 throw;
             }
             return (rowsAffected > 0);
+        }
+
+        public static DataTable GetAllLocalDrivingLicenseApplications()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = "select * from LocalDrivingLicenseApplications_view order by ApplicationDate desc;";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+                        if (reader.HasRows)
+                            dt.Load(reader);
+                        else
+                            dt = null;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return dt;
         }
 
         public static int GetActiveOrCompletedApplicationID(int ApplicantPersonID, int LicenseClassID)

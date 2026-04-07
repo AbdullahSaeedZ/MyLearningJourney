@@ -293,7 +293,7 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    string query = "select * from viewListUsers;";
+                    string query = "select * from ListUsers_View;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         connection.Open();

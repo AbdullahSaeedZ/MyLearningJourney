@@ -1,6 +1,7 @@
 ﻿using Guna.UI2.WinForms;
 using PresentationLayer.Applications.DrivingLicenses;
 using PresentationLayer.Applications.ManageApplicationTypes.Controls;
+using PresentationLayer.Applications.ManageLocalApplications;
 using PresentationLayer.Applications.ManageTestTypes.Controls;
 using PresentationLayer.MainForm;
 using System;
@@ -101,7 +102,11 @@ namespace PresentationLayer.Applications
 
         private void btnManageLocalApplications_Click(object sender, EventArgs e)
         {
+            ctrlManageLocalApplications ManageLocalApplications = new ctrlManageLocalApplications();
+            ManageLocalApplications.delRemoveFromMainFormContainer_ManageLocalApplications += delRemoveFromMainFormContainer;
 
+            delAddToMainFormContainer?.Invoke(ManageLocalApplications);
+            ManageLocalApplications.BringToFront();
         }
 
         private void btnManageInternationalApplications_Click(object sender, EventArgs e)
