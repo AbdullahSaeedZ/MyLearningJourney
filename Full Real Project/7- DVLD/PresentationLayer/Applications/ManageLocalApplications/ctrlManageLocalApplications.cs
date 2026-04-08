@@ -1,15 +1,8 @@
 ﻿using BusinessLayer;
 using PresentationLayer.Applications.DrivingLicenses.Forms;
 using PresentationLayer.Global_Classes;
-using PresentationLayer.PeopleFormsAndControls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Applications.ManageLocalApplications
@@ -131,6 +124,20 @@ namespace PresentationLayer.Applications.ManageLocalApplications
             delRemoveFromMainFormContainer_ManageLocalApplications?.Invoke(this);
         }
 
-     
+
+        //strip menu options
+        private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Cancel this application ?", "Cancel Application", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                if (clsLocalDrivingLicenseApplicationsBusiness.SetStatusAsCancelled((int)dgvApplications.SelectedCells[0].Value))
+                {
+                    MessageBox.Show("Application is cancelled successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshDataGridView();
+                }
+                else
+                    MessageBox.Show("Could not cancel the application", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

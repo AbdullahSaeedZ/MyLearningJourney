@@ -168,6 +168,9 @@ namespace DataAccessLayer
             return dt;
         }
 
+
+
+
         public static int GetActiveOrCompletedApplicationID(int ApplicantPersonID, int LicenseClassID)
         {
             int activeOrCompletedApplicationID = -1;

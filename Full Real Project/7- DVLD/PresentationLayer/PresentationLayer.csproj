@@ -574,5 +574,8 @@
   <ItemGroup>
     <None Include="assets\retakeTestNoFillGrey512.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\cancellApplicationNoFill.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -32,7 +32,7 @@ namespace DataAccessLayer
                             applicationTypeID = (int)reader["ApplicationTypeID"];
                             applicationStatus = (byte)reader["ApplicationStatus"];
                             lastStatusDate = (DateTime)reader["LastStatusDate"];
-                            paidFees = (float)reader["PaidFees"];
+                            paidFees = Convert.ToSingle(reader["PaidFees"]);
                             createdByUserID = (int)reader["CreatedByUserID"];
                             isFound = true;
                         }
@@ -179,6 +179,38 @@ namespace DataAccessLayer
             }
             return dt;
         }
+
+
+        public static bool SetStatusAsCancelled(int ApplicationID, DateTime UpdateDate)
+        {
+            int rowsAffected = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = @"update Applications 
+                                     set ApplicationStatus = 2, LastStatusDate = @UpdateDate
+                                     where ApplicationID = @ID;";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ID", ApplicationID);
+                        command.Parameters.AddWithValue("@UpdateDate", UpdateDate);
+
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return (rowsAffected > 0);
+        }
+
 
     }
 }

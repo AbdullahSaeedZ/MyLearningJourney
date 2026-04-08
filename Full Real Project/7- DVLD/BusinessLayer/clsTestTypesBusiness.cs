@@ -8,21 +8,7 @@ namespace BusinessLayer
     {
         enum enMode { eAddMode = 0, eUpdateMode = 1 }; // no need for adding functionality for now, but might add later
         enMode _mode;
-
-        private int _testTypeID = -1;
-        public int TestTypeID
-        {
-            get
-            {
-                return _testTypeID;
-            }
-
-            set
-            {
-                if (_testTypeID == -1)
-                    _testTypeID = value;
-            }
-        }
+        public int TestTypeID { get; private set; }
         public string TestTypeTitle { get; set; }
         public string TestTypeDescription { get; set; }
         public decimal TestTypeFees { get; set; }

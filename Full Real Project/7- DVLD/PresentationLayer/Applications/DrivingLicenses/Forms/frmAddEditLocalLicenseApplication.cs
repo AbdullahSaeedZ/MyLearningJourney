@@ -105,6 +105,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             btnNext.Visible = !btnNext.Visible;
         }
 
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             int _selectedClassIDInComboBox = (clsLicenseClassesBusiness.Find(cbLocalLicenseClasses.Text)).LicenseClassID;
@@ -122,8 +123,6 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
                 _localApplication.ApplicantPersonID = ctrlPersonCardWithSearch1.PersonID;
                 _localApplication.LicenseClassID = _selectedClassIDInComboBox; 
                 _localApplication.ApplicationStatus = clsApplicationsBusiness.enApplicationStatus.New;
-                _localApplication.ApplicationDate = DateTime.Now;
-                _localApplication.LastStatusDate = DateTime.Now;
                 _localApplication.PaidFees = _localLicenseApplicationTypeInfo.ApplicationTypeFees;
                 _localApplication.ApplicationTypeID = _localLicenseApplicationTypeInfo.ApplicationTypeID;
                 _localApplication.CreatedByUserID = clsBusinessSettings.CurrentUser.UserID;
@@ -132,7 +131,6 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             if (_mode == enMode.eUpdateMode)
             {
                 _localApplication.LicenseClassID = _selectedClassIDInComboBox;
-                _localApplication.LastStatusDate = DateTime.Now;
             }
 
             try

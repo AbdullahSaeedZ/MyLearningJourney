@@ -10,20 +10,7 @@ namespace BusinessLayer
         public enum enMode { eAddMode = 0, eUpdateMode = 1 };
         private enMode _mode = enMode.eAddMode;
 
-        private int _licenseClassID;
-        public int LicenseClassID
-        {
-            get
-            {
-                return _licenseClassID;
-            }
-            set
-            {
-                if (_licenseClassID == -1) // to prevent any modification and allow new assignment
-                    _licenseClassID = value;
-            }
-        }
-
+        public int LicenseClassID { get; private set; }
         public string ClassName { get; set; }
         public string ClassDescription { get; set; }
         public byte MinimumAllowedAge { get; set; } = 18;
@@ -32,7 +19,7 @@ namespace BusinessLayer
 
         clsLicenseClassesBusiness(int LicenseClassID, string ClassName, string ClassDescription, byte MinimumAllowedAge, byte DefaultValidityLength, float ClassFees)
         {
-            this._licenseClassID = LicenseClassID;
+            this.LicenseClassID = LicenseClassID;
             this.ClassName = ClassName;
             this.ClassDescription = ClassDescription;
             this.MinimumAllowedAge = MinimumAllowedAge;

@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.cbStatus = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnNewApplication = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,7 +44,8 @@
             this.lblNumberOfRecords = new System.Windows.Forms.Label();
             this.cbSearchBy = new Guna.UI2.WinForms.Guna2ComboBox();
             this.dgvApplications = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cancelApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LocalDrivingLicenseApplicationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClassName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NationalNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,10 +53,24 @@
             this.ApplicationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PassedTests = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbStatus = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.ScheduleTestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scheduleVisionTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scheduleWrittenTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scheduleStreetTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showApplicationDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.issueDrivingLicenseFirstTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showLicenseDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showPersonLicenseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplications)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -69,6 +87,32 @@
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
             this.guna2Panel1.Size = new System.Drawing.Size(1441, 894);
             this.guna2Panel1.TabIndex = 1;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BorderColor = System.Drawing.Color.DimGray;
+            this.btnBack.BorderRadius = 10;
+            this.btnBack.BorderThickness = 1;
+            this.btnBack.CheckedState.Parent = this.btnBack;
+            this.btnBack.CustomImages.Parent = this.btnBack;
+            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnBack.FillColor = System.Drawing.Color.Transparent;
+            this.btnBack.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnBack.ForeColor = System.Drawing.Color.DimGray;
+            this.btnBack.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.btnBack.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnBack.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnBack.HoverState.Parent = this.btnBack;
+            this.btnBack.Image = global::PresentationLayer.Properties.Resources.BackShortArrow;
+            this.btnBack.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnBack.Location = new System.Drawing.Point(18, 14);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.ShadowDecoration.Parent = this.btnBack;
+            this.btnBack.Size = new System.Drawing.Size(108, 37);
+            this.btnBack.TabIndex = 9;
+            this.btnBack.Text = "Back";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // guna2Panel2
             // 
@@ -89,6 +133,35 @@
             this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
             this.guna2Panel2.Size = new System.Drawing.Size(1405, 57);
             this.guna2Panel2.TabIndex = 8;
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.BackColor = System.Drawing.Color.Transparent;
+            this.cbStatus.BorderColor = System.Drawing.Color.Silver;
+            this.cbStatus.BorderRadius = 10;
+            this.cbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStatus.FocusedColor = System.Drawing.Color.Empty;
+            this.cbStatus.FocusedState.Parent = this.cbStatus;
+            this.cbStatus.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbStatus.ForeColor = System.Drawing.Color.Black;
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.HoverState.Parent = this.cbStatus;
+            this.cbStatus.ItemHeight = 30;
+            this.cbStatus.Items.AddRange(new object[] {
+            "All",
+            "New",
+            "Completed",
+            "Cancelled"});
+            this.cbStatus.ItemsAppearance.Parent = this.cbStatus;
+            this.cbStatus.Location = new System.Drawing.Point(704, 9);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.ShadowDecoration.Parent = this.cbStatus;
+            this.cbStatus.Size = new System.Drawing.Size(128, 36);
+            this.cbStatus.StartIndex = 0;
+            this.cbStatus.TabIndex = 10;
+            this.cbStatus.Visible = false;
+            this.cbStatus.SelectedIndexChanged += new System.EventHandler(this.cbStatus_SelectedIndexChanged);
             // 
             // btnNewApplication
             // 
@@ -246,6 +319,7 @@
             this.ApplicationDate,
             this.PassedTests,
             this.Status});
+            this.dgvApplications.ContextMenuStrip = this.contextMenuStrip1;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -297,31 +371,32 @@
             this.dgvApplications.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
             this.dgvApplications.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             // 
-            // btnBack
+            // contextMenuStrip1
             // 
-            this.btnBack.BackColor = System.Drawing.Color.Transparent;
-            this.btnBack.BorderColor = System.Drawing.Color.DimGray;
-            this.btnBack.BorderRadius = 10;
-            this.btnBack.BorderThickness = 1;
-            this.btnBack.CheckedState.Parent = this.btnBack;
-            this.btnBack.CustomImages.Parent = this.btnBack;
-            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnBack.FillColor = System.Drawing.Color.Transparent;
-            this.btnBack.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnBack.ForeColor = System.Drawing.Color.DimGray;
-            this.btnBack.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.btnBack.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnBack.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnBack.HoverState.Parent = this.btnBack;
-            this.btnBack.Image = global::PresentationLayer.Properties.Resources.BackShortArrow;
-            this.btnBack.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnBack.Location = new System.Drawing.Point(18, 14);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.ShadowDecoration.Parent = this.btnBack;
-            this.btnBack.Size = new System.Drawing.Size(108, 37);
-            this.btnBack.TabIndex = 9;
-            this.btnBack.Text = "Back";
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showApplicationDetailsToolStripMenuItem,
+            this.toolStripSeparator4,
+            this.editApplicationToolStripMenuItem,
+            this.deleteApplicationToolStripMenuItem,
+            this.cancelApplicationToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.ScheduleTestsToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.issueDrivingLicenseFirstTimeToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.showLicenseDetailsToolStripMenuItem,
+            this.showPersonLicenseHistoryToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(273, 292);
+            // 
+            // cancelApplicationToolStripMenuItem
+            // 
+            this.cancelApplicationToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.cancellApplicationNoFill;
+            this.cancelApplicationToolStripMenuItem.Name = "cancelApplicationToolStripMenuItem";
+            this.cancelApplicationToolStripMenuItem.Size = new System.Drawing.Size(272, 30);
+            this.cancelApplicationToolStripMenuItem.Text = "Cancel Application";
+            this.cancelApplicationToolStripMenuItem.Click += new System.EventHandler(this.cancelApplicationToolStripMenuItem_Click);
             // 
             // LocalDrivingLicenseApplicationID
             // 
@@ -336,8 +411,8 @@
             // ClassName
             // 
             this.ClassName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ClassName.DataPropertyName = "ClassName";
-            this.ClassName.HeaderText = "Class Name";
+            this.ClassName.DataPropertyName = "DrivingClass";
+            this.ClassName.HeaderText = "Driving Class";
             this.ClassName.MinimumWidth = 6;
             this.ClassName.Name = "ClassName";
             this.ClassName.ReadOnly = true;
@@ -381,6 +456,7 @@
             this.PassedTests.MinimumWidth = 6;
             this.PassedTests.Name = "PassedTests";
             this.PassedTests.ReadOnly = true;
+            this.PassedTests.Width = 110;
             // 
             // Status
             // 
@@ -392,34 +468,93 @@
             this.Status.ReadOnly = true;
             this.Status.Width = 115;
             // 
-            // cbStatus
+            // toolStripSeparator1
             // 
-            this.cbStatus.BackColor = System.Drawing.Color.Transparent;
-            this.cbStatus.BorderColor = System.Drawing.Color.Silver;
-            this.cbStatus.BorderRadius = 10;
-            this.cbStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbStatus.FocusedColor = System.Drawing.Color.Empty;
-            this.cbStatus.FocusedState.Parent = this.cbStatus;
-            this.cbStatus.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbStatus.ForeColor = System.Drawing.Color.Black;
-            this.cbStatus.FormattingEnabled = true;
-            this.cbStatus.HoverState.Parent = this.cbStatus;
-            this.cbStatus.ItemHeight = 30;
-            this.cbStatus.Items.AddRange(new object[] {
-            "All",
-            "New",
-            "Completed",
-            "Cancelled"});
-            this.cbStatus.ItemsAppearance.Parent = this.cbStatus;
-            this.cbStatus.Location = new System.Drawing.Point(704, 9);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.ShadowDecoration.Parent = this.cbStatus;
-            this.cbStatus.Size = new System.Drawing.Size(128, 36);
-            this.cbStatus.StartIndex = 0;
-            this.cbStatus.TabIndex = 10;
-            this.cbStatus.Visible = false;
-            this.cbStatus.SelectedIndexChanged += new System.EventHandler(this.cbStatus_SelectedIndexChanged);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(269, 6);
+            // 
+            // ScheduleTestsToolStripMenuItem
+            // 
+            this.ScheduleTestsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.scheduleVisionTestToolStripMenuItem,
+            this.scheduleWrittenTestToolStripMenuItem,
+            this.scheduleStreetTToolStripMenuItem});
+            this.ScheduleTestsToolStripMenuItem.Name = "ScheduleTestsToolStripMenuItem";
+            this.ScheduleTestsToolStripMenuItem.Size = new System.Drawing.Size(272, 30);
+            this.ScheduleTestsToolStripMenuItem.Text = "Schedule Tests";
+            // 
+            // scheduleVisionTestToolStripMenuItem
+            // 
+            this.scheduleVisionTestToolStripMenuItem.Name = "scheduleVisionTestToolStripMenuItem";
+            this.scheduleVisionTestToolStripMenuItem.Size = new System.Drawing.Size(207, 24);
+            this.scheduleVisionTestToolStripMenuItem.Text = "Schedule Vision Test";
+            // 
+            // scheduleWrittenTestToolStripMenuItem
+            // 
+            this.scheduleWrittenTestToolStripMenuItem.Enabled = false;
+            this.scheduleWrittenTestToolStripMenuItem.Name = "scheduleWrittenTestToolStripMenuItem";
+            this.scheduleWrittenTestToolStripMenuItem.Size = new System.Drawing.Size(207, 24);
+            this.scheduleWrittenTestToolStripMenuItem.Text = "Schedule Written Test";
+            // 
+            // scheduleStreetTToolStripMenuItem
+            // 
+            this.scheduleStreetTToolStripMenuItem.Enabled = false;
+            this.scheduleStreetTToolStripMenuItem.Name = "scheduleStreetTToolStripMenuItem";
+            this.scheduleStreetTToolStripMenuItem.Size = new System.Drawing.Size(207, 24);
+            this.scheduleStreetTToolStripMenuItem.Text = "Schedule Street Test";
+            // 
+            // showApplicationDetailsToolStripMenuItem
+            // 
+            this.showApplicationDetailsToolStripMenuItem.Name = "showApplicationDetailsToolStripMenuItem";
+            this.showApplicationDetailsToolStripMenuItem.Size = new System.Drawing.Size(272, 30);
+            this.showApplicationDetailsToolStripMenuItem.Text = "Show Application Details";
+            // 
+            // editApplicationToolStripMenuItem
+            // 
+            this.editApplicationToolStripMenuItem.Name = "editApplicationToolStripMenuItem";
+            this.editApplicationToolStripMenuItem.Size = new System.Drawing.Size(272, 30);
+            this.editApplicationToolStripMenuItem.Text = "Edit Application";
+            // 
+            // deleteApplicationToolStripMenuItem
+            // 
+            this.deleteApplicationToolStripMenuItem.Name = "deleteApplicationToolStripMenuItem";
+            this.deleteApplicationToolStripMenuItem.Size = new System.Drawing.Size(272, 30);
+            this.deleteApplicationToolStripMenuItem.Text = "Delete Application";
+            // 
+            // issueDrivingLicenseFirstTimeToolStripMenuItem
+            // 
+            this.issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = false;
+            this.issueDrivingLicenseFirstTimeToolStripMenuItem.Name = "issueDrivingLicenseFirstTimeToolStripMenuItem";
+            this.issueDrivingLicenseFirstTimeToolStripMenuItem.Size = new System.Drawing.Size(272, 30);
+            this.issueDrivingLicenseFirstTimeToolStripMenuItem.Text = "Issue Driving License (First Time)";
+            // 
+            // showLicenseDetailsToolStripMenuItem
+            // 
+            this.showLicenseDetailsToolStripMenuItem.Enabled = false;
+            this.showLicenseDetailsToolStripMenuItem.Name = "showLicenseDetailsToolStripMenuItem";
+            this.showLicenseDetailsToolStripMenuItem.Size = new System.Drawing.Size(272, 30);
+            this.showLicenseDetailsToolStripMenuItem.Text = "Show License Details";
+            // 
+            // showPersonLicenseHistoryToolStripMenuItem
+            // 
+            this.showPersonLicenseHistoryToolStripMenuItem.Name = "showPersonLicenseHistoryToolStripMenuItem";
+            this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(272, 30);
+            this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(269, 6);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(269, 6);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(269, 6);
             // 
             // ctrlManageLocalApplications
             // 
@@ -434,6 +569,7 @@
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplications)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -450,6 +586,9 @@
         private Guna.UI2.WinForms.Guna2ComboBox cbSearchBy;
         private Guna.UI2.WinForms.Guna2DataGridView dgvApplications;
         private Guna.UI2.WinForms.Guna2Button btnBack;
+        private Guna.UI2.WinForms.Guna2ComboBox cbStatus;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem cancelApplicationToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn LocalDrivingLicenseApplicationID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClassName;
         private System.Windows.Forms.DataGridViewTextBoxColumn NationalNo;
@@ -457,6 +596,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ApplicationDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn PassedTests;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private Guna.UI2.WinForms.Guna2ComboBox cbStatus;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem ScheduleTestsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scheduleVisionTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scheduleWrittenTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scheduleStreetTToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showApplicationDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editApplicationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteApplicationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem issueDrivingLicenseFirstTimeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showLicenseDetailsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showPersonLicenseHistoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     }
 }

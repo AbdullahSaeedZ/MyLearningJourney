@@ -9,39 +9,28 @@ namespace BusinessLayer
         // hiding base _mode cuz when adding new application, the base mode will switch to update then sub Save method will go directly to update
         private new enMode _mode;
 
-        private int _localDrivingLicenseApplicationID;
-        public int LocalDrivingLicenseApplicationID
-        {
-            get
-            {
-                return _localDrivingLicenseApplicationID;
-            }
-            set
-            {
-                if (_localDrivingLicenseApplicationID == -1) // to prevent any modification
-                    _localDrivingLicenseApplicationID = value;
-            }
-        }
-        
+        public int LocalDrivingLicenseApplicationID { get; private set; }
+    
+
         public int LicenseClassID { get; set; }
-   
+
 
         public clsLicenseClassesBusiness LicenseClassesInfo;
 
         public clsLocalDrivingLicenseApplicationsBusiness()
         {
-            this._localDrivingLicenseApplicationID = -1;
+            this.LocalDrivingLicenseApplicationID = -1;
             this.LicenseClassID = -1;
         }
 
 
         clsLocalDrivingLicenseApplicationsBusiness(int LocalApplicationID, int LicenseClassID, int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate,
-            int ApplicationTypeID, enApplicationStatus ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID) 
-            : base (ApplicationID, ApplicantPersonID, ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID)
+            int ApplicationTypeID, enApplicationStatus ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
+            : base(ApplicationID, ApplicantPersonID, ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID)
         {
-            this._localDrivingLicenseApplicationID = LocalApplicationID;
+            this.LocalDrivingLicenseApplicationID = LocalApplicationID;
             this.LicenseClassID = LicenseClassID;
-            this.LicenseClassesInfo = clsLicenseClassesBusiness.Find(LicenseClassID); 
+            this.LicenseClassesInfo = clsLicenseClassesBusiness.Find(LicenseClassID);
         }
 
         public static clsLocalDrivingLicenseApplicationsBusiness FindLocalLicenseApplicationByID(int LocalApplicationID)
@@ -80,14 +69,14 @@ namespace BusinessLayer
 
         private bool _AddNewLocalDrivingLicenseApplication()
         {
-            this.LocalDrivingLicenseApplicationID = clsLocalDrivingLicenseApplicationsDataAccess.AddLocalLicenseApplication( this.LicenseClassID,  this.ApplicationID);
+            this.LocalDrivingLicenseApplicationID = clsLocalDrivingLicenseApplicationsDataAccess.AddLocalLicenseApplication(this.LicenseClassID, this.ApplicationID);
 
             return (this.LocalDrivingLicenseApplicationID != -1);
         }
 
         private bool _UpdateNewLocalDrivingLicenseApplication()
         {
-             return clsLocalDrivingLicenseApplicationsDataAccess.UpdateLocalLicenseApplication( this.LocalDrivingLicenseApplicationID, this.LicenseClassID);
+            return clsLocalDrivingLicenseApplicationsDataAccess.UpdateLocalLicenseApplication(this.LocalDrivingLicenseApplicationID, this.LicenseClassID);
         }
 
         //public static bool DeleteLocalDrivingLicenseApplication(int LocalLicenseApplicationID)
@@ -138,5 +127,16 @@ namespace BusinessLayer
             int activeOrCompletedApplicationID = clsLocalDrivingLicenseApplicationsDataAccess.GetActiveOrCompletedApplicationID(ApplicantPersonID, LicenseClassID);
             return activeOrCompletedApplicationID;
         }
+
+        public new static bool SetStatusAsCancelled(int LocalApplicationID)
+        {
+            clsLocalDrivingLicenseApplicationsBusiness localLicenseApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID(LocalApplicationID);
+
+            if (localLicenseApplication == null)
+                return false;
+
+            return clsApplicationsBusiness.SetStatusAsCancelled(localLicenseApplication.ApplicationID);
+        }
+
     }
 }

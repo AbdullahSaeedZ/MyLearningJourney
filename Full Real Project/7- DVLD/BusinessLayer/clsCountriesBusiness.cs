@@ -7,7 +7,7 @@ namespace BusinessLayer
     public class clsCountriesBusiness
     {
 
-        public int CountryID { get; set; }
+        public int CountryID { get; private set; }
         public string CountryName { get; set; }
 
         public clsCountriesBusiness()

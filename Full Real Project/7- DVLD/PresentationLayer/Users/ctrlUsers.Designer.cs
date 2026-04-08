@@ -383,7 +383,7 @@
             // 
             // contextMenuStrip1
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(18, 18);
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showDetailsToolStripMenuItem,
             this.toolStripSeparator1,
@@ -392,13 +392,13 @@
             this.deleteToolStripMenuItem,
             this.changePasswordToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(183, 130);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(201, 184);
             // 
             // showDetailsToolStripMenuItem
             // 
             this.showDetailsToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.cardNoFill;
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
             this.showDetailsToolStripMenuItem.Text = "Show Details";
             this.showDetailsToolStripMenuItem.ToolTipText = "Show User Details";
             this.showDetailsToolStripMenuItem.Click += new System.EventHandler(this.showDetailsToolStripMenuItem_Click);
@@ -406,13 +406,13 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(179, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(197, 6);
             // 
             // addNewUserToolStripMenuItem
             // 
             this.addNewUserToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.addNoFill;
             this.addNewUserToolStripMenuItem.Name = "addNewUserToolStripMenuItem";
-            this.addNewUserToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
+            this.addNewUserToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
             this.addNewUserToolStripMenuItem.Text = "Add New User";
             this.addNewUserToolStripMenuItem.ToolTipText = "Add New User";
             this.addNewUserToolStripMenuItem.Click += new System.EventHandler(this.btnAddUser_Click);
@@ -421,7 +421,7 @@
             // 
             this.editToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.editNoFill;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.ToolTipText = "Edit User Info";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
@@ -430,7 +430,7 @@
             // 
             this.deleteToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.removeNoFill;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.ToolTipText = "Delete Selected User";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
@@ -439,7 +439,7 @@
             // 
             this.changePasswordToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.passwordNoFill;
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
-            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
+            this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
             this.changePasswordToolStripMenuItem.Text = "Change Password";
             this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 

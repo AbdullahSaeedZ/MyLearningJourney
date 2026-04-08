@@ -13,21 +13,7 @@ namespace BusinessLayer
         protected enMode _mode; // to use inside the derived class only
         public enApplicationStatus ApplicationStatus { set; get; } // will come from DB as numbers
 
-
-        private int _applicationID;
-        public int ApplicationID 
-        {
-            get
-            {
-                return _applicationID;
-            }
-            set
-            {
-                if (_applicationID == -1) // to prevent any modification and allow only new application creation
-                    _applicationID = value;
-            }
-        }
-
+        public int ApplicationID { get; private set; }
 
         private int _applicantPersonID;
         public int ApplicantPersonID
@@ -38,13 +24,10 @@ namespace BusinessLayer
             }
             set
             {
-                if (_applicantPersonID == -1) // to prevent any modification and allow only new application person ID assignment
+                if (_applicantPersonID == -1) // to prevent any modification and allow only new assignment from UI
                     _applicantPersonID = value;
             }
         }
-
-        public clsPeopleBusiness ApplicantPersonInfo;
-
 
         private int _applicationTypeID;
         public int ApplicationTypeID
@@ -55,13 +38,10 @@ namespace BusinessLayer
             }
             set
             {
-                if (_applicationTypeID == -1) // to prevent any modification and allow only new application type assignment
-                    _applicationTypeID = value;
+                if (_applicationTypeID == -1) // to prevent any modification and allow only new assignment from UI
+                    _applicantPersonID = value;
             }
         }
-        public clsApplicationTypesBusiness ApplicationTypeInfo;
-
-       
 
         private int _createdByUserID;
         public int CreatedByUserID
@@ -76,20 +56,22 @@ namespace BusinessLayer
                     _createdByUserID = value;
             }
         }
-        public clsUserBusiness CreatedByUserInfo;
-
-        public DateTime LastStatusDate { get; set; }
+        public DateTime LastStatusDate { get; private set; }
         public float PaidFees { get; set; }
-        public DateTime ApplicationDate { get; set; }
+        public DateTime ApplicationDate { get; private set; }
+
+        public clsPeopleBusiness ApplicantPersonInfo;
+        public clsApplicationTypesBusiness ApplicationTypeInfo;
+        public clsUserBusiness CreatedByUserInfo;
 
 
         public clsApplicationsBusiness()
         {
-            this._applicationID = -1;
+            this.ApplicationID = -1;
             this._applicantPersonID = -1;
             this._applicationTypeID = -1;
-            this.ApplicationDate = DateTime.Now;
-            this.LastStatusDate = DateTime.Now;
+            this.ApplicationDate = DateTime.MinValue;
+            this.LastStatusDate = DateTime.MinValue;
             this.PaidFees = -1;
             this._createdByUserID = -1;
             this.ApplicationStatus = enApplicationStatus.New;
@@ -98,12 +80,12 @@ namespace BusinessLayer
 
         public clsApplicationsBusiness(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID, enApplicationStatus ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
         {
-            this._applicationID = ApplicationID;
-            this._applicantPersonID = ApplicantPersonID;
-            this.ApplicantPersonInfo = clsPeopleBusiness.FindPerson(_applicantPersonID);
+            this.ApplicationID = ApplicationID;
+            this.ApplicantPersonID = ApplicantPersonID;
+            this.ApplicantPersonInfo = clsPeopleBusiness.FindPerson(ApplicantPersonID);
             this.ApplicationDate = ApplicationDate;
-            this._applicationTypeID = ApplicationTypeID;
-            this.ApplicationTypeInfo = clsApplicationTypesBusiness.FindApplicationType(_applicationTypeID);
+            this.ApplicationTypeID = ApplicationTypeID;
+            this.ApplicationTypeInfo = clsApplicationTypesBusiness.FindApplicationType(ApplicationTypeID);
             this.ApplicationStatus = ApplicationStatus;
             this.LastStatusDate = LastStatusDate;
             this.PaidFees = PaidFees;
@@ -126,15 +108,16 @@ namespace BusinessLayer
                 return null;
         }
 
-        private bool AddNewApplication()
+        private bool _AddNewApplication()
         {
-            this.ApplicationID = clsApplicationsDataAccess.AddNewApplication(this._applicantPersonID, this.ApplicationDate, this.ApplicationTypeID, (byte)this.ApplicationStatus, this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
+            // date of creating application is taken from Business layer (server) not the UI
+            this.ApplicationID = clsApplicationsDataAccess.AddNewApplication(this.ApplicantPersonID, DateTime.Now, this.ApplicationTypeID, (byte)this.ApplicationStatus, DateTime.Now, this.PaidFees, this.CreatedByUserID);
             return (this.ApplicationID != -1);
         }
 
-        private bool UpdateApplication()
+        private bool _UpdateApplication()
         {
-            return clsApplicationsDataAccess.UpdateApplication(this.ApplicationID ,this._applicantPersonID, this.ApplicationDate, this.ApplicationTypeID,
+            return clsApplicationsDataAccess.UpdateApplication(this.ApplicationID ,this.ApplicantPersonID, this.ApplicationDate, this.ApplicationTypeID,
                                                                 (byte)this.ApplicationStatus, this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
         }
 
@@ -153,15 +136,12 @@ namespace BusinessLayer
         }
 
 
-
-
-
         public bool Save()
         {
             switch (_mode)
             {
                 case enMode.eAddMode:
-                    if (AddNewApplication())
+                    if (_AddNewApplication())
                     {
                         _mode = enMode.eUpdateMode;
                         return true;
@@ -170,10 +150,17 @@ namespace BusinessLayer
                         return false;
 
                 case enMode.eUpdateMode:
-                    return UpdateApplication();
+                    return _UpdateApplication();
 
                 default: return false;
             }
+        }
+
+
+
+        public static bool SetStatusAsCancelled(int ApplicationID)
+        {
+            return clsApplicationsDataAccess.SetStatusAsCancelled(ApplicationID, DateTime.Now);
         }
 
     }

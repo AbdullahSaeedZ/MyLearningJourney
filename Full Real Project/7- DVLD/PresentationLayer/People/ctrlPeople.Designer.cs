@@ -430,7 +430,7 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.BackColor = System.Drawing.Color.White;
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(18, 18);
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.showDetailsToolStripMenuItem,
             this.toolStripSeparator2,
@@ -440,14 +440,14 @@
             this.contextMenuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(177, 106);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(201, 154);
             // 
             // showDetailsToolStripMenuItem
             // 
             this.showDetailsToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.showDetailsToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.cardNoFill;
             this.showDetailsToolStripMenuItem.Name = "showDetailsToolStripMenuItem";
-            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.showDetailsToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
             this.showDetailsToolStripMenuItem.Tag = "Show Details";
             this.showDetailsToolStripMenuItem.Text = "Show Details";
             this.showDetailsToolStripMenuItem.ToolTipText = "Show Person Details";
@@ -456,13 +456,13 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(173, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(197, 6);
             // 
             // addNewPersonToolStripMenuItem
             // 
             this.addNewPersonToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.addNoFill;
             this.addNewPersonToolStripMenuItem.Name = "addNewPersonToolStripMenuItem";
-            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.addNewPersonToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
             this.addNewPersonToolStripMenuItem.Tag = "Add New Person";
             this.addNewPersonToolStripMenuItem.Text = "Add New Person";
             this.addNewPersonToolStripMenuItem.ToolTipText = "Add a New Person";
@@ -472,7 +472,7 @@
             // 
             this.editToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.editNoFill;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
             this.editToolStripMenuItem.Tag = "Edit";
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.ToolTipText = "Edit Selected Person Details";
@@ -482,7 +482,7 @@
             // 
             this.deleteToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.removeNoFill;
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(176, 24);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(200, 30);
             this.deleteToolStripMenuItem.Tag = "Delete";
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.ToolTipText = "Delete Selected Person";

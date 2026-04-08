@@ -9,21 +9,22 @@ namespace BusinessLayer
         enum enMode { eAddMode = 0, eUpdateMode = 1 };
         enMode _mode;
 
-        public int UserID { get; private set; } 
+        public int UserID { get; private set; }
 
         private int _personID;
-        public int PersonID 
-        { 
+        public int PersonID
+        {
             get
             {
                 return _personID;
             }
             set
             {
-                if (_personID == -1) // to prevent any modification and allow only assignment once user is created
+                if (_personID == -1) // to prevent any modification and allow only new assignment from ui
                     _personID = value;
             }
         }
+
         public string Username { get; set; }
         public string Password { get; set; }
         public bool isActive { get; set; }
@@ -34,7 +35,7 @@ namespace BusinessLayer
         public clsUserBusiness()
         {
             this.UserID = -1;
-            this._personID = -1;
+            this.PersonID = -1;
             this.Username = "";
             this.Password = "";
             this.isActive = false;
@@ -64,7 +65,7 @@ namespace BusinessLayer
             if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eAddUser))
                 throw new UnauthorizedAccessException("You do not have permission to Add users");
 
-            this.UserID = clsUserDataAccess.AddNewUser(this._personID, this.Username, this.Password, this.isActive, this.Permissions);
+            this.UserID = clsUserDataAccess.AddNewUser(this.PersonID, this.Username, this.Password, this.isActive, this.Permissions);
 
             return (this.UserID != -1);
         }

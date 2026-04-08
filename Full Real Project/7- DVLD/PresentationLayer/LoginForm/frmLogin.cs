@@ -54,6 +54,13 @@ namespace PresentationLayer.LoginForm
                 return;
             }
 
+            if (clsBusinessSettings.CurrentUser.Person == null)
+            {
+                MessageBox.Show("could not fetch person Info for this user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                tbUsername.Focus();
+                return;
+            }
+
             if (chbRememberMe.Checked)
                 clsBusinessSettings.SaveLoginInfoToFile(tbUsername.Text.Trim(), tbPassword.Text.Trim());
             else
@@ -91,11 +98,9 @@ namespace PresentationLayer.LoginForm
             Application.Exit();
         }
 
-        private void frmLogin_Activated(object sender, EventArgs e)
+        private void frmLogin_Shown(object sender, EventArgs e) // once logged out 
         {
-            _LoadCredentials();
+            //_LoadCredentials();
         }
-
-        
     } 
 }

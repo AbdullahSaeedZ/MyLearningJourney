@@ -242,8 +242,8 @@
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLogin";
-            this.Activated += new System.EventHandler(this.frmLogin_Activated);
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            this.Shown += new System.EventHandler(this.frmLogin_Shown);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();

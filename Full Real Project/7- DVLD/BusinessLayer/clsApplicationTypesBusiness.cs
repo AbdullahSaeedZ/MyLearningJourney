@@ -8,20 +8,7 @@ namespace BusinessLayer
         enum enMode { eAddMode = 0, eUpdateMode = 1 }; // no need for adding functionality for now, but might add later
         enMode _mode;
 
-        private int _applicationTypeID = -1;
-        public int ApplicationTypeID
-        {
-            get
-            {
-                return _applicationTypeID;
-            }
-
-            set
-            {
-                if (_applicationTypeID == -1)
-                    _applicationTypeID = value;
-            }
-        }
+        public int ApplicationTypeID { get; private set; }
         public string ApplicationTypeTitle { get; set; }
         public float ApplicationTypeFees { get; set; }
 
