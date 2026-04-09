@@ -118,9 +118,8 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
                 return;
             }
 
-            // another check for active issued license with same selected class using Licenses business layer
-
-            if (clsLicensesBusiness.DoesPersonHaveActiveLicenseOfSameClass(ctrlPersonCardWithSearch1.PersonID, selectedClassIDInComboBox))
+            // another check for active issued license with same selected class
+            if (clsLicensesBusiness.DoesPersonHaveActiveLicense(ctrlPersonCardWithSearch1.PersonID, selectedClassIDInComboBox))
             {
 
                 MessageBox.Show("This person already has an active driving license of same Driving class", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -136,8 +135,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
                 _localApplication.ApplicationTypeID = _localLicenseApplicationTypeInfo.ApplicationTypeID;
                 _localApplication.CreatedByUserID = clsBusinessSettings.CurrentUser.UserID;
             }
-
-            if (_mode == enMode.eUpdateMode)
+            else
             {
                 _localApplication.LicenseClassID = selectedClassIDInComboBox;
             }

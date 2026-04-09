@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using static BusinessLayer.clsTestTypesBusiness;
 
 namespace PresentationLayer.Applications.ManageTestTypes.Forms
 {
@@ -9,18 +10,18 @@ namespace PresentationLayer.Applications.ManageTestTypes.Forms
     {
 
         public event Action delRefreshDgv;
-        private int _testTypeID = -1;
+        private enTestType _testTypeID = 0;
         private clsTestTypesBusiness _testType;
 
         public frmEditTestType(int TestTypeID)
         {
             InitializeComponent();
-            _testTypeID = TestTypeID;
+            _testTypeID = (enTestType)TestTypeID;
         }
 
         private void frmEditTestType_Load(object sender, EventArgs e)
         {
-            if (_testTypeID == -1)
+            if (_testTypeID == 0)
             {
                 MessageBox.Show("No Valid TestTypeID", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
@@ -39,7 +40,7 @@ namespace PresentationLayer.Applications.ManageTestTypes.Forms
 
         private void _FillTestTypeInfo()
         {
-            lblTestTypeID.Text = _testType.TestTypeID.ToString();
+            lblTestTypeID.Text = ((int)_testType.TestTypeID).ToString();
             tbTestTypeTitle.Text = _testType.TestTypeTitle;
             tbTestTypeDescription.Text = _testType.TestTypeDescription;
             tbTestTypeFees.Text = _testType.TestTypeFees.ToString();

@@ -206,6 +206,38 @@ namespace DataAccessLayer
             return activeNewApplicationID;
         }
 
+        public static bool IsTestPassed(int LocalLicenseApplicationID, int TestTypeID)
+        {
+            bool IsPassed = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = @"select Found = 1 from TestAppointments
+                                     inner join Tests on Tests.TestAppointmentID = TestAppointments.TestAppointmentID
+                                     where TestAppointments.LocalDrivingLicenseApplicationID = @LocalLicenseApplicationID 
+                                     and TestAppointments.TestTypeID = @TestTypeID and Tests.TestResult = 1 ";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@LocalLicenseApplicationID", LocalLicenseApplicationID);
+                        command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+                        connection.Open();
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null)
+                            IsPassed = true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return IsPassed;
+        }
 
 
     }

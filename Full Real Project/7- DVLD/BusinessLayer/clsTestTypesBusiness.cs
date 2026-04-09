@@ -6,14 +6,15 @@ namespace BusinessLayer
 {
     public class clsTestTypesBusiness
     {
+        public enum enTestType { Vision = 1, Written = 2, Street = 3 };
         enum enMode { eAddMode = 0, eUpdateMode = 1 }; // no need for adding functionality for now, but might add later
         enMode _mode;
-        public int TestTypeID { get; private set; }
+        public enTestType TestTypeID { get; private set; }
         public string TestTypeTitle { get; set; }
         public string TestTypeDescription { get; set; }
         public decimal TestTypeFees { get; set; }
 
-        clsTestTypesBusiness(int ID, string Title, string Description, decimal Fees)
+        clsTestTypesBusiness(enTestType ID, string Title, string Description, decimal Fees)
         {
             this.TestTypeID = ID;
             this.TestTypeTitle = Title;
@@ -22,12 +23,12 @@ namespace BusinessLayer
             _mode = enMode.eUpdateMode;
         }
 
-        public static clsTestTypesBusiness FindTestType(int ID)
+        public static clsTestTypesBusiness FindTestType(enTestType ID)
         {
             string TestTypeTitle = "", TestTypeDescription = "";
             decimal TestTypeFees = -1;
 
-            if (clsTestTypesDataAccess.FindTestType(ID, ref TestTypeTitle, ref TestTypeDescription, ref TestTypeFees))
+            if (clsTestTypesDataAccess.FindTestType((int)ID, ref TestTypeTitle, ref TestTypeDescription, ref TestTypeFees))
                 return new clsTestTypesBusiness(ID, TestTypeTitle, TestTypeDescription, TestTypeFees);
             else
                 return null;
@@ -40,7 +41,7 @@ namespace BusinessLayer
 
         private bool _UpdateTestType()
         {
-            return clsTestTypesDataAccess.UpdateTestType(this.TestTypeID, this.TestTypeTitle, this.TestTypeDescription, this.TestTypeFees);
+            return clsTestTypesDataAccess.UpdateTestType((int)this.TestTypeID, this.TestTypeTitle, this.TestTypeDescription, this.TestTypeFees);
         }
 
         public bool Save()

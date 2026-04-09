@@ -158,15 +158,15 @@ namespace DataAccessLayer
             }
             return isFound;
         }
-        public static bool DoesPersonHaveActiveLicenseOfSameClass(int PersonID, int LicenseClassID)
+        public static int GetActiveLicenseIDByPersonID(int PersonID, int LicenseClassID)
         {
-            bool isFound = false;
+            int LicenseID = -1;
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    string query = @"select Found = 1 from Licenses
+                    string query = @"select LicenseID from Licenses
                                      inner join Applications on Applications.ApplicationID = Licenses.ApplicationID
                                      inner join LocalDrivingLicenseApplications on LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID
                                      where ApplicantPersonID = @PersonID and LicenseClassID = @LicenseClassID;";
@@ -178,8 +178,8 @@ namespace DataAccessLayer
 
                         object result = command.ExecuteScalar();
 
-                        if (result != null)
-                            isFound = true;
+                        if (result != null && int.TryParse(result.ToString(), out int ID))
+                            LicenseID = ID;
                     }
                 }
             }
@@ -188,7 +188,7 @@ namespace DataAccessLayer
                 // logs
                 throw;
             }
-            return isFound;
+            return LicenseID;
         }
 
         public static DataTable GetAllLicenses()

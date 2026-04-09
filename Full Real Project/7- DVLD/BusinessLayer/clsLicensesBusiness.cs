@@ -95,16 +95,6 @@ namespace BusinessLayer
             this.Notes, this.PaidFees, this.IsActive, (byte)this.IssueReason, this.CreatedByUserID);
         }
 
-
-        public static bool DoesLicenseExist(int LicenseID)
-        {
-            return clsLicensesDataAccess.DoesLicenseExist(LicenseID);
-        }
-        public static bool DoesPersonHaveActiveLicenseOfSameClass(int PersonID, int LicenseClassID)
-        {
-            return clsLicensesDataAccess.DoesPersonHaveActiveLicenseOfSameClass( PersonID, LicenseClassID);
-        }
-
         public static DataTable GetAllLicenses()
         {
             return clsLicensesDataAccess.GetAllLicenses();
@@ -129,5 +119,22 @@ namespace BusinessLayer
                 default: return false;
             }
         }
+
+
+
+        public static bool DoesLicenseExist(int LicenseID)
+        {
+            return clsLicensesDataAccess.DoesLicenseExist(LicenseID);
+        }
+        public static int GetActiveLicenseIDByPersonID(int PersonID, int LicenseClassID)
+        {
+            return clsLicensesDataAccess.GetActiveLicenseIDByPersonID(PersonID, LicenseClassID);
+        }
+
+        public static bool DoesPersonHaveActiveLicense(int PersonID, int LicenseClassID)
+        {
+            return (GetActiveLicenseIDByPersonID(PersonID, LicenseClassID) != -1);
+        }
+
     }
 }

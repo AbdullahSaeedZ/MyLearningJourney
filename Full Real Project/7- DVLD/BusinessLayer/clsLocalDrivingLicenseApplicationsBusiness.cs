@@ -1,6 +1,7 @@
-﻿using System;
+﻿using DataAccessLayer;
+using System;
 using System.Data;
-using DataAccessLayer;
+using static BusinessLayer.clsTestTypesBusiness;
 
 namespace BusinessLayer
 {
@@ -125,6 +126,40 @@ namespace BusinessLayer
         public static int GetActiveApplicationID(int ApplicantPersonID, int LicenseClassID)
         {
             return clsLocalDrivingLicenseApplicationsDataAccess.GetActiveApplicationID(ApplicantPersonID, LicenseClassID);
+        }
+        
+
+
+        public static bool IsTestPassed(int LocalLicenseApplicationID, int TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.IsTestPassed(LocalLicenseApplicationID,TestTypeID);
+        }
+
+        public  bool IsVisionTestPassed()
+        {
+            return IsTestPassed(this.LocalDrivingLicenseApplicationID, (int)enTestType.Vision);
+        }
+        public  bool IsWrittenTestPassed()
+        {
+            return IsTestPassed(this.LocalDrivingLicenseApplicationID, (int)enTestType.Written);
+        }
+        public  bool IsStreetTestPassed()
+        {
+            return IsTestPassed(this.LocalDrivingLicenseApplicationID, (int)enTestType.Street);
+        }
+
+
+
+
+        public bool IsLicenseIssued()
+        {
+            return (GetActiveLicenseID() != -1);
+        }
+
+
+        public int GetActiveLicenseID()
+        {
+            return clsLicensesBusiness.GetActiveLicenseIDByPersonID(this.ApplicantPersonID, this.LicenseClassID);
         }
 
 

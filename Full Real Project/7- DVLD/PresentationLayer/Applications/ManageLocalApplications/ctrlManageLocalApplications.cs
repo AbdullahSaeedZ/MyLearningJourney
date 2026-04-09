@@ -126,6 +126,64 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
 
         //strip menu options
+
+        private void _HandleTestsMenu()
+        {
+
+        }
+
+        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            int LocalLicenseApplicationID = (int)dgvApplications.CurrentRow.Cells[0].Value;
+            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID(LocalLicenseApplicationID);
+
+            if (_selectedApplication == null)
+            {
+                MessageBox.Show("Could not get application info from database.", "Connection Lost", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int TotalTestsPassed = (int)dgvApplications.CurrentRow.Cells[5].Value;
+            bool IsLicenseIssued = _selectedApplication.IsLicenseIssued();
+
+            if (IsLicenseIssued)
+            {
+                showLicenseDetailsToolStripMenuItem.Enabled = true;
+                return;
+            }
+            editApplicationToolStripMenuItem.Enabled = !IsLicenseIssued && (_selectedApplication.ApplicationStatus == clsApplicationsBusiness.enApplicationStatus.New); // can only edit applications with new status and no issued license
+            deleteApplicationToolStripMenuItem.Enabled = (_selectedApplication.ApplicationStatus == clsApplicationsBusiness.enApplicationStatus.New); // can only delete applications with new status
+            cancelApplicationToolStripMenuItem.Enabled = (_selectedApplication.ApplicationStatus == clsApplicationsBusiness.enApplicationStatus.New); // can only cancel applications with new status
+
+            if ((TotalTestsPassed == 3 && !IsLicenseIssued))
+            {
+                issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = true;
+                ScheduleTestsToolStripMenuItem.Enabled = false;
+                return;
+            }
+
+            ScheduleTestsToolStripMenuItem.Enabled = true;
+            scheduleVisionTestToolStripMenuItem.Enabled = (TotalTestsPassed == 0 && !IsLicenseIssued);
+            scheduleWrittenTestToolStripMenuItem.Enabled = (TotalTestsPassed == 1 && !IsLicenseIssued);
+            scheduleStreetTToolStripMenuItem.Enabled = (TotalTestsPassed == 2 && !IsLicenseIssued);
+
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (TotalTestsPassed == 3 && !IsLicenseIssued);
+        }
+
+        private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
+        }
+
+        private void editApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
+        }
+
+        private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
+        }
         private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Cancel this application ?", "Cancel Application", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
@@ -144,8 +202,34 @@ namespace PresentationLayer.Applications.ManageLocalApplications
             }
         }
 
-        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
+        }
+
+        private void scheduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
+        }
+
+        private void scheduleStreetTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
+        }
+
+        private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
+        }
+
+        private void showLicenseDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
+        }
+
+        private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
         }
     }
 }
