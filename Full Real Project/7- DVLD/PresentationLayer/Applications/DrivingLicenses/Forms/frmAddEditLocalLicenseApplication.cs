@@ -108,20 +108,29 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            int _selectedClassIDInComboBox = (clsLicenseClassesBusiness.Find(cbLocalLicenseClasses.Text)).LicenseClassID;
-            int activeOrCompletedApplicationID = clsLocalDrivingLicenseApplicationsBusiness.GetActiveOrCompletedApplicationID(ctrlPersonCardWithSearch1.PersonID, _selectedClassIDInComboBox);
+            int selectedClassIDInComboBox = (clsLicenseClassesBusiness.Find(cbLocalLicenseClasses.Text)).LicenseClassID;
+            int activeNewApplicationID = clsLocalDrivingLicenseApplicationsBusiness.GetActiveApplicationID(ctrlPersonCardWithSearch1.PersonID, selectedClassIDInComboBox);
 
-            if (activeOrCompletedApplicationID != -1) 
+            if (activeNewApplicationID != -1) 
             {
-                MessageBox.Show($"This person already has an active local driving license application of same class with ID = {activeOrCompletedApplicationID}, Please choose another class.",
-                                 "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"This person already has an active new local driving license application of same class with ID = {activeNewApplicationID}, Please choose another class.",
+                                 "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // another check for active issued license with same selected class using Licenses business layer
+
+            if (clsLicensesBusiness.DoesPersonHaveActiveLicenseOfSameClass(ctrlPersonCardWithSearch1.PersonID, selectedClassIDInComboBox))
+            {
+
+                MessageBox.Show("This person already has an active driving license of same Driving class", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (_mode == enMode.eAddNewMode)
             {
                 _localApplication.ApplicantPersonID = ctrlPersonCardWithSearch1.PersonID;
-                _localApplication.LicenseClassID = _selectedClassIDInComboBox; 
+                _localApplication.LicenseClassID = selectedClassIDInComboBox; 
                 _localApplication.ApplicationStatus = clsApplicationsBusiness.enApplicationStatus.New;
                 _localApplication.PaidFees = _localLicenseApplicationTypeInfo.ApplicationTypeFees;
                 _localApplication.ApplicationTypeID = _localLicenseApplicationTypeInfo.ApplicationTypeID;
@@ -130,7 +139,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
 
             if (_mode == enMode.eUpdateMode)
             {
-                _localApplication.LicenseClassID = _selectedClassIDInComboBox;
+                _localApplication.LicenseClassID = selectedClassIDInComboBox;
             }
 
             try

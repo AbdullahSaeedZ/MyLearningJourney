@@ -181,7 +181,7 @@ namespace DataAccessLayer
         }
 
 
-        public static bool SetStatusAsCancelled(int ApplicationID, DateTime UpdateDate)
+        public static bool UpdateStatus(int ApplicationID, byte NewStatus, DateTime UpdateDate)
         {
             int rowsAffected = 0;
 
@@ -190,13 +190,14 @@ namespace DataAccessLayer
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
                     string query = @"update Applications 
-                                     set ApplicationStatus = 2, LastStatusDate = @UpdateDate
+                                     set ApplicationStatus = @NewStatus, LastStatusDate = @UpdateDate
                                      where ApplicationID = @ID;";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@ID", ApplicationID);
                         command.Parameters.AddWithValue("@UpdateDate", UpdateDate);
+                        command.Parameters.AddWithValue("@NewStatus", NewStatus);
 
                         connection.Open();
                         rowsAffected = command.ExecuteNonQuery();
@@ -211,6 +212,8 @@ namespace DataAccessLayer
             return (rowsAffected > 0);
         }
 
+
+      
 
     }
 }

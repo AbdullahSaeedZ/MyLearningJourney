@@ -101,7 +101,7 @@ namespace BusinessLayer
         {
             if (base.Save()) // adding or updating the baseApplication first then do the derived application
             {
-                switch (_mode)
+                switch (this._mode)
                 {
                     case enMode.eAddMode:
                         if (_AddNewLocalDrivingLicenseApplication())
@@ -122,21 +122,11 @@ namespace BusinessLayer
                 return false;
         }
 
-        public static int GetActiveOrCompletedApplicationID(int ApplicantPersonID, int LicenseClassID)
+        public static int GetActiveApplicationID(int ApplicantPersonID, int LicenseClassID)
         {
-            int activeOrCompletedApplicationID = clsLocalDrivingLicenseApplicationsDataAccess.GetActiveOrCompletedApplicationID(ApplicantPersonID, LicenseClassID);
-            return activeOrCompletedApplicationID;
+            return clsLocalDrivingLicenseApplicationsDataAccess.GetActiveApplicationID(ApplicantPersonID, LicenseClassID);
         }
 
-        public new static bool SetStatusAsCancelled(int LocalApplicationID)
-        {
-            clsLocalDrivingLicenseApplicationsBusiness localLicenseApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID(LocalApplicationID);
-
-            if (localLicenseApplication == null)
-                return false;
-
-            return clsApplicationsBusiness.SetStatusAsCancelled(localLicenseApplication.ApplicationID);
-        }
 
     }
 }

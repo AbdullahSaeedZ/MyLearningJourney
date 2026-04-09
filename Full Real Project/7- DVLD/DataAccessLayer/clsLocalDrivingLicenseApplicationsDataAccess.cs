@@ -169,23 +169,21 @@ namespace DataAccessLayer
         }
 
 
-
-
-        public static int GetActiveOrCompletedApplicationID(int ApplicantPersonID, int LicenseClassID)
+        public static int GetActiveApplicationID(int ApplicantPersonID, int LicenseClassID)
         {
-            int activeOrCompletedApplicationID = -1;
+            int activeNewApplicationID = -1;
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    // business requires that new application of same class is allowed if no NEW application or COMPLETED application in system
-                    // so only allowed condition is when no license application of same class created, or license application is cancelled
-                    // here we check if there is applications other than cancelled
+                    // business requires that new application of same class is allowed if no NEW application or COMPLETED application with license in system
+                    // here just check if there is new status
+
                     string query = @"select LocalDrivingLicenseApplicationID
                                      from LocalDrivingLicenseApplications 
                                      inner join Applications on LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID
-                                     where LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID and Applications.ApplicantPersonID = @ApplicantPersonID and Applications.ApplicationStatus <> 2;";
+                                     where LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID and Applications.ApplicantPersonID = @ApplicantPersonID and Applications.ApplicationStatus = 1;";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -196,7 +194,7 @@ namespace DataAccessLayer
                         object result = command.ExecuteScalar();
 
                         if (result != null && int.TryParse(result.ToString(), out int id))
-                            activeOrCompletedApplicationID = id;
+                            activeNewApplicationID = id;
                     }
                 }
             }
@@ -205,8 +203,10 @@ namespace DataAccessLayer
                 // logs
                 throw;
             }
-            return activeOrCompletedApplicationID;
+            return activeNewApplicationID;
         }
+
+
 
     }
 }

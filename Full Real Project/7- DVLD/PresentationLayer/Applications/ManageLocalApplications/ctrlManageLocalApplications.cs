@@ -130,14 +130,22 @@ namespace PresentationLayer.Applications.ManageLocalApplications
         {
             if (MessageBox.Show("Cancel this application ?", "Cancel Application", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
-                if (clsLocalDrivingLicenseApplicationsBusiness.SetStatusAsCancelled((int)dgvApplications.SelectedCells[0].Value))
+                clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
+                if (_selectedApplication != null)
                 {
-                    MessageBox.Show("Application is cancelled successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RefreshDataGridView();
+                    if (_selectedApplication.SetStatusToCancelled())
+                    {
+                        MessageBox.Show("Application is cancelled successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RefreshDataGridView();
+                    }
+                    else
+                        MessageBox.Show("Could not cancel the application", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else
-                    MessageBox.Show("Could not cancel the application", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
         }
     }
 }
