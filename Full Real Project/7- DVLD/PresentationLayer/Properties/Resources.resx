@@ -121,8 +121,8 @@
   <data name="logoutThick" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\logoutThick.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="UpdateNoFillGrey512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\UpdateNoFillGrey512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="addFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\addFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cardNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\cardNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,14 +151,11 @@
   <data name="BackShortArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\BackShortArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DriversFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\DriversFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="removeFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\removeFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="drivingIllu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\drivingIllu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="removeFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\removeFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="defaultFemaleProfile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\defaultFemaleProfile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,11 +163,17 @@
   <data name="AddNoFillGrey512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\AddNoFillGrey512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DashboardUserFill32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\DashboardUserFill32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="overviewNoFillThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\overviewNoFillThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="illu6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\illu6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="illu11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\illu11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="illu8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\illu8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,17 +190,14 @@
   <data name="logoSmall" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\logoSmall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DetainLicenseFillGrey512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\DetainLicenseFillGrey512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="writtenTestFill24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\writtenTestFill24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="settingsFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\settingsFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logoutThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\logoutThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="applicationsWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\applicationsWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ManageApplicationsNoFillGrey512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\ManageApplicationsNoFillGrey512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,6 +223,9 @@
   <data name="detainNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\detainNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="cancellApplicationNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\cancellApplicationNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="settingsBig" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\settingsBig.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -232,11 +235,14 @@
   <data name="SearchBlackFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\SearchBlackFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DashboardFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\DashboardFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="retakeTestNoFillGrey512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\retakeTestNoFillGrey512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="searchPersonFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\searchPersonFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="writtenTestNoFill24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\writtenTestNoFill24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DriversNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\DriversNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -262,6 +268,9 @@
   <data name="appointmentFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\appointmentFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="visionTestNoFill24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\visionTestNoFill24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ManageApplicationsTypesNoFillGrey512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\ManageApplicationsTypesNoFillGrey512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -280,20 +289,26 @@
   <data name="hidePasswordEye" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\hidePasswordEye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="addFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\addFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="driversNoFillThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\driversNoFillThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ManageTestTypesNoFillGrey512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\ManageTestTypesNoFillGrey512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="illu2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\illu2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="retakeTestFillBlack512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\retakeTestFillBlack512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="searchApplicationNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\searchApplicationNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="retakeTestFillBlack512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\retakeTestFillBlack512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="checkMarkFill24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\checkMarkFill24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="scheduleFill24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\scheduleFill24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="passwordNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\passwordNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -301,11 +316,8 @@
   <data name="peopleFillThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\peopleFillThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="retakeTestNoFillGrey512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\retakeTestNoFillGrey512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="scheduleNoFill24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\scheduleNoFill24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cardFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\cardFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -322,8 +334,11 @@
   <data name="SearchGrayFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\SearchGrayFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ManageTestTypesNoFillGrey512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\ManageTestTypesNoFillGrey512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DashboardFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\DashboardFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DetainLicenseFillGrey512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\DetainLicenseFillGrey512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="illu5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\illu5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -337,6 +352,9 @@
   <data name="nextShortArrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\nextShortArrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DriversFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\DriversFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="overviewFillThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\overviewFillThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -349,17 +367,26 @@
   <data name="DashboardUserFill64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\DashboardUserFill64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LicenseHistoryFill24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\LicenseHistoryFill24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="peopleNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\peopleNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="peopleNoFillThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\peopleNoFillThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="DetainLicenseNoFillGrey512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\DetainLicenseNoFillGrey512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="illu9" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\illu9.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ManageApplicationsFillBlack512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\ManageApplicationsFillBlack512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DriverFillThin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\DriverFillThin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -373,14 +400,17 @@
   <data name="releaseFillBlack512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\releaseFillBlack512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="illu11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\illu11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="UpdateNoFillGrey512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\UpdateNoFillGrey512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="checkMarkNoFill24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\checkMarkNoFill24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ProfileTest" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ProfileTest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DashboardUserFill32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\DashboardUserFill32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="applicationsWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\applicationsWhite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="removeNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\removeNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -400,8 +430,11 @@
   <data name="illu10" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\illu10.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DetainLicenseNoFillGrey512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\DetainLicenseNoFillGrey512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="visionTestFill24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\visionTestFill24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LicenseHistoryNoFill24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\LicenseHistoryNoFill24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="LicenseCardNoFill64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\LicenseCardNoFill64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -409,7 +442,10 @@
   <data name="searchApplicationFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\searchApplicationFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cancellApplicationNoFill" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\cancellApplicationNoFill.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="streetTestFill24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\streetTestFill24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="streetTestNoFill24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\streetTestNoFill24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

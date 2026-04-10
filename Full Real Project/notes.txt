@@ -37,3 +37,6 @@ exist in the users table, userID is added as a FK in application table which mad
    string query = @"insert into Applications
    values ( @ApplicantPersonID, @ApplicationDate, @ApplicationTypeID, @ApplicationStatus, @LastStatusDate, @PaidFees,@CreatedByUserID);
     select scope_identity();";
+
+
+- in opening context menu, i have to check tests passed for the selected application, my solution was to rely on total tests passed shown on the data grid view in ui, then i compared to the doctor solution and found out that he gets this data from db not ui, lesson learned is to not rely on ui for data fetching and business logic related decisions, so i came up with creating DTO (data transfer object) to get test status by one request to db insted of 3 calls like the doctor.

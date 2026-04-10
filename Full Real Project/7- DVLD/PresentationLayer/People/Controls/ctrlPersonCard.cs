@@ -98,9 +98,7 @@ namespace PresentationLayer.PeopleFormsAndControls
         private void _FillPersonInfo()
         {
             _personID = _person.PersonID;
-            lblName.Text = string.IsNullOrEmpty(_person.ThirdName) ?  _person.FirstName + " " + _person.SecondName + " " + _person.LastName :
-                                                                      _person.FirstName + " " + _person.SecondName + " " + _person.ThirdName + " " + _person.LastName;
-
+            lblName.Text = _person.FullName;
             lblPersonID.Text = _person.PersonID.ToString();
             lblNationalID.Text = _person.NationalID.ToString();
             lblCountry.Text = _person.CountryInfo.CountryName;

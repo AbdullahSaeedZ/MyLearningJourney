@@ -35,7 +35,7 @@ namespace BusinessLayer
         public clsUserBusiness()
         {
             this.UserID = -1;
-            this.PersonID = -1;
+            this._personID = -1;
             this.Username = "";
             this.Password = "";
             this.isActive = false;

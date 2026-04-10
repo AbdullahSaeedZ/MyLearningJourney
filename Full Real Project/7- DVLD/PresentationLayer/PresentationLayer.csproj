@@ -81,11 +81,23 @@
     <Compile Include="Applications\ManageApplicationTypes\Forms\frmEditApplicationType.Designer.cs">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\ManageLocalApplications\Controls\ctrlLocalApplicationInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\ManageLocalApplications\Controls\ctrlLocalApplicationInfo.Designer.cs">
+      <DependentUpon>ctrlLocalApplicationInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\ManageLocalApplications\ctrlManageLocalApplications.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Applications\ManageLocalApplications\ctrlManageLocalApplications.Designer.cs">
       <DependentUpon>ctrlManageLocalApplications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\ManageLocalApplications\Forms\frmLocalApplicationInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\ManageLocalApplications\Forms\frmLocalApplicationInfo.Designer.cs">
+      <DependentUpon>frmLocalApplicationInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\ManageTestTypes\Controls\ctrlManageTestTypes.cs">
       <SubType>UserControl</SubType>
@@ -207,8 +219,14 @@
     <EmbeddedResource Include="Applications\ManageApplicationTypes\Forms\frmEditApplicationType.resx">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\ManageLocalApplications\Controls\ctrlLocalApplicationInfo.resx">
+      <DependentUpon>ctrlLocalApplicationInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Applications\ManageLocalApplications\ctrlManageLocalApplications.resx">
       <DependentUpon>ctrlManageLocalApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\ManageLocalApplications\Forms\frmLocalApplicationInfo.resx">
+      <DependentUpon>frmLocalApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\ManageTestTypes\Controls\ctrlManageTestTypes.resx">
       <DependentUpon>ctrlManageTestTypes.cs</DependentUpon>
@@ -576,6 +594,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\cancellApplicationNoFill.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\LicenseHistoryFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\LicenseHistoryNoFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\checkMarkFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\checkMarkNoFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\scheduleFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\scheduleNoFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\visionTestFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\visionTestNoFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\writtenTestFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\writtenTestNoFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\streetTestFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\streetTestNoFill24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

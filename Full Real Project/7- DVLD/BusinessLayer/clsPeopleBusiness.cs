@@ -15,6 +15,14 @@ namespace BusinessLayer
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
         public string LastName { get; set; }
+        public string FullName
+        {
+            get 
+            { 
+                return string.IsNullOrEmpty(ThirdName) ? FirstName + " " + SecondName + " " + LastName :
+                  FirstName + " " + SecondName + " " + ThirdName + " " + LastName;
+            }
+        }
         public byte Gender { get; set; }
         public DateTime BirthDate { get; set; }
         public int NationalityCountryID { get; set; }

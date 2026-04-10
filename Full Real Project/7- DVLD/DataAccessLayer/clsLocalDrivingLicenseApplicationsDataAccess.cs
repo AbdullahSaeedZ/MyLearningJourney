@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace DataAccessLayer
 {
     public class clsLocalDrivingLicenseApplicationsDataAccess
     {
-        public static bool FindLocalLicenseApplicationByID(int LocalApplicationID, ref int baseApplicationID, ref int licenseClassID)
+        public static bool GetTestsStatus(int LocalLicenseApplicationID, ref bool Vision, ref bool Written, ref bool Street)
         {
             bool isFound = false;
 
@@ -14,20 +15,22 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    string query = @"select * from LocalDrivingLicenseApplications
-                                 where LocalDrivingLicenseApplicationID = @ID;";
-
+                    string query = @"select Vision  = max(case when TestAppointments.TestTypeID = 1 and Tests.TestResult = 1 then 1 else 0 end),
+                                            Written = max(case when TestAppointments.TestTypeID = 2 and Tests.TestResult = 1 then 1 else 0 end),
+                                            Street  = max(case when TestAppointments.TestTypeID = 3 and Tests.TestResult = 1 then 1 else 0 end)
+                                     from TestAppointments
+                                     inner join Tests on Tests.TestAppointmentID = TestAppointments.TestAppointmentID
+                                     where TestAppointments.LocalDrivingLicenseApplicationID = @LocalLicenseApplicationID;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@ID", LocalApplicationID);
-
+                        command.Parameters.AddWithValue("@LocalLicenseApplicationID", LocalLicenseApplicationID);
                         connection.Open();
                         SqlDataReader reader = command.ExecuteReader();
-
                         if (reader.Read())
                         {
-                            baseApplicationID = (int)reader["ApplicationID"];
-                            licenseClassID = (int)reader["LicenseClassID"];
+                            Vision = (bool)reader["Vision"];
+                            Written = (bool)reader["Written"];
+                            Street = (bool)reader["Street"];
                             isFound = true;
                         }
                     }
@@ -41,7 +44,7 @@ namespace DataAccessLayer
             return isFound;
         }
 
-        public static bool FindLocalLicenseApplicationByApplicationID(ref int LocalApplicationID,  int baseApplicationID, ref int licenseClassID)
+        public static bool FindLocalLicenseApplicationByID(int LocalApplicationID, ref int baseApplicationID, ref int licenseClassID, ref bool Vision, ref bool Written, ref bool Street)
         {
             bool isFound = false;
 
@@ -49,8 +52,60 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    string query = @"select * from LocalDrivingLicenseApplications
-                                 where ApplicationID = @ID;";
+                    string query = @"select LocalDrivingLicenseApplications.*, 
+                                    Vision  = max(case when TestAppointments.TestTypeID = 1 and Tests.TestResult = 1 then 1 else 0 end),
+									Written = max(case when TestAppointments.TestTypeID = 2 and Tests.TestResult = 1 then 1 else 0 end),
+									Street  = max(case when TestAppointments.TestTypeID = 3 and Tests.TestResult = 1 then 1 else 0 end)
+                                    from LocalDrivingLicenseApplications
+                                    left join TestAppointments on TestAppointments.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID
+                                    left join Tests on Tests.TestAppointmentID = TestAppointments.TestAppointmentID
+                                    where LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID = @ID
+                                    group by LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID, LocalDrivingLicenseApplications.ApplicationID,LocalDrivingLicenseApplications.LicenseClassID;";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ID", LocalApplicationID);
+
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            baseApplicationID = (int)reader["ApplicationID"];
+                            licenseClassID = (int)reader["LicenseClassID"];
+                            Vision = Convert.ToBoolean(reader["Vision"]);
+                            Written = Convert.ToBoolean(reader["Written"]);
+                            Street = Convert.ToBoolean(reader["Street"]);
+                            isFound = true;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return isFound;
+        }
+
+        public static bool FindLocalLicenseApplicationByApplicationID(ref int LocalApplicationID,  int baseApplicationID, ref int licenseClassID, ref bool Vision, ref bool Written, ref bool Street)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = @"select LocalDrivingLicenseApplications.*, 
+                                    Vision  = max(case when TestAppointments.TestTypeID = 1 and Tests.TestResult = 1 then 1 else 0 end),
+									Written = max(case when TestAppointments.TestTypeID = 2 and Tests.TestResult = 1 then 1 else 0 end),
+									Street  = max(case when TestAppointments.TestTypeID = 3 and Tests.TestResult = 1 then 1 else 0 end)
+                                    from LocalDrivingLicenseApplications
+                                    left join TestAppointments on TestAppointments.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID
+                                    left join Tests on Tests.TestAppointmentID = TestAppointments.TestAppointmentID
+                                    where LocalDrivingLicenseApplications.ApplicationID = @ID
+                                    group by LocalDrivingLicenseApplications.LocalDrivingLicenseApplicationID, LocalDrivingLicenseApplications.ApplicationID,LocalDrivingLicenseApplications.LicenseClassID;";
 
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -63,6 +118,9 @@ namespace DataAccessLayer
                         {
                             LocalApplicationID = (int)reader["LocalDrivingLicenseApplicationID"];
                             licenseClassID = (int)reader["LicenseClassID"];
+                            Vision = Convert.ToBoolean(reader["Vision"]);
+                            Written = Convert.ToBoolean(reader["Written"]);
+                            Street = Convert.ToBoolean(reader["Street"]);
                             isFound = true;
                         }
                     }
@@ -206,38 +264,7 @@ namespace DataAccessLayer
             return activeNewApplicationID;
         }
 
-        public static bool IsTestPassed(int LocalLicenseApplicationID, int TestTypeID)
-        {
-            bool IsPassed = false;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
-                {
-                    string query = @"select Found = 1 from TestAppointments
-                                     inner join Tests on Tests.TestAppointmentID = TestAppointments.TestAppointmentID
-                                     where TestAppointments.LocalDrivingLicenseApplicationID = @LocalLicenseApplicationID 
-                                     and TestAppointments.TestTypeID = @TestTypeID and Tests.TestResult = 1 ";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@LocalLicenseApplicationID", LocalLicenseApplicationID);
-                        command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
-                        connection.Open();
-
-                        object result = command.ExecuteScalar();
-
-                        if (result != null)
-                            IsPassed = true;
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                // logs
-                throw;
-            }
-            return IsPassed;
-        }
+       
 
 
     }

@@ -39,7 +39,7 @@ namespace BusinessLayer
             set
             {
                 if (_applicationTypeID == -1) // to prevent any modification and allow only new assignment from UI
-                    _applicantPersonID = value;
+                    _applicationTypeID = value;
             }
         }
 
@@ -81,15 +81,15 @@ namespace BusinessLayer
         public clsApplicationsBusiness(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID, enApplicationStatus ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
         {
             this.ApplicationID = ApplicationID;
-            this.ApplicantPersonID = ApplicantPersonID;
+            this._applicantPersonID = ApplicantPersonID;
             this.ApplicantPersonInfo = clsPeopleBusiness.FindPerson(ApplicantPersonID);
             this.ApplicationDate = ApplicationDate;
-            this.ApplicationTypeID = ApplicationTypeID;
+            this._applicationTypeID = ApplicationTypeID;
             this.ApplicationTypeInfo = clsApplicationTypesBusiness.FindApplicationType(ApplicationTypeID);
             this.ApplicationStatus = ApplicationStatus;
             this.LastStatusDate = LastStatusDate;
             this.PaidFees = PaidFees;
-            this.CreatedByUserID = CreatedByUserID;
+            this._createdByUserID = CreatedByUserID;
             this.CreatedByUserInfo = clsUserBusiness.FindUser(CreatedByUserID);
             _mode = enMode.eUpdateMode;
         }

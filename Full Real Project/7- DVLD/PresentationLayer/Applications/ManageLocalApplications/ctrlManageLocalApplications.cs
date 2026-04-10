@@ -127,47 +127,41 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
         //strip menu options
 
-        private void _HandleTestsMenu()
-        {
-
-        }
-
         private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
             int LocalLicenseApplicationID = (int)dgvApplications.CurrentRow.Cells[0].Value;
             clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID(LocalLicenseApplicationID);
-
             if (_selectedApplication == null)
             {
                 MessageBox.Show("Could not get application info from database.", "Connection Lost", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            int TotalTestsPassed = (int)dgvApplications.CurrentRow.Cells[5].Value;
+            bool AllTestsPassed = (_selectedApplication.TestsStatus.IsVisionTestPassed && _selectedApplication.TestsStatus.IsWrittenTestPassed && _selectedApplication.TestsStatus.IsStreetTestPassed);
             bool IsLicenseIssued = _selectedApplication.IsLicenseIssued();
+            bool IsApplicationStatusNew = (_selectedApplication.ApplicationStatus == clsApplicationsBusiness.enApplicationStatus.New);
 
-            if (IsLicenseIssued)
+
+            // when license of same class is issued before , even if application is cancelled, it means applicant applied for another application and completed everything then issued a license
+            showLicenseDetailsToolStripMenuItem.Enabled = IsLicenseIssued;
+
+            // when application is new and not all tests passed
+            editApplicationToolStripMenuItem.Enabled = !IsLicenseIssued && IsApplicationStatusNew; // can only edit applications with new status and no issued license
+            deleteApplicationToolStripMenuItem.Enabled = IsApplicationStatusNew;// can only delete applications with new status
+            cancelApplicationToolStripMenuItem.Enabled = IsApplicationStatusNew; // can only cancel applications with new status
+
+            // when application is new but all tests passed and ready for license issuance
+            // cuz might have cancelled application with issued license
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (AllTestsPassed && !IsLicenseIssued & IsApplicationStatusNew);
+            ScheduleTestsToolStripMenuItem.Enabled = (!AllTestsPassed && IsApplicationStatusNew);
+
+            if (ScheduleTestsToolStripMenuItem.Enabled)
             {
-                showLicenseDetailsToolStripMenuItem.Enabled = true;
-                return;
+                // tests must be taken and completed in this order: vision then written then street
+                scheduleVisionTestToolStripMenuItem.Enabled = (!_selectedApplication.TestsStatus.IsVisionTestPassed);
+                scheduleWrittenTestToolStripMenuItem.Enabled = (_selectedApplication.TestsStatus.IsVisionTestPassed && !_selectedApplication.TestsStatus.IsWrittenTestPassed);
+                scheduleStreetTToolStripMenuItem.Enabled = (_selectedApplication.TestsStatus.IsVisionTestPassed && _selectedApplication.TestsStatus.IsWrittenTestPassed
+                                                            && !_selectedApplication.TestsStatus.IsStreetTestPassed);
             }
-            editApplicationToolStripMenuItem.Enabled = !IsLicenseIssued && (_selectedApplication.ApplicationStatus == clsApplicationsBusiness.enApplicationStatus.New); // can only edit applications with new status and no issued license
-            deleteApplicationToolStripMenuItem.Enabled = (_selectedApplication.ApplicationStatus == clsApplicationsBusiness.enApplicationStatus.New); // can only delete applications with new status
-            cancelApplicationToolStripMenuItem.Enabled = (_selectedApplication.ApplicationStatus == clsApplicationsBusiness.enApplicationStatus.New); // can only cancel applications with new status
-
-            if ((TotalTestsPassed == 3 && !IsLicenseIssued))
-            {
-                issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = true;
-                ScheduleTestsToolStripMenuItem.Enabled = false;
-                return;
-            }
-
-            ScheduleTestsToolStripMenuItem.Enabled = true;
-            scheduleVisionTestToolStripMenuItem.Enabled = (TotalTestsPassed == 0 && !IsLicenseIssued);
-            scheduleWrittenTestToolStripMenuItem.Enabled = (TotalTestsPassed == 1 && !IsLicenseIssued);
-            scheduleStreetTToolStripMenuItem.Enabled = (TotalTestsPassed == 2 && !IsLicenseIssued);
-
-            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (TotalTestsPassed == 3 && !IsLicenseIssued);
         }
 
         private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -231,5 +225,6 @@ namespace PresentationLayer.Applications.ManageLocalApplications
         {
             clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
         }
+
     }
 }

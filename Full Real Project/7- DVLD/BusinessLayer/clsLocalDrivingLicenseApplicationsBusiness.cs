@@ -1,6 +1,8 @@
 ﻿using DataAccessLayer;
 using System;
 using System.Data;
+using System.Diagnostics.SymbolStore;
+using System.IO;
 using static BusinessLayer.clsTestTypesBusiness;
 
 namespace BusinessLayer
@@ -10,11 +12,27 @@ namespace BusinessLayer
         // hiding base _mode cuz when adding new application, the base mode will switch to update then sub Save method will go directly to update
         private new enMode _mode;
 
+        public class clsTestsStatus
+        {
+            // will be fetched from DB then assigned here directly, no need for outside assignment
+            public bool IsVisionTestPassed { get; private set; }
+            public bool IsWrittenTestPassed { get; private set; }
+            public bool IsStreetTestPassed { get; private set; }
+            public int PassedTestsCount { get; private set; }
+
+            public clsTestsStatus(bool Vision, bool Written, bool Street)
+            {
+                this.IsVisionTestPassed = Vision;
+                this.IsWrittenTestPassed = Written;
+                this.IsStreetTestPassed = Street;
+                this.PassedTestsCount = IsStreetTestPassed? 3: IsWrittenTestPassed ? 2 : IsVisionTestPassed ? 1: 0;
+            }
+        }
+        public clsTestsStatus TestsStatus { get; private set; }
+
+
         public int LocalDrivingLicenseApplicationID { get; private set; }
-    
-
         public int LicenseClassID { get; set; }
-
 
         public clsLicenseClassesBusiness LicenseClassesInfo;
 
@@ -22,51 +40,57 @@ namespace BusinessLayer
         {
             this.LocalDrivingLicenseApplicationID = -1;
             this.LicenseClassID = -1;
+            this._mode = enMode.eAddMode;
         }
 
-
-        clsLocalDrivingLicenseApplicationsBusiness(int LocalApplicationID, int LicenseClassID, int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate,
-            int ApplicationTypeID, enApplicationStatus ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
+        clsLocalDrivingLicenseApplicationsBusiness(int LocalApplicationID, int LicenseClassID, int ApplicationID, bool IsVisionTestPassed, bool IsWrittenTestPassed, bool IsStreetTestPassed,
+            int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID, enApplicationStatus ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
             : base(ApplicationID, ApplicantPersonID, ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID)
         {
             this.LocalDrivingLicenseApplicationID = LocalApplicationID;
             this.LicenseClassID = LicenseClassID;
             this.LicenseClassesInfo = clsLicenseClassesBusiness.Find(LicenseClassID);
+            this.TestsStatus = new clsTestsStatus(IsVisionTestPassed, IsWrittenTestPassed, IsStreetTestPassed);
+            this._mode = enMode.eUpdateMode;
         }
 
         public static clsLocalDrivingLicenseApplicationsBusiness FindLocalLicenseApplicationByID(int LocalApplicationID)
         {
             int ApplicationID = -1, licenseClassID = -1;
-            if (clsLocalDrivingLicenseApplicationsDataAccess.FindLocalLicenseApplicationByID(LocalApplicationID, ref ApplicationID, ref licenseClassID))
+            bool Vision = false, Written = false, Street = false;
+            if (clsLocalDrivingLicenseApplicationsDataAccess.FindLocalLicenseApplicationByID(LocalApplicationID, ref ApplicationID, ref licenseClassID, ref Vision, ref Written, ref Street))
             {
 
                 clsApplicationsBusiness baseApplication = clsApplicationsBusiness.FindBaseApplicationByID(ApplicationID);
 
-                return new clsLocalDrivingLicenseApplicationsBusiness(LocalApplicationID, licenseClassID, ApplicationID, baseApplication.ApplicantPersonID, baseApplication.ApplicationDate,
+                return new clsLocalDrivingLicenseApplicationsBusiness(LocalApplicationID, licenseClassID, ApplicationID, Vision, Written, Street, baseApplication.ApplicantPersonID, baseApplication.ApplicationDate,
                                                                       baseApplication.ApplicationTypeID, baseApplication.ApplicationStatus, baseApplication.LastStatusDate, baseApplication.PaidFees,
                                                                       baseApplication.CreatedByUserID);
             }
             else
                 return null;
         }
-
 
 
         public static clsLocalDrivingLicenseApplicationsBusiness FindLocalLicenseApplicationByApplicationID(int ApplicationID)
         {
             int localApplicationID = -1, licenseClassID = -1;
-            if (clsLocalDrivingLicenseApplicationsDataAccess.FindLocalLicenseApplicationByApplicationID(ref localApplicationID, ApplicationID, ref licenseClassID))
+            bool Vision = false, Written = false, Street = false;
+            if (clsLocalDrivingLicenseApplicationsDataAccess.FindLocalLicenseApplicationByApplicationID(ref localApplicationID, ApplicationID, ref licenseClassID, ref Vision, ref Written, ref Street))
             {
 
                 clsApplicationsBusiness baseApplication = clsApplicationsBusiness.FindBaseApplicationByID(ApplicationID);
 
-                return new clsLocalDrivingLicenseApplicationsBusiness(localApplicationID, licenseClassID, ApplicationID, baseApplication.ApplicantPersonID, baseApplication.ApplicationDate,
+                return new clsLocalDrivingLicenseApplicationsBusiness(localApplicationID, licenseClassID, ApplicationID, Vision, Written, Street, baseApplication.ApplicantPersonID, baseApplication.ApplicationDate,
                                                                       baseApplication.ApplicationTypeID, baseApplication.ApplicationStatus, baseApplication.LastStatusDate, baseApplication.PaidFees,
                                                                       baseApplication.CreatedByUserID);
             }
             else
                 return null;
         }
+
+       
+        
 
         private bool _AddNewLocalDrivingLicenseApplication()
         {
@@ -130,24 +154,12 @@ namespace BusinessLayer
         
 
 
-        public static bool IsTestPassed(int LocalLicenseApplicationID, int TestTypeID)
-        {
-            return clsLocalDrivingLicenseApplicationsDataAccess.IsTestPassed(LocalLicenseApplicationID,TestTypeID);
-        }
+        //public static bool IsTestPassed(int LocalLicenseApplicationID, int TestTypeID)
+        //{
+        //    return clsLocalDrivingLicenseApplicationsDataAccess.IsTestPassed(LocalLicenseApplicationID,TestTypeID);
+        //}
 
-        public  bool IsVisionTestPassed()
-        {
-            return IsTestPassed(this.LocalDrivingLicenseApplicationID, (int)enTestType.Vision);
-        }
-        public  bool IsWrittenTestPassed()
-        {
-            return IsTestPassed(this.LocalDrivingLicenseApplicationID, (int)enTestType.Written);
-        }
-        public  bool IsStreetTestPassed()
-        {
-            return IsTestPassed(this.LocalDrivingLicenseApplicationID, (int)enTestType.Street);
-        }
-
+   
 
 
 

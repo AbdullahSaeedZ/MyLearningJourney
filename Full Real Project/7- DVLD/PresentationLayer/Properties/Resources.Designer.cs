@@ -203,6 +203,26 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap checkMarkFill24 {
+            get {
+                object obj = ResourceManager.GetObject("checkMarkFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap checkMarkNoFill24 {
+            get {
+                object obj = ResourceManager.GetObject("checkMarkNoFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DashboardFill {
             get {
                 object obj = ResourceManager.GetObject("DashboardFill", resourceCulture);
@@ -593,6 +613,26 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LicenseHistoryFill24 {
+            get {
+                object obj = ResourceManager.GetObject("LicenseHistoryFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LicenseHistoryNoFill24 {
+            get {
+                object obj = ResourceManager.GetObject("LicenseHistoryNoFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logoSmall {
             get {
                 object obj = ResourceManager.GetObject("logoSmall", resourceCulture);
@@ -873,6 +913,26 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap scheduleFill24 {
+            get {
+                object obj = ResourceManager.GetObject("scheduleFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap scheduleNoFill24 {
+            get {
+                object obj = ResourceManager.GetObject("scheduleNoFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap searchApplicationFill {
             get {
                 object obj = ResourceManager.GetObject("searchApplicationFill", resourceCulture);
@@ -983,6 +1043,26 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap streetTestFill24 {
+            get {
+                object obj = ResourceManager.GetObject("streetTestFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap streetTestNoFill24 {
+            get {
+                object obj = ResourceManager.GetObject("streetTestNoFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap UpdateFillBlack512 {
             get {
                 object obj = ResourceManager.GetObject("UpdateFillBlack512", resourceCulture);
@@ -1036,6 +1116,46 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap usersNoFillBold {
             get {
                 object obj = ResourceManager.GetObject("usersNoFillBold", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap visionTestFill24 {
+            get {
+                object obj = ResourceManager.GetObject("visionTestFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap visionTestNoFill24 {
+            get {
+                object obj = ResourceManager.GetObject("visionTestNoFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap writtenTestFill24 {
+            get {
+                object obj = ResourceManager.GetObject("writtenTestFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap writtenTestNoFill24 {
+            get {
+                object obj = ResourceManager.GetObject("writtenTestNoFill24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
