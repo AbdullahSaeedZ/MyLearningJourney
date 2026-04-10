@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using PresentationLayer.Applications.DrivingLicenses.Forms;
+using PresentationLayer.Applications.ManageLocalApplications.Forms;
 using PresentationLayer.Global_Classes;
 using System;
 using System.Data;
@@ -166,7 +167,10 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
         private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
+            clsUtilities.AddToBreadcrumb("> Application Info");
+            frmLocalApplicationInfo frmLocalApplicationInfo = new frmLocalApplicationInfo((int)dgvApplications.CurrentRow.Cells[0].Value);
+            frmLocalApplicationInfo.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb("> Application Info");
         }
 
         private void editApplicationToolStripMenuItem_Click(object sender, EventArgs e)

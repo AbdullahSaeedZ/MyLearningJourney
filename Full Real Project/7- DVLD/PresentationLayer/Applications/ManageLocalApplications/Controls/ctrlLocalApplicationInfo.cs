@@ -85,15 +85,17 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Controls
             lblLocalApplicationID.Text = "";
             lblLicenseClassName.Text = "";
             lblPassedTests.Text = "";
-            btnShowLicenseInfo.Enabled = false;
+            btnShowLicenseInfo.Visible = false;
 
             lblBaseApplicationID.Text = "";
             lblApplicationStatus.Text = "";
+            lblApplicationLastStatus.Text = "";
             lblApplicationType.Text = "";
+            lblApplicationFees.Text = "";
             lblApplicantFullName.Text = "";
             lblApplicationDate.Text = "";
             lblCreatedByUser.Text = "";
-            btnShowPersonInfo.Enabled = false;
+
         }
 
 
@@ -103,19 +105,20 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Controls
             lblLicenseClassName.Text = _LocalApplication.LicenseClassesInfo.ClassName;
             lblPassedTests.Text = _LocalApplication.TestsStatus.PassedTestsCount.ToString() + " out of 3";
 
-            btnShowLicenseInfo.Enabled = _LocalApplication.IsLicenseIssued();
+            btnShowLicenseInfo.Visible = _LocalApplication.IsLicenseIssued();
         }
 
         private void _FillBaseApplicationInfo()
         {
             lblBaseApplicationID.Text = _LocalApplication.ApplicationID.ToString();
             lblApplicationStatus.Text = _LocalApplication.ApplicationStatus.ToString();
-            lblApplicationType.Text = _LocalApplication.PaidFees.ToString();
+            lblApplicationLastStatus.Text = _LocalApplication.LastStatusDate.ToShortDateString();
+            lblApplicationFees.Text = _LocalApplication.PaidFees.ToString();
+            lblApplicationType.Text = _LocalApplication.ApplicationTypeInfo.ApplicationTypeTitle;
             lblApplicantFullName.Text = _LocalApplication.ApplicantPersonInfo.FullName;
             lblApplicationDate.Text = _LocalApplication.ApplicationDate.ToShortDateString();
             lblCreatedByUser.Text = _LocalApplication.CreatedByUserID.ToString();
 
-            btnShowPersonInfo.Enabled = true;
         }
 
         private void btnShowLicenseInfo_Click(object sender, EventArgs e)
@@ -127,10 +130,13 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Controls
 
         private void btnShowPersonInfo_Click(object sender, EventArgs e)
         {
-            clsUtilities.AddToBreadcrumb("> Person Info");
-            frmPersonInfo frmPersonInfo = new frmPersonInfo(_LocalApplication.ApplicantPersonID);
-            frmPersonInfo.ShowDialog();
-            clsUtilities.RemoveFromBreadcrumb("> Person Info");
+            if (_LocalApplication != null)
+            {
+                clsUtilities.AddToBreadcrumb("> Person Info");
+                frmPersonInfo frmPersonInfo = new frmPersonInfo(_LocalApplication.ApplicantPersonID);
+                frmPersonInfo.ShowDialog();
+                clsUtilities.RemoveFromBreadcrumb("> Person Info");
+            }
         }
     }
 }
