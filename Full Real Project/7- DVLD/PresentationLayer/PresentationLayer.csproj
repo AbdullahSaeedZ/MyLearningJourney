@@ -111,6 +111,12 @@
     <Compile Include="Applications\ManageTestTypes\Forms\frmEditTestType.Designer.cs">
       <DependentUpon>frmEditTestType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\TestAppointments\Forms\frmListTestAppointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\TestAppointments\Forms\frmListTestAppointments.Designer.cs">
+      <DependentUpon>frmListTestAppointments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard\ctrlDashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -239,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\ManageTestTypes\Forms\frmEditTestType.resx">
       <DependentUpon>frmEditTestType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\TestAppointments\Forms\frmListTestAppointments.resx">
+      <DependentUpon>frmListTestAppointments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard\ctrlDashboard.resx">
       <DependentUpon>ctrlDashboard.cs</DependentUpon>
@@ -570,6 +579,7 @@
     <Folder Include="Applications\DetainLicenses\" />
     <Folder Include="Applications\DrivingLicenses\Controls\" />
     <Folder Include="Applications\ManageInternationalApplications\" />
+    <Folder Include="Applications\TestAppointments\Controls\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\AddFillBlack512.png" />

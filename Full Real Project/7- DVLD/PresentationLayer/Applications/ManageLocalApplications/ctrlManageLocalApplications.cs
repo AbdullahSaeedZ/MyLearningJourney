@@ -1,6 +1,7 @@
 ﻿using BusinessLayer;
 using PresentationLayer.Applications.DrivingLicenses.Forms;
 using PresentationLayer.Applications.ManageLocalApplications.Forms;
+using PresentationLayer.Applications.TestAppointments.Forms;
 using PresentationLayer.Global_Classes;
 using System;
 using System.Data;
@@ -202,17 +203,22 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
         private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
+            int LocalApplicationID = (int)dgvApplications.CurrentRow.Cells[0].Value;
+
+            clsUtilities.AddToBreadcrumb("> Vision Test Appointments");
+            frmListTestAppointments testAppointments = new frmListTestAppointments(LocalApplicationID, clsTestTypesBusiness.enTestType.Vision);
+            testAppointments.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb("> Vision Test Appointments");
         }
 
         private void scheduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
+            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.CurrentRow.Cells[0].Value);
         }
 
         private void scheduleStreetTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
+            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.CurrentRow.Cells[0].Value);
         }
 
         private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
