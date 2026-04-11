@@ -10,7 +10,6 @@ namespace PresentationLayer.PeopleFormsAndControls
     public partial class ctrlPeople : UserControl
     {
 
-        private enum enGender { Male = 0, Female = 1 };
         private DataTable dt;
         private string _searchFilter; // to use in search filters and match DT and DB column names, not dgv names
 

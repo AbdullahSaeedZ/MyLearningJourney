@@ -11,6 +11,7 @@ using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using PresentationLayer.Drivers;
 
 namespace PresentationLayer.MainForm
 {
@@ -131,7 +132,8 @@ namespace PresentationLayer.MainForm
         private void btnDrivers_Click(object sender, EventArgs e)
         {
             _RefreshControlsContainer();
-
+            ctrlDrivers drivers = new ctrlDrivers();
+            pnlControlsContainer.Controls.Add(drivers);
             _UpdateButtons(sender);
         }
         private void btnUsers_Click(object sender, EventArgs e)

@@ -60,9 +60,9 @@ namespace BusinessLayer
             return clsDriversDataAccess.UpdateDriver(this.DriverID, this.PersonID, this.CreatedByUserID, this.CreatedDate);
         }
 
-        public static DataTable GetAllLicenses()
+        public static DataTable GetAllDrivers()
         {
-            return clsDriversDataAccess.GetAllLicenses();
+            return clsDriversDataAccess.GetAllDrivers();
         }
 
         public bool Save()
