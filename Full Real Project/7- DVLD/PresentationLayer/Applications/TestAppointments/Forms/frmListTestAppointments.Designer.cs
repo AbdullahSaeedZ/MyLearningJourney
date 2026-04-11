@@ -29,27 +29,33 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.ctrlLocalApplicationInfo1 = new PresentationLayer.Applications.ManageLocalApplications.Controls.ctrlLocalApplicationInfo();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.dgvDrivers = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dgvTestAppointments = new Guna.UI2.WinForms.Guna2DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnNewAppointment = new Guna.UI2.WinForms.Guna2Button();
-            this.DriverID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ApplointmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblNumberOfRecords = new System.Windows.Forms.Label();
+            this.TestAppointmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AppointmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PaidFees = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsLocked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ctrlLocalApplicationInfo1 = new PresentationLayer.Applications.ManageLocalApplications.Controls.ctrlLocalApplicationInfo();
+            this.btnNewAppointment = new Guna.UI2.WinForms.Guna2Button();
+            this.editAppointmentDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.takeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2ShadowPanel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTestAppointments)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -98,6 +104,7 @@
             this.btnClose.Size = new System.Drawing.Size(119, 37);
             this.btnClose.TabIndex = 10;
             this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // ControlBoxClose
             // 
@@ -124,27 +131,17 @@
             this.lblTitle.Text = "Test Appointments";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // ctrlLocalApplicationInfo1
-            // 
-            this.ctrlLocalApplicationInfo1.BackColor = System.Drawing.Color.White;
-            this.ctrlLocalApplicationInfo1.BasicApplicationBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlLocalApplicationInfo1.BasicApplicationBorderThickness = 1;
-            this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderThickness = 1;
-            this.ctrlLocalApplicationInfo1.Location = new System.Drawing.Point(13, 71);
-            this.ctrlLocalApplicationInfo1.Name = "ctrlLocalApplicationInfo1";
-            this.ctrlLocalApplicationInfo1.Size = new System.Drawing.Size(901, 487);
-            this.ctrlLocalApplicationInfo1.TabIndex = 11;
-            // 
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.White;
             this.guna2Panel3.BorderColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel3.BorderRadius = 15;
             this.guna2Panel3.BorderThickness = 1;
+            this.guna2Panel3.Controls.Add(this.label2);
+            this.guna2Panel3.Controls.Add(this.lblNumberOfRecords);
             this.guna2Panel3.Controls.Add(this.btnNewAppointment);
             this.guna2Panel3.Controls.Add(this.label1);
-            this.guna2Panel3.Controls.Add(this.dgvDrivers);
+            this.guna2Panel3.Controls.Add(this.dgvTestAppointments);
             this.guna2Panel3.FillColor = System.Drawing.Color.White;
             this.guna2Panel3.Location = new System.Drawing.Point(13, 564);
             this.guna2Panel3.Name = "guna2Panel3";
@@ -152,88 +149,89 @@
             this.guna2Panel3.Size = new System.Drawing.Size(901, 349);
             this.guna2Panel3.TabIndex = 13;
             // 
-            // dgvDrivers
+            // dgvTestAppointments
             // 
-            this.dgvDrivers.AllowUserToAddRows = false;
-            this.dgvDrivers.AllowUserToDeleteRows = false;
-            this.dgvDrivers.AllowUserToOrderColumns = true;
-            this.dgvDrivers.AllowUserToResizeColumns = false;
-            this.dgvDrivers.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            this.dgvDrivers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.dgvDrivers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvTestAppointments.AllowUserToAddRows = false;
+            this.dgvTestAppointments.AllowUserToDeleteRows = false;
+            this.dgvTestAppointments.AllowUserToOrderColumns = true;
+            this.dgvTestAppointments.AllowUserToResizeColumns = false;
+            this.dgvTestAppointments.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.dgvTestAppointments.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvTestAppointments.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvDrivers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvDrivers.BackgroundColor = System.Drawing.Color.White;
-            this.dgvDrivers.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvDrivers.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvDrivers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDrivers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.dgvDrivers.ColumnHeadersHeight = 40;
-            this.dgvDrivers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvDrivers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DriverID,
-            this.ApplointmentDate,
+            this.dgvTestAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTestAppointments.BackgroundColor = System.Drawing.Color.White;
+            this.dgvTestAppointments.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvTestAppointments.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvTestAppointments.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestAppointments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvTestAppointments.ColumnHeadersHeight = 40;
+            this.dgvTestAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvTestAppointments.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TestAppointmentID,
+            this.AppointmentDate,
             this.PaidFees,
             this.IsLocked});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDrivers.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dgvDrivers.EnableHeadersVisualStyles = false;
-            this.dgvDrivers.GridColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvDrivers.Location = new System.Drawing.Point(95, 95);
-            this.dgvDrivers.Name = "dgvDrivers";
-            this.dgvDrivers.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDrivers.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            this.dgvDrivers.RowHeadersVisible = false;
-            this.dgvDrivers.RowHeadersWidth = 45;
-            this.dgvDrivers.RowTemplate.DividerHeight = 1;
-            this.dgvDrivers.RowTemplate.Height = 50;
-            this.dgvDrivers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDrivers.Size = new System.Drawing.Size(724, 227);
-            this.dgvDrivers.TabIndex = 0;
-            this.dgvDrivers.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
-            this.dgvDrivers.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvDrivers.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvDrivers.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvDrivers.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvDrivers.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvDrivers.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvDrivers.ThemeStyle.GridColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvDrivers.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.White;
-            this.dgvDrivers.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvDrivers.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dgvDrivers.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
-            this.dgvDrivers.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvDrivers.ThemeStyle.HeaderStyle.Height = 40;
-            this.dgvDrivers.ThemeStyle.ReadOnly = true;
-            this.dgvDrivers.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvDrivers.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvDrivers.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.dgvDrivers.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvDrivers.ThemeStyle.RowsStyle.Height = 50;
-            this.dgvDrivers.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
-            this.dgvDrivers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvTestAppointments.ContextMenuStrip = this.contextMenuStrip1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTestAppointments.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvTestAppointments.EnableHeadersVisualStyles = false;
+            this.dgvTestAppointments.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvTestAppointments.Location = new System.Drawing.Point(95, 119);
+            this.dgvTestAppointments.Name = "dgvTestAppointments";
+            this.dgvTestAppointments.ReadOnly = true;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestAppointments.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvTestAppointments.RowHeadersVisible = false;
+            this.dgvTestAppointments.RowHeadersWidth = 45;
+            this.dgvTestAppointments.RowTemplate.DividerHeight = 1;
+            this.dgvTestAppointments.RowTemplate.Height = 50;
+            this.dgvTestAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTestAppointments.Size = new System.Drawing.Size(724, 200);
+            this.dgvTestAppointments.TabIndex = 0;
+            this.dgvTestAppointments.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.dgvTestAppointments.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvTestAppointments.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvTestAppointments.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvTestAppointments.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvTestAppointments.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvTestAppointments.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvTestAppointments.ThemeStyle.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvTestAppointments.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.White;
+            this.dgvTestAppointments.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvTestAppointments.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dgvTestAppointments.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
+            this.dgvTestAppointments.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvTestAppointments.ThemeStyle.HeaderStyle.Height = 40;
+            this.dgvTestAppointments.ThemeStyle.ReadOnly = true;
+            this.dgvTestAppointments.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvTestAppointments.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvTestAppointments.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvTestAppointments.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvTestAppointments.ThemeStyle.RowsStyle.Height = 50;
+            this.dgvTestAppointments.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
+            this.dgvTestAppointments.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             // 
             // label1
             // 
@@ -247,51 +245,47 @@
             this.label1.Text = "Appointments";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnNewAppointment
+            // label2
             // 
-            this.btnNewAppointment.BackColor = System.Drawing.Color.Transparent;
-            this.btnNewAppointment.BorderColor = System.Drawing.Color.DimGray;
-            this.btnNewAppointment.BorderRadius = 10;
-            this.btnNewAppointment.CheckedState.Parent = this.btnNewAppointment;
-            this.btnNewAppointment.CustomImages.Parent = this.btnNewAppointment;
-            this.btnNewAppointment.FillColor = System.Drawing.Color.Transparent;
-            this.btnNewAppointment.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnNewAppointment.ForeColor = System.Drawing.Color.Black;
-            this.btnNewAppointment.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNewAppointment.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNewAppointment.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnNewAppointment.HoverState.Image = global::PresentationLayer.Properties.Resources.addFill;
-            this.btnNewAppointment.HoverState.Parent = this.btnNewAppointment;
-            this.btnNewAppointment.Image = global::PresentationLayer.Properties.Resources.addNoFill;
-            this.btnNewAppointment.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnNewAppointment.Location = new System.Drawing.Point(627, 52);
-            this.btnNewAppointment.Name = "btnNewAppointment";
-            this.btnNewAppointment.PressedColor = System.Drawing.Color.DimGray;
-            this.btnNewAppointment.ShadowDecoration.Parent = this.btnNewAppointment;
-            this.btnNewAppointment.Size = new System.Drawing.Size(192, 37);
-            this.btnNewAppointment.TabIndex = 8;
-            this.btnNewAppointment.Text = "New Appointment";
-            this.btnNewAppointment.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(91, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(131, 23);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Total Records:";
             // 
-            // DriverID
+            // lblNumberOfRecords
             // 
-            this.DriverID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.DriverID.DataPropertyName = "TestAppointmentID";
-            this.DriverID.HeaderText = "Appointment ID";
-            this.DriverID.MinimumWidth = 6;
-            this.DriverID.Name = "DriverID";
-            this.DriverID.ReadOnly = true;
-            this.DriverID.Width = 200;
+            this.lblNumberOfRecords.AutoSize = true;
+            this.lblNumberOfRecords.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold);
+            this.lblNumberOfRecords.ForeColor = System.Drawing.Color.Black;
+            this.lblNumberOfRecords.Location = new System.Drawing.Point(252, 88);
+            this.lblNumberOfRecords.Name = "lblNumberOfRecords";
+            this.lblNumberOfRecords.Size = new System.Drawing.Size(22, 23);
+            this.lblNumberOfRecords.TabIndex = 9;
+            this.lblNumberOfRecords.Text = "0";
             // 
-            // ApplointmentDate
+            // TestAppointmentID
             // 
-            this.ApplointmentDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ApplointmentDate.DataPropertyName = "ApplointmentDate";
-            this.ApplointmentDate.HeaderText = "Applointment Date";
-            this.ApplointmentDate.MinimumWidth = 6;
-            this.ApplointmentDate.Name = "ApplointmentDate";
-            this.ApplointmentDate.ReadOnly = true;
-            this.ApplointmentDate.Width = 260;
+            this.TestAppointmentID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.TestAppointmentID.DataPropertyName = "TestAppointmentID";
+            this.TestAppointmentID.HeaderText = "Appointment ID";
+            this.TestAppointmentID.MinimumWidth = 6;
+            this.TestAppointmentID.Name = "TestAppointmentID";
+            this.TestAppointmentID.ReadOnly = true;
+            this.TestAppointmentID.Width = 200;
+            // 
+            // AppointmentDate
+            // 
+            this.AppointmentDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.AppointmentDate.DataPropertyName = "AppointmentDate";
+            this.AppointmentDate.HeaderText = "Appointment Date";
+            this.AppointmentDate.MinimumWidth = 6;
+            this.AppointmentDate.Name = "AppointmentDate";
+            this.AppointmentDate.ReadOnly = true;
+            this.AppointmentDate.Width = 260;
             // 
             // PaidFees
             // 
@@ -315,6 +309,70 @@
             this.IsLocked.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.IsLocked.Width = 130;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editAppointmentDateToolStripMenuItem,
+            this.takeTestToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(217, 64);
+            // 
+            // ctrlLocalApplicationInfo1
+            // 
+            this.ctrlLocalApplicationInfo1.BackColor = System.Drawing.Color.White;
+            this.ctrlLocalApplicationInfo1.BasicApplicationBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalApplicationInfo1.BasicApplicationBorderThickness = 1;
+            this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderThickness = 1;
+            this.ctrlLocalApplicationInfo1.Location = new System.Drawing.Point(13, 71);
+            this.ctrlLocalApplicationInfo1.Name = "ctrlLocalApplicationInfo1";
+            this.ctrlLocalApplicationInfo1.Size = new System.Drawing.Size(901, 487);
+            this.ctrlLocalApplicationInfo1.TabIndex = 11;
+            // 
+            // btnNewAppointment
+            // 
+            this.btnNewAppointment.BackColor = System.Drawing.Color.Transparent;
+            this.btnNewAppointment.BorderColor = System.Drawing.Color.DimGray;
+            this.btnNewAppointment.BorderRadius = 10;
+            this.btnNewAppointment.CheckedState.Parent = this.btnNewAppointment;
+            this.btnNewAppointment.CustomImages.Parent = this.btnNewAppointment;
+            this.btnNewAppointment.FillColor = System.Drawing.Color.Transparent;
+            this.btnNewAppointment.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnNewAppointment.ForeColor = System.Drawing.Color.Black;
+            this.btnNewAppointment.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNewAppointment.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNewAppointment.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnNewAppointment.HoverState.Image = global::PresentationLayer.Properties.Resources.addFill;
+            this.btnNewAppointment.HoverState.Parent = this.btnNewAppointment;
+            this.btnNewAppointment.Image = global::PresentationLayer.Properties.Resources.addNoFill;
+            this.btnNewAppointment.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnNewAppointment.Location = new System.Drawing.Point(627, 76);
+            this.btnNewAppointment.Name = "btnNewAppointment";
+            this.btnNewAppointment.PressedColor = System.Drawing.Color.DimGray;
+            this.btnNewAppointment.ShadowDecoration.Parent = this.btnNewAppointment;
+            this.btnNewAppointment.Size = new System.Drawing.Size(192, 37);
+            this.btnNewAppointment.TabIndex = 8;
+            this.btnNewAppointment.Text = "New Appointment";
+            this.btnNewAppointment.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnNewAppointment.Click += new System.EventHandler(this.btnNewAppointment_Click);
+            // 
+            // editAppointmentDateToolStripMenuItem
+            // 
+            this.editAppointmentDateToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.editDateNoFill24;
+            this.editAppointmentDateToolStripMenuItem.Name = "editAppointmentDateToolStripMenuItem";
+            this.editAppointmentDateToolStripMenuItem.Size = new System.Drawing.Size(216, 30);
+            this.editAppointmentDateToolStripMenuItem.Text = "Edit Appointment Date";
+            this.editAppointmentDateToolStripMenuItem.Click += new System.EventHandler(this.editAppointmentDateToolStripMenuItem_Click);
+            // 
+            // takeTestToolStripMenuItem
+            // 
+            this.takeTestToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.takeTestNoFill24;
+            this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
+            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(216, 30);
+            this.takeTestToolStripMenuItem.Text = "Take Test";
+            this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
+            // 
             // frmListTestAppointments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -324,13 +382,15 @@
             this.Controls.Add(this.guna2ShadowPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmListTestAppointments";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmListTestAppointments";
             this.Load += new System.EventHandler(this.frmListTestAppointments_Load);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
             this.guna2Panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTestAppointments)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -344,12 +404,17 @@
         private Guna.UI2.WinForms.Guna2ControlBox ControlBoxClose;
         private System.Windows.Forms.Label lblTitle;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private Guna.UI2.WinForms.Guna2DataGridView dgvDrivers;
+        private Guna.UI2.WinForms.Guna2DataGridView dgvTestAppointments;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btnNewAppointment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DriverID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ApplointmentDate;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblNumberOfRecords;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TestAppointmentID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AppointmentDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaidFees;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsLocked;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem editAppointmentDateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem takeTestToolStripMenuItem;
     }
 }

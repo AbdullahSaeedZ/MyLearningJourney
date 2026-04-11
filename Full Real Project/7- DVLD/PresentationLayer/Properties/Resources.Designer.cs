@@ -403,6 +403,26 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap editDateFill24 {
+            get {
+                object obj = ResourceManager.GetObject("editDateFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editDateNoFill24 {
+            get {
+                object obj = ResourceManager.GetObject("editDateNoFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap editFill {
             get {
                 object obj = ResourceManager.GetObject("editFill", resourceCulture);
@@ -716,6 +736,26 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap ManageTestTypesNoFillGrey512 {
             get {
                 object obj = ResourceManager.GetObject("ManageTestTypesNoFillGrey512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap newScheduleAppointmentFill24 {
+            get {
+                object obj = ResourceManager.GetObject("newScheduleAppointmentFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap newScheduleAppointmentNoFill24 {
+            get {
+                object obj = ResourceManager.GetObject("newScheduleAppointmentNoFill24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1056,6 +1096,26 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap streetTestNoFill24 {
             get {
                 object obj = ResourceManager.GetObject("streetTestNoFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap takeTestFill24 {
+            get {
+                object obj = ResourceManager.GetObject("takeTestFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap takeTestNoFill24 {
+            get {
+                object obj = ResourceManager.GetObject("takeTestNoFill24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

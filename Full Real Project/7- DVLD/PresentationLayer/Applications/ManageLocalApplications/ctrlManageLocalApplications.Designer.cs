@@ -522,7 +522,7 @@
             this.scheduleVisionTestToolStripMenuItem,
             this.scheduleWrittenTestToolStripMenuItem,
             this.scheduleStreetTToolStripMenuItem});
-            this.ScheduleTestsToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.scheduleNoFill24;
+            this.ScheduleTestsToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.newScheduleAppointmentNoFill24;
             this.ScheduleTestsToolStripMenuItem.Name = "ScheduleTestsToolStripMenuItem";
             this.ScheduleTestsToolStripMenuItem.Size = new System.Drawing.Size(322, 30);
             this.ScheduleTestsToolStripMenuItem.Text = "Schedule Tests";
@@ -577,7 +577,7 @@
             this.showPersonLicenseHistoryToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.LicenseHistoryNoFill24;
             this.showPersonLicenseHistoryToolStripMenuItem.Name = "showPersonLicenseHistoryToolStripMenuItem";
             this.showPersonLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(322, 30);
-            this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
+            this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person Licenses History";
             this.showPersonLicenseHistoryToolStripMenuItem.Click += new System.EventHandler(this.showPersonLicenseHistoryToolStripMenuItem_Click);
             // 
             // ctrlManageLocalApplications

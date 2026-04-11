@@ -53,6 +53,8 @@
     <Compile Include="clsLicensesBusiness.cs" />
     <Compile Include="clsLocalDrivingLicenseApplicationsBusiness.cs" />
     <Compile Include="clsPeopleBusiness.cs" />
+    <Compile Include="clsTestAppointmentsBusiness.cs" />
+    <Compile Include="clsTestsBusiness.cs" />
     <Compile Include="clsTestTypesBusiness.cs" />
     <Compile Include="clsUserBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

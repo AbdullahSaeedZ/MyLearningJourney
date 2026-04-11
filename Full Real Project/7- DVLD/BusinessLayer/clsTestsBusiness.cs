@@ -1,0 +1,97 @@
+﻿using DataAccessLayer;
+using System;
+using System.Data;
+
+namespace BusinessLayer
+{
+    public class clsTestsBusiness
+    {
+        public enum enMode { eAddMode = 0, eUpdateMode = 1 };
+        enMode _mode;
+
+        public int TestID { get; private set; }
+        public int TestAppointmentID { get; set; }
+        public bool TestResult { get; set; }
+        public string Notes { get; set; }
+        public int CreatedByUserID { get; set; }
+
+
+        clsTestsBusiness()
+        {
+            this.TestID = -1;
+            this.TestAppointmentID = -1;
+            this.TestResult = false;
+            this.Notes = "";
+            this.CreatedByUserID = -1;
+            _mode = enMode.eAddMode;
+        }
+
+
+        clsTestsBusiness(int TestID, int TestAppointmentID, bool TestResult, string Notes, int CreatedByUserID)
+        {
+            this.TestID = TestID;
+            this.TestAppointmentID = -1;
+            this.TestResult = TestResult;
+            this.Notes = "";
+            this.CreatedByUserID = -1;
+            _mode = enMode.eUpdateMode;
+        }
+
+
+        public static clsTestsBusiness FindByTestID(int TestID)
+        {
+            int TestAppointmentID = -1, CreatedByUserID = -1;
+            string Notes = "";
+            bool TestResult = false;
+
+            if (clsTestsDataAccess.FindByTestID(TestID, ref TestAppointmentID, ref TestResult, ref Notes, ref CreatedByUserID))
+            {
+                return new clsTestsBusiness(TestID, TestAppointmentID, TestResult, Notes, CreatedByUserID);
+            }
+            else
+                return null;
+        }
+
+        private bool _AddNewTest()
+        {
+            this.TestID = clsTestsDataAccess.AddNewTest(this.TestAppointmentID, this.TestResult, this.Notes, this.CreatedByUserID);
+
+            return (this.TestID != -1);
+        }
+        private bool _UpdateTest()
+        {
+            return clsTestsDataAccess.UpdateTest(this.TestID, this.TestAppointmentID, this.TestResult, this.Notes, this.CreatedByUserID);
+        }
+
+        public static DataTable GetAllTests()
+        {
+            return clsTestsDataAccess.GetAllTests();
+        }
+
+        public bool Save()
+        {
+            switch (_mode)
+            {
+                case enMode.eAddMode:
+                    if (_AddNewTest())
+                    {
+                        _mode = enMode.eUpdateMode;
+                        return true;
+                    }
+                    else
+                        return false;
+
+                case enMode.eUpdateMode:
+                    return _UpdateTest();
+
+                default: return false;
+            }
+        }
+
+        public static bool IsTestPassedByAppointmentId(int TestAppointmentID)
+        {
+            return clsTestsDataAccess.IsTestPassedByAppointmentId(TestAppointmentID);
+        }
+
+    }
+}
