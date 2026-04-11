@@ -10,8 +10,8 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Controls
     public partial class ctrlLocalApplicationInfo : UserControl
     {
 
-        private int _LocalApplicationID;
-        clsLocalDrivingLicenseApplicationsBusiness _LocalApplication;
+        public int SelectedLocalApplicationID { get; private set; } //  if needed outside
+        private clsLocalDrivingLicenseApplicationsBusiness _LocalApplication;
         public clsLocalDrivingLicenseApplicationsBusiness SelectedLocalApplication { get { return _LocalApplication; } }
 
         public int DrivingLicenseApplicationBorderThickness
@@ -75,6 +75,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Controls
                 MessageBox.Show($"Local Driving License Application ID = {LocalDrivingLicenseApplicationID} was not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            SelectedLocalApplicationID = LocalDrivingLicenseApplicationID;
             _FillLocalApplicationInfo();
             _FillBaseApplicationInfo();
         }
