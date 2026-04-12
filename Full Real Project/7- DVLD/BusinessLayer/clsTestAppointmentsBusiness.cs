@@ -139,9 +139,9 @@ namespace BusinessLayer
                 return null;
         }
 
-        private int GetTestID()
+        public int GetTestID()
         {
-            return clsTestsDataAccess.FindTestIDByAppointmentID(this.TestAppointmentID);
+            return clsTestsDataAccess.GetTestIDByAppointmentID(this.TestAppointmentID);
         }
     }
 }

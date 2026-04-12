@@ -117,6 +117,18 @@
     <Compile Include="Applications\TestAppointments\Forms\frmListTestAppointments.Designer.cs">
       <DependentUpon>frmListTestAppointments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\TestAppointments\Forms\frmScheduleTestAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\TestAppointments\Forms\frmScheduleTestAppointment.Designer.cs">
+      <DependentUpon>frmScheduleTestAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\TestAppointments\Forms\frmTakeTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\TestAppointments\Forms\frmTakeTest.Designer.cs">
+      <DependentUpon>frmTakeTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard\ctrlDashboard.cs">
       <SubType>UserControl</SubType>
     </Compile>
