@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Diagnostics.SymbolStore;
 using System.IO;
+using static BusinessLayer.clsApplicationTypesBusiness;
 using static BusinessLayer.clsTestTypesBusiness;
 
 namespace BusinessLayer
@@ -44,7 +45,7 @@ namespace BusinessLayer
         }
 
         clsLocalDrivingLicenseApplicationsBusiness(int LocalApplicationID, int LicenseClassID, int ApplicationID, bool IsVisionTestPassed, bool IsWrittenTestPassed, bool IsStreetTestPassed,
-            int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID, enApplicationStatus ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
+            int ApplicantPersonID, DateTime ApplicationDate, enApplicationTypes ApplicationTypeID, enApplicationStatus ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
             : base(ApplicationID, ApplicantPersonID, ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID)
         {
             this.LocalDrivingLicenseApplicationID = LocalApplicationID;

@@ -27,7 +27,7 @@ namespace PresentationLayer.Applications.ManageApplicationTypes.Forms
                 return;
             }    
 
-            _appType = clsApplicationTypesBusiness.FindApplicationType(_applicationTypeID);
+            _appType = clsApplicationTypesBusiness.FindApplicationType((clsApplicationTypesBusiness.enApplicationTypes)_applicationTypeID);
             if (_appType == null)
             {
                 MessageBox.Show("Could not retrieve data from database", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -12,9 +12,9 @@ namespace BusinessLayer
         public enTestType TestTypeID { get; private set; }
         public string TestTypeTitle { get; set; }
         public string TestTypeDescription { get; set; }
-        public decimal TestTypeFees { get; set; }
+        public float TestTypeFees { get; set; }
 
-        clsTestTypesBusiness(enTestType ID, string Title, string Description, decimal Fees)
+        clsTestTypesBusiness(enTestType ID, string Title, string Description, float Fees)
         {
             this.TestTypeID = ID;
             this.TestTypeTitle = Title;
@@ -26,7 +26,7 @@ namespace BusinessLayer
         public static clsTestTypesBusiness FindTestType(enTestType ID)
         {
             string TestTypeTitle = "", TestTypeDescription = "";
-            decimal TestTypeFees = -1;
+            float TestTypeFees = -1;
 
             if (clsTestTypesDataAccess.FindTestType((int)ID, ref TestTypeTitle, ref TestTypeDescription, ref TestTypeFees))
                 return new clsTestTypesBusiness(ID, TestTypeTitle, TestTypeDescription, TestTypeFees);

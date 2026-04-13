@@ -9,7 +9,7 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
     {
         private int _LocalApplicationID = -1;
         public clsTestTypesBusiness.enTestType _SelectedTestType; // this will determine which test type for the whole process
-        clsTestAppointmentsBusiness _SelectedAppointment;
+        
         private DataTable dt;
 
         public frmListTestAppointments(int LocalApplicationID, clsTestTypesBusiness.enTestType SelectedTestType)
@@ -36,6 +36,7 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
 
         private void RefreshDataGridView()
         {
+            // method should be in localApplication class ?
             if ((dt = clsTestAppointmentsBusiness.GetAllTestAppointmentsByTestTypeID(_LocalApplicationID, _SelectedTestType)) == null)
                 return;
 
@@ -76,13 +77,23 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
                 // if there is old appointments with failed test , 
                 if (lastTestAppointment.IsLocked && !WasTestPassed)
                 {
-                    // open new Add/EditAppointment
-                    //allow a new appointment with mode: new application of retake test type and show the retake application info: RT.App ID , RT.App fees , then total fees as vision test fees + RT.App fees
+                    // allow for new appointment as retake
+                    // need testing after performing take test functionality
+                    frmScheduleTestAppointment AddNewRetakeAppointment = new frmScheduleTestAppointment(_SelectedTestType, frmScheduleTestAppointment.enMode.eAddRetakeAppointmentMode);
+                    AddNewRetakeAppointment.ReceivedLocalApplication = ctrlLocalApplicationInfo1.SelectedLocalApplication;
+                    AddNewRetakeAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;
+                    AddNewRetakeAppointment.oldTestTrials = dgvTestAppointments.Rows.Count;
+                    AddNewRetakeAppointment.ShowDialog();
+                    return;
                 }
             }
 
+            // ----------------  done and tested 
             // if there is no old appointments, allow a new appointment with no RT.Application creation , and RT.Application info invisible
-            // open new Add/EditAppointment form for new appointment
+            frmScheduleTestAppointment AddNewAppointment = new frmScheduleTestAppointment(_SelectedTestType, frmScheduleTestAppointment.enMode.eAddNewAppointmentMode);
+            AddNewAppointment.ReceivedLocalApplication = ctrlLocalApplicationInfo1.SelectedLocalApplication;
+            AddNewAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;
+            AddNewAppointment.ShowDialog();
 
 
         }
@@ -90,25 +101,35 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
         // toolstrip menu options
         private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            _SelectedAppointment = clsTestAppointmentsBusiness.FindByTestAppointmentID((int)dgvTestAppointments.CurrentRow.Cells[0].Value);
-            if (_SelectedAppointment == null)
-            {
-                MessageBox.Show("Could not get selected Test Appointment ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // this will make the menu close
-            }
+            if (dgvTestAppointments.Rows.Count == 0)
+                return;
+           // removed selected testAppointment from here cuz user might just trigger this event without selecting any options of the menu
         }
 
+        // done and tested when locked and unlocked
         private void editAppointmentDateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            // (not allowed to edit when locked, only show info) (allowed to edit when unlocked)
+            if (dgvTestAppointments.RowCount == 0)
+                return; 
 
-            // open new Add/EditAppointment form for editing appointment date only (no backward date allowed) (allowed to edit when unlocked)
-            // Add/EditAppointment in edit mode
+            int SelectedAppointmentID = (int)dgvTestAppointments.CurrentRow.Cells[0].Value;
 
+            frmScheduleTestAppointment editScheduledTestAppointment = new frmScheduleTestAppointment(SelectedAppointmentID, _SelectedTestType, frmScheduleTestAppointment.enMode.eUpdateMode);
+            editScheduledTestAppointment.ReceivedLocalApplication = ctrlLocalApplicationInfo1.SelectedLocalApplication;
+            editScheduledTestAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;
+            editScheduledTestAppointment.oldTestTrials = dgvTestAppointments.Rows.Count;
+            editScheduledTestAppointment.ShowDialog();
         }
 
         private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (dgvTestAppointments.RowCount == 0)
+                return; 
+
+            int SelectedAppointmentID = (int)dgvTestAppointments.CurrentRow.Cells[0].Value;
+
+
             // new test record will be created AFTER putting test result then pressing save in the take test form
 
             // send appointment id to the form to be able to create a test record
@@ -119,6 +140,13 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
 
 
             //this is a different form for taking tests
+
+            frmTakeTest takeTest = new frmTakeTest();
+            takeTest.ShowDialog();
+
+
+            // update taken tests in application info once test is passed
+            // also update dgv of local applications to show passed tests
             
         }
 

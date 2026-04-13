@@ -118,7 +118,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Controls
             lblApplicationType.Text = _LocalApplication.ApplicationTypeInfo.ApplicationTypeTitle;
             lblApplicantFullName.Text = _LocalApplication.ApplicantPersonInfo.FullName;
             lblApplicationDate.Text = _LocalApplication.ApplicationDate.ToShortDateString();
-            lblCreatedByUser.Text = _LocalApplication.CreatedByUserID.ToString();
+            lblCreatedByUser.Text = _LocalApplication.CreatedByUserInfo.Username;
 
         }
 

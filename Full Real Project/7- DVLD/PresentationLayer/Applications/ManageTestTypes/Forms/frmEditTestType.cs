@@ -57,7 +57,7 @@ namespace PresentationLayer.Applications.ManageTestTypes.Forms
 
             _testType.TestTypeTitle = tbTestTypeTitle.Text.Trim();
             _testType.TestTypeDescription = tbTestTypeDescription.Text.Trim();
-            _testType.TestTypeFees = Convert.ToDecimal(tbTestTypeFees.Text.Trim());
+            _testType.TestTypeFees = Convert.ToSingle(tbTestTypeFees.Text.Trim());
 
             if (_testType.Save())
             {

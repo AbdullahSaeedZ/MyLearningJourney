@@ -7,7 +7,7 @@ namespace DataAccessLayer
 {
     public class clsTestTypesDataAccess
     {
-        public static bool FindTestType(int ID, ref string testTypeTitle, ref string testTypeDescription, ref decimal testTypeFees)
+        public static bool FindTestType(int ID, ref string testTypeTitle, ref string testTypeDescription, ref float testTypeFees)
         {
             bool isFound = false;
 
@@ -28,7 +28,7 @@ namespace DataAccessLayer
                         {
                             testTypeTitle = (string)reader["TestTypeTitle"];
                             testTypeDescription = (string)reader["TestTypeDescription"];
-                            testTypeFees = (decimal)reader["TestTypeFees"];
+                            testTypeFees = Convert.ToSingle(reader["TestTypeFees"]);
                             isFound = true;
                         }
                     }
@@ -42,7 +42,7 @@ namespace DataAccessLayer
             return isFound;
         }
 
-        public static bool UpdateTestType(int ID, string testTypeTitle, string testTypeDescription, decimal testTypeFees)
+        public static bool UpdateTestType(int ID, string testTypeTitle, string testTypeDescription, float testTypeFees)
         {
             int rowsAffected = 0;
 

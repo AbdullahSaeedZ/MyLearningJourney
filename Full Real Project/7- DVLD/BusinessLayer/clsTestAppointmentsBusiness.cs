@@ -12,18 +12,18 @@ namespace BusinessLayer
         enMode _mode;
 
         public int TestAppointmentID { get; private set; }
-        public clsTestTypesBusiness.enTestType TestTypeID { get; set; }
-        public int LocalDrivingLicenseApplicationID { get; set; }
+        public clsTestTypesBusiness.enTestType TestTypeID { get; set; }  //do private variable
+        public int LocalDrivingLicenseApplicationID { get; set; }  //do private variable
         public DateTime AppointmentDate { get; set; }
         public float PaidFees { get; set; }
-        public int CreatedByUserID { get; set; }
-        public bool IsLocked { get; set; }
+        public int CreatedByUserID { get; set; }  //do private variable
+        public bool IsLocked { get; set; }  //do private variable 
         public int RetakeTestApplicationID { get; set; }
-        public int TestID { get; private set; }
+        public int TestID { get; set; } //do private variable
         public clsApplicationsBusiness RetakeTestAppInfo { get; set; } // this is a basic application with a test retake type
 
 
-        clsTestAppointmentsBusiness()
+        public clsTestAppointmentsBusiness()
         {
             this.TestAppointmentID = -1;
             this.TestTypeID = clsTestTypesBusiness.enTestType.Vision; // as initial value then changed in ui
@@ -31,6 +31,7 @@ namespace BusinessLayer
             this.AppointmentDate = DateTime.MinValue;
             this.PaidFees = 0;
             this.CreatedByUserID = -1;
+            this.IsLocked = false;
             this.RetakeTestApplicationID = -1;
             this.TestID = -1;
             _mode = enMode.eAddMode;
@@ -46,6 +47,7 @@ namespace BusinessLayer
             this.AppointmentDate = AppointmentDate;
             this.PaidFees = PaidFees;
             this.CreatedByUserID = CreatedByUserID;
+            this.IsLocked = IsLocked;
             this.RetakeTestApplicationID = RetakeTestApplicationID;
             this.RetakeTestAppInfo = clsApplicationsBusiness.FindBaseApplicationByID(RetakeTestApplicationID);
             this.TestID = clsTestsDataAccess.GetTestIDByAppointmentID(TestAppointmentID);
@@ -55,8 +57,7 @@ namespace BusinessLayer
 
         public static clsTestAppointmentsBusiness FindByTestAppointmentID(int TestAppointmentID)
         {
-            int LocalDrivingLicenseApplicationID = -1, RetakeTestApplicationID = -1, CreatedByUserID = -1;
-            byte TestTypeID = 0;
+            int LocalDrivingLicenseApplicationID = -1, RetakeTestApplicationID = -1, CreatedByUserID = -1, TestTypeID = 0;
             DateTime AppointmentDate = DateTime.MinValue;
             float PaidFees = -1;
             bool IsLocked = false;

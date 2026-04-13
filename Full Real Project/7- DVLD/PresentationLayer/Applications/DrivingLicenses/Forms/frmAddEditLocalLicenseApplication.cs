@@ -13,7 +13,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
 
         private int _localApplicationID = -1;
         clsLocalDrivingLicenseApplicationsBusiness _localApplication;
-        clsApplicationTypesBusiness _localLicenseApplicationTypeInfo = clsApplicationTypesBusiness.FindApplicationType(1); 
+        clsApplicationTypesBusiness _localLicenseApplicationTypeInfo;
 
         private enum enMode { eAddNewMode, eUpdateMode };
         private enMode _mode;
@@ -33,6 +33,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
         private void frmAddEditLocalLicenseApplication_Load(object sender, EventArgs e)
         {
             _FillLicenseClassesComboBox();
+            _localLicenseApplicationTypeInfo = clsApplicationTypesBusiness.FindApplicationType(clsApplicationTypesBusiness.enApplicationTypes.eNewLocalDrivingLicense);
 
             if (_mode == enMode.eAddNewMode)
             {

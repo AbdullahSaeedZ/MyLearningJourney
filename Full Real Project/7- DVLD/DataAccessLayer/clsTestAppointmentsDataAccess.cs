@@ -6,7 +6,7 @@ namespace DataAccessLayer
 {
     public class clsTestAppointmentsDataAccess
     {
-        public static bool FindByTestAppointmentID(int TestAppointmentID, ref byte TestTypeID, ref int LocalDrivingLicenseApplicationID, ref DateTime AppointmentDate, ref float PaidFees,
+        public static bool FindByTestAppointmentID(int TestAppointmentID, ref int TestTypeID, ref int LocalDrivingLicenseApplicationID, ref DateTime AppointmentDate, ref float PaidFees,
                                      ref int CreatedByUserID, ref bool IsLocked, ref int RetakeTestApplicationID)
         {
             bool isFound = false;
@@ -25,12 +25,12 @@ namespace DataAccessLayer
 
                         if (reader.Read())
                         {
-                            TestTypeID = (byte)reader["TestTypeID"];
+                            TestTypeID = (int)reader["TestTypeID"];
                             LocalDrivingLicenseApplicationID = (int)reader["LocalDrivingLicenseApplicationID"];
                             AppointmentDate = (DateTime)reader["AppointmentDate"];
                             PaidFees = Convert.ToSingle(reader["PaidFees"]);
-                            IsLocked = (bool)reader["IsActiveIsLocked"];
-                            RetakeTestApplicationID = (byte)reader["RetakeTestApplicationID"];
+                            IsLocked = (bool)reader["IsLocked"];
+                            RetakeTestApplicationID = reader["RetakeTestApplicationID"] == DBNull.Value ? -1 : (int)reader["RetakeTestApplicationID"];
                             CreatedByUserID = (int)reader["CreatedByUserID"];
                             isFound = true;
                         }
@@ -65,7 +65,12 @@ namespace DataAccessLayer
                         command.Parameters.AddWithValue("@PaidFees", PaidFees);
                         command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
                         command.Parameters.AddWithValue("@IsLocked", IsLocked);
-                        command.Parameters.AddWithValue("@PaidFRetakeTestApplicationIDees", RetakeTestApplicationID);
+
+                        if (RetakeTestApplicationID == -1)
+                            command.Parameters.AddWithValue(@"RetakeTestApplicationID", DBNull.Value);
+                        else
+                            command.Parameters.AddWithValue("@RetakeTestApplicationID", RetakeTestApplicationID);
+
 
                         connection.Open();
                         object result = command.ExecuteScalar();
@@ -104,7 +109,11 @@ namespace DataAccessLayer
                         command.Parameters.AddWithValue("@PaidFees", PaidFees);
                         command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
                         command.Parameters.AddWithValue("@IsLocked", IsLocked);
-                        command.Parameters.AddWithValue("@PaidFRetakeTestApplicationIDees", RetakeTestApplicationID);
+
+                        if (RetakeTestApplicationID == -1)
+                            command.Parameters.AddWithValue(@"RetakeTestApplicationID", DBNull.Value);
+                        else
+                            command.Parameters.AddWithValue("@RetakeTestApplicationID", RetakeTestApplicationID);
 
                         connection.Open();
                         rowsAffected = command.ExecuteNonQuery();
@@ -205,8 +214,8 @@ namespace DataAccessLayer
                             TestAppointmentID = (int)reader["TestAppointmentID"];
                             AppointmentDate = (DateTime)reader["AppointmentDate"];
                             PaidFees = Convert.ToSingle(reader["PaidFees"]);
-                            IsLocked = (bool)reader["IsActiveIsLocked"];
-                            RetakeTestApplicationID = (byte)reader["RetakeTestApplicationID"];
+                            IsLocked = (bool)reader["IsLocked"];
+                            RetakeTestApplicationID = reader["RetakeTestApplicationID"] == DBNull.Value ? -1 : (int)reader["RetakeTestApplicationID"];
                             CreatedByUserID = (int)reader["CreatedByUserID"];
                             isFound = true;
                         }

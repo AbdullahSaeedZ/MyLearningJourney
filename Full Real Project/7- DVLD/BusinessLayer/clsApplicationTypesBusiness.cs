@@ -6,13 +6,18 @@ namespace BusinessLayer
     public class clsApplicationTypesBusiness
     {
         enum enMode { eAddMode = 0, eUpdateMode = 1 }; // no need for adding functionality for now, but might add later
+        public enum enApplicationTypes { eNewLocalDrivingLicense = 1, eRenewDrivingLicense= 2 ,
+                                         eLostDrivingLicenseReplacement = 3, eDamagedDrivingLicenseReplacement = 4,
+                                         eReleaseDetainedDrivingLicense = 5, eNewInternationalLicense = 6,
+                                         eRetakeTest = 7 };
+
         enMode _mode;
 
-        public int ApplicationTypeID { get; private set; }
+        public enApplicationTypes ApplicationTypeID { get; private set; }
         public string ApplicationTypeTitle { get; set; }
         public float ApplicationTypeFees { get; set; }
 
-        clsApplicationTypesBusiness(int ID, string Title, float Fees)
+        clsApplicationTypesBusiness(enApplicationTypes ID, string Title, float Fees)
         {
             this.ApplicationTypeID = ID;
             this.ApplicationTypeTitle = Title;
@@ -20,12 +25,12 @@ namespace BusinessLayer
             _mode = enMode.eUpdateMode;
         }
 
-        public static clsApplicationTypesBusiness FindApplicationType(int ID)
+        public static clsApplicationTypesBusiness FindApplicationType(enApplicationTypes ID)
         {
             string applicationTypeTitle = "";
             float applicationTypeFees = -1;
 
-            if (clsApplicationTypesDataAccess.FindApplicationType(ID, ref applicationTypeTitle, ref applicationTypeFees))
+            if (clsApplicationTypesDataAccess.FindApplicationType((int)ID, ref applicationTypeTitle, ref applicationTypeFees))
                 return new clsApplicationTypesBusiness(ID, applicationTypeTitle, applicationTypeFees);
             else
                 return null;
@@ -38,7 +43,7 @@ namespace BusinessLayer
 
         private bool _UpdateApplicationType()
         {
-            return clsApplicationTypesDataAccess.UpdateApplicationType(this.ApplicationTypeID, this.ApplicationTypeTitle, this.ApplicationTypeFees);
+            return clsApplicationTypesDataAccess.UpdateApplicationType((int)this.ApplicationTypeID, this.ApplicationTypeTitle, this.ApplicationTypeFees);
         }
 
         public bool Save()

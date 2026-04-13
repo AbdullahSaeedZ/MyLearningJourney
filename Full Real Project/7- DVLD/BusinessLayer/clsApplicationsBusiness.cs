@@ -1,6 +1,7 @@
-﻿using System;
+﻿using DataAccessLayer;
+using System;
 using System.Data;
-using DataAccessLayer;
+using static BusinessLayer.clsApplicationTypesBusiness;
 
 namespace BusinessLayer
 {
@@ -29,8 +30,8 @@ namespace BusinessLayer
             }
         }
 
-        private int _applicationTypeID;
-        public int ApplicationTypeID
+        private enApplicationTypes _applicationTypeID;
+        public enApplicationTypes ApplicationTypeID
         {
             get
             {
@@ -38,7 +39,7 @@ namespace BusinessLayer
             }
             set
             {
-                if (_applicationTypeID == -1) // to prevent any modification and allow only new assignment from UI
+                if (_applicationTypeID == 0) // to prevent any modification and allow only new assignment from UI
                     _applicationTypeID = value;
             }
         }
@@ -69,7 +70,7 @@ namespace BusinessLayer
         {
             this.ApplicationID = -1;
             this._applicantPersonID = -1;
-            this._applicationTypeID = -1;
+            this._applicationTypeID = 0;
             this.ApplicationDate = DateTime.MinValue;
             this.LastStatusDate = DateTime.MinValue;
             this.PaidFees = -1;
@@ -78,14 +79,14 @@ namespace BusinessLayer
             _mode = enMode.eAddMode;
         }
 
-        public clsApplicationsBusiness(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate, int ApplicationTypeID, enApplicationStatus ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
+        public clsApplicationsBusiness(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate, enApplicationTypes ApplicationTypeID, enApplicationStatus ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
         {
             this.ApplicationID = ApplicationID;
             this._applicantPersonID = ApplicantPersonID;
             this.ApplicantPersonInfo = clsPeopleBusiness.FindPerson(ApplicantPersonID);
             this.ApplicationDate = ApplicationDate;
             this._applicationTypeID = ApplicationTypeID;
-            this.ApplicationTypeInfo = clsApplicationTypesBusiness.FindApplicationType(ApplicationTypeID);
+            this.ApplicationTypeInfo = clsApplicationTypesBusiness.FindApplicationType((enApplicationTypes)ApplicationTypeID);
             this.ApplicationStatus = ApplicationStatus;
             this.LastStatusDate = LastStatusDate;
             this.PaidFees = PaidFees;
@@ -103,7 +104,7 @@ namespace BusinessLayer
             float paidFees = -1;
 
             if (clsApplicationsDataAccess.FindApplicationByID(ApplicationID, ref applicantPersonID, ref applicationDate, ref applicationTypeID, ref applicationStatus, ref lastStatusDate, ref paidFees, ref createdByUserID))
-                return new clsApplicationsBusiness(ApplicationID, applicantPersonID, applicationDate, applicationTypeID, (enApplicationStatus)applicationStatus, lastStatusDate, paidFees, createdByUserID);
+                return new clsApplicationsBusiness(ApplicationID, applicantPersonID, applicationDate, (enApplicationTypes)applicationTypeID, (enApplicationStatus)applicationStatus, lastStatusDate, paidFees, createdByUserID);
             else
                 return null;
         }
@@ -111,13 +112,13 @@ namespace BusinessLayer
         private bool _AddNewApplication()
         {
             // date of creating application is taken from Business layer (server) not the UI
-            this.ApplicationID = clsApplicationsDataAccess.AddNewApplication(this.ApplicantPersonID, DateTime.Now, this.ApplicationTypeID, (byte)this.ApplicationStatus, DateTime.Now, this.PaidFees, this.CreatedByUserID);
+            this.ApplicationID = clsApplicationsDataAccess.AddNewApplication(this.ApplicantPersonID, DateTime.Now, (int)this.ApplicationTypeID, (byte)this.ApplicationStatus, DateTime.Now, this.PaidFees, this.CreatedByUserID);
             return (this.ApplicationID != -1);
         }
 
         private bool _UpdateApplication()
         {
-            return clsApplicationsDataAccess.UpdateApplication(this.ApplicationID ,this.ApplicantPersonID, this.ApplicationDate, this.ApplicationTypeID,
+            return clsApplicationsDataAccess.UpdateApplication(this.ApplicationID ,this.ApplicantPersonID, this.ApplicationDate, (int)this.ApplicationTypeID,
                                                                 (byte)this.ApplicationStatus, this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
         }
 
