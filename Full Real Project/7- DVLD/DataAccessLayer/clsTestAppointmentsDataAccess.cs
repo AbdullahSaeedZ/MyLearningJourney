@@ -167,7 +167,8 @@ namespace DataAccessLayer
                 {
                     string query = @"select TestAppointments.TestAppointmentID, TestAppointments.AppointmentDate, TestAppointments.PaidFees, TestAppointments.IsLocked
                                      from TestAppointments
-                                     where LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID and TestTypeID = @TestTypeID;";
+                                     where LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID and TestTypeID = @TestTypeID
+                                     order by TestAppointments.AppointmentDate desc;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);
@@ -230,6 +231,34 @@ namespace DataAccessLayer
             return isFound;
         }
 
+        public static bool IsTestAppointmentLocked(int TestAppointmentID)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = "select Found = 1 from TestAppointments where TestAppointmentID = @TestAppointmentID and IsLocked = 1;";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null)
+                            isFound = true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return isFound;
+        }
 
 
     }

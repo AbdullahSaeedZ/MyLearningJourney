@@ -7,9 +7,10 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
 {
     public partial class frmListTestAppointments : Form
     {
+        public event Action delUpdateLocalApplicationsDGV;
+
         private int _LocalApplicationID = -1;
         public clsTestTypesBusiness.enTestType _SelectedTestType; // this will determine which test type for the whole process
-        
         private DataTable dt;
 
         public frmListTestAppointments(int LocalApplicationID, clsTestTypesBusiness.enTestType SelectedTestType)
@@ -54,48 +55,40 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
 
         private void btnNewAppointment_Click(object sender, EventArgs e)
         {
-            // getting last appointment record of this type to do checks
-            clsTestAppointmentsBusiness lastTestAppointment = clsTestAppointmentsBusiness.GetLastTestAppointmentByTestTypeID(_LocalApplicationID, _SelectedTestType);
-
-            if (lastTestAppointment != null)
+            // active = scheduled unlocked appointment
+            if (ctrlLocalApplicationInfo1.SelectedLocalApplication.IsThereActiveTestAppointment(_SelectedTestType))
             {
-                // active appointment not locked, test is not yet taken
-                if (!lastTestAppointment.IsLocked)
-                {
-                    MessageBox.Show("This person already has an active appointment for this test, you can not add a new appointment", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                bool WasTestPassed = clsTestsBusiness.IsTestPassedByAppointmentId(lastTestAppointment.TestAppointmentID);
-                // if there is old appointment with passed test , reject new appointment
-                if (lastTestAppointment.IsLocked && WasTestPassed)
-                {
-                    MessageBox.Show("This person already passed this test, you can not add a new appointment", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                // if there is old appointments with failed test , 
-                if (lastTestAppointment.IsLocked && !WasTestPassed)
-                {
-                    // allow for new appointment as retake
-                    // need testing after performing take test functionality
-                    frmScheduleTestAppointment AddNewRetakeAppointment = new frmScheduleTestAppointment(_SelectedTestType, frmScheduleTestAppointment.enMode.eAddRetakeAppointmentMode);
-                    AddNewRetakeAppointment.ReceivedLocalApplication = ctrlLocalApplicationInfo1.SelectedLocalApplication;
-                    AddNewRetakeAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;
-                    AddNewRetakeAppointment.oldTestTrials = dgvTestAppointments.Rows.Count;
-                    AddNewRetakeAppointment.ShowDialog();
-                    return;
-                }
+                MessageBox.Show("This person already has an active appointment for this test, you can not add a new appointment", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
-            // ----------------  done and tested 
-            // if there is no old appointments, allow a new appointment with no RT.Application creation , and RT.Application info invisible
-            frmScheduleTestAppointment AddNewAppointment = new frmScheduleTestAppointment(_SelectedTestType, frmScheduleTestAppointment.enMode.eAddNewAppointmentMode);
-            AddNewAppointment.ReceivedLocalApplication = ctrlLocalApplicationInfo1.SelectedLocalApplication;
-            AddNewAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;
-            AddNewAppointment.ShowDialog();
+            // no active so person either didnt schedule appointment at all or has a locked one 
+            clsTestsBusiness LastTestTaken = ctrlLocalApplicationInfo1.SelectedLocalApplication.GetLastTestPerTestType(_SelectedTestType);
+            if (LastTestTaken == null)
+            {
+                // ----------------  done and tested 
+                // new appointment , no appointment before
+                frmScheduleTestAppointment AddNewAppointment = new frmScheduleTestAppointment(_SelectedTestType, frmScheduleTestAppointment.enMode.eAddNewAppointmentMode);
+                AddNewAppointment.ReceivedLocalApplication = ctrlLocalApplicationInfo1.SelectedLocalApplication;
+                AddNewAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;
+                AddNewAppointment.ShowDialog();
+                return;
 
+            }
+            else if (LastTestTaken.TestResult)
+            {
+                // locked with passed test ? not allowed
+                MessageBox.Show("This person has performed and passed the test, cannot add new appointment of passed test", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            // locked with failed test allowed:
+            // new appointment as retake, there is old locked appointment but with failed tests
+            // need testing after performing take test functionality
+            frmScheduleTestAppointment AddNewRetakeAppointment = new frmScheduleTestAppointment(_SelectedTestType, frmScheduleTestAppointment.enMode.eAddRetakeAppointmentMode);
+            AddNewRetakeAppointment.ReceivedLocalApplication = ctrlLocalApplicationInfo1.SelectedLocalApplication;
+            AddNewRetakeAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;
+            AddNewRetakeAppointment.ShowDialog();
         }
 
         // toolstrip menu options
@@ -103,6 +96,14 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
         {
             if (dgvTestAppointments.Rows.Count == 0)
                 return;
+            else
+            {
+                if ((bool)dgvTestAppointments.CurrentRow.Cells[3].Value == true)
+                    takeTestToolStripMenuItem.Text = "Show Taken Test Info";
+                else
+                    takeTestToolStripMenuItem.Text = "Take Test";
+            }
+
            // removed selected testAppointment from here cuz user might just trigger this event without selecting any options of the menu
         }
 
@@ -110,46 +111,34 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
         private void editAppointmentDateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // (not allowed to edit when locked, only show info) (allowed to edit when unlocked)
-            if (dgvTestAppointments.RowCount == 0)
-                return; 
-
             int SelectedAppointmentID = (int)dgvTestAppointments.CurrentRow.Cells[0].Value;
 
             frmScheduleTestAppointment editScheduledTestAppointment = new frmScheduleTestAppointment(SelectedAppointmentID, _SelectedTestType, frmScheduleTestAppointment.enMode.eUpdateMode);
             editScheduledTestAppointment.ReceivedLocalApplication = ctrlLocalApplicationInfo1.SelectedLocalApplication;
             editScheduledTestAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;
-            editScheduledTestAppointment.oldTestTrials = dgvTestAppointments.Rows.Count;
             editScheduledTestAppointment.ShowDialog();
         }
 
         private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dgvTestAppointments.RowCount == 0)
-                return; 
-
             int SelectedAppointmentID = (int)dgvTestAppointments.CurrentRow.Cells[0].Value;
 
-
-            // new test record will be created AFTER putting test result then pressing save in the take test form
-
-            // send appointment id to the form to be able to create a test record
-            // send localApplicationID to show info in the form also
-
-            // once test is taken , set appointment to locked regardless of result 
-            // if this option is called again with appointment locked, show the form but with no action allowed
-
-
-            //this is a different form for taking tests
-
-            frmTakeTest takeTest = new frmTakeTest();
+            frmTakeTest takeTest = new frmTakeTest(SelectedAppointmentID);
+            takeTest.ReceivedLocalApplication = ctrlLocalApplicationInfo1.SelectedLocalApplication;
+            takeTest.OnTestPerformed += UpdateInfoOnTestPerformed;
             takeTest.ShowDialog();
-
-
-            // update taken tests in application info once test is passed
-            // also update dgv of local applications to show passed tests
-            
         }
 
+        private void UpdateInfoOnTestPerformed(bool TestResult)
+        {
+            RefreshDataGridView(); // to update appointments dgv regardless of result
+
+            if (TestResult)
+            {
+                ctrlLocalApplicationInfo1.LoadInfo(_LocalApplicationID); // to update passed tests count shown in the local application info control
+                delUpdateLocalApplicationsDGV?.Invoke(); // update passed tests in the manage local applications form's dgv 
+            }
+        }
 
         private void btnClose_Click(object sender, EventArgs e)
         {

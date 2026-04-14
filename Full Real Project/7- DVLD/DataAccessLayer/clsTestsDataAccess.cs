@@ -27,7 +27,51 @@ namespace DataAccessLayer
                         {
                             TestAppointmentID = (int)reader["TestAppointmentID"];
                             TestResult = (bool)reader["TestResult"];
-                            Notes = (string)reader["Notes"];
+                            Notes = reader["Notes"] == DBNull.Value ? "" : (string)reader["Notes"];
+                            CreatedByUserID = (int)reader["CreatedByUserID"];
+                            isFound = true;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return isFound;
+        }
+
+        public static bool FindLastTestPerPersonAndLicenseClass(int ApplicantPersonID, int LicenseClassID, int TestTypeID,
+                                        ref int TestID, ref int TestAppointmentID, ref bool TestResult, ref string Notes, ref int CreatedByUserID)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = @"select top 1 Tests.* from Tests
+                                        inner join TestAppointments TA on TA.TestAppointmentID = Tests.TestAppointmentID 
+                                        inner join LocalDrivingLicenseApplications LA on LA.LocalDrivingLicenseApplicationID =  TA.LocalDrivingLicenseApplicationID
+                                        inner join Applications on Applications.ApplicationID = LA.ApplicationID
+                                        where ApplicantPersonID = @ApplicantPersonID and LA.LicenseClassID = @LicenseClassID and TA.TestTypeID = @TestTypeID 
+                                        order by TestID desc;";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+                        command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+                        command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+                        connection.Open();
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            TestID = (int)reader["TestID"];
+                            TestAppointmentID = (int)reader["TestAppointmentID"];
+                            TestResult = (bool)reader["TestResult"];
+                            Notes = reader["Notes"] == DBNull.Value ? "" : (string)reader["Notes"];
                             CreatedByUserID = (int)reader["CreatedByUserID"];
                             isFound = true;
                         }
@@ -50,15 +94,23 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
+                    // adding new test record (test taken) will have to lock the test appointment
                     string query = @"insert into Tests 
                                      values (@TestAppointmentID, @TestResult, @Notes, @CreatedByUserID);
+            
+                                     update TestAppointments 
+                                     set IsLocked=1 where TestAppointmentID = @TestAppointmentID;
                                      select scope_identity();";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
                         command.Parameters.AddWithValue("@TestResult", TestResult);
-                        command.Parameters.AddWithValue("@Notes", Notes);
                         command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+
+                        if (string.IsNullOrEmpty(Notes))
+                            command.Parameters.AddWithValue("@Notes", DBNull.Value);
+                        else
+                            command.Parameters.AddWithValue("@Notes", Notes);
 
                         connection.Open();
                         object result = command.ExecuteScalar();
@@ -92,8 +144,11 @@ namespace DataAccessLayer
                         command.Parameters.AddWithValue("@ID", TestID);
                         command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
                         command.Parameters.AddWithValue("@TestResult", TestResult);
-                        command.Parameters.AddWithValue("@Notes", Notes);
                         command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+                        if (string.IsNullOrEmpty(Notes))
+                            command.Parameters.AddWithValue("@Notes", DBNull.Value);
+                        else
+                            command.Parameters.AddWithValue("@Notes", Notes);
 
 
                         connection.Open();
@@ -151,7 +206,7 @@ namespace DataAccessLayer
                 {
                     string query = @"select Tests.TestResult from Tests 
                                      inner join TestAppointments on Tests.TestAppointmentID = TestAppointments.TestAppointmentID 
-                                     where TestAppointmentID = @ID and Tests.TestResult = 1;";
+                                     where TestAppointments.TestAppointmentID = @ID and Tests.TestResult = 1;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@ID", TestAppointmentID);

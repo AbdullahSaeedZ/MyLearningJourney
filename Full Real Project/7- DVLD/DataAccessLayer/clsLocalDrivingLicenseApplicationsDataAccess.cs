@@ -264,8 +264,70 @@ namespace DataAccessLayer
             return activeNewApplicationID;
         }
 
-       
+        public static int GetTotalTestTrialsPerTestType(int LocalApplicationID, int TestTypeID)
+        {
+            int TotalTrials = 0;
 
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = @"select TestTrials = count(TestAppointmentID)
+                                    from TestAppointments 
+                                    where LocalDrivingLicenseApplicationID = @LocalApplicationID and TestTypeID = @TestTypeID and IsLocked = 1;";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@LocalApplicationID", LocalApplicationID);
+                        command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && int.TryParse(result.ToString(), out int i))
+                            TotalTrials = i;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return TotalTrials;
+        }
+
+        public static bool IsThereActiveTestAppointment(int LocalApplicationID, int TestTypeID)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = @"select top 1 Found = 1 from TestAppointments
+                                    where LocalDrivingLicenseApplicationID = @LocalApplicationID and TestTypeID = @TestTypeID and IsLocked = 0
+                                    order by TestAppointments.TestAppointmentID desc;";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@LocalApplicationID", LocalApplicationID);
+                        command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null)
+                            isFound = true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return isFound;
+        }
 
     }
 }

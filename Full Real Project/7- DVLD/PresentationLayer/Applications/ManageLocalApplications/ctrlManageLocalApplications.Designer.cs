@@ -34,8 +34,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.cbStatus = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnNewApplication = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbSearchApplication = new Guna.UI2.WinForms.Guna2TextBox();
@@ -50,21 +52,19 @@
             this.PassedTests = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
-            this.btnNewApplication = new Guna.UI2.WinForms.Guna2Button();
             this.showApplicationDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.editApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelApplicationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ScheduleTestsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scheduleVisionTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scheduleWrittenTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scheduleStreetTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.issueDrivingLicenseFirstTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.showLicenseDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showPersonLicenseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2Panel1.SuspendLayout();
@@ -87,6 +87,32 @@
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
             this.guna2Panel1.Size = new System.Drawing.Size(1441, 894);
             this.guna2Panel1.TabIndex = 1;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BorderColor = System.Drawing.Color.DimGray;
+            this.btnBack.BorderRadius = 10;
+            this.btnBack.BorderThickness = 1;
+            this.btnBack.CheckedState.Parent = this.btnBack;
+            this.btnBack.CustomImages.Parent = this.btnBack;
+            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnBack.FillColor = System.Drawing.Color.Transparent;
+            this.btnBack.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnBack.ForeColor = System.Drawing.Color.DimGray;
+            this.btnBack.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.btnBack.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnBack.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnBack.HoverState.Parent = this.btnBack;
+            this.btnBack.Image = global::PresentationLayer.Properties.Resources.BackShortArrow;
+            this.btnBack.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnBack.Location = new System.Drawing.Point(18, 14);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.ShadowDecoration.Parent = this.btnBack;
+            this.btnBack.Size = new System.Drawing.Size(108, 37);
+            this.btnBack.TabIndex = 9;
+            this.btnBack.Text = "Back";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // guna2Panel2
             // 
@@ -136,6 +162,33 @@
             this.cbStatus.TabIndex = 10;
             this.cbStatus.Visible = false;
             this.cbStatus.SelectedIndexChanged += new System.EventHandler(this.cbStatus_SelectedIndexChanged);
+            // 
+            // btnNewApplication
+            // 
+            this.btnNewApplication.BackColor = System.Drawing.Color.Transparent;
+            this.btnNewApplication.BorderColor = System.Drawing.Color.DimGray;
+            this.btnNewApplication.BorderRadius = 10;
+            this.btnNewApplication.CheckedState.Parent = this.btnNewApplication;
+            this.btnNewApplication.CustomImages.Parent = this.btnNewApplication;
+            this.btnNewApplication.FillColor = System.Drawing.Color.Transparent;
+            this.btnNewApplication.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnNewApplication.ForeColor = System.Drawing.Color.Black;
+            this.btnNewApplication.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNewApplication.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNewApplication.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnNewApplication.HoverState.Image = global::PresentationLayer.Properties.Resources.addFill;
+            this.btnNewApplication.HoverState.Parent = this.btnNewApplication;
+            this.btnNewApplication.Image = global::PresentationLayer.Properties.Resources.addNoFill;
+            this.btnNewApplication.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnNewApplication.Location = new System.Drawing.Point(1199, 9);
+            this.btnNewApplication.Name = "btnNewApplication";
+            this.btnNewApplication.PressedColor = System.Drawing.Color.DimGray;
+            this.btnNewApplication.ShadowDecoration.Parent = this.btnNewApplication;
+            this.btnNewApplication.Size = new System.Drawing.Size(181, 37);
+            this.btnNewApplication.TabIndex = 7;
+            this.btnNewApplication.Text = "New Application";
+            this.btnNewApplication.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnNewApplication.Click += new System.EventHandler(this.btnNewApplication_Click);
             // 
             // label2
             // 
@@ -317,6 +370,7 @@
             this.dgvApplications.ThemeStyle.RowsStyle.Height = 50;
             this.dgvApplications.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
             this.dgvApplications.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvApplications.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvApplications_MouseDoubleClick);
             // 
             // LocalDrivingLicenseApplicationID
             // 
@@ -408,79 +462,6 @@
             this.contextMenuStrip1.Size = new System.Drawing.Size(323, 268);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(319, 6);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(319, 6);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(319, 6);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(319, 6);
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.Transparent;
-            this.btnBack.BorderColor = System.Drawing.Color.DimGray;
-            this.btnBack.BorderRadius = 10;
-            this.btnBack.BorderThickness = 1;
-            this.btnBack.CheckedState.Parent = this.btnBack;
-            this.btnBack.CustomImages.Parent = this.btnBack;
-            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnBack.FillColor = System.Drawing.Color.Transparent;
-            this.btnBack.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnBack.ForeColor = System.Drawing.Color.DimGray;
-            this.btnBack.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.btnBack.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnBack.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnBack.HoverState.Parent = this.btnBack;
-            this.btnBack.Image = global::PresentationLayer.Properties.Resources.BackShortArrow;
-            this.btnBack.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnBack.Location = new System.Drawing.Point(18, 14);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.ShadowDecoration.Parent = this.btnBack;
-            this.btnBack.Size = new System.Drawing.Size(108, 37);
-            this.btnBack.TabIndex = 9;
-            this.btnBack.Text = "Back";
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // btnNewApplication
-            // 
-            this.btnNewApplication.BackColor = System.Drawing.Color.Transparent;
-            this.btnNewApplication.BorderColor = System.Drawing.Color.DimGray;
-            this.btnNewApplication.BorderRadius = 10;
-            this.btnNewApplication.CheckedState.Parent = this.btnNewApplication;
-            this.btnNewApplication.CustomImages.Parent = this.btnNewApplication;
-            this.btnNewApplication.FillColor = System.Drawing.Color.Transparent;
-            this.btnNewApplication.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnNewApplication.ForeColor = System.Drawing.Color.Black;
-            this.btnNewApplication.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNewApplication.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNewApplication.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnNewApplication.HoverState.Image = global::PresentationLayer.Properties.Resources.addFill;
-            this.btnNewApplication.HoverState.Parent = this.btnNewApplication;
-            this.btnNewApplication.Image = global::PresentationLayer.Properties.Resources.addNoFill;
-            this.btnNewApplication.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnNewApplication.Location = new System.Drawing.Point(1199, 9);
-            this.btnNewApplication.Name = "btnNewApplication";
-            this.btnNewApplication.PressedColor = System.Drawing.Color.DimGray;
-            this.btnNewApplication.ShadowDecoration.Parent = this.btnNewApplication;
-            this.btnNewApplication.Size = new System.Drawing.Size(181, 37);
-            this.btnNewApplication.TabIndex = 7;
-            this.btnNewApplication.Text = "New Application";
-            this.btnNewApplication.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnNewApplication.Click += new System.EventHandler(this.btnNewApplication_Click);
-            // 
             // showApplicationDetailsToolStripMenuItem
             // 
             this.showApplicationDetailsToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.applicationNoFillThin;
@@ -488,6 +469,11 @@
             this.showApplicationDetailsToolStripMenuItem.Size = new System.Drawing.Size(322, 30);
             this.showApplicationDetailsToolStripMenuItem.Text = "Show Application Details";
             this.showApplicationDetailsToolStripMenuItem.Click += new System.EventHandler(this.showApplicationDetailsToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(319, 6);
             // 
             // editApplicationToolStripMenuItem
             // 
@@ -516,6 +502,11 @@
             this.cancelApplicationToolStripMenuItem.Text = "Cancel Application";
             this.cancelApplicationToolStripMenuItem.Click += new System.EventHandler(this.cancelApplicationToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(319, 6);
+            // 
             // ScheduleTestsToolStripMenuItem
             // 
             this.ScheduleTestsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -532,7 +523,7 @@
             this.scheduleVisionTestToolStripMenuItem.Enabled = false;
             this.scheduleVisionTestToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.visionTestNoFill24;
             this.scheduleVisionTestToolStripMenuItem.Name = "scheduleVisionTestToolStripMenuItem";
-            this.scheduleVisionTestToolStripMenuItem.Size = new System.Drawing.Size(213, 30);
+            this.scheduleVisionTestToolStripMenuItem.Size = new System.Drawing.Size(207, 24);
             this.scheduleVisionTestToolStripMenuItem.Text = "Schedule Vision Test";
             this.scheduleVisionTestToolStripMenuItem.Click += new System.EventHandler(this.scheduleVisionTestToolStripMenuItem_Click);
             // 
@@ -541,7 +532,7 @@
             this.scheduleWrittenTestToolStripMenuItem.Enabled = false;
             this.scheduleWrittenTestToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.writtenTestNoFill24;
             this.scheduleWrittenTestToolStripMenuItem.Name = "scheduleWrittenTestToolStripMenuItem";
-            this.scheduleWrittenTestToolStripMenuItem.Size = new System.Drawing.Size(213, 30);
+            this.scheduleWrittenTestToolStripMenuItem.Size = new System.Drawing.Size(207, 24);
             this.scheduleWrittenTestToolStripMenuItem.Text = "Schedule Written Test";
             this.scheduleWrittenTestToolStripMenuItem.Click += new System.EventHandler(this.scheduleWrittenTestToolStripMenuItem_Click);
             // 
@@ -550,9 +541,14 @@
             this.scheduleStreetTToolStripMenuItem.Enabled = false;
             this.scheduleStreetTToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.streetTestNoFill24;
             this.scheduleStreetTToolStripMenuItem.Name = "scheduleStreetTToolStripMenuItem";
-            this.scheduleStreetTToolStripMenuItem.Size = new System.Drawing.Size(213, 30);
+            this.scheduleStreetTToolStripMenuItem.Size = new System.Drawing.Size(207, 24);
             this.scheduleStreetTToolStripMenuItem.Text = "Schedule Street Test";
             this.scheduleStreetTToolStripMenuItem.Click += new System.EventHandler(this.scheduleStreetTToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(319, 6);
             // 
             // issueDrivingLicenseFirstTimeToolStripMenuItem
             // 
@@ -562,6 +558,11 @@
             this.issueDrivingLicenseFirstTimeToolStripMenuItem.Size = new System.Drawing.Size(322, 30);
             this.issueDrivingLicenseFirstTimeToolStripMenuItem.Text = "Issue Driving License (First Time)";
             this.issueDrivingLicenseFirstTimeToolStripMenuItem.Click += new System.EventHandler(this.issueDrivingLicenseFirstTimeToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(319, 6);
             // 
             // showLicenseDetailsToolStripMenuItem
             // 

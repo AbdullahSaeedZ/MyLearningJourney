@@ -126,6 +126,10 @@ namespace PresentationLayer.Applications.ManageLocalApplications
             delRemoveFromMainFormContainer_ManageLocalApplications?.Invoke(this);
         }
 
+        private void dgvApplications_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            showApplicationDetailsToolStripMenuItem_Click(sender, EventArgs.Empty);
+        }
 
         //strip menu options
 
@@ -176,12 +180,10 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
         private void editApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
         }
 
         private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
         }
         private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -209,6 +211,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
             clsUtilities.AddToBreadcrumb("> Vision Test Appointments");
             frmListTestAppointments testAppointments = new frmListTestAppointments(LocalApplicationID, clsTestTypesBusiness.enTestType.Vision);
+            testAppointments.delUpdateLocalApplicationsDGV += RefreshDataGridView;
             testAppointments.ShowDialog();
             clsUtilities.RemoveFromBreadcrumb("> Vision Test Appointments");
         }
@@ -219,6 +222,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
             clsUtilities.AddToBreadcrumb("> Written Test Appointments");
             frmListTestAppointments testAppointments = new frmListTestAppointments(LocalApplicationID, clsTestTypesBusiness.enTestType.Written);
+            testAppointments.delUpdateLocalApplicationsDGV += RefreshDataGridView;
             testAppointments.ShowDialog();
             clsUtilities.RemoveFromBreadcrumb("> Written Test Appointments");
         }
@@ -229,6 +233,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
             clsUtilities.AddToBreadcrumb("> Street Test Appointments");
             frmListTestAppointments testAppointments = new frmListTestAppointments(LocalApplicationID, clsTestTypesBusiness.enTestType.Street);
+            testAppointments.delUpdateLocalApplicationsDGV += RefreshDataGridView;
             testAppointments.ShowDialog();
             clsUtilities.RemoveFromBreadcrumb("> Street Test Appointments");
         }
@@ -237,18 +242,16 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
         private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
         }
 
         private void showLicenseDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
         }
 
         private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
         }
 
+        
     }
 }

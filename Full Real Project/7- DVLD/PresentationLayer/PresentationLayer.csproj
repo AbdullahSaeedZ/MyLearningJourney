@@ -264,6 +264,9 @@
     <EmbeddedResource Include="Applications\TestAppointments\Forms\frmScheduleTestAppointment.resx">
       <DependentUpon>frmScheduleTestAppointment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\TestAppointments\Forms\frmTakeTest.resx">
+      <DependentUpon>frmTakeTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard\ctrlDashboard.resx">
       <DependentUpon>ctrlDashboard.cs</DependentUpon>
     </EmbeddedResource>

@@ -16,7 +16,7 @@ namespace BusinessLayer
         public int CreatedByUserID { get; set; }
 
 
-        clsTestsBusiness()
+        public clsTestsBusiness()
         {
             this.TestID = -1;
             this.TestAppointmentID = -1;
@@ -30,10 +30,10 @@ namespace BusinessLayer
         clsTestsBusiness(int TestID, int TestAppointmentID, bool TestResult, string Notes, int CreatedByUserID)
         {
             this.TestID = TestID;
-            this.TestAppointmentID = -1;
+            this.TestAppointmentID = TestAppointmentID;
             this.TestResult = TestResult;
-            this.Notes = "";
-            this.CreatedByUserID = -1;
+            this.Notes = Notes;
+            this.CreatedByUserID = CreatedByUserID;
             _mode = enMode.eUpdateMode;
         }
 
@@ -88,10 +88,29 @@ namespace BusinessLayer
             }
         }
 
+        // to be deleted
         public static bool IsTestPassedByAppointmentId(int TestAppointmentID)
         {
             return clsTestsDataAccess.IsTestPassedByAppointmentId(TestAppointmentID);
         }
+
+
+        public static clsTestsBusiness FindLastTestPerPersonAndLicenseClass(int ApplicantPersonID, int LicenseClassID, clsTestTypesBusiness.enTestType TestTypeID)
+        {
+            int TestID = -1, TestAppointmentID = -1, CreatedByUserID = -1;
+            string Notes = "";
+            bool TestResult = false;
+
+            if (clsTestsDataAccess.FindLastTestPerPersonAndLicenseClass( ApplicantPersonID,  LicenseClassID, (int)TestTypeID, ref TestID, ref TestAppointmentID, ref TestResult, ref Notes, ref CreatedByUserID))
+            {
+                return new clsTestsBusiness(TestID, TestAppointmentID, TestResult, Notes, CreatedByUserID);
+            }
+            else
+                return null;
+        }
+
+
+
 
     }
 }

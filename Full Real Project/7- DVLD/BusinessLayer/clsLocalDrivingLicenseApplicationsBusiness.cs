@@ -1,8 +1,6 @@
 ﻿using DataAccessLayer;
 using System;
 using System.Data;
-using System.Diagnostics.SymbolStore;
-using System.IO;
 using static BusinessLayer.clsApplicationTypesBusiness;
 using static BusinessLayer.clsTestTypesBusiness;
 
@@ -169,12 +167,24 @@ namespace BusinessLayer
             return (GetActiveLicenseID() != -1);
         }
 
-
         public int GetActiveLicenseID()
         {
             return clsLicensesBusiness.GetActiveLicenseIDByPersonID(this.ApplicantPersonID, this.LicenseClassID);
         }
 
+        public bool IsThereActiveTestAppointment(enTestType TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.IsThereActiveTestAppointment(this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
+        }
 
+        public clsTestsBusiness GetLastTestPerTestType(enTestType TestTypeID)
+        {
+            return clsTestsBusiness.FindLastTestPerPersonAndLicenseClass(this.ApplicantPersonID, this.LicenseClassID, TestTypeID);
+        }
+
+        public int GetTotalTestTrialsPerTestType(enTestType TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.GetTotalTestTrialsPerTestType(this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
+        }
     }
 }
