@@ -135,6 +135,9 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
         private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            if (dgvApplications.RowCount == 0)
+                return;
+
             int LocalLicenseApplicationID = (int)dgvApplications.CurrentRow.Cells[0].Value;
             clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID(LocalLicenseApplicationID);
             if (_selectedApplication == null)
@@ -180,10 +183,12 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
         private void editApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
         }
 
         private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
         }
         private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -192,7 +197,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications
                 clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
                 if (_selectedApplication != null)
                 {
-                    if (_selectedApplication.SetStatusToCancelled())
+                    if (_selectedApplication.SetStatusToCancelled()) // will only cancel applications of new status
                     {
                         MessageBox.Show("Application is cancelled successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RefreshDataGridView();
@@ -204,7 +209,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications
         }
 
 
-
+        // schedule tests menu
         private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int LocalApplicationID = (int)dgvApplications.CurrentRow.Cells[0].Value;
@@ -242,6 +247,13 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
         private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int LocalApplicationID = (int)dgvApplications.CurrentRow.Cells[0].Value;
+
+            clsUtilities.AddToBreadcrumb("> Issue New Local Driving License");
+            frmIssueNewLocalDrivingLicense IssueLicenseForm = new frmIssueNewLocalDrivingLicense(LocalApplicationID);
+            IssueLicenseForm.OnLicenseIssue += RefreshDataGridView;
+            IssueLicenseForm.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb("> Issue New Local Driving License");
         }
 
         private void showLicenseDetailsToolStripMenuItem_Click(object sender, EventArgs e)

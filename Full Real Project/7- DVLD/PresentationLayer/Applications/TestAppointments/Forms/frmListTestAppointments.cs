@@ -10,7 +10,7 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
         public event Action delUpdateLocalApplicationsDGV;
 
         private int _LocalApplicationID = -1;
-        public clsTestTypesBusiness.enTestType _SelectedTestType; // this will determine which test type for the whole process
+        private clsTestTypesBusiness.enTestType _SelectedTestType; // this will determine which test type for the whole process
         private DataTable dt;
 
         public frmListTestAppointments(int LocalApplicationID, clsTestTypesBusiness.enTestType SelectedTestType)
@@ -32,12 +32,10 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
             lblTitle.Text = _SelectedTestType.ToString() + " " + lblTitle.Text;
 
             RefreshDataGridView();
-
         }
 
         private void RefreshDataGridView()
         {
-            // method should be in localApplication class ?
             if ((dt = clsTestAppointmentsBusiness.GetAllTestAppointmentsByTestTypeID(_LocalApplicationID, _SelectedTestType)) == null)
                 return;
 
@@ -45,13 +43,6 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
             lblNumberOfRecords.Text = dgvTestAppointments.RowCount.ToString();
         }
 
-
-
-
-        // Add/EditAppointment form modes:
-        // 1- adding new appointment (2 modes covered in btnAddNewAppointment)
-        // 2- editing date of unlocked appointment (covered in edit tool strip)
-        // 3- editing a locked appointment, but gets rejected cuz it is locked regardless of result (covered in edit tool strip)
 
         private void btnNewAppointment_Click(object sender, EventArgs e)
         {
@@ -66,14 +57,12 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
             clsTestsBusiness LastTestTaken = ctrlLocalApplicationInfo1.SelectedLocalApplication.GetLastTestPerTestType(_SelectedTestType);
             if (LastTestTaken == null)
             {
-                // ----------------  done and tested 
                 // new appointment , no appointment before
                 frmScheduleTestAppointment AddNewAppointment = new frmScheduleTestAppointment(_SelectedTestType, frmScheduleTestAppointment.enMode.eAddNewAppointmentMode);
                 AddNewAppointment.ReceivedLocalApplication = ctrlLocalApplicationInfo1.SelectedLocalApplication;
                 AddNewAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;
                 AddNewAppointment.ShowDialog();
                 return;
-
             }
             else if (LastTestTaken.TestResult)
             {
@@ -84,7 +73,6 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
 
             // locked with failed test allowed:
             // new appointment as retake, there is old locked appointment but with failed tests
-            // need testing after performing take test functionality
             frmScheduleTestAppointment AddNewRetakeAppointment = new frmScheduleTestAppointment(_SelectedTestType, frmScheduleTestAppointment.enMode.eAddRetakeAppointmentMode);
             AddNewRetakeAppointment.ReceivedLocalApplication = ctrlLocalApplicationInfo1.SelectedLocalApplication;
             AddNewRetakeAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;

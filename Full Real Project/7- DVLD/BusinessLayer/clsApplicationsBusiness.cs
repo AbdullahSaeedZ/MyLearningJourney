@@ -161,7 +161,10 @@ namespace BusinessLayer
 
         public bool SetStatusToCancelled()
         {
-            return clsApplicationsDataAccess.UpdateStatus(this.ApplicationID, (byte)enApplicationStatus.Cancelled, DateTime.Now);
+            if (this.ApplicationStatus == enApplicationStatus.New)
+                return clsApplicationsDataAccess.UpdateStatus(this.ApplicationID, (byte)enApplicationStatus.Cancelled, DateTime.Now);
+            else
+                return false;
         }
 
         public bool SetStatusToCompleted()
