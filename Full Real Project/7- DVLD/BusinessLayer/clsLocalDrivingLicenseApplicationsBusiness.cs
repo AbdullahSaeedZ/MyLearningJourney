@@ -33,7 +33,7 @@ namespace BusinessLayer
         public int LocalDrivingLicenseApplicationID { get; private set; }
         public int LicenseClassID { get; set; }
 
-        public clsLicenseClassesBusiness LicenseClassesInfo;
+        public clsLicenseClassesBusiness LicenseClassInfo;
 
         public clsLocalDrivingLicenseApplicationsBusiness()
         {
@@ -48,7 +48,7 @@ namespace BusinessLayer
         {
             this.LocalDrivingLicenseApplicationID = LocalApplicationID;
             this.LicenseClassID = LicenseClassID;
-            this.LicenseClassesInfo = clsLicenseClassesBusiness.Find(LicenseClassID);
+            this.LicenseClassInfo = clsLicenseClassesBusiness.Find(LicenseClassID);
             this.TestsStatus = new clsTestsStatus(IsVisionTestPassed, IsWrittenTestPassed, IsStreetTestPassed);
             this._mode = enMode.eUpdateMode;
         }
@@ -98,19 +98,18 @@ namespace BusinessLayer
             return (this.LocalDrivingLicenseApplicationID != -1);
         }
 
-        private bool _UpdateNewLocalDrivingLicenseApplication()
+        private bool _UpdateLocalDrivingLicenseApplication()
         {
             return clsLocalDrivingLicenseApplicationsDataAccess.UpdateLocalLicenseApplication(this.LocalDrivingLicenseApplicationID, this.LicenseClassID);
         }
 
         //public static bool DeleteLocalDrivingLicenseApplication(int LocalLicenseApplicationID)
         //{
-        //    clsLocalDrivingLicenseApplicationsBusiness localApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID(LocalLicenseApplicationID);
 
-        //    if (localApplication != null && clsLocalDrivingLicenseApplicationsDataAccess.DeleteLocalDrivingLicenseApplication(localApplication.LocalDrivingLicenseApplicationID))
+        //    if (clsLocalDrivingLicenseApplicationsDataAccess.DeleteLocalDrivingLicenseApplication(LocalLicenseApplicationID))
         //    {
         //        // local license has no tables connected to it so we delete it first then delete baseApplication (baseApplication will handle all tables connected to it)
-        //        return clsApplicationsBusiness.DeleteApplicationByID(localApplication.ApplicationID);
+        //        return clsApplicationsBusiness.DeleteApplicationByID(LocalLicenseApplicationID);
         //    }
         //    else
         //        return false;
@@ -137,7 +136,7 @@ namespace BusinessLayer
                             return false;
 
                     case enMode.eUpdateMode:
-                        return _UpdateNewLocalDrivingLicenseApplication();
+                        return _UpdateLocalDrivingLicenseApplication();
 
                     default: return false;
                 }
@@ -150,16 +149,47 @@ namespace BusinessLayer
         {
             return clsLocalDrivingLicenseApplicationsDataAccess.GetActiveApplicationID(ApplicantPersonID, LicenseClassID);
         }
-        
 
+        // if issuing license replacements is not linked to local driiving applications, then see where this method fits 
+        public int IssueNewLicense(string Notes)
+        {
+            if (this.TestsStatus.PassedTestsCount < 3 || IsLicenseIssued())
+                return -1;
 
-        //public static bool IsTestPassed(int LocalLicenseApplicationID, int TestTypeID)
-        //{
-        //    return clsLocalDrivingLicenseApplicationsDataAccess.IsTestPassed(LocalLicenseApplicationID,TestTypeID);
-        //}
+            // we check if person is listed as driver, cuz person can be listed as driver only once in the system
+            clsDriversBusiness NewDriver = clsDriversBusiness.FindByPersonID(this.ApplicantPersonID);
 
-   
+            if (NewDriver == null)
+            {
+                // adding driver record first, cuz new license record requires a driver id
+                NewDriver = new clsDriversBusiness();
+                NewDriver.PersonID = this.ApplicantPersonID;
+                NewDriver.CreatedByUserID = clsBusinessSettings.CurrentUser.UserID;
 
+                if (NewDriver.Save())
+                {
+                    clsLicensesBusiness NewLicense = new clsLicensesBusiness();
+
+                    NewLicense.ApplicationID = this.ApplicationID;
+                    NewLicense.DriverID = NewDriver.DriverID;
+                    NewLicense.Notes = Notes;
+                    NewLicense.CreatedByUserID = clsBusinessSettings.CurrentUser.UserID;
+                    NewLicense.IssueReason = clsLicensesBusiness.enIssueReason.FirstTime;
+                    NewLicense.IsActive = true;
+                    NewLicense.LicenseClassID = this.LicenseClassID;
+                    NewLicense.PaidFees = this.PaidFees; // this is the local driving application fees
+
+                    if (NewLicense.Save())
+                        return NewLicense.LicenseID;
+                    else
+                        return -1;
+                }
+                else
+                    return -1;
+            }
+            else
+                return -1;
+        }
 
 
         public bool IsLicenseIssued()
@@ -186,5 +216,7 @@ namespace BusinessLayer
         {
             return clsLocalDrivingLicenseApplicationsDataAccess.GetTotalTestTrialsPerTestType(this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
         }
+
+
     }
 }

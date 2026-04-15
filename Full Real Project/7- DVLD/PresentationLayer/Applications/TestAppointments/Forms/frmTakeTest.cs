@@ -12,7 +12,7 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
         public clsLocalDrivingLicenseApplicationsBusiness ReceivedLocalApplication;
         clsTestAppointmentsBusiness TestAppointment;
         clsTestsBusiness Test;
-        private int _oldTestTrials;
+        int _oldTestTrials;
 
         public frmTakeTest(int TestAppointmentID)
         {
@@ -46,7 +46,7 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
         {
             lblTitle.Text = "Perform " + TestAppointment.TestTypeID.ToString() + " " + lblTitle.Text;
             lblLocalApplicationID.Text = ReceivedLocalApplication.LocalDrivingLicenseApplicationID.ToString();
-            lblLicenseDrivingClass.Text = ReceivedLocalApplication.LicenseClassesInfo.ClassName;
+            lblLicenseDrivingClass.Text = ReceivedLocalApplication.LicenseClassInfo.ClassName;
             lblApplicantName.Text = ReceivedLocalApplication.ApplicantPersonInfo.FullName;
             lblTestFees.Text = TestAppointment.PaidFees.ToString();  // this is the test fees paid when scheduled appointment
             lblTestAppointmentDate.Text = TestAppointment.AppointmentDate.ToShortDateString();
@@ -58,7 +58,7 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
         {
             lblTitle.Text = "Show " + TestAppointment.TestTypeID.ToString() + " " + lblTitle.Text;
             lblLocalApplicationID.Text = ReceivedLocalApplication.LocalDrivingLicenseApplicationID.ToString();
-            lblLicenseDrivingClass.Text = ReceivedLocalApplication.LicenseClassesInfo.ClassName;
+            lblLicenseDrivingClass.Text = ReceivedLocalApplication.LicenseClassInfo.ClassName;
             lblApplicantName.Text = ReceivedLocalApplication.ApplicantPersonInfo.FullName;
             lblTestFees.Text = TestAppointment.PaidFees.ToString();  // this is the test fees paid when scheduled appointment
             lblTestAppointmentDate.Text = TestAppointment.AppointmentDate.ToShortDateString();

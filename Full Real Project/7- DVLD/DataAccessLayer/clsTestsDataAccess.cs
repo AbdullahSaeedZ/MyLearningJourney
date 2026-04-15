@@ -95,11 +95,17 @@ namespace DataAccessLayer
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
                     // adding new test record (test taken) will have to lock the test appointment
+                    // then if the test has an application of retake type then it will be set to completed, cuz test is retaken 
                     string query = @"insert into Tests 
                                      values (@TestAppointmentID, @TestResult, @Notes, @CreatedByUserID);
             
                                      update TestAppointments 
                                      set IsLocked=1 where TestAppointmentID = @TestAppointmentID;
+
+                                     update Applications
+                                     set ApplicationStatus = 3 from Applications 
+                                     inner join TestAppointments on TestAppointments.ReTakeTestApplicationID = Applications.ApplicationID
+                                     where TestAppointments.TestAppointmentID = @TestAppointmentID
                                      select scope_identity();";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {

@@ -10,18 +10,19 @@ namespace BusinessLayer
         enMode _mode;
 
         public int DriverID { get; private set; }
-        public int PersonID { get; private set; }
-        public int CreatedByUserID { get; private set; }
+        public int PersonID { get; set; }
+        public int CreatedByUserID { get; set; }
         public DateTime CreatedDate { get; private set; }
 
-        clsDriversBusiness()
+        public clsPeopleBusiness PersonInfo;
+
+        public clsDriversBusiness()
         {
             this.DriverID = -1;
             this.PersonID = -1;
             this.CreatedByUserID = -1;
             this.CreatedDate = DateTime.MinValue;
             this._mode = enMode.eAddMode;
-
         }
 
 
@@ -31,6 +32,7 @@ namespace BusinessLayer
             this.PersonID = PersonID;
             this.CreatedByUserID = CreatedByUserID;
             this.CreatedDate = CreatedDate;
+            this.PersonInfo = clsPeopleBusiness.FindPerson(PersonID);
             this._mode = enMode.eUpdateMode;
         }
 
@@ -43,6 +45,19 @@ namespace BusinessLayer
             if (clsDriversDataAccess.FindByDriverID(DriverID, ref PersonID, ref CreatedByUserID, ref CreatedDate))
             {
                 return new clsDriversBusiness(DriverID, PersonID, CreatedByUserID, CreatedDate);
+            }
+            else
+                return null;
+        }
+
+        public static clsDriversBusiness FindByPersonID(int PersonID)
+        {
+            int DriverID = -1, CreatedByUserID = -1;
+            DateTime CreatedDate = DateTime.MinValue;
+
+            if (clsDriversDataAccess.FindByPersonID(PersonID, ref DriverID, ref CreatedByUserID, ref CreatedDate))
+            {
+                return new clsDriversBusiness(PersonID, DriverID, CreatedByUserID, CreatedDate);
             }
             else
                 return null;

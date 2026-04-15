@@ -22,15 +22,15 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
 
         private void frmListTestAppointments_Load(object sender, EventArgs e)
         {
-            if (_LocalApplicationID == -1)
+            ctrlLocalApplicationInfo1.LoadInfo(_LocalApplicationID);
+
+            if (_LocalApplicationID == -1 || ctrlLocalApplicationInfo1.SelectedLocalApplication == null)
             {
-                MessageBox.Show("Could not get Local Driving License Application ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Could not get Local Driving License Application info", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
                 return;
             }
-            ctrlLocalApplicationInfo1.LoadInfo(_LocalApplicationID);
             lblTitle.Text = _SelectedTestType.ToString() + " " + lblTitle.Text;
-
             RefreshDataGridView();
         }
 

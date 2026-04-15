@@ -57,6 +57,12 @@
     <Compile Include="Applications\ctrlMainServices.Designer.cs">
       <DependentUpon>ctrlMainServices.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\DrivingLicenses\Controls\ctrlLocalDrivingLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\DrivingLicenses\Controls\ctrlLocalDrivingLicenseInfo.Designer.cs">
+      <DependentUpon>ctrlLocalDrivingLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\DrivingLicenses\ctrlDrivingLicensesServices.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -68,6 +74,12 @@
     </Compile>
     <Compile Include="Applications\DrivingLicenses\Forms\frmAddEditLocalLicenseApplication.Designer.cs">
       <DependentUpon>frmAddEditLocalLicenseApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\DrivingLicenses\Forms\frmShowLocalLicenseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\DrivingLicenses\Forms\frmShowLocalLicenseInfo.Designer.cs">
+      <DependentUpon>frmShowLocalLicenseInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\ManageApplicationTypes\Controls\ctrlManageApplicationsTypes.cs">
       <SubType>UserControl</SubType>
@@ -140,6 +152,12 @@
     </Compile>
     <Compile Include="Dashboard\ctrlDashboard.Designer.cs">
       <DependentUpon>ctrlDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Drivers\Controls\ctrlListDriverLicenses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Drivers\Controls\ctrlListDriverLicenses.Designer.cs">
+      <DependentUpon>ctrlListDriverLicenses.cs</DependentUpon>
     </Compile>
     <Compile Include="Drivers\ctrlDrivers.cs">
       <SubType>UserControl</SubType>
@@ -237,11 +255,17 @@
     <EmbeddedResource Include="Applications\ctrlMainServices.resx">
       <DependentUpon>ctrlMainServices.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\DrivingLicenses\Controls\ctrlLocalDrivingLicenseInfo.resx">
+      <DependentUpon>ctrlLocalDrivingLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Applications\DrivingLicenses\ctrlDrivingLicensesServices.resx">
       <DependentUpon>ctrlDrivingLicensesServices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\DrivingLicenses\Forms\frmAddEditLocalLicenseApplication.resx">
       <DependentUpon>frmAddEditLocalLicenseApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\DrivingLicenses\Forms\frmShowLocalLicenseInfo.resx">
+      <DependentUpon>frmShowLocalLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\ManageApplicationTypes\Controls\ctrlManageApplicationsTypes.resx">
       <DependentUpon>ctrlManageApplicationsTypes.cs</DependentUpon>
@@ -278,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard\ctrlDashboard.resx">
       <DependentUpon>ctrlDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drivers\Controls\ctrlListDriverLicenses.resx">
+      <DependentUpon>ctrlListDriverLicenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Drivers\ctrlDrivers.resx">
       <DependentUpon>ctrlDrivers.cs</DependentUpon>
@@ -604,7 +631,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Applications\DetainLicenses\" />
-    <Folder Include="Applications\DrivingLicenses\Controls\" />
     <Folder Include="Applications\ManageInternationalApplications\" />
     <Folder Include="Applications\TestAppointments\Controls\" />
   </ItemGroup>

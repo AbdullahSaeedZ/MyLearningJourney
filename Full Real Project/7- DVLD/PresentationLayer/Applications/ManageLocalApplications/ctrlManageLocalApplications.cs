@@ -249,19 +249,29 @@ namespace PresentationLayer.Applications.ManageLocalApplications
         {
             int LocalApplicationID = (int)dgvApplications.CurrentRow.Cells[0].Value;
 
-            clsUtilities.AddToBreadcrumb("> Issue New Local Driving License");
+            clsUtilities.AddToBreadcrumb("> Issue New License");
             frmIssueNewLocalDrivingLicense IssueLicenseForm = new frmIssueNewLocalDrivingLicense(LocalApplicationID);
             IssueLicenseForm.OnLicenseIssue += RefreshDataGridView;
             IssueLicenseForm.ShowDialog();
-            clsUtilities.RemoveFromBreadcrumb("> Issue New Local Driving License");
+            clsUtilities.RemoveFromBreadcrumb("> Issue New License");
         }
 
         private void showLicenseDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int LocalApplicationID = (int)dgvApplications.CurrentRow.Cells[0].Value;
+            int LicenseID = clsLicensesBusiness.GetLicenseIDbyLocalApplicationID(LocalApplicationID); // if localApplication has no issued license for first time (not complete) then returns -1
+
+            clsUtilities.AddToBreadcrumb("> License Info");
+            frmShowLocalLicenseInfo localLicenseInfo = new frmShowLocalLicenseInfo(LicenseID);
+            localLicenseInfo.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb("> License Info");
+
         }
 
         private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+
+            //
         }
 
         

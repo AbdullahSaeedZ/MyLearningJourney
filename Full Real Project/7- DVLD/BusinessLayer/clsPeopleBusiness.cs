@@ -7,6 +7,7 @@ namespace BusinessLayer
     public class clsPeopleBusiness
     {
         enum enMode { eAddMode = 0, eUpdateMode = 1 };
+        public enum enGender { Male = 0, Female = 1 };
         enMode _mode;
 
         public int PersonID { get; private set; }
@@ -23,7 +24,7 @@ namespace BusinessLayer
                   FirstName + " " + SecondName + " " + ThirdName + " " + LastName;
             }
         }
-        public byte Gender { get; set; }
+        public enGender Gender { get; set; }
         public DateTime BirthDate { get; set; }
         public int NationalityCountryID { get; set; }
 
@@ -53,7 +54,7 @@ namespace BusinessLayer
         }
 
         // for getting existing persons
-        clsPeopleBusiness(int PersonID, string NationalID, string FirstName, string SecondName, string ThirdName, string LastName, byte Gender,
+        clsPeopleBusiness(int PersonID, string NationalID, string FirstName, string SecondName, string ThirdName, string LastName, enGender Gender,
             int NationalityCountryID, string Phone, string Email, string Address, string ImagePath, DateTime BirthDate)
         {
             this.PersonID = PersonID;
@@ -87,7 +88,7 @@ namespace BusinessLayer
                 ref LastName, ref Gender, ref NationalityCountryID, ref Phone, ref Email, ref Address, ref ImagePath, ref BirthDate))
             {
                 return new clsPeopleBusiness(PersonID, NationalID, FirstName, SecondName, ThirdName,
-                     LastName, Gender, NationalityCountryID, Phone, Email, Address, ImagePath, BirthDate);
+                     LastName, (enGender)Gender, NationalityCountryID, Phone, Email, Address, ImagePath, BirthDate);
             }
             else
                 return null;
@@ -104,7 +105,7 @@ namespace BusinessLayer
                 ref LastName, ref Gender, ref CountryID, ref Phone, ref Email, ref Address, ref ImagePath, ref BirthDate))
             {
                 return new clsPeopleBusiness(PersonID, NationalID, FirstName, SecondName, ThirdName,
-                     LastName, Gender, CountryID, Phone, Email, Address, ImagePath, BirthDate);
+                     LastName, (enGender)Gender, CountryID, Phone, Email, Address, ImagePath, BirthDate);
             }
             else
                 return null;
@@ -116,7 +117,7 @@ namespace BusinessLayer
                 throw new UnauthorizedAccessException("You do not have permission to add People");
 
             this.PersonID = clsPeopleDataAccess.AddNewPerson(this.NationalID, this.FirstName, this.SecondName, this.ThirdName,
-                     this.LastName, this.Gender, this.NationalityCountryID, this.Phone, this.Email, this.Address, this.ImagePath, this.BirthDate);
+                     this.LastName, (byte)this.Gender, this.NationalityCountryID, this.Phone, this.Email, this.Address, this.ImagePath, this.BirthDate);
 
             return (this.PersonID != -1);
         }
@@ -127,7 +128,7 @@ namespace BusinessLayer
                 throw new UnauthorizedAccessException("You do not have permission to edit People");
 
             return clsPeopleDataAccess.UpdatePerson(this.PersonID, this.NationalID, this.FirstName, this.SecondName, this.ThirdName,
-                     this.LastName, this.Gender, this.NationalityCountryID, this.Phone, this.Email, this.Address, this.ImagePath, this.BirthDate);
+                     this.LastName, (byte)this.Gender, this.NationalityCountryID, this.Phone, this.Email, this.Address, this.ImagePath, this.BirthDate);
         }
 
         public bool Save()

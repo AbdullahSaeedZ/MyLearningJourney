@@ -53,6 +53,7 @@
             this.lblBirthDate = new System.Windows.Forms.Label();
             this.pnlFullBorder = new Guna.UI2.WinForms.Guna2Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).BeginInit();
+            this.pnlFullBorder.SuspendLayout();
             this.SuspendLayout();
             // 
             // pbProfilePic
@@ -198,7 +199,7 @@
             this.lblPersonID.BackColor = System.Drawing.Color.Transparent;
             this.lblPersonID.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lblPersonID.ForeColor = System.Drawing.Color.DimGray;
-            this.lblPersonID.Location = new System.Drawing.Point(390, 48);
+            this.lblPersonID.Location = new System.Drawing.Point(400, 48);
             this.lblPersonID.Name = "lblPersonID";
             this.lblPersonID.Size = new System.Drawing.Size(27, 18);
             this.lblPersonID.TabIndex = 10;
@@ -235,7 +236,7 @@
             this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lblName.ForeColor = System.Drawing.Color.DimGray;
-            this.lblName.Location = new System.Drawing.Point(390, 77);
+            this.lblName.Location = new System.Drawing.Point(400, 77);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(27, 18);
             this.lblName.TabIndex = 10;
@@ -247,7 +248,7 @@
             this.lblNationalID.BackColor = System.Drawing.Color.Transparent;
             this.lblNationalID.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lblNationalID.ForeColor = System.Drawing.Color.DimGray;
-            this.lblNationalID.Location = new System.Drawing.Point(390, 106);
+            this.lblNationalID.Location = new System.Drawing.Point(400, 106);
             this.lblNationalID.Name = "lblNationalID";
             this.lblNationalID.Size = new System.Drawing.Size(27, 18);
             this.lblNationalID.TabIndex = 10;
@@ -259,7 +260,7 @@
             this.lblGender.BackColor = System.Drawing.Color.Transparent;
             this.lblGender.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lblGender.ForeColor = System.Drawing.Color.DimGray;
-            this.lblGender.Location = new System.Drawing.Point(390, 135);
+            this.lblGender.Location = new System.Drawing.Point(400, 135);
             this.lblGender.Name = "lblGender";
             this.lblGender.Size = new System.Drawing.Size(27, 18);
             this.lblGender.TabIndex = 10;
@@ -271,7 +272,7 @@
             this.lblEmail.BackColor = System.Drawing.Color.Transparent;
             this.lblEmail.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lblEmail.ForeColor = System.Drawing.Color.DimGray;
-            this.lblEmail.Location = new System.Drawing.Point(390, 164);
+            this.lblEmail.Location = new System.Drawing.Point(400, 164);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(27, 18);
             this.lblEmail.TabIndex = 10;
@@ -283,7 +284,7 @@
             this.lblCountry.BackColor = System.Drawing.Color.Transparent;
             this.lblCountry.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lblCountry.ForeColor = System.Drawing.Color.DimGray;
-            this.lblCountry.Location = new System.Drawing.Point(390, 193);
+            this.lblCountry.Location = new System.Drawing.Point(400, 193);
             this.lblCountry.Name = "lblCountry";
             this.lblCountry.Size = new System.Drawing.Size(27, 18);
             this.lblCountry.TabIndex = 10;
@@ -295,7 +296,7 @@
             this.lblPhone.BackColor = System.Drawing.Color.Transparent;
             this.lblPhone.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lblPhone.ForeColor = System.Drawing.Color.DimGray;
-            this.lblPhone.Location = new System.Drawing.Point(390, 251);
+            this.lblPhone.Location = new System.Drawing.Point(400, 251);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(27, 18);
             this.lblPhone.TabIndex = 10;
@@ -307,7 +308,7 @@
             this.lblAddress.BackColor = System.Drawing.Color.Transparent;
             this.lblAddress.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lblAddress.ForeColor = System.Drawing.Color.DimGray;
-            this.lblAddress.Location = new System.Drawing.Point(390, 280);
+            this.lblAddress.Location = new System.Drawing.Point(400, 280);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Size = new System.Drawing.Size(27, 18);
             this.lblAddress.TabIndex = 10;
@@ -319,7 +320,7 @@
             this.lblBirthDate.BackColor = System.Drawing.Color.Transparent;
             this.lblBirthDate.Font = new System.Drawing.Font("Tahoma", 10F);
             this.lblBirthDate.ForeColor = System.Drawing.Color.DimGray;
-            this.lblBirthDate.Location = new System.Drawing.Point(390, 222);
+            this.lblBirthDate.Location = new System.Drawing.Point(400, 222);
             this.lblBirthDate.Name = "lblBirthDate";
             this.lblBirthDate.Size = new System.Drawing.Size(27, 18);
             this.lblBirthDate.TabIndex = 10;
@@ -327,6 +328,15 @@
             // 
             // pnlFullBorder
             // 
+            this.pnlFullBorder.Controls.Add(this.lblPersonID);
+            this.pnlFullBorder.Controls.Add(this.lblAddress);
+            this.pnlFullBorder.Controls.Add(this.lblPhone);
+            this.pnlFullBorder.Controls.Add(this.lblBirthDate);
+            this.pnlFullBorder.Controls.Add(this.lblCountry);
+            this.pnlFullBorder.Controls.Add(this.lblEmail);
+            this.pnlFullBorder.Controls.Add(this.lblGender);
+            this.pnlFullBorder.Controls.Add(this.lblNationalID);
+            this.pnlFullBorder.Controls.Add(this.lblName);
             this.pnlFullBorder.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlFullBorder.Location = new System.Drawing.Point(0, 0);
             this.pnlFullBorder.Name = "pnlFullBorder";
@@ -347,15 +357,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.lblCountry);
-            this.Controls.Add(this.lblBirthDate);
-            this.Controls.Add(this.lblAddress);
-            this.Controls.Add(this.lblNationalID);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.lblPhone);
-            this.Controls.Add(this.lblName);
-            this.Controls.Add(this.lblGender);
-            this.Controls.Add(this.lblPersonID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblFormTitle);
@@ -364,6 +365,8 @@
             this.Name = "ctrlPersonCard";
             this.Size = new System.Drawing.Size(844, 337);
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).EndInit();
+            this.pnlFullBorder.ResumeLayout(false);
+            this.pnlFullBorder.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

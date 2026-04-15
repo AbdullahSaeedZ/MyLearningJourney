@@ -103,7 +103,7 @@ namespace PresentationLayer.Settings
             clsBusinessSettings.CurrentUser.Person.Phone = tbPhone.Text.Trim();
             clsBusinessSettings.CurrentUser.Person.Address = tbAddress.Text.Trim();
             clsBusinessSettings.CurrentUser.Person.BirthDate = dtpBirthDate.Value;
-            clsBusinessSettings.CurrentUser.Person.Gender = rbMale.Checked ? (byte)enGender.Male : (byte)enGender.Female;
+            clsBusinessSettings.CurrentUser.Person.Gender = rbMale.Checked ? clsPeopleBusiness.enGender.Male : clsPeopleBusiness.enGender.Female;
             clsBusinessSettings.CurrentUser.Person.NationalityCountryID = (clsCountriesBusiness.GetCountry(cbCountry.Text)).CountryID;
         }
 

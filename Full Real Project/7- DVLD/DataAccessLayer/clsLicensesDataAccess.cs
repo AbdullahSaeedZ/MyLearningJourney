@@ -1,8 +1,7 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using static System.Net.Mime.MediaTypeNames;
+
 
 namespace DataAccessLayer
 {
@@ -32,7 +31,7 @@ namespace DataAccessLayer
                             LicenseClassID = (int)reader["LicenseClass"];
                             IssueDate = (DateTime)reader["IssueDate"];
                             ExpirationDate = (DateTime)reader["ExpirationDate"];
-                            Notes = (string)reader["Notes"];
+                            Notes = reader["Notes"] == DBNull.Value? "": (string)reader["Notes"];
                             PaidFees = Convert.ToSingle(reader["PaidFees"]);
                             IsActive = (bool)reader["IsActive"];
                             IssueReason = (byte)reader["IssueReason"];
@@ -59,8 +58,13 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
+                    // once a license is created, then application status directly becomes completed (represented as 3 in DB)
                     string query = @"insert into Licenses 
                                      values (@ApplicationID, @DriverID, @LicenseClassID, @IssueDate, @ExpirationDate, @Notes, @PaidFees, @IsActive, @IssueReason, @CreatedByUserID);
+
+                                     update Applications
+                                     set ApplicationStatus = 3 where ApplicationID = @ApplicationID;
+
                                      select scope_identity();";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -69,11 +73,15 @@ namespace DataAccessLayer
                         command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
                         command.Parameters.AddWithValue("@IssueDate", IssueDate);
                         command.Parameters.AddWithValue("@ExpirationDate", ExpirationDate);
-                        command.Parameters.AddWithValue("@Notes", Notes);
                         command.Parameters.AddWithValue("@PaidFees", PaidFees);
                         command.Parameters.AddWithValue("@IsActive", IsActive);
                         command.Parameters.AddWithValue("@IssueReason", IssueReason);
                         command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+
+                        if (string.IsNullOrEmpty(Notes))
+                            command.Parameters.AddWithValue("@Notes", DBNull.Value);
+                        else
+                            command.Parameters.AddWithValue("@Notes", Notes);
 
                         connection.Open();
                         object result = command.ExecuteScalar();
@@ -111,11 +119,15 @@ namespace DataAccessLayer
                         command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
                         command.Parameters.AddWithValue("@IssueDate", IssueDate);
                         command.Parameters.AddWithValue("@ExpirationDate", ExpirationDate);
-                        command.Parameters.AddWithValue("@Notes", Notes);
                         command.Parameters.AddWithValue("@PaidFees", PaidFees);
                         command.Parameters.AddWithValue("@IsActive", IsActive);
                         command.Parameters.AddWithValue("@IssueReason", IssueReason);
                         command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+
+                        if (string.IsNullOrEmpty(Notes))
+                            command.Parameters.AddWithValue("@Notes", DBNull.Value);
+                        else
+                            command.Parameters.AddWithValue("@Notes", Notes);
 
                         connection.Open();
                         rowsAffected = command.ExecuteNonQuery();
@@ -166,14 +178,47 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    string query = @"select LicenseID from Licenses
-                                     inner join Applications on Applications.ApplicationID = Licenses.ApplicationID
-                                     inner join LocalDrivingLicenseApplications on LocalDrivingLicenseApplications.ApplicationID = Applications.ApplicationID
-                                     where ApplicantPersonID = @PersonID and LicenseClassID = @LicenseClassID;";
+                    string query = @"select Licenses.LicenseID
+                                     from Licenses 
+                                     inner join Drivers on Licenses.DriverID = Drivers.DriverID
+                                     where Licenses.LicenseClass = @LicenseClassID and Drivers.PersonID = @PersonID and IsActive = 1;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@PersonID", PersonID);
                         command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+                        connection.Open();
+
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && int.TryParse(result.ToString(), out int ID))
+                            LicenseID = ID;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return LicenseID;
+        }
+
+        public static int GetLicenseIDbyLocalApplicationID(int LocalApplicationID)
+        {
+            int LicenseID = -1;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    // gets the first time issued local license by LocalLicenseApplicationID
+                    string query = @"select Licenses.LicenseID 
+                                     from Licenses
+                                     inner join LocalDrivingLicenseApplications as LA on LA.ApplicationID = Licenses.ApplicationID
+                                     where LA.LocalDrivingLicenseApplicationID = @LocalApplicationID;";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@LocalApplicationID", LocalApplicationID);
                         connection.Open();
 
                         object result = command.ExecuteScalar();

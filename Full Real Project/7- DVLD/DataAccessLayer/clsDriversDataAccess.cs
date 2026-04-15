@@ -41,6 +41,41 @@ namespace DataAccessLayer
             return isFound;
         }
 
+        public static bool FindByPersonID(int PersonID, ref int DriverID, ref int CreatedByUserID, ref DateTime CreatedDate)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = "select * from Drivers where PersonID = @ID ;";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ID", PersonID);
+                        connection.Open();
+
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        if (reader.Read())
+                        {
+                            DriverID = (int)reader["DriverID"];
+                            CreatedByUserID = (int)reader["CreatedByUserID"];
+                            CreatedDate = (DateTime)reader["CreatedDate"];
+                       
+                            isFound = true;
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return isFound;
+        }
+
         public static int AddNewDriver(int PersonID, int CreatedByUserID, DateTime CreatedDate)
         {
             int NewID = -1;

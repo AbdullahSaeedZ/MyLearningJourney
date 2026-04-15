@@ -24,7 +24,10 @@ namespace BusinessLayer
         public enIssueReason IssueReason { get; set; }
         public int CreatedByUserID { get; set; }
 
-        
+        public clsLicenseClassesBusiness LicenseCLassInfo { get; }
+        public clsDriversBusiness DriverInfo;
+
+
 
         public clsLicensesBusiness()
         {
@@ -56,6 +59,8 @@ namespace BusinessLayer
             this.IsActive = IsActive;
             this.IssueReason = IssueReason;
             this.CreatedByUserID = CreatedByUserID;
+            this.LicenseCLassInfo = clsLicenseClassesBusiness.Find(LicenseClassID);
+            this.DriverInfo = clsDriversBusiness.FindByDriverID(DriverID);
             this._mode = enMode.eUpdateMode;
         }
 
@@ -83,12 +88,14 @@ namespace BusinessLayer
         {
 
             int LicenseValidityLength = (int)(clsLicenseClassesBusiness.Find(this.LicenseClassID)).DefaultValidityLength;
+            this.ExpirationDate = DateTime.Now.AddYears(LicenseValidityLength);
 
-            this.LicenseID = clsLicensesDataAccess.AddNewLicense( this.ApplicationID, this.DriverID, this.LicenseClassID, DateTime.Now, this.IssueDate.AddYears(LicenseValidityLength),
+            this.LicenseID = clsLicensesDataAccess.AddNewLicense( this.ApplicationID, this.DriverID, this.LicenseClassID, DateTime.Now, this.ExpirationDate,
             this.Notes, this.PaidFees, this.IsActive, (byte)this.IssueReason, this.CreatedByUserID);
 
             return (this.LicenseID != -1);
         }
+
         private bool _UpdateLicense()
         {
             return clsLicensesDataAccess.UpdateLicense(this.LicenseID ,this.ApplicationID, this.DriverID, this.LicenseClassID, this.IssueDate, this.ExpirationDate,
@@ -120,12 +127,35 @@ namespace BusinessLayer
             }
         }
 
-
-
-        public static bool DoesLicenseExist(int LicenseID)
+        public string GetIssueReasonText()
         {
-            return clsLicensesDataAccess.DoesLicenseExist(LicenseID);
+            switch (IssueReason)
+            {
+                case enIssueReason.FirstTime:
+                    return "First Time";
+                case enIssueReason.Renew:
+                    return "License Renew";
+                case enIssueReason.ReplacementForDamaged:
+                    return "Damaged License Replacement";
+                case enIssueReason.ReplacementForLost:
+                    return "Lost License Replacement";
+                default: return "NA";
+            }
         }
+
+
+        public bool IsLicenseDetained()
+        {
+            return clsDetainedLicensesDataAccess.IsLicenseDetained(this.LicenseID);
+        }
+
+        // will get license that was issued for first time by this local application
+        public static int GetLicenseIDbyLocalApplicationID(int LocalLicenseApplicationID)
+        {
+            return clsLicensesDataAccess.GetLicenseIDbyLocalApplicationID(LocalLicenseApplicationID);
+        }
+
+        // will get only ACTIVE licenses
         public static int GetActiveLicenseIDByPersonID(int PersonID, int LicenseClassID)
         {
             return clsLicensesDataAccess.GetActiveLicenseIDByPersonID(PersonID, LicenseClassID);

@@ -87,7 +87,7 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
         {
             lblTitle.Text = "Schedule " + _SelectedTestType.ToString() + " " + lblTitle.Text;
             lblLocalApplicationID.Text = ReceivedLocalApplication.LocalDrivingLicenseApplicationID.ToString();
-            lblLicenseDrivingClass.Text = ReceivedLocalApplication.LicenseClassesInfo.ClassName;
+            lblLicenseDrivingClass.Text = ReceivedLocalApplication.LicenseClassInfo.ClassName;
             lblApplicantName.Text = ReceivedLocalApplication.ApplicantPersonInfo.FullName;
             lblTestFees.Text = TestTypeInfo.TestTypeFees.ToString();
             dtpAppointmentDate.MinDate = DateTime.Now;
@@ -101,7 +101,7 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
         {
             lblTitle.Text = "Schedule Retake " + lblTitle.Text;
             lblLocalApplicationID.Text = ReceivedLocalApplication.LocalDrivingLicenseApplicationID.ToString();
-            lblLicenseDrivingClass.Text = ReceivedLocalApplication.LicenseClassesInfo.ClassName;
+            lblLicenseDrivingClass.Text = ReceivedLocalApplication.LicenseClassInfo.ClassName;
             lblApplicantName.Text = ReceivedLocalApplication.ApplicantPersonInfo.FullName;
             lblTestFees.Text = TestTypeInfo.TestTypeFees.ToString();
             dtpAppointmentDate.MinDate = DateTime.Now;
@@ -117,7 +117,7 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
         {
             lblTitle.Text = "Update " + _SelectedTestType.ToString() + " " + lblTitle.Text;
             lblLocalApplicationID.Text = ReceivedLocalApplication.LocalDrivingLicenseApplicationID.ToString();
-            lblLicenseDrivingClass.Text = ReceivedLocalApplication.LicenseClassesInfo.ClassName;
+            lblLicenseDrivingClass.Text = ReceivedLocalApplication.LicenseClassInfo.ClassName;
             lblApplicantName.Text = ReceivedLocalApplication.ApplicantPersonInfo.FullName;
             lblTestFees.Text = TestTypeInfo.TestTypeFees.ToString();
             lblTotalFees.Text = TestTypeInfo.TestTypeFees.ToString();
@@ -142,7 +142,7 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
         {
             lblTitle.Text = "Update " + _SelectedTestType.ToString() + " " + lblTitle.Text;
             lblLocalApplicationID.Text = ReceivedLocalApplication.LocalDrivingLicenseApplicationID.ToString();
-            lblLicenseDrivingClass.Text = ReceivedLocalApplication.LicenseClassesInfo.ClassName;
+            lblLicenseDrivingClass.Text = ReceivedLocalApplication.LicenseClassInfo.ClassName;
             lblApplicantName.Text = ReceivedLocalApplication.ApplicantPersonInfo.FullName;
             lblTestFees.Text = TestTypeInfo.TestTypeFees.ToString();
             dtpAppointmentDate.Value = TestAppointment.AppointmentDate;

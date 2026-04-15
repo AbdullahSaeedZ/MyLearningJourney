@@ -79,7 +79,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             lblApplicationDate.Text = _localApplication.ApplicationDate.ToShortDateString();
             lblApplicationFees.Text = _localApplication.PaidFees.ToString();
             lblCreatedByUser.Text = _localApplication.CreatedByUserInfo.Username.ToString();
-            cbLocalLicenseClasses.SelectedItem = _localApplication.LicenseClassesInfo.ClassName;
+            cbLocalLicenseClasses.SelectedItem = _localApplication.LicenseClassInfo.ClassName;
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -123,7 +123,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             if (clsLicensesBusiness.DoesPersonHaveActiveLicense(ctrlPersonCardWithSearch1.PersonID, selectedClassIDInComboBox))
             {
 
-                MessageBox.Show("This person already has an active driving license of same Driving class", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("This person already has an issued driving license of same class, choose another class.", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

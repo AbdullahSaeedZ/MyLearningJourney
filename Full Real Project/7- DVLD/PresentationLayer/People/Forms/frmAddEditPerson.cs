@@ -122,7 +122,7 @@ namespace PresentationLayer.PeopleFormsAndControls
             person.Phone = tbPhone.Text.Trim();
             person.Address = tbAddress.Text.Trim();
             person.BirthDate = dtpBirthDate.Value;
-            person.Gender = rbMale.Checked ? (byte)enGender.Male : (byte)enGender.Female;
+            person.Gender = rbMale.Checked ? clsPeopleBusiness.enGender.Male : clsPeopleBusiness.enGender.Female;
             person.NationalityCountryID = (clsCountriesBusiness.GetCountry(cbCountry.Text)).CountryID;
         }
 
