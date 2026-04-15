@@ -192,6 +192,11 @@ namespace BusinessLayer
         }
 
 
+        public bool DoesHaveAnyAppointmentsRecords()
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.DoesHaveAnyAppointmentsRecords(this.LocalDrivingLicenseApplicationID);
+        }
+
         public bool IsLicenseIssued()
         {
             return (GetActiveLicenseID() != -1);

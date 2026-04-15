@@ -45,11 +45,17 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
                 _localApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID(_localApplicationID);
                 if (_localApplication == null)
                 {
-                    MessageBox.Show("Selected Application Does Not Exist, Form will close", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Could not get data of selected local application.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     this.Close();
                     return;
                 }
-                _FillExistentApplicationInfoInForm();
+                else if (_localApplication.DoesHaveAnyAppointmentsRecords())
+                {
+                    MessageBox.Show("Selected Application has been started and has appointment records, cannot edit application info", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.Close();
+                    return;
+                }
+                    _FillExistentApplicationInfoInForm();
             }
         }
 

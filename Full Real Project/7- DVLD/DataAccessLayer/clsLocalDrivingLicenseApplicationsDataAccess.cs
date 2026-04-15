@@ -329,5 +329,36 @@ namespace DataAccessLayer
             return isFound;
         }
 
+        // this is checking if there is any appointments records related to the application to prevent editing data, whether active or not 
+        public static bool DoesHaveAnyAppointmentsRecords(int LocalApplicationID)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = @"select top 1 Found = 1 from TestAppointments
+                                    where LocalDrivingLicenseApplicationID = @LocalApplicationID;";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@LocalApplicationID", LocalApplicationID);
+
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null)
+                            isFound = true;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return isFound;
+        }
+
     }
 }

@@ -183,18 +183,24 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
         private void editApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // will only allow edit if no appointments records connected to the application id
+            frmAddEditLocalLicenseApplication editApplicationForm = new frmAddEditLocalLicenseApplication((int)dgvApplications.CurrentRow.Cells[0].Value);
+            editApplicationForm.OnUpdateDoneForDGV += RefreshDataGridView; 
+            clsUtilities.AddToBreadcrumb("> Edit Application");
+            editApplicationForm.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb("> Edit Application");
         }
 
         private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
+
         private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Cancel this application ?", "Cancel Application", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
-                clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.SelectedCells[0].Value);
+                clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.CurrentRow.Cells[0].Value);
                 if (_selectedApplication != null)
                 {
                     if (_selectedApplication.SetStatusToCancelled()) // will only cancel applications of new status
