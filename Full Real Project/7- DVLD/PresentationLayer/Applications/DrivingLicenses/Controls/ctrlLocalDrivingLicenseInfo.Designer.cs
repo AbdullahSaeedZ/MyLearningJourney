@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlBaseApplicationInfo = new Guna.UI2.WinForms.Guna2Panel();
+            this.pnlCardBorder = new Guna.UI2.WinForms.Guna2Panel();
+            this.pbPersonPic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -56,53 +57,63 @@
             this.lblBirthDate = new System.Windows.Forms.Label();
             this.lblNationalNo = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
-            this.pbPersonPic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.pnlBaseApplicationInfo.SuspendLayout();
+            this.pnlCardBorder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonPic)).BeginInit();
             this.SuspendLayout();
             // 
-            // pnlBaseApplicationInfo
+            // pnlCardBorder
             // 
-            this.pnlBaseApplicationInfo.AutoSize = true;
-            this.pnlBaseApplicationInfo.BackColor = System.Drawing.Color.White;
-            this.pnlBaseApplicationInfo.BorderColor = System.Drawing.Color.Gainsboro;
-            this.pnlBaseApplicationInfo.BorderRadius = 15;
-            this.pnlBaseApplicationInfo.BorderThickness = 1;
-            this.pnlBaseApplicationInfo.Controls.Add(this.pbPersonPic);
-            this.pnlBaseApplicationInfo.Controls.Add(this.label1);
-            this.pnlBaseApplicationInfo.Controls.Add(this.label17);
-            this.pnlBaseApplicationInfo.Controls.Add(this.label15);
-            this.pnlBaseApplicationInfo.Controls.Add(this.label16);
-            this.pnlBaseApplicationInfo.Controls.Add(this.label11);
-            this.pnlBaseApplicationInfo.Controls.Add(this.label10);
-            this.pnlBaseApplicationInfo.Controls.Add(this.lblLicenseClass);
-            this.pnlBaseApplicationInfo.Controls.Add(this.lblIssueDate);
-            this.pnlBaseApplicationInfo.Controls.Add(this.lblNotes);
-            this.pnlBaseApplicationInfo.Controls.Add(this.lblExpirationDate);
-            this.pnlBaseApplicationInfo.Controls.Add(this.lblIssueReason);
-            this.pnlBaseApplicationInfo.Controls.Add(this.lblDriverID);
-            this.pnlBaseApplicationInfo.Controls.Add(this.lblLicenseID);
-            this.pnlBaseApplicationInfo.Controls.Add(this.label13);
-            this.pnlBaseApplicationInfo.Controls.Add(this.label4);
-            this.pnlBaseApplicationInfo.Controls.Add(this.label14);
-            this.pnlBaseApplicationInfo.Controls.Add(this.label12);
-            this.pnlBaseApplicationInfo.Controls.Add(this.label3);
-            this.pnlBaseApplicationInfo.Controls.Add(this.label2);
-            this.pnlBaseApplicationInfo.Controls.Add(this.label5);
-            this.pnlBaseApplicationInfo.Controls.Add(this.label8);
-            this.pnlBaseApplicationInfo.Controls.Add(this.lblIsDetained);
-            this.pnlBaseApplicationInfo.Controls.Add(this.lblGender);
-            this.pnlBaseApplicationInfo.Controls.Add(this.lblIsActive);
-            this.pnlBaseApplicationInfo.Controls.Add(this.lblBirthDate);
-            this.pnlBaseApplicationInfo.Controls.Add(this.lblNationalNo);
-            this.pnlBaseApplicationInfo.Controls.Add(this.lblName);
-            this.pnlBaseApplicationInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlBaseApplicationInfo.FillColor = System.Drawing.Color.White;
-            this.pnlBaseApplicationInfo.Location = new System.Drawing.Point(0, 0);
-            this.pnlBaseApplicationInfo.Name = "pnlBaseApplicationInfo";
-            this.pnlBaseApplicationInfo.ShadowDecoration.Parent = this.pnlBaseApplicationInfo;
-            this.pnlBaseApplicationInfo.Size = new System.Drawing.Size(962, 340);
-            this.pnlBaseApplicationInfo.TabIndex = 12;
+            this.pnlCardBorder.AutoSize = true;
+            this.pnlCardBorder.BackColor = System.Drawing.Color.White;
+            this.pnlCardBorder.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlCardBorder.BorderRadius = 15;
+            this.pnlCardBorder.BorderThickness = 1;
+            this.pnlCardBorder.Controls.Add(this.pbPersonPic);
+            this.pnlCardBorder.Controls.Add(this.label1);
+            this.pnlCardBorder.Controls.Add(this.label17);
+            this.pnlCardBorder.Controls.Add(this.label15);
+            this.pnlCardBorder.Controls.Add(this.label16);
+            this.pnlCardBorder.Controls.Add(this.label11);
+            this.pnlCardBorder.Controls.Add(this.label10);
+            this.pnlCardBorder.Controls.Add(this.lblLicenseClass);
+            this.pnlCardBorder.Controls.Add(this.lblIssueDate);
+            this.pnlCardBorder.Controls.Add(this.lblNotes);
+            this.pnlCardBorder.Controls.Add(this.lblExpirationDate);
+            this.pnlCardBorder.Controls.Add(this.lblIssueReason);
+            this.pnlCardBorder.Controls.Add(this.lblDriverID);
+            this.pnlCardBorder.Controls.Add(this.lblLicenseID);
+            this.pnlCardBorder.Controls.Add(this.label13);
+            this.pnlCardBorder.Controls.Add(this.label4);
+            this.pnlCardBorder.Controls.Add(this.label14);
+            this.pnlCardBorder.Controls.Add(this.label12);
+            this.pnlCardBorder.Controls.Add(this.label3);
+            this.pnlCardBorder.Controls.Add(this.label2);
+            this.pnlCardBorder.Controls.Add(this.label5);
+            this.pnlCardBorder.Controls.Add(this.label8);
+            this.pnlCardBorder.Controls.Add(this.lblIsDetained);
+            this.pnlCardBorder.Controls.Add(this.lblGender);
+            this.pnlCardBorder.Controls.Add(this.lblIsActive);
+            this.pnlCardBorder.Controls.Add(this.lblBirthDate);
+            this.pnlCardBorder.Controls.Add(this.lblNationalNo);
+            this.pnlCardBorder.Controls.Add(this.lblName);
+            this.pnlCardBorder.FillColor = System.Drawing.Color.White;
+            this.pnlCardBorder.Location = new System.Drawing.Point(3, 3);
+            this.pnlCardBorder.Name = "pnlCardBorder";
+            this.pnlCardBorder.ShadowDecoration.Parent = this.pnlCardBorder;
+            this.pnlCardBorder.Size = new System.Drawing.Size(962, 340);
+            this.pnlCardBorder.TabIndex = 12;
+            // 
+            // pbPersonPic
+            // 
+            this.pbPersonPic.Image = global::PresentationLayer.Properties.Resources.defaultMaleProfile;
+            this.pbPersonPic.Location = new System.Drawing.Point(36, 70);
+            this.pbPersonPic.Name = "pbPersonPic";
+            this.pbPersonPic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pbPersonPic.ShadowDecoration.Parent = this.pbPersonPic;
+            this.pbPersonPic.Size = new System.Drawing.Size(229, 212);
+            this.pbPersonPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPersonPic.TabIndex = 4;
+            this.pbPersonPic.TabStop = false;
             // 
             // label1
             // 
@@ -441,28 +452,16 @@
             this.lblName.TabIndex = 3;
             this.lblName.Text = "NA";
             // 
-            // pbPersonPic
-            // 
-            this.pbPersonPic.Image = global::PresentationLayer.Properties.Resources.defaultMaleProfile;
-            this.pbPersonPic.Location = new System.Drawing.Point(36, 70);
-            this.pbPersonPic.Name = "pbPersonPic";
-            this.pbPersonPic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.pbPersonPic.ShadowDecoration.Parent = this.pbPersonPic;
-            this.pbPersonPic.Size = new System.Drawing.Size(229, 212);
-            this.pbPersonPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPersonPic.TabIndex = 4;
-            this.pbPersonPic.TabStop = false;
-            // 
             // ctrlLocalDrivingLicenseInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.pnlBaseApplicationInfo);
+            this.Controls.Add(this.pnlCardBorder);
             this.Name = "ctrlLocalDrivingLicenseInfo";
-            this.Size = new System.Drawing.Size(962, 340);
-            this.pnlBaseApplicationInfo.ResumeLayout(false);
-            this.pnlBaseApplicationInfo.PerformLayout();
+            this.Size = new System.Drawing.Size(973, 346);
+            this.pnlCardBorder.ResumeLayout(false);
+            this.pnlCardBorder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonPic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -471,7 +470,7 @@
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2Panel pnlBaseApplicationInfo;
+        private Guna.UI2.WinForms.Guna2Panel pnlCardBorder;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label11;

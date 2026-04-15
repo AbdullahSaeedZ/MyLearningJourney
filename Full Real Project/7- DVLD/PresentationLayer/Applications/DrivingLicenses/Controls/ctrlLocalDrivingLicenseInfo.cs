@@ -9,6 +9,29 @@ namespace PresentationLayer.Applications.DrivingLicenses.Controls
 {
     public partial class ctrlLocalDrivingLicenseInfo : UserControl
     {
+        public int BorderThickness
+        {
+            set
+            {
+                pnlCardBorder.BorderThickness = value;
+            }
+            get
+            {
+                return pnlCardBorder.BorderThickness;
+            }
+        }
+        public Color BorderColor
+        {
+            set
+            {
+                pnlCardBorder.BorderColor = value;
+            }
+            get
+            {
+                return pnlCardBorder.BorderColor;
+            }
+        }
+
         clsLicensesBusiness _License;
         public clsLicensesBusiness SelectedLocalLicense { get { return _License; } }
 

@@ -70,7 +70,7 @@
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             this.guna2ShadowPanel1.Radius = 10;
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(881, 818);
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(870, 818);
             this.guna2ShadowPanel1.TabIndex = 2;
             // 
             // guna2Panel1
@@ -87,10 +87,10 @@
             this.guna2Panel1.Controls.Add(this.tbConfirmPassword);
             this.guna2Panel1.Controls.Add(this.tbNewPassword);
             this.guna2Panel1.Controls.Add(this.label4);
-            this.guna2Panel1.Location = new System.Drawing.Point(12, 502);
+            this.guna2Panel1.Location = new System.Drawing.Point(25, 502);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(856, 245);
+            this.guna2Panel1.Size = new System.Drawing.Size(823, 245);
             this.guna2Panel1.TabIndex = 24;
             // 
             // tbCurrentPassword
@@ -112,7 +112,7 @@
             this.tbCurrentPassword.ForeColor = System.Drawing.Color.Black;
             this.tbCurrentPassword.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbCurrentPassword.HoverState.Parent = this.tbCurrentPassword;
-            this.tbCurrentPassword.Location = new System.Drawing.Point(355, 69);
+            this.tbCurrentPassword.Location = new System.Drawing.Point(356, 70);
             this.tbCurrentPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbCurrentPassword.Name = "tbCurrentPassword";
             this.tbCurrentPassword.PasswordChar = '\0';
@@ -225,7 +225,7 @@
             this.tbConfirmPassword.ForeColor = System.Drawing.Color.Black;
             this.tbConfirmPassword.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbConfirmPassword.HoverState.Parent = this.tbConfirmPassword;
-            this.tbConfirmPassword.Location = new System.Drawing.Point(355, 173);
+            this.tbConfirmPassword.Location = new System.Drawing.Point(356, 174);
             this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbConfirmPassword.Name = "tbConfirmPassword";
             this.tbConfirmPassword.PasswordChar = '\0';
@@ -257,7 +257,7 @@
             this.tbNewPassword.ForeColor = System.Drawing.Color.Black;
             this.tbNewPassword.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbNewPassword.HoverState.Parent = this.tbNewPassword;
-            this.tbNewPassword.Location = new System.Drawing.Point(355, 121);
+            this.tbNewPassword.Location = new System.Drawing.Point(356, 122);
             this.tbNewPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbNewPassword.Name = "tbNewPassword";
             this.tbNewPassword.PasswordChar = '\0';
@@ -297,7 +297,7 @@
             this.btnSave.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnSave.HoverState.Parent = this.btnSave;
             this.btnSave.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnSave.Location = new System.Drawing.Point(668, 765);
+            this.btnSave.Location = new System.Drawing.Point(648, 763);
             this.btnSave.Name = "btnSave";
             this.btnSave.ShadowDecoration.Parent = this.btnSave;
             this.btnSave.Size = new System.Drawing.Size(200, 37);
@@ -322,7 +322,7 @@
             this.btnCancel.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.HoverState.Parent = this.btnCancel;
             this.btnCancel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCancel.Location = new System.Drawing.Point(462, 765);
+            this.btnCancel.Location = new System.Drawing.Point(442, 763);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.ShadowDecoration.Parent = this.btnCancel;
             this.btnCancel.Size = new System.Drawing.Size(200, 37);
@@ -339,7 +339,7 @@
             this.ctrlUserCard1.Name = "ctrlUserCard1";
             this.ctrlUserCard1.PersonCardBorderColor = System.Drawing.Color.Gainsboro;
             this.ctrlUserCard1.PersonCardBorderThickness = 1;
-            this.ctrlUserCard1.Size = new System.Drawing.Size(857, 449);
+            this.ctrlUserCard1.Size = new System.Drawing.Size(846, 449);
             this.ctrlUserCard1.TabIndex = 9;
             // 
             // ControlBoxClose
@@ -349,7 +349,7 @@
             this.ControlBoxClose.FillColor = System.Drawing.Color.Transparent;
             this.ControlBoxClose.HoverState.Parent = this.ControlBoxClose;
             this.ControlBoxClose.IconColor = System.Drawing.Color.Gray;
-            this.ControlBoxClose.Location = new System.Drawing.Point(823, 12);
+            this.ControlBoxClose.Location = new System.Drawing.Point(812, 12);
             this.ControlBoxClose.Name = "ControlBoxClose";
             this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
             this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
@@ -364,7 +364,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(881, 818);
+            this.ClientSize = new System.Drawing.Size(870, 818);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmChangePassword";

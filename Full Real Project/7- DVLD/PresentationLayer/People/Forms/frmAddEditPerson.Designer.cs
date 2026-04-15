@@ -178,7 +178,6 @@
             this.cbCountry.BorderRadius = 10;
             this.cbCountry.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbCountry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCountry.FillColor = System.Drawing.Color.WhiteSmoke;
             this.cbCountry.FocusedColor = System.Drawing.Color.Empty;
             this.cbCountry.FocusedState.Parent = this.cbCountry;
             this.cbCountry.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -200,7 +199,7 @@
             this.dtpBirthDate.BorderRadius = 10;
             this.dtpBirthDate.BorderThickness = 1;
             this.dtpBirthDate.CheckedState.Parent = this.dtpBirthDate;
-            this.dtpBirthDate.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.dtpBirthDate.FillColor = System.Drawing.Color.White;
             this.dtpBirthDate.Font = new System.Drawing.Font("Tahoma", 10F);
             this.dtpBirthDate.ForeColor = System.Drawing.Color.DimGray;
             this.dtpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
@@ -407,7 +406,6 @@
             this.tbAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbAddress.DisabledState.Parent = this.tbAddress;
             this.tbAddress.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbAddress.FillColor = System.Drawing.Color.WhiteSmoke;
             this.tbAddress.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbAddress.FocusedState.Parent = this.tbAddress;
             this.tbAddress.ForeColor = System.Drawing.Color.Black;
@@ -438,7 +436,6 @@
             this.tbSecondName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbSecondName.DisabledState.Parent = this.tbSecondName;
             this.tbSecondName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbSecondName.FillColor = System.Drawing.Color.WhiteSmoke;
             this.tbSecondName.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbSecondName.FocusedState.Parent = this.tbSecondName;
             this.tbSecondName.ForeColor = System.Drawing.Color.Black;
@@ -468,7 +465,6 @@
             this.tbPhone.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbPhone.DisabledState.Parent = this.tbPhone;
             this.tbPhone.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbPhone.FillColor = System.Drawing.Color.WhiteSmoke;
             this.tbPhone.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbPhone.FocusedState.Parent = this.tbPhone;
             this.tbPhone.ForeColor = System.Drawing.Color.Black;
@@ -500,7 +496,6 @@
             this.tbEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbEmail.DisabledState.Parent = this.tbEmail;
             this.tbEmail.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbEmail.FillColor = System.Drawing.Color.WhiteSmoke;
             this.tbEmail.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbEmail.FocusedState.Parent = this.tbEmail;
             this.tbEmail.ForeColor = System.Drawing.Color.Black;
@@ -530,7 +525,6 @@
             this.tbNationalNumber.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbNationalNumber.DisabledState.Parent = this.tbNationalNumber;
             this.tbNationalNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbNationalNumber.FillColor = System.Drawing.Color.WhiteSmoke;
             this.tbNationalNumber.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbNationalNumber.FocusedState.Parent = this.tbNationalNumber;
             this.tbNationalNumber.ForeColor = System.Drawing.Color.Black;
@@ -560,7 +554,6 @@
             this.tbLastName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbLastName.DisabledState.Parent = this.tbLastName;
             this.tbLastName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbLastName.FillColor = System.Drawing.Color.WhiteSmoke;
             this.tbLastName.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbLastName.FocusedState.Parent = this.tbLastName;
             this.tbLastName.ForeColor = System.Drawing.Color.Black;
@@ -590,7 +583,6 @@
             this.tbThirdName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbThirdName.DisabledState.Parent = this.tbThirdName;
             this.tbThirdName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbThirdName.FillColor = System.Drawing.Color.WhiteSmoke;
             this.tbThirdName.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbThirdName.FocusedState.Parent = this.tbThirdName;
             this.tbThirdName.ForeColor = System.Drawing.Color.Black;
@@ -619,7 +611,6 @@
             this.tbFirstName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbFirstName.DisabledState.Parent = this.tbFirstName;
             this.tbFirstName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbFirstName.FillColor = System.Drawing.Color.WhiteSmoke;
             this.tbFirstName.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbFirstName.FocusedState.Parent = this.tbFirstName;
             this.tbFirstName.ForeColor = System.Drawing.Color.Black;

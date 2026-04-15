@@ -34,7 +34,6 @@
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.pnlApplicationInfo = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.cbLocalLicenseClasses = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lblCreatedByUser = new System.Windows.Forms.Label();
@@ -54,7 +53,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
             this.pnlApplicationInfo.SuspendLayout();
-            this.guna2Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // errorProvider1
@@ -69,8 +67,8 @@
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel1.Controls.Add(this.btnBack);
             this.guna2ShadowPanel1.Controls.Add(this.pnlApplicationInfo);
+            this.guna2ShadowPanel1.Controls.Add(this.btnBack);
             this.guna2ShadowPanel1.Controls.Add(this.btnNext);
             this.guna2ShadowPanel1.Controls.Add(this.btnCancel);
             this.guna2ShadowPanel1.Controls.Add(this.btnSave);
@@ -83,7 +81,7 @@
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             this.guna2ShadowPanel1.Radius = 10;
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(895, 605);
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(886, 605);
             this.guna2ShadowPanel1.TabIndex = 1;
             // 
             // btnBack
@@ -118,35 +116,23 @@
             this.pnlApplicationInfo.BackColor = System.Drawing.Color.White;
             this.pnlApplicationInfo.BorderColor = System.Drawing.Color.Gainsboro;
             this.pnlApplicationInfo.BorderRadius = 20;
-            this.pnlApplicationInfo.Controls.Add(this.guna2Panel1);
-            this.pnlApplicationInfo.Location = new System.Drawing.Point(20, 121);
+            this.pnlApplicationInfo.BorderThickness = 1;
+            this.pnlApplicationInfo.Controls.Add(this.cbLocalLicenseClasses);
+            this.pnlApplicationInfo.Controls.Add(this.label9);
+            this.pnlApplicationInfo.Controls.Add(this.lblCreatedByUser);
+            this.pnlApplicationInfo.Controls.Add(this.label7);
+            this.pnlApplicationInfo.Controls.Add(this.lblApplicationFees);
+            this.pnlApplicationInfo.Controls.Add(this.label5);
+            this.pnlApplicationInfo.Controls.Add(this.label3);
+            this.pnlApplicationInfo.Controls.Add(this.lblApplicationDate);
+            this.pnlApplicationInfo.Controls.Add(this.label1);
+            this.pnlApplicationInfo.Controls.Add(this.lblApplicationID);
+            this.pnlApplicationInfo.Location = new System.Drawing.Point(26, 118);
             this.pnlApplicationInfo.Name = "pnlApplicationInfo";
             this.pnlApplicationInfo.ShadowDecoration.Parent = this.pnlApplicationInfo;
-            this.pnlApplicationInfo.Size = new System.Drawing.Size(844, 421);
-            this.pnlApplicationInfo.TabIndex = 16;
+            this.pnlApplicationInfo.Size = new System.Drawing.Size(838, 415);
+            this.pnlApplicationInfo.TabIndex = 17;
             this.pnlApplicationInfo.Visible = false;
-            // 
-            // guna2Panel1
-            // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.White;
-            this.guna2Panel1.BorderColor = System.Drawing.Color.Gainsboro;
-            this.guna2Panel1.BorderRadius = 20;
-            this.guna2Panel1.BorderThickness = 1;
-            this.guna2Panel1.Controls.Add(this.cbLocalLicenseClasses);
-            this.guna2Panel1.Controls.Add(this.label9);
-            this.guna2Panel1.Controls.Add(this.lblCreatedByUser);
-            this.guna2Panel1.Controls.Add(this.label7);
-            this.guna2Panel1.Controls.Add(this.lblApplicationFees);
-            this.guna2Panel1.Controls.Add(this.label5);
-            this.guna2Panel1.Controls.Add(this.label3);
-            this.guna2Panel1.Controls.Add(this.lblApplicationDate);
-            this.guna2Panel1.Controls.Add(this.label1);
-            this.guna2Panel1.Controls.Add(this.lblApplicationID);
-            this.guna2Panel1.Location = new System.Drawing.Point(3, 3);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(838, 415);
-            this.guna2Panel1.TabIndex = 17;
             // 
             // cbLocalLicenseClasses
             // 
@@ -366,9 +352,9 @@
             this.ctrlPersonCardWithSearch1.FilterBorderThickness = 1;
             this.ctrlPersonCardWithSearch1.FilterEnabled = true;
             this.ctrlPersonCardWithSearch1.FilterVisible = true;
-            this.ctrlPersonCardWithSearch1.Location = new System.Drawing.Point(9, 121);
+            this.ctrlPersonCardWithSearch1.Location = new System.Drawing.Point(17, 112);
             this.ctrlPersonCardWithSearch1.Name = "ctrlPersonCardWithSearch1";
-            this.ctrlPersonCardWithSearch1.Size = new System.Drawing.Size(867, 421);
+            this.ctrlPersonCardWithSearch1.Size = new System.Drawing.Size(853, 421);
             this.ctrlPersonCardWithSearch1.TabIndex = 3;
             // 
             // ControlBoxClose
@@ -378,7 +364,7 @@
             this.ControlBoxClose.FillColor = System.Drawing.Color.Transparent;
             this.ControlBoxClose.HoverState.Parent = this.ControlBoxClose;
             this.ControlBoxClose.IconColor = System.Drawing.Color.Gray;
-            this.ControlBoxClose.Location = new System.Drawing.Point(837, 12);
+            this.ControlBoxClose.Location = new System.Drawing.Point(828, 12);
             this.ControlBoxClose.Name = "ControlBoxClose";
             this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
             this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
@@ -400,7 +386,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 605);
+            this.ClientSize = new System.Drawing.Size(886, 605);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAddEditLocalLicenseApplication";
@@ -411,8 +397,7 @@
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();
             this.pnlApplicationInfo.ResumeLayout(false);
-            this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
+            this.pnlApplicationInfo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -423,14 +408,13 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
         private Guna.UI2.WinForms.Guna2Button btnBack;
-        private Guna.UI2.WinForms.Guna2Panel pnlApplicationInfo;
         private Guna.UI2.WinForms.Guna2Button btnNext;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private PeopleFormsAndControls.ctrlPersonCardWithSearch ctrlPersonCardWithSearch1;
         private Guna.UI2.WinForms.Guna2ControlBox ControlBoxClose;
         private System.Windows.Forms.Label lblTitle;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Panel pnlApplicationInfo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblApplicationID;
         private System.Windows.Forms.Label label9;

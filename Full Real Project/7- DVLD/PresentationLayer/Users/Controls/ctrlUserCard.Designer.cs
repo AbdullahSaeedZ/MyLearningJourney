@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlPersonCard = new Guna.UI2.WinForms.Guna2Panel();
+            this.ctrlPersonCard1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCard();
             this.pnlLoginInfo = new Guna.UI2.WinForms.Guna2Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,22 +37,18 @@
             this.lblUserID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ctrlPersonCard1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCard();
-            this.pnlPersonCard.SuspendLayout();
             this.pnlLoginInfo.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlPersonCard
+            // ctrlPersonCard1
             // 
-            this.pnlPersonCard.BorderColor = System.Drawing.Color.Gainsboro;
-            this.pnlPersonCard.BorderRadius = 20;
-            this.pnlPersonCard.BorderThickness = 1;
-            this.pnlPersonCard.Controls.Add(this.ctrlPersonCard1);
-            this.pnlPersonCard.Location = new System.Drawing.Point(3, 3);
-            this.pnlPersonCard.Name = "pnlPersonCard";
-            this.pnlPersonCard.ShadowDecoration.Parent = this.pnlPersonCard;
-            this.pnlPersonCard.Size = new System.Drawing.Size(851, 343);
-            this.pnlPersonCard.TabIndex = 1;
+            this.ctrlPersonCard1.BackColor = System.Drawing.Color.White;
+            this.ctrlPersonCard1.BorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlPersonCard1.BorderThickness = 1;
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(3, 4);
+            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(837, 342);
+            this.ctrlPersonCard1.TabIndex = 0;
             // 
             // pnlLoginInfo
             // 
@@ -66,10 +62,10 @@
             this.pnlLoginInfo.Controls.Add(this.lblUserID);
             this.pnlLoginInfo.Controls.Add(this.label2);
             this.pnlLoginInfo.Controls.Add(this.label1);
-            this.pnlLoginInfo.Location = new System.Drawing.Point(3, 352);
+            this.pnlLoginInfo.Location = new System.Drawing.Point(10, 352);
             this.pnlLoginInfo.Name = "pnlLoginInfo";
             this.pnlLoginInfo.ShadowDecoration.Parent = this.pnlLoginInfo;
-            this.pnlLoginInfo.Size = new System.Drawing.Size(851, 94);
+            this.pnlLoginInfo.Size = new System.Drawing.Size(825, 94);
             this.pnlLoginInfo.TabIndex = 2;
             // 
             // label4
@@ -149,26 +145,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Login Information";
             // 
-            // ctrlPersonCard1
-            // 
-            this.ctrlPersonCard1.BackColor = System.Drawing.Color.White;
-            this.ctrlPersonCard1.BorderColor = System.Drawing.Color.Empty;
-            this.ctrlPersonCard1.BorderThickness = 0;
-            this.ctrlPersonCard1.Location = new System.Drawing.Point(3, 3);
-            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
-            this.ctrlPersonCard1.Size = new System.Drawing.Size(844, 337);
-            this.ctrlPersonCard1.TabIndex = 0;
-            // 
             // ctrlUserCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.ctrlPersonCard1);
             this.Controls.Add(this.pnlLoginInfo);
-            this.Controls.Add(this.pnlPersonCard);
             this.Name = "ctrlUserCard";
-            this.Size = new System.Drawing.Size(857, 449);
-            this.pnlPersonCard.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(842, 449);
             this.pnlLoginInfo.ResumeLayout(false);
             this.pnlLoginInfo.PerformLayout();
             this.ResumeLayout(false);
@@ -178,7 +163,6 @@
         #endregion
 
         private PeopleFormsAndControls.ctrlPersonCard ctrlPersonCard1;
-        private Guna.UI2.WinForms.Guna2Panel pnlPersonCard;
         private Guna.UI2.WinForms.Guna2Panel pnlLoginInfo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

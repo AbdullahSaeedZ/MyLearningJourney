@@ -24,8 +24,6 @@ namespace PresentationLayer.PeopleFormsAndControls
 
         private void frmPersonInfo_Load(object sender, EventArgs e)
         {
-            guna2ShadowForm1.SetShadowForm(this);
-
             if (!string.IsNullOrEmpty(_nationalNo))
                 ctrlPersonCard1.LoadInfo(_nationalNo);
             else

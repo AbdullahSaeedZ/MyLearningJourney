@@ -12,7 +12,6 @@ namespace PresentationLayer.PeopleFormsAndControls
         public event Action<int> OnPersonSelected;
        
 
-
         public int FilterBorderThickness
         {
             set
@@ -39,22 +38,22 @@ namespace PresentationLayer.PeopleFormsAndControls
         {
             set
             {
-                pnlCard.BorderThickness = value;
+                ctrlPersonCard1.BorderThickness = value;
             }
             get
             {
-                return pnlCard.BorderThickness;
+                return ctrlPersonCard1.BorderThickness;
             }
         }
         public Color CardBorderColor
         {
             set
             {
-                pnlCard.BorderColor = value;
+                ctrlPersonCard1.BorderColor = value;
             }
             get
             {
-                return pnlCard.BorderColor;
+                return ctrlPersonCard1.BorderColor;
             }
         }
         public bool FilterEnabled 
@@ -79,6 +78,8 @@ namespace PresentationLayer.PeopleFormsAndControls
                 return pnlFilter.Visible;
             }
         }
+
+        public clsPeopleBusiness SelectedPerson { get { return ctrlPersonCard1.SelectedPersonInfo; } }
         public int PersonID { get { return ctrlPersonCard1.PersonID; } } // to use current personID outside the control
 
         public void LoadInfo(int PersonID) // to load person info when user is opened for update

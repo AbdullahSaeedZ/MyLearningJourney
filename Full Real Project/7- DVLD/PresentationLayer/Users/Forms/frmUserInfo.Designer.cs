@@ -56,17 +56,17 @@
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             this.guna2ShadowPanel1.Radius = 10;
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(880, 804);
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(861, 805);
             this.guna2ShadowPanel1.TabIndex = 1;
             // 
             // ctrlAddEditUserPermissions1
             // 
             this.ctrlAddEditUserPermissions1.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlAddEditUserPermissions1.Location = new System.Drawing.Point(15, 499);
+            this.ctrlAddEditUserPermissions1.Location = new System.Drawing.Point(21, 501);
             this.ctrlAddEditUserPermissions1.Name = "ctrlAddEditUserPermissions1";
             this.ctrlAddEditUserPermissions1.PermissionsCardBorderColor = System.Drawing.Color.Gainsboro;
             this.ctrlAddEditUserPermissions1.PermissionsCardBorderThickness = 1;
-            this.ctrlAddEditUserPermissions1.Size = new System.Drawing.Size(851, 243);
+            this.ctrlAddEditUserPermissions1.Size = new System.Drawing.Size(821, 242);
             this.ctrlAddEditUserPermissions1.TabIndex = 11;
             // 
             // btnCancel
@@ -86,7 +86,7 @@
             this.btnCancel.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.HoverState.Parent = this.btnCancel;
             this.btnCancel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCancel.Location = new System.Drawing.Point(667, 753);
+            this.btnCancel.Location = new System.Drawing.Point(638, 753);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.ShadowDecoration.Parent = this.btnCancel;
             this.btnCancel.Size = new System.Drawing.Size(200, 37);
@@ -97,13 +97,13 @@
             // ctrlUserCard1
             // 
             this.ctrlUserCard1.BackColor = System.Drawing.Color.White;
-            this.ctrlUserCard1.Location = new System.Drawing.Point(12, 47);
+            this.ctrlUserCard1.Location = new System.Drawing.Point(8, 47);
             this.ctrlUserCard1.LoginInfoCardBorderColor = System.Drawing.Color.Gainsboro;
             this.ctrlUserCard1.LoginInfoCardBorderThickness = 1;
             this.ctrlUserCard1.Name = "ctrlUserCard1";
             this.ctrlUserCard1.PersonCardBorderColor = System.Drawing.Color.Gainsboro;
             this.ctrlUserCard1.PersonCardBorderThickness = 1;
-            this.ctrlUserCard1.Size = new System.Drawing.Size(857, 449);
+            this.ctrlUserCard1.Size = new System.Drawing.Size(843, 449);
             this.ctrlUserCard1.TabIndex = 9;
             // 
             // ControlBoxClose
@@ -113,7 +113,7 @@
             this.ControlBoxClose.FillColor = System.Drawing.Color.Transparent;
             this.ControlBoxClose.HoverState.Parent = this.ControlBoxClose;
             this.ControlBoxClose.IconColor = System.Drawing.Color.Gray;
-            this.ControlBoxClose.Location = new System.Drawing.Point(822, 12);
+            this.ControlBoxClose.Location = new System.Drawing.Point(803, 12);
             this.ControlBoxClose.Name = "ControlBoxClose";
             this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
             this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
@@ -123,7 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 804);
+            this.ClientSize = new System.Drawing.Size(861, 805);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmUserInfo";

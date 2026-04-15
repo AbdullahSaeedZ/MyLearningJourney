@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.ctrlLocalDrivingLicenseInfo1 = new PresentationLayer.Applications.DrivingLicenses.Controls.ctrlLocalDrivingLicenseInfo();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.ctrlLocalDrivingLicenseInfo1 = new PresentationLayer.Applications.DrivingLicenses.Controls.ctrlLocalDrivingLicenseInfo();
             this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,8 +50,18 @@
             this.guna2ShadowPanel1.Radius = 10;
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel1.ShadowDepth = 240;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(988, 453);
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(991, 455);
             this.guna2ShadowPanel1.TabIndex = 5;
+            // 
+            // ctrlLocalDrivingLicenseInfo1
+            // 
+            this.ctrlLocalDrivingLicenseInfo1.BackColor = System.Drawing.Color.White;
+            this.ctrlLocalDrivingLicenseInfo1.BorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalDrivingLicenseInfo1.BorderThickness = 1;
+            this.ctrlLocalDrivingLicenseInfo1.Location = new System.Drawing.Point(12, 47);
+            this.ctrlLocalDrivingLicenseInfo1.Name = "ctrlLocalDrivingLicenseInfo1";
+            this.ctrlLocalDrivingLicenseInfo1.Size = new System.Drawing.Size(971, 350);
+            this.ctrlLocalDrivingLicenseInfo1.TabIndex = 11;
             // 
             // btnClose
             // 
@@ -70,7 +80,7 @@
             this.btnClose.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnClose.HoverState.Parent = this.btnClose;
             this.btnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnClose.Location = new System.Drawing.Point(844, 399);
+            this.btnClose.Location = new System.Drawing.Point(847, 401);
             this.btnClose.Name = "btnClose";
             this.btnClose.ShadowDecoration.Parent = this.btnClose;
             this.btnClose.Size = new System.Drawing.Size(119, 37);
@@ -85,7 +95,7 @@
             this.ControlBoxClose.FillColor = System.Drawing.Color.Transparent;
             this.ControlBoxClose.HoverState.Parent = this.ControlBoxClose;
             this.ControlBoxClose.IconColor = System.Drawing.Color.Gray;
-            this.ControlBoxClose.Location = new System.Drawing.Point(928, 12);
+            this.ControlBoxClose.Location = new System.Drawing.Point(931, 12);
             this.ControlBoxClose.Name = "ControlBoxClose";
             this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
             this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
@@ -96,19 +106,11 @@
             this.guna2Elipse1.BorderRadius = 40;
             this.guna2Elipse1.TargetControl = this;
             // 
-            // ctrlLocalDrivingLicenseInfo1
-            // 
-            this.ctrlLocalDrivingLicenseInfo1.BackColor = System.Drawing.Color.White;
-            this.ctrlLocalDrivingLicenseInfo1.Location = new System.Drawing.Point(12, 47);
-            this.ctrlLocalDrivingLicenseInfo1.Name = "ctrlLocalDrivingLicenseInfo1";
-            this.ctrlLocalDrivingLicenseInfo1.Size = new System.Drawing.Size(962, 340);
-            this.ctrlLocalDrivingLicenseInfo1.TabIndex = 11;
-            // 
             // frmShowLocalLicenseInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(988, 453);
+            this.ClientSize = new System.Drawing.Size(991, 455);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmShowLocalLicenseInfo";

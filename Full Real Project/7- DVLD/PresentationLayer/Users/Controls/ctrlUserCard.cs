@@ -12,11 +12,11 @@ namespace PresentationLayer.Users.Controls
         {
             set
             {
-                pnlPersonCard.BorderThickness = value;
+                ctrlPersonCard1.BorderThickness = value;
             }
             get
             {
-                return pnlPersonCard.BorderThickness;
+                return ctrlPersonCard1.BorderThickness;
             }
         }
         public int LoginInfoCardBorderThickness
@@ -34,11 +34,11 @@ namespace PresentationLayer.Users.Controls
         {
             set
             {
-                pnlPersonCard.BorderColor = value;
+                ctrlPersonCard1.BorderColor = value;
             }
             get
             {
-                return pnlPersonCard.BorderColor;
+                return ctrlPersonCard1.BorderColor;
             }
         }
         public Color LoginInfoCardBorderColor

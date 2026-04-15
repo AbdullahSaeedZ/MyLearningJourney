@@ -81,7 +81,7 @@
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             this.guna2ShadowPanel1.Radius = 10;
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(895, 605);
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(890, 605);
             this.guna2ShadowPanel1.TabIndex = 0;
             // 
             // btnBack
@@ -118,10 +118,10 @@
             this.pnlLoginInfo.BorderRadius = 20;
             this.pnlLoginInfo.Controls.Add(this.ctrlAddEditUserPermissions1);
             this.pnlLoginInfo.Controls.Add(this.guna2Panel1);
-            this.pnlLoginInfo.Location = new System.Drawing.Point(20, 121);
+            this.pnlLoginInfo.Location = new System.Drawing.Point(24, 120);
             this.pnlLoginInfo.Name = "pnlLoginInfo";
             this.pnlLoginInfo.ShadowDecoration.Parent = this.pnlLoginInfo;
-            this.pnlLoginInfo.Size = new System.Drawing.Size(844, 421);
+            this.pnlLoginInfo.Size = new System.Drawing.Size(844, 422);
             this.pnlLoginInfo.TabIndex = 16;
             this.pnlLoginInfo.Visible = false;
             // 
@@ -152,10 +152,10 @@
             this.guna2Panel1.Controls.Add(this.lblUserID);
             this.guna2Panel1.Controls.Add(this.tbUsername);
             this.guna2Panel1.Controls.Add(this.label2);
-            this.guna2Panel1.Location = new System.Drawing.Point(2, 12);
+            this.guna2Panel1.Location = new System.Drawing.Point(3, 12);
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-            this.guna2Panel1.Size = new System.Drawing.Size(838, 144);
+            this.guna2Panel1.Size = new System.Drawing.Size(837, 144);
             this.guna2Panel1.TabIndex = 16;
             // 
             // btnShowHidePassword2
@@ -175,7 +175,7 @@
             this.btnShowHidePassword2.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnShowHidePassword2.HoverState.Parent = this.btnShowHidePassword2;
             this.btnShowHidePassword2.Image = global::PresentationLayer.Properties.Resources.showPasswordEye;
-            this.btnShowHidePassword2.Location = new System.Drawing.Point(768, 89);
+            this.btnShowHidePassword2.Location = new System.Drawing.Point(767, 89);
             this.btnShowHidePassword2.Name = "btnShowHidePassword2";
             this.btnShowHidePassword2.ShadowDecoration.Parent = this.btnShowHidePassword2;
             this.btnShowHidePassword2.Size = new System.Drawing.Size(25, 23);
@@ -201,7 +201,7 @@
             this.tbConfirmPassword.ForeColor = System.Drawing.Color.Black;
             this.tbConfirmPassword.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbConfirmPassword.HoverState.Parent = this.tbConfirmPassword;
-            this.tbConfirmPassword.Location = new System.Drawing.Point(575, 84);
+            this.tbConfirmPassword.Location = new System.Drawing.Point(574, 84);
             this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbConfirmPassword.Name = "tbConfirmPassword";
             this.tbConfirmPassword.PasswordChar = '\0';
@@ -231,7 +231,7 @@
             this.btnShowHidePassword1.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnShowHidePassword1.HoverState.Parent = this.btnShowHidePassword1;
             this.btnShowHidePassword1.Image = global::PresentationLayer.Properties.Resources.showPasswordEye;
-            this.btnShowHidePassword1.Location = new System.Drawing.Point(498, 89);
+            this.btnShowHidePassword1.Location = new System.Drawing.Point(497, 89);
             this.btnShowHidePassword1.Name = "btnShowHidePassword1";
             this.btnShowHidePassword1.ShadowDecoration.Parent = this.btnShowHidePassword1;
             this.btnShowHidePassword1.Size = new System.Drawing.Size(25, 23);
@@ -248,7 +248,7 @@
             this.chbIsActive.CheckedState.BorderThickness = 0;
             this.chbIsActive.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.chbIsActive.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbIsActive.Location = new System.Drawing.Point(307, 18);
+            this.chbIsActive.Location = new System.Drawing.Point(306, 18);
             this.chbIsActive.Name = "chbIsActive";
             this.chbIsActive.Size = new System.Drawing.Size(73, 18);
             this.chbIsActive.TabIndex = 16;
@@ -278,7 +278,7 @@
             this.tbPassword.ForeColor = System.Drawing.Color.Black;
             this.tbPassword.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbPassword.HoverState.Parent = this.tbPassword;
-            this.tbPassword.Location = new System.Drawing.Point(306, 84);
+            this.tbPassword.Location = new System.Drawing.Point(305, 84);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '\0';
@@ -297,7 +297,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(572, 63);
+            this.label4.Location = new System.Drawing.Point(571, 63);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(149, 18);
             this.label4.TabIndex = 0;
@@ -310,7 +310,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(32, 18);
+            this.label1.Location = new System.Drawing.Point(31, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 18);
             this.label1.TabIndex = 0;
@@ -323,7 +323,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(303, 63);
+            this.label3.Location = new System.Drawing.Point(302, 63);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 18);
             this.label3.TabIndex = 0;
@@ -336,7 +336,7 @@
             this.lblUserID.AutoSize = true;
             this.lblUserID.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserID.ForeColor = System.Drawing.Color.Black;
-            this.lblUserID.Location = new System.Drawing.Point(104, 18);
+            this.lblUserID.Location = new System.Drawing.Point(103, 18);
             this.lblUserID.Name = "lblUserID";
             this.lblUserID.Size = new System.Drawing.Size(136, 18);
             this.lblUserID.TabIndex = 0;
@@ -361,7 +361,7 @@
             this.tbUsername.ForeColor = System.Drawing.Color.Black;
             this.tbUsername.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbUsername.HoverState.Parent = this.tbUsername;
-            this.tbUsername.Location = new System.Drawing.Point(35, 84);
+            this.tbUsername.Location = new System.Drawing.Point(34, 84);
             this.tbUsername.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.PasswordChar = '\0';
@@ -379,7 +379,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(32, 63);
+            this.label2.Location = new System.Drawing.Point(31, 63);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 18);
             this.label2.TabIndex = 0;
@@ -470,9 +470,9 @@
             this.ctrlPersonCardWithSearch1.FilterBorderThickness = 1;
             this.ctrlPersonCardWithSearch1.FilterEnabled = true;
             this.ctrlPersonCardWithSearch1.FilterVisible = true;
-            this.ctrlPersonCardWithSearch1.Location = new System.Drawing.Point(9, 121);
+            this.ctrlPersonCardWithSearch1.Location = new System.Drawing.Point(20, 115);
             this.ctrlPersonCardWithSearch1.Name = "ctrlPersonCardWithSearch1";
-            this.ctrlPersonCardWithSearch1.Size = new System.Drawing.Size(867, 421);
+            this.ctrlPersonCardWithSearch1.Size = new System.Drawing.Size(851, 421);
             this.ctrlPersonCardWithSearch1.TabIndex = 3;
             // 
             // ControlBoxClose
@@ -482,7 +482,7 @@
             this.ControlBoxClose.FillColor = System.Drawing.Color.Transparent;
             this.ControlBoxClose.HoverState.Parent = this.ControlBoxClose;
             this.ControlBoxClose.IconColor = System.Drawing.Color.Gray;
-            this.ControlBoxClose.Location = new System.Drawing.Point(837, 12);
+            this.ControlBoxClose.Location = new System.Drawing.Point(832, 12);
             this.ControlBoxClose.Name = "ControlBoxClose";
             this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
             this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
@@ -509,7 +509,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 605);
+            this.ClientSize = new System.Drawing.Size(890, 605);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmAddEditUser";
