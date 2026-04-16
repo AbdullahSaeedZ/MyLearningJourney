@@ -86,11 +86,11 @@ namespace BusinessLayer
 
         private bool _AddNewLicense()
         {
-
+            this.IssueDate = DateTime.Now;
             int LicenseValidityLength = (int)(clsLicenseClassesBusiness.Find(this.LicenseClassID)).DefaultValidityLength;
             this.ExpirationDate = DateTime.Now.AddYears(LicenseValidityLength);
 
-            this.LicenseID = clsLicensesDataAccess.AddNewLicense( this.ApplicationID, this.DriverID, this.LicenseClassID, DateTime.Now, this.ExpirationDate,
+            this.LicenseID = clsLicensesDataAccess.AddNewLicense( this.ApplicationID, this.DriverID, this.LicenseClassID, this.IssueDate, this.ExpirationDate,
             this.Notes, this.PaidFees, this.IsActive, (byte)this.IssueReason, this.CreatedByUserID);
 
             return (this.LicenseID != -1);

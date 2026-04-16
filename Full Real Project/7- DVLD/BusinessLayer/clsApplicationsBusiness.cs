@@ -112,12 +112,15 @@ namespace BusinessLayer
         private bool _AddNewApplication()
         {
             // date of creating application is taken from Business layer (server) not the UI
-            this.ApplicationID = clsApplicationsDataAccess.AddNewApplication(this.ApplicantPersonID, DateTime.Now, (int)this.ApplicationTypeID, (byte)this.ApplicationStatus, DateTime.Now, this.PaidFees, this.CreatedByUserID);
+            this.ApplicationDate = DateTime.Now;
+            this.LastStatusDate = DateTime.Now;
+            this.ApplicationID = clsApplicationsDataAccess.AddNewApplication(this.ApplicantPersonID, this.ApplicationDate, (int)this.ApplicationTypeID, (byte)this.ApplicationStatus, this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
             return (this.ApplicationID != -1);
         }
 
         private bool _UpdateApplication()
         {
+            this.LastStatusDate = DateTime.Now;
             return clsApplicationsDataAccess.UpdateApplication(this.ApplicationID ,this.ApplicantPersonID, this.ApplicationDate, (int)this.ApplicationTypeID,
                                                                 (byte)this.ApplicationStatus, this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
         }
@@ -167,13 +170,6 @@ namespace BusinessLayer
                 return false;
         }
 
-        public bool SetStatusToCompleted()
-        {
-            return clsApplicationsDataAccess.UpdateStatus(this.ApplicationID, (byte)enApplicationStatus.Completed, DateTime.Now);
-        }
-
-
-        
 
     }
 }

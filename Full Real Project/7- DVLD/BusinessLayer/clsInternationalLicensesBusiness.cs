@@ -75,6 +75,9 @@ namespace BusinessLayer
 
         private bool _AddNewInternationalLicense()
         {
+            this.IssueDate = DateTime.Now;
+            this.ExpirationDate = DateTime.Now.AddYears(1); // fixed validity length specified by business requirements
+
             this.InternationalLicenseID = clsInternationalLicensesDataAccess.AddNewInternationalLicense(this.ApplicationID, this.DriverID, this.IssuedUsingLicenseID, this.IssueDate, this.ExpirationDate,
                                          this.IsActive, this.CreatedByUserID);
 
