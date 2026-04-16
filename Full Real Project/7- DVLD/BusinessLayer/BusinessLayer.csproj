@@ -50,6 +50,7 @@
     <Compile Include="clsCountriesBusiness.cs" />
     <Compile Include="clsDetainedLicensesBusiness.cs" />
     <Compile Include="clsDriversBusiness.cs" />
+    <Compile Include="clsInternationalLicensesBusiness.cs" />
     <Compile Include="clsLicenseClassesBusiness.cs" />
     <Compile Include="clsLicensesBusiness.cs" />
     <Compile Include="clsLocalDrivingLicenseApplicationsBusiness.cs" />

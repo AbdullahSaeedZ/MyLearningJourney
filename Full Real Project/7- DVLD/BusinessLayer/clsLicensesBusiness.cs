@@ -107,6 +107,12 @@ namespace BusinessLayer
             return clsLicensesDataAccess.GetAllLicenses();
         }
 
+        public static DataTable GetAllLocalLicenses(int PersonID)
+        {
+            return clsLicensesDataAccess.GetAllLocalLicensesByPersonID(PersonID);
+        }
+
+
         public bool Save()
         {
             switch (_mode)

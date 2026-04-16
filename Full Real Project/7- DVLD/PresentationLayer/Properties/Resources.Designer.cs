@@ -593,6 +593,26 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap internationalLicensesFill24 {
+            get {
+                object obj = ResourceManager.GetObject("internationalLicensesFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap internationalLicensesNoFill24 {
+            get {
+                object obj = ResourceManager.GetObject("internationalLicensesNoFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LicenseCardFill512 {
             get {
                 object obj = ResourceManager.GetObject("LicenseCardFill512", resourceCulture);
@@ -646,6 +666,26 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap LicenseHistoryNoFill24 {
             get {
                 object obj = ResourceManager.GetObject("LicenseHistoryNoFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap localLicensesFill24 {
+            get {
+                object obj = ResourceManager.GetObject("localLicensesFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap localLicensesNoFill24 {
+            get {
+                object obj = ResourceManager.GetObject("localLicensesNoFill24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

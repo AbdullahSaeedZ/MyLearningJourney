@@ -193,7 +193,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
         private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            // allow deleting an application if there is status is new and no connected records
         }
 
         private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -276,8 +276,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
         private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-            //
+            // 
         }
 
         

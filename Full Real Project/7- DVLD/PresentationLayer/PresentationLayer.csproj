@@ -721,5 +721,17 @@
   <ItemGroup>
     <None Include="assets\editDateNoFill24.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\internationalLicensesNoFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\localLicensesFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\localLicensesNoFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\internationalLicensesFill24.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
