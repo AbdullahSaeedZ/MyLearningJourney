@@ -165,6 +165,12 @@
     <Compile Include="Drivers\ctrlDrivers.Designer.cs">
       <DependentUpon>ctrlDrivers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Drivers\Forms\frmDriverLicensesHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Drivers\Forms\frmDriverLicensesHistory.Designer.cs">
+      <DependentUpon>frmDriverLicensesHistory.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global Classes\clsUtilities.cs" />
     <Compile Include="LoginForm\frmLogin.cs">
       <SubType>Form</SubType>
@@ -308,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Drivers\ctrlDrivers.resx">
       <DependentUpon>ctrlDrivers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drivers\Forms\frmDriverLicensesHistory.resx">
+      <DependentUpon>frmDriverLicensesHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -732,6 +741,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\internationalLicensesFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\personCardFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\personCardNoFill24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

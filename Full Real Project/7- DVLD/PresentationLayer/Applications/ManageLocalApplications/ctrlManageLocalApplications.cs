@@ -2,6 +2,7 @@
 using PresentationLayer.Applications.DrivingLicenses.Forms;
 using PresentationLayer.Applications.ManageLocalApplications.Forms;
 using PresentationLayer.Applications.TestAppointments.Forms;
+using PresentationLayer.Drivers.Forms;
 using PresentationLayer.Global_Classes;
 using System;
 using System.Data;
@@ -14,6 +15,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications
         public event Action<UserControl> delRemoveFromMainFormContainer_ManageLocalApplications;
         private DataTable dt;
         private string _searchFilter; // to use in search filters and match DT and DB column names, not dgv names
+        private int _PersonID; // when need to show license history, instead of calling db twice in opening menu event and then in show history menu.
 
         public ctrlManageLocalApplications()
         {
@@ -145,6 +147,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications
                 MessageBox.Show("Could not get application info from database.", "Connection Lost", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            _PersonID = _selectedApplication.ApplicantPersonID; // to be used by showLicenseHistory option
             bool AllTestsPassed = (_selectedApplication.TestsStatus.IsVisionTestPassed && _selectedApplication.TestsStatus.IsWrittenTestPassed && _selectedApplication.TestsStatus.IsStreetTestPassed);
             bool IsLicenseIssued = _selectedApplication.IsLicenseIssued();
             bool IsApplicationStatusNew = (_selectedApplication.ApplicationStatus == clsApplicationsBusiness.enApplicationStatus.New);
@@ -276,7 +279,10 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
         private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // 
+            frmDriverLicensesHistory licensesHistory = new frmDriverLicensesHistory(_PersonID);
+            clsUtilities.AddToBreadcrumb("> Licenses History");
+            licensesHistory.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb("> Licenses History");
         }
 
         

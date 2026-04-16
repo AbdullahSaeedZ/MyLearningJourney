@@ -98,18 +98,18 @@ namespace PresentationLayer.Drivers.Controls
         }
         private void btnShowInternationalLicenses_Click(object sender, EventArgs e)
         {
+            ToggleLicensesType();
             _LoadInternationalLicenses();
         }
 
         private void btnShowLocalLicenses_Click(object sender, EventArgs e)
         {
+            ToggleLicensesType();
             _LoadLocalLicenses();
         }
 
         private void _LoadLocalLicenses()
         {
-            ToggleLicensesType();
-
             dtLocalLicenses = clsLicensesBusiness.GetAllLocalLicenses(_PersonID);
             if (dtLocalLicenses == null)
             {
@@ -124,8 +124,6 @@ namespace PresentationLayer.Drivers.Controls
         }
         private void _LoadInternationalLicenses()
         {
-            ToggleLicensesType();
-
             dtInternationalLicenses = clsInternationalLicensesBusiness.GetAllInternationalLicensesByPersonID(_PersonID);
             if (dtInternationalLicenses == null)
             {
@@ -136,18 +134,18 @@ namespace PresentationLayer.Drivers.Controls
 
             lblNoLicensesIssued.Visible = false;
             dgvInternationalLicenses.DataSource = dtInternationalLicenses;
-            lblNumberOfRecords.Text = dgvLocalLicenses.RowCount.ToString();
+            lblNumberOfRecords.Text = dgvInternationalLicenses.RowCount.ToString();
 
             
         }
 
         private void ToggleLicensesType()
         {
-            dgvInternationalLicenses.Visible = !dgvLocalLicenses.Visible;
-            dgvLocalLicenses.Visible = !dgvInternationalLicenses.Visible;
+            dgvInternationalLicenses.Visible = !dgvInternationalLicenses.Visible;
+            dgvLocalLicenses.Visible = !dgvLocalLicenses.Visible;
 
-            btnShowLocalLicenses.Visible = !btnShowInternationalLicenses.Visible;
-            btnShowInternationalLicenses.Visible = !btnShowLocalLicenses.Visible;
+            btnShowLocalLicenses.Visible = !btnShowLocalLicenses.Visible;
+            btnShowInternationalLicenses.Visible = !btnShowInternationalLicenses.Visible;
 
             lblLicenseTypeTitle.Text = dgvLocalLicenses.Visible ?   
                 lblLicenseTypeTitle.Text.Replace("International", "Local"): lblLicenseTypeTitle.Text.Replace("Local", "International"); ;

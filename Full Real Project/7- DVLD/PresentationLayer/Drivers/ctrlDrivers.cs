@@ -1,4 +1,6 @@
 ﻿using BusinessLayer;
+using PresentationLayer.Applications.DrivingLicenses.Forms;
+using PresentationLayer.Drivers.Forms;
 using PresentationLayer.Global_Classes;
 using PresentationLayer.PeopleFormsAndControls;
 using System;
@@ -75,6 +77,29 @@ namespace PresentationLayer.Drivers
         {
             if (_searchFilter == "PersonID" || _searchFilter == "DriverID")
                 e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back; // if Handled == true then will prevent any action
+        }
+
+
+        // toolStrip menu
+        private void showPersonInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPersonInfo personInfo = new frmPersonInfo((int)dgvDrivers.CurrentRow.Cells[1].Value);
+            clsUtilities.AddToBreadcrumb("> Person Info");
+            personInfo.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb("> Person Info");
+        }
+
+        private void showLicensesHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDriverLicensesHistory licenseHistory = new frmDriverLicensesHistory((int)dgvDrivers.CurrentRow.Cells[1].Value);
+            clsUtilities.AddToBreadcrumb("> Licenses History");
+            licenseHistory.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb("> Licenses History");
+        }
+
+        private void dgvDrivers_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            showPersonInfoToolStripMenuItem_Click(sender, e);
         }
     }
 }

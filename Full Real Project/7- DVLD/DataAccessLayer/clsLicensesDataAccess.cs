@@ -272,9 +272,10 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    string query = @"select Licenses.LicenseID, Licenses.ApplicationID, Licenses.LicenseClass, Licenses.IssueDate, Licenses.ExpirationDate, Licenses.IsActive
+                    string query = @"select Licenses.LicenseID, Licenses.ApplicationID, LicenseClasses.ClassName, Licenses.IssueDate, Licenses.ExpirationDate, Licenses.IsActive
                                      from Licenses 
                                      inner join Drivers on Drivers.DriverID = Licenses.DriverID
+                                     inner join LicenseClasses on LicenseClasses.LicenseClassID = Licenses.LicenseClass
                                      where Drivers.PersonID = @PersonID;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
