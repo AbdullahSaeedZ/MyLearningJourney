@@ -197,11 +197,26 @@ namespace PresentationLayer.Applications.ManageLocalApplications
         private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // allow deleting an application if there is status is new and no connected records
+            if (MessageBox.Show("Proceed to delete this application?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.CurrentRow.Cells[0].Value);
+                if (_selectedApplication != null)
+                {
+                    if (_selectedApplication.DeleteApplication()) // will only delete applications of new status
+                    {
+                        _selectedApplication = null;
+                        MessageBox.Show("Application is Deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RefreshDataGridView();
+                    }
+                    else
+                        MessageBox.Show("Could not delete the application, it has linked data to it, can only delete new applications", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Cancel this application ?", "Cancel Application", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            if (MessageBox.Show("Proceed to cancel this application ?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.CurrentRow.Cells[0].Value);
                 if (_selectedApplication != null)

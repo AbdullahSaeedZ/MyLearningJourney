@@ -103,17 +103,23 @@ namespace BusinessLayer
             return clsLocalDrivingLicenseApplicationsDataAccess.UpdateLocalLicenseApplication(this.LocalDrivingLicenseApplicationID, this.LicenseClassID);
         }
 
-        //public static bool DeleteLocalDrivingLicenseApplication(int LocalLicenseApplicationID)
-        //{
+        public override bool DeleteApplication()
+        {
+            if (this.ApplicationStatus != enApplicationStatus.New)
+                return false;
 
-        //    if (clsLocalDrivingLicenseApplicationsDataAccess.DeleteLocalDrivingLicenseApplication(LocalLicenseApplicationID))
-        //    {
-        //        // local license has no tables connected to it so we delete it first then delete baseApplication (baseApplication will handle all tables connected to it)
-        //        return clsApplicationsBusiness.DeleteApplicationByID(LocalLicenseApplicationID);
-        //    }
-        //    else
-        //        return false;
-        //}
+            // if no records of other tables linked to this local application, then we delete it then delete baseApplication
+            if (clsLocalDrivingLicenseApplicationsDataAccess.DeleteLocalDrivingLicenseApplication(this.LocalDrivingLicenseApplicationID))
+            {
+                if (base.DeleteApplication())
+                    return true;
+                else
+                    return false;
+            }
+            else
+                return false;
+        }
+
 
         public static DataTable GetAllLocalDrivingLicenseApplications()
         {

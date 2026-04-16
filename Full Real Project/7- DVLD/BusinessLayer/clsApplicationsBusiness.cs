@@ -14,9 +14,9 @@ namespace BusinessLayer
         protected enMode _mode; // to use inside the derived class only
         public enApplicationStatus ApplicationStatus { set; get; } // will come from DB as numbers
 
-        public int ApplicationID { get; private set; }
+        public int ApplicationID { get; protected set; }
 
-        private int _applicantPersonID;
+        protected int _applicantPersonID;
         public int ApplicantPersonID
         {
             get
@@ -30,7 +30,7 @@ namespace BusinessLayer
             }
         }
 
-        private enApplicationTypes _applicationTypeID;
+        protected enApplicationTypes _applicationTypeID;
         public enApplicationTypes ApplicationTypeID
         {
             get
@@ -44,7 +44,7 @@ namespace BusinessLayer
             }
         }
 
-        private int _createdByUserID;
+        protected int _createdByUserID;
         public int CreatedByUserID
         {
             get
@@ -57,9 +57,9 @@ namespace BusinessLayer
                     _createdByUserID = value;
             }
         }
-        public DateTime LastStatusDate { get; private set; }
+        public DateTime LastStatusDate { get; protected set; }
         public float PaidFees { get; set; }
-        public DateTime ApplicationDate { get; private set; }
+        public DateTime ApplicationDate { get; protected set; }
 
         public clsPeopleBusiness ApplicantPersonInfo;
         public clsApplicationTypesBusiness ApplicationTypeInfo;
@@ -125,20 +125,21 @@ namespace BusinessLayer
                                                                 (byte)this.ApplicationStatus, this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
         }
 
-        public static bool DeleteApplicationByID(int ApplicationID)
+        public virtual bool DeleteApplication()
         {
-            // must delete all related records in connected tables then delete the base application
-            
-            // logic 
-
-            return clsApplicationsDataAccess.DeleteApplicationByID(ApplicationID);
+            // if there is linked record it will fail
+            if (clsApplicationsDataAccess.DeleteBaseApplication(this.ApplicationID))
+                return true;
+            else
+                return false;
         }
+
+     
 
         public static DataTable GetAllApplications()
         {
             return clsApplicationsDataAccess.GetAllApplications();
         }
-
 
         public bool Save()
         {

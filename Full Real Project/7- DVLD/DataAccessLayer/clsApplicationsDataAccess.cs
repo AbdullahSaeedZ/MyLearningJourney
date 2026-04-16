@@ -124,7 +124,7 @@ namespace DataAccessLayer
             return (rowsAffected > 0);
         }
 
-        public static bool DeleteApplicationByID(int ApplicationID)
+        public static bool DeleteBaseApplication(int ApplicationID)
         {
             int rowsAffected = 0;
 

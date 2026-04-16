@@ -197,6 +197,34 @@ namespace DataAccessLayer
             return (rowsAffected > 0);
         }
 
+        public static bool DeleteLocalDrivingLicenseApplication( int LocalApplicationID)
+        {
+            int rowsAffected = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = @"delete LocalDrivingLicenseApplications
+                                     where LocalDrivingLicenseApplicationID = @ID;";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ID", LocalApplicationID);
+
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return (rowsAffected > 0);
+        }
+
         public static DataTable GetAllLocalDrivingLicenseApplications()
         {
             DataTable dt = new DataTable();
