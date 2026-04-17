@@ -14,6 +14,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
         private int _localApplicationID = -1;
         clsLocalDrivingLicenseApplicationsBusiness _localApplication;
         clsApplicationTypesBusiness _localLicenseApplicationTypeInfo;
+        clsLicenseClassesBusiness _selectedClassInComboBox;
 
         private enum enMode { eAddNewMode, eUpdateMode };
         private enMode _mode;
@@ -51,9 +52,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
                 }
                 else if (_localApplication.DoesHaveAnyAppointmentsRecords())
                 {
-                    MessageBox.Show("Selected Application has been started and has appointment records, cannot edit application info", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Close();
-                    return;
+                    _FillDeniedEditingInfo();
                 }
                     _FillExistentApplicationInfoInForm();
             }
@@ -88,6 +87,15 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             cbLocalLicenseClasses.SelectedItem = _localApplication.LicenseClassInfo.ClassName;
         }
 
+        private void _FillDeniedEditingInfo()
+        {
+            ctrlPersonCardWithSearch1.LoadInfo(_localApplication.ApplicantPersonID);
+            ctrlPersonCardWithSearch1.FilterVisible = false;
+            btnSave.Enabled = false;
+            cbLocalLicenseClasses.Enabled = false;
+            lblDeniedUpdate.Visible = true;
+        }
+
         private void btnNext_Click(object sender, EventArgs e)
         {
             if (ctrlPersonCardWithSearch1.PersonID == -1)
@@ -112,31 +120,44 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             btnNext.Visible = !btnNext.Visible;
         }
 
-
-        private void btnSave_Click(object sender, EventArgs e)
+        private bool PerformValidation()
         {
-            int selectedClassIDInComboBox = (clsLicenseClassesBusiness.Find(cbLocalLicenseClasses.Text)).LicenseClassID;
-            int activeNewApplicationID = clsLocalDrivingLicenseApplicationsBusiness.GetActiveApplicationID(ctrlPersonCardWithSearch1.PersonID, selectedClassIDInComboBox);
+            _selectedClassInComboBox = clsLicenseClassesBusiness.Find(cbLocalLicenseClasses.Text);
 
-            if (activeNewApplicationID != -1) 
+            if (!ctrlPersonCardWithSearch1.SelectedPerson.DoesMeetMinAllowedAge(_selectedClassInComboBox.MinimumAllowedAge))
+            {
+                MessageBox.Show($"Minimum allowed age for selected license class is {_selectedClassInComboBox.MinimumAllowedAge}, age requirements not met", 
+                                    "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            int activeNewApplicationID = clsLocalDrivingLicenseApplicationsBusiness.GetActiveLocalApplicationID(ctrlPersonCardWithSearch1.PersonID, _selectedClassInComboBox.LicenseClassID);
+            if (activeNewApplicationID != -1)
             {
                 MessageBox.Show($"This person already has an active new local driving license application of same class with ID = {activeNewApplicationID}, Please choose another class.",
                                  "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
 
-            // another check for active issued license with same selected class
-            if (clsLicensesBusiness.DoesPersonHaveActiveLicense(ctrlPersonCardWithSearch1.PersonID, selectedClassIDInComboBox))
+            if (clsLicensesBusiness.DidPersonIssuedLicense(ctrlPersonCardWithSearch1.PersonID, _selectedClassInComboBox.LicenseClassID))
             {
-
+                // another check for active issued license with same selected class
                 MessageBox.Show("This person already has an issued driving license of same class, choose another class.", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
+
+            return true;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!PerformValidation())
+                return;
 
             if (_mode == enMode.eAddNewMode)
             {
                 _localApplication.ApplicantPersonID = ctrlPersonCardWithSearch1.PersonID;
-                _localApplication.LicenseClassID = selectedClassIDInComboBox; 
+                _localApplication.LicenseClassID = _selectedClassInComboBox.LicenseClassID; 
                 _localApplication.ApplicationStatus = clsApplicationsBusiness.enApplicationStatus.New;
                 _localApplication.PaidFees = _localLicenseApplicationTypeInfo.ApplicationTypeFees;
                 _localApplication.ApplicationTypeID = _localLicenseApplicationTypeInfo.ApplicationTypeID;
@@ -144,7 +165,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             }
             else
             {
-                _localApplication.LicenseClassID = selectedClassIDInComboBox;
+                _localApplication.LicenseClassID = _selectedClassInComboBox.LicenseClassID;
             }
 
             try
@@ -173,6 +194,11 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
         {
             ctrlPersonCardWithSearch1.Dispose();
             this.Close();
+        }
+
+        private void frmAddEditLocalLicenseApplication_Activated(object sender, EventArgs e)
+        {
+            ctrlPersonCardWithSearch1.FilterFocus();
         }
     }
 }

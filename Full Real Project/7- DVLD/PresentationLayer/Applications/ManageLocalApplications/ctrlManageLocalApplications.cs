@@ -110,11 +110,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications
         // using OnUpdate event below is to control WHEN to refresh, instead of refreshing once opened and closed the forms even if no update done
         private void btnNewApplication_Click(object sender, EventArgs e)
         {
-            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eAddPerson))
-            {
-                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
+
             frmAddEditLocalLicenseApplication addApplicationForm = new frmAddEditLocalLicenseApplication();
             addApplicationForm.OnUpdateDoneForDGV += RefreshDataGridView; // to update DGV here if new person added and updated in AddEdit form
             clsUtilities.AddToBreadcrumb("> Add-Edit Application");
@@ -147,11 +143,10 @@ namespace PresentationLayer.Applications.ManageLocalApplications
                 MessageBox.Show("Could not get application info from database.", "Connection Lost", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             _PersonID = _selectedApplication.ApplicantPersonID; // to be used by showLicenseHistory option
-            bool AllTestsPassed = (_selectedApplication.TestsStatus.IsVisionTestPassed && _selectedApplication.TestsStatus.IsWrittenTestPassed && _selectedApplication.TestsStatus.IsStreetTestPassed);
             bool IsLicenseIssued = _selectedApplication.IsLicenseIssued();
             bool IsApplicationStatusNew = (_selectedApplication.ApplicationStatus == clsApplicationsBusiness.enApplicationStatus.New);
-
 
             // when license of same class is issued before , even if application is cancelled, it means applicant applied for another application and completed everything then issued a license
             showLicenseDetailsToolStripMenuItem.Enabled = IsLicenseIssued;
@@ -163,8 +158,8 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
             // when application is new but all tests passed and ready for license issuance
             // cuz might have cancelled application with issued license
-            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = (AllTestsPassed && !IsLicenseIssued & IsApplicationStatusNew);
-            ScheduleTestsToolStripMenuItem.Enabled = (!AllTestsPassed && IsApplicationStatusNew);
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = ((_selectedApplication.TestsStatus.PassedTestsCount == 3) && !IsLicenseIssued & IsApplicationStatusNew);
+            ScheduleTestsToolStripMenuItem.Enabled = (!(_selectedApplication.TestsStatus.PassedTestsCount == 3) && IsApplicationStatusNew);
 
             if (ScheduleTestsToolStripMenuItem.Enabled)
             {
@@ -211,17 +206,19 @@ namespace PresentationLayer.Applications.ManageLocalApplications
                     else
                         MessageBox.Show("Could not delete the application, it has linked data to it, can only delete new applications", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                else
+                    MessageBox.Show("Could not find the selected application info", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Proceed to cancel this application ?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            if (MessageBox.Show("Proceed to cancel this application? only applications with New status can be cancelled", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.CurrentRow.Cells[0].Value);
                 if (_selectedApplication != null)
                 {
-                    if (_selectedApplication.SetStatusToCancelled()) // will only cancel applications of new status
+                    if (_selectedApplication.Cancel()) // will only cancels applications of new status
                     {
                         MessageBox.Show("Application is cancelled successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RefreshDataGridView();
@@ -229,6 +226,8 @@ namespace PresentationLayer.Applications.ManageLocalApplications
                     else
                         MessageBox.Show("Could not cancel the application", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                else
+                    MessageBox.Show("Could not find the selected application info", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -289,7 +288,6 @@ namespace PresentationLayer.Applications.ManageLocalApplications
             frmShowLocalLicenseInfo localLicenseInfo = new frmShowLocalLicenseInfo(LicenseID);
             localLicenseInfo.ShowDialog();
             clsUtilities.RemoveFromBreadcrumb("> License Info");
-
         }
 
         private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)

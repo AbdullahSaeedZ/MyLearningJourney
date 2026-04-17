@@ -22,8 +22,20 @@ namespace BusinessLayer
         public bool IsActive { get; set; }
         public int CreatedByUserID { get; set; }
 
-        public clsDriversBusiness DriverInfo;
-        public clsLicensesBusiness LocalLicenseInfo;
+        public clsDriversBusiness DriverInfo
+        {
+            get
+            {
+                return clsDriversBusiness.FindByDriverID(DriverID);
+            }
+        }
+        public clsLicensesBusiness LocalLicenseInfo
+        {
+            get
+            {
+                return clsLicensesBusiness.FindByLicenseID(IssuedUsingLicenseID);
+            }
+        }
 
 
 
@@ -51,8 +63,6 @@ namespace BusinessLayer
             this.ExpirationDate = DateTime.MinValue;
             this.IsActive = false;
             this.CreatedByUserID = -1;
-            this.LocalLicenseInfo = clsLicensesBusiness.FindByLicenseID(IssuedUsingLicenseID);
-            this.DriverInfo = clsDriversBusiness.FindByDriverID(DriverID);
             this._mode = enMode.eUpdateMode;
         }
 

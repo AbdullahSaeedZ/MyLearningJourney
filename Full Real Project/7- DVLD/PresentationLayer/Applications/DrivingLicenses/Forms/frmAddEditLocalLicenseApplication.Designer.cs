@@ -32,7 +32,6 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.pnlApplicationInfo = new Guna.UI2.WinForms.Guna2Panel();
             this.cbLocalLicenseClasses = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -44,12 +43,14 @@
             this.lblApplicationDate = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblApplicationID = new System.Windows.Forms.Label();
+            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.btnNext = new Guna.UI2.WinForms.Guna2Button();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
-            this.ctrlPersonCardWithSearch1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCardWithSearch();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.lblDeniedUpdate = new System.Windows.Forms.Label();
+            this.ctrlPersonCardWithSearch1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCardWithSearch();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
             this.pnlApplicationInfo.SuspendLayout();
@@ -67,6 +68,7 @@
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel1.Controls.Add(this.lblDeniedUpdate);
             this.guna2ShadowPanel1.Controls.Add(this.pnlApplicationInfo);
             this.guna2ShadowPanel1.Controls.Add(this.btnBack);
             this.guna2ShadowPanel1.Controls.Add(this.btnNext);
@@ -83,33 +85,6 @@
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(886, 605);
             this.guna2ShadowPanel1.TabIndex = 1;
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.Transparent;
-            this.btnBack.BorderColor = System.Drawing.Color.DimGray;
-            this.btnBack.BorderRadius = 10;
-            this.btnBack.BorderThickness = 1;
-            this.btnBack.CheckedState.Parent = this.btnBack;
-            this.btnBack.CustomImages.Parent = this.btnBack;
-            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnBack.FillColor = System.Drawing.Color.Transparent;
-            this.btnBack.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnBack.ForeColor = System.Drawing.Color.DimGray;
-            this.btnBack.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.btnBack.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnBack.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnBack.HoverState.Parent = this.btnBack;
-            this.btnBack.Image = global::PresentationLayer.Properties.Resources.BackShortArrow;
-            this.btnBack.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnBack.Location = new System.Drawing.Point(22, 21);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.ShadowDecoration.Parent = this.btnBack;
-            this.btnBack.Size = new System.Drawing.Size(108, 37);
-            this.btnBack.TabIndex = 5;
-            this.btnBack.Text = "Back";
-            this.btnBack.Visible = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // pnlApplicationInfo
             // 
@@ -268,6 +243,33 @@
             this.lblApplicationID.TabIndex = 0;
             this.lblApplicationID.Text = "Not Assigned Yet";
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BorderColor = System.Drawing.Color.DimGray;
+            this.btnBack.BorderRadius = 10;
+            this.btnBack.BorderThickness = 1;
+            this.btnBack.CheckedState.Parent = this.btnBack;
+            this.btnBack.CustomImages.Parent = this.btnBack;
+            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnBack.FillColor = System.Drawing.Color.Transparent;
+            this.btnBack.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnBack.ForeColor = System.Drawing.Color.DimGray;
+            this.btnBack.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.btnBack.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnBack.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnBack.HoverState.Parent = this.btnBack;
+            this.btnBack.Image = global::PresentationLayer.Properties.Resources.BackShortArrow;
+            this.btnBack.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnBack.Location = new System.Drawing.Point(22, 21);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.ShadowDecoration.Parent = this.btnBack;
+            this.btnBack.Size = new System.Drawing.Size(108, 37);
+            this.btnBack.TabIndex = 5;
+            this.btnBack.Text = "Back";
+            this.btnBack.Visible = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // btnNext
             // 
             this.btnNext.BackColor = System.Drawing.Color.Transparent;
@@ -343,20 +345,6 @@
             this.btnSave.Visible = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // ctrlPersonCardWithSearch1
-            // 
-            this.ctrlPersonCardWithSearch1.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlPersonCardWithSearch1.CardBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlPersonCardWithSearch1.CardBorderThickness = 1;
-            this.ctrlPersonCardWithSearch1.FilterBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlPersonCardWithSearch1.FilterBorderThickness = 1;
-            this.ctrlPersonCardWithSearch1.FilterEnabled = true;
-            this.ctrlPersonCardWithSearch1.FilterVisible = true;
-            this.ctrlPersonCardWithSearch1.Location = new System.Drawing.Point(17, 112);
-            this.ctrlPersonCardWithSearch1.Name = "ctrlPersonCardWithSearch1";
-            this.ctrlPersonCardWithSearch1.Size = new System.Drawing.Size(853, 421);
-            this.ctrlPersonCardWithSearch1.TabIndex = 3;
-            // 
             // ControlBoxClose
             // 
             this.ControlBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -382,6 +370,34 @@
             this.lblTitle.Text = "New Local Driving License Application";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // lblDeniedUpdate
+            // 
+            this.lblDeniedUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDeniedUpdate.AutoSize = true;
+            this.lblDeniedUpdate.Font = new System.Drawing.Font("Tahoma", 11.18868F, System.Drawing.FontStyle.Bold);
+            this.lblDeniedUpdate.ForeColor = System.Drawing.Color.Red;
+            this.lblDeniedUpdate.Location = new System.Drawing.Point(254, 37);
+            this.lblDeniedUpdate.Name = "lblDeniedUpdate";
+            this.lblDeniedUpdate.Size = new System.Drawing.Size(357, 21);
+            this.lblDeniedUpdate.TabIndex = 16;
+            this.lblDeniedUpdate.Text = "Application started procees, cannot edit.";
+            this.lblDeniedUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblDeniedUpdate.Visible = false;
+            // 
+            // ctrlPersonCardWithSearch1
+            // 
+            this.ctrlPersonCardWithSearch1.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlPersonCardWithSearch1.CardBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlPersonCardWithSearch1.CardBorderThickness = 1;
+            this.ctrlPersonCardWithSearch1.FilterBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlPersonCardWithSearch1.FilterBorderThickness = 1;
+            this.ctrlPersonCardWithSearch1.FilterEnabled = true;
+            this.ctrlPersonCardWithSearch1.FilterVisible = true;
+            this.ctrlPersonCardWithSearch1.Location = new System.Drawing.Point(17, 112);
+            this.ctrlPersonCardWithSearch1.Name = "ctrlPersonCardWithSearch1";
+            this.ctrlPersonCardWithSearch1.Size = new System.Drawing.Size(853, 421);
+            this.ctrlPersonCardWithSearch1.TabIndex = 3;
+            // 
             // frmAddEditLocalLicenseApplication
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -392,6 +408,7 @@
             this.Name = "frmAddEditLocalLicenseApplication";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddEditLocalLicenseApplication";
+            this.Activated += new System.EventHandler(this.frmAddEditLocalLicenseApplication_Activated);
             this.Load += new System.EventHandler(this.frmAddEditLocalLicenseApplication_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.guna2ShadowPanel1.ResumeLayout(false);
@@ -425,5 +442,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblApplicationDate;
         private Guna.UI2.WinForms.Guna2ComboBox cbLocalLicenseClasses;
+        private System.Windows.Forms.Label lblDeniedUpdate;
     }
 }

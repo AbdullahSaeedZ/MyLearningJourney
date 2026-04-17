@@ -24,8 +24,21 @@ namespace BusinessLayer
         public enIssueReason IssueReason { get; set; }
         public int CreatedByUserID { get; set; }
 
-        public clsLicenseClassesBusiness LicenseCLassInfo { get; }
-        public clsDriversBusiness DriverInfo;
+        public clsLicenseClassesBusiness LicenseCLassInfo
+        {
+            get
+            {
+                return clsLicenseClassesBusiness.Find(LicenseClassID);
+            }
+        }
+
+        public clsDriversBusiness DriverInfo
+        {
+            get
+            {
+                return clsDriversBusiness.FindByDriverID(DriverID);
+            }
+        }
 
 
 
@@ -59,8 +72,6 @@ namespace BusinessLayer
             this.IsActive = IsActive;
             this.IssueReason = IssueReason;
             this.CreatedByUserID = CreatedByUserID;
-            this.LicenseCLassInfo = clsLicenseClassesBusiness.Find(LicenseClassID);
-            this.DriverInfo = clsDriversBusiness.FindByDriverID(DriverID);
             this._mode = enMode.eUpdateMode;
         }
 
@@ -170,6 +181,12 @@ namespace BusinessLayer
         public static bool DoesPersonHaveActiveLicense(int PersonID, int LicenseClassID)
         {
             return (GetActiveLicenseIDByPersonID(PersonID, LicenseClassID) != -1);
+        }
+
+        // whether active or not
+        public static bool DidPersonIssuedLicense(int PersonID, int LicenseClassID)
+        {
+            return clsLicensesDataAccess.DidPersonIssuedLicense(PersonID, LicenseClassID);
         }
 
     }

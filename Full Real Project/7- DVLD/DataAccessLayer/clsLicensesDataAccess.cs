@@ -142,7 +142,7 @@ namespace DataAccessLayer
             return (rowsAffected > 0);
         }
 
-        public static bool DoesLicenseExist(int LicenseID)
+        public static bool DidPersonIssuedLicense(int PersonID, int LicenseClassID)
         {
             bool isFound = false;
 
@@ -150,10 +150,13 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    string query = "select Found = 1 from Licenses where LicenseID = @ID;";
+                    string query = @"select Found = 1 from Licenses
+                                     inner join Drivers on Drivers.DriverID = Licenses.DriverID
+                                     where Drivers.PersonID = @ID and Licenses.LicenseClass = @LicenseClassID";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@ID", LicenseID);
+                        command.Parameters.AddWithValue("@ID", PersonID);
+                        command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
                         connection.Open();
 
                         object result = command.ExecuteScalar();
@@ -170,6 +173,7 @@ namespace DataAccessLayer
             }
             return isFound;
         }
+
         public static int GetActiveLicenseIDByPersonID(int PersonID, int LicenseClassID)
         {
             int LicenseID = -1;

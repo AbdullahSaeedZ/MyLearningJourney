@@ -19,7 +19,15 @@ namespace BusinessLayer
         public int CreatedByUserID { get; set; }  //do private variable
         public bool IsLocked { get; set; }  //do private variable 
         public int RetakeTestApplicationID { get; set; }
-        public clsApplicationsBusiness RetakeTestAppInfo { get; set; } // this is a basic application with a test retake type
+        public clsApplicationsBusiness RetakeTestAppInfo // this is a basic application with a test retake type
+        {
+            get
+            {
+                return clsApplicationsBusiness.FindBaseApplicationByID(RetakeTestApplicationID);
+            }
+
+            set {}
+        } 
 
 
         public clsTestAppointmentsBusiness()
@@ -47,7 +55,6 @@ namespace BusinessLayer
             this.CreatedByUserID = CreatedByUserID;
             this.IsLocked = IsLocked;
             this.RetakeTestApplicationID = RetakeTestApplicationID;
-            this.RetakeTestAppInfo = clsApplicationsBusiness.FindBaseApplicationByID(RetakeTestApplicationID);
             _mode = enMode.eUpdateMode;
         }
 

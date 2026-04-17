@@ -28,7 +28,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Forms
 
         private void btnIssueNewLicense_Click(object sender, EventArgs e)
         {
-            int NewLicenseID = ctrlLocalApplicationInfo1.SelectedLocalApplication.IssueNewLicense(tbNotes.Text);
+            int NewLicenseID = ctrlLocalApplicationInfo1.SelectedLocalApplication.IssueNewLicense(tbNotes.Text, clsBusinessSettings.CurrentUser.UserID);
             if (NewLicenseID != -1)
             {
                 MessageBox.Show($"Data saved successfully, new local driving license with id {NewLicenseID} is issued and applicant now has a new driver record",

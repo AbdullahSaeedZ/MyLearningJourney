@@ -33,7 +33,13 @@ namespace BusinessLayer
         public int LocalDrivingLicenseApplicationID { get; private set; }
         public int LicenseClassID { get; set; }
 
-        public clsLicenseClassesBusiness LicenseClassInfo;
+        public clsLicenseClassesBusiness LicenseClassInfo
+        {
+            get
+            {
+                return clsLicenseClassesBusiness.Find(LicenseClassID);
+            }
+        }
 
         public clsLocalDrivingLicenseApplicationsBusiness()
         {
@@ -48,7 +54,6 @@ namespace BusinessLayer
         {
             this.LocalDrivingLicenseApplicationID = LocalApplicationID;
             this.LicenseClassID = LicenseClassID;
-            this.LicenseClassInfo = clsLicenseClassesBusiness.Find(LicenseClassID);
             this.TestsStatus = new clsTestsStatus(IsVisionTestPassed, IsWrittenTestPassed, IsStreetTestPassed);
             this._mode = enMode.eUpdateMode;
         }
@@ -103,6 +108,7 @@ namespace BusinessLayer
             return clsLocalDrivingLicenseApplicationsDataAccess.UpdateLocalLicenseApplication(this.LocalDrivingLicenseApplicationID, this.LicenseClassID);
         }
 
+        // override incase of upcasting multiple applications in a list then do a loop (like in IT401)
         public override bool DeleteApplication()
         {
             if (this.ApplicationStatus != enApplicationStatus.New)
@@ -110,23 +116,17 @@ namespace BusinessLayer
 
             // if no records of other tables linked to this local application, then we delete it then delete baseApplication
             if (clsLocalDrivingLicenseApplicationsDataAccess.DeleteLocalDrivingLicenseApplication(this.LocalDrivingLicenseApplicationID))
-            {
-                if (base.DeleteApplication())
-                    return true;
-                else
-                    return false;
-            }
+                return base.DeleteApplication();
             else
                 return false;
         }
-
 
         public static DataTable GetAllLocalDrivingLicenseApplications()
         {
             return clsLocalDrivingLicenseApplicationsDataAccess.GetAllLocalDrivingLicenseApplications();
         }
 
-        public new bool Save() // hiding base Save method
+        public override bool Save() // override base Save method
         {
             if (base.Save()) // adding or updating the baseApplication first then do the derived application
             {
@@ -151,47 +151,55 @@ namespace BusinessLayer
                 return false;
         }
 
-        public static int GetActiveApplicationID(int ApplicantPersonID, int LicenseClassID)
+        public static int GetActiveLocalApplicationID(int ApplicantPersonID, int LicenseClassID)
         {
-            return clsLocalDrivingLicenseApplicationsDataAccess.GetActiveApplicationID(ApplicantPersonID, LicenseClassID);
+            return clsLocalDrivingLicenseApplicationsDataAccess.GetActiveLocalApplicationID(ApplicantPersonID, LicenseClassID);
         }
 
         // if issuing license replacements is not linked to local driiving applications, then see where this method fits 
-        public int IssueNewLicense(string Notes)
+        public int IssueNewLicense(string Notes, int CreatedByUserID)
         {
             if (this.TestsStatus.PassedTestsCount < 3 || IsLicenseIssued())
                 return -1;
 
             // we check if person is listed as driver, cuz person can be listed as driver only once in the system
-            clsDriversBusiness NewDriver = clsDriversBusiness.FindByPersonID(this.ApplicantPersonID);
+            // if person is already a driver, then use his driver id in the new license (licenses of different class for one driver)
 
-            if (NewDriver == null)
+            int DriverID = -1;
+            clsDriversBusiness Driver = clsDriversBusiness.FindByPersonID(this.ApplicantPersonID);
+
+            if (Driver == null)
             {
                 // adding driver record first, cuz new license record requires a driver id
-                NewDriver = new clsDriversBusiness();
-                NewDriver.PersonID = this.ApplicantPersonID;
-                NewDriver.CreatedByUserID = clsBusinessSettings.CurrentUser.UserID;
+                Driver = new clsDriversBusiness();
+                Driver.PersonID = this.ApplicantPersonID;
+                Driver.CreatedByUserID = CreatedByUserID; 
 
-                if (NewDriver.Save())
+                if (Driver.Save())
                 {
-                    clsLicensesBusiness NewLicense = new clsLicensesBusiness();
-
-                    NewLicense.ApplicationID = this.ApplicationID;
-                    NewLicense.DriverID = NewDriver.DriverID;
-                    NewLicense.Notes = Notes;
-                    NewLicense.CreatedByUserID = clsBusinessSettings.CurrentUser.UserID;
-                    NewLicense.IssueReason = clsLicensesBusiness.enIssueReason.FirstTime;
-                    NewLicense.IsActive = true;
-                    NewLicense.LicenseClassID = this.LicenseClassID;
-                    NewLicense.PaidFees = this.PaidFees; // this is the local driving application fees
-
-                    if (NewLicense.Save())
-                        return NewLicense.LicenseID;
-                    else
-                        return -1;
+                    DriverID = Driver.DriverID;
                 }
                 else
                     return -1;
+            }
+            else
+                DriverID = Driver.DriverID;
+
+            clsLicensesBusiness NewLicense = new clsLicensesBusiness();
+
+            NewLicense.ApplicationID = this.ApplicationID;
+            NewLicense.DriverID = DriverID;
+            NewLicense.Notes = Notes;
+            NewLicense.CreatedByUserID = CreatedByUserID;
+            NewLicense.IssueReason = clsLicensesBusiness.enIssueReason.FirstTime;
+            NewLicense.IsActive = true;
+            NewLicense.LicenseClassID = this.LicenseClassID;
+            NewLicense.PaidFees = this.PaidFees; // this is the local driving application fees
+
+            if (NewLicense.Save()) // DAL will auto set application status as complete
+            {
+                this.ApplicationStatus = enApplicationStatus.Completed; // this only for the object
+                return NewLicense.LicenseID;
             }
             else
                 return -1;

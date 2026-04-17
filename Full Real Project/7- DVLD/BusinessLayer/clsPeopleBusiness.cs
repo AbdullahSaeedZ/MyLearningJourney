@@ -28,7 +28,13 @@ namespace BusinessLayer
         public DateTime BirthDate { get; set; }
         public int NationalityCountryID { get; set; }
 
-        public clsCountriesBusiness CountryInfo;
+        public clsCountriesBusiness CountryInfo
+        {
+            get
+            {
+                return clsCountriesBusiness.GetCountry(NationalityCountryID);
+            }
+        }
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
@@ -66,7 +72,6 @@ namespace BusinessLayer
             this.Gender = Gender;
             this.BirthDate = BirthDate;
             this.NationalityCountryID = NationalityCountryID;
-            this.CountryInfo = clsCountriesBusiness.GetCountry(NationalityCountryID);
             this.Phone = Phone;
             this.Email = Email;
             this.Address = Address;
@@ -154,7 +159,7 @@ namespace BusinessLayer
         public static bool DeletePerson(int PersonID)
         {
             if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eDeletePerson))
-                throw new UnauthorizedAccessException("You do not have permission to Add People");
+                throw new UnauthorizedAccessException("You do not have permission to delete People");
 
             return clsPeopleDataAccess.DeletePerson(PersonID);
         }
@@ -171,6 +176,15 @@ namespace BusinessLayer
         public static bool DoesPersonExist(string NationalID) 
         {
             return clsPeopleDataAccess.DoesPersonExist(NationalID);
+        }
+
+        public bool DoesMeetMinAllowedAge(byte MinAge)
+        {
+            // ex: person birth date 2005/5/20 + minAge lets say 21 = 
+            DateTime PersonAgePlusRequiredAge = this.BirthDate.AddYears(MinAge);
+
+            // now we check if 2026/5/20 is more than current date (will give 0 or higher) which means person is above min allowed age
+            return (DateTime.Compare(DateTime.Now, PersonAgePlusRequiredAge) >= 0);
         }
     }
 }

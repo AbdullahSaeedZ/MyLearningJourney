@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using PresentationLayer.Applications.DrivingLicenses.Forms;
 using PresentationLayer.Global_Classes;
 using PresentationLayer.PeopleFormsAndControls;
 using System;
@@ -122,8 +123,10 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Controls
 
         private void btnShowLicenseInfo_Click(object sender, EventArgs e)
         {
+            int LicenseID = clsLicensesBusiness.GetLicenseIDbyLocalApplicationID(_LocalApplication.LocalDrivingLicenseApplicationID);
+
             clsUtilities.AddToBreadcrumb("> License Info");
-            
+            frmShowLocalLicenseInfo licenseInfo = new frmShowLocalLicenseInfo(LicenseID);
             clsUtilities.RemoveFromBreadcrumb("> License Info");
         }
 

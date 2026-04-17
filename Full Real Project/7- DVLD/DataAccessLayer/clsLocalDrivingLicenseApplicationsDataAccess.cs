@@ -7,43 +7,6 @@ namespace DataAccessLayer
 {
     public class clsLocalDrivingLicenseApplicationsDataAccess
     {
-        public static bool GetTestsStatus(int LocalLicenseApplicationID, ref bool Vision, ref bool Written, ref bool Street)
-        {
-            bool isFound = false;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
-                {
-                    string query = @"select Vision  = max(case when TestAppointments.TestTypeID = 1 and Tests.TestResult = 1 then 1 else 0 end),
-                                            Written = max(case when TestAppointments.TestTypeID = 2 and Tests.TestResult = 1 then 1 else 0 end),
-                                            Street  = max(case when TestAppointments.TestTypeID = 3 and Tests.TestResult = 1 then 1 else 0 end)
-                                     from TestAppointments
-                                     inner join Tests on Tests.TestAppointmentID = TestAppointments.TestAppointmentID
-                                     where TestAppointments.LocalDrivingLicenseApplicationID = @LocalLicenseApplicationID;";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@LocalLicenseApplicationID", LocalLicenseApplicationID);
-                        connection.Open();
-                        SqlDataReader reader = command.ExecuteReader();
-                        if (reader.Read())
-                        {
-                            Vision = (bool)reader["Vision"];
-                            Written = (bool)reader["Written"];
-                            Street = (bool)reader["Street"];
-                            isFound = true;
-                        }
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                // logs
-                throw;
-            }
-            return isFound;
-        }
-
         public static bool FindLocalLicenseApplicationByID(int LocalApplicationID, ref int baseApplicationID, ref int licenseClassID, ref bool Vision, ref bool Written, ref bool Street)
         {
             bool isFound = false;
@@ -220,7 +183,7 @@ namespace DataAccessLayer
             catch (Exception e)
             {
                 // logs
-                throw;
+                return false;
             }
             return (rowsAffected > 0);
         }
@@ -255,7 +218,7 @@ namespace DataAccessLayer
         }
 
 
-        public static int GetActiveApplicationID(int ApplicantPersonID, int LicenseClassID)
+        public static int GetActiveLocalApplicationID(int ApplicantPersonID, int LicenseClassID)
         {
             int activeNewApplicationID = -1;
 

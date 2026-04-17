@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.guna2CircleProgressBar1 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.lblGoodMorningEvening = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
@@ -75,6 +76,7 @@
             this.guna2Panel11 = new Guna.UI2.WinForms.Guna2Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.guna2Panel12 = new Guna.UI2.WinForms.Guna2Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -790,6 +792,11 @@
             this.guna2Panel12.Size = new System.Drawing.Size(1441, 894);
             this.guna2Panel12.TabIndex = 3;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // ctrlDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -892,5 +899,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button5;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel12;
+        private System.Windows.Forms.Timer timer1;
     }
 }

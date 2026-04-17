@@ -14,7 +14,13 @@ namespace BusinessLayer
         public int CreatedByUserID { get; set; }
         public DateTime CreatedDate { get; private set; }
 
-        public clsPeopleBusiness PersonInfo;
+        public clsPeopleBusiness PersonInfo
+        {
+            get
+            {
+                return clsPeopleBusiness.FindPerson(PersonID);
+            }
+        }
 
         public clsDriversBusiness()
         {
@@ -32,7 +38,6 @@ namespace BusinessLayer
             this.PersonID = PersonID;
             this.CreatedByUserID = CreatedByUserID;
             this.CreatedDate = CreatedDate;
-            this.PersonInfo = clsPeopleBusiness.FindPerson(PersonID);
             this._mode = enMode.eUpdateMode;
         }
 

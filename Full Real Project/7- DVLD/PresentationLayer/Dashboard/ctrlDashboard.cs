@@ -5,6 +5,9 @@ namespace PresentationLayer.DashboardControls
 {
     public partial class ctrlDashboard : UserControl
     {
+        string TimeNow;
+        string DateNow;
+
         public ctrlDashboard()
         {
             InitializeComponent();
@@ -14,13 +17,23 @@ namespace PresentationLayer.DashboardControls
         private void ctrlDashboard_Load(object sender, EventArgs e)
         {
             // to be moved to separate method
-            lblTodayDate.Text = DateTime.Now.ToLongDateString() + "  |  " + DateTime.Now.ToShortTimeString();
+            DateNow = DateTime.Now.ToLongDateString();
+            TimeNow = DateTime.Now.ToLongTimeString();
+            timer1.Enabled = true;
+
+            lblTodayDate.Text = DateNow + "  |  " + TimeNow;
             lblGoodMorningEvening.Text = "Good " + (DateTime.Now.Hour >= 12 ? "Evening, " : "Morning, ").ToString();
         }
 
         private void ButtonsHandler()
         {
 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            TimeNow = DateTime.Now.ToLongTimeString();
+            lblTodayDate.Text = DateNow + "  |  " + TimeNow;
         }
     }
 }

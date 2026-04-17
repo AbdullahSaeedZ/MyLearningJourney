@@ -146,7 +146,7 @@ namespace DataAccessLayer
             catch (Exception e)
             {
                 // logs
-                throw;
+                return false;
             }
             return (rowsAffected > 0);
         }
@@ -212,8 +212,39 @@ namespace DataAccessLayer
             return (rowsAffected > 0);
         }
 
+        public static int GetActiveApplicationID(int ApplicantPersonID, byte ApplicationType)
+        {
+            int activeNewApplicationID = -1;
 
-      
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = @"select ApplicationID
+                                     from Applications 
+                                     where ApplicantPersonID = @ApplicantPersonID and ApplicationType = @ApplicationType and ApplicationStatus = 1;";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+                        command.Parameters.AddWithValue("@ApplicationType", ApplicationType);
+
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+
+                        if (result != null && int.TryParse(result.ToString(), out int id))
+                            activeNewApplicationID = id;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return activeNewApplicationID;
+        }
+
 
     }
 }

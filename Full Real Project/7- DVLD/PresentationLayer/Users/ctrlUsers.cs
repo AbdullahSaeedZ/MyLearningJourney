@@ -180,22 +180,15 @@ namespace PresentationLayer.UsersFormsAndControls
                 return;
             }
 
-            try
+            if (MessageBox.Show($"Are you sure to delete User wIth ID {UserID}?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
-                if (MessageBox.Show($"Are you sure to delete User wIth ID {UserID}?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+                if (clsUserBusiness.DeleteUser(UserID))
                 {
-                    if (clsUserBusiness.DeleteUser(UserID))
-                    {
-                        MessageBox.Show($"User with ID {UserID} was successfully deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        RefreshDataGridView();
-                    }
-                    else
-                        MessageBox.Show($"User with ID {UserID} CAN NOT be deleted due to linked data to be deleted first.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"User with ID {UserID} was successfully deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RefreshDataGridView();
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show($"User with ID {UserID} CAN NOT be deleted due to linked data to be deleted first.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

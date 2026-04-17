@@ -30,7 +30,13 @@ namespace BusinessLayer
         public bool isActive { get; set; }
         public int Permissions { get; set; }
 
-        public clsPeopleBusiness Person;
+        public clsPeopleBusiness Person
+        {
+            get
+            {
+                return clsPeopleBusiness.FindPerson(this.PersonID);
+            }
+        }
 
         public clsUserBusiness()
         {
@@ -51,7 +57,6 @@ namespace BusinessLayer
             this.Password = Password;
             this.isActive = isActive;
             this.Permissions = Permissions;
-            this.Person = clsPeopleBusiness.FindPerson(this.PersonID);
             this._mode = enMode.eUpdateMode;
         }
 

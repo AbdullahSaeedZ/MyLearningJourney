@@ -89,7 +89,7 @@ namespace PresentationLayer.PeopleFormsAndControls
 
         public void FilterFocus()
         {
-            cbSearchBy.Focus();
+            tbSearch.Focus();
         }
 
         public ctrlPersonCardWithSearch()
@@ -156,15 +156,7 @@ namespace PresentationLayer.PeopleFormsAndControls
         }
         private void cbSearchBy_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbSearchBy.Text == "None")
-            {
-                tbSearch.Text = "";
-                tbSearch.Visible = false;
-                return;
-            }
-
             tbSearch.Text = "";
-            tbSearch.Visible = true;
         }
         private void tbSearch_KeyPress(object sender, KeyPressEventArgs e)
         {

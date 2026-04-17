@@ -18,8 +18,20 @@ namespace BusinessLayer
         public DateTime ReleaseDate { get; private set; } 
         public int ReleasedByUserID { get; set; } 
         public int ReleaseApplicationID { get; set; } 
-        public clsLicensesBusiness LicenseInfo { get; }
-        public clsApplicationsBusiness ReleaseApplicationInfo { get; }
+        public clsLicensesBusiness LicenseInfo
+        {
+            get
+            {
+                return clsLicensesBusiness.FindByLicenseID(LicenseID);
+            }
+        }
+        public clsApplicationsBusiness ReleaseApplicationInfo
+        {
+            get
+            {
+                return clsApplicationsBusiness.FindBaseApplicationByID(ReleaseApplicationID);
+            }
+        }
 
         public clsDetainedLicensesBusiness()
         {
@@ -46,8 +58,6 @@ namespace BusinessLayer
             this.ReleaseDate = ReleaseDate;
             this.ReleasedByUserID = ReleasedByUserID;
             this.ReleaseApplicationID = ReleaseApplicationID;
-            this.LicenseInfo = clsLicensesBusiness.FindByLicenseID(LicenseID);
-            this.ReleaseApplicationInfo = clsApplicationsBusiness.FindBaseApplicationByID(ReleaseApplicationID);
             this._mode = enMode.eUpdateMode;
         }
         

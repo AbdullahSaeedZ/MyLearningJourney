@@ -153,7 +153,6 @@
             this.tbSearch.ShadowDecoration.Parent = this.tbSearch;
             this.tbSearch.Size = new System.Drawing.Size(216, 36);
             this.tbSearch.TabIndex = 1;
-            this.tbSearch.Visible = false;
             this.tbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyDown);
             this.tbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearch_KeyPress);
             // 
@@ -172,7 +171,6 @@
             this.cbSearchBy.HoverState.Parent = this.cbSearchBy;
             this.cbSearchBy.ItemHeight = 30;
             this.cbSearchBy.Items.AddRange(new object[] {
-            "None",
             "Person ID",
             "National No"});
             this.cbSearchBy.ItemsAppearance.Parent = this.cbSearchBy;

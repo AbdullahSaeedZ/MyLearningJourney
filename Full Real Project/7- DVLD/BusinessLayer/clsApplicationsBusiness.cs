@@ -61,9 +61,27 @@ namespace BusinessLayer
         public float PaidFees { get; set; }
         public DateTime ApplicationDate { get; protected set; }
 
-        public clsPeopleBusiness ApplicantPersonInfo;
-        public clsApplicationTypesBusiness ApplicationTypeInfo;
-        public clsUserBusiness CreatedByUserInfo;
+        public clsPeopleBusiness ApplicantPersonInfo 
+        {
+            get
+            {
+                return clsPeopleBusiness.FindPerson(ApplicantPersonID);
+            }
+        }
+        public clsApplicationTypesBusiness ApplicationTypeInfo
+        {
+            get
+            {
+                return clsApplicationTypesBusiness.FindApplicationType((enApplicationTypes)ApplicationTypeID);
+            }
+        }
+        public clsUserBusiness CreatedByUserInfo
+        {
+            get
+            {
+                return clsUserBusiness.FindUser(_createdByUserID);
+            }
+        }
 
 
         public clsApplicationsBusiness()
@@ -79,19 +97,16 @@ namespace BusinessLayer
             _mode = enMode.eAddMode;
         }
 
-        public clsApplicationsBusiness(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate, enApplicationTypes ApplicationTypeID, enApplicationStatus ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
+        protected clsApplicationsBusiness(int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate, enApplicationTypes ApplicationTypeID, enApplicationStatus ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
         {
             this.ApplicationID = ApplicationID;
             this._applicantPersonID = ApplicantPersonID;
-            this.ApplicantPersonInfo = clsPeopleBusiness.FindPerson(ApplicantPersonID);
             this.ApplicationDate = ApplicationDate;
             this._applicationTypeID = ApplicationTypeID;
-            this.ApplicationTypeInfo = clsApplicationTypesBusiness.FindApplicationType((enApplicationTypes)ApplicationTypeID);
             this.ApplicationStatus = ApplicationStatus;
             this.LastStatusDate = LastStatusDate;
             this.PaidFees = PaidFees;
             this._createdByUserID = CreatedByUserID;
-            this.CreatedByUserInfo = clsUserBusiness.FindUser(CreatedByUserID);
             _mode = enMode.eUpdateMode;
         }
 
@@ -128,10 +143,7 @@ namespace BusinessLayer
         public virtual bool DeleteApplication()
         {
             // if there is linked record it will fail
-            if (clsApplicationsDataAccess.DeleteBaseApplication(this.ApplicationID))
-                return true;
-            else
-                return false;
+            return clsApplicationsDataAccess.DeleteBaseApplication(this.ApplicationID);
         }
 
      
@@ -141,7 +153,7 @@ namespace BusinessLayer
             return clsApplicationsDataAccess.GetAllApplications();
         }
 
-        public bool Save()
+        public virtual bool Save()
         {
             switch (_mode)
             {
@@ -163,12 +175,17 @@ namespace BusinessLayer
 
 
 
-        public bool SetStatusToCancelled()
+        public bool Cancel()
         {
             if (this.ApplicationStatus == enApplicationStatus.New)
                 return clsApplicationsDataAccess.UpdateStatus(this.ApplicationID, (byte)enApplicationStatus.Cancelled, DateTime.Now);
             else
                 return false;
+        }
+
+        public static int GetActiveApplicationID(int ApplicantPersonID, enApplicationTypes ApplicationType)
+        {
+            return clsApplicationsDataAccess.GetActiveApplicationID(ApplicantPersonID, (byte)ApplicationType);
         }
 
 

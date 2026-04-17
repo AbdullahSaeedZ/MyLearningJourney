@@ -35,23 +35,23 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.dgvTestAppointments = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblNumberOfRecords = new System.Windows.Forms.Label();
+            this.btnNewAppointment = new Guna.UI2.WinForms.Guna2Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dgvTestAppointments = new Guna.UI2.WinForms.Guna2DataGridView();
             this.TestAppointmentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AppointmentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PaidFees = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsLocked = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ctrlLocalApplicationInfo1 = new PresentationLayer.Applications.ManageLocalApplications.Controls.ctrlLocalApplicationInfo();
-            this.btnNewAppointment = new Guna.UI2.WinForms.Guna2Button();
             this.editAppointmentDateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.takeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.ctrlLocalApplicationInfo1 = new PresentationLayer.Applications.ManageLocalApplications.Controls.ctrlLocalApplicationInfo();
+            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ShadowPanel1.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestAppointments)).BeginInit();
@@ -81,56 +81,6 @@
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(928, 975);
             this.guna2ShadowPanel1.TabIndex = 5;
             // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.BackColor = System.Drawing.Color.Transparent;
-            this.btnClose.BorderColor = System.Drawing.Color.DimGray;
-            this.btnClose.BorderRadius = 10;
-            this.btnClose.BorderThickness = 1;
-            this.btnClose.CheckedState.Parent = this.btnClose;
-            this.btnClose.CustomImages.Parent = this.btnClose;
-            this.btnClose.FillColor = System.Drawing.Color.Transparent;
-            this.btnClose.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnClose.ForeColor = System.Drawing.Color.DimGray;
-            this.btnClose.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.btnClose.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnClose.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnClose.HoverState.Parent = this.btnClose;
-            this.btnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnClose.Location = new System.Drawing.Point(784, 919);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.ShadowDecoration.Parent = this.btnClose;
-            this.btnClose.Size = new System.Drawing.Size(119, 37);
-            this.btnClose.TabIndex = 10;
-            this.btnClose.Text = "Close";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // ControlBoxClose
-            // 
-            this.ControlBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ControlBoxClose.BackColor = System.Drawing.Color.Transparent;
-            this.ControlBoxClose.FillColor = System.Drawing.Color.Transparent;
-            this.ControlBoxClose.HoverState.Parent = this.ControlBoxClose;
-            this.ControlBoxClose.IconColor = System.Drawing.Color.Gray;
-            this.ControlBoxClose.Location = new System.Drawing.Point(868, 12);
-            this.ControlBoxClose.Name = "ControlBoxClose";
-            this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
-            this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
-            this.ControlBoxClose.TabIndex = 9;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Tahoma", 18.33962F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTitle.Location = new System.Drawing.Point(283, 22);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(270, 33);
-            this.lblTitle.TabIndex = 12;
-            this.lblTitle.Text = "Test Appointments";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.White;
@@ -148,6 +98,67 @@
             this.guna2Panel3.ShadowDecoration.Parent = this.guna2Panel3;
             this.guna2Panel3.Size = new System.Drawing.Size(901, 349);
             this.guna2Panel3.TabIndex = 13;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(91, 88);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(131, 23);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Total Records:";
+            // 
+            // lblNumberOfRecords
+            // 
+            this.lblNumberOfRecords.AutoSize = true;
+            this.lblNumberOfRecords.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold);
+            this.lblNumberOfRecords.ForeColor = System.Drawing.Color.Black;
+            this.lblNumberOfRecords.Location = new System.Drawing.Point(252, 88);
+            this.lblNumberOfRecords.Name = "lblNumberOfRecords";
+            this.lblNumberOfRecords.Size = new System.Drawing.Size(22, 23);
+            this.lblNumberOfRecords.TabIndex = 9;
+            this.lblNumberOfRecords.Text = "0";
+            // 
+            // btnNewAppointment
+            // 
+            this.btnNewAppointment.BackColor = System.Drawing.Color.Transparent;
+            this.btnNewAppointment.BorderColor = System.Drawing.Color.DimGray;
+            this.btnNewAppointment.BorderRadius = 10;
+            this.btnNewAppointment.CheckedState.Parent = this.btnNewAppointment;
+            this.btnNewAppointment.CustomImages.Parent = this.btnNewAppointment;
+            this.btnNewAppointment.FillColor = System.Drawing.Color.Transparent;
+            this.btnNewAppointment.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnNewAppointment.ForeColor = System.Drawing.Color.Black;
+            this.btnNewAppointment.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNewAppointment.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNewAppointment.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnNewAppointment.HoverState.Image = global::PresentationLayer.Properties.Resources.addFill;
+            this.btnNewAppointment.HoverState.Parent = this.btnNewAppointment;
+            this.btnNewAppointment.Image = global::PresentationLayer.Properties.Resources.addNoFill;
+            this.btnNewAppointment.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnNewAppointment.Location = new System.Drawing.Point(627, 76);
+            this.btnNewAppointment.Name = "btnNewAppointment";
+            this.btnNewAppointment.PressedColor = System.Drawing.Color.DimGray;
+            this.btnNewAppointment.ShadowDecoration.Parent = this.btnNewAppointment;
+            this.btnNewAppointment.Size = new System.Drawing.Size(192, 37);
+            this.btnNewAppointment.TabIndex = 8;
+            this.btnNewAppointment.Text = "New Appointment";
+            this.btnNewAppointment.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnNewAppointment.Click += new System.EventHandler(this.btnNewAppointment_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(16, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(180, 29);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Appointments";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // dgvTestAppointments
             // 
@@ -206,7 +217,7 @@
             this.dgvTestAppointments.RowHeadersVisible = false;
             this.dgvTestAppointments.RowHeadersWidth = 45;
             this.dgvTestAppointments.RowTemplate.DividerHeight = 1;
-            this.dgvTestAppointments.RowTemplate.Height = 50;
+            this.dgvTestAppointments.RowTemplate.Height = 30;
             this.dgvTestAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTestAppointments.Size = new System.Drawing.Size(724, 200);
             this.dgvTestAppointments.TabIndex = 0;
@@ -229,43 +240,9 @@
             this.dgvTestAppointments.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvTestAppointments.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.dgvTestAppointments.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvTestAppointments.ThemeStyle.RowsStyle.Height = 50;
+            this.dgvTestAppointments.ThemeStyle.RowsStyle.Height = 30;
             this.dgvTestAppointments.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
             this.dgvTestAppointments.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(16, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 29);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Appointments";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(91, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 23);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Total Records:";
-            // 
-            // lblNumberOfRecords
-            // 
-            this.lblNumberOfRecords.AutoSize = true;
-            this.lblNumberOfRecords.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold);
-            this.lblNumberOfRecords.ForeColor = System.Drawing.Color.Black;
-            this.lblNumberOfRecords.Location = new System.Drawing.Point(252, 88);
-            this.lblNumberOfRecords.Name = "lblNumberOfRecords";
-            this.lblNumberOfRecords.Size = new System.Drawing.Size(22, 23);
-            this.lblNumberOfRecords.TabIndex = 9;
-            this.lblNumberOfRecords.Text = "0";
             // 
             // TestAppointmentID
             // 
@@ -316,47 +293,8 @@
             this.editAppointmentDateToolStripMenuItem,
             this.takeTestToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(217, 88);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(217, 64);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
-            // 
-            // ctrlLocalApplicationInfo1
-            // 
-            this.ctrlLocalApplicationInfo1.BackColor = System.Drawing.Color.White;
-            this.ctrlLocalApplicationInfo1.BasicApplicationBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlLocalApplicationInfo1.BasicApplicationBorderThickness = 1;
-            this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderThickness = 1;
-            this.ctrlLocalApplicationInfo1.Location = new System.Drawing.Point(13, 71);
-            this.ctrlLocalApplicationInfo1.Name = "ctrlLocalApplicationInfo1";
-            this.ctrlLocalApplicationInfo1.Size = new System.Drawing.Size(901, 487);
-            this.ctrlLocalApplicationInfo1.TabIndex = 11;
-            // 
-            // btnNewAppointment
-            // 
-            this.btnNewAppointment.BackColor = System.Drawing.Color.Transparent;
-            this.btnNewAppointment.BorderColor = System.Drawing.Color.DimGray;
-            this.btnNewAppointment.BorderRadius = 10;
-            this.btnNewAppointment.CheckedState.Parent = this.btnNewAppointment;
-            this.btnNewAppointment.CustomImages.Parent = this.btnNewAppointment;
-            this.btnNewAppointment.FillColor = System.Drawing.Color.Transparent;
-            this.btnNewAppointment.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnNewAppointment.ForeColor = System.Drawing.Color.Black;
-            this.btnNewAppointment.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNewAppointment.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNewAppointment.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnNewAppointment.HoverState.Image = global::PresentationLayer.Properties.Resources.addFill;
-            this.btnNewAppointment.HoverState.Parent = this.btnNewAppointment;
-            this.btnNewAppointment.Image = global::PresentationLayer.Properties.Resources.addNoFill;
-            this.btnNewAppointment.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnNewAppointment.Location = new System.Drawing.Point(627, 76);
-            this.btnNewAppointment.Name = "btnNewAppointment";
-            this.btnNewAppointment.PressedColor = System.Drawing.Color.DimGray;
-            this.btnNewAppointment.ShadowDecoration.Parent = this.btnNewAppointment;
-            this.btnNewAppointment.Size = new System.Drawing.Size(192, 37);
-            this.btnNewAppointment.TabIndex = 8;
-            this.btnNewAppointment.Text = "New Appointment";
-            this.btnNewAppointment.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnNewAppointment.Click += new System.EventHandler(this.btnNewAppointment_Click);
             // 
             // editAppointmentDateToolStripMenuItem
             // 
@@ -373,6 +311,68 @@
             this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(216, 30);
             this.takeTestToolStripMenuItem.Text = "Take Test";
             this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Tahoma", 18.33962F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTitle.Location = new System.Drawing.Point(283, 22);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(270, 33);
+            this.lblTitle.TabIndex = 12;
+            this.lblTitle.Text = "Test Appointments";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ctrlLocalApplicationInfo1
+            // 
+            this.ctrlLocalApplicationInfo1.BackColor = System.Drawing.Color.White;
+            this.ctrlLocalApplicationInfo1.BasicApplicationBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalApplicationInfo1.BasicApplicationBorderThickness = 1;
+            this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderThickness = 1;
+            this.ctrlLocalApplicationInfo1.Location = new System.Drawing.Point(13, 71);
+            this.ctrlLocalApplicationInfo1.Name = "ctrlLocalApplicationInfo1";
+            this.ctrlLocalApplicationInfo1.Size = new System.Drawing.Size(901, 487);
+            this.ctrlLocalApplicationInfo1.TabIndex = 11;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.BackColor = System.Drawing.Color.Transparent;
+            this.btnClose.BorderColor = System.Drawing.Color.DimGray;
+            this.btnClose.BorderRadius = 10;
+            this.btnClose.BorderThickness = 1;
+            this.btnClose.CheckedState.Parent = this.btnClose;
+            this.btnClose.CustomImages.Parent = this.btnClose;
+            this.btnClose.FillColor = System.Drawing.Color.Transparent;
+            this.btnClose.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnClose.ForeColor = System.Drawing.Color.DimGray;
+            this.btnClose.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.btnClose.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnClose.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnClose.HoverState.Parent = this.btnClose;
+            this.btnClose.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnClose.Location = new System.Drawing.Point(784, 919);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.ShadowDecoration.Parent = this.btnClose;
+            this.btnClose.Size = new System.Drawing.Size(119, 37);
+            this.btnClose.TabIndex = 10;
+            this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // ControlBoxClose
+            // 
+            this.ControlBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ControlBoxClose.BackColor = System.Drawing.Color.Transparent;
+            this.ControlBoxClose.FillColor = System.Drawing.Color.Transparent;
+            this.ControlBoxClose.HoverState.Parent = this.ControlBoxClose;
+            this.ControlBoxClose.IconColor = System.Drawing.Color.Gray;
+            this.ControlBoxClose.Location = new System.Drawing.Point(868, 12);
+            this.ControlBoxClose.Name = "ControlBoxClose";
+            this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
+            this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
+            this.ControlBoxClose.TabIndex = 9;
             // 
             // frmListTestAppointments
             // 
