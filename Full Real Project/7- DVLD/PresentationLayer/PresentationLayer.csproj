@@ -129,6 +129,12 @@
     <Compile Include="Applications\ManageTestTypes\Forms\frmEditTestType.Designer.cs">
       <DependentUpon>frmEditTestType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\TestAppointments\ctrlScheduleTestAppointment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\TestAppointments\ctrlScheduleTestAppointment.Designer.cs">
+      <DependentUpon>ctrlScheduleTestAppointment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\TestAppointments\Forms\frmListTestAppointments.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -641,7 +647,6 @@
   <ItemGroup>
     <Folder Include="Applications\DetainLicenses\" />
     <Folder Include="Applications\ManageInternationalApplications\" />
-    <Folder Include="Applications\TestAppointments\Controls\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\AddFillBlack512.png" />

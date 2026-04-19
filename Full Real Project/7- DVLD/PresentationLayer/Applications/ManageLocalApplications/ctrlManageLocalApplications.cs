@@ -233,37 +233,31 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
 
         // schedule tests menu
-        private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void _ListTestAppointment(clsTestTypesBusiness.enTestType testType)
         {
             int LocalApplicationID = (int)dgvApplications.CurrentRow.Cells[0].Value;
 
-            clsUtilities.AddToBreadcrumb("> Vision Test Appointments");
-            frmListTestAppointments testAppointments = new frmListTestAppointments(LocalApplicationID, clsTestTypesBusiness.enTestType.Vision);
+            clsUtilities.AddToBreadcrumb($"> {testType} Test Appointments");
+            frmListTestAppointments testAppointments = new frmListTestAppointments(LocalApplicationID, testType);
             testAppointments.delUpdateLocalApplicationsDGV += RefreshDataGridView;
             testAppointments.ShowDialog();
-            clsUtilities.RemoveFromBreadcrumb("> Vision Test Appointments");
+            clsUtilities.RemoveFromBreadcrumb($"> {testType} Test Appointments");
+        }
+
+        private void scheduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _ListTestAppointment(clsTestTypesBusiness.enTestType.Vision);
         }
 
         private void scheduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int LocalApplicationID = (int)dgvApplications.CurrentRow.Cells[0].Value;
-
-            clsUtilities.AddToBreadcrumb("> Written Test Appointments");
-            frmListTestAppointments testAppointments = new frmListTestAppointments(LocalApplicationID, clsTestTypesBusiness.enTestType.Written);
-            testAppointments.delUpdateLocalApplicationsDGV += RefreshDataGridView;
-            testAppointments.ShowDialog();
-            clsUtilities.RemoveFromBreadcrumb("> Written Test Appointments");
+            _ListTestAppointment(clsTestTypesBusiness.enTestType.Written);
         }
 
         private void scheduleStreetTToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int LocalApplicationID = (int)dgvApplications.CurrentRow.Cells[0].Value;
-
-            clsUtilities.AddToBreadcrumb("> Street Test Appointments");
-            frmListTestAppointments testAppointments = new frmListTestAppointments(LocalApplicationID, clsTestTypesBusiness.enTestType.Street);
-            testAppointments.delUpdateLocalApplicationsDGV += RefreshDataGridView;
-            testAppointments.ShowDialog();
-            clsUtilities.RemoveFromBreadcrumb("> Street Test Appointments");
+            _ListTestAppointment(clsTestTypesBusiness.enTestType.Street);
         }
 
 

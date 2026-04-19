@@ -1,0 +1,66 @@
+// SUMMARY
+// - Passing OBJECT = faster (no DB call) but may be outdated + shared reference risk
+// - Passing ID     = safer (fresh data) but requires DB call
+// - Use OBJECT for simple UI
+// - Use ID for business rules (status, locking, validation)
+// - Best = HYBRID (ID + optional cached object)
+
+
+// =======================
+// CASE 1: PASS OBJECT
+// =======================
+
+// Caller
+var form = new AppointmentForm();
+form.App = selectedApplication; // already loaded
+form.ShowDialog();
+
+// Form
+public clsApplication App;
+
+void LoadData()
+{
+    lblName.Text = App.FullName;
+}
+
+// ✔ Fast (no DB)
+// ✖ Might be outdated
+// ✖ Shared instance (side effects)
+
+
+// =======================
+// CASE 2: PASS ID
+// =======================
+
+// Caller
+var form = new AppointmentForm(selectedApplication.ID);
+form.ShowDialog();
+
+// Form
+private int _appID;
+private clsApplication _app;
+
+public AppointmentForm(int appID)
+{
+    _appID = appID;
+}
+
+void LoadData()
+{
+    _app = clsApplication.Find(_appID); // fetch fresh
+    lblName.Text = _app.FullName;
+}
+
+// ✔ Always fresh
+// ✔ Safe for business rules
+// ✖ Extra DB call
+
+
+// =======================
+// BEST PRACTICE (HYBRID)
+// =======================
+
+using caching , later explained
+
+// ✔ Uses cache if available
+// ✔ Falls back to DB if needed

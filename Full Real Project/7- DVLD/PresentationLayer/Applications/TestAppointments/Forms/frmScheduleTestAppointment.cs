@@ -42,6 +42,7 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
             if (ReceivedLocalApplication == null)
             {
                 MessageBox.Show("Could not get Local Application Info of selected Appointment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnSave.Enabled = false;
                 return; 
             }
 

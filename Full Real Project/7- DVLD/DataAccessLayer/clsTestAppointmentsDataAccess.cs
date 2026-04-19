@@ -192,6 +192,7 @@ namespace DataAccessLayer
             return dt;
         }
 
+        // last test appointment that was scheduled for chosen test type of specific local application
         public static bool GetLastTestAppointmentByTestTypeID(ref int TestAppointmentID, byte TestTypeID, int LocalDrivingLicenseApplicationID, ref DateTime AppointmentDate, ref float PaidFees,
                                      ref int CreatedByUserID, ref bool IsLocked, ref int RetakeTestApplicationID)
         {
@@ -201,7 +202,10 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    string query = "select * from TestAppointments where LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID and TestTypeID = @TestTypeID ;";
+                    // top 1 cuz application might have multiple appointments for the same test type, and we need only the recent appointment that was scheduled
+                    string query = @"select top 1 * from TestAppointments
+                                     where LocalDrivingLicenseApplicationID = @LocalDrivingLicenseApplicationID and TestTypeID = @TestTypeID 
+                                     order by TestAppointmentID desc;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@LocalDrivingLicenseApplicationID", LocalDrivingLicenseApplicationID);

@@ -1,8 +1,7 @@
 ﻿using DataAccessLayer;
 using System;
 using System.Data;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
+
 
 namespace BusinessLayer
 {
@@ -33,7 +32,7 @@ namespace BusinessLayer
         public clsTestAppointmentsBusiness()
         {
             this.TestAppointmentID = -1;
-            this.TestTypeID = clsTestTypesBusiness.enTestType.Vision; // as initial value then changed in ui
+            this.TestTypeID = 0;
             this.LocalDrivingLicenseApplicationID = -1;
             this.AppointmentDate = DateTime.MinValue;
             this.PaidFees = 0;
@@ -137,7 +136,7 @@ namespace BusinessLayer
             if (clsTestAppointmentsDataAccess.GetLastTestAppointmentByTestTypeID(ref TestAppointmentID, (byte)TestTypeID, LocalDrivingLicenseApplicationID, ref AppointmentDate, ref PaidFees,
                                      ref CreatedByUserID, ref IsLocked, ref RetakeTestApplicationID))
             {
-                return new clsTestAppointmentsBusiness(TestAppointmentID, (clsTestTypesBusiness.enTestType)TestTypeID, LocalDrivingLicenseApplicationID, AppointmentDate, PaidFees,
+                return new clsTestAppointmentsBusiness(TestAppointmentID, TestTypeID, LocalDrivingLicenseApplicationID, AppointmentDate, PaidFees,
                                       CreatedByUserID, IsLocked, RetakeTestApplicationID);
             }
             else

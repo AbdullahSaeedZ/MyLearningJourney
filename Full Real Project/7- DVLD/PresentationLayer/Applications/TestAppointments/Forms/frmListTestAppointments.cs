@@ -58,11 +58,10 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
             if (LastTestTaken == null)
             {
                 // new appointment , no appointment before
-                frmScheduleTestAppointment AddNewAppointment = new frmScheduleTestAppointment(_SelectedTestType, frmScheduleTestAppointment.enMode.eAddNewAppointmentMode);
-                AddNewAppointment.ReceivedLocalApplication = ctrlLocalApplicationInfo1.SelectedLocalApplication;
-                AddNewAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;
-                AddNewAppointment.ShowDialog();
-                return;
+                //frmScheduleTestAppointment AddNewAppointment = new frmScheduleTestAppointment(_SelectedTestType, ctrlLocalApplicationInfo1.SelectedLocalApplication.LocalDrivingLicenseApplicationID);
+                //AddNewAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;
+                //AddNewAppointment.ShowDialog();
+                //return;
             }
             else if (LastTestTaken.TestResult)
             {
@@ -73,10 +72,10 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
 
             // locked with failed test allowed:
             // new appointment as retake, there is old locked appointment but with failed tests
-            frmScheduleTestAppointment AddNewRetakeAppointment = new frmScheduleTestAppointment(_SelectedTestType, frmScheduleTestAppointment.enMode.eAddRetakeAppointmentMode);
-            AddNewRetakeAppointment.ReceivedLocalApplication = ctrlLocalApplicationInfo1.SelectedLocalApplication;
-            AddNewRetakeAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;
-            AddNewRetakeAppointment.ShowDialog();
+            //frmScheduleTestAppointment AddNewRetakeAppointment = new frmScheduleTestAppointment(_SelectedTestType, ctrlLocalApplicationInfo1.SelectedLocalApplication.LocalDrivingLicenseApplicationID);
+            //AddNewRetakeAppointment.ReceivedLocalApplication = ctrlLocalApplicationInfo1.SelectedLocalApplication;
+            //AddNewRetakeAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;
+            //AddNewRetakeAppointment.ShowDialog();
         }
 
         // toolstrip menu options
@@ -101,10 +100,10 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
             // (not allowed to edit when locked, only show info) (allowed to edit when unlocked)
             int SelectedAppointmentID = (int)dgvTestAppointments.CurrentRow.Cells[0].Value;
 
-            frmScheduleTestAppointment editScheduledTestAppointment = new frmScheduleTestAppointment(SelectedAppointmentID, _SelectedTestType, frmScheduleTestAppointment.enMode.eUpdateMode);
-            editScheduledTestAppointment.ReceivedLocalApplication = ctrlLocalApplicationInfo1.SelectedLocalApplication;
-            editScheduledTestAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;
-            editScheduledTestAppointment.ShowDialog();
+            //frmScheduleTestAppointment editScheduledTestAppointment = new frmScheduleTestAppointment(SelectedAppointmentID, _SelectedTestType, ctrlLocalApplicationInfo1.SelectedLocalApplication.LocalDrivingLicenseApplicationID);
+            //editScheduledTestAppointment.ReceivedLocalApplication = ctrlLocalApplicationInfo1.SelectedLocalApplication;
+            //editScheduledTestAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;
+            //editScheduledTestAppointment.ShowDialog();
         }
 
         private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
