@@ -20,16 +20,16 @@ namespace PresentationLayer.Applications.TestAppointments
         
         private enCreationMode _CreationMode;
         private enMode _FormMode;
-        int _testAppointmentID = -1;
-        int _LocalApplicationID = -1;
-        clsLocalDrivingLicenseApplicationsBusiness _LocalApplication;
-        clsTestAppointmentsBusiness _TestAppointment;
+        private int _testAppointmentID = -1;
+        private int _LocalApplicationID = -1;
+        private clsLocalDrivingLicenseApplicationsBusiness _LocalApplication;
+        private clsTestAppointmentsBusiness _TestAppointment ;
 
-        private clsTestTypesBusiness.enTestType _TestType;
+        private clsTestTypesBusiness.enTestType _TestType = clsTestTypesBusiness.enTestType.Vision;
         public clsTestTypesBusiness.enTestType TestType
         {
             get { return _TestType; }
-            set
+            private set
             {
                 _TestType = value;
                 lblTitle.Text = "Schedule " + _TestType.ToString() + " " + lblTitle.Text;
@@ -41,8 +41,9 @@ namespace PresentationLayer.Applications.TestAppointments
             InitializeComponent();
         }
 
-        public void LoadInfo(int LocalApplicationID, int TestAppointment)
+        public void LoadInfo(int LocalApplicationID, clsTestTypesBusiness.enTestType TestType, int TestAppointment = -1)
         {
+            this.TestType = TestType;
             _testAppointmentID = TestAppointment;
             _LocalApplicationID = LocalApplicationID;
             _LocalApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID(_LocalApplicationID);
@@ -57,15 +58,15 @@ namespace PresentationLayer.Applications.TestAppointments
             lblLocalApplicationID.Text = _LocalApplication.LocalDrivingLicenseApplicationID.ToString();
             lblLicenseDrivingClass.Text = _LocalApplication.LicenseClassInfo.ClassName;
             lblApplicantName.Text = _LocalApplication.ApplicantPersonInfo.FullName;
-            lblTestTrials.Text = _LocalApplication.GetTotalTestTrialsPerTestType(TestType).ToString();
+            lblTestTrials.Text = _LocalApplication.GetTotalTestTrialsPerTestType(_TestType).ToString();
 
-            if (_LocalApplication.DidAttendAppointmentOfTestType(TestType))
+            if (_LocalApplication.DidAttendAppointmentOfTestType(_TestType))
             {
                 _CreationMode = enCreationMode.eAddRetakeAppointmentMode;
                 pnlRetakeAppInfo.Enabled = true;
                 lblRetakeAppID.Text = "Not Assigned Yet";
-                lblTitle.Text = "Schedule Retake " + _TestType.ToString() + " Test Appointment";
                 lblRetakeAppFees.Text = clsApplicationTypesBusiness.FindApplicationType(clsApplicationTypesBusiness.enApplicationTypes.eRetakeTest).ApplicationTypeFees.ToString();
+                lblTitle.Text = "Schedule Retake " + _TestType.ToString() + " Appointment";
             }
             else
             {
@@ -78,7 +79,8 @@ namespace PresentationLayer.Applications.TestAppointments
             if (TestAppointment == -1)
             {
                 _FormMode = enMode.eAddMode;
-                lblTestFees.Text = clsTestTypesBusiness.FindTestType(TestType).TestTypeFees.ToString();
+                _TestAppointment = new clsTestAppointmentsBusiness();
+                lblTestFees.Text = clsTestTypesBusiness.FindTestType(_TestType).TestTypeFees.ToString();
                 dtpAppointmentDate.MinDate = DateTime.Now;
                 dtpAppointmentDate.Value = DateTime.Now;
 
@@ -110,18 +112,21 @@ namespace PresentationLayer.Applications.TestAppointments
 
             if (_TestAppointment == null)
             {
-                MessageBox.Show($"Error: Could not find test appointment with ID{_testAppointmentID}.", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Could not find test appointment with ID{_testAppointmentID}.", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             lblTestFees.Text = _TestAppointment.PaidFees.ToString();
 
-            if (DateTime.Compare(DateTime.Now, _TestAppointment.AppointmentDate) < 0)
+            // using .Date to ignore comparing time, it depends on requirements
+            if (DateTime.Compare(DateTime.Now.Date, _TestAppointment.AppointmentDate.Date) < 0)
                 dtpAppointmentDate.MinDate = DateTime.Now;
             else
             {
                 // this case is when appointment date is in the past , so i dont want to enable editing cuz new appointment need to be scheduled
-                dtpAppointmentDate.MinDate = _TestAppointment.AppointmentDate;
+                lblUserMessage.Text = "Appointment date is in the past, cannot edit date";
+                lblUserMessage.Visible = true;
+                btnSave.Enabled = false;
                 dtpAppointmentDate.Enabled = false;
             }
 
@@ -142,10 +147,12 @@ namespace PresentationLayer.Applications.TestAppointments
             return true;
         }
 
+
+        // those validations are done in previous forms, but since this is a custom user control and can use it anywhere, so we put the validations inside also
         // when trying to schedule new appointment and there is already an active appointment unlocked
         private bool _HandleActiveAppointmentConstraint()
         {
-            if (_LocalApplication.IsThereActiveTestAppointment(_TestType))
+            if (_FormMode == enMode.eAddMode && _LocalApplication.IsThereActiveTestAppointment(_TestType))
             {
                 lblUserMessage.Visible = true;
                 lblUserMessage.Text = $"Person already has an active appointment of {TestType} test, cannot schedule a new appointment";
@@ -173,14 +180,14 @@ namespace PresentationLayer.Applications.TestAppointments
         // when trying to schedule new appointment and there is locked appointment with passed result
         private bool _HandlePreviousAppointmentConstraint()
         {
-            switch(TestType)
+            switch(_TestType)
             {
                 case clsTestTypesBusiness.enTestType.Vision:
                     return true;
 
                 case clsTestTypesBusiness.enTestType.Written:
 
-                    if (_LocalApplication.TestsStatus.IsVisionTestPassed)
+                    if (!_LocalApplication.TestsStatus.IsVisionTestPassed)
                     {
                         lblUserMessage.Text = "Person needs to pass Vision test first to be able to proceed with next tests";
                         lblUserMessage.Visible = true;
@@ -193,7 +200,7 @@ namespace PresentationLayer.Applications.TestAppointments
 
                 case clsTestTypesBusiness.enTestType.Street:
 
-                    if (_LocalApplication.TestsStatus.IsVisionTestPassed)
+                    if (!_LocalApplication.TestsStatus.IsStreetTestPassed)
                     {
                         lblUserMessage.Text = "Person needs to pass Written test first to be able to proceed with next tests";
                         lblUserMessage.Visible = true;
@@ -210,16 +217,25 @@ namespace PresentationLayer.Applications.TestAppointments
 
         private bool _HandleCreatingRetakeApplication()
         {
-            clsApplicationsBusiness RetakeTestApplication = new clsApplicationsBusiness();
+            if (_FormMode == enMode.eAddMode && _CreationMode == enCreationMode.eAddRetakeAppointmentMode)
+            {
+                clsApplicationsBusiness RetakeTestApplication = new clsApplicationsBusiness();
 
-            RetakeTestApplication.ApplicationTypeID = clsApplicationTypesBusiness.enApplicationTypes.eRetakeTest;
-            RetakeTestApplication.ApplicationStatus = clsApplicationsBusiness.enApplicationStatus.New;
-            RetakeTestApplication.ApplicantPersonID = _LocalApplication.ApplicantPersonID;
-            RetakeTestApplication.CreatedByUserID = clsBusinessSettings.CurrentUser.UserID;
-            RetakeTestApplication.PaidFees = Convert.ToSingle(lblRetakeAppFees.Text);
-            _TestAppointment.RetakeTestApplicationID = RetakeTestApplication.ApplicationID;
-            
-            return RetakeTestApplication.Save();
+                RetakeTestApplication.ApplicationTypeID = clsApplicationTypesBusiness.enApplicationTypes.eRetakeTest;
+                RetakeTestApplication.ApplicationStatus = clsApplicationsBusiness.enApplicationStatus.New;
+                RetakeTestApplication.ApplicantPersonID = _LocalApplication.ApplicantPersonID;
+                RetakeTestApplication.CreatedByUserID = clsBusinessSettings.CurrentUser.UserID;
+                RetakeTestApplication.PaidFees = Convert.ToSingle(lblRetakeAppFees.Text);
+
+                if (RetakeTestApplication.Save())
+                {
+                    _TestAppointment.RetakeTestApplicationID = RetakeTestApplication.ApplicationID;
+                    return true;
+                }
+                else
+                    return false;
+            }
+            return true;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -241,6 +257,7 @@ namespace PresentationLayer.Applications.TestAppointments
             {
                 _FormMode = enMode.eUpdateMode;
                 MessageBox.Show("Data saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lblTitle.Text = "Edit " + _TestType.ToString() + " Appointment";
                 delUpdateAppointmentsDGV?.Invoke();
             }
             else

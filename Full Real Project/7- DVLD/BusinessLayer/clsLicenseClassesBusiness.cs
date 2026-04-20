@@ -36,7 +36,8 @@ namespace BusinessLayer
         public static clsLicenseClassesBusiness Find(int LicenseClassID)
         {
             string ClassName = ""; string ClassDescription = "";
-            byte MinimumAllowedAge = 18; byte DefaultValidityLength = 10; float ClassFees = 0;
+            byte MinimumAllowedAge = 18, DefaultValidityLength = 10; 
+            float ClassFees = -1;
 
             if (clsLicenseClassesDataAccess.GetLicenseClassInfoByID(LicenseClassID, ref ClassName, ref ClassDescription, ref MinimumAllowedAge, ref DefaultValidityLength, ref ClassFees))
                 return new clsLicenseClassesBusiness(LicenseClassID, ClassName, ClassDescription, MinimumAllowedAge, DefaultValidityLength, ClassFees);
@@ -47,7 +48,8 @@ namespace BusinessLayer
         public static clsLicenseClassesBusiness Find(string ClassName)
         {
             int LicenseClassID = -1; string ClassDescription = "";
-            byte MinimumAllowedAge = 18; byte DefaultValidityLength = 10; float ClassFees = 0;
+            byte MinimumAllowedAge = 18, DefaultValidityLength = 10;
+            float ClassFees = -1;
 
             if (clsLicenseClassesDataAccess.GetLicenseClassInfoByClassName(ClassName, ref LicenseClassID, ref ClassDescription, ref MinimumAllowedAge, ref DefaultValidityLength, ref ClassFees))
                 return new clsLicenseClassesBusiness(LicenseClassID, ClassName, ClassDescription, MinimumAllowedAge, DefaultValidityLength, ClassFees);

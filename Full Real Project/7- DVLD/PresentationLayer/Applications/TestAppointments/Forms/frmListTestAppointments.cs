@@ -58,7 +58,7 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
             if (LastTestTaken == null)
             {
                 // new appointment is allowed, the control inside will determine if new or new retake test appointment
-                frmScheduleTestAppointment AddNewAppointment = new frmScheduleTestAppointment(ctrlLocalApplicationInfo1.SelectedLocalApplication.LocalDrivingLicenseApplicationID, _SelectedTestType);
+                frmScheduleTestAppointment AddNewAppointment = new frmScheduleTestAppointment(_LocalApplicationID, _SelectedTestType);
                 AddNewAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;
                 AddNewAppointment.ShowDialog();
                 return;
@@ -72,7 +72,7 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
 
             // locked with failed test allowed:
            // new appointment is allowed, the control inside will determine if new or new retake test appointment
-            frmScheduleTestAppointment AddNewRetakeAppointment = new frmScheduleTestAppointment(ctrlLocalApplicationInfo1.SelectedLocalApplication.LocalDrivingLicenseApplicationID, _SelectedTestType);
+            frmScheduleTestAppointment AddNewRetakeAppointment = new frmScheduleTestAppointment(_LocalApplicationID, _SelectedTestType);
             AddNewRetakeAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;
             AddNewRetakeAppointment.ShowDialog();
         }
@@ -99,7 +99,7 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
             // (not allowed to edit when locked, only show info) (allowed to edit when unlocked)
             int SelectedAppointmentID = (int)dgvTestAppointments.CurrentRow.Cells[0].Value;
 
-            frmScheduleTestAppointment editScheduledTestAppointment = new frmScheduleTestAppointment(ctrlLocalApplicationInfo1.SelectedLocalApplication.LocalDrivingLicenseApplicationID, _SelectedTestType, SelectedAppointmentID);
+            frmScheduleTestAppointment editScheduledTestAppointment = new frmScheduleTestAppointment(_LocalApplicationID, _SelectedTestType, SelectedAppointmentID);
             editScheduledTestAppointment.delUpdateAppointmentsDGV += RefreshDataGridView;
             editScheduledTestAppointment.ShowDialog();
         }
@@ -108,8 +108,7 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
         {
             int SelectedAppointmentID = (int)dgvTestAppointments.CurrentRow.Cells[0].Value;
 
-            frmTakeTest takeTest = new frmTakeTest(SelectedAppointmentID);
-            takeTest.ReceivedLocalApplication = ctrlLocalApplicationInfo1.SelectedLocalApplication;
+            frmTakeTest takeTest = new frmTakeTest(SelectedAppointmentID, _SelectedTestType);
             takeTest.OnTestPerformed += UpdateInfoOnTestPerformed;
             takeTest.ShowDialog();
         }

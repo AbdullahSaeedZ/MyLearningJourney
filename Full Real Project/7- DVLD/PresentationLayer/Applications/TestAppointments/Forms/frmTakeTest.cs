@@ -7,83 +7,49 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
     public partial class frmTakeTest : Form
     {
         public event Action<bool> OnTestPerformed;
-        int _testAppointmentID;
 
-        public clsLocalDrivingLicenseApplicationsBusiness ReceivedLocalApplication;
-        clsTestAppointmentsBusiness TestAppointment;
-        clsTestsBusiness Test;
-        int _oldTestTrials;
+        private int _testAppointmentID;
+        private clsTestTypesBusiness.enTestType _TestType;
 
-        public frmTakeTest(int TestAppointmentID)
+        private int _TestID = -1;
+        private clsTestsBusiness _Test;
+
+        public frmTakeTest(int TestAppointmentID, clsTestTypesBusiness.enTestType TestType)
         {
             InitializeComponent();
             _testAppointmentID = TestAppointmentID;
+            _TestType = TestType;
         }
 
         private void frmTakeTest_Load(object sender, EventArgs e)
         {
-            TestAppointment = clsTestAppointmentsBusiness.FindByTestAppointmentID(_testAppointmentID);
+            ctrlScheduledTestInfo1.LoadInfo(_testAppointmentID, _TestType);
 
-            if (TestAppointment == null)
+            if (ctrlScheduledTestInfo1.TestAppointmentID == -1)
             {
-                MessageBox.Show("Could not fetch Test Appointment data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Could not get Test Appointment data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
                 return;
             }
 
-            _oldTestTrials = ReceivedLocalApplication.GetTotalTestTrialsPerTestType(TestAppointment.TestTypeID);
 
-            if (TestAppointment.IsLocked)
+            if (ctrlScheduledTestInfo1.TestID != -1) // means there was a taken test so we just show info
             {
-                Test = clsTestsBusiness.FindByTestID(TestAppointment.GetTestID());
-                _FillOldTestInfo();
+                _Test = clsTestsBusiness.FindByTestID(ctrlScheduledTestInfo1.TestID);
+
+                if (_Test.TestResult)
+                    rbPass.Checked = true;
+                else
+                    rbFail.Checked = true;
+
+                tbTestNotes.Text = _Test.Notes;
+                _OnlyShowInfo();
             }
-            else
-                _FillNewTestInfo();
+            
         }
 
-        private void _FillNewTestInfo()
+        private void _OnlyShowInfo()
         {
-            lblTitle.Text = "Perform " + TestAppointment.TestTypeID.ToString() + " " + lblTitle.Text;
-            lblLocalApplicationID.Text = ReceivedLocalApplication.LocalDrivingLicenseApplicationID.ToString();
-            lblLicenseDrivingClass.Text = ReceivedLocalApplication.LicenseClassInfo.ClassName;
-            lblApplicantName.Text = ReceivedLocalApplication.ApplicantPersonInfo.FullName;
-            lblTestFees.Text = TestAppointment.PaidFees.ToString();  // this is the test fees paid when scheduled appointment
-            lblTestAppointmentDate.Text = TestAppointment.AppointmentDate.ToShortDateString();
-            lblTestTrials.Text = _oldTestTrials.ToString();
-
-            rbFail.Checked = true;
-        }
-        private void _FillOldTestInfo()
-        {
-            lblTitle.Text = "Show " + TestAppointment.TestTypeID.ToString() + " " + lblTitle.Text;
-            lblLocalApplicationID.Text = ReceivedLocalApplication.LocalDrivingLicenseApplicationID.ToString();
-            lblLicenseDrivingClass.Text = ReceivedLocalApplication.LicenseClassInfo.ClassName;
-            lblApplicantName.Text = ReceivedLocalApplication.ApplicantPersonInfo.FullName;
-            lblTestFees.Text = TestAppointment.PaidFees.ToString();  // this is the test fees paid when scheduled appointment
-            lblTestAppointmentDate.Text = TestAppointment.AppointmentDate.ToShortDateString();
-            lblTestTrials.Text = _oldTestTrials.ToString();
-
-            btnSave.Enabled = false;
-            rbFail.Enabled = false;
-            rbPass.Enabled = false;
-            tbTestNotes.Enabled = false;
-
-            lblDeniedUpdate.Visible = true;
-            lblTestID.Text = Test.TestID.ToString();
-            tbTestNotes.Text = Test.Notes;
-
-            if (Test.TestResult)
-                rbPass.Checked = true;
-            else
-                rbFail.Checked = true;
-        }
-
-        private void _ShowAfterSavingInfo()
-        {
-            lblTestTrials.Text = (++_oldTestTrials).ToString();
-            lblTestID.Text = Test.TestID.ToString();
-
             lblDeniedUpdate.Visible = true;
             rbFail.Enabled = false;
             rbPass.Enabled = false;
@@ -97,18 +63,18 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
                                 "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) != DialogResult.OK)
                 return;
 
-            Test = new clsTestsBusiness();
-            Test.TestAppointmentID = TestAppointment.TestAppointmentID;
-            Test.TestResult = rbPass.Checked ? true : false;
-            Test.Notes = tbTestNotes.Text.Trim();
-            Test.CreatedByUserID = clsBusinessSettings.CurrentUser.UserID;
+            _Test = new clsTestsBusiness();
+            _Test.TestAppointmentID = _testAppointmentID;
+            _Test.TestResult = rbPass.Checked;
+            _Test.Notes = tbTestNotes.Text.Trim();
+            _Test.CreatedByUserID = clsBusinessSettings.CurrentUser.UserID;
 
-            if (Test.Save())
+            if (_Test.Save())
             {
                 // appointment is locked automatically once test record is added (see adding query)
                 MessageBox.Show("Data saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                _ShowAfterSavingInfo();
-                OnTestPerformed?.Invoke(Test.TestResult);
+                _OnlyShowInfo();
+                OnTestPerformed?.Invoke(_Test.TestResult);
             }
             else
                 MessageBox.Show("Data was not saved successfully", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);

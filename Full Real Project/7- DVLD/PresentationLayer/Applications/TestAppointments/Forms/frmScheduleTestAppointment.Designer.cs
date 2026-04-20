@@ -32,6 +32,7 @@
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.ctrlScheduleTestAppointment1 = new PresentationLayer.Applications.TestAppointments.ctrlScheduleTestAppointment();
             this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,6 +44,7 @@
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel1.Controls.Add(this.ctrlScheduleTestAppointment1);
             this.guna2ShadowPanel1.Controls.Add(this.ControlBoxClose);
             this.guna2ShadowPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2ShadowPanel1.FillColor = System.Drawing.Color.White;
@@ -51,7 +53,7 @@
             this.guna2ShadowPanel1.Radius = 10;
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel1.ShadowDepth = 240;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(815, 605);
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(815, 623);
             this.guna2ShadowPanel1.TabIndex = 6;
             // 
             // ControlBoxClose
@@ -67,17 +69,27 @@
             this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
             this.ControlBoxClose.TabIndex = 9;
             // 
+            // ctrlScheduleTestAppointment1
+            // 
+            this.ctrlScheduleTestAppointment1.BackColor = System.Drawing.Color.White;
+            this.ctrlScheduleTestAppointment1.Location = new System.Drawing.Point(12, 36);
+            this.ctrlScheduleTestAppointment1.Name = "ctrlScheduleTestAppointment1";
+            this.ctrlScheduleTestAppointment1.Size = new System.Drawing.Size(791, 578);
+            this.ctrlScheduleTestAppointment1.TabIndex = 10;
+            this.ctrlScheduleTestAppointment1.OnCloseButtonClicked += new System.Action(this.ctrlScheduleTestAppointment1_OnCloseButtonClicked);
+            // 
             // frmScheduleTestAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(815, 605);
+            this.ClientSize = new System.Drawing.Size(815, 623);
             this.Controls.Add(this.guna2ShadowPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmScheduleTestAppointment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmScheduleTestAppointment";
+            this.Load += new System.EventHandler(this.frmScheduleTestAppointment_Load);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -88,5 +100,6 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
         private Guna.UI2.WinForms.Guna2ControlBox ControlBoxClose;
+        private ctrlScheduleTestAppointment ctrlScheduleTestAppointment1;
     }
 }

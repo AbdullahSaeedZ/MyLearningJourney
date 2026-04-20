@@ -8,11 +8,12 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
     {
         public event Action delUpdateAppointmentsDGV;
     
-        private clsTestTypesBusiness.enTestType _SelectedTestType; // this will determine which test type for the whole process
+        private clsTestTypesBusiness.enTestType _SelectedTestType; 
         private int _testAppointmentID = -1;
         private int _LocalApplicationID = -1;
 
-        public frmScheduleTestAppointment(int LocalApplicationID, clsTestTypesBusiness.enTestType SelectedTestType, int TestAppointmentID = 1)
+        // default appointment parameter will tell the control if there is an existing appointment or nor
+        public frmScheduleTestAppointment(int LocalApplicationID, clsTestTypesBusiness.enTestType SelectedTestType, int TestAppointmentID = -1)
         {
             InitializeComponent();
             _SelectedTestType = SelectedTestType;
@@ -22,10 +23,13 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
 
         private void frmScheduleTestAppointment_Load(object sender, EventArgs e)
         {
-
-            // control loadinfo()
+            ctrlScheduleTestAppointment1.delUpdateAppointmentsDGV += this.delUpdateAppointmentsDGV;
+            ctrlScheduleTestAppointment1.LoadInfo(_LocalApplicationID, _SelectedTestType, _testAppointmentID);
         }
 
-       
+        private void ctrlScheduleTestAppointment1_OnCloseButtonClicked()
+        {
+            this.Close();
+        }
     }
 }

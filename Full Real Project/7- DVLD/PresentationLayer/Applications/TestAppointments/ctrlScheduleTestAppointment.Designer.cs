@@ -91,7 +91,7 @@
             this.lblUserMessage.AutoSize = true;
             this.lblUserMessage.Font = new System.Drawing.Font("Tahoma", 11.18868F, System.Drawing.FontStyle.Bold);
             this.lblUserMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblUserMessage.Location = new System.Drawing.Point(173, 48);
+            this.lblUserMessage.Location = new System.Drawing.Point(84, 48);
             this.lblUserMessage.Name = "lblUserMessage";
             this.lblUserMessage.Size = new System.Drawing.Size(477, 21);
             this.lblUserMessage.TabIndex = 15;
@@ -434,9 +434,9 @@
             this.lblTitle.ForeColor = System.Drawing.Color.DimGray;
             this.lblTitle.Location = new System.Drawing.Point(147, 8);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(256, 33);
+            this.lblTitle.Size = new System.Drawing.Size(190, 33);
             this.lblTitle.TabIndex = 18;
-            this.lblTitle.Text = "Test Appointment";
+            this.lblTitle.Text = "Appointment";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ctrlScheduleTestAppointment

@@ -82,7 +82,7 @@ namespace BusinessLayer
                           this.ReleaseDate, this.ReleasedByUserID, this.ReleaseApplicationID);
         }
 
-        // releasing user is the one on the ui side
+        // releasing user is the one on the ui side, never depend on methods from ui, just receive data from ui
         public bool ReleaseLicense(int ReleasedByUserID, int ReleaseApplicationID)
         {
             // or create the application here ?

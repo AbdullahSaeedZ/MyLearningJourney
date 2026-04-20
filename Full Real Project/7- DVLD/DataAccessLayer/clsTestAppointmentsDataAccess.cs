@@ -136,7 +136,7 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    string query = "select * from TestAppointments;";
+                    string query = "select * from TestAppointments order by AppointmentDate desc;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         connection.Open();

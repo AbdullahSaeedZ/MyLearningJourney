@@ -15,6 +15,11 @@ namespace BusinessLayer
         public string Notes { get; set; }
         public int CreatedByUserID { get; set; }
 
+        public clsTestAppointmentsBusiness TestAppointmentInfo
+        { 
+            get { return clsTestAppointmentsBusiness.FindByTestAppointmentID(TestAppointmentID); }
+        }
+
 
         public clsTestsBusiness()
         {
@@ -108,9 +113,6 @@ namespace BusinessLayer
             else
                 return null;
         }
-
-
-
 
     }
 }

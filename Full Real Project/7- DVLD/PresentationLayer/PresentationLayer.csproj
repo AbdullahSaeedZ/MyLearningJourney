@@ -129,6 +129,12 @@
     <Compile Include="Applications\ManageTestTypes\Forms\frmEditTestType.Designer.cs">
       <DependentUpon>frmEditTestType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\TestAppointments\ctrlScheduledTestInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\TestAppointments\ctrlScheduledTestInfo.Designer.cs">
+      <DependentUpon>ctrlScheduledTestInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\TestAppointments\ctrlScheduleTestAppointment.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -302,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\ManageTestTypes\Forms\frmEditTestType.resx">
       <DependentUpon>frmEditTestType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\TestAppointments\ctrlScheduledTestInfo.resx">
+      <DependentUpon>ctrlScheduledTestInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\TestAppointments\ctrlScheduleTestAppointment.resx">
       <DependentUpon>ctrlScheduleTestAppointment.cs</DependentUpon>
