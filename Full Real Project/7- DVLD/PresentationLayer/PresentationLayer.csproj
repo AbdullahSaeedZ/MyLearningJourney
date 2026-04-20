@@ -303,6 +303,9 @@
     <EmbeddedResource Include="Applications\ManageTestTypes\Forms\frmEditTestType.resx">
       <DependentUpon>frmEditTestType.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\TestAppointments\ctrlScheduleTestAppointment.resx">
+      <DependentUpon>ctrlScheduleTestAppointment.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Applications\TestAppointments\Forms\frmListTestAppointments.resx">
       <DependentUpon>frmListTestAppointments.cs</DependentUpon>
     </EmbeddedResource>

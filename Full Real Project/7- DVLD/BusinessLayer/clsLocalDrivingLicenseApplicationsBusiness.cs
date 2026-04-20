@@ -221,6 +221,12 @@ namespace BusinessLayer
             return clsLicensesBusiness.GetActiveLicenseIDByPersonID(this.ApplicantPersonID, this.LicenseClassID);
         }
 
+        public bool DidAttendAppointmentOfTestType(enTestType TestTypeID)
+
+        {
+            return clsLocalDrivingLicenseApplicationsDataAccess.DidAttendAppointmentOfTestType(this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
+        }
+
         public bool IsThereActiveTestAppointment(enTestType TestTypeID)
         {
             return clsLocalDrivingLicenseApplicationsDataAccess.IsThereActiveTestAppointment(this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
@@ -235,6 +241,7 @@ namespace BusinessLayer
         {
             return clsLocalDrivingLicenseApplicationsDataAccess.GetTotalTestTrialsPerTestType(this.LocalDrivingLicenseApplicationID, (int)TestTypeID);
         }
+
 
 
     }

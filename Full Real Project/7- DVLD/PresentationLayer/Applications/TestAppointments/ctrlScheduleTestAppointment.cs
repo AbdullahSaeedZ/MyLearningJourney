@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,243 @@ namespace PresentationLayer.Applications.TestAppointments
 {
     public partial class ctrlScheduleTestAppointment : UserControl
     {
+        public event Action delUpdateAppointmentsDGV;
+        public event Action OnCloseButtonClicked;
+        public enum enMode { eAddMode = 0, eUpdateMode = 1 };
+        public enum enCreationMode { eAddNewAppointmentMode = 0, eAddRetakeAppointmentMode = 1 }
+        
+        private enCreationMode _CreationMode;
+        private enMode _FormMode;
+        int _testAppointmentID = -1;
+        int _LocalApplicationID = -1;
+        clsLocalDrivingLicenseApplicationsBusiness _LocalApplication;
+        clsTestAppointmentsBusiness _TestAppointment;
+
+        private clsTestTypesBusiness.enTestType _TestType;
+        public clsTestTypesBusiness.enTestType TestType
+        {
+            get { return _TestType; }
+            set
+            {
+                _TestType = value;
+                lblTitle.Text = "Schedule " + _TestType.ToString() + " " + lblTitle.Text;
+            }
+        }
+
         public ctrlScheduleTestAppointment()
         {
             InitializeComponent();
+        }
+
+        public void LoadInfo(int LocalApplicationID, int TestAppointment)
+        {
+            _testAppointmentID = TestAppointment;
+            _LocalApplicationID = LocalApplicationID;
+            _LocalApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID(_LocalApplicationID);
+
+            if (_LocalApplication == null)
+            {
+                MessageBox.Show("Could not get Local Application Info of selected Appointment", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnSave.Enabled = false;
+                return;
+            }
+
+            lblLocalApplicationID.Text = _LocalApplication.LocalDrivingLicenseApplicationID.ToString();
+            lblLicenseDrivingClass.Text = _LocalApplication.LicenseClassInfo.ClassName;
+            lblApplicantName.Text = _LocalApplication.ApplicantPersonInfo.FullName;
+            lblTestTrials.Text = _LocalApplication.GetTotalTestTrialsPerTestType(TestType).ToString();
+
+            if (_LocalApplication.DidAttendAppointmentOfTestType(TestType))
+            {
+                _CreationMode = enCreationMode.eAddRetakeAppointmentMode;
+                pnlRetakeAppInfo.Enabled = true;
+                lblRetakeAppID.Text = "Not Assigned Yet";
+                lblTitle.Text = "Schedule Retake " + _TestType.ToString() + " Test Appointment";
+                lblRetakeAppFees.Text = clsApplicationTypesBusiness.FindApplicationType(clsApplicationTypesBusiness.enApplicationTypes.eRetakeTest).ApplicationTypeFees.ToString();
+            }
+            else
+            {
+                _CreationMode = enCreationMode.eAddNewAppointmentMode;
+                pnlRetakeAppInfo.Enabled = false;
+                lblRetakeAppID.Text = "NA";
+                lblRetakeAppFees.Text = "0";
+            }
+
+            if (TestAppointment == -1)
+            {
+                _FormMode = enMode.eAddMode;
+                lblTestFees.Text = clsTestTypesBusiness.FindTestType(TestType).TestTypeFees.ToString();
+                dtpAppointmentDate.MinDate = DateTime.Now;
+                dtpAppointmentDate.Value = DateTime.Now;
+
+            }
+            else
+            {
+                _FormMode = enMode.eUpdateMode;
+                lblTitle.Text = "Edit " + _TestType.ToString() + " Test Appointment";
+
+                if (!_LoadTestAppointmentInfoForUpdate())
+                    return;
+            }
+
+            lblTotalFees.Text = (Convert.ToSingle(lblTestFees.Text) + Convert.ToSingle(lblRetakeAppFees.Text)).ToString();
+
+            if (!_HandleActiveAppointmentConstraint())
+                return;
+
+            if (!_HandleLockedAppointmentConstraint())
+                return;
+
+            if (!_HandlePreviousAppointmentConstraint())
+                return;
+        }
+
+        private bool _LoadTestAppointmentInfoForUpdate()
+        {
+            _TestAppointment = clsTestAppointmentsBusiness.FindByTestAppointmentID(_testAppointmentID);
+
+            if (_TestAppointment == null)
+            {
+                MessageBox.Show($"Error: Could not find test appointment with ID{_testAppointmentID}.", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            lblTestFees.Text = _TestAppointment.PaidFees.ToString();
+
+            if (DateTime.Compare(DateTime.Now, _TestAppointment.AppointmentDate) < 0)
+                dtpAppointmentDate.MinDate = DateTime.Now;
+            else
+            {
+                // this case is when appointment date is in the past , so i dont want to enable editing cuz new appointment need to be scheduled
+                dtpAppointmentDate.MinDate = _TestAppointment.AppointmentDate;
+                dtpAppointmentDate.Enabled = false;
+            }
+
+            dtpAppointmentDate.Value = _TestAppointment.AppointmentDate;
+
+            if (_TestAppointment.RetakeTestApplicationID == -1) // the appointment which is shown for update might be from a retake test application type
+            {
+                pnlRetakeAppInfo.Enabled = false;
+                lblRetakeAppFees.Text = "0";
+                lblRetakeAppID.Text = "NA";
+            }
+            else
+            {
+                pnlRetakeAppInfo.Enabled = true;
+                lblRetakeAppFees.Text = _TestAppointment.RetakeTestAppInfo.PaidFees.ToString();
+                lblRetakeAppID.Text = _TestAppointment.RetakeTestAppInfo.ApplicationID.ToString();
+            }
+            return true;
+        }
+
+        // when trying to schedule new appointment and there is already an active appointment unlocked
+        private bool _HandleActiveAppointmentConstraint()
+        {
+            if (_LocalApplication.IsThereActiveTestAppointment(_TestType))
+            {
+                lblUserMessage.Visible = true;
+                lblUserMessage.Text = $"Person already has an active appointment of {TestType} test, cannot schedule a new appointment";
+                btnSave.Enabled = false;
+                dtpAppointmentDate.Enabled = false;
+                return false;
+            }
+            return true;
+        }
+
+        // when trying to edit locked appointment
+        private bool _HandleLockedAppointmentConstraint()
+        {
+            if (_TestAppointment.IsLocked)
+            {
+                lblUserMessage.Visible = true;
+                lblUserMessage.Text = $"Person already attended this appointment, cannot edit info";
+                btnSave.Enabled = false;
+                dtpAppointmentDate.Enabled = false;
+                return false;
+            }
+            return true;
+        }
+
+        // when trying to schedule new appointment and there is locked appointment with passed result
+        private bool _HandlePreviousAppointmentConstraint()
+        {
+            switch(TestType)
+            {
+                case clsTestTypesBusiness.enTestType.Vision:
+                    return true;
+
+                case clsTestTypesBusiness.enTestType.Written:
+
+                    if (_LocalApplication.TestsStatus.IsVisionTestPassed)
+                    {
+                        lblUserMessage.Text = "Person needs to pass Vision test first to be able to proceed with next tests";
+                        lblUserMessage.Visible = true;
+                        btnSave.Enabled = false;
+                        dtpAppointmentDate.Enabled = false;
+                        return false;
+                    }
+                    else
+                        return true;
+
+                case clsTestTypesBusiness.enTestType.Street:
+
+                    if (_LocalApplication.TestsStatus.IsVisionTestPassed)
+                    {
+                        lblUserMessage.Text = "Person needs to pass Written test first to be able to proceed with next tests";
+                        lblUserMessage.Visible = true;
+                        btnSave.Enabled = false;
+                        dtpAppointmentDate.Enabled = false;
+                        return false;
+                    }
+                    else
+                        return true;
+            }
+            return true;
+        }
+
+
+        private bool _HandleCreatingRetakeApplication()
+        {
+            clsApplicationsBusiness RetakeTestApplication = new clsApplicationsBusiness();
+
+            RetakeTestApplication.ApplicationTypeID = clsApplicationTypesBusiness.enApplicationTypes.eRetakeTest;
+            RetakeTestApplication.ApplicationStatus = clsApplicationsBusiness.enApplicationStatus.New;
+            RetakeTestApplication.ApplicantPersonID = _LocalApplication.ApplicantPersonID;
+            RetakeTestApplication.CreatedByUserID = clsBusinessSettings.CurrentUser.UserID;
+            RetakeTestApplication.PaidFees = Convert.ToSingle(lblRetakeAppFees.Text);
+            _TestAppointment.RetakeTestApplicationID = RetakeTestApplication.ApplicationID;
+            
+            return RetakeTestApplication.Save();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!_HandleCreatingRetakeApplication())
+            {
+                MessageBox.Show("Could not create a Retake application", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            _TestAppointment.LocalDrivingLicenseApplicationID = _LocalApplication.LocalDrivingLicenseApplicationID;
+            _TestAppointment.TestTypeID = _TestType;
+            _TestAppointment.AppointmentDate = dtpAppointmentDate.Value;
+            _TestAppointment.PaidFees = Convert.ToSingle(lblTestFees.Text); // test appointment fees only
+            _TestAppointment.CreatedByUserID = clsBusinessSettings.CurrentUser.UserID;
+            _TestAppointment.IsLocked = false;
+
+            if (_TestAppointment.Save())
+            {
+                _FormMode = enMode.eUpdateMode;
+                MessageBox.Show("Data saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                delUpdateAppointmentsDGV?.Invoke();
+            }
+            else
+                MessageBox.Show("Data was saved successfully", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            OnCloseButtonClicked?.Invoke();
         }
     }
 }
