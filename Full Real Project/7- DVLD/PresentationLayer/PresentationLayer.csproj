@@ -57,6 +57,12 @@
     <Compile Include="Applications\ctrlMainServices.Designer.cs">
       <DependentUpon>ctrlMainServices.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\DrivingLicenses\Controls\ctrlInternationalLicenseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\DrivingLicenses\Controls\ctrlInternationalLicenseInfo.Designer.cs">
+      <DependentUpon>ctrlInternationalLicenseInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\DrivingLicenses\Controls\ctrlLocalDrivingLicenseInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -80,6 +86,18 @@
     </Compile>
     <Compile Include="Applications\DrivingLicenses\Forms\frmAddEditLocalLicenseApplication.Designer.cs">
       <DependentUpon>frmAddEditLocalLicenseApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\DrivingLicenses\Forms\frmIssueInternationalLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\DrivingLicenses\Forms\frmIssueInternationalLicense.Designer.cs">
+      <DependentUpon>frmIssueInternationalLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\DrivingLicenses\Forms\frmShowInternationalLicenseInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\DrivingLicenses\Forms\frmShowInternationalLicenseInfo.Designer.cs">
+      <DependentUpon>frmShowInternationalLicenseInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\DrivingLicenses\Forms\frmShowLocalLicenseInfo.cs">
       <SubType>Form</SubType>
@@ -285,6 +303,9 @@
     <EmbeddedResource Include="Applications\ctrlMainServices.resx">
       <DependentUpon>ctrlMainServices.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\DrivingLicenses\Controls\ctrlInternationalLicenseInfo.resx">
+      <DependentUpon>ctrlInternationalLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Applications\DrivingLicenses\Controls\ctrlLocalDrivingLicenseInfo.resx">
       <DependentUpon>ctrlLocalDrivingLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
@@ -296,6 +317,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\DrivingLicenses\Forms\frmAddEditLocalLicenseApplication.resx">
       <DependentUpon>frmAddEditLocalLicenseApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\DrivingLicenses\Forms\frmIssueInternationalLicense.resx">
+      <DependentUpon>frmIssueInternationalLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\DrivingLicenses\Forms\frmShowInternationalLicenseInfo.resx">
+      <DependentUpon>frmShowInternationalLicenseInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\DrivingLicenses\Forms\frmShowLocalLicenseInfo.resx">
       <DependentUpon>frmShowLocalLicenseInfo.cs</DependentUpon>

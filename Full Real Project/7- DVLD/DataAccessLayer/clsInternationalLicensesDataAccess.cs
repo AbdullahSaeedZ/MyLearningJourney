@@ -29,7 +29,7 @@ namespace DataAccessLayer
                         {
                             ApplicationID = (int)reader["ApplicationID"];
                             DriverID = (int)reader["DriverID"];
-                            IssuedUsingLicenseID = (int)reader["LicenseClass"];
+                            IssuedUsingLicenseID = (int)reader["IssuedUsingLocalLicenseID"];
                             IssueDate = (DateTime)reader["IssueDate"];
                             ExpirationDate = (DateTime)reader["ExpirationDate"];
                             IsActive = (bool)reader["IsActive"];

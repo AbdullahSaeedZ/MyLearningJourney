@@ -55,14 +55,14 @@ namespace BusinessLayer
         clsInternationalLicensesBusiness(int InternationalLicenseID, int ApplicationID, int DriverID, int IssuedUsingLicenseID, DateTime IssueDate, DateTime ExpirationDate,
                                          bool IsActive, int CreatedByUserID)
         {
-            this.InternationalLicenseID = -1;
-            this.ApplicationID = -1;
-            this.DriverID = -1;
-            this.IssuedUsingLicenseID = -1;
-            this.IssueDate = DateTime.MinValue;
-            this.ExpirationDate = DateTime.MinValue;
-            this.IsActive = false;
-            this.CreatedByUserID = -1;
+            this.InternationalLicenseID = InternationalLicenseID;
+            this.ApplicationID = ApplicationID;
+            this.DriverID = DriverID;
+            this.IssuedUsingLicenseID = IssuedUsingLicenseID;
+            this.IssueDate = IssueDate;
+            this.ExpirationDate = ExpirationDate;
+            this.IsActive = IsActive;
+            this.CreatedByUserID = CreatedByUserID;
             this._mode = enMode.eUpdateMode;
         }
 

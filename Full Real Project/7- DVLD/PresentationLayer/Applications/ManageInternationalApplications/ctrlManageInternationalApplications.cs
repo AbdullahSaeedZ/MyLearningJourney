@@ -117,8 +117,7 @@ namespace PresentationLayer.Applications.ManageInternationalApplications
 
         private void dgvApplications_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-
-
+            showPersonInfoToolStripMenuItem_Click(sender, EventArgs.Empty);
         }
 
 

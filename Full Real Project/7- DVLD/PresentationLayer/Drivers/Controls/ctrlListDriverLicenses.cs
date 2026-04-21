@@ -152,9 +152,10 @@ namespace PresentationLayer.Drivers.Controls
             if (dgvInternationalLicenses.RowCount == 0)
                 return;
 
-            int LicenseID = (int)dgvLocalLicenses.CurrentRow.Cells[0].Value;
+            int LicenseID = (int)dgvInternationalLicenses.CurrentRow.Cells[0].Value;
             clsUtilities.AddToBreadcrumb($"> License Info");
-            MessageBox.Show("on going");
+            frmShowInternationalLicenseInfo internationalLicenseInfo = new frmShowInternationalLicenseInfo(LicenseID);
+            internationalLicenseInfo.ShowDialog();
             clsUtilities.RemoveFromBreadcrumb($"> License Info");
         }
 
