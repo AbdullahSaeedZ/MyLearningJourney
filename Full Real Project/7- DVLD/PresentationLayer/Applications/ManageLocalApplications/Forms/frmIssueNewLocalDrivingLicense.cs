@@ -7,7 +7,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Forms
     public partial class frmIssueNewLocalDrivingLicense : Form
     {
         public event Action OnLicenseIssue;
-        int _LocalApplicationID = -1;
+        private int _LocalApplicationID = -1;
 
         public frmIssueNewLocalDrivingLicense(int LocalApplicationID)
         {
@@ -15,6 +15,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Forms
             _LocalApplicationID = LocalApplicationID;
         }
 
+        // business layer will prevent license issuance if not passed all test or if already license issued before
         private void frmIssueNewLocalDrivingLicense_Load(object sender, EventArgs e)
         {
             ctrlLocalApplicationInfo1.LoadInfo(_LocalApplicationID);
@@ -28,7 +29,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Forms
 
         private void btnIssueNewLicense_Click(object sender, EventArgs e)
         {
-            int NewLicenseID = ctrlLocalApplicationInfo1.SelectedLocalApplication.IssueNewLicense(tbNotes.Text, clsBusinessSettings.CurrentUser.UserID);
+            int NewLicenseID = ctrlLocalApplicationInfo1.SelectedLocalApplication.IssueNewLicense(tbNotes.Text.Trim(), clsBusinessSettings.CurrentUser.UserID);
             if (NewLicenseID != -1)
             {
                 MessageBox.Show($"Data saved successfully, new local driving license with id {NewLicenseID} is issued and applicant now has a new driver record",
@@ -45,6 +46,11 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Forms
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmIssueNewLocalDrivingLicense_Activated(object sender, EventArgs e)
+        {
+            tbNotes.Focus();
         }
     }
 }

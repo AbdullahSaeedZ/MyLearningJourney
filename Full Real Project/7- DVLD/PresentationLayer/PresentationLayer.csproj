@@ -63,6 +63,12 @@
     <Compile Include="Applications\DrivingLicenses\Controls\ctrlLocalDrivingLicenseInfo.Designer.cs">
       <DependentUpon>ctrlLocalDrivingLicenseInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\DrivingLicenses\Controls\ctrlLocalDrivingLicenseInfoWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\DrivingLicenses\Controls\ctrlLocalDrivingLicenseInfoWithFilter.Designer.cs">
+      <DependentUpon>ctrlLocalDrivingLicenseInfoWithFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\DrivingLicenses\ctrlDrivingLicensesServices.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -275,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\DrivingLicenses\Controls\ctrlLocalDrivingLicenseInfo.resx">
       <DependentUpon>ctrlLocalDrivingLicenseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\DrivingLicenses\Controls\ctrlLocalDrivingLicenseInfoWithFilter.resx">
+      <DependentUpon>ctrlLocalDrivingLicenseInfoWithFilter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\DrivingLicenses\ctrlDrivingLicensesServices.resx">
       <DependentUpon>ctrlDrivingLicensesServices.cs</DependentUpon>

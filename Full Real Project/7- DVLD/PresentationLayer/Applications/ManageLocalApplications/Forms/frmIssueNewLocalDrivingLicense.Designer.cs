@@ -221,6 +221,7 @@
             this.Name = "frmIssueNewLocalDrivingLicense";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmIssueNewLocalDrivingLicense";
+            this.Activated += new System.EventHandler(this.frmIssueNewLocalDrivingLicense_Activated);
             this.Load += new System.EventHandler(this.frmIssueNewLocalDrivingLicense_Load);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();

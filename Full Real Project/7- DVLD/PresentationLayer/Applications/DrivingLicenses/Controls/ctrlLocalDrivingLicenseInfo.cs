@@ -1,8 +1,8 @@
 ﻿using BusinessLayer;
 using PresentationLayer.Properties;
-using System.IO;
+using System.ComponentModel;
 using System.Drawing;
-
+using System.IO;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Applications.DrivingLicenses.Controls
@@ -45,7 +45,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Controls
             _License = clsLicensesBusiness.FindByLicenseID(LicenseID);
             if (_License == null)
             {
-                MessageBox.Show($"Could not load info of LicenseID = {LicenseID}, data was not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Could not find License ID = {LicenseID}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             _FillLicenseInfo();
@@ -60,7 +60,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Controls
             lblGender.Text = _License.DriverInfo.PersonInfo.Gender.ToString();
             lblLicenseID.Text = _License.LicenseID.ToString();
             lblIssueReason.Text = _License.GetIssueReasonText();
-            lblNotes.Text = _License.Notes;
+            lblNotes.Text = string.IsNullOrEmpty(_License.Notes) ? "No Notes": _License.Notes;
             lblIsActive.Text = _License.IsActive ? "Yes" : "No";
             lblIsDetained.Text = _License.IsLicenseDetained() ? "Yes" : "No";
             lblDriverID.Text = _License.DriverID.ToString();
@@ -76,10 +76,15 @@ namespace PresentationLayer.Applications.DrivingLicenses.Controls
                 pbPersonPic.Image = _License.DriverInfo.PersonInfo.Gender == clsPeopleBusiness.enGender.Male ? Resources.defaultMaleProfile : Resources.defaultFemaleProfile;
             else
             {
-                using (FileStream fs = new FileStream(_License.DriverInfo.PersonInfo.ImagePath, FileMode.Open, FileAccess.Read))
+                if (File.Exists(_License.DriverInfo.PersonInfo.ImagePath))
                 {
-                    pbPersonPic.Image = new Bitmap(fs);
+                    using (FileStream fs = new FileStream(_License.DriverInfo.PersonInfo.ImagePath, FileMode.Open, FileAccess.Read))
+                    {
+                        pbPersonPic.Image = new Bitmap(fs);
+                    }
                 }
+                else
+                    MessageBox.Show($"Could not find image of this path: {_License.DriverInfo.PersonInfo.ImagePath}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

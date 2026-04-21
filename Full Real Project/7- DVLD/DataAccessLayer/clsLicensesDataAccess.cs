@@ -142,7 +142,7 @@ namespace DataAccessLayer
             return (rowsAffected > 0);
         }
 
-        public static bool DidPersonIssuedLicense(int PersonID, int LicenseClassID)
+        public static bool DidPersonIssueLicense(int PersonID, int LicenseClassID)
         {
             bool isFound = false;
 

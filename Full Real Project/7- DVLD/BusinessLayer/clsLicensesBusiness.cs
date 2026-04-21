@@ -144,7 +144,8 @@ namespace BusinessLayer
             }
         }
 
-        public string GetIssueReasonText()
+        
+        public static string GetIssueReasonText(enIssueReason IssueReason)
         {
             switch (IssueReason)
             {
@@ -159,7 +160,10 @@ namespace BusinessLayer
                 default: return "NA";
             }
         }
-
+        public string GetIssueReasonText()
+        {
+            return GetIssueReasonText(this.IssueReason);
+        }
 
         public bool IsLicenseDetained()
         {
@@ -184,10 +188,17 @@ namespace BusinessLayer
         }
 
         // whether active or not
-        public static bool DidPersonIssuedLicense(int PersonID, int LicenseClassID)
+        public static bool DidPersonIssueLicense(int PersonID, int LicenseClassID)
         {
-            return clsLicensesDataAccess.DidPersonIssuedLicense(PersonID, LicenseClassID);
+            return clsLicensesDataAccess.DidPersonIssueLicense(PersonID, LicenseClassID);
         }
+
+        public bool IsLicenseExpired()
+        {
+            return (this.ExpirationDate < DateTime.Now);
+        }
+        
+        // renew or replacements are all requiring creating new application and new license with deactivating the old one
 
     }
 }

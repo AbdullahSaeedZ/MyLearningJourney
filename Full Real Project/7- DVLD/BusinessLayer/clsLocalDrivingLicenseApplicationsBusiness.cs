@@ -175,15 +175,11 @@ namespace BusinessLayer
                 Driver.PersonID = this.ApplicantPersonID;
                 Driver.CreatedByUserID = CreatedByUserID; 
 
-                if (Driver.Save())
-                {
-                    DriverID = Driver.DriverID;
-                }
-                else
+                if (!Driver.Save())
                     return -1;
             }
-            else
-                DriverID = Driver.DriverID;
+            
+            DriverID = Driver.DriverID;
 
             clsLicensesBusiness NewLicense = new clsLicensesBusiness();
 
@@ -194,7 +190,7 @@ namespace BusinessLayer
             NewLicense.IssueReason = clsLicensesBusiness.enIssueReason.FirstTime;
             NewLicense.IsActive = true;
             NewLicense.LicenseClassID = this.LicenseClassID;
-            NewLicense.PaidFees = this.PaidFees; // this is the local driving application fees
+            NewLicense.PaidFees = this.LicenseClassInfo.ClassFees; // this is not local driving application fees, it is the license class fee
 
             if (NewLicense.Save()) // DAL will auto set application status as complete
             {

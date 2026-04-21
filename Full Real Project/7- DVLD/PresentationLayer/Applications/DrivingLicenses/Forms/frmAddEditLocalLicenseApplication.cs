@@ -139,7 +139,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
                 return false;
             }
 
-            if (clsLicensesBusiness.DidPersonIssuedLicense(ctrlPersonCardWithSearch1.PersonID, _selectedClassInComboBox.LicenseClassID))
+            if (clsLicensesBusiness.DidPersonIssueLicense(ctrlPersonCardWithSearch1.PersonID, _selectedClassInComboBox.LicenseClassID))
             {
                 // another check for active issued license with same selected class
                 MessageBox.Show("This person already has an issued driving license of same class, choose another class.", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);

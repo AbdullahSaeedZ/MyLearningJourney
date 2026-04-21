@@ -3,6 +3,7 @@ using PresentationLayer.Global_Classes;
 using PresentationLayer.MainForm;
 using PresentationLayer.Properties;
 using System;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -112,13 +113,19 @@ namespace PresentationLayer.PeopleFormsAndControls
         private void _LoadPersonImage()
         {
             if (string.IsNullOrEmpty(_person.ImagePath))
-                pbProfilePic.Image = _person.Gender == (byte)enGender.Male ? Resources.defaultMaleProfile : Resources.defaultFemaleProfile;
+                pbProfilePic.Image = _person.Gender == clsPeopleBusiness.enGender.Male ? Resources.defaultMaleProfile : Resources.defaultFemaleProfile;
             else
             {
-                using (FileStream fs = new FileStream(_person.ImagePath, FileMode.Open, FileAccess.Read))
+                if (File.Exists(_person.ImagePath))
                 {
-                    pbProfilePic.Image = new Bitmap(fs);
+                    using (FileStream fs = new FileStream(_person.ImagePath, FileMode.Open, FileAccess.Read))
+                    {
+                        pbProfilePic.Image = new Bitmap(fs);
+                    }
                 }
+                else
+                    MessageBox.Show($"Could not find image of this path: {_person.ImagePath}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
         }
         private void btnEditInfo_Click(object sender, EventArgs e)
