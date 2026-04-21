@@ -1,8 +1,12 @@
 ﻿using BusinessLayer;
+using PresentationLayer.Applications.DrivingLicenses.Forms;
+using PresentationLayer.Applications.TestAppointments.Forms;
+using PresentationLayer.Global_Classes;
 using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using static BusinessLayer.clsTestTypesBusiness;
 
 namespace PresentationLayer.Drivers.Controls
 {
@@ -77,9 +81,9 @@ namespace PresentationLayer.Drivers.Controls
             }
         }
 
-        int _PersonID = -1;
-        DataTable dtLocalLicenses;
-        DataTable dtInternationalLicenses;
+        private int _PersonID = -1;
+        private DataTable dtLocalLicenses;
+        private DataTable dtInternationalLicenses;
 
         public ctrlListDriverLicenses()
         {
@@ -94,31 +98,31 @@ namespace PresentationLayer.Drivers.Controls
                 lblNoLicensesIssued.Visible = true;
                 return;
             }
+            _LoadInternationalLicenses();
             _LoadLocalLicenses();
+            lblNoLicensesIssued.Visible = dtLocalLicenses == null ? true : false;
+            lblNumberOfRecords.Text = dgvLocalLicenses.RowCount.ToString();
         }
         private void btnShowInternationalLicenses_Click(object sender, EventArgs e)
         {
             ToggleLicensesType();
-            _LoadInternationalLicenses();
+            lblNoLicensesIssued.Visible = dtInternationalLicenses == null ? true : false;
+            lblNumberOfRecords.Text = dgvInternationalLicenses.RowCount.ToString();
         }
 
         private void btnShowLocalLicenses_Click(object sender, EventArgs e)
         {
             ToggleLicensesType();
-            _LoadLocalLicenses();
+            lblNoLicensesIssued.Visible = dtLocalLicenses == null ? true : false;
+            lblNumberOfRecords.Text = dgvLocalLicenses.RowCount.ToString();
         }
 
         private void _LoadLocalLicenses()
         {
             dtLocalLicenses = clsLicensesBusiness.GetAllLocalLicenses(_PersonID);
             if (dtLocalLicenses == null)
-            {
-                lblNoLicensesIssued.Visible = true;
-                lblNumberOfRecords.Text = "0";
                 return;
-            }
 
-            lblNoLicensesIssued.Visible = false;
             dgvLocalLicenses.DataSource = dtLocalLicenses;
             lblNumberOfRecords.Text = dgvLocalLicenses.RowCount.ToString();
         }
@@ -126,19 +130,11 @@ namespace PresentationLayer.Drivers.Controls
         {
             dtInternationalLicenses = clsInternationalLicensesBusiness.GetAllInternationalLicensesByPersonID(_PersonID);
             if (dtInternationalLicenses == null)
-            {
-                lblNoLicensesIssued.Visible = true;
-                lblNumberOfRecords.Text = "0";
                 return;
-            }
 
-            lblNoLicensesIssued.Visible = false;
             dgvInternationalLicenses.DataSource = dtInternationalLicenses;
             lblNumberOfRecords.Text = dgvInternationalLicenses.RowCount.ToString();
-
-            
         }
-
         private void ToggleLicensesType()
         {
             dgvInternationalLicenses.Visible = !dgvInternationalLicenses.Visible;
@@ -148,7 +144,30 @@ namespace PresentationLayer.Drivers.Controls
             btnShowInternationalLicenses.Visible = !btnShowInternationalLicenses.Visible;
 
             lblLicenseTypeTitle.Text = dgvLocalLicenses.Visible ?   
-                lblLicenseTypeTitle.Text.Replace("International", "Local"): lblLicenseTypeTitle.Text.Replace("Local", "International"); ;
+                lblLicenseTypeTitle.Text.Replace("International", "Local"): lblLicenseTypeTitle.Text.Replace("Local", "International");
+        }
+
+        private void showInternationalLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvInternationalLicenses.RowCount == 0)
+                return;
+
+            int LicenseID = (int)dgvLocalLicenses.CurrentRow.Cells[0].Value;
+            clsUtilities.AddToBreadcrumb($"> License Info");
+            MessageBox.Show("on going");
+            clsUtilities.RemoveFromBreadcrumb($"> License Info");
+        }
+
+        private void showLocalLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvLocalLicenses.RowCount == 0)
+                return;
+
+            int LicenseID = (int)dgvLocalLicenses.CurrentRow.Cells[0].Value;
+            frmShowLocalLicenseInfo localLicenseInfo = new frmShowLocalLicenseInfo(LicenseID);
+            clsUtilities.AddToBreadcrumb($"> License Info");
+            localLicenseInfo.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb($"> License Info");
         }
     }
 }

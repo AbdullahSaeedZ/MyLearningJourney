@@ -49,8 +49,8 @@
             this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumberofActiveLicenses = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showLicensesHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showPersonInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showLicensesHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
@@ -354,14 +354,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(213, 64);
             // 
-            // showLicensesHistoryToolStripMenuItem
-            // 
-            this.showLicensesHistoryToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.LicenseHistoryNoFill24;
-            this.showLicensesHistoryToolStripMenuItem.Name = "showLicensesHistoryToolStripMenuItem";
-            this.showLicensesHistoryToolStripMenuItem.Size = new System.Drawing.Size(212, 30);
-            this.showLicensesHistoryToolStripMenuItem.Text = "Show Licenses History";
-            this.showLicensesHistoryToolStripMenuItem.Click += new System.EventHandler(this.showLicensesHistoryToolStripMenuItem_Click);
-            // 
             // showPersonInfoToolStripMenuItem
             // 
             this.showPersonInfoToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.personCardNoFill24;
@@ -369,6 +361,14 @@
             this.showPersonInfoToolStripMenuItem.Size = new System.Drawing.Size(212, 30);
             this.showPersonInfoToolStripMenuItem.Text = "Show Person Info";
             this.showPersonInfoToolStripMenuItem.Click += new System.EventHandler(this.showPersonInfoToolStripMenuItem_Click);
+            // 
+            // showLicensesHistoryToolStripMenuItem
+            // 
+            this.showLicensesHistoryToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.LicenseHistoryNoFill24;
+            this.showLicensesHistoryToolStripMenuItem.Name = "showLicensesHistoryToolStripMenuItem";
+            this.showLicensesHistoryToolStripMenuItem.Size = new System.Drawing.Size(212, 30);
+            this.showLicensesHistoryToolStripMenuItem.Text = "Show Licenses History";
+            this.showLicensesHistoryToolStripMenuItem.Click += new System.EventHandler(this.showLicensesHistoryToolStripMenuItem_Click);
             // 
             // ctrlDrivers
             // 

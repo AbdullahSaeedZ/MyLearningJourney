@@ -1,6 +1,7 @@
 ﻿using Guna.UI2.WinForms;
 using PresentationLayer.Applications.DrivingLicenses;
 using PresentationLayer.Applications.ManageApplicationTypes.Controls;
+using PresentationLayer.Applications.ManageInternationalApplications;
 using PresentationLayer.Applications.ManageLocalApplications;
 using PresentationLayer.Applications.ManageTestTypes.Controls;
 using PresentationLayer.MainForm;
@@ -78,7 +79,6 @@ namespace PresentationLayer.Applications
         {
             ctrlManageApplicationsTypes applicationsTypes = new ctrlManageApplicationsTypes();
             applicationsTypes.delRemoveFromMainFormContainer_AppTypes += delRemoveFromMainFormContainer;
-
             delAddToMainFormContainer?.Invoke(applicationsTypes);
             applicationsTypes.BringToFront();
         }
@@ -86,7 +86,6 @@ namespace PresentationLayer.Applications
         {
             ctrlManageTestTypes testTypes = new ctrlManageTestTypes();
             testTypes.delRemoveFromMainFormContainer_TestTypes += delRemoveFromMainFormContainer;
-
             delAddToMainFormContainer?.Invoke(testTypes);
             testTypes.BringToFront();
         }
@@ -95,7 +94,6 @@ namespace PresentationLayer.Applications
         {
             ctrlDrivingLicensesServices drivingLicensesServices = new ctrlDrivingLicensesServices();
             drivingLicensesServices.delRemoveFromMainFormContainer_DrivingLicenses += delRemoveFromMainFormContainer;
-
             delAddToMainFormContainer?.Invoke(drivingLicensesServices);
             drivingLicensesServices.BringToFront();
         }
@@ -104,14 +102,16 @@ namespace PresentationLayer.Applications
         {
             ctrlManageLocalApplications ManageLocalApplications = new ctrlManageLocalApplications();
             ManageLocalApplications.delRemoveFromMainFormContainer_ManageLocalApplications += delRemoveFromMainFormContainer;
-
             delAddToMainFormContainer?.Invoke(ManageLocalApplications);
             ManageLocalApplications.BringToFront();
         }
 
         private void btnManageInternationalApplications_Click(object sender, EventArgs e)
         {
-
+            ctrlManageInternationalApplications internationalApplications = new ctrlManageInternationalApplications();
+            internationalApplications.delRemoveFromMainFormContainer_ManageInternationalApplications += delRemoveFromMainFormContainer;
+            delAddToMainFormContainer?.Invoke(internationalApplications);
+            internationalApplications.BringToFront();
         }
 
         private void btnDetainLicenses_Click(object sender, EventArgs e)

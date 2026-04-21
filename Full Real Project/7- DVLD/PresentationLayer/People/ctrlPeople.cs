@@ -55,6 +55,7 @@ namespace PresentationLayer.PeopleFormsAndControls
             else
                 tbSearchPerson.PlaceholderText = "Search..";
 
+            tbSearchPerson.Focus();
         }
         private void tbSearchPerson_TextChanged(object sender, EventArgs e)
         {

@@ -70,6 +70,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications
             else
                 tbSearchApplication.PlaceholderText = "Search..";
 
+            tbSearchApplication.Focus();
         }
         private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {

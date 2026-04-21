@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -46,25 +47,31 @@
             this.pnlDGVBorder = new Guna.UI2.WinForms.Guna2Panel();
             this.lblNoLicensesIssued = new System.Windows.Forms.Label();
             this.dgvInternationalLicenses = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.dgvLocalLicenses = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.LicenseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LclApplicationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ClassName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LclIssueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LclExpirationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LclIsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.InternationalLicenseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApplicationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IssuedUsingLicenseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IssueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ExpirationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgvLocalLicenses = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.LicenseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LclApplicationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClassName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LclIssueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LclExpirationDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LclIsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmsLocalLicense = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsInternationalLicense = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showLocalLicenseInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showInternationalLicenseInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlOuterBorder.SuspendLayout();
             this.pnlTabBorder.SuspendLayout();
             this.pnlDGVBorder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicenses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicenses)).BeginInit();
+            this.cmsLocalLicense.SuspendLayout();
+            this.cmsInternationalLicense.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlOuterBorder
@@ -251,6 +258,7 @@
             this.IssueDate,
             this.ExpirationDate,
             this.IsActive});
+            this.dgvInternationalLicenses.ContextMenuStrip = this.cmsInternationalLicense;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
@@ -302,165 +310,6 @@
             this.dgvInternationalLicenses.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
             this.dgvInternationalLicenses.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvInternationalLicenses.Visible = false;
-            // 
-            // dgvLocalLicenses
-            // 
-            this.dgvLocalLicenses.AllowUserToAddRows = false;
-            this.dgvLocalLicenses.AllowUserToDeleteRows = false;
-            this.dgvLocalLicenses.AllowUserToOrderColumns = true;
-            this.dgvLocalLicenses.AllowUserToResizeColumns = false;
-            this.dgvLocalLicenses.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            this.dgvLocalLicenses.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvLocalLicenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvLocalLicenses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvLocalLicenses.BackgroundColor = System.Drawing.Color.White;
-            this.dgvLocalLicenses.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvLocalLicenses.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvLocalLicenses.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLocalLicenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvLocalLicenses.ColumnHeadersHeight = 40;
-            this.dgvLocalLicenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvLocalLicenses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.LicenseID,
-            this.LclApplicationID,
-            this.ClassName,
-            this.LclIssueDate,
-            this.LclExpirationDate,
-            this.LclIsActive});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkGray;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLocalLicenses.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvLocalLicenses.EnableHeadersVisualStyles = false;
-            this.dgvLocalLicenses.GridColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvLocalLicenses.Location = new System.Drawing.Point(7, 9);
-            this.dgvLocalLicenses.Name = "dgvLocalLicenses";
-            this.dgvLocalLicenses.ReadOnly = true;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLocalLicenses.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvLocalLicenses.RowHeadersVisible = false;
-            this.dgvLocalLicenses.RowHeadersWidth = 45;
-            this.dgvLocalLicenses.RowTemplate.DividerHeight = 1;
-            this.dgvLocalLicenses.RowTemplate.Height = 30;
-            this.dgvLocalLicenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLocalLicenses.Size = new System.Drawing.Size(1082, 214);
-            this.dgvLocalLicenses.TabIndex = 0;
-            this.dgvLocalLicenses.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
-            this.dgvLocalLicenses.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvLocalLicenses.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvLocalLicenses.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvLocalLicenses.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvLocalLicenses.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvLocalLicenses.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvLocalLicenses.ThemeStyle.GridColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvLocalLicenses.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.White;
-            this.dgvLocalLicenses.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dgvLocalLicenses.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.dgvLocalLicenses.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
-            this.dgvLocalLicenses.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvLocalLicenses.ThemeStyle.HeaderStyle.Height = 40;
-            this.dgvLocalLicenses.ThemeStyle.ReadOnly = true;
-            this.dgvLocalLicenses.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvLocalLicenses.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvLocalLicenses.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.dgvLocalLicenses.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvLocalLicenses.ThemeStyle.RowsStyle.Height = 30;
-            this.dgvLocalLicenses.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
-            this.dgvLocalLicenses.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(11, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(194, 29);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Driver Licenses";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // LicenseID
-            // 
-            this.LicenseID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.LicenseID.DataPropertyName = "LicenseID";
-            this.LicenseID.HeaderText = "Lcl.License ID";
-            this.LicenseID.MinimumWidth = 6;
-            this.LicenseID.Name = "LicenseID";
-            this.LicenseID.ReadOnly = true;
-            this.LicenseID.Width = 140;
-            // 
-            // LclApplicationID
-            // 
-            this.LclApplicationID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.LclApplicationID.DataPropertyName = "ApplicationID";
-            this.LclApplicationID.HeaderText = "Application ID";
-            this.LclApplicationID.MinimumWidth = 6;
-            this.LclApplicationID.Name = "LclApplicationID";
-            this.LclApplicationID.ReadOnly = true;
-            this.LclApplicationID.Width = 130;
-            // 
-            // ClassName
-            // 
-            this.ClassName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ClassName.DataPropertyName = "ClassName";
-            this.ClassName.HeaderText = "Class Name";
-            this.ClassName.MinimumWidth = 6;
-            this.ClassName.Name = "ClassName";
-            this.ClassName.ReadOnly = true;
-            this.ClassName.Width = 330;
-            // 
-            // LclIssueDate
-            // 
-            this.LclIssueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.LclIssueDate.DataPropertyName = "IssueDate";
-            this.LclIssueDate.HeaderText = "Issue Date";
-            this.LclIssueDate.MinimumWidth = 6;
-            this.LclIssueDate.Name = "LclIssueDate";
-            this.LclIssueDate.ReadOnly = true;
-            this.LclIssueDate.Width = 180;
-            // 
-            // LclExpirationDate
-            // 
-            this.LclExpirationDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.LclExpirationDate.DataPropertyName = "ExpirationDate";
-            this.LclExpirationDate.HeaderText = "Expiration Date";
-            this.LclExpirationDate.MinimumWidth = 6;
-            this.LclExpirationDate.Name = "LclExpirationDate";
-            this.LclExpirationDate.ReadOnly = true;
-            this.LclExpirationDate.Width = 180;
-            // 
-            // LclIsActive
-            // 
-            this.LclIsActive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.LclIsActive.DataPropertyName = "IsActive";
-            this.LclIsActive.HeaderText = "Is Active";
-            this.LclIsActive.MinimumWidth = 6;
-            this.LclIsActive.Name = "LclIsActive";
-            this.LclIsActive.ReadOnly = true;
-            this.LclIsActive.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.LclIsActive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.LclIsActive.Width = 120;
             // 
             // InternationalLicenseID
             // 
@@ -524,6 +373,198 @@
             this.IsActive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.IsActive.Width = 120;
             // 
+            // dgvLocalLicenses
+            // 
+            this.dgvLocalLicenses.AllowUserToAddRows = false;
+            this.dgvLocalLicenses.AllowUserToDeleteRows = false;
+            this.dgvLocalLicenses.AllowUserToOrderColumns = true;
+            this.dgvLocalLicenses.AllowUserToResizeColumns = false;
+            this.dgvLocalLicenses.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.dgvLocalLicenses.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvLocalLicenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvLocalLicenses.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLocalLicenses.BackgroundColor = System.Drawing.Color.White;
+            this.dgvLocalLicenses.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvLocalLicenses.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvLocalLicenses.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLocalLicenses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvLocalLicenses.ColumnHeadersHeight = 40;
+            this.dgvLocalLicenses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvLocalLicenses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LicenseID,
+            this.LclApplicationID,
+            this.ClassName,
+            this.LclIssueDate,
+            this.LclExpirationDate,
+            this.LclIsActive});
+            this.dgvLocalLicenses.ContextMenuStrip = this.cmsLocalLicense;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLocalLicenses.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvLocalLicenses.EnableHeadersVisualStyles = false;
+            this.dgvLocalLicenses.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvLocalLicenses.Location = new System.Drawing.Point(7, 9);
+            this.dgvLocalLicenses.Name = "dgvLocalLicenses";
+            this.dgvLocalLicenses.ReadOnly = true;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLocalLicenses.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvLocalLicenses.RowHeadersVisible = false;
+            this.dgvLocalLicenses.RowHeadersWidth = 45;
+            this.dgvLocalLicenses.RowTemplate.DividerHeight = 1;
+            this.dgvLocalLicenses.RowTemplate.Height = 30;
+            this.dgvLocalLicenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLocalLicenses.Size = new System.Drawing.Size(1082, 214);
+            this.dgvLocalLicenses.TabIndex = 0;
+            this.dgvLocalLicenses.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.dgvLocalLicenses.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvLocalLicenses.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.dgvLocalLicenses.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.dgvLocalLicenses.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvLocalLicenses.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvLocalLicenses.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.dgvLocalLicenses.ThemeStyle.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvLocalLicenses.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.White;
+            this.dgvLocalLicenses.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvLocalLicenses.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.dgvLocalLicenses.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.DimGray;
+            this.dgvLocalLicenses.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvLocalLicenses.ThemeStyle.HeaderStyle.Height = 40;
+            this.dgvLocalLicenses.ThemeStyle.ReadOnly = true;
+            this.dgvLocalLicenses.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dgvLocalLicenses.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvLocalLicenses.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvLocalLicenses.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.dgvLocalLicenses.ThemeStyle.RowsStyle.Height = 30;
+            this.dgvLocalLicenses.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
+            this.dgvLocalLicenses.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            // 
+            // LicenseID
+            // 
+            this.LicenseID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.LicenseID.DataPropertyName = "LicenseID";
+            this.LicenseID.HeaderText = "Lcl.License ID";
+            this.LicenseID.MinimumWidth = 6;
+            this.LicenseID.Name = "LicenseID";
+            this.LicenseID.ReadOnly = true;
+            this.LicenseID.Width = 140;
+            // 
+            // LclApplicationID
+            // 
+            this.LclApplicationID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.LclApplicationID.DataPropertyName = "ApplicationID";
+            this.LclApplicationID.HeaderText = "Application ID";
+            this.LclApplicationID.MinimumWidth = 6;
+            this.LclApplicationID.Name = "LclApplicationID";
+            this.LclApplicationID.ReadOnly = true;
+            this.LclApplicationID.Width = 130;
+            // 
+            // ClassName
+            // 
+            this.ClassName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.ClassName.DataPropertyName = "ClassName";
+            this.ClassName.HeaderText = "Class Name";
+            this.ClassName.MinimumWidth = 6;
+            this.ClassName.Name = "ClassName";
+            this.ClassName.ReadOnly = true;
+            this.ClassName.Width = 330;
+            // 
+            // LclIssueDate
+            // 
+            this.LclIssueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.LclIssueDate.DataPropertyName = "IssueDate";
+            this.LclIssueDate.HeaderText = "Issue Date";
+            this.LclIssueDate.MinimumWidth = 6;
+            this.LclIssueDate.Name = "LclIssueDate";
+            this.LclIssueDate.ReadOnly = true;
+            this.LclIssueDate.Width = 180;
+            // 
+            // LclExpirationDate
+            // 
+            this.LclExpirationDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.LclExpirationDate.DataPropertyName = "ExpirationDate";
+            this.LclExpirationDate.HeaderText = "Expiration Date";
+            this.LclExpirationDate.MinimumWidth = 6;
+            this.LclExpirationDate.Name = "LclExpirationDate";
+            this.LclExpirationDate.ReadOnly = true;
+            this.LclExpirationDate.Width = 180;
+            // 
+            // LclIsActive
+            // 
+            this.LclIsActive.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.LclIsActive.DataPropertyName = "IsActive";
+            this.LclIsActive.HeaderText = "Is Active";
+            this.LclIsActive.MinimumWidth = 6;
+            this.LclIsActive.Name = "LclIsActive";
+            this.LclIsActive.ReadOnly = true;
+            this.LclIsActive.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.LclIsActive.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.LclIsActive.Width = 120;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(11, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(194, 29);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Driver Licenses";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cmsLocalLicense
+            // 
+            this.cmsLocalLicense.ImageScalingSize = new System.Drawing.Size(18, 18);
+            this.cmsLocalLicense.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showLocalLicenseInfoToolStripMenuItem});
+            this.cmsLocalLicense.Name = "cmsLocalLicense";
+            this.cmsLocalLicense.Size = new System.Drawing.Size(216, 28);
+            // 
+            // cmsInternationalLicense
+            // 
+            this.cmsInternationalLicense.ImageScalingSize = new System.Drawing.Size(18, 18);
+            this.cmsInternationalLicense.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showInternationalLicenseInfoToolStripMenuItem});
+            this.cmsInternationalLicense.Name = "cmsInternationalLicense";
+            this.cmsInternationalLicense.Size = new System.Drawing.Size(258, 28);
+            // 
+            // showLocalLicenseInfoToolStripMenuItem
+            // 
+            this.showLocalLicenseInfoToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.LicenseCardNoFill64;
+            this.showLocalLicenseInfoToolStripMenuItem.Name = "showLocalLicenseInfoToolStripMenuItem";
+            this.showLocalLicenseInfoToolStripMenuItem.Size = new System.Drawing.Size(215, 24);
+            this.showLocalLicenseInfoToolStripMenuItem.Text = "Show Local License Info";
+            this.showLocalLicenseInfoToolStripMenuItem.Click += new System.EventHandler(this.showLocalLicenseInfoToolStripMenuItem_Click);
+            // 
+            // showInternationalLicenseInfoToolStripMenuItem
+            // 
+            this.showInternationalLicenseInfoToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.LicenseCardNoFill64;
+            this.showInternationalLicenseInfoToolStripMenuItem.Name = "showInternationalLicenseInfoToolStripMenuItem";
+            this.showInternationalLicenseInfoToolStripMenuItem.Size = new System.Drawing.Size(257, 24);
+            this.showInternationalLicenseInfoToolStripMenuItem.Text = "Show International License Info";
+            this.showInternationalLicenseInfoToolStripMenuItem.Click += new System.EventHandler(this.showInternationalLicenseInfoToolStripMenuItem_Click);
+            // 
             // ctrlListDriverLicenses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -540,6 +581,8 @@
             this.pnlDGVBorder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicenses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicenses)).EndInit();
+            this.cmsLocalLicense.ResumeLayout(false);
+            this.cmsInternationalLicense.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -570,5 +613,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IssueDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn ExpirationDate;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsActive;
+        private System.Windows.Forms.ContextMenuStrip cmsLocalLicense;
+        private System.Windows.Forms.ToolStripMenuItem showLocalLicenseInfoToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip cmsInternationalLicense;
+        private System.Windows.Forms.ToolStripMenuItem showInternationalLicenseInfoToolStripMenuItem;
     }
 }

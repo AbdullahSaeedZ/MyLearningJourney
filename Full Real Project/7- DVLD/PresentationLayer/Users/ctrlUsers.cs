@@ -70,6 +70,7 @@ namespace PresentationLayer.UsersFormsAndControls
             else
                 tbSearchUsers.PlaceholderText = "Search..";
 
+            tbSearchUsers.Focus();
         }
         private void tbSearchUsers_TextChanged(object sender, EventArgs e)
         {

@@ -38,7 +38,6 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Controls
             }
         }
 
-
         public int BasicApplicationBorderThickness
         {
             set
@@ -80,25 +79,6 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Controls
             _FillLocalApplicationInfo();
             _FillBaseApplicationInfo();
         }
-     
-
-        public void ResetApplicationInfo()
-        {
-            lblLocalApplicationID.Text = "";
-            lblLicenseClassName.Text = "";
-            lblPassedTests.Text = "";
-            btnShowLicenseInfo.Visible = false;
-
-            lblBaseApplicationID.Text = "";
-            lblApplicationStatus.Text = "";
-            lblApplicationLastStatus.Text = "";
-            lblApplicationType.Text = "";
-            lblApplicationFees.Text = "";
-            lblApplicantFullName.Text = "";
-            lblApplicationDate.Text = "";
-            lblCreatedByUser.Text = "";
-        }
-
 
         private void _FillLocalApplicationInfo()
         {

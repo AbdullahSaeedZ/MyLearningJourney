@@ -56,6 +56,7 @@ namespace PresentationLayer.Drivers
             else
                 tbSearchDrivers.PlaceholderText = "Search..";
 
+            tbSearchDrivers.Focus();
         }
         private void tbSearchDrivers_TextChanged(object sender, EventArgs e)
         {

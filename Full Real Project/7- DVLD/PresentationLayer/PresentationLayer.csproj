@@ -99,6 +99,12 @@
     <Compile Include="Applications\ManageApplicationTypes\Forms\frmEditApplicationType.Designer.cs">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\ManageInternationalApplications\ctrlManageInternationalApplications.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\ManageInternationalApplications\ctrlManageInternationalApplications.Designer.cs">
+      <DependentUpon>ctrlManageInternationalApplications.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\ManageLocalApplications\Controls\ctrlLocalApplicationInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -299,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\ManageApplicationTypes\Forms\frmEditApplicationType.resx">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\ManageInternationalApplications\ctrlManageInternationalApplications.resx">
+      <DependentUpon>ctrlManageInternationalApplications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\ManageLocalApplications\Controls\ctrlLocalApplicationInfo.resx">
       <DependentUpon>ctrlLocalApplicationInfo.cs</DependentUpon>
@@ -667,7 +676,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Applications\DetainLicenses\" />
-    <Folder Include="Applications\ManageInternationalApplications\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\AddFillBlack512.png" />

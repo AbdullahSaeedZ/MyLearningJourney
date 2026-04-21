@@ -224,7 +224,8 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    string query = "select * from InternationalLicenses;";
+                    string query = @"select InternationalLicenseID, ApplicationID, DriverID, IssuedUsingLocalLicenseID, IssueDate, ExpirationDate, IsActive
+                                     from InternationalLicenses order by IssueDate desc;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         connection.Open();
