@@ -37,8 +37,6 @@ namespace BusinessLayer
             }
         }
 
-
-
         public clsInternationalLicensesBusiness()
         {
             this.InternationalLicenseID = -1;
@@ -153,9 +151,6 @@ namespace BusinessLayer
             return (GetActiveInterNationalLicenseIDByPersonID(PersonID) != -1);
         }
 
-        public static bool DoesInternationalLicenseExist(int InternationalLicenseID)
-        {
-            return clsInternationalLicensesDataAccess.DoesInternationalLicenseExist(InternationalLicenseID);
-        }
+     
     }
 }

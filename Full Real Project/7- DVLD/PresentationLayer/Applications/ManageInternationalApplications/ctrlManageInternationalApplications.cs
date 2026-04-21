@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using PresentationLayer.Applications.DrivingLicenses.Forms;
 using PresentationLayer.Drivers.Forms;
 using PresentationLayer.Global_Classes;
 using PresentationLayer.PeopleFormsAndControls;
@@ -106,6 +107,8 @@ namespace PresentationLayer.Applications.ManageInternationalApplications
 
             clsUtilities.AddToBreadcrumb("> Add New Application");
 
+
+
             clsUtilities.RemoveFromBreadcrumb("> Add New Application");
         }
 
@@ -121,15 +124,15 @@ namespace PresentationLayer.Applications.ManageInternationalApplications
         }
 
 
-
         private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            if (dgvApplications.RowCount == 0)
+                return;
+
             _PersonID = clsApplicationsBusiness.FindBaseApplicationByID((int)dgvApplications.CurrentRow.Cells[1].Value).ApplicantPersonID;
         }
         private void showPersonInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-
             frmPersonInfo personInfo = new frmPersonInfo(_PersonID);
             clsUtilities.AddToBreadcrumb("> Person Info");
             personInfo.ShowDialog();
@@ -138,7 +141,11 @@ namespace PresentationLayer.Applications.ManageInternationalApplications
 
         private void showLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            int LicenseID = (int)dgvApplications.CurrentRow.Cells[0].Value;
+            clsUtilities.AddToBreadcrumb($"> License Info");
+            frmShowInternationalLicenseInfo internationalLicenseInfo = new frmShowInternationalLicenseInfo(LicenseID);
+            internationalLicenseInfo.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb($"> License Info");
         }
 
         private void showLicensesHistoryToolStripMenuItem_Click(object sender, EventArgs e)
@@ -148,7 +155,5 @@ namespace PresentationLayer.Applications.ManageInternationalApplications
             licenseHistory.ShowDialog();
             clsUtilities.RemoveFromBreadcrumb("> Licenses History");
         }
-
-       
     }
 }

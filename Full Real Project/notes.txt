@@ -40,3 +40,7 @@ exist in the users table, userID is added as a FK in application table which mad
 
 
 - in opening context menu, i have to check tests passed for the selected application, my solution was to rely on total tests passed shown on the data grid view in ui, then i compared to the doctor solution and found out that he gets this data from db not ui, lesson learned is to not rely on ui for data fetching and business logic related decisions, so i came up with creating DTO (data transfer object) to get test status by one request to db insted of 3 calls like the doctor.
+
+
+- when doing certain calls to DB regarding different table than the one im in, lile local license class requesting info of internationl license, so which DAL should i use ?
+ Follow separation of concerns by placing data access functions in their respective international license data classes to manage their own table logic while allowing the local license business layer to call them as needed for cross-table information retrieval

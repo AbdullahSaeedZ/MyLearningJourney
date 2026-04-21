@@ -809,5 +809,8 @@
   <ItemGroup>
     <None Include="assets\personCardNoFill24.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\LicenseCardFill64.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

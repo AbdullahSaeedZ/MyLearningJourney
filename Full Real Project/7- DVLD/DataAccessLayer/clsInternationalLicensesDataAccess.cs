@@ -59,6 +59,9 @@ namespace DataAccessLayer
                     // once a license is created, then application status directly becomes completed (represented as 3 in DB)
                     string query = @"insert into InternationalLicenses 
                                      values (@ApplicationID, @DriverID, @IssuedUsingLicenseID, @IssueDate, @ExpirationDate, @IsActive, @CreatedByUserID);
+
+                                     update Applications
+                                     set ApplicationStatus = 3 where ApplicationID = @ApplicationID;
                                      select scope_identity();";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -122,7 +125,7 @@ namespace DataAccessLayer
             return (rowsAffected > 0);
         }
 
-        public static bool DoesInternationalLicenseExist(int LicenseID)
+        public static bool DoesLicenseExistByLocalLicenseID(int LicenseID)
         {
             bool isFound = false;
 
@@ -130,7 +133,7 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    string query = "select Found = 1 from InternationalLicenses where InternationalLicenseID = @ID;";
+                    string query = "select Found = 1 from InternationalLicenses where IssuedUsingLocalLicenseID = @ID;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@ID", LicenseID);

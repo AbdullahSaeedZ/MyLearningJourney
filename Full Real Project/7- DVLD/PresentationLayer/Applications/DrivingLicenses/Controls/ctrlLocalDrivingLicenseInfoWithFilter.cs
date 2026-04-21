@@ -90,7 +90,8 @@ namespace PresentationLayer.Applications.DrivingLicenses.Controls
             tbSearch.Text = LicenseID.ToString();
             ctrlLocalDrivingLicenseInfo1.LoadInfo(LicenseID);
 
-            if (FilterEnabled)
+            // checking for null is to avoid invoking the event and do any operations on empty object
+            if (FilterEnabled && ctrlLocalDrivingLicenseInfo1.SelectedLocalLicense != null)
                 OnLicenseSelected?.Invoke();
         }
 

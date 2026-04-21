@@ -199,6 +199,30 @@ namespace BusinessLayer
         }
         
         // renew or replacements are all requiring creating new application and new license with deactivating the old one
+     
+        public int IssueInternationalLicense(int ApplicationID, int CreatedByUserID)
+        {
+            if (!this.IsActive || clsInternationalLicensesDataAccess.GetActiveInternationalLicenseIDByPersonID(this.DriverInfo.PersonID) != -1)
+                return -1;
+
+            if (ApplicationID == -1 || CreatedByUserID == -1)
+                return -1;
+
+            clsInternationalLicensesBusiness NewInternationalLicense = new clsInternationalLicensesBusiness();
+
+            NewInternationalLicense.ApplicationID = ApplicationID;
+            NewInternationalLicense.DriverID = this.DriverID;
+            NewInternationalLicense.IssuedUsingLicenseID = this.LicenseID;
+            NewInternationalLicense.IsActive = true;
+            NewInternationalLicense.CreatedByUserID = CreatedByUserID;
+
+            if (NewInternationalLicense.Save())
+                return NewInternationalLicense.InternationalLicenseID;
+            else
+                return -1;
+        }
+
+
 
     }
 }

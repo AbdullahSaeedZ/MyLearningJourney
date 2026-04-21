@@ -91,7 +91,10 @@ namespace PresentationLayer.Applications.DrivingLicenses
 
         private void btnNewInternationalLicenseApplication_Click(object sender, EventArgs e)
         {
-
+            clsUtilities.AddToBreadcrumb("> New International Driving License");
+            frmIssueInternationalLicense addInterLicense = new frmIssueInternationalLicense();
+            addInterLicense.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb("> New International Driving License");
         }
 
         private void btnRenewDrivingLicense_Click(object sender, EventArgs e)
