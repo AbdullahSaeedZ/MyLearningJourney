@@ -258,7 +258,13 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    string query = "select * from DetainedLicenses;";
+                    string query = @"select DetainedLicenses.DetainID, DetainedLicenses.LicenseID, DetainedLicenses.DetainDate, DetainedLicenses.FineFees,
+                                     DetainedLicenses.IsReleased, DetainedLicenses.ReleaseDate, People.NationalNo,
+                                     FullName = People.FirstName + ' ' + People.SecondName + ' ' + ISNULL(People.ThirdName, '') + People.LastName, DetainedLicenses.ReleaseApplicationID
+                                     from DetainedLicenses
+                                     inner join Licenses on Licenses.LicenseID = DetainedLicenses.LicenseID
+                                     inner join Drivers on Drivers.DriverID = Licenses.DriverID
+                                     inner join People on People.PersonID = Drivers.PersonID;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         connection.Open();

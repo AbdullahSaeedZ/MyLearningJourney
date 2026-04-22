@@ -87,6 +87,12 @@
     <Compile Include="Applications\DrivingLicenses\Forms\frmAddEditLocalLicenseApplication.Designer.cs">
       <DependentUpon>frmAddEditLocalLicenseApplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\DrivingLicenses\Forms\frmDetainLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\DrivingLicenses\Forms\frmDetainLicense.Designer.cs">
+      <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\DrivingLicenses\Forms\frmIssueInternationalLicense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,12 @@
     </Compile>
     <Compile Include="Applications\DrivingLicenses\Forms\frmIssueLicenseReplacement.Designer.cs">
       <DependentUpon>frmIssueLicenseReplacement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\DrivingLicenses\Forms\frmReleaseDetainedLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\DrivingLicenses\Forms\frmReleaseDetainedLicense.Designer.cs">
+      <DependentUpon>frmReleaseDetainedLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\DrivingLicenses\Forms\frmRenewLicense.cs">
       <SubType>Form</SubType>
@@ -128,6 +140,12 @@
     </Compile>
     <Compile Include="Applications\ManageApplicationTypes\Forms\frmEditApplicationType.Designer.cs">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\ManageDetainedLicenses\ctrlManageDetainedLicenses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Applications\ManageDetainedLicenses\ctrlManageDetainedLicenses.Designer.cs">
+      <DependentUpon>ctrlManageDetainedLicenses.cs</DependentUpon>
     </Compile>
     <Compile Include="Applications\ManageInternationalApplications\ctrlManageInternationalApplications.cs">
       <SubType>UserControl</SubType>
@@ -350,6 +368,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\ManageApplicationTypes\Forms\frmEditApplicationType.resx">
       <DependentUpon>frmEditApplicationType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\ManageDetainedLicenses\ctrlManageDetainedLicenses.resx">
+      <DependentUpon>ctrlManageDetainedLicenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\ManageInternationalApplications\ctrlManageInternationalApplications.resx">
       <DependentUpon>ctrlManageInternationalApplications.cs</DependentUpon>
@@ -720,7 +741,7 @@
     <None Include="assets\ManageTestTypesNoFillGrey512.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Applications\DetainLicenses\" />
+    <None Include="assets\detainFill24.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\AddFillBlack512.png" />
@@ -829,6 +850,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\LicenseCardFill64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\detainNoFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\releaseFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\releaseNoFill24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

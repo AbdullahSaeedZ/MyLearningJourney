@@ -36,24 +36,24 @@
             this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.pnlManageApplicationsTypes = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.pnlManageTestTypes = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.pnlDrivingLicensesServices = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.pnlDetainLicenses = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.pnlManageLocalApplications = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btnManageApplicationsTypes = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlManageTestTypes = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btnManageTestTypes = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlDrivingLicensesServices = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btnDrivingLicensesServices = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlDetainLicenses = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btnDetainLicenses = new Guna.UI2.WinForms.Guna2Button();
-            this.btnManageLocalApplications = new Guna.UI2.WinForms.Guna2Button();
             this.pnlManageInternationalApplications = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btnManageInternationalApplications = new Guna.UI2.WinForms.Guna2Button();
+            this.pnlManageLocalApplications = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.btnManageLocalApplications = new Guna.UI2.WinForms.Guna2Button();
             this.pnlMainServicesContainer.SuspendLayout();
             this.pnlManageApplicationsTypes.SuspendLayout();
             this.pnlManageTestTypes.SuspendLayout();
             this.pnlDrivingLicensesServices.SuspendLayout();
             this.pnlDetainLicenses.SuspendLayout();
-            this.pnlManageLocalApplications.SuspendLayout();
             this.pnlManageInternationalApplications.SuspendLayout();
+            this.pnlManageLocalApplications.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMainServicesContainer
@@ -151,58 +151,6 @@
             this.pnlManageApplicationsTypes.Size = new System.Drawing.Size(310, 221);
             this.pnlManageApplicationsTypes.TabIndex = 4;
             // 
-            // pnlManageTestTypes
-            // 
-            this.pnlManageTestTypes.BackColor = System.Drawing.Color.Transparent;
-            this.pnlManageTestTypes.Controls.Add(this.btnManageTestTypes);
-            this.pnlManageTestTypes.FillColor = System.Drawing.Color.Transparent;
-            this.pnlManageTestTypes.Location = new System.Drawing.Point(40, 651);
-            this.pnlManageTestTypes.Name = "pnlManageTestTypes";
-            this.pnlManageTestTypes.Radius = 10;
-            this.pnlManageTestTypes.ShadowColor = System.Drawing.Color.Black;
-            this.pnlManageTestTypes.ShadowDepth = 0;
-            this.pnlManageTestTypes.Size = new System.Drawing.Size(310, 221);
-            this.pnlManageTestTypes.TabIndex = 4;
-            // 
-            // pnlDrivingLicensesServices
-            // 
-            this.pnlDrivingLicensesServices.BackColor = System.Drawing.Color.Transparent;
-            this.pnlDrivingLicensesServices.Controls.Add(this.btnDrivingLicensesServices);
-            this.pnlDrivingLicensesServices.FillColor = System.Drawing.Color.Transparent;
-            this.pnlDrivingLicensesServices.Location = new System.Drawing.Point(40, 361);
-            this.pnlDrivingLicensesServices.Name = "pnlDrivingLicensesServices";
-            this.pnlDrivingLicensesServices.Radius = 10;
-            this.pnlDrivingLicensesServices.ShadowColor = System.Drawing.Color.Black;
-            this.pnlDrivingLicensesServices.ShadowDepth = 0;
-            this.pnlDrivingLicensesServices.Size = new System.Drawing.Size(310, 221);
-            this.pnlDrivingLicensesServices.TabIndex = 4;
-            // 
-            // pnlDetainLicenses
-            // 
-            this.pnlDetainLicenses.BackColor = System.Drawing.Color.Transparent;
-            this.pnlDetainLicenses.Controls.Add(this.btnDetainLicenses);
-            this.pnlDetainLicenses.FillColor = System.Drawing.Color.Transparent;
-            this.pnlDetainLicenses.Location = new System.Drawing.Point(381, 361);
-            this.pnlDetainLicenses.Name = "pnlDetainLicenses";
-            this.pnlDetainLicenses.Radius = 10;
-            this.pnlDetainLicenses.ShadowColor = System.Drawing.Color.Black;
-            this.pnlDetainLicenses.ShadowDepth = 0;
-            this.pnlDetainLicenses.Size = new System.Drawing.Size(310, 221);
-            this.pnlDetainLicenses.TabIndex = 4;
-            // 
-            // pnlManageLocalApplications
-            // 
-            this.pnlManageLocalApplications.BackColor = System.Drawing.Color.Transparent;
-            this.pnlManageLocalApplications.Controls.Add(this.btnManageLocalApplications);
-            this.pnlManageLocalApplications.FillColor = System.Drawing.Color.Transparent;
-            this.pnlManageLocalApplications.Location = new System.Drawing.Point(40, 64);
-            this.pnlManageLocalApplications.Name = "pnlManageLocalApplications";
-            this.pnlManageLocalApplications.Radius = 10;
-            this.pnlManageLocalApplications.ShadowColor = System.Drawing.Color.Black;
-            this.pnlManageLocalApplications.ShadowDepth = 0;
-            this.pnlManageLocalApplications.Size = new System.Drawing.Size(310, 221);
-            this.pnlManageLocalApplications.TabIndex = 3;
-            // 
             // btnManageApplicationsTypes
             // 
             this.btnManageApplicationsTypes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -235,6 +183,19 @@
             this.btnManageApplicationsTypes.Click += new System.EventHandler(this.btnManageApplicationsTypes_Click);
             this.btnManageApplicationsTypes.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
             this.btnManageApplicationsTypes.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
+            // 
+            // pnlManageTestTypes
+            // 
+            this.pnlManageTestTypes.BackColor = System.Drawing.Color.Transparent;
+            this.pnlManageTestTypes.Controls.Add(this.btnManageTestTypes);
+            this.pnlManageTestTypes.FillColor = System.Drawing.Color.Transparent;
+            this.pnlManageTestTypes.Location = new System.Drawing.Point(40, 651);
+            this.pnlManageTestTypes.Name = "pnlManageTestTypes";
+            this.pnlManageTestTypes.Radius = 10;
+            this.pnlManageTestTypes.ShadowColor = System.Drawing.Color.Black;
+            this.pnlManageTestTypes.ShadowDepth = 0;
+            this.pnlManageTestTypes.Size = new System.Drawing.Size(310, 221);
+            this.pnlManageTestTypes.TabIndex = 4;
             // 
             // btnManageTestTypes
             // 
@@ -269,6 +230,19 @@
             this.btnManageTestTypes.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
             this.btnManageTestTypes.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 
+            // pnlDrivingLicensesServices
+            // 
+            this.pnlDrivingLicensesServices.BackColor = System.Drawing.Color.Transparent;
+            this.pnlDrivingLicensesServices.Controls.Add(this.btnDrivingLicensesServices);
+            this.pnlDrivingLicensesServices.FillColor = System.Drawing.Color.Transparent;
+            this.pnlDrivingLicensesServices.Location = new System.Drawing.Point(40, 361);
+            this.pnlDrivingLicensesServices.Name = "pnlDrivingLicensesServices";
+            this.pnlDrivingLicensesServices.Radius = 10;
+            this.pnlDrivingLicensesServices.ShadowColor = System.Drawing.Color.Black;
+            this.pnlDrivingLicensesServices.ShadowDepth = 0;
+            this.pnlDrivingLicensesServices.Size = new System.Drawing.Size(310, 221);
+            this.pnlDrivingLicensesServices.TabIndex = 4;
+            // 
             // btnDrivingLicensesServices
             // 
             this.btnDrivingLicensesServices.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -302,6 +276,19 @@
             this.btnDrivingLicensesServices.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
             this.btnDrivingLicensesServices.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 
+            // pnlDetainLicenses
+            // 
+            this.pnlDetainLicenses.BackColor = System.Drawing.Color.Transparent;
+            this.pnlDetainLicenses.Controls.Add(this.btnDetainLicenses);
+            this.pnlDetainLicenses.FillColor = System.Drawing.Color.Transparent;
+            this.pnlDetainLicenses.Location = new System.Drawing.Point(381, 361);
+            this.pnlDetainLicenses.Name = "pnlDetainLicenses";
+            this.pnlDetainLicenses.Radius = 10;
+            this.pnlDetainLicenses.ShadowColor = System.Drawing.Color.Black;
+            this.pnlDetainLicenses.ShadowDepth = 0;
+            this.pnlDetainLicenses.Size = new System.Drawing.Size(310, 221);
+            this.pnlDetainLicenses.TabIndex = 4;
+            // 
             // btnDetainLicenses
             // 
             this.btnDetainLicenses.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -321,7 +308,7 @@
             this.btnDetainLicenses.HoverState.Image = global::PresentationLayer.Properties.Resources.DetainLicenseFillBlack512;
             this.btnDetainLicenses.HoverState.Parent = this.btnDetainLicenses;
             this.btnDetainLicenses.Image = global::PresentationLayer.Properties.Resources.DetainLicenseNoFillGrey512;
-            this.btnDetainLicenses.ImageOffset = new System.Drawing.Point(36, -20);
+            this.btnDetainLicenses.ImageOffset = new System.Drawing.Point(57, -20);
             this.btnDetainLicenses.ImageSize = new System.Drawing.Size(80, 80);
             this.btnDetainLicenses.Location = new System.Drawing.Point(9, 7);
             this.btnDetainLicenses.Name = "btnDetainLicenses";
@@ -329,44 +316,11 @@
             this.btnDetainLicenses.Size = new System.Drawing.Size(293, 206);
             this.btnDetainLicenses.TabIndex = 2;
             this.btnDetainLicenses.Tag = "Detain Licenses";
-            this.btnDetainLicenses.Text = "Detain Licenses";
-            this.btnDetainLicenses.TextOffset = new System.Drawing.Point(-25, 68);
-            this.btnDetainLicenses.Click += new System.EventHandler(this.btnDetainLicenses_Click);
+            this.btnDetainLicenses.Text = "Manage Detained Licenses";
+            this.btnDetainLicenses.TextOffset = new System.Drawing.Point(-20, 68);
+            this.btnDetainLicenses.Click += new System.EventHandler(this.btnManageDetainedLicenses_Click);
             this.btnDetainLicenses.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
             this.btnDetainLicenses.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
-            // 
-            // btnManageLocalApplications
-            // 
-            this.btnManageLocalApplications.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnManageLocalApplications.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnManageLocalApplications.BorderRadius = 10;
-            this.btnManageLocalApplications.BorderThickness = 1;
-            this.btnManageLocalApplications.CheckedState.Parent = this.btnManageLocalApplications;
-            this.btnManageLocalApplications.CustomImages.Parent = this.btnManageLocalApplications;
-            this.btnManageLocalApplications.FillColor = System.Drawing.Color.White;
-            this.btnManageLocalApplications.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnManageLocalApplications.ForeColor = System.Drawing.Color.DimGray;
-            this.btnManageLocalApplications.HoverState.BorderColor = System.Drawing.Color.Gainsboro;
-            this.btnManageLocalApplications.HoverState.FillColor = System.Drawing.Color.White;
-            this.btnManageLocalApplications.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnManageLocalApplications.HoverState.Image = global::PresentationLayer.Properties.Resources.ManageApplicationsFillBlack512;
-            this.btnManageLocalApplications.HoverState.Parent = this.btnManageLocalApplications;
-            this.btnManageLocalApplications.Image = global::PresentationLayer.Properties.Resources.ManageApplicationsNoFillGrey512;
-            this.btnManageLocalApplications.ImageOffset = new System.Drawing.Point(0, 15);
-            this.btnManageLocalApplications.ImageSize = new System.Drawing.Size(80, 80);
-            this.btnManageLocalApplications.Location = new System.Drawing.Point(8, 9);
-            this.btnManageLocalApplications.Name = "btnManageLocalApplications";
-            this.btnManageLocalApplications.ShadowDecoration.Parent = this.btnManageLocalApplications;
-            this.btnManageLocalApplications.Size = new System.Drawing.Size(293, 206);
-            this.btnManageLocalApplications.TabIndex = 2;
-            this.btnManageLocalApplications.Tag = "Manage Local Applications";
-            this.btnManageLocalApplications.Text = "Manage Local Driving Licenses Applications";
-            this.btnManageLocalApplications.TextOffset = new System.Drawing.Point(0, 31);
-            this.btnManageLocalApplications.Click += new System.EventHandler(this.btnManageLocalApplications_Click);
-            this.btnManageLocalApplications.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
-            this.btnManageLocalApplications.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 
             // pnlManageInternationalApplications
             // 
@@ -414,6 +368,52 @@
             this.btnManageInternationalApplications.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
             this.btnManageInternationalApplications.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 
+            // pnlManageLocalApplications
+            // 
+            this.pnlManageLocalApplications.BackColor = System.Drawing.Color.Transparent;
+            this.pnlManageLocalApplications.Controls.Add(this.btnManageLocalApplications);
+            this.pnlManageLocalApplications.FillColor = System.Drawing.Color.Transparent;
+            this.pnlManageLocalApplications.Location = new System.Drawing.Point(40, 64);
+            this.pnlManageLocalApplications.Name = "pnlManageLocalApplications";
+            this.pnlManageLocalApplications.Radius = 10;
+            this.pnlManageLocalApplications.ShadowColor = System.Drawing.Color.Black;
+            this.pnlManageLocalApplications.ShadowDepth = 0;
+            this.pnlManageLocalApplications.Size = new System.Drawing.Size(310, 221);
+            this.pnlManageLocalApplications.TabIndex = 3;
+            // 
+            // btnManageLocalApplications
+            // 
+            this.btnManageLocalApplications.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnManageLocalApplications.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnManageLocalApplications.BorderRadius = 10;
+            this.btnManageLocalApplications.BorderThickness = 1;
+            this.btnManageLocalApplications.CheckedState.Parent = this.btnManageLocalApplications;
+            this.btnManageLocalApplications.CustomImages.Parent = this.btnManageLocalApplications;
+            this.btnManageLocalApplications.FillColor = System.Drawing.Color.White;
+            this.btnManageLocalApplications.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnManageLocalApplications.ForeColor = System.Drawing.Color.DimGray;
+            this.btnManageLocalApplications.HoverState.BorderColor = System.Drawing.Color.Gainsboro;
+            this.btnManageLocalApplications.HoverState.FillColor = System.Drawing.Color.White;
+            this.btnManageLocalApplications.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnManageLocalApplications.HoverState.Image = global::PresentationLayer.Properties.Resources.ManageApplicationsFillBlack512;
+            this.btnManageLocalApplications.HoverState.Parent = this.btnManageLocalApplications;
+            this.btnManageLocalApplications.Image = global::PresentationLayer.Properties.Resources.ManageApplicationsNoFillGrey512;
+            this.btnManageLocalApplications.ImageOffset = new System.Drawing.Point(0, 15);
+            this.btnManageLocalApplications.ImageSize = new System.Drawing.Size(80, 80);
+            this.btnManageLocalApplications.Location = new System.Drawing.Point(8, 9);
+            this.btnManageLocalApplications.Name = "btnManageLocalApplications";
+            this.btnManageLocalApplications.ShadowDecoration.Parent = this.btnManageLocalApplications;
+            this.btnManageLocalApplications.Size = new System.Drawing.Size(293, 206);
+            this.btnManageLocalApplications.TabIndex = 2;
+            this.btnManageLocalApplications.Tag = "Manage Local Applications";
+            this.btnManageLocalApplications.Text = "Manage Local Driving Licenses Applications";
+            this.btnManageLocalApplications.TextOffset = new System.Drawing.Point(0, 31);
+            this.btnManageLocalApplications.Click += new System.EventHandler(this.btnManageLocalApplications_Click);
+            this.btnManageLocalApplications.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
+            this.btnManageLocalApplications.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
+            // 
             // ctrlMainServices
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -428,8 +428,8 @@
             this.pnlManageTestTypes.ResumeLayout(false);
             this.pnlDrivingLicensesServices.ResumeLayout(false);
             this.pnlDetainLicenses.ResumeLayout(false);
-            this.pnlManageLocalApplications.ResumeLayout(false);
             this.pnlManageInternationalApplications.ResumeLayout(false);
+            this.pnlManageLocalApplications.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

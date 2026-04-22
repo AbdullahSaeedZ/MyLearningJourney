@@ -1,6 +1,7 @@
 ﻿using Guna.UI2.WinForms;
 using PresentationLayer.Applications.DrivingLicenses;
 using PresentationLayer.Applications.ManageApplicationTypes.Controls;
+using PresentationLayer.Applications.ManageDetainedLicenses;
 using PresentationLayer.Applications.ManageInternationalApplications;
 using PresentationLayer.Applications.ManageLocalApplications;
 using PresentationLayer.Applications.ManageTestTypes.Controls;
@@ -114,9 +115,12 @@ namespace PresentationLayer.Applications
             internationalApplications.BringToFront();
         }
 
-        private void btnDetainLicenses_Click(object sender, EventArgs e)
+        private void btnManageDetainedLicenses_Click(object sender, EventArgs e)
         {
-
+            ctrlManageDetainedLicenses detainedLicenses = new ctrlManageDetainedLicenses();
+            detainedLicenses.delRemoveFromMainFormContainer_DetainLicenses += delRemoveFromMainFormContainer;
+            delAddToMainFormContainer?.Invoke(detainedLicenses);
+            detainedLicenses.BringToFront();
         }
     }
 }

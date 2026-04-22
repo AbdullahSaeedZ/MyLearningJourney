@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Runtime.Remoting.Messaging;
 using DataAccessLayer;
 
@@ -80,6 +81,12 @@ namespace BusinessLayer
 
             return clsDetainedLicensesDataAccess.UpdateDetainedLicense(this.DetainID, this.LicenseID, this.DetainDate, this.FineFees, this.CreatedByUserID, this.IsReleased,
                           this.ReleaseDate, this.ReleasedByUserID, this.ReleaseApplicationID);
+        }
+
+
+        public static DataTable GetAllDetainedLicenses()
+        {
+            return clsDetainedLicensesDataAccess.GetAllDetainedLicenses();
         }
 
         // releasing user is the one on the ui side, never depend on methods from ui, just receive data from ui
