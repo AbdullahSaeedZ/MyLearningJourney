@@ -1,6 +1,8 @@
 ﻿using BusinessLayer;
 using PresentationLayer.Applications.DrivingLicenses.Forms;
+using PresentationLayer.Drivers.Forms;
 using PresentationLayer.Global_Classes;
+using PresentationLayer.PeopleFormsAndControls;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -13,7 +15,7 @@ namespace PresentationLayer.Applications.ManageDetainedLicenses
 
         private DataTable dt;
         private string _searchFilter; // to use in search filters and match DT and DB column names, not dgv names
-        private int _PersonID; // when need to show license history, instead of calling db twice in opening menu event and then in show history menu.
+        private clsLicensesBusiness _SelectedLicense; // when need to show license history, instead of calling db twice in opening menu event and then in show history menu.
 
 
         public ctrlManageDetainedLicenses()
@@ -115,7 +117,7 @@ namespace PresentationLayer.Applications.ManageDetainedLicenses
 
         private void dgvDetainedLicenses_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            
+            showPersonDetailsToolStripMenuItem_Click(sender, EventArgs.Empty);
         }
 
         private void btnDetain_Click(object sender, EventArgs e)
@@ -134,24 +136,46 @@ namespace PresentationLayer.Applications.ManageDetainedLicenses
 
 
         // tool strip menu
+        private void contextMenuStrip1_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (dgvDetainedLicenses.RowCount <= 0)
+            {
+                contextMenuStrip1.Close();
+                return;
+            }
+            _SelectedLicense = clsLicensesBusiness.FindByLicenseID((int)dgvDetainedLicenses.CurrentRow.Cells[1].Value);
+        }
+
         private void showPersonDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmPersonInfo personInfo = new frmPersonInfo(_SelectedLicense.DriverInfo.PersonID);
+            clsUtilities.AddToBreadcrumb("> Person Details");
+            personInfo.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb("> Person Details");
         }
 
         private void showLicenseDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmShowLocalLicenseInfo licenseInfo = new frmShowLocalLicenseInfo(_SelectedLicense.LicenseID);
+            clsUtilities.AddToBreadcrumb("> License Details");
+            licenseInfo.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb("> License Details");
         }
 
         private void showPersonLicensesHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmDriverLicensesHistory licensesHistory = new frmDriverLicensesHistory(_SelectedLicense.DriverInfo.PersonID);
+            clsUtilities.AddToBreadcrumb("> Licenses History");
+            licensesHistory.ShowDialog();
 
+            clsUtilities.RemoveFromBreadcrumb("> Licenses History");
         }
 
         private void releaseDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            clsUtilities.AddToBreadcrumb("> Release License");
 
+            clsUtilities.RemoveFromBreadcrumb("> Release License");
         }
 
 
@@ -161,5 +185,6 @@ namespace PresentationLayer.Applications.ManageDetainedLicenses
             delRemoveFromMainFormContainer_DetainLicenses?.Invoke(this);
         }
 
+      
     }
 }

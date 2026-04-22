@@ -34,8 +34,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.cbIsReleased = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnReleaseLicense = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDetain = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbSearch = new Guna.UI2.WinForms.Guna2TextBox();
@@ -52,13 +55,10 @@
             this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReleaseApplicationID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnBack = new Guna.UI2.WinForms.Guna2Button();
-            this.btnReleaseLicense = new Guna.UI2.WinForms.Guna2Button();
-            this.btnDetain = new Guna.UI2.WinForms.Guna2Button();
             this.showPersonDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showLicenseDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showPersonLicensesHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.releaseDetainedLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -80,6 +80,32 @@
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
             this.guna2Panel1.Size = new System.Drawing.Size(1441, 894);
             this.guna2Panel1.TabIndex = 2;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BorderColor = System.Drawing.Color.DimGray;
+            this.btnBack.BorderRadius = 10;
+            this.btnBack.BorderThickness = 1;
+            this.btnBack.CheckedState.Parent = this.btnBack;
+            this.btnBack.CustomImages.Parent = this.btnBack;
+            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnBack.FillColor = System.Drawing.Color.Transparent;
+            this.btnBack.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnBack.ForeColor = System.Drawing.Color.DimGray;
+            this.btnBack.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.btnBack.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnBack.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnBack.HoverState.Parent = this.btnBack;
+            this.btnBack.Image = global::PresentationLayer.Properties.Resources.BackShortArrow;
+            this.btnBack.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnBack.Location = new System.Drawing.Point(18, 14);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.ShadowDecoration.Parent = this.btnBack;
+            this.btnBack.Size = new System.Drawing.Size(108, 37);
+            this.btnBack.TabIndex = 9;
+            this.btnBack.Text = "Back";
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // guna2Panel2
             // 
@@ -129,6 +155,60 @@
             this.cbIsReleased.TabIndex = 10;
             this.cbIsReleased.Visible = false;
             this.cbIsReleased.SelectedIndexChanged += new System.EventHandler(this.cbIsReleased_SelectedIndexChanged);
+            // 
+            // btnReleaseLicense
+            // 
+            this.btnReleaseLicense.BackColor = System.Drawing.Color.Transparent;
+            this.btnReleaseLicense.BorderColor = System.Drawing.Color.DimGray;
+            this.btnReleaseLicense.BorderRadius = 10;
+            this.btnReleaseLicense.CheckedState.Parent = this.btnReleaseLicense;
+            this.btnReleaseLicense.CustomImages.Parent = this.btnReleaseLicense;
+            this.btnReleaseLicense.FillColor = System.Drawing.Color.Transparent;
+            this.btnReleaseLicense.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnReleaseLicense.ForeColor = System.Drawing.Color.Black;
+            this.btnReleaseLicense.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnReleaseLicense.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnReleaseLicense.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnReleaseLicense.HoverState.Image = global::PresentationLayer.Properties.Resources.releaseFill24;
+            this.btnReleaseLicense.HoverState.Parent = this.btnReleaseLicense;
+            this.btnReleaseLicense.Image = global::PresentationLayer.Properties.Resources.releaseNoFill24;
+            this.btnReleaseLicense.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnReleaseLicense.Location = new System.Drawing.Point(1025, 8);
+            this.btnReleaseLicense.Name = "btnReleaseLicense";
+            this.btnReleaseLicense.PressedColor = System.Drawing.Color.DimGray;
+            this.btnReleaseLicense.ShadowDecoration.Parent = this.btnReleaseLicense;
+            this.btnReleaseLicense.Size = new System.Drawing.Size(176, 37);
+            this.btnReleaseLicense.TabIndex = 7;
+            this.btnReleaseLicense.Text = "Release License";
+            this.btnReleaseLicense.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnReleaseLicense.Click += new System.EventHandler(this.btnReleaseLicense_Click);
+            // 
+            // btnDetain
+            // 
+            this.btnDetain.BackColor = System.Drawing.Color.Transparent;
+            this.btnDetain.BorderColor = System.Drawing.Color.DimGray;
+            this.btnDetain.BorderRadius = 10;
+            this.btnDetain.CheckedState.Parent = this.btnDetain;
+            this.btnDetain.CustomImages.Parent = this.btnDetain;
+            this.btnDetain.FillColor = System.Drawing.Color.Transparent;
+            this.btnDetain.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnDetain.ForeColor = System.Drawing.Color.Black;
+            this.btnDetain.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDetain.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDetain.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnDetain.HoverState.Image = global::PresentationLayer.Properties.Resources.detainFill24;
+            this.btnDetain.HoverState.Parent = this.btnDetain;
+            this.btnDetain.Image = global::PresentationLayer.Properties.Resources.detainNoFill24;
+            this.btnDetain.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDetain.Location = new System.Drawing.Point(1218, 9);
+            this.btnDetain.Name = "btnDetain";
+            this.btnDetain.PressedColor = System.Drawing.Color.DimGray;
+            this.btnDetain.ShadowDecoration.Parent = this.btnDetain;
+            this.btnDetain.Size = new System.Drawing.Size(167, 37);
+            this.btnDetain.TabIndex = 7;
+            this.btnDetain.Text = "Detain License";
+            this.btnDetain.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDetain.Click += new System.EventHandler(this.btnDetain_Click);
             // 
             // label2
             // 
@@ -424,92 +504,8 @@
             this.toolStripSeparator1,
             this.releaseDetainedLicenseToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(257, 154);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(253, 6);
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.Transparent;
-            this.btnBack.BorderColor = System.Drawing.Color.DimGray;
-            this.btnBack.BorderRadius = 10;
-            this.btnBack.BorderThickness = 1;
-            this.btnBack.CheckedState.Parent = this.btnBack;
-            this.btnBack.CustomImages.Parent = this.btnBack;
-            this.btnBack.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnBack.FillColor = System.Drawing.Color.Transparent;
-            this.btnBack.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnBack.ForeColor = System.Drawing.Color.DimGray;
-            this.btnBack.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.btnBack.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnBack.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnBack.HoverState.Parent = this.btnBack;
-            this.btnBack.Image = global::PresentationLayer.Properties.Resources.BackShortArrow;
-            this.btnBack.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnBack.Location = new System.Drawing.Point(18, 14);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.ShadowDecoration.Parent = this.btnBack;
-            this.btnBack.Size = new System.Drawing.Size(108, 37);
-            this.btnBack.TabIndex = 9;
-            this.btnBack.Text = "Back";
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // btnReleaseLicense
-            // 
-            this.btnReleaseLicense.BackColor = System.Drawing.Color.Transparent;
-            this.btnReleaseLicense.BorderColor = System.Drawing.Color.DimGray;
-            this.btnReleaseLicense.BorderRadius = 10;
-            this.btnReleaseLicense.CheckedState.Parent = this.btnReleaseLicense;
-            this.btnReleaseLicense.CustomImages.Parent = this.btnReleaseLicense;
-            this.btnReleaseLicense.FillColor = System.Drawing.Color.Transparent;
-            this.btnReleaseLicense.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnReleaseLicense.ForeColor = System.Drawing.Color.Black;
-            this.btnReleaseLicense.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnReleaseLicense.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnReleaseLicense.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnReleaseLicense.HoverState.Image = global::PresentationLayer.Properties.Resources.releaseFill24;
-            this.btnReleaseLicense.HoverState.Parent = this.btnReleaseLicense;
-            this.btnReleaseLicense.Image = global::PresentationLayer.Properties.Resources.releaseNoFill24;
-            this.btnReleaseLicense.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnReleaseLicense.Location = new System.Drawing.Point(1025, 8);
-            this.btnReleaseLicense.Name = "btnReleaseLicense";
-            this.btnReleaseLicense.PressedColor = System.Drawing.Color.DimGray;
-            this.btnReleaseLicense.ShadowDecoration.Parent = this.btnReleaseLicense;
-            this.btnReleaseLicense.Size = new System.Drawing.Size(176, 37);
-            this.btnReleaseLicense.TabIndex = 7;
-            this.btnReleaseLicense.Text = "Release License";
-            this.btnReleaseLicense.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnReleaseLicense.Click += new System.EventHandler(this.btnReleaseLicense_Click);
-            // 
-            // btnDetain
-            // 
-            this.btnDetain.BackColor = System.Drawing.Color.Transparent;
-            this.btnDetain.BorderColor = System.Drawing.Color.DimGray;
-            this.btnDetain.BorderRadius = 10;
-            this.btnDetain.CheckedState.Parent = this.btnDetain;
-            this.btnDetain.CustomImages.Parent = this.btnDetain;
-            this.btnDetain.FillColor = System.Drawing.Color.Transparent;
-            this.btnDetain.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnDetain.ForeColor = System.Drawing.Color.Black;
-            this.btnDetain.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDetain.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnDetain.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnDetain.HoverState.Image = global::PresentationLayer.Properties.Resources.detainFill24;
-            this.btnDetain.HoverState.Parent = this.btnDetain;
-            this.btnDetain.Image = global::PresentationLayer.Properties.Resources.detainNoFill24;
-            this.btnDetain.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnDetain.Location = new System.Drawing.Point(1218, 9);
-            this.btnDetain.Name = "btnDetain";
-            this.btnDetain.PressedColor = System.Drawing.Color.DimGray;
-            this.btnDetain.ShadowDecoration.Parent = this.btnDetain;
-            this.btnDetain.Size = new System.Drawing.Size(167, 37);
-            this.btnDetain.TabIndex = 7;
-            this.btnDetain.Text = "Detain License";
-            this.btnDetain.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnDetain.Click += new System.EventHandler(this.btnDetain_Click);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(257, 130);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // showPersonDetailsToolStripMenuItem
             // 
@@ -534,6 +530,11 @@
             this.showPersonLicensesHistoryToolStripMenuItem.Size = new System.Drawing.Size(256, 30);
             this.showPersonLicensesHistoryToolStripMenuItem.Text = "Show Person Licenses History";
             this.showPersonLicensesHistoryToolStripMenuItem.Click += new System.EventHandler(this.showPersonLicensesHistoryToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(253, 6);
             // 
             // releaseDetainedLicenseToolStripMenuItem
             // 
