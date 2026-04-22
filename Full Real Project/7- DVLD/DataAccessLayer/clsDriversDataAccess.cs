@@ -138,35 +138,6 @@ namespace DataAccessLayer
             }
             return (rowsAffected > 0);
         }
-
-        public static bool DoesDriverExist(int DriverID)
-        {
-            bool isFound = false;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
-                {
-                    string query = "select Found = 1 from Drivers where DriverID = @ID;";
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@ID", DriverID);
-                        connection.Open();
-
-                        object result = command.ExecuteScalar();
-
-                        if (result != null)
-                            isFound = true;
-                    }
-                }
-            }
-            catch (Exception e)
-            {
-                // logs
-                throw;
-            }
-            return isFound;
-        }
        
         public static DataTable GetAllDrivers()
         {

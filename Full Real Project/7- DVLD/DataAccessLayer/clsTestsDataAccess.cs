@@ -42,7 +42,7 @@ namespace DataAccessLayer
             return isFound;
         }
 
-        public static bool FindLastTestPerPersonAndLicenseClass(int ApplicantPersonID, int LicenseClassID, int TestTypeID,
+        public static bool FindLastTestPerPersonAndLicenseClass(int ApplicantPersonID, byte LicenseClassID, int TestTypeID,
                                         ref int TestID, ref int TestAppointmentID, ref bool TestResult, ref string Notes, ref int CreatedByUserID)
         {
             bool isFound = false;

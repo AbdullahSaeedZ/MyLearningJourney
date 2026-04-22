@@ -100,15 +100,12 @@ namespace PresentationLayer.Applications.ManageInternationalApplications
         }
 
 
-
-        // using OnUpdate event below is to control WHEN to refresh, instead of refreshing once opened and closed the forms even if no update done
         private void btnNewApplication_Click(object sender, EventArgs e)
         {
-
+            frmIssueInternationalLicense issueInternationalLicense = new frmIssueInternationalLicense();
+            issueInternationalLicense.UpdateDGVOnLicenseIssued += RefreshDataGridView;
             clsUtilities.AddToBreadcrumb("> Add New Application");
-
-
-
+            issueInternationalLicense.ShowDialog();
             clsUtilities.RemoveFromBreadcrumb("> Add New Application");
         }
 

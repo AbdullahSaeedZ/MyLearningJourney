@@ -93,6 +93,18 @@
     <Compile Include="Applications\DrivingLicenses\Forms\frmIssueInternationalLicense.Designer.cs">
       <DependentUpon>frmIssueInternationalLicense.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\DrivingLicenses\Forms\frmIssueLicenseReplacement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\DrivingLicenses\Forms\frmIssueLicenseReplacement.Designer.cs">
+      <DependentUpon>frmIssueLicenseReplacement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Applications\DrivingLicenses\Forms\frmRenewLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\DrivingLicenses\Forms\frmRenewLicense.Designer.cs">
+      <DependentUpon>frmRenewLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\DrivingLicenses\Forms\frmShowInternationalLicenseInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -320,6 +332,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\DrivingLicenses\Forms\frmIssueInternationalLicense.resx">
       <DependentUpon>frmIssueInternationalLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\DrivingLicenses\Forms\frmIssueLicenseReplacement.resx">
+      <DependentUpon>frmIssueLicenseReplacement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\DrivingLicenses\Forms\frmRenewLicense.resx">
+      <DependentUpon>frmRenewLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\DrivingLicenses\Forms\frmShowInternationalLicenseInfo.resx">
       <DependentUpon>frmShowInternationalLicenseInfo.cs</DependentUpon>

@@ -131,6 +131,8 @@
             this.tbSearch.ShadowDecoration.Parent = this.tbSearch;
             this.tbSearch.Size = new System.Drawing.Size(216, 36);
             this.tbSearch.TabIndex = 1;
+            this.tbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyDown);
+            this.tbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSearch_KeyPress);
             // 
             // ctrlLocalDrivingLicenseInfoWithFilter
             // 

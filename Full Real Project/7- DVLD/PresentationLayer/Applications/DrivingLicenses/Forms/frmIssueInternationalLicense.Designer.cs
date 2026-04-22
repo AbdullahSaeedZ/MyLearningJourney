@@ -30,15 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.ctrlLocalDrivingLicenseInfoWithFilter1 = new PresentationLayer.Applications.DrivingLicenses.Controls.ctrlLocalDrivingLicenseInfoWithFilter();
             this.pnlApplicationInfo = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
-            this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.btnIssueLicense = new Guna.UI2.WinForms.Guna2Button();
-            this.btnShowLicenseInfo = new Guna.UI2.WinForms.Guna2Button();
-            this.btnShowLicensesHistory = new Guna.UI2.WinForms.Guna2Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -55,7 +48,14 @@
             this.lblInterLicenseID = new System.Windows.Forms.Label();
             this.lblApplicationDate = new System.Windows.Forms.Label();
             this.lblInterApplicationID = new System.Windows.Forms.Label();
-            this.ctrlLocalDrivingLicenseInfoWithFilter1 = new PresentationLayer.Applications.DrivingLicenses.Controls.ctrlLocalDrivingLicenseInfoWithFilter();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnIssueLicense = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
+            this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.btnShowLicenseInfo = new Guna.UI2.WinForms.Guna2Button();
+            this.btnShowLicensesHistory = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ShadowPanel1.SuspendLayout();
             this.pnlApplicationInfo.SuspendLayout();
             this.SuspendLayout();
@@ -79,6 +79,20 @@
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(1000, 789);
             this.guna2ShadowPanel1.TabIndex = 2;
+            // 
+            // ctrlLocalDrivingLicenseInfoWithFilter1
+            // 
+            this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterBorderThickness = 1;
+            this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterEnabled = true;
+            this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterVisible = true;
+            this.ctrlLocalDrivingLicenseInfoWithFilter1.LicenseCardBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalDrivingLicenseInfoWithFilter1.LicenseCardBorderThickness = 1;
+            this.ctrlLocalDrivingLicenseInfoWithFilter1.Location = new System.Drawing.Point(13, 87);
+            this.ctrlLocalDrivingLicenseInfoWithFilter1.Name = "ctrlLocalDrivingLicenseInfoWithFilter1";
+            this.ctrlLocalDrivingLicenseInfoWithFilter1.Size = new System.Drawing.Size(973, 413);
+            this.ctrlLocalDrivingLicenseInfoWithFilter1.TabIndex = 18;
+            this.ctrlLocalDrivingLicenseInfoWithFilter1.OnLicenseSelected += new System.Action(this.ctrlLocalDrivingLicenseInfoWithFilter1_OnLicenseSelected);
             // 
             // pnlApplicationInfo
             // 
@@ -108,155 +122,6 @@
             this.pnlApplicationInfo.ShadowDecoration.Parent = this.pnlApplicationInfo;
             this.pnlApplicationInfo.Size = new System.Drawing.Size(964, 215);
             this.pnlApplicationInfo.TabIndex = 17;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancel.BorderColor = System.Drawing.Color.DimGray;
-            this.btnCancel.BorderRadius = 10;
-            this.btnCancel.BorderThickness = 1;
-            this.btnCancel.CheckedState.Parent = this.btnCancel;
-            this.btnCancel.CustomImages.Parent = this.btnCancel;
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.FillColor = System.Drawing.Color.Transparent;
-            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnCancel.ForeColor = System.Drawing.Color.DimGray;
-            this.btnCancel.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.btnCancel.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancel.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.HoverState.Parent = this.btnCancel;
-            this.btnCancel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCancel.Location = new System.Drawing.Point(666, 736);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.ShadowDecoration.Parent = this.btnCancel;
-            this.btnCancel.Size = new System.Drawing.Size(155, 37);
-            this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // ControlBoxClose
-            // 
-            this.ControlBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ControlBoxClose.BackColor = System.Drawing.Color.Transparent;
-            this.ControlBoxClose.FillColor = System.Drawing.Color.Transparent;
-            this.ControlBoxClose.HoverState.Parent = this.ControlBoxClose;
-            this.ControlBoxClose.IconColor = System.Drawing.Color.Gray;
-            this.ControlBoxClose.Location = new System.Drawing.Point(942, 12);
-            this.ControlBoxClose.Name = "ControlBoxClose";
-            this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
-            this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
-            this.ControlBoxClose.TabIndex = 8;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Tahoma", 18.33962F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTitle.Location = new System.Drawing.Point(205, 30);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(527, 33);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "New Local Driving License Application";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // guna2Elipse1
-            // 
-            this.guna2Elipse1.BorderRadius = 40;
-            this.guna2Elipse1.TargetControl = this;
-            // 
-            // btnIssueLicense
-            // 
-            this.btnIssueLicense.BackColor = System.Drawing.Color.Transparent;
-            this.btnIssueLicense.BorderColor = System.Drawing.Color.DimGray;
-            this.btnIssueLicense.BorderRadius = 10;
-            this.btnIssueLicense.BorderThickness = 1;
-            this.btnIssueLicense.CheckedState.Parent = this.btnIssueLicense;
-            this.btnIssueLicense.CustomImages.Parent = this.btnIssueLicense;
-            this.btnIssueLicense.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnIssueLicense.Enabled = false;
-            this.btnIssueLicense.FillColor = System.Drawing.Color.Transparent;
-            this.btnIssueLicense.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnIssueLicense.ForeColor = System.Drawing.Color.DimGray;
-            this.btnIssueLicense.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.btnIssueLicense.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnIssueLicense.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnIssueLicense.HoverState.Parent = this.btnIssueLicense;
-            this.btnIssueLicense.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnIssueLicense.Location = new System.Drawing.Point(827, 736);
-            this.btnIssueLicense.Name = "btnIssueLicense";
-            this.btnIssueLicense.ShadowDecoration.Parent = this.btnIssueLicense;
-            this.btnIssueLicense.Size = new System.Drawing.Size(155, 37);
-            this.btnIssueLicense.TabIndex = 6;
-            this.btnIssueLicense.Text = "Issue";
-            this.btnIssueLicense.Click += new System.EventHandler(this.btnIssueLicense_Click);
-            // 
-            // btnShowLicenseInfo
-            // 
-            this.btnShowLicenseInfo.BackColor = System.Drawing.Color.Transparent;
-            this.btnShowLicenseInfo.BorderColor = System.Drawing.Color.DimGray;
-            this.btnShowLicenseInfo.BorderRadius = 10;
-            this.btnShowLicenseInfo.CheckedState.Parent = this.btnShowLicenseInfo;
-            this.btnShowLicenseInfo.CustomImages.Parent = this.btnShowLicenseInfo;
-            this.btnShowLicenseInfo.Enabled = false;
-            this.btnShowLicenseInfo.FillColor = System.Drawing.Color.Transparent;
-            this.btnShowLicenseInfo.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowLicenseInfo.ForeColor = System.Drawing.Color.Black;
-            this.btnShowLicenseInfo.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowLicenseInfo.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowLicenseInfo.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnShowLicenseInfo.HoverState.Image = global::PresentationLayer.Properties.Resources.LicenseCardFill64;
-            this.btnShowLicenseInfo.HoverState.Parent = this.btnShowLicenseInfo;
-            this.btnShowLicenseInfo.Image = global::PresentationLayer.Properties.Resources.LicenseCardNoFill64;
-            this.btnShowLicenseInfo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnShowLicenseInfo.Location = new System.Drawing.Point(241, 736);
-            this.btnShowLicenseInfo.Name = "btnShowLicenseInfo";
-            this.btnShowLicenseInfo.PressedColor = System.Drawing.Color.DimGray;
-            this.btnShowLicenseInfo.ShadowDecoration.Parent = this.btnShowLicenseInfo;
-            this.btnShowLicenseInfo.Size = new System.Drawing.Size(195, 26);
-            this.btnShowLicenseInfo.TabIndex = 19;
-            this.btnShowLicenseInfo.Text = "Show License Info";
-            this.btnShowLicenseInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnShowLicenseInfo.Click += new System.EventHandler(this.btnShowLicenseInfo_Click);
-            // 
-            // btnShowLicensesHistory
-            // 
-            this.btnShowLicensesHistory.BackColor = System.Drawing.Color.Transparent;
-            this.btnShowLicensesHistory.BorderColor = System.Drawing.Color.DimGray;
-            this.btnShowLicensesHistory.BorderRadius = 10;
-            this.btnShowLicensesHistory.CheckedState.Parent = this.btnShowLicensesHistory;
-            this.btnShowLicensesHistory.CustomImages.Parent = this.btnShowLicensesHistory;
-            this.btnShowLicensesHistory.Enabled = false;
-            this.btnShowLicensesHistory.FillColor = System.Drawing.Color.Transparent;
-            this.btnShowLicensesHistory.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowLicensesHistory.ForeColor = System.Drawing.Color.Black;
-            this.btnShowLicensesHistory.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowLicensesHistory.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowLicensesHistory.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnShowLicensesHistory.HoverState.Image = global::PresentationLayer.Properties.Resources.LicenseHistoryFill24;
-            this.btnShowLicensesHistory.HoverState.Parent = this.btnShowLicensesHistory;
-            this.btnShowLicensesHistory.Image = global::PresentationLayer.Properties.Resources.LicenseHistoryNoFill24;
-            this.btnShowLicensesHistory.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnShowLicensesHistory.Location = new System.Drawing.Point(27, 736);
-            this.btnShowLicensesHistory.Name = "btnShowLicensesHistory";
-            this.btnShowLicensesHistory.PressedColor = System.Drawing.Color.DimGray;
-            this.btnShowLicensesHistory.ShadowDecoration.Parent = this.btnShowLicensesHistory;
-            this.btnShowLicensesHistory.Size = new System.Drawing.Size(195, 26);
-            this.btnShowLicensesHistory.TabIndex = 19;
-            this.btnShowLicensesHistory.Text = "Show Licenses History";
-            this.btnShowLicensesHistory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnShowLicensesHistory.Click += new System.EventHandler(this.btnShowLicensesHistory_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(14, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(205, 29);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Application Info";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label17
             // 
@@ -458,19 +323,154 @@
             this.lblInterApplicationID.TabIndex = 25;
             this.lblInterApplicationID.Text = "Not Assigned Yet";
             // 
-            // ctrlLocalDrivingLicenseInfoWithFilter1
+            // label2
             // 
-            this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterBorderThickness = 1;
-            this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterEnabled = true;
-            this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterVisible = true;
-            this.ctrlLocalDrivingLicenseInfoWithFilter1.LicenseCardBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlLocalDrivingLicenseInfoWithFilter1.LicenseCardBorderThickness = 1;
-            this.ctrlLocalDrivingLicenseInfoWithFilter1.Location = new System.Drawing.Point(13, 87);
-            this.ctrlLocalDrivingLicenseInfoWithFilter1.Name = "ctrlLocalDrivingLicenseInfoWithFilter1";
-            this.ctrlLocalDrivingLicenseInfoWithFilter1.Size = new System.Drawing.Size(973, 413);
-            this.ctrlLocalDrivingLicenseInfoWithFilter1.TabIndex = 18;
-            this.ctrlLocalDrivingLicenseInfoWithFilter1.OnLicenseSelected += new System.Action(this.ctrlLocalDrivingLicenseInfoWithFilter1_OnLicenseSelected);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(14, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(205, 29);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Application Info";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnIssueLicense
+            // 
+            this.btnIssueLicense.BackColor = System.Drawing.Color.Transparent;
+            this.btnIssueLicense.BorderColor = System.Drawing.Color.DimGray;
+            this.btnIssueLicense.BorderRadius = 10;
+            this.btnIssueLicense.BorderThickness = 1;
+            this.btnIssueLicense.CheckedState.Parent = this.btnIssueLicense;
+            this.btnIssueLicense.CustomImages.Parent = this.btnIssueLicense;
+            this.btnIssueLicense.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnIssueLicense.Enabled = false;
+            this.btnIssueLicense.FillColor = System.Drawing.Color.Transparent;
+            this.btnIssueLicense.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnIssueLicense.ForeColor = System.Drawing.Color.DimGray;
+            this.btnIssueLicense.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.btnIssueLicense.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnIssueLicense.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnIssueLicense.HoverState.Parent = this.btnIssueLicense;
+            this.btnIssueLicense.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnIssueLicense.Location = new System.Drawing.Point(827, 736);
+            this.btnIssueLicense.Name = "btnIssueLicense";
+            this.btnIssueLicense.ShadowDecoration.Parent = this.btnIssueLicense;
+            this.btnIssueLicense.Size = new System.Drawing.Size(155, 37);
+            this.btnIssueLicense.TabIndex = 6;
+            this.btnIssueLicense.Text = "Issue";
+            this.btnIssueLicense.Click += new System.EventHandler(this.btnIssueLicense_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancel.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCancel.BorderRadius = 10;
+            this.btnCancel.BorderThickness = 1;
+            this.btnCancel.CheckedState.Parent = this.btnCancel;
+            this.btnCancel.CustomImages.Parent = this.btnCancel;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FillColor = System.Drawing.Color.Transparent;
+            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnCancel.ForeColor = System.Drawing.Color.DimGray;
+            this.btnCancel.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCancel.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancel.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.HoverState.Parent = this.btnCancel;
+            this.btnCancel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCancel.Location = new System.Drawing.Point(666, 736);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.ShadowDecoration.Parent = this.btnCancel;
+            this.btnCancel.Size = new System.Drawing.Size(155, 37);
+            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // ControlBoxClose
+            // 
+            this.ControlBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ControlBoxClose.BackColor = System.Drawing.Color.Transparent;
+            this.ControlBoxClose.FillColor = System.Drawing.Color.Transparent;
+            this.ControlBoxClose.HoverState.Parent = this.ControlBoxClose;
+            this.ControlBoxClose.IconColor = System.Drawing.Color.Gray;
+            this.ControlBoxClose.Location = new System.Drawing.Point(942, 12);
+            this.ControlBoxClose.Name = "ControlBoxClose";
+            this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
+            this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
+            this.ControlBoxClose.TabIndex = 8;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Tahoma", 18.33962F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTitle.Location = new System.Drawing.Point(262, 28);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(477, 33);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "New International Driving License";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 40;
+            this.guna2Elipse1.TargetControl = this;
+            // 
+            // btnShowLicenseInfo
+            // 
+            this.btnShowLicenseInfo.BackColor = System.Drawing.Color.Transparent;
+            this.btnShowLicenseInfo.BorderColor = System.Drawing.Color.DimGray;
+            this.btnShowLicenseInfo.BorderRadius = 10;
+            this.btnShowLicenseInfo.CheckedState.Parent = this.btnShowLicenseInfo;
+            this.btnShowLicenseInfo.CustomImages.Parent = this.btnShowLicenseInfo;
+            this.btnShowLicenseInfo.Enabled = false;
+            this.btnShowLicenseInfo.FillColor = System.Drawing.Color.Transparent;
+            this.btnShowLicenseInfo.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowLicenseInfo.ForeColor = System.Drawing.Color.Black;
+            this.btnShowLicenseInfo.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowLicenseInfo.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowLicenseInfo.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnShowLicenseInfo.HoverState.Image = global::PresentationLayer.Properties.Resources.LicenseCardFill64;
+            this.btnShowLicenseInfo.HoverState.Parent = this.btnShowLicenseInfo;
+            this.btnShowLicenseInfo.Image = global::PresentationLayer.Properties.Resources.LicenseCardNoFill64;
+            this.btnShowLicenseInfo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnShowLicenseInfo.Location = new System.Drawing.Point(241, 736);
+            this.btnShowLicenseInfo.Name = "btnShowLicenseInfo";
+            this.btnShowLicenseInfo.PressedColor = System.Drawing.Color.DimGray;
+            this.btnShowLicenseInfo.ShadowDecoration.Parent = this.btnShowLicenseInfo;
+            this.btnShowLicenseInfo.Size = new System.Drawing.Size(195, 26);
+            this.btnShowLicenseInfo.TabIndex = 19;
+            this.btnShowLicenseInfo.Text = "Show License Info";
+            this.btnShowLicenseInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnShowLicenseInfo.Click += new System.EventHandler(this.btnShowLicenseInfo_Click);
+            // 
+            // btnShowLicensesHistory
+            // 
+            this.btnShowLicensesHistory.BackColor = System.Drawing.Color.Transparent;
+            this.btnShowLicensesHistory.BorderColor = System.Drawing.Color.DimGray;
+            this.btnShowLicensesHistory.BorderRadius = 10;
+            this.btnShowLicensesHistory.CheckedState.Parent = this.btnShowLicensesHistory;
+            this.btnShowLicensesHistory.CustomImages.Parent = this.btnShowLicensesHistory;
+            this.btnShowLicensesHistory.Enabled = false;
+            this.btnShowLicensesHistory.FillColor = System.Drawing.Color.Transparent;
+            this.btnShowLicensesHistory.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowLicensesHistory.ForeColor = System.Drawing.Color.Black;
+            this.btnShowLicensesHistory.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowLicensesHistory.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowLicensesHistory.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnShowLicensesHistory.HoverState.Image = global::PresentationLayer.Properties.Resources.LicenseHistoryFill24;
+            this.btnShowLicensesHistory.HoverState.Parent = this.btnShowLicensesHistory;
+            this.btnShowLicensesHistory.Image = global::PresentationLayer.Properties.Resources.LicenseHistoryNoFill24;
+            this.btnShowLicensesHistory.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnShowLicensesHistory.Location = new System.Drawing.Point(27, 736);
+            this.btnShowLicensesHistory.Name = "btnShowLicensesHistory";
+            this.btnShowLicensesHistory.PressedColor = System.Drawing.Color.DimGray;
+            this.btnShowLicensesHistory.ShadowDecoration.Parent = this.btnShowLicensesHistory;
+            this.btnShowLicensesHistory.Size = new System.Drawing.Size(195, 26);
+            this.btnShowLicensesHistory.TabIndex = 19;
+            this.btnShowLicensesHistory.Text = "Show Licenses History";
+            this.btnShowLicensesHistory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnShowLicensesHistory.Click += new System.EventHandler(this.btnShowLicensesHistory_Click);
             // 
             // frmIssueInternationalLicense
             // 

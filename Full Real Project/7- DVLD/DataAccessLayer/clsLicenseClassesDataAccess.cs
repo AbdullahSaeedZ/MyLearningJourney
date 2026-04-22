@@ -6,7 +6,7 @@ namespace DataAccessLayer
 {
     public class clsLicenseClassesDataAccess
     {
-        public static bool GetLicenseClassInfoByID(int LicenseClassID, ref string ClassName, ref string ClassDescription, ref byte MinimumAllowedAge, ref byte DefaultValidityLength, ref float ClassFees)
+        public static bool GetLicenseClassInfoByID(byte LicenseClassID, ref string ClassName, ref string ClassDescription, ref byte MinimumAllowedAge, ref byte DefaultValidityLength, ref float ClassFees)
         {
             bool isFound = false;
 
@@ -44,7 +44,7 @@ namespace DataAccessLayer
             return isFound;
         }
 
-        public static bool GetLicenseClassInfoByClassName(string ClassName, ref int LicenseClassID, ref string ClassDescription, ref byte MinimumAllowedAge, ref byte DefaultValidityLength, ref float ClassFees)
+        public static bool GetLicenseClassInfoByClassName(string ClassName, ref byte LicenseClassID, ref string ClassDescription, ref byte MinimumAllowedAge, ref byte DefaultValidityLength, ref float ClassFees)
         {
             bool isFound = false;
 
@@ -64,7 +64,7 @@ namespace DataAccessLayer
 
                         if (reader.Read())
                         {
-                            LicenseClassID = (int)reader["LicenseClassID"];
+                            LicenseClassID = Convert.ToByte(reader["LicenseClassID"]);
                             ClassDescription = (string)reader["ClassDescription"];
                             MinimumAllowedAge = (byte)reader["MinimumAllowedAge"];
                             DefaultValidityLength = (byte)reader["DefaultValidityLength"];
@@ -82,7 +82,7 @@ namespace DataAccessLayer
             return isFound;
         }
 
-        public static bool UpdateLicenseClass(int LicenseClassID, string ClassName, string ClassDescription, byte MinimumAllowedAge, byte DefaultValidityLength, float ClassFees)
+        public static bool UpdateLicenseClass(byte LicenseClassID, string ClassName, string ClassDescription, byte MinimumAllowedAge, byte DefaultValidityLength, float ClassFees)
         {
             int rowsAffected = 0;
 

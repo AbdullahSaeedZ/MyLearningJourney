@@ -53,12 +53,12 @@ namespace PresentationLayer.Applications.DrivingLicenses.Controls
 
         private void _FillLicenseInfo()
         {
-            lblName.Text = _IntrLicense.DriverInfo.PersonInfo.FullName;
+            lblName.Text = _IntrLicense.LocalLicenseInfo.DriverInfo.PersonInfo.FullName;
             lblInternationalLicenseID.Text = _IntrLicense.InternationalLicenseID.ToString();
             lblLocalLicenseID.Text = _IntrLicense.IssuedUsingLicenseID.ToString();
-            lblNationalNo.Text = _IntrLicense.DriverInfo.PersonInfo.NationalID;
-            lblBirthDate.Text = _IntrLicense.DriverInfo.PersonInfo.BirthDate.ToShortDateString();
-            lblGender.Text = _IntrLicense.DriverInfo.PersonInfo.Gender.ToString();
+            lblNationalNo.Text = _IntrLicense.LocalLicenseInfo.DriverInfo.PersonInfo.NationalID;
+            lblBirthDate.Text = _IntrLicense.LocalLicenseInfo.DriverInfo.PersonInfo.BirthDate.ToShortDateString();
+            lblGender.Text = _IntrLicense.LocalLicenseInfo.DriverInfo.PersonInfo.Gender.ToString();
             lblIsActive.Text = _IntrLicense.IsActive ? "Yes" : "No";
             lblIsDetained.Text = _IntrLicense.IsLicenseDetained() ? "Yes" : "No";
             lblDriverID.Text = _IntrLicense.DriverID.ToString();
@@ -71,19 +71,19 @@ namespace PresentationLayer.Applications.DrivingLicenses.Controls
 
         private void _LoadPersonImage()
         {
-            if (string.IsNullOrEmpty(_IntrLicense.DriverInfo.PersonInfo.ImagePath))
-                pbPersonPic.Image = _IntrLicense.DriverInfo.PersonInfo.Gender == clsPeopleBusiness.enGender.Male ? Resources.defaultMaleProfile : Resources.defaultFemaleProfile;
+            if (string.IsNullOrEmpty(_IntrLicense.LocalLicenseInfo.DriverInfo.PersonInfo.ImagePath))
+                pbPersonPic.Image = _IntrLicense.LocalLicenseInfo.DriverInfo.PersonInfo.Gender == clsPeopleBusiness.enGender.Male ? Resources.defaultMaleProfile : Resources.defaultFemaleProfile;
             else
             {
-                if (File.Exists(_IntrLicense.DriverInfo.PersonInfo.ImagePath))
+                if (File.Exists(_IntrLicense.LocalLicenseInfo.DriverInfo.PersonInfo.ImagePath))
                 {
-                    using (FileStream fs = new FileStream(_IntrLicense.DriverInfo.PersonInfo.ImagePath, FileMode.Open, FileAccess.Read))
+                    using (FileStream fs = new FileStream(_IntrLicense.LocalLicenseInfo.DriverInfo.PersonInfo.ImagePath, FileMode.Open, FileAccess.Read))
                     {
                         pbPersonPic.Image = new Bitmap(fs);
                     }
                 }
                 else
-                    MessageBox.Show($"Could not find image of this path: {_IntrLicense.DriverInfo.PersonInfo.ImagePath}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Could not find image of this path: {_IntrLicense.LocalLicenseInfo.DriverInfo.PersonInfo.ImagePath}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

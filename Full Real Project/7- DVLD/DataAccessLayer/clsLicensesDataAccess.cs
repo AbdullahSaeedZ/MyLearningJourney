@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace DataAccessLayer
 {
     public class clsLicensesDataAccess
     {
-        public static bool FindByLicenseID(int LicenseID, ref int ApplicationID, ref int DriverID, ref int LicenseClassID, ref DateTime IssueDate, ref DateTime ExpirationDate,
+        public static bool FindByLicenseID(int LicenseID, ref int ApplicationID, ref int DriverID, ref byte LicenseClassID, ref DateTime IssueDate, ref DateTime ExpirationDate,
                                               ref string Notes, ref float PaidFees, ref bool IsActive, ref byte IssueReason, ref int CreatedByUserID)
         {
             bool isFound = false;
@@ -28,7 +29,7 @@ namespace DataAccessLayer
                         {
                             ApplicationID = (int)reader["ApplicationID"];
                             DriverID = (int)reader["DriverID"];
-                            LicenseClassID = (int)reader["LicenseClass"];
+                            LicenseClassID = Convert.ToByte(reader["LicenseClass"]);
                             IssueDate = (DateTime)reader["IssueDate"];
                             ExpirationDate = (DateTime)reader["ExpirationDate"];
                             Notes = reader["Notes"] == DBNull.Value? "": (string)reader["Notes"];
@@ -49,7 +50,7 @@ namespace DataAccessLayer
             return isFound;
         }
 
-        public static int AddNewLicense(int ApplicationID, int DriverID, int LicenseClassID, DateTime IssueDate, DateTime ExpirationDate,
+        public static int AddNewLicense(int ApplicationID, int DriverID, byte LicenseClassID, DateTime IssueDate, DateTime ExpirationDate,
                                    string Notes, float PaidFees, bool IsActive, byte IssueReason, int CreatedByUserID)
         {
             int NewID = -1;
@@ -98,7 +99,7 @@ namespace DataAccessLayer
             }
             return NewID;
         }
-        public static bool UpdateLicense(int LicenseID, int ApplicationID, int DriverID, int LicenseClassID, DateTime IssueDate, DateTime ExpirationDate,
+        public static bool UpdateLicense(int LicenseID, int ApplicationID, int DriverID, byte LicenseClassID, DateTime IssueDate, DateTime ExpirationDate,
                                    string Notes, float PaidFees, bool IsActive, byte IssueReason, int CreatedByUserID)
         {
             int rowsAffected = 0;
@@ -142,7 +143,7 @@ namespace DataAccessLayer
             return (rowsAffected > 0);
         }
 
-        public static bool DidPersonIssueLicense(int PersonID, int LicenseClassID)
+        public static bool DidPersonIssueLicense(int PersonID, byte LicenseClassID)
         {
             bool isFound = false;
 
@@ -174,7 +175,34 @@ namespace DataAccessLayer
             return isFound;
         }
 
-        public static int GetActiveLicenseIDByPersonID(int PersonID, int LicenseClassID)
+        public static bool DeactivateLicense(int LicenseID)
+        {
+            int rowsAffected = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = @"update Licenses 
+                                     set IsActive = 0 where LicenseID = @ID;";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ID", LicenseID);
+
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return (rowsAffected > 0);
+        }
+
+        public static int GetActiveLicenseIDByPersonID(int PersonID, byte LicenseClassID)
         {
             int LicenseID = -1;
 

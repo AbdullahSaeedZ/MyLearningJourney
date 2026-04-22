@@ -3,13 +3,13 @@ using PresentationLayer.Drivers.Forms;
 using PresentationLayer.Global_Classes;
 using System;
 using System.Windows.Forms;
-using static PresentationLayer.Applications.TestAppointments.ctrlScheduleTestAppointment;
 
 namespace PresentationLayer.Applications.DrivingLicenses.Forms
 {
     public partial class frmIssueInternationalLicense : Form
     {
-        private int _NewInternationalLicenseID = -1;
+        public event Action UpdateDGVOnLicenseIssued;
+        private int _InternationalLicenseID = -1;
 
         public frmIssueInternationalLicense()
         {
@@ -36,31 +36,55 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
 
         private void ctrlLocalDrivingLicenseInfoWithFilter1_OnLicenseSelected()
         {
+            btnShowLicensesHistory.Enabled = true;
+
+            if (!_HandleBusinessConstraints())
+            {
+                btnIssueLicense.Enabled = false;
+                return;
+            }
+
+            btnIssueLicense.Enabled = true;
+            lblLocalLicenseID.Text = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.LicenseID.ToString();
+        }
+
+        private bool _HandleBusinessConstraints()
+        {
+
+            if (ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.LicenseClassID != clsLicenseClassesBusiness.enLicenseClass.Class3Ordinary)
+            {
+                MessageBox.Show($"Local License Classification must be of Class-3-Ordinary type, not allowed to proceed", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
             if (ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.IsLicenseExpired())
             {
                 MessageBox.Show($"Local License is expired, not allowed to proceed", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
+
             if (!ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.IsActive)
             {
                 MessageBox.Show($"Local License is not active, not allowed to proceed", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
 
-            lblLocalLicenseID.Text = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.LicenseID.ToString();
-            btnShowLicensesHistory.Enabled = true;
-            btnIssueLicense.Enabled = true;
+            // each person is allowed only one active international license
+            _InternationalLicenseID = clsInternationalLicensesBusiness.GetActiveInterNationalLicenseIDByPersonID(ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.DriverInfo.PersonID);
+            if (_InternationalLicenseID != -1)
+            {
+                MessageBox.Show($"Person already has an active International License with ID {_InternationalLicenseID}", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
         }
 
+        
         private void btnIssueLicense_Click(object sender, EventArgs e)
         {
-            // each person is allowed only one active international license
-            int ActiveInternationalLicenseID = clsInternationalLicensesBusiness.GetActiveInterNationalLicenseIDByPersonID(ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.DriverInfo.PersonID);
-            if (ActiveInternationalLicenseID != -1)
-            {
-                MessageBox.Show($"Person already has an active International License with ID {ActiveInternationalLicenseID}", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (MessageBox.Show("Are you sure to proceed with license issuance?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.Cancel)
                 return;
-            }
 
             int NewInternationalApplicationID = _HandleCreatingInternationalLicenseApplication();
             if (NewInternationalApplicationID == -1)
@@ -69,12 +93,15 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
                 return;
             }
 
-            _NewInternationalLicenseID = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.IssueInternationalLicense(NewInternationalApplicationID, clsBusinessSettings.CurrentUser.UserID);
-            if (_NewInternationalLicenseID != -1)
+            _InternationalLicenseID = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.IssueInternationalLicense(NewInternationalApplicationID, clsBusinessSettings.CurrentUser.UserID);
+            if (_InternationalLicenseID != -1)
             {
-                MessageBox.Show($"International License is successfully issued with ID {_NewInternationalLicenseID}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                lblInterLicenseID.Text = _NewInternationalLicenseID.ToString();
+                MessageBox.Show($"International License is successfully issued with ID {_InternationalLicenseID}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                lblInterLicenseID.Text = _InternationalLicenseID.ToString();
                 btnShowLicenseInfo.Enabled = true;
+                btnIssueLicense.Enabled = false;
+                ctrlLocalDrivingLicenseInfoWithFilter1.FilterEnabled = false;
+                UpdateDGVOnLicenseIssued?.Invoke();
             }
             else
                 MessageBox.Show($"Data was not saved successfully", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -103,7 +130,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
 
         private void btnShowLicenseInfo_Click(object sender, EventArgs e)
         {
-            frmShowInternationalLicenseInfo licensesInfo = new frmShowInternationalLicenseInfo(_NewInternationalLicenseID);
+            frmShowInternationalLicenseInfo licensesInfo = new frmShowInternationalLicenseInfo(_InternationalLicenseID);
             clsUtilities.AddToBreadcrumb("> License Info");
             licensesInfo.ShowDialog();
             clsUtilities.RemoveFromBreadcrumb("> License Info");

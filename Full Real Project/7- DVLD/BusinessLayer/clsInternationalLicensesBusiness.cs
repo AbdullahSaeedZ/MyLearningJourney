@@ -8,8 +8,6 @@ namespace BusinessLayer
     public class clsInternationalLicensesBusiness
     {
         enum enMode { eAddMode = 0, eUpdateMode = 1 };
-        public enum enIssueReason { FirstTime = 1, Renew = 2, ReplacementForDamaged = 3, ReplacementForLost = 4 };
-
         enMode _mode;
 
 
@@ -22,18 +20,18 @@ namespace BusinessLayer
         public bool IsActive { get; set; }
         public int CreatedByUserID { get; set; }
 
-        public clsDriversBusiness DriverInfo
-        {
-            get
-            {
-                return clsDriversBusiness.FindByDriverID(DriverID);
-            }
-        }
         public clsLicensesBusiness LocalLicenseInfo
         {
             get
             {
-                return clsLicensesBusiness.FindByLicenseID(IssuedUsingLicenseID);
+                return clsLicensesBusiness.FindByLicenseID(this.IssuedUsingLicenseID);
+            }
+        }
+        public clsApplicationsBusiness ApplicationInfo
+        {
+            get
+            {
+                return clsApplicationsBusiness.FindBaseApplicationByID(this.ApplicationID);
             }
         }
 
@@ -134,11 +132,6 @@ namespace BusinessLayer
             return clsDetainedLicensesDataAccess.IsLicenseDetained(this.IssuedUsingLicenseID);
         }
 
-        // will get license that was issued for first time by base application id
-        public static int GetLicenseIDbyBaseApplicationID(int BaseApplicationID)
-        {
-            return clsInternationalLicensesDataAccess.GetLicenseIDbyBaseApplicationID(BaseApplicationID);
-        }
 
         // will get only ACTIVE licenses
         public static int GetActiveInterNationalLicenseIDByPersonID(int PersonID)
@@ -146,10 +139,6 @@ namespace BusinessLayer
             return clsInternationalLicensesDataAccess.GetActiveInternationalLicenseIDByPersonID(PersonID);
         }
 
-        public static bool DoesPersonHaveActiveLicense(int PersonID)
-        {
-            return (GetActiveInterNationalLicenseIDByPersonID(PersonID) != -1);
-        }
 
      
     }

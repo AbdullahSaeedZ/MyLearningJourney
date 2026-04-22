@@ -57,7 +57,10 @@ namespace DataAccessLayer
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
                     // once a license is created, then application status directly becomes completed (represented as 3 in DB)
-                    string query = @"insert into InternationalLicenses 
+                    // and first we have to deactivate any other active international license as system allows only one active per person 
+                    string query = @"update InternationalLicenses set IsActive = 0 where DriverID = @DriverID;
+
+                                     insert into InternationalLicenses 
                                      values (@ApplicationID, @DriverID, @IssuedUsingLicenseID, @IssueDate, @ExpirationDate, @IsActive, @CreatedByUserID);
 
                                      update Applications

@@ -31,7 +31,7 @@ namespace BusinessLayer
 
 
         public int LocalDrivingLicenseApplicationID { get; private set; }
-        public int LicenseClassID { get; set; }
+        public clsLicenseClassesBusiness.enLicenseClass LicenseClassID { get; set; }
 
         public clsLicenseClassesBusiness LicenseClassInfo
         {
@@ -44,11 +44,11 @@ namespace BusinessLayer
         public clsLocalDrivingLicenseApplicationsBusiness()
         {
             this.LocalDrivingLicenseApplicationID = -1;
-            this.LicenseClassID = -1;
+            this.LicenseClassID = 0;
             this._mode = enMode.eAddMode;
         }
 
-        clsLocalDrivingLicenseApplicationsBusiness(int LocalApplicationID, int LicenseClassID, int ApplicationID, bool IsVisionTestPassed, bool IsWrittenTestPassed, bool IsStreetTestPassed,
+        clsLocalDrivingLicenseApplicationsBusiness(int LocalApplicationID, clsLicenseClassesBusiness.enLicenseClass LicenseClassID, int ApplicationID, bool IsVisionTestPassed, bool IsWrittenTestPassed, bool IsStreetTestPassed,
             int ApplicantPersonID, DateTime ApplicationDate, enApplicationTypes ApplicationTypeID, enApplicationStatus ApplicationStatus, DateTime LastStatusDate, float PaidFees, int CreatedByUserID)
             : base(ApplicationID, ApplicantPersonID, ApplicationDate, ApplicationTypeID, ApplicationStatus, LastStatusDate, PaidFees, CreatedByUserID)
         {
@@ -60,14 +60,15 @@ namespace BusinessLayer
 
         public static clsLocalDrivingLicenseApplicationsBusiness FindLocalLicenseApplicationByID(int LocalApplicationID)
         {
-            int ApplicationID = -1, licenseClassID = -1;
+            int ApplicationID = -1;
+            byte licenseClassID = 0;
             bool Vision = false, Written = false, Street = false;
             if (clsLocalDrivingLicenseApplicationsDataAccess.FindLocalLicenseApplicationByID(LocalApplicationID, ref ApplicationID, ref licenseClassID, ref Vision, ref Written, ref Street))
             {
 
                 clsApplicationsBusiness baseApplication = clsApplicationsBusiness.FindBaseApplicationByID(ApplicationID);
 
-                return new clsLocalDrivingLicenseApplicationsBusiness(LocalApplicationID, licenseClassID, ApplicationID, Vision, Written, Street, baseApplication.ApplicantPersonID, baseApplication.ApplicationDate,
+                return new clsLocalDrivingLicenseApplicationsBusiness(LocalApplicationID, (clsLicenseClassesBusiness.enLicenseClass)licenseClassID, ApplicationID, Vision, Written, Street, baseApplication.ApplicantPersonID, baseApplication.ApplicationDate,
                                                                       baseApplication.ApplicationTypeID, baseApplication.ApplicationStatus, baseApplication.LastStatusDate, baseApplication.PaidFees,
                                                                       baseApplication.CreatedByUserID);
             }
@@ -78,14 +79,15 @@ namespace BusinessLayer
 
         public static clsLocalDrivingLicenseApplicationsBusiness FindLocalLicenseApplicationByApplicationID(int ApplicationID)
         {
-            int localApplicationID = -1, licenseClassID = -1;
+            int localApplicationID = -1;
+            byte licenseClassID = 0;
             bool Vision = false, Written = false, Street = false;
             if (clsLocalDrivingLicenseApplicationsDataAccess.FindLocalLicenseApplicationByApplicationID(ref localApplicationID, ApplicationID, ref licenseClassID, ref Vision, ref Written, ref Street))
             {
 
                 clsApplicationsBusiness baseApplication = clsApplicationsBusiness.FindBaseApplicationByID(ApplicationID);
 
-                return new clsLocalDrivingLicenseApplicationsBusiness(localApplicationID, licenseClassID, ApplicationID, Vision, Written, Street, baseApplication.ApplicantPersonID, baseApplication.ApplicationDate,
+                return new clsLocalDrivingLicenseApplicationsBusiness(localApplicationID, (clsLicenseClassesBusiness.enLicenseClass)licenseClassID, ApplicationID, Vision, Written, Street, baseApplication.ApplicantPersonID, baseApplication.ApplicationDate,
                                                                       baseApplication.ApplicationTypeID, baseApplication.ApplicationStatus, baseApplication.LastStatusDate, baseApplication.PaidFees,
                                                                       baseApplication.CreatedByUserID);
             }
@@ -98,14 +100,14 @@ namespace BusinessLayer
 
         private bool _AddNewLocalDrivingLicenseApplication()
         {
-            this.LocalDrivingLicenseApplicationID = clsLocalDrivingLicenseApplicationsDataAccess.AddLocalLicenseApplication(this.LicenseClassID, this.ApplicationID);
+            this.LocalDrivingLicenseApplicationID = clsLocalDrivingLicenseApplicationsDataAccess.AddLocalLicenseApplication((byte)this.LicenseClassID, this.ApplicationID);
 
             return (this.LocalDrivingLicenseApplicationID != -1);
         }
 
         private bool _UpdateLocalDrivingLicenseApplication()
         {
-            return clsLocalDrivingLicenseApplicationsDataAccess.UpdateLocalLicenseApplication(this.LocalDrivingLicenseApplicationID, this.LicenseClassID);
+            return clsLocalDrivingLicenseApplicationsDataAccess.UpdateLocalLicenseApplication(this.LocalDrivingLicenseApplicationID, (byte)this.LicenseClassID);
         }
 
         // override incase of upcasting multiple applications in a list then do a loop (like in IT401)
@@ -151,9 +153,9 @@ namespace BusinessLayer
                 return false;
         }
 
-        public static int GetActiveLocalApplicationID(int ApplicantPersonID, int LicenseClassID)
+        public static int GetActiveLocalApplicationID(int ApplicantPersonID, clsLicenseClassesBusiness.enLicenseClass LicenseClassID)
         {
-            return clsLocalDrivingLicenseApplicationsDataAccess.GetActiveLocalApplicationID(ApplicantPersonID, LicenseClassID);
+            return clsLocalDrivingLicenseApplicationsDataAccess.GetActiveLocalApplicationID(ApplicantPersonID, (byte)LicenseClassID);
         }
 
         // if issuing license replacements is not linked to local driiving applications, then see where this method fits 

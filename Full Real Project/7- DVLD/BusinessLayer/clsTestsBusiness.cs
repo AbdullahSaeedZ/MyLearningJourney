@@ -100,13 +100,13 @@ namespace BusinessLayer
         }
 
 
-        public static clsTestsBusiness FindLastTestPerPersonAndLicenseClass(int ApplicantPersonID, int LicenseClassID, clsTestTypesBusiness.enTestType TestTypeID)
+        public static clsTestsBusiness FindLastTestPerPersonAndLicenseClass(int ApplicantPersonID, clsLicenseClassesBusiness.enLicenseClass LicenseClassID, clsTestTypesBusiness.enTestType TestTypeID)
         {
             int TestID = -1, TestAppointmentID = -1, CreatedByUserID = -1;
             string Notes = "";
             bool TestResult = false;
 
-            if (clsTestsDataAccess.FindLastTestPerPersonAndLicenseClass( ApplicantPersonID,  LicenseClassID, (int)TestTypeID, ref TestID, ref TestAppointmentID, ref TestResult, ref Notes, ref CreatedByUserID))
+            if (clsTestsDataAccess.FindLastTestPerPersonAndLicenseClass( ApplicantPersonID,  (byte)LicenseClassID, (int)TestTypeID, ref TestID, ref TestAppointmentID, ref TestResult, ref Notes, ref CreatedByUserID))
             {
                 return new clsTestsBusiness(TestID, TestAppointmentID, TestResult, Notes, CreatedByUserID);
             }

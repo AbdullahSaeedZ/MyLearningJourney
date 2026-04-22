@@ -7,7 +7,7 @@ namespace DataAccessLayer
 {
     public class clsLocalDrivingLicenseApplicationsDataAccess
     {
-        public static bool FindLocalLicenseApplicationByID(int LocalApplicationID, ref int baseApplicationID, ref int licenseClassID, ref bool Vision, ref bool Written, ref bool Street)
+        public static bool FindLocalLicenseApplicationByID(int LocalApplicationID, ref int baseApplicationID, ref byte licenseClassID, ref bool Vision, ref bool Written, ref bool Street)
         {
             bool isFound = false;
 
@@ -35,7 +35,7 @@ namespace DataAccessLayer
                         if (reader.Read())
                         {
                             baseApplicationID = (int)reader["ApplicationID"];
-                            licenseClassID = (int)reader["LicenseClassID"];
+                            licenseClassID = Convert.ToByte(reader["LicenseClassID"]);
                             Vision = Convert.ToBoolean(reader["Vision"]);
                             Written = Convert.ToBoolean(reader["Written"]);
                             Street = Convert.ToBoolean(reader["Street"]);
@@ -52,7 +52,7 @@ namespace DataAccessLayer
             return isFound;
         }
 
-        public static bool FindLocalLicenseApplicationByApplicationID(ref int LocalApplicationID,  int baseApplicationID, ref int licenseClassID, ref bool Vision, ref bool Written, ref bool Street)
+        public static bool FindLocalLicenseApplicationByApplicationID(ref int LocalApplicationID,  int baseApplicationID, ref byte licenseClassID, ref bool Vision, ref bool Written, ref bool Street)
         {
             bool isFound = false;
 
@@ -80,7 +80,7 @@ namespace DataAccessLayer
                         if (reader.Read())
                         {
                             LocalApplicationID = (int)reader["LocalDrivingLicenseApplicationID"];
-                            licenseClassID = (int)reader["LicenseClassID"];
+                            licenseClassID = Convert.ToByte(reader["LicenseClassID"]);
                             Vision = Convert.ToBoolean(reader["Vision"]);
                             Written = Convert.ToBoolean(reader["Written"]);
                             Street = Convert.ToBoolean(reader["Street"]);
@@ -97,7 +97,7 @@ namespace DataAccessLayer
             return isFound;
         }
 
-        public static int AddLocalLicenseApplication(int licenseClassID, int applicationID)
+        public static int AddLocalLicenseApplication(byte licenseClassID, int applicationID)
         {
             int newID = -1;
 
@@ -130,7 +130,7 @@ namespace DataAccessLayer
             return newID;
         }
 
-        public static bool UpdateLocalLicenseApplication( int LocalApplicationID, int licenseClassID)
+        public static bool UpdateLocalLicenseApplication( int LocalApplicationID, byte licenseClassID)
         {
             int rowsAffected = 0;
 
@@ -218,7 +218,7 @@ namespace DataAccessLayer
         }
 
 
-        public static int GetActiveLocalApplicationID(int ApplicantPersonID, int LicenseClassID)
+        public static int GetActiveLocalApplicationID(int ApplicantPersonID, byte LicenseClassID)
         {
             int activeNewApplicationID = -1;
 

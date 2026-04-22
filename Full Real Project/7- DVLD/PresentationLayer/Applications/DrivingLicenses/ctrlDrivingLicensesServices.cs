@@ -99,12 +99,18 @@ namespace PresentationLayer.Applications.DrivingLicenses
 
         private void btnRenewDrivingLicense_Click(object sender, EventArgs e)
         {
-
+            clsUtilities.AddToBreadcrumb("> Renew Driving License");
+            frmRenewLicense renewLicense = new frmRenewLicense();
+            renewLicense.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb("> Renew Driving License");
         }
 
         private void btnLicenseReplacement_Click(object sender, EventArgs e)
         {
-
+            clsUtilities.AddToBreadcrumb("> Replace Driving License");
+            frmIssueLicenseReplacement replaceLicense = new frmIssueLicenseReplacement();
+            replaceLicense.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb("> Replace Driving License");
         }
 
         private void btnRetakeTest_Click(object sender, EventArgs e)
