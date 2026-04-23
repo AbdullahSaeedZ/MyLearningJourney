@@ -30,6 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.pnlFilter = new Guna.UI2.WinForms.Guna2Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.rbLostType = new Guna.UI2.WinForms.Guna2CustomRadioButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.rbDamagedType = new Guna.UI2.WinForms.Guna2CustomRadioButton();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.btnShowNewLicenseInfo = new Guna.UI2.WinForms.Guna2Button();
             this.btnShowLicensesHistory = new Guna.UI2.WinForms.Guna2Button();
             this.ctrlLocalDrivingLicenseInfoWithFilter1 = new PresentationLayer.Applications.DrivingLicenses.Controls.ctrlLocalDrivingLicenseInfoWithFilter();
@@ -51,16 +58,9 @@
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
-            this.pnlFilter = new Guna.UI2.WinForms.Guna2Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.rbDamagedType = new Guna.UI2.WinForms.Guna2CustomRadioButton();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.rbLostType = new Guna.UI2.WinForms.Guna2CustomRadioButton();
             this.guna2ShadowPanel1.SuspendLayout();
-            this.pnlApplicationInfo.SuspendLayout();
             this.pnlFilter.SuspendLayout();
+            this.pnlApplicationInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2ShadowPanel1
@@ -83,6 +83,124 @@
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(999, 870);
             this.guna2ShadowPanel1.TabIndex = 4;
+            // 
+            // pnlFilter
+            // 
+            this.pnlFilter.BackColor = System.Drawing.Color.Transparent;
+            this.pnlFilter.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlFilter.BorderRadius = 15;
+            this.pnlFilter.BorderThickness = 1;
+            this.pnlFilter.Controls.Add(this.label9);
+            this.pnlFilter.Controls.Add(this.rbLostType);
+            this.pnlFilter.Controls.Add(this.label7);
+            this.pnlFilter.Controls.Add(this.rbDamagedType);
+            this.pnlFilter.Controls.Add(this.label6);
+            this.pnlFilter.FillColor = System.Drawing.Color.White;
+            this.pnlFilter.Location = new System.Drawing.Point(18, 506);
+            this.pnlFilter.Name = "pnlFilter";
+            this.pnlFilter.ShadowDecoration.Parent = this.pnlFilter;
+            this.pnlFilter.Size = new System.Drawing.Size(963, 93);
+            this.pnlFilter.TabIndex = 21;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(594, 51);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(87, 18);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Lost License";
+            // 
+            // rbLostType
+            // 
+            this.rbLostType.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbLostType.CheckedState.BorderThickness = 0;
+            this.rbLostType.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbLostType.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rbLostType.CheckedState.Parent = this.rbLostType;
+            this.rbLostType.Location = new System.Drawing.Point(560, 49);
+            this.rbLostType.Name = "rbLostType";
+            this.rbLostType.ShadowDecoration.Parent = this.rbLostType;
+            this.rbLostType.Size = new System.Drawing.Size(20, 20);
+            this.rbLostType.TabIndex = 27;
+            this.rbLostType.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rbLostType.UncheckedState.BorderThickness = 2;
+            this.rbLostType.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbLostType.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rbLostType.UncheckedState.Parent = this.rbLostType;
+            this.rbLostType.CheckedChanged += new System.EventHandler(this.rbLostType_CheckedChanged);
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(278, 51);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(123, 18);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "Damaged License";
+            // 
+            // rbDamagedType
+            // 
+            this.rbDamagedType.Checked = true;
+            this.rbDamagedType.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbDamagedType.CheckedState.BorderThickness = 0;
+            this.rbDamagedType.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.rbDamagedType.CheckedState.InnerColor = System.Drawing.Color.White;
+            this.rbDamagedType.CheckedState.Parent = this.rbDamagedType;
+            this.rbDamagedType.Location = new System.Drawing.Point(244, 49);
+            this.rbDamagedType.Name = "rbDamagedType";
+            this.rbDamagedType.ShadowDecoration.Parent = this.rbDamagedType;
+            this.rbDamagedType.Size = new System.Drawing.Size(20, 20);
+            this.rbDamagedType.TabIndex = 4;
+            this.rbDamagedType.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.rbDamagedType.UncheckedState.BorderThickness = 2;
+            this.rbDamagedType.UncheckedState.FillColor = System.Drawing.Color.Transparent;
+            this.rbDamagedType.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
+            this.rbDamagedType.UncheckedState.Parent = this.rbDamagedType;
+            this.rbDamagedType.CheckedChanged += new System.EventHandler(this.rbDamagedType_CheckedChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.DimGray;
+            this.label6.Location = new System.Drawing.Point(9, 11);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(215, 29);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Replacement For";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancel.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCancel.BorderRadius = 10;
+            this.btnCancel.BorderThickness = 1;
+            this.btnCancel.CheckedState.Parent = this.btnCancel;
+            this.btnCancel.CustomImages.Parent = this.btnCancel;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FillColor = System.Drawing.Color.Transparent;
+            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnCancel.ForeColor = System.Drawing.Color.DimGray;
+            this.btnCancel.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.btnCancel.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancel.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.HoverState.Parent = this.btnCancel;
+            this.btnCancel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCancel.Location = new System.Drawing.Point(611, 816);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.ShadowDecoration.Parent = this.btnCancel;
+            this.btnCancel.Size = new System.Drawing.Size(155, 37);
+            this.btnCancel.TabIndex = 20;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnShowNewLicenseInfo
             // 
@@ -397,124 +515,6 @@
             this.guna2Elipse1.BorderRadius = 40;
             this.guna2Elipse1.TargetControl = this;
             // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancel.BorderColor = System.Drawing.Color.DimGray;
-            this.btnCancel.BorderRadius = 10;
-            this.btnCancel.BorderThickness = 1;
-            this.btnCancel.CheckedState.Parent = this.btnCancel;
-            this.btnCancel.CustomImages.Parent = this.btnCancel;
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.FillColor = System.Drawing.Color.Transparent;
-            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnCancel.ForeColor = System.Drawing.Color.DimGray;
-            this.btnCancel.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.btnCancel.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCancel.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.HoverState.Parent = this.btnCancel;
-            this.btnCancel.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnCancel.Location = new System.Drawing.Point(611, 816);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.ShadowDecoration.Parent = this.btnCancel;
-            this.btnCancel.Size = new System.Drawing.Size(155, 37);
-            this.btnCancel.TabIndex = 20;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // pnlFilter
-            // 
-            this.pnlFilter.BackColor = System.Drawing.Color.Transparent;
-            this.pnlFilter.BorderColor = System.Drawing.Color.Gainsboro;
-            this.pnlFilter.BorderRadius = 15;
-            this.pnlFilter.BorderThickness = 1;
-            this.pnlFilter.Controls.Add(this.label9);
-            this.pnlFilter.Controls.Add(this.rbLostType);
-            this.pnlFilter.Controls.Add(this.label7);
-            this.pnlFilter.Controls.Add(this.rbDamagedType);
-            this.pnlFilter.Controls.Add(this.label6);
-            this.pnlFilter.FillColor = System.Drawing.Color.White;
-            this.pnlFilter.Location = new System.Drawing.Point(18, 506);
-            this.pnlFilter.Name = "pnlFilter";
-            this.pnlFilter.ShadowDecoration.Parent = this.pnlFilter;
-            this.pnlFilter.Size = new System.Drawing.Size(963, 93);
-            this.pnlFilter.TabIndex = 21;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.DimGray;
-            this.label6.Location = new System.Drawing.Point(9, 11);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(215, 29);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Replacement For";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // rbDamagedType
-            // 
-            this.rbDamagedType.Checked = true;
-            this.rbDamagedType.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rbDamagedType.CheckedState.BorderThickness = 0;
-            this.rbDamagedType.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rbDamagedType.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.rbDamagedType.CheckedState.Parent = this.rbDamagedType;
-            this.rbDamagedType.Location = new System.Drawing.Point(244, 49);
-            this.rbDamagedType.Name = "rbDamagedType";
-            this.rbDamagedType.ShadowDecoration.Parent = this.rbDamagedType;
-            this.rbDamagedType.Size = new System.Drawing.Size(20, 20);
-            this.rbDamagedType.TabIndex = 4;
-            this.rbDamagedType.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.rbDamagedType.UncheckedState.BorderThickness = 2;
-            this.rbDamagedType.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rbDamagedType.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rbDamagedType.UncheckedState.Parent = this.rbDamagedType;
-            this.rbDamagedType.CheckedChanged += new System.EventHandler(this.rbDamagedType_CheckedChanged);
-            // 
-            // label7
-            // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(278, 51);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(123, 18);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "Damaged License";
-            // 
-            // label9
-            // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(594, 51);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(87, 18);
-            this.label9.TabIndex = 28;
-            this.label9.Text = "Lost License";
-            // 
-            // rbLostType
-            // 
-            this.rbLostType.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rbLostType.CheckedState.BorderThickness = 0;
-            this.rbLostType.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.rbLostType.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.rbLostType.CheckedState.Parent = this.rbLostType;
-            this.rbLostType.Location = new System.Drawing.Point(560, 49);
-            this.rbLostType.Name = "rbLostType";
-            this.rbLostType.ShadowDecoration.Parent = this.rbLostType;
-            this.rbLostType.Size = new System.Drawing.Size(20, 20);
-            this.rbLostType.TabIndex = 27;
-            this.rbLostType.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.rbLostType.UncheckedState.BorderThickness = 2;
-            this.rbLostType.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.rbLostType.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            this.rbLostType.UncheckedState.Parent = this.rbLostType;
-            this.rbLostType.CheckedChanged += new System.EventHandler(this.rbLostType_CheckedChanged);
-            // 
             // frmIssueLicenseReplacement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -529,10 +529,10 @@
             this.Load += new System.EventHandler(this.frmIssueLicenseReplacement_Load);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();
-            this.pnlApplicationInfo.ResumeLayout(false);
-            this.pnlApplicationInfo.PerformLayout();
             this.pnlFilter.ResumeLayout(false);
             this.pnlFilter.PerformLayout();
+            this.pnlApplicationInfo.ResumeLayout(false);
+            this.pnlApplicationInfo.PerformLayout();
             this.ResumeLayout(false);
 
         }

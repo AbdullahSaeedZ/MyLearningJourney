@@ -55,7 +55,8 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    string query = "select * from DetainedLicenses where LicenseID = @ID ;";
+                    // to get last detention record of this license, a license might have multiple detention records
+                    string query = "select top 1 * from DetainedLicenses where LicenseID = @ID order by DetainID desc;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@ID", LicenseID);
@@ -65,7 +66,7 @@ namespace DataAccessLayer
 
                         if (reader.Read())
                         {
-                            LicenseID = (int)reader["LicenseID"];
+                            DetainID = (int)reader["DetainID"];
                             DetainDate = (DateTime)reader["DetainDate"];
                             FineFees = Convert.ToSingle(reader["FineFees"]);
                             CreatedByUserID = reader["CreatedByUserID"] == DBNull.Value ? -1 : (int)reader["CreatedByUserID"];
@@ -87,8 +88,7 @@ namespace DataAccessLayer
         }
 
 
-        public static int AddNewDetainLicense(int LicenseID, DateTime DetainDate, float FineFees, int CreatedByUserID, bool IsReleased,
-                         DateTime ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID)
+        public static int AddNewDetainLicense(int LicenseID, DateTime DetainDate, float FineFees, int CreatedByUserID)
         {
             int NewID = -1;
 
@@ -96,32 +96,17 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    string query = @"insert into DetainedLicenses 
-                                     values (@LicenseID, @DetainDate, @FineFees, @CreatedByUserID, 0, @ReleaseDate, @ReleasedByUserID, @ReleaseApplicationID)
+                    string query = @"insert into DetainedLicenses (LicenseID, DetainDate, FineFees, CreatedByUserID, IsReleased)
+                                     values (@LicenseID, @DetainDate, @FineFees, @CreatedByUserID, 0)
                                      select scope_identity();";
                                      
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@ID", LicenseID);
+                        command.Parameters.AddWithValue("@LicenseID", LicenseID);
                         command.Parameters.AddWithValue("@DetainDate", DetainDate);
                         command.Parameters.AddWithValue("@FineFees", FineFees);
                         command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
-                        command.Parameters.AddWithValue("@IsReleased", IsReleased);
 
-                        if (ReleaseDate == DateTime.MinValue)
-                            command.Parameters.AddWithValue("@ReleaseDate", DBNull.Value);
-                        else
-                            command.Parameters.AddWithValue("@ReleaseDate", ReleaseDate);
-
-                        if (ReleasedByUserID == -1)
-                            command.Parameters.AddWithValue("@ReleaseDate", DBNull.Value);
-                        else
-                            command.Parameters.AddWithValue("@ReleaseDate", ReleasedByUserID);
-
-                        if (ReleaseApplicationID == -1)
-                            command.Parameters.AddWithValue("@ReleaseDate", DBNull.Value);
-                        else
-                            command.Parameters.AddWithValue("@ReleaseDate", ReleaseApplicationID);
 
                         connection.Open();
                         object result = command.ExecuteScalar();
@@ -140,8 +125,7 @@ namespace DataAccessLayer
         }
 
 
-        public static bool UpdateDetainedLicense(int DetainID, int LicenseID, DateTime DetainDate, float FineFees, int CreatedByUserID, bool IsReleased,
-                         DateTime ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID)
+        public static bool UpdateDetainedLicense(int DetainID, bool IsReleased, DateTime ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID)
         {
             int rowsAffected = 0;
 
@@ -150,15 +134,11 @@ namespace DataAccessLayer
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
                     string query = @"update DetainedLicenses 
-                                     set LicenseID = @LicenseID, DetainDate = @DetainDate, FineFees = @FineFees, CreatedByUserID = @CreatedByUserID, 
-                                     IsReleased = @IsReleased, ReleaseDate = @ReleaseDate, ReleasedByUserID = @ReleasedByUserID, ReleaseApplicationID = @ReleaseApplicationID
+                                     set IsReleased = @IsReleased, ReleaseDate = @ReleaseDate, ReleasedByUserID = @ReleasedByUserID, ReleaseApplicationID = @ReleaseApplicationID
                                      where DetainID = @ID;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@ID", LicenseID);
-                        command.Parameters.AddWithValue("@DetainDate", DetainDate);
-                        command.Parameters.AddWithValue("@FineFees", FineFees);
-                        command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
+                       
                         command.Parameters.AddWithValue("@IsReleased", IsReleased);
 
                         if (ReleaseDate == DateTime.MinValue)
@@ -199,13 +179,16 @@ namespace DataAccessLayer
                 {
                     string query = @"update DetainedLicenses 
                                      set IsReleased = 1, ReleaseDate = @ReleaseDate, ReleasedByUserID = @ReleasedByUserID, ReleaseApplicationID = @ReleaseApplicationID
-                                     where LicenseID = @ID;";
+                                     where LicenseID = @ID;
+
+                                     update Applications set ApplicationStatus = 3
+                                     where ApplicationID = @ReleaseApplicationID";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@ID", LicenseID);
                         command.Parameters.AddWithValue("@ReleaseDate", ReleaseDate);
-                        command.Parameters.AddWithValue("@ReleaseDate", ReleasedByUserID);
-                        command.Parameters.AddWithValue("@ReleaseDate", ReleaseApplicationID);
+                        command.Parameters.AddWithValue("@ReleasedByUserID", ReleasedByUserID);
+                        command.Parameters.AddWithValue("@ReleaseApplicationID", ReleaseApplicationID);
 
                         connection.Open();
                         rowsAffected = command.ExecuteNonQuery();
@@ -264,7 +247,8 @@ namespace DataAccessLayer
                                      from DetainedLicenses
                                      inner join Licenses on Licenses.LicenseID = DetainedLicenses.LicenseID
                                      inner join Drivers on Drivers.DriverID = Licenses.DriverID
-                                     inner join People on People.PersonID = Drivers.PersonID;";
+                                     inner join People on People.PersonID = Drivers.PersonID
+                                     order by DetainDate desc;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         connection.Open();

@@ -37,7 +37,16 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
 
         private void ctrlLocalDrivingLicenseInfoWithFilter1_OnLicenseSelected()
         {
-            btnShowLicensesHistory.Enabled = true;
+            btnShowLicensesHistory.Enabled = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo != null;
+
+            // when entering valid license then entering invalid license id in the same time
+            if (ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo == null)
+            {
+                btnRenewLicense.Enabled = false;
+                return;
+            }
+
+            lblOldLicenseID.Text = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.LicenseID.ToString();
 
             if (!_HandleBusinessConstraints())
             {
@@ -47,7 +56,6 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
 
             btnRenewLicense.Enabled = true;
 
-            lblOldLicenseID.Text = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.LicenseID.ToString();
             lblExpirationDate.Text = DateTime.Now.AddYears(ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.LicenseCLassInfo.DefaultValidityLength).ToShortDateString();
             lblLicenseFees.Text = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.LicenseCLassInfo.ClassFees.ToString();
             lblTotalFees.Text = (Convert.ToSingle(lblApplicationFees.Text) + Convert.ToSingle(lblLicenseFees.Text)).ToString();

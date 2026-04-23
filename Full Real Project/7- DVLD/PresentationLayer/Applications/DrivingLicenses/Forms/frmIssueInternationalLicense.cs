@@ -36,7 +36,16 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
 
         private void ctrlLocalDrivingLicenseInfoWithFilter1_OnLicenseSelected()
         {
-            btnShowLicensesHistory.Enabled = true;
+            btnShowLicensesHistory.Enabled = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo != null;
+
+            // when entering valid license then entering invalid license id in the same time
+            if (ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo == null)
+            {
+                btnIssueLicense.Enabled = false;
+                return;
+            }
+
+            lblLocalLicenseID.Text = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.LicenseID.ToString();
 
             if (!_HandleBusinessConstraints())
             {
@@ -45,7 +54,6 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             }
 
             btnIssueLicense.Enabled = true;
-            lblLocalLicenseID.Text = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.LicenseID.ToString();
         }
 
         private bool _HandleBusinessConstraints()

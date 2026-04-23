@@ -213,7 +213,7 @@
             // 
             // pnlControlsContainer
             // 
-            this.pnlControlsContainer.BackColor = System.Drawing.Color.White;
+            this.pnlControlsContainer.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnlControlsContainer.BorderRadius = 20;
             this.pnlControlsContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlControlsContainer.Location = new System.Drawing.Point(267, 59);

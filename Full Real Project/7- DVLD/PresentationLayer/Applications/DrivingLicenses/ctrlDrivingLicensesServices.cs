@@ -113,14 +113,20 @@ namespace PresentationLayer.Applications.DrivingLicenses
             clsUtilities.RemoveFromBreadcrumb("> Replace Driving License");
         }
 
-        private void btnRetakeTest_Click(object sender, EventArgs e)
+        private void btnDetainLicense_Click(object sender, EventArgs e)
         {
-
+            frmDetainLicense detainLicense = new frmDetainLicense();
+            clsUtilities.AddToBreadcrumb("> Detain License");
+            detainLicense.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb("> Detain License");
         }
 
         private void btnReleaseDetainedLicense_Click(object sender, EventArgs e)
         {
-
+            frmReleaseDetainedLicense releaseLicense = new frmReleaseDetainedLicense();
+            clsUtilities.AddToBreadcrumb("> Release License");
+            releaseLicense.ShowDialog();
+            clsUtilities.RemoveFromBreadcrumb("> Release License");
         }
     }
 }

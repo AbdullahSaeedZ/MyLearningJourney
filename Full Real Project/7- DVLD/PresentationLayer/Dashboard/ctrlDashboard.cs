@@ -35,5 +35,10 @@ namespace PresentationLayer.DashboardControls
             TimeNow = DateTime.Now.ToLongTimeString();
             lblTodayDate.Text = DateNow + "  |  " + TimeNow;
         }
+
+        private void ctrlDashboard_Leave(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+        }
     }
 }

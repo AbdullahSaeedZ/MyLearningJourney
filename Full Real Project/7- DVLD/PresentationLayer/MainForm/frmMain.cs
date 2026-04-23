@@ -89,8 +89,7 @@ namespace PresentationLayer.MainForm
         }
         private void _RefreshControlsContainer()
         {
-            if (pnlControlsContainer.Controls.Count > 0)
-                pnlControlsContainer.Controls.Clear();
+            pnlControlsContainer.Controls.Clear();
         }
         private void UpdateBreadcrumb()
         {

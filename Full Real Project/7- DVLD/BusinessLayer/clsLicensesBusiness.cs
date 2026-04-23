@@ -40,6 +40,14 @@ namespace BusinessLayer
             }
         }
 
+        public clsDetainedLicensesBusiness DetainedInfo
+        {
+            get
+            {
+                return clsDetainedLicensesBusiness.FindByLicenseID(this.LicenseID);
+            }
+        }
+
 
 
         public clsLicensesBusiness()
@@ -304,6 +312,35 @@ namespace BusinessLayer
                 return null;
         }
 
+        // here i only need the id, so no need to return the whole object
+        public int DetainLicense(float FineFees, int CreatedByUserID)
+        {
+            if (this.IsLicenseDetained())
+                return -1;
+
+            clsDetainedLicensesBusiness NewDetainedLicense = new clsDetainedLicensesBusiness();
+            NewDetainedLicense.LicenseID = this.LicenseID;
+            NewDetainedLicense.FineFees = FineFees;
+            NewDetainedLicense.CreatedByUserID = CreatedByUserID;
+
+
+            if (NewDetainedLicense.Save())
+                return NewDetainedLicense.DetainID;
+            else
+                return -1;
+        }
+
+
+        public int ReleaseLicense(int ReleasedByUserID)
+        {
+            if (!this.IsLicenseDetained() || this.DetainedInfo == null)
+                return -1;
+
+            return this.DetainedInfo.ReleaseLicense(ReleasedByUserID, this.DriverInfo.PersonID);
+           
+        }
+
+        // deactivating a license will prevent any further operations on it (business requirement)
         private bool _Deactivate()
         {
             this.IsActive = false;

@@ -117,20 +117,27 @@ namespace PresentationLayer.Applications.ManageDetainedLicenses
 
         private void dgvDetainedLicenses_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            _SelectedLicense = clsLicensesBusiness.FindByLicenseID((int)dgvDetainedLicenses.CurrentRow.Cells[1].Value);
+            if (_SelectedLicense == null)
+                return;
             showPersonDetailsToolStripMenuItem_Click(sender, EventArgs.Empty);
         }
 
         private void btnDetain_Click(object sender, EventArgs e)
         {
+            frmDetainLicense detainLicense = new frmDetainLicense();
             clsUtilities.AddToBreadcrumb("> Detain License");
-
+            detainLicense.UpdateDGVOnLicenseDetained += RefreshDataGridView;
+            detainLicense.ShowDialog();
             clsUtilities.RemoveFromBreadcrumb("> Detain License");
         }
 
         private void btnReleaseLicense_Click(object sender, EventArgs e)
         {
+            frmReleaseDetainedLicense releaseLicense = new frmReleaseDetainedLicense();
             clsUtilities.AddToBreadcrumb("> Release License");
-
+            releaseLicense.UpdateDGVOnLicenseReleased += RefreshDataGridView;
+            releaseLicense.ShowDialog();
             clsUtilities.RemoveFromBreadcrumb("> Release License");
         }
 
@@ -143,11 +150,13 @@ namespace PresentationLayer.Applications.ManageDetainedLicenses
                 contextMenuStrip1.Close();
                 return;
             }
-            _SelectedLicense = clsLicensesBusiness.FindByLicenseID((int)dgvDetainedLicenses.CurrentRow.Cells[1].Value);
+            // if i use detainInfo inside the selected license, it will get the last record of detention, but in dgv, use might select old detention records
+            releaseDetainedLicenseToolStripMenuItem.Enabled = !clsDetainedLicensesBusiness.FindByDetainID((int)dgvDetainedLicenses.CurrentRow.Cells[0].Value).IsReleased;
         }
 
         private void showPersonDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            _SelectedLicense = clsLicensesBusiness.FindByLicenseID((int)dgvDetainedLicenses.CurrentRow.Cells[1].Value);
             frmPersonInfo personInfo = new frmPersonInfo(_SelectedLicense.DriverInfo.PersonID);
             clsUtilities.AddToBreadcrumb("> Person Details");
             personInfo.ShowDialog();
@@ -156,6 +165,7 @@ namespace PresentationLayer.Applications.ManageDetainedLicenses
 
         private void showLicenseDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            _SelectedLicense = clsLicensesBusiness.FindByLicenseID((int)dgvDetainedLicenses.CurrentRow.Cells[1].Value);
             frmShowLocalLicenseInfo licenseInfo = new frmShowLocalLicenseInfo(_SelectedLicense.LicenseID);
             clsUtilities.AddToBreadcrumb("> License Details");
             licenseInfo.ShowDialog();
@@ -164,6 +174,7 @@ namespace PresentationLayer.Applications.ManageDetainedLicenses
 
         private void showPersonLicensesHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            _SelectedLicense = clsLicensesBusiness.FindByLicenseID((int)dgvDetainedLicenses.CurrentRow.Cells[1].Value);
             frmDriverLicensesHistory licensesHistory = new frmDriverLicensesHistory(_SelectedLicense.DriverInfo.PersonID);
             clsUtilities.AddToBreadcrumb("> Licenses History");
             licensesHistory.ShowDialog();
@@ -173,8 +184,11 @@ namespace PresentationLayer.Applications.ManageDetainedLicenses
 
         private void releaseDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            _SelectedLicense = clsLicensesBusiness.FindByLicenseID((int)dgvDetainedLicenses.CurrentRow.Cells[1].Value);
+            frmReleaseDetainedLicense releaseLicense = new frmReleaseDetainedLicense(_SelectedLicense.LicenseID);
             clsUtilities.AddToBreadcrumb("> Release License");
-
+            releaseLicense.UpdateDGVOnLicenseReleased += RefreshDataGridView;
+            releaseLicense.ShowDialog();
             clsUtilities.RemoveFromBreadcrumb("> Release License");
         }
 

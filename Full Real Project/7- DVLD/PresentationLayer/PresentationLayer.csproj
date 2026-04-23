@@ -348,11 +348,17 @@
     <EmbeddedResource Include="Applications\DrivingLicenses\Forms\frmAddEditLocalLicenseApplication.resx">
       <DependentUpon>frmAddEditLocalLicenseApplication.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\DrivingLicenses\Forms\frmDetainLicense.resx">
+      <DependentUpon>frmDetainLicense.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Applications\DrivingLicenses\Forms\frmIssueInternationalLicense.resx">
       <DependentUpon>frmIssueInternationalLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\DrivingLicenses\Forms\frmIssueLicenseReplacement.resx">
       <DependentUpon>frmIssueLicenseReplacement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Applications\DrivingLicenses\Forms\frmReleaseDetainedLicense.resx">
+      <DependentUpon>frmReleaseDetainedLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Applications\DrivingLicenses\Forms\frmRenewLicense.resx">
       <DependentUpon>frmRenewLicense.cs</DependentUpon>

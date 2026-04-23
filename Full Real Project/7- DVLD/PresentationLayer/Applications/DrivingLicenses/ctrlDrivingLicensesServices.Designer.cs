@@ -127,10 +127,10 @@
             this.btnRetakeTest.HoverState.BorderColor = System.Drawing.Color.Gainsboro;
             this.btnRetakeTest.HoverState.FillColor = System.Drawing.Color.White;
             this.btnRetakeTest.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnRetakeTest.HoverState.Image = global::PresentationLayer.Properties.Resources.retakeTestFillBlack512;
+            this.btnRetakeTest.HoverState.Image = global::PresentationLayer.Properties.Resources.DetainLicenseFillBlack512;
             this.btnRetakeTest.HoverState.Parent = this.btnRetakeTest;
-            this.btnRetakeTest.Image = global::PresentationLayer.Properties.Resources.retakeTestNoFillGrey512;
-            this.btnRetakeTest.ImageOffset = new System.Drawing.Point(25, -19);
+            this.btnRetakeTest.Image = global::PresentationLayer.Properties.Resources.DetainLicenseNoFillGrey512;
+            this.btnRetakeTest.ImageOffset = new System.Drawing.Point(30, -17);
             this.btnRetakeTest.ImageSize = new System.Drawing.Size(82, 82);
             this.btnRetakeTest.Location = new System.Drawing.Point(9, 7);
             this.btnRetakeTest.Name = "btnRetakeTest";
@@ -138,9 +138,9 @@
             this.btnRetakeTest.Size = new System.Drawing.Size(293, 206);
             this.btnRetakeTest.TabIndex = 2;
             this.btnRetakeTest.Tag = "Retake Test";
-            this.btnRetakeTest.Text = "Retake Test";
-            this.btnRetakeTest.TextOffset = new System.Drawing.Point(-22, 70);
-            this.btnRetakeTest.Click += new System.EventHandler(this.btnRetakeTest_Click);
+            this.btnRetakeTest.Text = "Detain License";
+            this.btnRetakeTest.TextOffset = new System.Drawing.Point(-20, 70);
+            this.btnRetakeTest.Click += new System.EventHandler(this.btnDetainLicense_Click);
             this.btnRetakeTest.MouseEnter += new System.EventHandler(this.buttons_MouseEnter);
             this.btnRetakeTest.MouseLeave += new System.EventHandler(this.buttons_MouseLeave);
             // 
