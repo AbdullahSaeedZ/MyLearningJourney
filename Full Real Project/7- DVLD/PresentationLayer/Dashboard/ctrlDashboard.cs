@@ -1,12 +1,14 @@
-﻿using System;
+﻿using BusinessLayer;
+using System;
 using System.Windows.Forms;
 
 namespace PresentationLayer.DashboardControls
 {
     public partial class ctrlDashboard : UserControl
     {
-        string TimeNow;
-        string DateNow;
+        private string TimeNow;
+        private string DateNow;
+        private clsDashboardBusiness _Data;
 
         public ctrlDashboard()
         {
@@ -16,18 +18,36 @@ namespace PresentationLayer.DashboardControls
 
         private void ctrlDashboard_Load(object sender, EventArgs e)
         {
-            // to be moved to separate method
+            _Data = clsDashboardBusiness.GetDashboardData();
+            if (_Data == null)
+            {
+                MessageBox.Show("Could not retrieve overview data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            _StartTime();
+            _FillData();
+        }
+
+        private void _StartTime()
+        {
             DateNow = DateTime.Now.ToLongDateString();
             TimeNow = DateTime.Now.ToLongTimeString();
             timer1.Enabled = true;
-
-            lblTodayDate.Text = DateNow + "  |  " + TimeNow;
-            lblGoodMorningEvening.Text = "Good " + (DateTime.Now.Hour >= 12 ? "Evening, " : "Morning, ").ToString();
         }
-
-        private void ButtonsHandler()
+        private void _FillData()
         {
+            lblTodayDate.Text = DateNow + "  |  " + TimeNow;
+            lblGoodMorningEvening.Text = "Good " + (DateTime.Now.Hour >= 12 ? "Evening, " : "Morning, ") + clsBusinessSettings.CurrentUser.Username + " !";
 
+            lblTotalExamxComplete.Text = _Data.TotalPassedTests.ToString();
+            lblTotalApplicationsCompleted.Text = _Data.TotalApplicationsCompleted.ToString();
+            lblTotalDrivers.Text = _Data.TotalDrivers.ToString();
+            lblTotalUsers.Text = _Data.TotalUsers.ToString();
+            lblTotalPeople.Text = _Data.TotalPeople.ToString();
+            lblTotalLicenses.Text = _Data.TotalLicenses.ToString();
+            lblTotalFeesThisMonth.Text = _Data.TotalPaidFeesThisMonth.ToString();
+            lblTotalFeesAllTime.Text = _Data.TotalPaidFeesAllTime.ToString();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

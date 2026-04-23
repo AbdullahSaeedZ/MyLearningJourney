@@ -866,5 +866,17 @@
   <ItemGroup>
     <None Include="assets\releaseNoFill24.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\illuWelcome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\Saudi_Riyal_Symbol.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\saudiMapLogoBlack512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\Saudi_Riyal_Symbol.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -613,6 +613,16 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap illuWelcome {
+            get {
+                object obj = ResourceManager.GetObject("illuWelcome", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap internationalLicensesFill24 {
             get {
                 object obj = ResourceManager.GetObject("internationalLicensesFill24", resourceCulture);
@@ -1056,6 +1066,36 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap retakeTestNoFillGrey512 {
             get {
                 object obj = ResourceManager.GetObject("retakeTestNoFillGrey512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Saudi_Riyal_Symbol {
+            get {
+                object obj = ResourceManager.GetObject("Saudi_Riyal_Symbol", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Saudi_Riyal_Symbol1 {
+            get {
+                object obj = ResourceManager.GetObject("Saudi_Riyal_Symbol1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap saudiMapLogoBlack512 {
+            get {
+                object obj = ResourceManager.GetObject("saudiMapLogoBlack512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

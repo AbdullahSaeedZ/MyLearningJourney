@@ -53,10 +53,12 @@
             this.btnApplications = new Guna.UI2.WinForms.Guna2Button();
             this.pbProfilePic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnlTopBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).BeginInit();
             this.pnlSideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -233,6 +235,7 @@
             // pnlSideBar
             // 
             this.pnlSideBar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlSideBar.Controls.Add(this.guna2PictureBox2);
             this.pnlSideBar.Controls.Add(this.guna2Separator1);
             this.pnlSideBar.Controls.Add(this.btnOverview);
             this.pnlSideBar.Controls.Add(this.btnPeople);
@@ -267,7 +270,7 @@
             this.btnOverview.Image = global::PresentationLayer.Properties.Resources.overviewNoFillThin;
             this.btnOverview.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnOverview.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnOverview.Location = new System.Drawing.Point(12, 193);
+            this.btnOverview.Location = new System.Drawing.Point(13, 250);
             this.btnOverview.Name = "btnOverview";
             this.btnOverview.ShadowDecoration.Parent = this.btnOverview;
             this.btnOverview.Size = new System.Drawing.Size(241, 45);
@@ -292,7 +295,7 @@
             this.btnPeople.Image = global::PresentationLayer.Properties.Resources.peopleNoFillThin;
             this.btnPeople.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnPeople.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnPeople.Location = new System.Drawing.Point(12, 295);
+            this.btnPeople.Location = new System.Drawing.Point(13, 352);
             this.btnPeople.Name = "btnPeople";
             this.btnPeople.ShadowDecoration.Parent = this.btnPeople;
             this.btnPeople.Size = new System.Drawing.Size(241, 45);
@@ -317,7 +320,7 @@
             this.btnUsers.Image = global::PresentationLayer.Properties.Resources.usersNoFill;
             this.btnUsers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnUsers.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnUsers.Location = new System.Drawing.Point(12, 397);
+            this.btnUsers.Location = new System.Drawing.Point(13, 454);
             this.btnUsers.Name = "btnUsers";
             this.btnUsers.ShadowDecoration.Parent = this.btnUsers;
             this.btnUsers.Size = new System.Drawing.Size(241, 45);
@@ -389,7 +392,7 @@
             this.btnDrivers.Image = global::PresentationLayer.Properties.Resources.driversNoFillThin;
             this.btnDrivers.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnDrivers.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnDrivers.Location = new System.Drawing.Point(12, 346);
+            this.btnDrivers.Location = new System.Drawing.Point(13, 403);
             this.btnDrivers.Name = "btnDrivers";
             this.btnDrivers.ShadowDecoration.Parent = this.btnDrivers;
             this.btnDrivers.Size = new System.Drawing.Size(241, 45);
@@ -414,7 +417,7 @@
             this.btnApplications.Image = global::PresentationLayer.Properties.Resources.applicationNoFillThin;
             this.btnApplications.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnApplications.ImageOffset = new System.Drawing.Point(10, 0);
-            this.btnApplications.Location = new System.Drawing.Point(12, 244);
+            this.btnApplications.Location = new System.Drawing.Point(13, 301);
             this.btnApplications.Name = "btnApplications";
             this.btnApplications.ShadowDecoration.Parent = this.btnApplications;
             this.btnApplications.Size = new System.Drawing.Size(241, 45);
@@ -436,6 +439,17 @@
             this.pbProfilePic.TabIndex = 0;
             this.pbProfilePic.TabStop = false;
             // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.saudiMapLogoBlack512;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(43, 41);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
+            this.guna2PictureBox2.Size = new System.Drawing.Size(181, 180);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 27;
+            this.guna2PictureBox2.TabStop = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -456,6 +470,7 @@
             this.pnlSideBar.ResumeLayout(false);
             this.pnlSideBar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -486,5 +501,6 @@
         private Guna.UI2.WinForms.Guna2ShadowForm guna2ShadowForm1;
         private System.Windows.Forms.Label lblBreadcrumb;
         private Guna.UI2.WinForms.Guna2Button btnLogout;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
     }
 }

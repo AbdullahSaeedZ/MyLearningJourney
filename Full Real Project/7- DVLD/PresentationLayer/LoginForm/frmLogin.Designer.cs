@@ -31,18 +31,24 @@
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.btnShowHidePassword1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.chbRememberMe = new Guna.UI2.WinForms.Guna2CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             this.tbUsername = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pnlWelcome = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblWelcomeUsername = new System.Windows.Forms.Label();
+            this.btnShowHidePassword1 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox8 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.guna2ShadowPanel1.SuspendLayout();
+            this.pnlWelcome.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -53,6 +59,7 @@
             // guna2ShadowPanel1
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel1.Controls.Add(this.pnlWelcome);
             this.guna2ShadowPanel1.Controls.Add(this.btnShowHidePassword1);
             this.guna2ShadowPanel1.Controls.Add(this.guna2PictureBox6);
             this.guna2ShadowPanel1.Controls.Add(this.chbRememberMe);
@@ -71,40 +78,6 @@
             this.guna2ShadowPanel1.ShadowDepth = 254;
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(484, 566);
             this.guna2ShadowPanel1.TabIndex = 5;
-            // 
-            // btnShowHidePassword1
-            // 
-            this.btnShowHidePassword1.BackColor = System.Drawing.Color.Transparent;
-            this.btnShowHidePassword1.BorderColor = System.Drawing.Color.DimGray;
-            this.btnShowHidePassword1.BorderRadius = 10;
-            this.btnShowHidePassword1.CheckedState.Parent = this.btnShowHidePassword1;
-            this.btnShowHidePassword1.CustomImages.Parent = this.btnShowHidePassword1;
-            this.btnShowHidePassword1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnShowHidePassword1.FillColor = System.Drawing.Color.Transparent;
-            this.btnShowHidePassword1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnShowHidePassword1.ForeColor = System.Drawing.Color.DimGray;
-            this.btnShowHidePassword1.HoverState.BorderColor = System.Drawing.Color.DimGray;
-            this.btnShowHidePassword1.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowHidePassword1.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnShowHidePassword1.HoverState.Parent = this.btnShowHidePassword1;
-            this.btnShowHidePassword1.Image = global::PresentationLayer.Properties.Resources.showPasswordEye;
-            this.btnShowHidePassword1.Location = new System.Drawing.Point(376, 334);
-            this.btnShowHidePassword1.Name = "btnShowHidePassword1";
-            this.btnShowHidePassword1.ShadowDecoration.Parent = this.btnShowHidePassword1;
-            this.btnShowHidePassword1.Size = new System.Drawing.Size(25, 23);
-            this.btnShowHidePassword1.TabIndex = 25;
-            this.btnShowHidePassword1.Click += new System.EventHandler(this.btnShowHidePassword_Click);
-            // 
-            // guna2PictureBox6
-            // 
-            this.guna2PictureBox6.Image = global::PresentationLayer.Properties.Resources.illu6;
-            this.guna2PictureBox6.Location = new System.Drawing.Point(209, 53);
-            this.guna2PictureBox6.Name = "guna2PictureBox6";
-            this.guna2PictureBox6.ShadowDecoration.Parent = this.guna2PictureBox6;
-            this.guna2PictureBox6.Size = new System.Drawing.Size(45, 52);
-            this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox6.TabIndex = 21;
-            this.guna2PictureBox6.TabStop = false;
             // 
             // chbRememberMe
             // 
@@ -220,6 +193,62 @@
             this.tbPassword.TabIndex = 2;
             this.tbPassword.UseSystemPasswordChar = true;
             // 
+            // pnlWelcome
+            // 
+            this.pnlWelcome.Controls.Add(this.lblWelcomeUsername);
+            this.pnlWelcome.Controls.Add(this.guna2PictureBox1);
+            this.pnlWelcome.Location = new System.Drawing.Point(23, 24);
+            this.pnlWelcome.Name = "pnlWelcome";
+            this.pnlWelcome.ShadowDecoration.Parent = this.pnlWelcome;
+            this.pnlWelcome.Size = new System.Drawing.Size(441, 510);
+            this.pnlWelcome.TabIndex = 26;
+            this.pnlWelcome.Visible = false;
+            // 
+            // lblWelcomeUsername
+            // 
+            this.lblWelcomeUsername.AutoSize = true;
+            this.lblWelcomeUsername.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.lblWelcomeUsername.ForeColor = System.Drawing.Color.DimGray;
+            this.lblWelcomeUsername.Location = new System.Drawing.Point(74, 84);
+            this.lblWelcomeUsername.Name = "lblWelcomeUsername";
+            this.lblWelcomeUsername.Size = new System.Drawing.Size(338, 29);
+            this.lblWelcomeUsername.TabIndex = 7;
+            this.lblWelcomeUsername.Text = "Welcome Back, Username !";
+            // 
+            // btnShowHidePassword1
+            // 
+            this.btnShowHidePassword1.BackColor = System.Drawing.Color.Transparent;
+            this.btnShowHidePassword1.BorderColor = System.Drawing.Color.DimGray;
+            this.btnShowHidePassword1.BorderRadius = 10;
+            this.btnShowHidePassword1.CheckedState.Parent = this.btnShowHidePassword1;
+            this.btnShowHidePassword1.CustomImages.Parent = this.btnShowHidePassword1;
+            this.btnShowHidePassword1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnShowHidePassword1.FillColor = System.Drawing.Color.Transparent;
+            this.btnShowHidePassword1.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnShowHidePassword1.ForeColor = System.Drawing.Color.DimGray;
+            this.btnShowHidePassword1.HoverState.BorderColor = System.Drawing.Color.DimGray;
+            this.btnShowHidePassword1.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowHidePassword1.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnShowHidePassword1.HoverState.Parent = this.btnShowHidePassword1;
+            this.btnShowHidePassword1.Image = global::PresentationLayer.Properties.Resources.showPasswordEye;
+            this.btnShowHidePassword1.Location = new System.Drawing.Point(376, 334);
+            this.btnShowHidePassword1.Name = "btnShowHidePassword1";
+            this.btnShowHidePassword1.ShadowDecoration.Parent = this.btnShowHidePassword1;
+            this.btnShowHidePassword1.Size = new System.Drawing.Size(25, 23);
+            this.btnShowHidePassword1.TabIndex = 25;
+            this.btnShowHidePassword1.Click += new System.EventHandler(this.btnShowHidePassword_Click);
+            // 
+            // guna2PictureBox6
+            // 
+            this.guna2PictureBox6.Image = global::PresentationLayer.Properties.Resources.illu6;
+            this.guna2PictureBox6.Location = new System.Drawing.Point(209, 53);
+            this.guna2PictureBox6.Name = "guna2PictureBox6";
+            this.guna2PictureBox6.ShadowDecoration.Parent = this.guna2PictureBox6;
+            this.guna2PictureBox6.Size = new System.Drawing.Size(45, 52);
+            this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox6.TabIndex = 21;
+            this.guna2PictureBox6.TabStop = false;
+            // 
             // guna2PictureBox8
             // 
             this.guna2PictureBox8.Image = global::PresentationLayer.Properties.Resources.illu8;
@@ -230,6 +259,22 @@
             this.guna2PictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox8.TabIndex = 24;
             this.guna2PictureBox8.TabStop = false;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = global::PresentationLayer.Properties.Resources.illuWelcome;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(32, 84);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(380, 461);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 25;
+            this.guna2PictureBox1.TabStop = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1700;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmLogin
             // 
@@ -246,8 +291,11 @@
             this.Shown += new System.EventHandler(this.frmLogin_Shown);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();
+            this.pnlWelcome.ResumeLayout(false);
+            this.pnlWelcome.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -265,5 +313,9 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox8;
         private Guna.UI2.WinForms.Guna2Button btnShowHidePassword1;
+        private Guna.UI2.WinForms.Guna2Panel pnlWelcome;
+        private System.Windows.Forms.Label lblWelcomeUsername;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
