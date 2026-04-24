@@ -54,8 +54,14 @@
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnlBasicInfo.SuspendLayout();
             this.pnlRetakeAppInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBasicInfo
@@ -64,6 +70,7 @@
             this.pnlBasicInfo.BorderColor = System.Drawing.Color.Gainsboro;
             this.pnlBasicInfo.BorderRadius = 15;
             this.pnlBasicInfo.BorderThickness = 1;
+            this.pnlBasicInfo.Controls.Add(this.guna2PictureBox1);
             this.pnlBasicInfo.Controls.Add(this.lblUserMessage);
             this.pnlBasicInfo.Controls.Add(this.dtpAppointmentDate);
             this.pnlBasicInfo.Controls.Add(this.lblLocalApplicationID);
@@ -276,6 +283,8 @@
             this.pnlRetakeAppInfo.BorderColor = System.Drawing.Color.Gainsboro;
             this.pnlRetakeAppInfo.BorderRadius = 15;
             this.pnlRetakeAppInfo.BorderThickness = 1;
+            this.pnlRetakeAppInfo.Controls.Add(this.guna2PictureBox3);
+            this.pnlRetakeAppInfo.Controls.Add(this.guna2PictureBox2);
             this.pnlRetakeAppInfo.Controls.Add(this.lblTotalFees);
             this.pnlRetakeAppInfo.Controls.Add(this.lblRetakeAppFees);
             this.pnlRetakeAppInfo.Controls.Add(this.lblRetakeAppID);
@@ -439,6 +448,39 @@
             this.lblTitle.Text = "Appointment";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(349, 260);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(20, 26);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 29;
+            this.guna2PictureBox1.TabStop = false;
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(349, 97);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
+            this.guna2PictureBox2.Size = new System.Drawing.Size(20, 26);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 29;
+            this.guna2PictureBox2.TabStop = false;
+            // 
+            // guna2PictureBox3
+            // 
+            this.guna2PictureBox3.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
+            this.guna2PictureBox3.Location = new System.Drawing.Point(640, 59);
+            this.guna2PictureBox3.Name = "guna2PictureBox3";
+            this.guna2PictureBox3.ShadowDecoration.Parent = this.guna2PictureBox3;
+            this.guna2PictureBox3.Size = new System.Drawing.Size(20, 26);
+            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox3.TabIndex = 30;
+            this.guna2PictureBox3.TabStop = false;
+            // 
             // ctrlScheduleTestAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -455,6 +497,9 @@
             this.pnlBasicInfo.PerformLayout();
             this.pnlRetakeAppInfo.ResumeLayout(false);
             this.pnlRetakeAppInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -488,5 +533,8 @@
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private System.Windows.Forms.Label lblTitle;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
     }
 }

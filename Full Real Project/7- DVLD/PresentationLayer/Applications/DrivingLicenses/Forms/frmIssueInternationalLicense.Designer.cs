@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.btnShowLicenseInfo = new Guna.UI2.WinForms.Guna2Button();
+            this.btnShowLicensesHistory = new Guna.UI2.WinForms.Guna2Button();
             this.ctrlLocalDrivingLicenseInfoWithFilter1 = new PresentationLayer.Applications.DrivingLicenses.Controls.ctrlLocalDrivingLicenseInfoWithFilter();
             this.pnlApplicationInfo = new Guna.UI2.WinForms.Guna2Panel();
             this.label17 = new System.Windows.Forms.Label();
@@ -54,10 +56,10 @@
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.btnShowLicenseInfo = new Guna.UI2.WinForms.Guna2Button();
-            this.btnShowLicensesHistory = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2ShadowPanel1.SuspendLayout();
             this.pnlApplicationInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2ShadowPanel1
@@ -80,6 +82,62 @@
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(1000, 789);
             this.guna2ShadowPanel1.TabIndex = 2;
             // 
+            // btnShowLicenseInfo
+            // 
+            this.btnShowLicenseInfo.BackColor = System.Drawing.Color.Transparent;
+            this.btnShowLicenseInfo.BorderColor = System.Drawing.Color.DimGray;
+            this.btnShowLicenseInfo.BorderRadius = 10;
+            this.btnShowLicenseInfo.CheckedState.Parent = this.btnShowLicenseInfo;
+            this.btnShowLicenseInfo.CustomImages.Parent = this.btnShowLicenseInfo;
+            this.btnShowLicenseInfo.Enabled = false;
+            this.btnShowLicenseInfo.FillColor = System.Drawing.Color.Transparent;
+            this.btnShowLicenseInfo.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowLicenseInfo.ForeColor = System.Drawing.Color.Black;
+            this.btnShowLicenseInfo.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowLicenseInfo.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowLicenseInfo.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnShowLicenseInfo.HoverState.Image = global::PresentationLayer.Properties.Resources.LicenseCardFill64;
+            this.btnShowLicenseInfo.HoverState.Parent = this.btnShowLicenseInfo;
+            this.btnShowLicenseInfo.Image = global::PresentationLayer.Properties.Resources.LicenseCardNoFill64;
+            this.btnShowLicenseInfo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnShowLicenseInfo.Location = new System.Drawing.Point(241, 736);
+            this.btnShowLicenseInfo.Name = "btnShowLicenseInfo";
+            this.btnShowLicenseInfo.PressedColor = System.Drawing.Color.DimGray;
+            this.btnShowLicenseInfo.ShadowDecoration.Parent = this.btnShowLicenseInfo;
+            this.btnShowLicenseInfo.Size = new System.Drawing.Size(195, 26);
+            this.btnShowLicenseInfo.TabIndex = 19;
+            this.btnShowLicenseInfo.Text = "Show License Info";
+            this.btnShowLicenseInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnShowLicenseInfo.Click += new System.EventHandler(this.btnShowLicenseInfo_Click);
+            // 
+            // btnShowLicensesHistory
+            // 
+            this.btnShowLicensesHistory.BackColor = System.Drawing.Color.Transparent;
+            this.btnShowLicensesHistory.BorderColor = System.Drawing.Color.DimGray;
+            this.btnShowLicensesHistory.BorderRadius = 10;
+            this.btnShowLicensesHistory.CheckedState.Parent = this.btnShowLicensesHistory;
+            this.btnShowLicensesHistory.CustomImages.Parent = this.btnShowLicensesHistory;
+            this.btnShowLicensesHistory.Enabled = false;
+            this.btnShowLicensesHistory.FillColor = System.Drawing.Color.Transparent;
+            this.btnShowLicensesHistory.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowLicensesHistory.ForeColor = System.Drawing.Color.Black;
+            this.btnShowLicensesHistory.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowLicensesHistory.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnShowLicensesHistory.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnShowLicensesHistory.HoverState.Image = global::PresentationLayer.Properties.Resources.LicenseHistoryFill24;
+            this.btnShowLicensesHistory.HoverState.Parent = this.btnShowLicensesHistory;
+            this.btnShowLicensesHistory.Image = global::PresentationLayer.Properties.Resources.LicenseHistoryNoFill24;
+            this.btnShowLicensesHistory.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnShowLicensesHistory.Location = new System.Drawing.Point(27, 736);
+            this.btnShowLicensesHistory.Name = "btnShowLicensesHistory";
+            this.btnShowLicensesHistory.PressedColor = System.Drawing.Color.DimGray;
+            this.btnShowLicensesHistory.ShadowDecoration.Parent = this.btnShowLicensesHistory;
+            this.btnShowLicensesHistory.Size = new System.Drawing.Size(195, 26);
+            this.btnShowLicensesHistory.TabIndex = 19;
+            this.btnShowLicensesHistory.Text = "Show Licenses History";
+            this.btnShowLicensesHistory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnShowLicensesHistory.Click += new System.EventHandler(this.btnShowLicensesHistory_Click);
+            // 
             // ctrlLocalDrivingLicenseInfoWithFilter1
             // 
             this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterBorderColor = System.Drawing.Color.Gainsboro;
@@ -100,6 +158,7 @@
             this.pnlApplicationInfo.BorderColor = System.Drawing.Color.Gainsboro;
             this.pnlApplicationInfo.BorderRadius = 20;
             this.pnlApplicationInfo.BorderThickness = 1;
+            this.pnlApplicationInfo.Controls.Add(this.guna2PictureBox2);
             this.pnlApplicationInfo.Controls.Add(this.label17);
             this.pnlApplicationInfo.Controls.Add(this.label16);
             this.pnlApplicationInfo.Controls.Add(this.label11);
@@ -416,61 +475,16 @@
             this.guna2Elipse1.BorderRadius = 40;
             this.guna2Elipse1.TargetControl = this;
             // 
-            // btnShowLicenseInfo
+            // guna2PictureBox2
             // 
-            this.btnShowLicenseInfo.BackColor = System.Drawing.Color.Transparent;
-            this.btnShowLicenseInfo.BorderColor = System.Drawing.Color.DimGray;
-            this.btnShowLicenseInfo.BorderRadius = 10;
-            this.btnShowLicenseInfo.CheckedState.Parent = this.btnShowLicenseInfo;
-            this.btnShowLicenseInfo.CustomImages.Parent = this.btnShowLicenseInfo;
-            this.btnShowLicenseInfo.Enabled = false;
-            this.btnShowLicenseInfo.FillColor = System.Drawing.Color.Transparent;
-            this.btnShowLicenseInfo.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowLicenseInfo.ForeColor = System.Drawing.Color.Black;
-            this.btnShowLicenseInfo.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowLicenseInfo.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowLicenseInfo.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnShowLicenseInfo.HoverState.Image = global::PresentationLayer.Properties.Resources.LicenseCardFill64;
-            this.btnShowLicenseInfo.HoverState.Parent = this.btnShowLicenseInfo;
-            this.btnShowLicenseInfo.Image = global::PresentationLayer.Properties.Resources.LicenseCardNoFill64;
-            this.btnShowLicenseInfo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnShowLicenseInfo.Location = new System.Drawing.Point(241, 736);
-            this.btnShowLicenseInfo.Name = "btnShowLicenseInfo";
-            this.btnShowLicenseInfo.PressedColor = System.Drawing.Color.DimGray;
-            this.btnShowLicenseInfo.ShadowDecoration.Parent = this.btnShowLicenseInfo;
-            this.btnShowLicenseInfo.Size = new System.Drawing.Size(195, 26);
-            this.btnShowLicenseInfo.TabIndex = 19;
-            this.btnShowLicenseInfo.Text = "Show License Info";
-            this.btnShowLicenseInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnShowLicenseInfo.Click += new System.EventHandler(this.btnShowLicenseInfo_Click);
-            // 
-            // btnShowLicensesHistory
-            // 
-            this.btnShowLicensesHistory.BackColor = System.Drawing.Color.Transparent;
-            this.btnShowLicensesHistory.BorderColor = System.Drawing.Color.DimGray;
-            this.btnShowLicensesHistory.BorderRadius = 10;
-            this.btnShowLicensesHistory.CheckedState.Parent = this.btnShowLicensesHistory;
-            this.btnShowLicensesHistory.CustomImages.Parent = this.btnShowLicensesHistory;
-            this.btnShowLicensesHistory.Enabled = false;
-            this.btnShowLicensesHistory.FillColor = System.Drawing.Color.Transparent;
-            this.btnShowLicensesHistory.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowLicensesHistory.ForeColor = System.Drawing.Color.Black;
-            this.btnShowLicensesHistory.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowLicensesHistory.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnShowLicensesHistory.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnShowLicensesHistory.HoverState.Image = global::PresentationLayer.Properties.Resources.LicenseHistoryFill24;
-            this.btnShowLicensesHistory.HoverState.Parent = this.btnShowLicensesHistory;
-            this.btnShowLicensesHistory.Image = global::PresentationLayer.Properties.Resources.LicenseHistoryNoFill24;
-            this.btnShowLicensesHistory.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnShowLicensesHistory.Location = new System.Drawing.Point(27, 736);
-            this.btnShowLicensesHistory.Name = "btnShowLicensesHistory";
-            this.btnShowLicensesHistory.PressedColor = System.Drawing.Color.DimGray;
-            this.btnShowLicensesHistory.ShadowDecoration.Parent = this.btnShowLicensesHistory;
-            this.btnShowLicensesHistory.Size = new System.Drawing.Size(195, 26);
-            this.btnShowLicensesHistory.TabIndex = 19;
-            this.btnShowLicensesHistory.Text = "Show Licenses History";
-            this.btnShowLicensesHistory.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnShowLicensesHistory.Click += new System.EventHandler(this.btnShowLicensesHistory_Click);
+            this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(362, 160);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
+            this.guna2PictureBox2.Size = new System.Drawing.Size(20, 26);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 29;
+            this.guna2PictureBox2.TabStop = false;
             // 
             // frmIssueInternationalLicense
             // 
@@ -488,6 +502,7 @@
             this.guna2ShadowPanel1.PerformLayout();
             this.pnlApplicationInfo.ResumeLayout(false);
             this.pnlApplicationInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -521,5 +536,6 @@
         private System.Windows.Forms.Label lblInterLicenseID;
         private System.Windows.Forms.Label lblApplicationDate;
         private System.Windows.Forms.Label lblInterApplicationID;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
     }
 }

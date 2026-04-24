@@ -32,6 +32,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.lblDeniedUpdate = new System.Windows.Forms.Label();
             this.pnlApplicationInfo = new Guna.UI2.WinForms.Guna2Panel();
             this.cbLocalLicenseClasses = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -49,11 +50,12 @@
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblDeniedUpdate = new System.Windows.Forms.Label();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.ctrlPersonCardWithSearch1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCardWithSearch();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
             this.pnlApplicationInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // errorProvider1
@@ -86,12 +88,27 @@
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(886, 605);
             this.guna2ShadowPanel1.TabIndex = 1;
             // 
+            // lblDeniedUpdate
+            // 
+            this.lblDeniedUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDeniedUpdate.AutoSize = true;
+            this.lblDeniedUpdate.Font = new System.Drawing.Font("Tahoma", 11.18868F, System.Drawing.FontStyle.Bold);
+            this.lblDeniedUpdate.ForeColor = System.Drawing.Color.Red;
+            this.lblDeniedUpdate.Location = new System.Drawing.Point(254, 37);
+            this.lblDeniedUpdate.Name = "lblDeniedUpdate";
+            this.lblDeniedUpdate.Size = new System.Drawing.Size(357, 21);
+            this.lblDeniedUpdate.TabIndex = 16;
+            this.lblDeniedUpdate.Text = "Application started procees, cannot edit.";
+            this.lblDeniedUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblDeniedUpdate.Visible = false;
+            // 
             // pnlApplicationInfo
             // 
             this.pnlApplicationInfo.BackColor = System.Drawing.Color.White;
             this.pnlApplicationInfo.BorderColor = System.Drawing.Color.Gainsboro;
             this.pnlApplicationInfo.BorderRadius = 20;
             this.pnlApplicationInfo.BorderThickness = 1;
+            this.pnlApplicationInfo.Controls.Add(this.guna2PictureBox2);
             this.pnlApplicationInfo.Controls.Add(this.cbLocalLicenseClasses);
             this.pnlApplicationInfo.Controls.Add(this.label9);
             this.pnlApplicationInfo.Controls.Add(this.lblCreatedByUser);
@@ -370,19 +387,16 @@
             this.lblTitle.Text = "New Local Driving License Application";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblDeniedUpdate
+            // guna2PictureBox2
             // 
-            this.lblDeniedUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblDeniedUpdate.AutoSize = true;
-            this.lblDeniedUpdate.Font = new System.Drawing.Font("Tahoma", 11.18868F, System.Drawing.FontStyle.Bold);
-            this.lblDeniedUpdate.ForeColor = System.Drawing.Color.Red;
-            this.lblDeniedUpdate.Location = new System.Drawing.Point(254, 37);
-            this.lblDeniedUpdate.Name = "lblDeniedUpdate";
-            this.lblDeniedUpdate.Size = new System.Drawing.Size(357, 21);
-            this.lblDeniedUpdate.TabIndex = 16;
-            this.lblDeniedUpdate.Text = "Application started procees, cannot edit.";
-            this.lblDeniedUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblDeniedUpdate.Visible = false;
+            this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(452, 224);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
+            this.guna2PictureBox2.Size = new System.Drawing.Size(20, 26);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 27;
+            this.guna2PictureBox2.TabStop = false;
             // 
             // ctrlPersonCardWithSearch1
             // 
@@ -415,6 +429,7 @@
             this.guna2ShadowPanel1.PerformLayout();
             this.pnlApplicationInfo.ResumeLayout(false);
             this.pnlApplicationInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -443,5 +458,6 @@
         private System.Windows.Forms.Label lblApplicationDate;
         private Guna.UI2.WinForms.Guna2ComboBox cbLocalLicenseClasses;
         private System.Windows.Forms.Label lblDeniedUpdate;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
     }
 }

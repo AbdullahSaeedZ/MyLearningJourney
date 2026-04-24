@@ -225,6 +225,12 @@
     <Compile Include="Dashboard\ctrlDashboard.Designer.cs">
       <DependentUpon>ctrlDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard\ctrlTodayAppointments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dashboard\ctrlTodayAppointments.Designer.cs">
+      <DependentUpon>ctrlTodayAppointments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Drivers\Controls\ctrlListDriverLicenses.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -416,6 +422,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard\ctrlDashboard.resx">
       <DependentUpon>ctrlDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\ctrlTodayAppointments.resx">
+      <DependentUpon>ctrlTodayAppointments.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Drivers\Controls\ctrlListDriverLicenses.resx">
       <DependentUpon>ctrlListDriverLicenses.cs</DependentUpon>

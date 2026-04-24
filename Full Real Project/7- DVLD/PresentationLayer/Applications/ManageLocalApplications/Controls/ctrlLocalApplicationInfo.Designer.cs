@@ -56,8 +56,10 @@
             this.lblApplicationFees = new System.Windows.Forms.Label();
             this.lblApplicationType = new System.Windows.Forms.Label();
             this.lblApplicationStatus = new System.Windows.Forms.Label();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnlLocalApplicationInfo.SuspendLayout();
             this.pnlBaseApplicationInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlLocalApplicationInfo
@@ -207,6 +209,7 @@
             this.pnlBaseApplicationInfo.BorderColor = System.Drawing.Color.Gainsboro;
             this.pnlBaseApplicationInfo.BorderRadius = 15;
             this.pnlBaseApplicationInfo.BorderThickness = 1;
+            this.pnlBaseApplicationInfo.Controls.Add(this.guna2PictureBox1);
             this.pnlBaseApplicationInfo.Controls.Add(this.btnShowPersonInfo);
             this.pnlBaseApplicationInfo.Controls.Add(this.label1);
             this.pnlBaseApplicationInfo.Controls.Add(this.label15);
@@ -469,6 +472,17 @@
             this.lblApplicationStatus.TabIndex = 3;
             this.lblApplicationStatus.Text = "NA";
             // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(238, 169);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(20, 26);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 29;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // ctrlLocalApplicationInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -482,6 +496,7 @@
             this.pnlLocalApplicationInfo.PerformLayout();
             this.pnlBaseApplicationInfo.ResumeLayout(false);
             this.pnlBaseApplicationInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -517,5 +532,6 @@
         private System.Windows.Forms.Label lblApplicationFees;
         private System.Windows.Forms.Label lblApplicationType;
         private Guna.UI2.WinForms.Guna2Button btnShowPersonInfo;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

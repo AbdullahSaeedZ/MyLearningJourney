@@ -32,7 +32,6 @@
             this.guna2CircleProgressBar1 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.lblGoodMorningEvening = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblTodayDate = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -46,8 +45,6 @@
             this.guna2CircleProgressBar3 = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblTotalApplicationsCompleted = new System.Windows.Forms.Label();
-            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label11 = new System.Windows.Forms.Label();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblTotalUsers = new System.Windows.Forms.Label();
             this.guna2Panel7 = new Guna.UI2.WinForms.Guna2Panel();
@@ -77,12 +74,14 @@
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.btnApplications = new Guna.UI2.WinForms.Guna2Button();
+            this.lblTodayDate = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.guna2Panel4.SuspendLayout();
-            this.guna2Panel5.SuspendLayout();
             this.guna2Panel6.SuspendLayout();
             this.guna2Panel7.SuspendLayout();
             this.guna2Panel8.SuspendLayout();
@@ -93,6 +92,7 @@
             this.guna2Panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            this.guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,18 +134,6 @@
             this.label3.Size = new System.Drawing.Size(188, 23);
             this.label3.TabIndex = 0;
             this.label3.Text = "Total Passed Tests";
-            // 
-            // lblTodayDate
-            // 
-            this.lblTodayDate.AutoSize = true;
-            this.lblTodayDate.BackColor = System.Drawing.Color.Transparent;
-            this.lblTodayDate.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.lblTodayDate.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTodayDate.Location = new System.Drawing.Point(14, 59);
-            this.lblTodayDate.Name = "lblTodayDate";
-            this.lblTodayDate.Size = new System.Drawing.Size(181, 22);
-            this.lblTodayDate.TabIndex = 1;
-            this.lblTodayDate.Text = "monday, june, 2026  ";
             // 
             // label5
             // 
@@ -323,33 +311,6 @@
             this.lblTotalApplicationsCompleted.Size = new System.Drawing.Size(31, 35);
             this.lblTotalApplicationsCompleted.TabIndex = 0;
             this.lblTotalApplicationsCompleted.Text = "0";
-            // 
-            // guna2Panel5
-            // 
-            this.guna2Panel5.BackColor = System.Drawing.Color.White;
-            this.guna2Panel5.BorderColor = System.Drawing.Color.LightGray;
-            this.guna2Panel5.BorderRadius = 20;
-            this.guna2Panel5.BorderThickness = 1;
-            this.guna2Panel5.Controls.Add(this.label11);
-            this.guna2Panel5.Controls.Add(this.lblTodayDate);
-            this.guna2Panel5.FillColor = System.Drawing.Color.White;
-            this.guna2Panel5.Location = new System.Drawing.Point(423, 16);
-            this.guna2Panel5.Name = "guna2Panel5";
-            this.guna2Panel5.ShadowDecoration.Parent = this.guna2Panel5;
-            this.guna2Panel5.Size = new System.Drawing.Size(601, 91);
-            this.guna2Panel5.TabIndex = 2;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.DimGray;
-            this.label11.Location = new System.Drawing.Point(14, 14);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(133, 23);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Today\'s Date";
             // 
             // guna2Panel6
             // 
@@ -646,15 +607,15 @@
             this.guna2Button4.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Button4.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Button4.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button4.HoverState.Image = global::PresentationLayer.Properties.Resources.appointmentFill;
+            this.guna2Button4.HoverState.Image = global::PresentationLayer.Properties.Resources.scheduleFill24;
             this.guna2Button4.HoverState.Parent = this.guna2Button4;
-            this.guna2Button4.Image = global::PresentationLayer.Properties.Resources.appointmentNoFill;
+            this.guna2Button4.Image = global::PresentationLayer.Properties.Resources.scheduleNoFill24;
             this.guna2Button4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button4.ImageOffset = new System.Drawing.Point(5, 0);
-            this.guna2Button4.Location = new System.Drawing.Point(19, 263);
+            this.guna2Button4.Location = new System.Drawing.Point(19, 273);
             this.guna2Button4.Name = "guna2Button4";
             this.guna2Button4.ShadowDecoration.Parent = this.guna2Button4;
-            this.guna2Button4.Size = new System.Drawing.Size(257, 45);
+            this.guna2Button4.Size = new System.Drawing.Size(247, 29);
             this.guna2Button4.TabIndex = 2;
             this.guna2Button4.Text = "Show All Appointments";
             this.guna2Button4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -662,10 +623,10 @@
             // guna2PictureBox2
             // 
             this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(123, 104);
+            this.guna2PictureBox2.Location = new System.Drawing.Point(103, 108);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
-            this.guna2PictureBox2.Size = new System.Drawing.Size(31, 38);
+            this.guna2PictureBox2.Size = new System.Drawing.Size(25, 31);
             this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox2.TabIndex = 26;
             this.guna2PictureBox2.TabStop = false;
@@ -800,13 +761,52 @@
             this.btnApplications.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnApplications.TextOffset = new System.Drawing.Point(30, 0);
             // 
+            // lblTodayDate
+            // 
+            this.lblTodayDate.AutoSize = true;
+            this.lblTodayDate.BackColor = System.Drawing.Color.Transparent;
+            this.lblTodayDate.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.lblTodayDate.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTodayDate.Location = new System.Drawing.Point(14, 59);
+            this.lblTodayDate.Name = "lblTodayDate";
+            this.lblTodayDate.Size = new System.Drawing.Size(181, 22);
+            this.lblTodayDate.TabIndex = 1;
+            this.lblTodayDate.Text = "monday, june, 2026  ";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DimGray;
+            this.label11.Location = new System.Drawing.Point(14, 14);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(133, 23);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Today\'s Date";
+            // 
+            // guna2Panel5
+            // 
+            this.guna2Panel5.BackColor = System.Drawing.Color.White;
+            this.guna2Panel5.BorderColor = System.Drawing.Color.LightGray;
+            this.guna2Panel5.BorderRadius = 20;
+            this.guna2Panel5.BorderThickness = 1;
+            this.guna2Panel5.Controls.Add(this.label11);
+            this.guna2Panel5.Controls.Add(this.lblTodayDate);
+            this.guna2Panel5.FillColor = System.Drawing.Color.White;
+            this.guna2Panel5.Location = new System.Drawing.Point(423, 16);
+            this.guna2Panel5.Name = "guna2Panel5";
+            this.guna2Panel5.ShadowDecoration.Parent = this.guna2Panel5;
+            this.guna2Panel5.Size = new System.Drawing.Size(601, 91);
+            this.guna2Panel5.TabIndex = 2;
+            // 
             // guna2PictureBox3
             // 
             this.guna2PictureBox3.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
-            this.guna2PictureBox3.Location = new System.Drawing.Point(123, 100);
+            this.guna2PictureBox3.Location = new System.Drawing.Point(103, 104);
             this.guna2PictureBox3.Name = "guna2PictureBox3";
             this.guna2PictureBox3.ShadowDecoration.Parent = this.guna2PictureBox3;
-            this.guna2PictureBox3.Size = new System.Drawing.Size(31, 38);
+            this.guna2PictureBox3.Size = new System.Drawing.Size(25, 31);
             this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox3.TabIndex = 26;
             this.guna2PictureBox3.TabStop = false;
@@ -842,8 +842,6 @@
             this.guna2Panel3.PerformLayout();
             this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel4.PerformLayout();
-            this.guna2Panel5.ResumeLayout(false);
-            this.guna2Panel5.PerformLayout();
             this.guna2Panel6.ResumeLayout(false);
             this.guna2Panel6.PerformLayout();
             this.guna2Panel7.ResumeLayout(false);
@@ -862,6 +860,8 @@
             this.guna2Panel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            this.guna2Panel5.ResumeLayout(false);
+            this.guna2Panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
             this.ResumeLayout(false);
 
@@ -871,7 +871,6 @@
 
         private Guna.UI2.WinForms.Guna2CircleProgressBar guna2CircleProgressBar1;
         private System.Windows.Forms.Label lblGoodMorningEvening;
-        private System.Windows.Forms.Label lblTodayDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label8;
@@ -885,8 +884,6 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2CircleProgressBar guna2CircleProgressBar3;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
-        private System.Windows.Forms.Label label11;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel6;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel7;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
@@ -917,6 +914,9 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel12;
         private System.Windows.Forms.Timer timer1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
+        private System.Windows.Forms.Label lblTodayDate;
+        private System.Windows.Forms.Label label11;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel5;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
     }
 }
