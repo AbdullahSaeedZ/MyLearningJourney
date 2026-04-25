@@ -148,10 +148,8 @@ namespace BusinessLayer
             return clsTestsDataAccess.GetTestIDByAppointmentID(this.TestAppointmentID);
         }
 
-        public static bool IsTestAppointmentLocked(int TestAppointmentID)
-        {
-            return clsTestAppointmentsDataAccess.IsTestAppointmentLocked(TestAppointmentID);
-        }
+       
+
 
     }
 }

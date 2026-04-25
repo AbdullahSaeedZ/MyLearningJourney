@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using PresentationLayer.Properties;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
@@ -9,6 +10,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Controls
 {
     public partial class ctrlLocalDrivingLicenseInfo : UserControl
     {
+        public event Action CloseOnError;
         public int BorderThickness
         {
             set
@@ -46,6 +48,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Controls
             if (_License == null)
             {
                 MessageBox.Show($"Could not find License ID = {LicenseID}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CloseOnError?.Invoke();
                 return;
             }
             _FillLicenseInfo();

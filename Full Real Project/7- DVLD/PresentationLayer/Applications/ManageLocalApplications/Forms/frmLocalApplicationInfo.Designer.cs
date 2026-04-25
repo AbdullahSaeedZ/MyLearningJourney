@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.ctrlLocalApplicationInfo1 = new PresentationLayer.Applications.ManageLocalApplications.Controls.ctrlLocalApplicationInfo();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.ctrlLocalApplicationInfo1 = new PresentationLayer.Applications.ManageLocalApplications.Controls.ctrlLocalApplicationInfo();
             this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +57,18 @@
             this.guna2ShadowPanel1.ShadowDepth = 240;
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(923, 599);
             this.guna2ShadowPanel1.TabIndex = 4;
+            // 
+            // ctrlLocalApplicationInfo1
+            // 
+            this.ctrlLocalApplicationInfo1.BackColor = System.Drawing.Color.White;
+            this.ctrlLocalApplicationInfo1.BasicApplicationBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalApplicationInfo1.BasicApplicationBorderThickness = 1;
+            this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderThickness = 1;
+            this.ctrlLocalApplicationInfo1.Location = new System.Drawing.Point(12, 47);
+            this.ctrlLocalApplicationInfo1.Name = "ctrlLocalApplicationInfo1";
+            this.ctrlLocalApplicationInfo1.Size = new System.Drawing.Size(901, 487);
+            this.ctrlLocalApplicationInfo1.TabIndex = 11;
             // 
             // btnClose
             // 
@@ -95,18 +107,6 @@
             this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
             this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
             this.ControlBoxClose.TabIndex = 9;
-            // 
-            // ctrlLocalApplicationInfo1
-            // 
-            this.ctrlLocalApplicationInfo1.BackColor = System.Drawing.Color.White;
-            this.ctrlLocalApplicationInfo1.BasicApplicationBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlLocalApplicationInfo1.BasicApplicationBorderThickness = 1;
-            this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderThickness = 1;
-            this.ctrlLocalApplicationInfo1.Location = new System.Drawing.Point(12, 47);
-            this.ctrlLocalApplicationInfo1.Name = "ctrlLocalApplicationInfo1";
-            this.ctrlLocalApplicationInfo1.Size = new System.Drawing.Size(901, 487);
-            this.ctrlLocalApplicationInfo1.TabIndex = 11;
             // 
             // frmLocalApplicationInfo
             // 

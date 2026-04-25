@@ -213,6 +213,12 @@
     <Compile Include="Applications\TestAppointments\Forms\frmScheduleTestAppointment.Designer.cs">
       <DependentUpon>frmScheduleTestAppointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\TestAppointments\Forms\frmShowAppointmentInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\TestAppointments\Forms\frmShowAppointmentInfo.Designer.cs">
+      <DependentUpon>frmShowAppointmentInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Applications\TestAppointments\Forms\frmTakeTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,11 +231,17 @@
     <Compile Include="Dashboard\ctrlDashboard.Designer.cs">
       <DependentUpon>ctrlDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard\ctrlTodayAppointments.cs">
+    <Compile Include="Dashboard\ctrlAppointmentItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Dashboard\ctrlTodayAppointments.Designer.cs">
-      <DependentUpon>ctrlTodayAppointments.cs</DependentUpon>
+    <Compile Include="Dashboard\ctrlAppointmentItem.Designer.cs">
+      <DependentUpon>ctrlAppointmentItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard\frmEnterID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard\frmEnterID.Designer.cs">
+      <DependentUpon>frmEnterID.cs</DependentUpon>
     </Compile>
     <Compile Include="Drivers\Controls\ctrlListDriverLicenses.cs">
       <SubType>UserControl</SubType>
@@ -417,14 +429,20 @@
     <EmbeddedResource Include="Applications\TestAppointments\Forms\frmScheduleTestAppointment.resx">
       <DependentUpon>frmScheduleTestAppointment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\TestAppointments\Forms\frmShowAppointmentInfo.resx">
+      <DependentUpon>frmShowAppointmentInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Applications\TestAppointments\Forms\frmTakeTest.resx">
       <DependentUpon>frmTakeTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard\ctrlDashboard.resx">
       <DependentUpon>ctrlDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard\ctrlTodayAppointments.resx">
-      <DependentUpon>ctrlTodayAppointments.cs</DependentUpon>
+    <EmbeddedResource Include="Dashboard\ctrlAppointmentItem.resx">
+      <DependentUpon>ctrlAppointmentItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard\frmEnterID.resx">
+      <DependentUpon>frmEnterID.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Drivers\Controls\ctrlListDriverLicenses.resx">
       <DependentUpon>ctrlListDriverLicenses.cs</DependentUpon>

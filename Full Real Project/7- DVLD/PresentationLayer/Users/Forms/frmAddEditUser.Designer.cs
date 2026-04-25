@@ -515,6 +515,7 @@
             this.Name = "frmAddEditUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddEditUser";
+            this.Activated += new System.EventHandler(this.frmAddEditUser_Activated);
             this.Load += new System.EventHandler(this.frmAddEditUser_Load);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();

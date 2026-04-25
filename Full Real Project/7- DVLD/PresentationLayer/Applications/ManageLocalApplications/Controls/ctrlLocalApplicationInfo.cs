@@ -10,7 +10,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Controls
 {
     public partial class ctrlLocalApplicationInfo : UserControl
     {
-
+        public event Action CloseOnError;
         public int SelectedLocalApplicationID { get; private set; } //  if needed outside
         private clsLocalDrivingLicenseApplicationsBusiness _LocalApplication;
         public clsLocalDrivingLicenseApplicationsBusiness SelectedLocalApplication { get { return _LocalApplication; } }
@@ -73,6 +73,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Controls
             if (_LocalApplication == null)
             {
                 MessageBox.Show($"Local Driving License Application ID = {LocalDrivingLicenseApplicationID} was not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CloseOnError?.Invoke();
                 return;
             }
             SelectedLocalApplicationID = LocalDrivingLicenseApplicationID;
@@ -107,6 +108,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Controls
 
             clsUtilities.AddToBreadcrumb("> License Info");
             frmShowLocalLicenseInfo licenseInfo = new frmShowLocalLicenseInfo(LicenseID);
+            licenseInfo.ShowDialog();
             clsUtilities.RemoveFromBreadcrumb("> License Info");
         }
 

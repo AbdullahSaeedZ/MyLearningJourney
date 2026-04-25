@@ -14,6 +14,7 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Forms
 
         private void frmLocalApplicationInfo_Load(object sender, EventArgs e)
         {
+            ctrlLocalApplicationInfo1.CloseOnError += this.Close;
             ctrlLocalApplicationInfo1.LoadInfo(_LocalApplicationID);
         }
 

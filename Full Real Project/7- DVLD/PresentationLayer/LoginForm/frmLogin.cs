@@ -2,8 +2,6 @@
 using PresentationLayer.MainForm;
 using PresentationLayer.Properties;
 using System;
-using System.Runtime.Remoting.Messaging;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace PresentationLayer.LoginForm
@@ -21,7 +19,7 @@ namespace PresentationLayer.LoginForm
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            _LoadCredentials();
+           _LoadCredentials();
         }
       
  
@@ -70,20 +68,12 @@ namespace PresentationLayer.LoginForm
                 return;
             }
 
-            lblWelcomeUsername.Text = "Welcome Back, " + clsBusinessSettings.CurrentUser.Username + "!";
-            pnlWelcome.Visible = true;
-            timer1.Enabled = true;
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            timer1.Enabled = false;
             frmMain main = new frmMain();
             this.Hide();
             main.ShowDialog(); // dialog to wait for main form to close then continue to next line
             this.Show(); // once logged out from Main form, this will unhide instead of new object created in memory
-            pnlWelcome.Visible = false;
         }
+
 
         private void btnShowHidePassword_Click(object sender, EventArgs e)
         {
@@ -105,11 +95,15 @@ namespace PresentationLayer.LoginForm
             Application.Exit();
         }
 
-        private void frmLogin_Shown(object sender, EventArgs e) // once logged out 
+        private void frmLogin_Activated(object sender, EventArgs e)
         {
-            //_LoadCredentials();
-        }
+            tbUsername.Text = "";
+            tbPassword.Text = "";
 
-       
+            if (!chbRememberMe.Checked)
+                return;
+
+            _LoadCredentials();
+        }
     } 
 }

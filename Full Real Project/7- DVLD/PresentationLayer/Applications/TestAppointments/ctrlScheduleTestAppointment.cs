@@ -1,12 +1,5 @@
 ﻿using BusinessLayer;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Applications.TestAppointments
@@ -41,10 +34,10 @@ namespace PresentationLayer.Applications.TestAppointments
             InitializeComponent();
         }
 
-        public void LoadInfo(int LocalApplicationID, clsTestTypesBusiness.enTestType TestType, int TestAppointment = -1)
+        public void LoadInfo(int LocalApplicationID, clsTestTypesBusiness.enTestType TestType, int TestAppointmentID = -1)
         {
             this.TestType = TestType;
-            _testAppointmentID = TestAppointment;
+            _testAppointmentID = TestAppointmentID;
             _LocalApplicationID = LocalApplicationID;
             _LocalApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID(_LocalApplicationID);
 
@@ -76,7 +69,7 @@ namespace PresentationLayer.Applications.TestAppointments
                 lblRetakeAppFees.Text = "0";
             }
 
-            if (TestAppointment == -1)
+            if (TestAppointmentID == -1)
             {
                 _FormMode = enMode.eAddMode;
                 _TestAppointment = new clsTestAppointmentsBusiness();
@@ -124,7 +117,7 @@ namespace PresentationLayer.Applications.TestAppointments
             else
             {
                 // this case is when appointment date is in the past , so i dont want to enable editing cuz new appointment need to be scheduled
-                lblUserMessage.Text = "Appointment date is in the past, cannot edit date";
+                lblUserMessage.Text = "You cannot change date of current or locked appointments";
                 lblUserMessage.Visible = true;
                 btnSave.Enabled = false;
                 dtpAppointmentDate.Enabled = false;

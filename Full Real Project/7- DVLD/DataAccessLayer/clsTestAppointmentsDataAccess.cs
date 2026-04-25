@@ -156,6 +156,37 @@ namespace DataAccessLayer
             }
             return dt;
         }
+        public static DataTable GetTodaysAppointments()
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = @"select TestAppointmentID, AppointmentDate, IsLocked 
+                                     from TestAppointments 
+                                     where cast(AppointmentDate as date) = cast(getdate() as date)
+                                     order by TestAppointmentID desc;";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        connection.Open();
+                        SqlDataReader reader = command.ExecuteReader();
+
+                        if (reader.HasRows)
+                            dt.Load(reader);
+                        else
+                            dt = null;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                // logs
+                throw;
+            }
+            return dt;
+        }
 
         public static DataTable GetAllTestAppointmentsByTestTypeID(int LocalDrivingLicenseApplicationID, byte TestTypeID)
         {

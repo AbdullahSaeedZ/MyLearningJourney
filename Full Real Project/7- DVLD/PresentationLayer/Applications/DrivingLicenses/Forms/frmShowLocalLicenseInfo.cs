@@ -14,6 +14,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
 
         private void frmShowLocalLicenseInfo_Load(object sender, EventArgs e)
         {
+            ctrlLocalDrivingLicenseInfo1.CloseOnError += this.Close;
             ctrlLocalDrivingLicenseInfo1.LoadInfo(_LicenseID);
         }
 

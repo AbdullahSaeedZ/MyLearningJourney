@@ -255,5 +255,9 @@ namespace PresentationLayer.UsersFormsAndControls
             this.Close();
         }
 
+        private void frmAddEditUser_Activated(object sender, EventArgs e)
+        {
+            ctrlPersonCardWithSearch1.FilterFocus();
+        }
     }
 }

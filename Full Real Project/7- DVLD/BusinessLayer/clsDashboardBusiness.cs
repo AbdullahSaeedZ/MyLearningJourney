@@ -54,5 +54,10 @@ namespace BusinessLayer
                 return null;
         }
 
+        public static DataTable GetTodaysAppointments()
+        {
+            return clsTestAppointmentsDataAccess.GetTodaysAppointments();
+        }
+
     }
 }
