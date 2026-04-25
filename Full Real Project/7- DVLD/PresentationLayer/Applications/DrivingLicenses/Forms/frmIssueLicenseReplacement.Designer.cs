@@ -521,12 +521,12 @@
             // guna2PictureBox2
             // 
             this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(354, 136);
+            this.guna2PictureBox2.Location = new System.Drawing.Point(356, 138);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
-            this.guna2PictureBox2.Size = new System.Drawing.Size(20, 26);
+            this.guna2PictureBox2.Size = new System.Drawing.Size(18, 24);
             this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox2.TabIndex = 28;
+            this.guna2PictureBox2.TabIndex = 27;
             this.guna2PictureBox2.TabStop = false;
             // 
             // frmIssueLicenseReplacement

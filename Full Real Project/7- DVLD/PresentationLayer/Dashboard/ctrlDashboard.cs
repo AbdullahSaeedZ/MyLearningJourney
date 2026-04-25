@@ -13,8 +13,10 @@ namespace PresentationLayer.DashboardControls
 {
     public partial class ctrlDashboard : UserControl
     {
-        private string TimeNow;
-        private string DateNow;
+        private int _TimerStop = 95;
+        private int _TimerInitial = 0;
+        private string _TimeNow;
+        private string _DateNow;
         private clsDashboardBusiness _Data;
         private DataTable _dtTodaysAppointments;
 
@@ -32,30 +34,22 @@ namespace PresentationLayer.DashboardControls
                 MessageBox.Show("Could not retrieve overview data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            _StartTime();
+            _DateNow = DateTime.Now.ToLongDateString();
+            _TimeNow = DateTime.Now.ToLongTimeString();
+            _StartTimers();
             _FillData();
         }
 
-        private void _StartTime()
+        private void _StartTimers()
         {
-            DateNow = DateTime.Now.ToLongDateString();
-            TimeNow = DateTime.Now.ToLongTimeString();
             timer1.Enabled = true;
+            NumbersTimer.Enabled = true;
         }
+
         private void _FillData()
         {
-            lblTodayDate.Text = DateNow + "  |  " + TimeNow;
+            lblTodayDate.Text = _DateNow + "                  |                  " + _TimeNow;
             lblGoodMorningEvening.Text = "Good " + (DateTime.Now.Hour >= 12 ? "Evening, " : "Morning, ") + clsBusinessSettings.CurrentUser.Person.FirstName + " !";
-
-            lblTotalExamxComplete.Text = $"{_Data.TotalPassedTests} of {_Data.TotalTests}";
-            lblTotalApplicationsCompleted.Text =  $"{_Data.TotalApplicationsCompleted} of {_Data.TotalApplications}";
-            lblTotalDrivers.Text = _Data.TotalDrivers.ToString();
-            lblTotalUsers.Text = _Data.TotalUsers.ToString();
-            lblTotalPeople.Text = _Data.TotalPeople.ToString();
-            lblTotalLicenses.Text = _Data.TotalLicenses.ToString();
-            lblTotalFeesThisMonth.Text = _Data.TotalPaidFeesThisMonth.ToString();
-            lblTotalFeesAllTime.Text = _Data.TotalPaidFeesAllTime.ToString();
 
             progbTotalTestsPassed.Maximum = _Data.TotalTests;
             progbTotalTestsPassed.Value = _Data.TotalPassedTests;
@@ -85,18 +79,57 @@ namespace PresentationLayer.DashboardControls
         }
 
 
+        // numbers timer
+        private void NumbersTimer_Tick(object sender, EventArgs e)
+        {
+            if (_TimerInitial < _TimerStop)
+            {
+                _TimerInitial += 5;
+                lblTotalExamxComplete.Text = $"{_TimerInitial} of {_TimerInitial}";
+                lblTotalApplicationsCompleted.Text = $"{_TimerInitial} of {_TimerInitial}";
+                lblTotalDrivers.Text = $"{_TimerInitial}";
+                lblTotalUsers.Text = $"{_TimerInitial}";
+                lblTotalPeople.Text = $"{_TimerInitial}";
+                lblTotalLicenses.Text = $"{_TimerInitial}";
+                lblTotalFeesThisMonth.Text = $"{_TimerInitial}";
+                lblTotalFeesAllTime.Text = $"{_TimerInitial}";
 
+                progbTotalTestsPassed.Value = _TimerInitial;
+                progbTotalCompletedApplications.Value = _TimerInitial;
+            }
+            else
+            {
+                NumbersTimer.Enabled = false;
+
+                lblTotalExamxComplete.Text = $"{_Data.TotalPassedTests} of {_Data.TotalTests}";
+                lblTotalApplicationsCompleted.Text = $"{_Data.TotalApplicationsCompleted} of {_Data.TotalApplications}";
+                lblTotalDrivers.Text = _Data.TotalDrivers.ToString();
+                lblTotalUsers.Text = _Data.TotalUsers.ToString();
+                lblTotalPeople.Text = _Data.TotalPeople.ToString();
+                lblTotalLicenses.Text = _Data.TotalLicenses.ToString();
+                lblTotalFeesThisMonth.Text = _Data.TotalPaidFeesThisMonth.ToString();
+                lblTotalFeesAllTime.Text = _Data.TotalPaidFeesAllTime.ToString();
+
+                progbTotalTestsPassed.Value = _Data.TotalPassedTests;
+                progbTotalCompletedApplications.Value = _Data.TotalApplicationsCompleted;
+            }
+
+        }
+
+        // time seconds timer
         private void timer1_Tick(object sender, EventArgs e)
         {
-            TimeNow = DateTime.Now.ToLongTimeString();
-            lblTodayDate.Text = DateNow + "  |  " + TimeNow;
+            _TimeNow = DateTime.Now.ToLongTimeString();
+            lblTodayDate.Text = _DateNow + "                  |                  " + _TimeNow;
         }
 
         private void ctrlDashboard_Leave(object sender, EventArgs e)
         {
             timer1.Enabled = false;
+            NumbersTimer.Enabled = false;
         }
 
+        // quick actions buttons
         private void btnDetainLicense_Click(object sender, EventArgs e)
         {
             frmDetainLicense detain = new frmDetainLicense();
@@ -137,5 +170,6 @@ namespace PresentationLayer.DashboardControls
             frmEnterID enter = new frmEnterID(Mode);
             enter.ShowDialog();
         }
+
     }
 }

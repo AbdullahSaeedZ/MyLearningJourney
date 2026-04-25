@@ -484,34 +484,34 @@
             // guna2PictureBox2
             // 
             this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(359, 138);
+            this.guna2PictureBox2.Location = new System.Drawing.Point(355, 142);
             this.guna2PictureBox2.Name = "guna2PictureBox2";
             this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
-            this.guna2PictureBox2.Size = new System.Drawing.Size(20, 26);
+            this.guna2PictureBox2.Size = new System.Drawing.Size(18, 24);
             this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox2.TabIndex = 28;
+            this.guna2PictureBox2.TabIndex = 30;
             this.guna2PictureBox2.TabStop = false;
             // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(359, 176);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(355, 176);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(20, 26);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(18, 24);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 28;
+            this.guna2PictureBox1.TabIndex = 31;
             this.guna2PictureBox1.TabStop = false;
             // 
             // guna2PictureBox3
             // 
             this.guna2PictureBox3.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
-            this.guna2PictureBox3.Location = new System.Drawing.Point(807, 176);
+            this.guna2PictureBox3.Location = new System.Drawing.Point(801, 178);
             this.guna2PictureBox3.Name = "guna2PictureBox3";
             this.guna2PictureBox3.ShadowDecoration.Parent = this.guna2PictureBox3;
-            this.guna2PictureBox3.Size = new System.Drawing.Size(20, 26);
+            this.guna2PictureBox3.Size = new System.Drawing.Size(18, 24);
             this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox3.TabIndex = 29;
+            this.guna2PictureBox3.TabIndex = 32;
             this.guna2PictureBox3.TabStop = false;
             // 
             // frmReleaseDetainedLicense

@@ -905,5 +905,23 @@
   <ItemGroup>
     <None Include="assets\Saudi_Riyal_Symbol.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\completedApplicationNoFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\moneyThisMonthNoFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\monyAllTime1NoFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\walletNoFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\quickActionsNoFill24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\dateClockNoFill24.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

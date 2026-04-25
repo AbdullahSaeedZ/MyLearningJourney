@@ -31,30 +31,30 @@
             this.components = new System.ComponentModel.Container();
             this.pnlBasicInfo = new Guna.UI2.WinForms.Guna2Panel();
             this.lblLocalApplicationID = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.lblTestType = new System.Windows.Forms.Label();
+            this.lblAppointmentID = new System.Windows.Forms.Label();
             this.lblTestFees = new System.Windows.Forms.Label();
             this.lblTestTrials = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblApplicantName = new System.Windows.Forms.Label();
+            this.lblAppointmentDate = new System.Windows.Forms.Label();
             this.lblLicenseDrivingClass = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.lblAppointmentID = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblAppointmentDate = new System.Windows.Forms.Label();
-            this.lblTestType = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnlBasicInfo.SuspendLayout();
             this.guna2ShadowPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBasicInfo
@@ -63,7 +63,7 @@
             this.pnlBasicInfo.BorderColor = System.Drawing.Color.Gainsboro;
             this.pnlBasicInfo.BorderRadius = 15;
             this.pnlBasicInfo.BorderThickness = 1;
-            this.pnlBasicInfo.Controls.Add(this.guna2PictureBox1);
+            this.pnlBasicInfo.Controls.Add(this.guna2PictureBox2);
             this.pnlBasicInfo.Controls.Add(this.lblLocalApplicationID);
             this.pnlBasicInfo.Controls.Add(this.label3);
             this.pnlBasicInfo.Controls.Add(this.label13);
@@ -100,6 +100,19 @@
             this.lblLocalApplicationID.TabIndex = 9;
             this.lblLocalApplicationID.Text = "NA";
             // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DimGray;
+            this.label3.Location = new System.Drawing.Point(143, 83);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(129, 18);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Appointment ID:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // label13
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -112,6 +125,19 @@
             this.label13.TabIndex = 4;
             this.label13.Text = "Test Trials:";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Location = new System.Drawing.Point(524, 118);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 18);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Test Type:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label11
             // 
@@ -165,6 +191,30 @@
             this.label5.Text = "Driving License Application ID:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // lblTestType
+            // 
+            this.lblTestType.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTestType.AutoSize = true;
+            this.lblTestType.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTestType.ForeColor = System.Drawing.Color.Black;
+            this.lblTestType.Location = new System.Drawing.Point(640, 118);
+            this.lblTestType.Name = "lblTestType";
+            this.lblTestType.Size = new System.Drawing.Size(27, 18);
+            this.lblTestType.TabIndex = 10;
+            this.lblTestType.Text = "NA";
+            // 
+            // lblAppointmentID
+            // 
+            this.lblAppointmentID.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblAppointmentID.AutoSize = true;
+            this.lblAppointmentID.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppointmentID.ForeColor = System.Drawing.Color.Black;
+            this.lblAppointmentID.Location = new System.Drawing.Point(303, 83);
+            this.lblAppointmentID.Name = "lblAppointmentID";
+            this.lblAppointmentID.Size = new System.Drawing.Size(27, 18);
+            this.lblAppointmentID.TabIndex = 11;
+            this.lblAppointmentID.Text = "NA";
+            // 
             // lblTestFees
             // 
             this.lblTestFees.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -213,6 +263,18 @@
             this.lblApplicantName.Size = new System.Drawing.Size(27, 18);
             this.lblApplicantName.TabIndex = 12;
             this.lblApplicantName.Text = "NA";
+            // 
+            // lblAppointmentDate
+            // 
+            this.lblAppointmentDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblAppointmentDate.AutoSize = true;
+            this.lblAppointmentDate.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppointmentDate.ForeColor = System.Drawing.Color.Black;
+            this.lblAppointmentDate.Location = new System.Drawing.Point(303, 153);
+            this.lblAppointmentDate.Name = "lblAppointmentDate";
+            this.lblAppointmentDate.Size = new System.Drawing.Size(27, 18);
+            this.lblAppointmentDate.TabIndex = 13;
+            this.lblAppointmentDate.Text = "NA";
             // 
             // lblLicenseDrivingClass
             // 
@@ -297,78 +359,16 @@
             this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
             this.ControlBoxClose.TabIndex = 9;
             // 
-            // lblAppointmentID
+            // guna2PictureBox2
             // 
-            this.lblAppointmentID.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblAppointmentID.AutoSize = true;
-            this.lblAppointmentID.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAppointmentID.ForeColor = System.Drawing.Color.Black;
-            this.lblAppointmentID.Location = new System.Drawing.Point(303, 83);
-            this.lblAppointmentID.Name = "lblAppointmentID";
-            this.lblAppointmentID.Size = new System.Drawing.Size(27, 18);
-            this.lblAppointmentID.TabIndex = 11;
-            this.lblAppointmentID.Text = "NA";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(143, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 18);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Appointment ID:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblAppointmentDate
-            // 
-            this.lblAppointmentDate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblAppointmentDate.AutoSize = true;
-            this.lblAppointmentDate.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAppointmentDate.ForeColor = System.Drawing.Color.Black;
-            this.lblAppointmentDate.Location = new System.Drawing.Point(303, 153);
-            this.lblAppointmentDate.Name = "lblAppointmentDate";
-            this.lblAppointmentDate.Size = new System.Drawing.Size(27, 18);
-            this.lblAppointmentDate.TabIndex = 13;
-            this.lblAppointmentDate.Text = "NA";
-            // 
-            // lblTestType
-            // 
-            this.lblTestType.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTestType.AutoSize = true;
-            this.lblTestType.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTestType.ForeColor = System.Drawing.Color.Black;
-            this.lblTestType.Location = new System.Drawing.Point(640, 118);
-            this.lblTestType.Name = "lblTestType";
-            this.lblTestType.Size = new System.Drawing.Size(27, 18);
-            this.lblTestType.TabIndex = 10;
-            this.lblTestType.Text = "NA";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(524, 118);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 18);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Test Type:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(671, 150);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(18, 24);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 29;
-            this.guna2PictureBox1.TabStop = false;
+            this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(676, 149);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
+            this.guna2PictureBox2.Size = new System.Drawing.Size(18, 24);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 27;
+            this.guna2PictureBox2.TabStop = false;
             // 
             // frmShowAppointmentInfo
             // 
@@ -385,7 +385,7 @@
             this.pnlBasicInfo.ResumeLayout(false);
             this.pnlBasicInfo.PerformLayout();
             this.guna2ShadowPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -412,8 +412,8 @@
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
         private Guna.UI2.WinForms.Guna2Button btnClose;
         private Guna.UI2.WinForms.Guna2ControlBox ControlBoxClose;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblTestType;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
     }
 }

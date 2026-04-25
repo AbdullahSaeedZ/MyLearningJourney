@@ -223,6 +223,16 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap completedApplicationNoFill24 {
+            get {
+                object obj = ResourceManager.GetObject("completedApplicationNoFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DashboardFill {
             get {
                 object obj = ResourceManager.GetObject("DashboardFill", resourceCulture);
@@ -266,6 +276,16 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap DashboardUserFill64 {
             get {
                 object obj = ResourceManager.GetObject("DashboardUserFill64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dateClockNoFill24 {
+            get {
+                object obj = ResourceManager.GetObject("dateClockNoFill24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -823,6 +843,26 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap moneyThisMonthNoFill24 {
+            get {
+                object obj = ResourceManager.GetObject("moneyThisMonthNoFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap monyAllTime1NoFill24 {
+            get {
+                object obj = ResourceManager.GetObject("monyAllTime1NoFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap newScheduleAppointmentFill24 {
             get {
                 object obj = ResourceManager.GetObject("newScheduleAppointmentFill24", resourceCulture);
@@ -946,6 +986,16 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap ProfileTest {
             get {
                 object obj = ResourceManager.GetObject("ProfileTest", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap quickActionsNoFill24 {
+            get {
+                object obj = ResourceManager.GetObject("quickActionsNoFill24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1346,6 +1396,16 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap visionTestNoFill24 {
             get {
                 object obj = ResourceManager.GetObject("visionTestNoFill24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap walletNoFill24 {
+            get {
+                object obj = ResourceManager.GetObject("walletNoFill24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
