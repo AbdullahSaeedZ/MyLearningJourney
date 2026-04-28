@@ -130,7 +130,7 @@ namespace PresentationLayer.PeopleFormsAndControls
         }
         private void btnEditInfo_Click(object sender, EventArgs e)
         {
-            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdatePerson))
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdatePerson))
             {
                 MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;

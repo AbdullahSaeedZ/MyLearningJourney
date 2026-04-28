@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using Guna.UI2.WinForms;
+using PresentationLayer.Global_Classes;
 using PresentationLayer.Properties;
 using System;
 using System.ComponentModel;
@@ -31,7 +32,7 @@ namespace PresentationLayer.Settings
             _FillCountriesComboBox();
             _FillPersonInfoInForm();
             _FillLoginInfo();
-            ctrlAddEditUserPermissions1.LoadPermissionsForDisplay(clsBusinessSettings.CurrentUser.Permissions);
+            ctrlAddEditUserPermissions1.LoadPermissionsForDisplay(clsGlobal.CurrentUser.Permissions);
         }
 
 
@@ -47,42 +48,42 @@ namespace PresentationLayer.Settings
         private void _FillPersonInfoInForm()
         {
 
-            lblPersonID.Text = clsBusinessSettings.CurrentUser.Person.PersonID.ToString();
-            tbNationalNumber.Text = clsBusinessSettings.CurrentUser.Person.NationalID;
-            tbFirstName.Text = clsBusinessSettings.CurrentUser.Person.FirstName;
-            tbSecondName.Text = clsBusinessSettings.CurrentUser.Person.SecondName;
-            tbThirdName.Text = clsBusinessSettings.CurrentUser.Person.ThirdName;
-            tbLastName.Text = clsBusinessSettings.CurrentUser.Person.LastName;
-            tbEmail.Text = clsBusinessSettings.CurrentUser.Person.Email;
-            dtpBirthDate.Value = clsBusinessSettings.CurrentUser.Person.BirthDate;
-            tbPhone.Text = clsBusinessSettings.CurrentUser.Person.Phone;
-            tbAddress.Text = clsBusinessSettings.CurrentUser.Person.Address;
-            cbCountry.SelectedItem = clsBusinessSettings.CurrentUser.Person.CountryInfo.CountryName;
+            lblPersonID.Text = clsGlobal.CurrentUser.Person.PersonID.ToString();
+            tbNationalNumber.Text = clsGlobal.CurrentUser.Person.NationalID;
+            tbFirstName.Text = clsGlobal.CurrentUser.Person.FirstName;
+            tbSecondName.Text = clsGlobal.CurrentUser.Person.SecondName;
+            tbThirdName.Text = clsGlobal.CurrentUser.Person.ThirdName;
+            tbLastName.Text = clsGlobal.CurrentUser.Person.LastName;
+            tbEmail.Text = clsGlobal.CurrentUser.Person.Email;
+            dtpBirthDate.Value = clsGlobal.CurrentUser.Person.BirthDate;
+            tbPhone.Text = clsGlobal.CurrentUser.Person.Phone;
+            tbAddress.Text = clsGlobal.CurrentUser.Person.Address;
+            cbCountry.SelectedItem = clsGlobal.CurrentUser.Person.CountryInfo.CountryName;
 
-            if (clsBusinessSettings.CurrentUser.Person.Gender == (byte)enGender.Male)
+            if (clsGlobal.CurrentUser.Person.Gender == (byte)enGender.Male)
                 rbMale.Checked = true;
             else
                 rbFemale.Checked = true;
 
-            if (string.IsNullOrEmpty(clsBusinessSettings.CurrentUser.Person.ImagePath))
+            if (string.IsNullOrEmpty(clsGlobal.CurrentUser.Person.ImagePath))
             {
                 pbImage.Image = rbMale.Checked ? Resources.defaultMaleProfile : Resources.defaultFemaleProfile;
             }
             else
             {
-                using (FileStream fs = new FileStream(clsBusinessSettings.CurrentUser.Person.ImagePath, FileMode.Open, FileAccess.Read))
+                using (FileStream fs = new FileStream(clsGlobal.CurrentUser.Person.ImagePath, FileMode.Open, FileAccess.Read))
                 {
                     pbImage.Image = new Bitmap(fs);
                 }
-                pbImage.ImageLocation = clsBusinessSettings.CurrentUser.Person.ImagePath; // to track if current pic will be changed.
+                pbImage.ImageLocation = clsGlobal.CurrentUser.Person.ImagePath; // to track if current pic will be changed.
                 btnRemoveImage.Visible = true;
             }
         }
         private void _FillLoginInfo()
         {
-            lblUserID.Text = clsBusinessSettings.CurrentUser.UserID.ToString();
-            lblUsername.Text = clsBusinessSettings.CurrentUser.Username;
-            lblIsActive.Text = clsBusinessSettings.CurrentUser.isActive == false ? "No" : "Yes";
+            lblUserID.Text = clsGlobal.CurrentUser.UserID.ToString();
+            lblUsername.Text = clsGlobal.CurrentUser.Username;
+            lblIsActive.Text = clsGlobal.CurrentUser.isActive == false ? "No" : "Yes";
         }
 
 
@@ -119,9 +120,9 @@ namespace PresentationLayer.Settings
             }
 
             if (!string.IsNullOrEmpty(tbCurrentPassword.Text))
-                clsBusinessSettings.CurrentUser.Password = tbNewPassword.Text.Trim();
+                clsGlobal.CurrentUser.Password = tbNewPassword.Text.Trim();
 
-            _PersonInfo = clsPeopleBusiness.FindPerson(clsBusinessSettings.CurrentUser.Person.PersonID);
+            _PersonInfo = clsPeopleBusiness.FindPerson(clsGlobal.CurrentUser.Person.PersonID);
 
             if (_PersonInfo == null)
             {
@@ -134,7 +135,7 @@ namespace PresentationLayer.Settings
 
             try 
             {
-                if (_PersonInfo.Save())
+                if (_PersonInfo.Save(clsGlobal.CurrentUser))
                 {
                     MessageBox.Show("Data Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     OnProfileUpdate?.Invoke();
@@ -208,7 +209,7 @@ namespace PresentationLayer.Settings
             }
 
             // if ID is used 
-            if (clsPeopleBusiness.DoesPersonExist(tbNationalNumber.Text.Trim()) && clsBusinessSettings.CurrentUser.Person.NationalID != tbNationalNumber.Text.Trim())
+            if (clsPeopleBusiness.DoesPersonExist(tbNationalNumber.Text.Trim()) && clsGlobal.CurrentUser.Person.NationalID != tbNationalNumber.Text.Trim())
             {
                 e.Cancel = true;
                 errorProvider1.SetError(tbNationalNumber, "National No. is already registered");
@@ -269,7 +270,7 @@ namespace PresentationLayer.Settings
         private void tbCurrentPassword_Validating(object sender, CancelEventArgs e)
         {
             // current password correct ?
-            if (!string.IsNullOrWhiteSpace(tbCurrentPassword.Text) && clsBusinessSettings.CurrentUser.Password != tbCurrentPassword.Text)
+            if (!string.IsNullOrWhiteSpace(tbCurrentPassword.Text) && clsGlobal.CurrentUser.Password != tbCurrentPassword.Text)
             {
                 e.Cancel = true;
                 errorProvider1.SetError(tbCurrentPassword, "Current Password is not correct!");

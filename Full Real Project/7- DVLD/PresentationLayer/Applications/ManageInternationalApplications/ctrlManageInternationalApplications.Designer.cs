@@ -37,7 +37,7 @@
             this.btnBack = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.cbIsActive = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.btnNewApplication = new Guna.UI2.WinForms.Guna2Button();
+            this.btnNewInterLiecnse = new Guna.UI2.WinForms.Guna2Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbSearchApplication = new Guna.UI2.WinForms.Guna2TextBox();
@@ -109,7 +109,7 @@
             this.guna2Panel2.BorderRadius = 15;
             this.guna2Panel2.BorderThickness = 1;
             this.guna2Panel2.Controls.Add(this.cbIsActive);
-            this.guna2Panel2.Controls.Add(this.btnNewApplication);
+            this.guna2Panel2.Controls.Add(this.btnNewInterLiecnse);
             this.guna2Panel2.Controls.Add(this.label2);
             this.guna2Panel2.Controls.Add(this.label3);
             this.guna2Panel2.Controls.Add(this.tbSearchApplication);
@@ -150,32 +150,32 @@
             this.cbIsActive.Visible = false;
             this.cbIsActive.SelectedIndexChanged += new System.EventHandler(this.cbIsActive_SelectedIndexChanged);
             // 
-            // btnNewApplication
+            // btnNewInterLiecnse
             // 
-            this.btnNewApplication.BackColor = System.Drawing.Color.Transparent;
-            this.btnNewApplication.BorderColor = System.Drawing.Color.DimGray;
-            this.btnNewApplication.BorderRadius = 10;
-            this.btnNewApplication.CheckedState.Parent = this.btnNewApplication;
-            this.btnNewApplication.CustomImages.Parent = this.btnNewApplication;
-            this.btnNewApplication.FillColor = System.Drawing.Color.Transparent;
-            this.btnNewApplication.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.btnNewApplication.ForeColor = System.Drawing.Color.Black;
-            this.btnNewApplication.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNewApplication.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
-            this.btnNewApplication.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.btnNewApplication.HoverState.Image = global::PresentationLayer.Properties.Resources.addFill;
-            this.btnNewApplication.HoverState.Parent = this.btnNewApplication;
-            this.btnNewApplication.Image = global::PresentationLayer.Properties.Resources.addNoFill;
-            this.btnNewApplication.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnNewApplication.Location = new System.Drawing.Point(1199, 9);
-            this.btnNewApplication.Name = "btnNewApplication";
-            this.btnNewApplication.PressedColor = System.Drawing.Color.DimGray;
-            this.btnNewApplication.ShadowDecoration.Parent = this.btnNewApplication;
-            this.btnNewApplication.Size = new System.Drawing.Size(181, 37);
-            this.btnNewApplication.TabIndex = 7;
-            this.btnNewApplication.Text = "New Application";
-            this.btnNewApplication.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnNewApplication.Click += new System.EventHandler(this.btnNewApplication_Click);
+            this.btnNewInterLiecnse.BackColor = System.Drawing.Color.Transparent;
+            this.btnNewInterLiecnse.BorderColor = System.Drawing.Color.DimGray;
+            this.btnNewInterLiecnse.BorderRadius = 10;
+            this.btnNewInterLiecnse.CheckedState.Parent = this.btnNewInterLiecnse;
+            this.btnNewInterLiecnse.CustomImages.Parent = this.btnNewInterLiecnse;
+            this.btnNewInterLiecnse.FillColor = System.Drawing.Color.Transparent;
+            this.btnNewInterLiecnse.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.btnNewInterLiecnse.ForeColor = System.Drawing.Color.Black;
+            this.btnNewInterLiecnse.HoverState.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNewInterLiecnse.HoverState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNewInterLiecnse.HoverState.ForeColor = System.Drawing.Color.Black;
+            this.btnNewInterLiecnse.HoverState.Image = global::PresentationLayer.Properties.Resources.addFill;
+            this.btnNewInterLiecnse.HoverState.Parent = this.btnNewInterLiecnse;
+            this.btnNewInterLiecnse.Image = global::PresentationLayer.Properties.Resources.addNoFill;
+            this.btnNewInterLiecnse.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnNewInterLiecnse.Location = new System.Drawing.Point(1180, 9);
+            this.btnNewInterLiecnse.Name = "btnNewInterLiecnse";
+            this.btnNewInterLiecnse.PressedColor = System.Drawing.Color.DimGray;
+            this.btnNewInterLiecnse.ShadowDecoration.Parent = this.btnNewInterLiecnse;
+            this.btnNewInterLiecnse.Size = new System.Drawing.Size(200, 37);
+            this.btnNewInterLiecnse.TabIndex = 7;
+            this.btnNewInterLiecnse.Text = "Issue New Licesne";
+            this.btnNewInterLiecnse.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnNewInterLiecnse.Click += new System.EventHandler(this.btnNewLicesnse_Click);
             // 
             // label2
             // 
@@ -490,7 +490,7 @@
         private Guna.UI2.WinForms.Guna2Button btnBack;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2ComboBox cbIsActive;
-        private Guna.UI2.WinForms.Guna2Button btnNewApplication;
+        private Guna.UI2.WinForms.Guna2Button btnNewInterLiecnse;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2TextBox tbSearchApplication;

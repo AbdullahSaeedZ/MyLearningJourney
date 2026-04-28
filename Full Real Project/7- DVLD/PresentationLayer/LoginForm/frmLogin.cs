@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using PresentationLayer.Global_Classes;
 using PresentationLayer.MainForm;
 using PresentationLayer.Properties;
 using System;
@@ -41,16 +42,16 @@ namespace PresentationLayer.LoginForm
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            clsBusinessSettings.CurrentUser = clsUserBusiness.FindUser(tbUsername.Text.Trim(), tbPassword.Text.Trim());
+            clsGlobal.CurrentUser = clsUserBusiness.FindUser(tbUsername.Text.Trim(), tbPassword.Text.Trim());
 
-            if (clsBusinessSettings.CurrentUser == null)
+            if (clsGlobal.CurrentUser == null)
             {
                 MessageBox.Show("Invalid Username/Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tbUsername.Focus();
                 return;
             }
 
-            if (clsBusinessSettings.CurrentUser.Person == null)
+            if (clsGlobal.CurrentUser.Person == null)
             {
                 MessageBox.Show("could not fetch person Info for this user", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 tbUsername.Focus();
@@ -62,7 +63,7 @@ namespace PresentationLayer.LoginForm
             else
                 clsBusinessSettings.SaveLoginInfoToFile("", "");
 
-            if (!clsBusinessSettings.CurrentUser.isActive)
+            if (!clsGlobal.CurrentUser.isActive)
             {
                 MessageBox.Show("Your account is not active, please contact your admin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

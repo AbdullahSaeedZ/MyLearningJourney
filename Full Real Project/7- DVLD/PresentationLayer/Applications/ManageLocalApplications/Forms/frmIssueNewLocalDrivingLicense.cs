@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using PresentationLayer.Global_Classes;
 using System;
 using System.Windows.Forms;
 
@@ -29,7 +30,18 @@ namespace PresentationLayer.Applications.ManageLocalApplications.Forms
 
         private void btnIssueNewLicense_Click(object sender, EventArgs e)
         {
-            int NewLicenseID = ctrlLocalApplicationInfo1.SelectedLocalApplication.IssueNewLicense(tbNotes.Text.Trim(), clsBusinessSettings.CurrentUser.UserID);
+            int NewLicenseID = -1;
+
+            try
+            {
+                NewLicenseID = ctrlLocalApplicationInfo1.SelectedLocalApplication.IssueNewLicense(tbNotes.Text.Trim(), clsGlobal.CurrentUser);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+
             if (NewLicenseID != -1)
             {
                 MessageBox.Show($"Data saved successfully, new local driving license with id {NewLicenseID} is issued and applicant now has a new driver record",

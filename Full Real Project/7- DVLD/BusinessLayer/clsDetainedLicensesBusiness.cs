@@ -109,27 +109,27 @@ namespace BusinessLayer
         }
 
         // releasing user is the one on the ui side, never depend on methods from ui, just receive data from ui
-        public int ReleaseLicense(int ReleasedByUserID, int PersonID)
+        public int ReleaseLicense(clsUserBusiness ReleasedByUser, int PersonID)
         {
-            if (ReleasedByUserID == -1 || this.IsReleased)
+            if (ReleasedByUser == null || this.IsReleased)
                 return -1;
 
             clsApplicationsBusiness ReleaseLicenseApplication = new clsApplicationsBusiness();
             ReleaseLicenseApplication.ApplicationTypeID = clsApplicationTypesBusiness.enApplicationTypes.eReleaseDetainedDrivingLicense;
             ReleaseLicenseApplication.ApplicationStatus = clsApplicationsBusiness.enApplicationStatus.New;
             ReleaseLicenseApplication.ApplicantPersonID = PersonID;
-            ReleaseLicenseApplication.CreatedByUserID = ReleasedByUserID;
+            ReleaseLicenseApplication.CreatedByUserID = ReleasedByUser.UserID;
             ReleaseLicenseApplication.PaidFees = clsApplicationTypesBusiness.FindApplicationType(clsApplicationTypesBusiness.enApplicationTypes.eReleaseDetainedDrivingLicense).ApplicationTypeFees;
 
             if (!ReleaseLicenseApplication.Save())
                 return -1;
 
-            if (!clsDetainedLicensesDataAccess.ReleaseDetainedLicense(this.LicenseID, DateTime.Now, ReleasedByUserID, ReleaseLicenseApplication.ApplicationID))
+            if (!clsDetainedLicensesDataAccess.ReleaseDetainedLicense(this.LicenseID, DateTime.Now, ReleasedByUser.UserID, ReleaseLicenseApplication.ApplicationID))
                 return -1;
 
             this.IsReleased = true;
             this.ReleaseDate = DateTime.Now;
-            this.ReleasedByUserID = ReleasedByUserID;
+            this.ReleasedByUserID = ReleasedByUser.UserID;
             this.ReleaseApplicationID = ReleaseLicenseApplication.ApplicationID;
 
             return ReleaseLicenseApplication.ApplicationID;

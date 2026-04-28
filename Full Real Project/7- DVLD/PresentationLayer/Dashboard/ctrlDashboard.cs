@@ -49,7 +49,7 @@ namespace PresentationLayer.DashboardControls
         private void _FillData()
         {
             lblTodayDate.Text = _DateNow + "                  |                  " + _TimeNow;
-            lblGoodMorningEvening.Text = "Good " + (DateTime.Now.Hour >= 12 ? "Evening, " : "Morning, ") + clsBusinessSettings.CurrentUser.Person.FirstName + " !";
+            lblGoodMorningEvening.Text = "Good " + (DateTime.Now.Hour >= 12 ? "Evening, " : "Morning, ") + clsGlobal.CurrentUser.Person.FirstName + " !";
 
             progbTotalTestsPassed.Maximum = _Data.TotalTests;
             progbTotalTestsPassed.Value = _Data.TotalPassedTests;

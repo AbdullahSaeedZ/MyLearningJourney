@@ -44,6 +44,7 @@
             this.pnlControlsContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.pnlSideBar = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnOverview = new Guna.UI2.WinForms.Guna2Button();
             this.btnPeople = new Guna.UI2.WinForms.Guna2Button();
             this.btnUsers = new Guna.UI2.WinForms.Guna2Button();
@@ -53,12 +54,11 @@
             this.btnApplications = new Guna.UI2.WinForms.Guna2Button();
             this.pbProfilePic = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.guna2ShadowForm1 = new Guna.UI2.WinForms.Guna2ShadowForm(this.components);
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnlTopBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).BeginInit();
             this.pnlSideBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -198,9 +198,9 @@
             this.lblProfileUsername.ForeColor = System.Drawing.Color.Gray;
             this.lblProfileUsername.Location = new System.Drawing.Point(69, 914);
             this.lblProfileUsername.Name = "lblProfileUsername";
-            this.lblProfileUsername.Size = new System.Drawing.Size(43, 16);
+            this.lblProfileUsername.Size = new System.Drawing.Size(65, 16);
             this.lblProfileUsername.TabIndex = 1;
-            this.lblProfileUsername.Text = "Admin";
+            this.lblProfileUsername.Text = "Username";
             // 
             // lblProfilePersonName
             // 
@@ -209,9 +209,9 @@
             this.lblProfilePersonName.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProfilePersonName.Location = new System.Drawing.Point(69, 892);
             this.lblProfilePersonName.Name = "lblProfilePersonName";
-            this.lblProfilePersonName.Size = new System.Drawing.Size(113, 16);
+            this.lblProfilePersonName.Size = new System.Drawing.Size(87, 16);
             this.lblProfilePersonName.TabIndex = 1;
-            this.lblProfilePersonName.Text = "Abdullah Alzahrani";
+            this.lblProfilePersonName.Text = "Person Name ";
             // 
             // pnlControlsContainer
             // 
@@ -253,6 +253,17 @@
             this.pnlSideBar.ShadowDecoration.Parent = this.pnlSideBar;
             this.pnlSideBar.Size = new System.Drawing.Size(267, 953);
             this.pnlSideBar.TabIndex = 6;
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.saudiMapLogoBlack512;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(43, 41);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
+            this.guna2PictureBox2.Size = new System.Drawing.Size(181, 180);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 27;
+            this.guna2PictureBox2.TabStop = false;
             // 
             // btnOverview
             // 
@@ -429,7 +440,7 @@
             // pbProfilePic
             // 
             this.pbProfilePic.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pbProfilePic.Image = global::PresentationLayer.Properties.Resources.ProfileTest;
+            this.pbProfilePic.Image = global::PresentationLayer.Properties.Resources.defaultMaleProfile;
             this.pbProfilePic.Location = new System.Drawing.Point(13, 888);
             this.pbProfilePic.Name = "pbProfilePic";
             this.pbProfilePic.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -438,17 +449,6 @@
             this.pbProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbProfilePic.TabIndex = 0;
             this.pbProfilePic.TabStop = false;
-            // 
-            // guna2PictureBox2
-            // 
-            this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.saudiMapLogoBlack512;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(43, 41);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
-            this.guna2PictureBox2.Size = new System.Drawing.Size(181, 180);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox2.TabIndex = 27;
-            this.guna2PictureBox2.TabStop = false;
             // 
             // frmMain
             // 
@@ -469,8 +469,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBreadcrumb)).EndInit();
             this.pnlSideBar.ResumeLayout(false);
             this.pnlSideBar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbProfilePic)).EndInit();
             this.ResumeLayout(false);
 
         }

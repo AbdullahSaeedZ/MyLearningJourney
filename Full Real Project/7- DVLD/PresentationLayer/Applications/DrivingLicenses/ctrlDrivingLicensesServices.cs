@@ -1,4 +1,5 @@
-﻿using Guna.UI2.WinForms;
+﻿using BusinessLayer;
+using Guna.UI2.WinForms;
 using PresentationLayer.Applications.DrivingLicenses.Forms;
 using PresentationLayer.Global_Classes;
 using System;
@@ -83,7 +84,11 @@ namespace PresentationLayer.Applications.DrivingLicenses
         // buttons
         private void btnNewLocalLicenseApplication_Click(object sender, EventArgs e)
         {
-            
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eAddApplications))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             clsUtilities.AddToBreadcrumb("> New Local Driving License");
             frmAddEditLocalLicenseApplication addLocalLicense = new frmAddEditLocalLicenseApplication();
             addLocalLicense.ShowDialog();
@@ -92,6 +97,11 @@ namespace PresentationLayer.Applications.DrivingLicenses
 
         private void btnNewInternationalLicenseApplication_Click(object sender, EventArgs e)
         {
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eIssueLicense))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             clsUtilities.AddToBreadcrumb("> New International Driving License");
             frmIssueInternationalLicense addInterLicense = new frmIssueInternationalLicense();
             addInterLicense.ShowDialog();
@@ -100,6 +110,11 @@ namespace PresentationLayer.Applications.DrivingLicenses
 
         private void btnRenewDrivingLicense_Click(object sender, EventArgs e)
         {
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eIssueLicense))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             clsUtilities.AddToBreadcrumb("> Renew Driving License");
             frmRenewLicense renewLicense = new frmRenewLicense();
             renewLicense.ShowDialog();
@@ -108,6 +123,11 @@ namespace PresentationLayer.Applications.DrivingLicenses
 
         private void btnLicenseReplacement_Click(object sender, EventArgs e)
         {
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eIssueLicense))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             clsUtilities.AddToBreadcrumb("> Replace Driving License");
             frmIssueLicenseReplacement replaceLicense = new frmIssueLicenseReplacement();
             replaceLicense.ShowDialog();
@@ -116,6 +136,11 @@ namespace PresentationLayer.Applications.DrivingLicenses
 
         private void btnDetainLicense_Click(object sender, EventArgs e)
         {
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eDetainLicense))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             frmDetainLicense detainLicense = new frmDetainLicense();
             clsUtilities.AddToBreadcrumb("> Detain License");
             detainLicense.ShowDialog();
@@ -124,6 +149,11 @@ namespace PresentationLayer.Applications.DrivingLicenses
 
         private void btnReleaseDetainedLicense_Click(object sender, EventArgs e)
         {
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eReleaseLicense))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             frmReleaseDetainedLicense releaseLicense = new frmReleaseDetainedLicense();
             clsUtilities.AddToBreadcrumb("> Release License");
             releaseLicense.ShowDialog();

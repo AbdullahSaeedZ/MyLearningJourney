@@ -35,7 +35,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             lblApplicationFees.Text = (clsApplicationTypesBusiness.FindApplicationType(clsApplicationTypesBusiness.enApplicationTypes.eDamagedDrivingLicenseReplacement)).ApplicationTypeFees.ToString();
 
             lblApplicationDate.Text = DateTime.Now.ToShortDateString();
-            lblCreatedByUser.Text = clsBusinessSettings.CurrentUser.Username;
+            lblCreatedByUser.Text = clsGlobal.CurrentUser.Username;
         }
 
 
@@ -98,7 +98,16 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             if (MessageBox.Show("Are you sure to proceed with license replacement?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.Cancel)
                 return;
 
-            _ReplacementLicense = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.ReplaceLicense(_IssueReason, clsBusinessSettings.CurrentUser.UserID);
+            try
+            {
+                _ReplacementLicense = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.ReplaceLicense(_IssueReason, clsGlobal.CurrentUser);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+
             if (_ReplacementLicense != null)
             {
                 lblReplacementLicenseID.Text = _ReplacementLicense.LicenseID.ToString();

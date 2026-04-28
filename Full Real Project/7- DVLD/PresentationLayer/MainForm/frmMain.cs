@@ -34,22 +34,22 @@ namespace PresentationLayer.MainForm
 
         private void _LoadProfileInfo()
         {
-            if (clsBusinessSettings.CurrentUser == null)
+            if (clsGlobal.CurrentUser == null)
             {
                 MessageBox.Show($"Could not find user account", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
 
-            if (string.IsNullOrEmpty(clsBusinessSettings.CurrentUser.Person.ImagePath))
-                pbProfilePic.Image = clsBusinessSettings.CurrentUser.Person.Gender == 0 ? Resources.defaultMaleProfile : Resources.defaultFemaleProfile;
+            if (string.IsNullOrEmpty(clsGlobal.CurrentUser.Person.ImagePath))
+                pbProfilePic.Image = clsGlobal.CurrentUser.Person.Gender == 0 ? Resources.defaultMaleProfile : Resources.defaultFemaleProfile;
             else
-                using (FileStream fs = new FileStream(clsBusinessSettings.CurrentUser.Person.ImagePath, FileMode.Open, FileAccess.Read))
+                using (FileStream fs = new FileStream(clsGlobal.CurrentUser.Person.ImagePath, FileMode.Open, FileAccess.Read))
                 {
                     pbProfilePic.Image = new Bitmap(fs);
                 }
 
-            lblProfilePersonName.Text = clsBusinessSettings.CurrentUser.Person.FirstName + " " + clsBusinessSettings.CurrentUser.Person.LastName;
-            lblProfileUsername.Text = clsBusinessSettings.CurrentUser.Username;
+            lblProfilePersonName.Text = clsGlobal.CurrentUser.Person.FirstName + " " + clsGlobal.CurrentUser.Person.LastName;
+            lblProfileUsername.Text = clsGlobal.CurrentUser.Username;
         }
         public void _UpdateButtons(object sender)
         {
@@ -117,7 +117,7 @@ namespace PresentationLayer.MainForm
         }
         private void btnPeople_Click(object sender, EventArgs e)
         {
-            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eListPeople))
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eListPeople))
             {
                 MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -137,7 +137,7 @@ namespace PresentationLayer.MainForm
         }
         private void btnUsers_Click(object sender, EventArgs e)
         {
-            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eListUsers))
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eListUsers))
             {
                 MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -158,7 +158,7 @@ namespace PresentationLayer.MainForm
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Close();
-            clsBusinessSettings.CurrentUser = null;
+            clsGlobal.CurrentUser = null;
         }
 
 

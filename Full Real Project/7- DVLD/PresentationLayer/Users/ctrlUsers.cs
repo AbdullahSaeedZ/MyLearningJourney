@@ -110,7 +110,7 @@ namespace PresentationLayer.UsersFormsAndControls
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eAddUser))
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eAddUser))
             {
                 MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -142,7 +142,7 @@ namespace PresentationLayer.UsersFormsAndControls
         }
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateUser))
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateUser))
             {
                 MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -155,7 +155,7 @@ namespace PresentationLayer.UsersFormsAndControls
         }
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateUser))
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateUser))
             {
                 MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -167,7 +167,7 @@ namespace PresentationLayer.UsersFormsAndControls
         }
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eDeleteUser))
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eDeleteUser))
             {
                 MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -175,7 +175,7 @@ namespace PresentationLayer.UsersFormsAndControls
 
             int UserID = (int)dgvUsers.SelectedCells[0].Value;
 
-            if (UserID == clsBusinessSettings.CurrentUser.UserID)
+            if (UserID == clsGlobal.CurrentUser.UserID)
             {
                 MessageBox.Show("Current user can not be deleted, log in with different user first", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -183,7 +183,7 @@ namespace PresentationLayer.UsersFormsAndControls
 
             if (MessageBox.Show($"Are you sure to delete User wIth ID {UserID}?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
-                if (clsUserBusiness.DeleteUser(UserID))
+                if (clsUserBusiness.DeleteUser(UserID, clsGlobal.CurrentUser))
                 {
                     MessageBox.Show($"User with ID {UserID} was successfully deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RefreshDataGridView();

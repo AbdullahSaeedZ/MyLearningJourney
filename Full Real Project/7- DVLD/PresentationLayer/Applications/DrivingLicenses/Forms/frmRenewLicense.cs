@@ -31,7 +31,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             lblApplicationDate.Text = DateTime.Now.ToShortDateString();
             lblIssueDate.Text = DateTime.Now.ToShortDateString();
             lblApplicationFees.Text = (clsApplicationTypesBusiness.FindApplicationType(clsApplicationTypesBusiness.enApplicationTypes.eRenewDrivingLicense)).ApplicationTypeFees.ToString();
-            lblCreatedByUser.Text = clsBusinessSettings.CurrentUser.Username;
+            lblCreatedByUser.Text = clsGlobal.CurrentUser.Username;
         }
 
 
@@ -87,7 +87,16 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             if (MessageBox.Show("Are you sure to proceed with license renewal?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.Cancel)
                 return;
 
-            _RenewedLicense = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.RenewLicense(tbNotes.Text, clsBusinessSettings.CurrentUser.UserID);
+            try
+            {
+                _RenewedLicense = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.RenewLicense(tbNotes.Text, clsGlobal.CurrentUser);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+
             if (_RenewedLicense != null)
             {
                 lblRenewedLicenseID.Text = _RenewedLicense.LicenseID.ToString();

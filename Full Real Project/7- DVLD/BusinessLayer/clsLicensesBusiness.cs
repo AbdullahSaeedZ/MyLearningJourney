@@ -213,13 +213,16 @@ namespace BusinessLayer
         
         // renew or replacements are all requiring creating new application and new license with deactivating the old one
      
-        public int IssueInternationalLicense(int ApplicationID, int CreatedByUserID)
+        public int IssueInternationalLicense(int ApplicationID, clsUserBusiness CreatedByUser)
         {
             if (!this.IsActive || this.IsLicenseDetained() || this.LicenseClassID != clsLicenseClassesBusiness.enLicenseClass.Class3Ordinary || clsInternationalLicensesDataAccess.GetActiveInternationalLicenseIDByPersonID(this.DriverInfo.PersonID) != -1)
                 return -1;
 
-            if (ApplicationID == -1 || CreatedByUserID == -1)
+            if (ApplicationID == -1 || CreatedByUser == null)
                 return -1;
+
+            if (!CreatedByUser.HasPermission(clsBusinessSettings.enPermissions.eIssueLicense))
+                throw new UnauthorizedAccessException("You do not have permission to issue licenses");
 
             clsInternationalLicensesBusiness NewInternationalLicense = new clsInternationalLicensesBusiness();
 
@@ -227,7 +230,7 @@ namespace BusinessLayer
             NewInternationalLicense.DriverID = this.DriverID;
             NewInternationalLicense.IssuedUsingLicenseID = this.LicenseID;
             NewInternationalLicense.IsActive = true;
-            NewInternationalLicense.CreatedByUserID = CreatedByUserID;
+            NewInternationalLicense.CreatedByUserID = CreatedByUser.UserID;
 
             if (NewInternationalLicense.Save())
                 return NewInternationalLicense.InternationalLicenseID;
@@ -238,17 +241,20 @@ namespace BusinessLayer
 
         // here we handled the application creation in the BLL, which is the right way, but in international license issuance, i handled it in the UI
         // reason is to know which ways can be used and which are better and which are not
-        public clsLicensesBusiness RenewLicense(string Notes, int CreatedByUserID)
+        public clsLicensesBusiness RenewLicense(string Notes, clsUserBusiness CreatedByUser)
         {
             // expired licenses are still active, we cant do any kind of operations on inactive licenses.
-            if (!this.IsLicenseExpired() || this.IsLicenseDetained() || !this.IsActive || CreatedByUserID == -1)
+            if (!this.IsLicenseExpired() || this.IsLicenseDetained() || !this.IsActive || CreatedByUser == null)
                 return null;
+
+            if (!CreatedByUser.HasPermission(clsBusinessSettings.enPermissions.eIssueLicense))
+                throw new UnauthorizedAccessException("You do not have permission to issue licenses");
 
             clsApplicationsBusiness RenewLicenseApplication = new clsApplicationsBusiness();
             RenewLicenseApplication.ApplicationTypeID = clsApplicationTypesBusiness.enApplicationTypes.eRenewDrivingLicense;
             RenewLicenseApplication.ApplicationStatus = clsApplicationsBusiness.enApplicationStatus.New;
             RenewLicenseApplication.ApplicantPersonID = this.DriverInfo.PersonID;
-            RenewLicenseApplication.CreatedByUserID = CreatedByUserID;
+            RenewLicenseApplication.CreatedByUserID = CreatedByUser.UserID;
             RenewLicenseApplication.PaidFees = clsApplicationTypesBusiness.FindApplicationType(clsApplicationTypesBusiness.enApplicationTypes.eRenewDrivingLicense).ApplicationTypeFees;
 
             if (!RenewLicenseApplication.Save())
@@ -256,7 +262,7 @@ namespace BusinessLayer
 
             clsLicensesBusiness RenewedLicense = new clsLicensesBusiness();
             RenewedLicense.ApplicationID = RenewLicenseApplication.ApplicationID;
-            RenewedLicense.CreatedByUserID = CreatedByUserID;
+            RenewedLicense.CreatedByUserID = CreatedByUser.UserID;
             RenewedLicense.Notes = Notes;
             RenewedLicense.DriverID = this.DriverID;
             RenewedLicense.IssueReason = enIssueReason.Renew;
@@ -273,11 +279,13 @@ namespace BusinessLayer
                 return null;
         }
 
-        public clsLicensesBusiness ReplaceLicense(enIssueReason issueReason, int CreatedByUserID)
+        public clsLicensesBusiness ReplaceLicense(enIssueReason issueReason, clsUserBusiness CreatedByUser)
         {
-            if (this.IsLicenseExpired() || this.IsLicenseDetained() ||  !this.IsActive || CreatedByUserID == -1 || (issueReason != enIssueReason.ReplacementForDamaged && issueReason != enIssueReason.ReplacementForLost))
+            if (this.IsLicenseExpired() || this.IsLicenseDetained() ||  !this.IsActive || CreatedByUser == null || (issueReason != enIssueReason.ReplacementForDamaged && issueReason != enIssueReason.ReplacementForLost))
                 return null;
 
+            if (!CreatedByUser.HasPermission(clsBusinessSettings.enPermissions.eIssueLicense))
+                throw new UnauthorizedAccessException("You do not have permission to issue licenses");
 
             clsApplicationTypesBusiness.enApplicationTypes ApplicationType = issueReason == enIssueReason.ReplacementForDamaged ?
                 clsApplicationTypesBusiness.enApplicationTypes.eDamagedDrivingLicenseReplacement : clsApplicationTypesBusiness.enApplicationTypes.eLostDrivingLicenseReplacement;
@@ -286,7 +294,7 @@ namespace BusinessLayer
             ReplacementLicenseApplication.ApplicationTypeID = ApplicationType;
             ReplacementLicenseApplication.ApplicationStatus = clsApplicationsBusiness.enApplicationStatus.New;
             ReplacementLicenseApplication.ApplicantPersonID = this.DriverInfo.PersonID;
-            ReplacementLicenseApplication.CreatedByUserID = CreatedByUserID;
+            ReplacementLicenseApplication.CreatedByUserID = CreatedByUser.UserID;
             ReplacementLicenseApplication.PaidFees = clsApplicationTypesBusiness.FindApplicationType(ApplicationType).ApplicationTypeFees;
 
             if (!ReplacementLicenseApplication.Save())
@@ -294,7 +302,7 @@ namespace BusinessLayer
 
             clsLicensesBusiness ReplacementLicense = new clsLicensesBusiness();
             ReplacementLicense.ApplicationID = ReplacementLicenseApplication.ApplicationID;
-            ReplacementLicense.CreatedByUserID = CreatedByUserID;
+            ReplacementLicense.CreatedByUserID = CreatedByUser.UserID;
             ReplacementLicense.Notes = this.Notes;
             ReplacementLicense.DriverID = this.DriverID;
             ReplacementLicense.IssueReason = issueReason;
@@ -313,15 +321,18 @@ namespace BusinessLayer
         }
 
         // here i only need the id, so no need to return the whole object
-        public int DetainLicense(float FineFees, int CreatedByUserID)
+        public int DetainLicense(float FineFees, clsUserBusiness CreatedByUser)
         {
+            if (!CreatedByUser.HasPermission(clsBusinessSettings.enPermissions.eDetainLicense))
+                throw new UnauthorizedAccessException("You do not have permission to detain licenses");
+
             if (this.IsLicenseDetained())
                 return -1;
 
             clsDetainedLicensesBusiness NewDetainedLicense = new clsDetainedLicensesBusiness();
             NewDetainedLicense.LicenseID = this.LicenseID;
             NewDetainedLicense.FineFees = FineFees;
-            NewDetainedLicense.CreatedByUserID = CreatedByUserID;
+            NewDetainedLicense.CreatedByUserID = CreatedByUser.UserID;
 
 
             if (NewDetainedLicense.Save())
@@ -331,12 +342,15 @@ namespace BusinessLayer
         }
 
 
-        public int ReleaseLicense(int ReleasedByUserID)
+        public int ReleaseLicense(clsUserBusiness ReleasedByUser)
         {
+            if (!ReleasedByUser.HasPermission(clsBusinessSettings.enPermissions.eReleaseLicense))
+                throw new UnauthorizedAccessException("You do not have permission to release licenses");
+
             if (!this.IsLicenseDetained() || this.DetainedInfo == null)
                 return -1;
 
-            return this.DetainedInfo.ReleaseLicense(ReleasedByUserID, this.DriverInfo.PersonID);
+            return this.DetainedInfo.ReleaseLicense(ReleasedByUser, this.DriverInfo.PersonID);
            
         }
 
@@ -346,9 +360,6 @@ namespace BusinessLayer
             this.IsActive = false;
             return clsLicensesDataAccess.DeactivateLicense(this.LicenseID);
         }
-
-
-
 
     }
 }

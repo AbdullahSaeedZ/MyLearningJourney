@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using Guna.UI2.WinForms;
+using PresentationLayer.Global_Classes;
 using PresentationLayer.Properties;
 using System;
 using System.ComponentModel;
@@ -139,7 +140,7 @@ namespace PresentationLayer.PeopleFormsAndControls
 
             try
             {
-                if (person.Save())
+                if (person.Save(clsGlobal.CurrentUser))
                 {
                     MessageBox.Show($"Data Saved Successfully, PersonID {person.PersonID}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     lblPersonID.Text = person.PersonID.ToString();

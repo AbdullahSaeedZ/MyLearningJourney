@@ -81,7 +81,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             lblApplicationFees.Text = clsApplicationTypesBusiness.FindApplicationType(clsApplicationTypesBusiness.enApplicationTypes.eReleaseDetainedDrivingLicense).ApplicationTypeFees.ToString();
             lblFineFees.Text = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.DetainedInfo.FineFees.ToString();
             lblTotalFees.Text = (Convert.ToSingle(lblFineFees.Text) + Convert.ToSingle(lblApplicationFees.Text)).ToString();
-            lblCreatedByUser.Text = clsBusinessSettings.CurrentUser.Username;
+            lblCreatedByUser.Text = clsGlobal.CurrentUser.Username;
         }
         private void _ResetDetentionInfo()
         {
@@ -98,7 +98,17 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             if (MessageBox.Show("Are you sure to proceed with license release?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.Cancel)
                 return;
 
-            int ReleaseApplicationID = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.ReleaseLicense(clsBusinessSettings.CurrentUser.UserID);
+            int ReleaseApplicationID = -1;
+            try
+            {
+                ReleaseApplicationID = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.ReleaseLicense(clsGlobal.CurrentUser);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+
             if (ReleaseApplicationID != -1)
             {
                 lblApplicationID.Text = ReleaseApplicationID.ToString();

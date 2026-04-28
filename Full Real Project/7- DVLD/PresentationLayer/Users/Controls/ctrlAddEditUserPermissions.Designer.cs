@@ -29,39 +29,40 @@
         private void InitializeComponent()
         {
             this.pnlPermissions = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Separator4 = new Guna.UI2.WinForms.Guna2Separator();
+            this.label3 = new System.Windows.Forms.Label();
+            this.guna2Separator5 = new Guna.UI2.WinForms.Guna2Separator();
+            this.label4 = new System.Windows.Forms.Label();
+            this.guna2Separator3 = new Guna.UI2.WinForms.Guna2Separator();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
+            this.pnlCheckboxes = new Guna.UI2.WinForms.Guna2Panel();
+            this.chbListUsers = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbUpdateUsers = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbAddNewUsers = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbDeleteUsers = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbUpdateTestTypes = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbAddNewPeople = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbDeleteApplications = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbUpdatePeople = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbListApplications = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbListPeople = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbUpdateApplicationTypes = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbDeletePeople = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbUpdateApplications = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbDeainLicense = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbAddApplications = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbReleaseLicense = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbIssueLicense = new Guna.UI2.WinForms.Guna2CheckBox();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.chbNone = new Guna.UI2.WinForms.Guna2CheckBox();
             this.chbAllPermissions = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.guna2Separator4 = new Guna.UI2.WinForms.Guna2Separator();
-            this.label3 = new System.Windows.Forms.Label();
-            this.chbUpdateTestTypes = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.chbDeleteApplications = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.chbListApplications = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.chbUpdateApplicationTypes = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.chbUpdateApplications = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.chbAddApplications = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.guna2Separator5 = new Guna.UI2.WinForms.Guna2Separator();
-            this.label4 = new System.Windows.Forms.Label();
-            this.chbIssueLicense = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.chbReleaseLicense = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.chbDeainLicense = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.guna2Separator3 = new Guna.UI2.WinForms.Guna2Separator();
-            this.label1 = new System.Windows.Forms.Label();
-            this.chbDeletePeople = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.chbListPeople = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.chbUpdatePeople = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.chbAddNewPeople = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
-            this.chbListUsers = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.chbDeleteUsers = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.chbAddNewUsers = new Guna.UI2.WinForms.Guna2CheckBox();
-            this.chbUpdateUsers = new Guna.UI2.WinForms.Guna2CheckBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.pnlCheckboxes = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.pnlPermissions.SuspendLayout();
-            this.guna2Panel8.SuspendLayout();
             this.pnlCheckboxes.SuspendLayout();
+            this.guna2Panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlPermissions
@@ -88,6 +89,491 @@
             this.pnlPermissions.ShadowDecoration.Parent = this.pnlPermissions;
             this.pnlPermissions.Size = new System.Drawing.Size(838, 243);
             this.pnlPermissions.TabIndex = 17;
+            // 
+            // guna2Separator4
+            // 
+            this.guna2Separator4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Separator4.Location = new System.Drawing.Point(490, 97);
+            this.guna2Separator4.Name = "guna2Separator4";
+            this.guna2Separator4.Size = new System.Drawing.Size(319, 10);
+            this.guna2Separator4.TabIndex = 42;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 11.22642F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.DimGray;
+            this.label3.Location = new System.Drawing.Point(491, 76);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(302, 21);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "Local Driving License Applications";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // guna2Separator5
+            // 
+            this.guna2Separator5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Separator5.Location = new System.Drawing.Point(323, 97);
+            this.guna2Separator5.Name = "guna2Separator5";
+            this.guna2Separator5.Size = new System.Drawing.Size(117, 10);
+            this.guna2Separator5.TabIndex = 37;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 11.22642F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Location = new System.Drawing.Point(324, 76);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 21);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Licenses";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // guna2Separator3
+            // 
+            this.guna2Separator3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Separator3.Location = new System.Drawing.Point(178, 97);
+            this.guna2Separator3.Name = "guna2Separator3";
+            this.guna2Separator3.Size = new System.Drawing.Size(108, 10);
+            this.guna2Separator3.TabIndex = 31;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 11.22642F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(179, 76);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 21);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "People";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 11.22642F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.DimGray;
+            this.label2.Location = new System.Drawing.Point(25, 76);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 21);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Users";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // guna2Separator2
+            // 
+            this.guna2Separator2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Separator2.Location = new System.Drawing.Point(24, 97);
+            this.guna2Separator2.Name = "guna2Separator2";
+            this.guna2Separator2.Size = new System.Drawing.Size(114, 10);
+            this.guna2Separator2.TabIndex = 21;
+            // 
+            // pnlCheckboxes
+            // 
+            this.pnlCheckboxes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlCheckboxes.Controls.Add(this.guna2Separator1);
+            this.pnlCheckboxes.Controls.Add(this.chbListUsers);
+            this.pnlCheckboxes.Controls.Add(this.chbUpdateUsers);
+            this.pnlCheckboxes.Controls.Add(this.chbAddNewUsers);
+            this.pnlCheckboxes.Controls.Add(this.chbDeleteUsers);
+            this.pnlCheckboxes.Controls.Add(this.chbUpdateTestTypes);
+            this.pnlCheckboxes.Controls.Add(this.chbAddNewPeople);
+            this.pnlCheckboxes.Controls.Add(this.chbDeleteApplications);
+            this.pnlCheckboxes.Controls.Add(this.chbUpdatePeople);
+            this.pnlCheckboxes.Controls.Add(this.chbListApplications);
+            this.pnlCheckboxes.Controls.Add(this.chbListPeople);
+            this.pnlCheckboxes.Controls.Add(this.chbUpdateApplicationTypes);
+            this.pnlCheckboxes.Controls.Add(this.chbDeletePeople);
+            this.pnlCheckboxes.Controls.Add(this.chbUpdateApplications);
+            this.pnlCheckboxes.Controls.Add(this.chbDeainLicense);
+            this.pnlCheckboxes.Controls.Add(this.chbAddApplications);
+            this.pnlCheckboxes.Controls.Add(this.chbReleaseLicense);
+            this.pnlCheckboxes.Controls.Add(this.chbIssueLicense);
+            this.pnlCheckboxes.Location = new System.Drawing.Point(18, 107);
+            this.pnlCheckboxes.Name = "pnlCheckboxes";
+            this.pnlCheckboxes.ShadowDecoration.Parent = this.pnlCheckboxes;
+            this.pnlCheckboxes.Size = new System.Drawing.Size(814, 127);
+            this.pnlCheckboxes.TabIndex = 53;
+            // 
+            // chbListUsers
+            // 
+            this.chbListUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbListUsers.Animated = true;
+            this.chbListUsers.AutoSize = true;
+            this.chbListUsers.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbListUsers.CheckedState.BorderRadius = 2;
+            this.chbListUsers.CheckedState.BorderThickness = 0;
+            this.chbListUsers.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbListUsers.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbListUsers.Location = new System.Drawing.Point(11, 3);
+            this.chbListUsers.Name = "chbListUsers";
+            this.chbListUsers.Size = new System.Drawing.Size(81, 20);
+            this.chbListUsers.TabIndex = 22;
+            this.chbListUsers.Tag = "1";
+            this.chbListUsers.Text = "List Users";
+            this.chbListUsers.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbListUsers.UncheckedState.BorderRadius = 2;
+            this.chbListUsers.UncheckedState.BorderThickness = 0;
+            this.chbListUsers.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbListUsers.UseVisualStyleBackColor = true;
+            // 
+            // chbUpdateUsers
+            // 
+            this.chbUpdateUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbUpdateUsers.Animated = true;
+            this.chbUpdateUsers.AutoSize = true;
+            this.chbUpdateUsers.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbUpdateUsers.CheckedState.BorderRadius = 2;
+            this.chbUpdateUsers.CheckedState.BorderThickness = 0;
+            this.chbUpdateUsers.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbUpdateUsers.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbUpdateUsers.Location = new System.Drawing.Point(11, 59);
+            this.chbUpdateUsers.Name = "chbUpdateUsers";
+            this.chbUpdateUsers.Size = new System.Drawing.Size(102, 20);
+            this.chbUpdateUsers.TabIndex = 25;
+            this.chbUpdateUsers.Tag = "3";
+            this.chbUpdateUsers.Text = "Update Users";
+            this.chbUpdateUsers.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbUpdateUsers.UncheckedState.BorderRadius = 2;
+            this.chbUpdateUsers.UncheckedState.BorderThickness = 0;
+            this.chbUpdateUsers.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbUpdateUsers.UseVisualStyleBackColor = true;
+            // 
+            // chbAddNewUsers
+            // 
+            this.chbAddNewUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbAddNewUsers.Animated = true;
+            this.chbAddNewUsers.AutoSize = true;
+            this.chbAddNewUsers.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbAddNewUsers.CheckedState.BorderRadius = 2;
+            this.chbAddNewUsers.CheckedState.BorderThickness = 0;
+            this.chbAddNewUsers.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbAddNewUsers.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbAddNewUsers.Location = new System.Drawing.Point(11, 31);
+            this.chbAddNewUsers.Name = "chbAddNewUsers";
+            this.chbAddNewUsers.Size = new System.Drawing.Size(84, 20);
+            this.chbAddNewUsers.TabIndex = 24;
+            this.chbAddNewUsers.Tag = "2";
+            this.chbAddNewUsers.Text = "Add Users";
+            this.chbAddNewUsers.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbAddNewUsers.UncheckedState.BorderRadius = 2;
+            this.chbAddNewUsers.UncheckedState.BorderThickness = 0;
+            this.chbAddNewUsers.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbAddNewUsers.UseVisualStyleBackColor = true;
+            // 
+            // chbDeleteUsers
+            // 
+            this.chbDeleteUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbDeleteUsers.Animated = true;
+            this.chbDeleteUsers.AutoSize = true;
+            this.chbDeleteUsers.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbDeleteUsers.CheckedState.BorderRadius = 2;
+            this.chbDeleteUsers.CheckedState.BorderThickness = 0;
+            this.chbDeleteUsers.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbDeleteUsers.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbDeleteUsers.Location = new System.Drawing.Point(11, 87);
+            this.chbDeleteUsers.Name = "chbDeleteUsers";
+            this.chbDeleteUsers.Size = new System.Drawing.Size(98, 20);
+            this.chbDeleteUsers.TabIndex = 23;
+            this.chbDeleteUsers.Tag = "4";
+            this.chbDeleteUsers.Text = "Delete Users";
+            this.chbDeleteUsers.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbDeleteUsers.UncheckedState.BorderRadius = 2;
+            this.chbDeleteUsers.UncheckedState.BorderThickness = 0;
+            this.chbDeleteUsers.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbDeleteUsers.UseVisualStyleBackColor = true;
+            // 
+            // chbUpdateTestTypes
+            // 
+            this.chbUpdateTestTypes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbUpdateTestTypes.Animated = true;
+            this.chbUpdateTestTypes.AutoSize = true;
+            this.chbUpdateTestTypes.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbUpdateTestTypes.CheckedState.BorderRadius = 2;
+            this.chbUpdateTestTypes.CheckedState.BorderThickness = 0;
+            this.chbUpdateTestTypes.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbUpdateTestTypes.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbUpdateTestTypes.Location = new System.Drawing.Point(477, 70);
+            this.chbUpdateTestTypes.Name = "chbUpdateTestTypes";
+            this.chbUpdateTestTypes.Size = new System.Drawing.Size(133, 20);
+            this.chbUpdateTestTypes.TabIndex = 43;
+            this.chbUpdateTestTypes.Tag = "17";
+            this.chbUpdateTestTypes.Text = "Update Test Types";
+            this.chbUpdateTestTypes.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbUpdateTestTypes.UncheckedState.BorderRadius = 2;
+            this.chbUpdateTestTypes.UncheckedState.BorderThickness = 0;
+            this.chbUpdateTestTypes.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbUpdateTestTypes.UseVisualStyleBackColor = true;
+            // 
+            // chbAddNewPeople
+            // 
+            this.chbAddNewPeople.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbAddNewPeople.Animated = true;
+            this.chbAddNewPeople.AutoSize = true;
+            this.chbAddNewPeople.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbAddNewPeople.CheckedState.BorderRadius = 2;
+            this.chbAddNewPeople.CheckedState.BorderThickness = 0;
+            this.chbAddNewPeople.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbAddNewPeople.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbAddNewPeople.Location = new System.Drawing.Point(165, 31);
+            this.chbAddNewPeople.Name = "chbAddNewPeople";
+            this.chbAddNewPeople.Size = new System.Drawing.Size(90, 20);
+            this.chbAddNewPeople.TabIndex = 35;
+            this.chbAddNewPeople.Tag = "6";
+            this.chbAddNewPeople.Text = "Add People";
+            this.chbAddNewPeople.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbAddNewPeople.UncheckedState.BorderRadius = 2;
+            this.chbAddNewPeople.UncheckedState.BorderThickness = 0;
+            this.chbAddNewPeople.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbAddNewPeople.UseVisualStyleBackColor = true;
+            // 
+            // chbDeleteApplications
+            // 
+            this.chbDeleteApplications.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbDeleteApplications.Animated = true;
+            this.chbDeleteApplications.AutoSize = true;
+            this.chbDeleteApplications.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbDeleteApplications.CheckedState.BorderRadius = 2;
+            this.chbDeleteApplications.CheckedState.BorderThickness = 0;
+            this.chbDeleteApplications.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbDeleteApplications.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbDeleteApplications.Location = new System.Drawing.Point(632, 31);
+            this.chbDeleteApplications.Name = "chbDeleteApplications";
+            this.chbDeleteApplications.Size = new System.Drawing.Size(134, 20);
+            this.chbDeleteApplications.TabIndex = 44;
+            this.chbDeleteApplications.Tag = "15";
+            this.chbDeleteApplications.Text = "Delete Applications";
+            this.chbDeleteApplications.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbDeleteApplications.UncheckedState.BorderRadius = 2;
+            this.chbDeleteApplications.UncheckedState.BorderThickness = 0;
+            this.chbDeleteApplications.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbDeleteApplications.UseVisualStyleBackColor = true;
+            // 
+            // chbUpdatePeople
+            // 
+            this.chbUpdatePeople.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbUpdatePeople.Animated = true;
+            this.chbUpdatePeople.AutoSize = true;
+            this.chbUpdatePeople.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbUpdatePeople.CheckedState.BorderRadius = 2;
+            this.chbUpdatePeople.CheckedState.BorderThickness = 0;
+            this.chbUpdatePeople.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbUpdatePeople.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbUpdatePeople.Location = new System.Drawing.Point(165, 59);
+            this.chbUpdatePeople.Name = "chbUpdatePeople";
+            this.chbUpdatePeople.Size = new System.Drawing.Size(108, 20);
+            this.chbUpdatePeople.TabIndex = 34;
+            this.chbUpdatePeople.Tag = "7";
+            this.chbUpdatePeople.Text = "Update People";
+            this.chbUpdatePeople.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbUpdatePeople.UncheckedState.BorderRadius = 2;
+            this.chbUpdatePeople.UncheckedState.BorderThickness = 0;
+            this.chbUpdatePeople.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbUpdatePeople.UseVisualStyleBackColor = true;
+            // 
+            // chbListApplications
+            // 
+            this.chbListApplications.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbListApplications.Animated = true;
+            this.chbListApplications.AutoSize = true;
+            this.chbListApplications.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbListApplications.CheckedState.BorderRadius = 2;
+            this.chbListApplications.CheckedState.BorderThickness = 0;
+            this.chbListApplications.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbListApplications.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbListApplications.Location = new System.Drawing.Point(477, 3);
+            this.chbListApplications.Name = "chbListApplications";
+            this.chbListApplications.Size = new System.Drawing.Size(117, 20);
+            this.chbListApplications.TabIndex = 45;
+            this.chbListApplications.Tag = "12";
+            this.chbListApplications.Text = "List Applications";
+            this.chbListApplications.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbListApplications.UncheckedState.BorderRadius = 2;
+            this.chbListApplications.UncheckedState.BorderThickness = 0;
+            this.chbListApplications.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbListApplications.UseVisualStyleBackColor = true;
+            // 
+            // chbListPeople
+            // 
+            this.chbListPeople.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbListPeople.Animated = true;
+            this.chbListPeople.AutoSize = true;
+            this.chbListPeople.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbListPeople.CheckedState.BorderRadius = 2;
+            this.chbListPeople.CheckedState.BorderThickness = 0;
+            this.chbListPeople.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbListPeople.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbListPeople.Location = new System.Drawing.Point(165, 3);
+            this.chbListPeople.Name = "chbListPeople";
+            this.chbListPeople.Size = new System.Drawing.Size(87, 20);
+            this.chbListPeople.TabIndex = 33;
+            this.chbListPeople.Tag = "5";
+            this.chbListPeople.Text = "List People";
+            this.chbListPeople.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbListPeople.UncheckedState.BorderRadius = 2;
+            this.chbListPeople.UncheckedState.BorderThickness = 0;
+            this.chbListPeople.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbListPeople.UseVisualStyleBackColor = true;
+            // 
+            // chbUpdateApplicationTypes
+            // 
+            this.chbUpdateApplicationTypes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbUpdateApplicationTypes.Animated = true;
+            this.chbUpdateApplicationTypes.AutoSize = true;
+            this.chbUpdateApplicationTypes.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbUpdateApplicationTypes.CheckedState.BorderRadius = 2;
+            this.chbUpdateApplicationTypes.CheckedState.BorderThickness = 0;
+            this.chbUpdateApplicationTypes.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbUpdateApplicationTypes.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbUpdateApplicationTypes.Location = new System.Drawing.Point(632, 70);
+            this.chbUpdateApplicationTypes.Name = "chbUpdateApplicationTypes";
+            this.chbUpdateApplicationTypes.Size = new System.Drawing.Size(170, 20);
+            this.chbUpdateApplicationTypes.TabIndex = 46;
+            this.chbUpdateApplicationTypes.Tag = "16";
+            this.chbUpdateApplicationTypes.Text = "Update Application Types";
+            this.chbUpdateApplicationTypes.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbUpdateApplicationTypes.UncheckedState.BorderRadius = 2;
+            this.chbUpdateApplicationTypes.UncheckedState.BorderThickness = 0;
+            this.chbUpdateApplicationTypes.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbUpdateApplicationTypes.UseVisualStyleBackColor = true;
+            // 
+            // chbDeletePeople
+            // 
+            this.chbDeletePeople.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbDeletePeople.Animated = true;
+            this.chbDeletePeople.AutoSize = true;
+            this.chbDeletePeople.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbDeletePeople.CheckedState.BorderRadius = 2;
+            this.chbDeletePeople.CheckedState.BorderThickness = 0;
+            this.chbDeletePeople.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbDeletePeople.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbDeletePeople.Location = new System.Drawing.Point(165, 87);
+            this.chbDeletePeople.Name = "chbDeletePeople";
+            this.chbDeletePeople.Size = new System.Drawing.Size(104, 20);
+            this.chbDeletePeople.TabIndex = 32;
+            this.chbDeletePeople.Tag = "8";
+            this.chbDeletePeople.Text = "Delete People";
+            this.chbDeletePeople.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbDeletePeople.UncheckedState.BorderRadius = 2;
+            this.chbDeletePeople.UncheckedState.BorderThickness = 0;
+            this.chbDeletePeople.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbDeletePeople.UseVisualStyleBackColor = true;
+            // 
+            // chbUpdateApplications
+            // 
+            this.chbUpdateApplications.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbUpdateApplications.Animated = true;
+            this.chbUpdateApplications.AutoSize = true;
+            this.chbUpdateApplications.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbUpdateApplications.CheckedState.BorderRadius = 2;
+            this.chbUpdateApplications.CheckedState.BorderThickness = 0;
+            this.chbUpdateApplications.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbUpdateApplications.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbUpdateApplications.Location = new System.Drawing.Point(632, 3);
+            this.chbUpdateApplications.Name = "chbUpdateApplications";
+            this.chbUpdateApplications.Size = new System.Drawing.Size(138, 20);
+            this.chbUpdateApplications.TabIndex = 47;
+            this.chbUpdateApplications.Tag = "14";
+            this.chbUpdateApplications.Text = "Update Applications";
+            this.chbUpdateApplications.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbUpdateApplications.UncheckedState.BorderRadius = 2;
+            this.chbUpdateApplications.UncheckedState.BorderThickness = 0;
+            this.chbUpdateApplications.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbUpdateApplications.UseVisualStyleBackColor = true;
+            // 
+            // chbDeainLicense
+            // 
+            this.chbDeainLicense.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbDeainLicense.Animated = true;
+            this.chbDeainLicense.AutoSize = true;
+            this.chbDeainLicense.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbDeainLicense.CheckedState.BorderRadius = 2;
+            this.chbDeainLicense.CheckedState.BorderThickness = 0;
+            this.chbDeainLicense.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbDeainLicense.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbDeainLicense.Location = new System.Drawing.Point(310, 31);
+            this.chbDeainLicense.Name = "chbDeainLicense";
+            this.chbDeainLicense.Size = new System.Drawing.Size(114, 20);
+            this.chbDeainLicense.TabIndex = 40;
+            this.chbDeainLicense.Tag = "10";
+            this.chbDeainLicense.Text = "Detain Licenses";
+            this.chbDeainLicense.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbDeainLicense.UncheckedState.BorderRadius = 2;
+            this.chbDeainLicense.UncheckedState.BorderThickness = 0;
+            this.chbDeainLicense.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbDeainLicense.UseVisualStyleBackColor = true;
+            // 
+            // chbAddApplications
+            // 
+            this.chbAddApplications.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbAddApplications.Animated = true;
+            this.chbAddApplications.AutoSize = true;
+            this.chbAddApplications.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbAddApplications.CheckedState.BorderRadius = 2;
+            this.chbAddApplications.CheckedState.BorderThickness = 0;
+            this.chbAddApplications.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbAddApplications.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbAddApplications.Location = new System.Drawing.Point(477, 31);
+            this.chbAddApplications.Name = "chbAddApplications";
+            this.chbAddApplications.Size = new System.Drawing.Size(120, 20);
+            this.chbAddApplications.TabIndex = 48;
+            this.chbAddApplications.Tag = "13";
+            this.chbAddApplications.Text = "Add Applications";
+            this.chbAddApplications.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbAddApplications.UncheckedState.BorderRadius = 2;
+            this.chbAddApplications.UncheckedState.BorderThickness = 0;
+            this.chbAddApplications.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbAddApplications.UseVisualStyleBackColor = true;
+            // 
+            // chbReleaseLicense
+            // 
+            this.chbReleaseLicense.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbReleaseLicense.Animated = true;
+            this.chbReleaseLicense.AutoSize = true;
+            this.chbReleaseLicense.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbReleaseLicense.CheckedState.BorderRadius = 2;
+            this.chbReleaseLicense.CheckedState.BorderThickness = 0;
+            this.chbReleaseLicense.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbReleaseLicense.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbReleaseLicense.Location = new System.Drawing.Point(310, 59);
+            this.chbReleaseLicense.Name = "chbReleaseLicense";
+            this.chbReleaseLicense.Size = new System.Drawing.Size(123, 20);
+            this.chbReleaseLicense.TabIndex = 39;
+            this.chbReleaseLicense.Tag = "11";
+            this.chbReleaseLicense.Text = "Release Licenses";
+            this.chbReleaseLicense.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbReleaseLicense.UncheckedState.BorderRadius = 2;
+            this.chbReleaseLicense.UncheckedState.BorderThickness = 0;
+            this.chbReleaseLicense.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbReleaseLicense.UseVisualStyleBackColor = true;
+            // 
+            // chbIssueLicense
+            // 
+            this.chbIssueLicense.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.chbIssueLicense.Animated = true;
+            this.chbIssueLicense.AutoSize = true;
+            this.chbIssueLicense.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbIssueLicense.CheckedState.BorderRadius = 2;
+            this.chbIssueLicense.CheckedState.BorderThickness = 0;
+            this.chbIssueLicense.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbIssueLicense.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbIssueLicense.Location = new System.Drawing.Point(309, 3);
+            this.chbIssueLicense.Name = "chbIssueLicense";
+            this.chbIssueLicense.Size = new System.Drawing.Size(108, 20);
+            this.chbIssueLicense.TabIndex = 38;
+            this.chbIssueLicense.Tag = "9";
+            this.chbIssueLicense.Text = "Issue Licenses";
+            this.chbIssueLicense.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbIssueLicense.UncheckedState.BorderRadius = 2;
+            this.chbIssueLicense.UncheckedState.BorderThickness = 0;
+            this.chbIssueLicense.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbIssueLicense.UseVisualStyleBackColor = true;
             // 
             // guna2Panel8
             // 
@@ -151,464 +637,6 @@
             this.chbAllPermissions.UseVisualStyleBackColor = true;
             this.chbAllPermissions.CheckedChanged += new System.EventHandler(this.NoneOrAllPermissions_CheckedChanged);
             // 
-            // guna2Separator4
-            // 
-            this.guna2Separator4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.guna2Separator4.Location = new System.Drawing.Point(493, 100);
-            this.guna2Separator4.Name = "guna2Separator4";
-            this.guna2Separator4.Size = new System.Drawing.Size(319, 10);
-            this.guna2Separator4.TabIndex = 42;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 11.22642F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(489, 78);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 21);
-            this.label3.TabIndex = 41;
-            this.label3.Text = "Applications";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // chbUpdateTestTypes
-            // 
-            this.chbUpdateTestTypes.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chbUpdateTestTypes.Animated = true;
-            this.chbUpdateTestTypes.AutoSize = true;
-            this.chbUpdateTestTypes.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbUpdateTestTypes.CheckedState.BorderRadius = 2;
-            this.chbUpdateTestTypes.CheckedState.BorderThickness = 0;
-            this.chbUpdateTestTypes.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbUpdateTestTypes.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbUpdateTestTypes.Location = new System.Drawing.Point(477, 59);
-            this.chbUpdateTestTypes.Name = "chbUpdateTestTypes";
-            this.chbUpdateTestTypes.Size = new System.Drawing.Size(127, 20);
-            this.chbUpdateTestTypes.TabIndex = 43;
-            this.chbUpdateTestTypes.Tag = "17";
-            this.chbUpdateTestTypes.Text = "Update Test Type";
-            this.chbUpdateTestTypes.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbUpdateTestTypes.UncheckedState.BorderRadius = 2;
-            this.chbUpdateTestTypes.UncheckedState.BorderThickness = 0;
-            this.chbUpdateTestTypes.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbUpdateTestTypes.UseVisualStyleBackColor = true;
-            // 
-            // chbDeleteApplications
-            // 
-            this.chbDeleteApplications.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chbDeleteApplications.Animated = true;
-            this.chbDeleteApplications.AutoSize = true;
-            this.chbDeleteApplications.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbDeleteApplications.CheckedState.BorderRadius = 2;
-            this.chbDeleteApplications.CheckedState.BorderThickness = 0;
-            this.chbDeleteApplications.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbDeleteApplications.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbDeleteApplications.Location = new System.Drawing.Point(632, 31);
-            this.chbDeleteApplications.Name = "chbDeleteApplications";
-            this.chbDeleteApplications.Size = new System.Drawing.Size(134, 20);
-            this.chbDeleteApplications.TabIndex = 44;
-            this.chbDeleteApplications.Tag = "15";
-            this.chbDeleteApplications.Text = "Delete Applications";
-            this.chbDeleteApplications.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbDeleteApplications.UncheckedState.BorderRadius = 2;
-            this.chbDeleteApplications.UncheckedState.BorderThickness = 0;
-            this.chbDeleteApplications.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbDeleteApplications.UseVisualStyleBackColor = true;
-            // 
-            // chbListApplications
-            // 
-            this.chbListApplications.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chbListApplications.Animated = true;
-            this.chbListApplications.AutoSize = true;
-            this.chbListApplications.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbListApplications.CheckedState.BorderRadius = 2;
-            this.chbListApplications.CheckedState.BorderThickness = 0;
-            this.chbListApplications.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbListApplications.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbListApplications.Location = new System.Drawing.Point(477, 3);
-            this.chbListApplications.Name = "chbListApplications";
-            this.chbListApplications.Size = new System.Drawing.Size(117, 20);
-            this.chbListApplications.TabIndex = 45;
-            this.chbListApplications.Tag = "12";
-            this.chbListApplications.Text = "List Applications";
-            this.chbListApplications.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbListApplications.UncheckedState.BorderRadius = 2;
-            this.chbListApplications.UncheckedState.BorderThickness = 0;
-            this.chbListApplications.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbListApplications.UseVisualStyleBackColor = true;
-            // 
-            // chbUpdateApplicationTypes
-            // 
-            this.chbUpdateApplicationTypes.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chbUpdateApplicationTypes.Animated = true;
-            this.chbUpdateApplicationTypes.AutoSize = true;
-            this.chbUpdateApplicationTypes.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbUpdateApplicationTypes.CheckedState.BorderRadius = 2;
-            this.chbUpdateApplicationTypes.CheckedState.BorderThickness = 0;
-            this.chbUpdateApplicationTypes.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbUpdateApplicationTypes.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbUpdateApplicationTypes.Location = new System.Drawing.Point(632, 59);
-            this.chbUpdateApplicationTypes.Name = "chbUpdateApplicationTypes";
-            this.chbUpdateApplicationTypes.Size = new System.Drawing.Size(164, 20);
-            this.chbUpdateApplicationTypes.TabIndex = 46;
-            this.chbUpdateApplicationTypes.Tag = "16";
-            this.chbUpdateApplicationTypes.Text = "Update Application Type";
-            this.chbUpdateApplicationTypes.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbUpdateApplicationTypes.UncheckedState.BorderRadius = 2;
-            this.chbUpdateApplicationTypes.UncheckedState.BorderThickness = 0;
-            this.chbUpdateApplicationTypes.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbUpdateApplicationTypes.UseVisualStyleBackColor = true;
-            // 
-            // chbUpdateApplications
-            // 
-            this.chbUpdateApplications.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chbUpdateApplications.Animated = true;
-            this.chbUpdateApplications.AutoSize = true;
-            this.chbUpdateApplications.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbUpdateApplications.CheckedState.BorderRadius = 2;
-            this.chbUpdateApplications.CheckedState.BorderThickness = 0;
-            this.chbUpdateApplications.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbUpdateApplications.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbUpdateApplications.Location = new System.Drawing.Point(632, 3);
-            this.chbUpdateApplications.Name = "chbUpdateApplications";
-            this.chbUpdateApplications.Size = new System.Drawing.Size(138, 20);
-            this.chbUpdateApplications.TabIndex = 47;
-            this.chbUpdateApplications.Tag = "14";
-            this.chbUpdateApplications.Text = "Update Applications";
-            this.chbUpdateApplications.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbUpdateApplications.UncheckedState.BorderRadius = 2;
-            this.chbUpdateApplications.UncheckedState.BorderThickness = 0;
-            this.chbUpdateApplications.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbUpdateApplications.UseVisualStyleBackColor = true;
-            // 
-            // chbAddApplications
-            // 
-            this.chbAddApplications.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chbAddApplications.Animated = true;
-            this.chbAddApplications.AutoSize = true;
-            this.chbAddApplications.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbAddApplications.CheckedState.BorderRadius = 2;
-            this.chbAddApplications.CheckedState.BorderThickness = 0;
-            this.chbAddApplications.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbAddApplications.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbAddApplications.Location = new System.Drawing.Point(477, 31);
-            this.chbAddApplications.Name = "chbAddApplications";
-            this.chbAddApplications.Size = new System.Drawing.Size(120, 20);
-            this.chbAddApplications.TabIndex = 48;
-            this.chbAddApplications.Tag = "13";
-            this.chbAddApplications.Text = "Add Applications";
-            this.chbAddApplications.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbAddApplications.UncheckedState.BorderRadius = 2;
-            this.chbAddApplications.UncheckedState.BorderThickness = 0;
-            this.chbAddApplications.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbAddApplications.UseVisualStyleBackColor = true;
-            // 
-            // guna2Separator5
-            // 
-            this.guna2Separator5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.guna2Separator5.Location = new System.Drawing.Point(326, 100);
-            this.guna2Separator5.Name = "guna2Separator5";
-            this.guna2Separator5.Size = new System.Drawing.Size(117, 10);
-            this.guna2Separator5.TabIndex = 37;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 11.22642F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(322, 78);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 21);
-            this.label4.TabIndex = 36;
-            this.label4.Text = "Licenses";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // chbIssueLicense
-            // 
-            this.chbIssueLicense.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chbIssueLicense.Animated = true;
-            this.chbIssueLicense.AutoSize = true;
-            this.chbIssueLicense.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbIssueLicense.CheckedState.BorderRadius = 2;
-            this.chbIssueLicense.CheckedState.BorderThickness = 0;
-            this.chbIssueLicense.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbIssueLicense.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbIssueLicense.Location = new System.Drawing.Point(309, 3);
-            this.chbIssueLicense.Name = "chbIssueLicense";
-            this.chbIssueLicense.Size = new System.Drawing.Size(102, 20);
-            this.chbIssueLicense.TabIndex = 38;
-            this.chbIssueLicense.Tag = "9";
-            this.chbIssueLicense.Text = "Issue License";
-            this.chbIssueLicense.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbIssueLicense.UncheckedState.BorderRadius = 2;
-            this.chbIssueLicense.UncheckedState.BorderThickness = 0;
-            this.chbIssueLicense.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbIssueLicense.UseVisualStyleBackColor = true;
-            // 
-            // chbReleaseLicense
-            // 
-            this.chbReleaseLicense.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chbReleaseLicense.Animated = true;
-            this.chbReleaseLicense.AutoSize = true;
-            this.chbReleaseLicense.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbReleaseLicense.CheckedState.BorderRadius = 2;
-            this.chbReleaseLicense.CheckedState.BorderThickness = 0;
-            this.chbReleaseLicense.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbReleaseLicense.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbReleaseLicense.Location = new System.Drawing.Point(310, 59);
-            this.chbReleaseLicense.Name = "chbReleaseLicense";
-            this.chbReleaseLicense.Size = new System.Drawing.Size(117, 20);
-            this.chbReleaseLicense.TabIndex = 39;
-            this.chbReleaseLicense.Tag = "11";
-            this.chbReleaseLicense.Text = "Release License";
-            this.chbReleaseLicense.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbReleaseLicense.UncheckedState.BorderRadius = 2;
-            this.chbReleaseLicense.UncheckedState.BorderThickness = 0;
-            this.chbReleaseLicense.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbReleaseLicense.UseVisualStyleBackColor = true;
-            // 
-            // chbDeainLicense
-            // 
-            this.chbDeainLicense.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chbDeainLicense.Animated = true;
-            this.chbDeainLicense.AutoSize = true;
-            this.chbDeainLicense.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbDeainLicense.CheckedState.BorderRadius = 2;
-            this.chbDeainLicense.CheckedState.BorderThickness = 0;
-            this.chbDeainLicense.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbDeainLicense.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbDeainLicense.Location = new System.Drawing.Point(310, 31);
-            this.chbDeainLicense.Name = "chbDeainLicense";
-            this.chbDeainLicense.Size = new System.Drawing.Size(108, 20);
-            this.chbDeainLicense.TabIndex = 40;
-            this.chbDeainLicense.Tag = "10";
-            this.chbDeainLicense.Text = "Detain License";
-            this.chbDeainLicense.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbDeainLicense.UncheckedState.BorderRadius = 2;
-            this.chbDeainLicense.UncheckedState.BorderThickness = 0;
-            this.chbDeainLicense.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbDeainLicense.UseVisualStyleBackColor = true;
-            // 
-            // guna2Separator3
-            // 
-            this.guna2Separator3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.guna2Separator3.Location = new System.Drawing.Point(181, 100);
-            this.guna2Separator3.Name = "guna2Separator3";
-            this.guna2Separator3.Size = new System.Drawing.Size(108, 10);
-            this.guna2Separator3.TabIndex = 31;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 11.22642F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(177, 78);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 21);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "People";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // chbDeletePeople
-            // 
-            this.chbDeletePeople.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chbDeletePeople.Animated = true;
-            this.chbDeletePeople.AutoSize = true;
-            this.chbDeletePeople.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbDeletePeople.CheckedState.BorderRadius = 2;
-            this.chbDeletePeople.CheckedState.BorderThickness = 0;
-            this.chbDeletePeople.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbDeletePeople.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbDeletePeople.Location = new System.Drawing.Point(165, 87);
-            this.chbDeletePeople.Name = "chbDeletePeople";
-            this.chbDeletePeople.Size = new System.Drawing.Size(104, 20);
-            this.chbDeletePeople.TabIndex = 32;
-            this.chbDeletePeople.Tag = "8";
-            this.chbDeletePeople.Text = "Delete People";
-            this.chbDeletePeople.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbDeletePeople.UncheckedState.BorderRadius = 2;
-            this.chbDeletePeople.UncheckedState.BorderThickness = 0;
-            this.chbDeletePeople.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbDeletePeople.UseVisualStyleBackColor = true;
-            // 
-            // chbListPeople
-            // 
-            this.chbListPeople.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chbListPeople.Animated = true;
-            this.chbListPeople.AutoSize = true;
-            this.chbListPeople.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbListPeople.CheckedState.BorderRadius = 2;
-            this.chbListPeople.CheckedState.BorderThickness = 0;
-            this.chbListPeople.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbListPeople.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbListPeople.Location = new System.Drawing.Point(165, 3);
-            this.chbListPeople.Name = "chbListPeople";
-            this.chbListPeople.Size = new System.Drawing.Size(87, 20);
-            this.chbListPeople.TabIndex = 33;
-            this.chbListPeople.Tag = "5";
-            this.chbListPeople.Text = "List People";
-            this.chbListPeople.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbListPeople.UncheckedState.BorderRadius = 2;
-            this.chbListPeople.UncheckedState.BorderThickness = 0;
-            this.chbListPeople.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbListPeople.UseVisualStyleBackColor = true;
-            // 
-            // chbUpdatePeople
-            // 
-            this.chbUpdatePeople.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chbUpdatePeople.Animated = true;
-            this.chbUpdatePeople.AutoSize = true;
-            this.chbUpdatePeople.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbUpdatePeople.CheckedState.BorderRadius = 2;
-            this.chbUpdatePeople.CheckedState.BorderThickness = 0;
-            this.chbUpdatePeople.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbUpdatePeople.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbUpdatePeople.Location = new System.Drawing.Point(165, 59);
-            this.chbUpdatePeople.Name = "chbUpdatePeople";
-            this.chbUpdatePeople.Size = new System.Drawing.Size(108, 20);
-            this.chbUpdatePeople.TabIndex = 34;
-            this.chbUpdatePeople.Tag = "7";
-            this.chbUpdatePeople.Text = "Update People";
-            this.chbUpdatePeople.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbUpdatePeople.UncheckedState.BorderRadius = 2;
-            this.chbUpdatePeople.UncheckedState.BorderThickness = 0;
-            this.chbUpdatePeople.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbUpdatePeople.UseVisualStyleBackColor = true;
-            // 
-            // chbAddNewPeople
-            // 
-            this.chbAddNewPeople.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chbAddNewPeople.Animated = true;
-            this.chbAddNewPeople.AutoSize = true;
-            this.chbAddNewPeople.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbAddNewPeople.CheckedState.BorderRadius = 2;
-            this.chbAddNewPeople.CheckedState.BorderThickness = 0;
-            this.chbAddNewPeople.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbAddNewPeople.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbAddNewPeople.Location = new System.Drawing.Point(165, 31);
-            this.chbAddNewPeople.Name = "chbAddNewPeople";
-            this.chbAddNewPeople.Size = new System.Drawing.Size(90, 20);
-            this.chbAddNewPeople.TabIndex = 35;
-            this.chbAddNewPeople.Tag = "6";
-            this.chbAddNewPeople.Text = "Add People";
-            this.chbAddNewPeople.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbAddNewPeople.UncheckedState.BorderRadius = 2;
-            this.chbAddNewPeople.UncheckedState.BorderThickness = 0;
-            this.chbAddNewPeople.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbAddNewPeople.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 11.22642F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(23, 78);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 21);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Users";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // guna2Separator2
-            // 
-            this.guna2Separator2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.guna2Separator2.Location = new System.Drawing.Point(27, 100);
-            this.guna2Separator2.Name = "guna2Separator2";
-            this.guna2Separator2.Size = new System.Drawing.Size(114, 10);
-            this.guna2Separator2.TabIndex = 21;
-            // 
-            // chbListUsers
-            // 
-            this.chbListUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chbListUsers.Animated = true;
-            this.chbListUsers.AutoSize = true;
-            this.chbListUsers.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbListUsers.CheckedState.BorderRadius = 2;
-            this.chbListUsers.CheckedState.BorderThickness = 0;
-            this.chbListUsers.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbListUsers.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbListUsers.Location = new System.Drawing.Point(11, 3);
-            this.chbListUsers.Name = "chbListUsers";
-            this.chbListUsers.Size = new System.Drawing.Size(81, 20);
-            this.chbListUsers.TabIndex = 22;
-            this.chbListUsers.Tag = "1";
-            this.chbListUsers.Text = "List Users";
-            this.chbListUsers.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbListUsers.UncheckedState.BorderRadius = 2;
-            this.chbListUsers.UncheckedState.BorderThickness = 0;
-            this.chbListUsers.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbListUsers.UseVisualStyleBackColor = true;
-            // 
-            // chbDeleteUsers
-            // 
-            this.chbDeleteUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chbDeleteUsers.Animated = true;
-            this.chbDeleteUsers.AutoSize = true;
-            this.chbDeleteUsers.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbDeleteUsers.CheckedState.BorderRadius = 2;
-            this.chbDeleteUsers.CheckedState.BorderThickness = 0;
-            this.chbDeleteUsers.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbDeleteUsers.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbDeleteUsers.Location = new System.Drawing.Point(11, 87);
-            this.chbDeleteUsers.Name = "chbDeleteUsers";
-            this.chbDeleteUsers.Size = new System.Drawing.Size(98, 20);
-            this.chbDeleteUsers.TabIndex = 23;
-            this.chbDeleteUsers.Tag = "4";
-            this.chbDeleteUsers.Text = "Delete Users";
-            this.chbDeleteUsers.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbDeleteUsers.UncheckedState.BorderRadius = 2;
-            this.chbDeleteUsers.UncheckedState.BorderThickness = 0;
-            this.chbDeleteUsers.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbDeleteUsers.UseVisualStyleBackColor = true;
-            // 
-            // chbAddNewUsers
-            // 
-            this.chbAddNewUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chbAddNewUsers.Animated = true;
-            this.chbAddNewUsers.AutoSize = true;
-            this.chbAddNewUsers.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbAddNewUsers.CheckedState.BorderRadius = 2;
-            this.chbAddNewUsers.CheckedState.BorderThickness = 0;
-            this.chbAddNewUsers.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbAddNewUsers.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbAddNewUsers.Location = new System.Drawing.Point(11, 31);
-            this.chbAddNewUsers.Name = "chbAddNewUsers";
-            this.chbAddNewUsers.Size = new System.Drawing.Size(84, 20);
-            this.chbAddNewUsers.TabIndex = 24;
-            this.chbAddNewUsers.Tag = "2";
-            this.chbAddNewUsers.Text = "Add Users";
-            this.chbAddNewUsers.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbAddNewUsers.UncheckedState.BorderRadius = 2;
-            this.chbAddNewUsers.UncheckedState.BorderThickness = 0;
-            this.chbAddNewUsers.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbAddNewUsers.UseVisualStyleBackColor = true;
-            // 
-            // chbUpdateUsers
-            // 
-            this.chbUpdateUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.chbUpdateUsers.Animated = true;
-            this.chbUpdateUsers.AutoSize = true;
-            this.chbUpdateUsers.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbUpdateUsers.CheckedState.BorderRadius = 2;
-            this.chbUpdateUsers.CheckedState.BorderThickness = 0;
-            this.chbUpdateUsers.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbUpdateUsers.Font = new System.Drawing.Font("Tahoma", 8.150944F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbUpdateUsers.Location = new System.Drawing.Point(11, 59);
-            this.chbUpdateUsers.Name = "chbUpdateUsers";
-            this.chbUpdateUsers.Size = new System.Drawing.Size(102, 20);
-            this.chbUpdateUsers.TabIndex = 25;
-            this.chbUpdateUsers.Tag = "3";
-            this.chbUpdateUsers.Text = "Update Users";
-            this.chbUpdateUsers.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbUpdateUsers.UncheckedState.BorderRadius = 2;
-            this.chbUpdateUsers.UncheckedState.BorderThickness = 0;
-            this.chbUpdateUsers.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbUpdateUsers.UseVisualStyleBackColor = true;
-            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
@@ -621,31 +649,13 @@
             this.lblTitle.Text = "Permissions";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // pnlCheckboxes
+            // guna2Separator1
             // 
-            this.pnlCheckboxes.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlCheckboxes.Controls.Add(this.chbListUsers);
-            this.pnlCheckboxes.Controls.Add(this.chbUpdateUsers);
-            this.pnlCheckboxes.Controls.Add(this.chbAddNewUsers);
-            this.pnlCheckboxes.Controls.Add(this.chbDeleteUsers);
-            this.pnlCheckboxes.Controls.Add(this.chbUpdateTestTypes);
-            this.pnlCheckboxes.Controls.Add(this.chbAddNewPeople);
-            this.pnlCheckboxes.Controls.Add(this.chbDeleteApplications);
-            this.pnlCheckboxes.Controls.Add(this.chbUpdatePeople);
-            this.pnlCheckboxes.Controls.Add(this.chbListApplications);
-            this.pnlCheckboxes.Controls.Add(this.chbListPeople);
-            this.pnlCheckboxes.Controls.Add(this.chbUpdateApplicationTypes);
-            this.pnlCheckboxes.Controls.Add(this.chbDeletePeople);
-            this.pnlCheckboxes.Controls.Add(this.chbUpdateApplications);
-            this.pnlCheckboxes.Controls.Add(this.chbDeainLicense);
-            this.pnlCheckboxes.Controls.Add(this.chbAddApplications);
-            this.pnlCheckboxes.Controls.Add(this.chbReleaseLicense);
-            this.pnlCheckboxes.Controls.Add(this.chbIssueLicense);
-            this.pnlCheckboxes.Location = new System.Drawing.Point(18, 114);
-            this.pnlCheckboxes.Name = "pnlCheckboxes";
-            this.pnlCheckboxes.ShadowDecoration.Parent = this.pnlCheckboxes;
-            this.pnlCheckboxes.Size = new System.Drawing.Size(802, 120);
-            this.pnlCheckboxes.TabIndex = 53;
+            this.guna2Separator1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Separator1.Location = new System.Drawing.Point(472, 59);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(322, 10);
+            this.guna2Separator1.TabIndex = 50;
             // 
             // ctrlAddEditUserPermissions
             // 
@@ -657,10 +667,10 @@
             this.Size = new System.Drawing.Size(838, 243);
             this.pnlPermissions.ResumeLayout(false);
             this.pnlPermissions.PerformLayout();
-            this.guna2Panel8.ResumeLayout(false);
-            this.guna2Panel8.PerformLayout();
             this.pnlCheckboxes.ResumeLayout(false);
             this.pnlCheckboxes.PerformLayout();
+            this.guna2Panel8.ResumeLayout(false);
+            this.guna2Panel8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -698,5 +708,6 @@
         private Guna.UI2.WinForms.Guna2CheckBox chbAddNewPeople;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
         private Guna.UI2.WinForms.Guna2Panel pnlCheckboxes;
+        private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
     }
 }

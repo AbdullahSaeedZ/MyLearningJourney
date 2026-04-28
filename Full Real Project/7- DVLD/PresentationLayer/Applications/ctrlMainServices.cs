@@ -1,10 +1,12 @@
-﻿using Guna.UI2.WinForms;
+﻿using BusinessLayer;
+using Guna.UI2.WinForms;
 using PresentationLayer.Applications.DrivingLicenses;
 using PresentationLayer.Applications.ManageApplicationTypes.Controls;
 using PresentationLayer.Applications.ManageDetainedLicenses;
 using PresentationLayer.Applications.ManageInternationalApplications;
 using PresentationLayer.Applications.ManageLocalApplications;
 using PresentationLayer.Applications.ManageTestTypes.Controls;
+using PresentationLayer.Global_Classes;
 using PresentationLayer.MainForm;
 using System;
 using System.Windows.Forms;
@@ -101,6 +103,11 @@ namespace PresentationLayer.Applications
 
         private void btnManageLocalApplications_Click(object sender, EventArgs e)
         {
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eListApplications))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             ctrlManageLocalApplications ManageLocalApplications = new ctrlManageLocalApplications();
             ManageLocalApplications.delRemoveFromMainFormContainer_ManageLocalApplications += delRemoveFromMainFormContainer;
             delAddToMainFormContainer?.Invoke(ManageLocalApplications);
@@ -109,6 +116,11 @@ namespace PresentationLayer.Applications
 
         private void btnManageInternationalApplications_Click(object sender, EventArgs e)
         {
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eListApplications))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             ctrlManageInternationalApplications internationalApplications = new ctrlManageInternationalApplications();
             internationalApplications.delRemoveFromMainFormContainer_ManageInternationalApplications += delRemoveFromMainFormContainer;
             delAddToMainFormContainer?.Invoke(internationalApplications);

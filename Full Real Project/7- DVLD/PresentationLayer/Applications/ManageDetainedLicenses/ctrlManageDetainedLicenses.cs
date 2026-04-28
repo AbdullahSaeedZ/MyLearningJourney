@@ -125,6 +125,11 @@ namespace PresentationLayer.Applications.ManageDetainedLicenses
 
         private void btnDetain_Click(object sender, EventArgs e)
         {
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eDetainLicense))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             frmDetainLicense detainLicense = new frmDetainLicense();
             clsUtilities.AddToBreadcrumb("> Detain License");
             detainLicense.UpdateDGVOnLicenseDetained += RefreshDataGridView;
@@ -134,6 +139,11 @@ namespace PresentationLayer.Applications.ManageDetainedLicenses
 
         private void btnReleaseLicense_Click(object sender, EventArgs e)
         {
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eAddApplications))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             frmReleaseDetainedLicense releaseLicense = new frmReleaseDetainedLicense();
             clsUtilities.AddToBreadcrumb("> Release License");
             releaseLicense.UpdateDGVOnLicenseReleased += RefreshDataGridView;
@@ -184,6 +194,11 @@ namespace PresentationLayer.Applications.ManageDetainedLicenses
 
         private void releaseDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eAddApplications))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             _SelectedLicense = clsLicensesBusiness.FindByLicenseID((int)dgvDetainedLicenses.CurrentRow.Cells[1].Value);
             frmReleaseDetainedLicense releaseLicense = new frmReleaseDetainedLicense(_SelectedLicense.LicenseID);
             clsUtilities.AddToBreadcrumb("> Release License");

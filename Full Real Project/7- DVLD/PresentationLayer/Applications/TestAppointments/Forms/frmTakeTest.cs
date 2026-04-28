@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using PresentationLayer.Global_Classes;
 using System;
 using System.Windows.Forms;
 
@@ -67,7 +68,7 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
             _Test.TestAppointmentID = _testAppointmentID;
             _Test.TestResult = rbPass.Checked;
             _Test.Notes = tbTestNotes.Text.Trim();
-            _Test.CreatedByUserID = clsBusinessSettings.CurrentUser.UserID;
+            _Test.CreatedByUserID = clsGlobal.CurrentUser.UserID;
 
             if (_Test.Save())
             {

@@ -111,7 +111,11 @@ namespace PresentationLayer.Applications.ManageLocalApplications
         // using OnUpdate event below is to control WHEN to refresh, instead of refreshing once opened and closed the forms even if no update done
         private void btnNewApplication_Click(object sender, EventArgs e)
         {
-
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eAddApplications))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             frmAddEditLocalLicenseApplication addApplicationForm = new frmAddEditLocalLicenseApplication();
             addApplicationForm.OnUpdateDoneForDGV += RefreshDataGridView; // to update DGV here if new person added and updated in AddEdit form
             clsUtilities.AddToBreadcrumb("> Add-Edit Application");
@@ -182,6 +186,11 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
         private void editApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateApplications))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             // will only allow edit if no appointments records connected to the application id
             frmAddEditLocalLicenseApplication editApplicationForm = new frmAddEditLocalLicenseApplication((int)dgvApplications.CurrentRow.Cells[0].Value);
             editApplicationForm.OnUpdateDoneForDGV += RefreshDataGridView; 
@@ -192,13 +201,19 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
         private void deleteApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eDeleteApplications))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             // allow deleting an application if there is status is new and no connected records
             if (MessageBox.Show("Proceed to delete this application?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.CurrentRow.Cells[0].Value);
                 if (_selectedApplication != null)
                 {
-                    if (_selectedApplication.DeleteApplication()) // will only delete applications of new status
+                    if (_selectedApplication.DeleteApplication(clsGlobal.CurrentUser)) // will only delete applications of new status
                     {
                         _selectedApplication = null;
                         MessageBox.Show("Application is Deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -214,6 +229,12 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
         private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateApplications))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             if (MessageBox.Show("Proceed to cancel this application? only applications with New status can be cancelled", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.CurrentRow.Cells[0].Value);
@@ -237,6 +258,12 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
         private void _ListTestAppointment(clsTestTypesBusiness.enTestType testType)
         {
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateApplications)) // scheduling appointments is adding and linking records to the application which means updating application 
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             int LocalApplicationID = (int)dgvApplications.CurrentRow.Cells[0].Value;
 
             clsUtilities.AddToBreadcrumb($"> {testType} Test Appointments");
@@ -265,6 +292,11 @@ namespace PresentationLayer.Applications.ManageLocalApplications
 
         private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eIssueLicense))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             int LocalApplicationID = (int)dgvApplications.CurrentRow.Cells[0].Value;
 
             clsUtilities.AddToBreadcrumb("> Issue New License");

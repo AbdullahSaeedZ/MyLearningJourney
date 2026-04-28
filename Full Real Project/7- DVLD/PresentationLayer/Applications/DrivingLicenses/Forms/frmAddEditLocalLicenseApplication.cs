@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using PresentationLayer.Global_Classes;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -71,7 +72,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
         {
             lblApplicationDate.Text = DateTime.Now.ToShortDateString();
             lblApplicationFees.Text = _localLicenseApplicationTypeInfo.ApplicationTypeFees.ToString();
-            lblCreatedByUser.Text = clsBusinessSettings.CurrentUser.Username;
+            lblCreatedByUser.Text = clsGlobal.CurrentUser.Username;
             cbLocalLicenseClasses.SelectedIndex = 2;
         }
         private void _FillExistentApplicationInfoInForm()
@@ -161,7 +162,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
                 _localApplication.ApplicationStatus = clsApplicationsBusiness.enApplicationStatus.New;
                 _localApplication.PaidFees = _localLicenseApplicationTypeInfo.ApplicationTypeFees;
                 _localApplication.ApplicationTypeID = _localLicenseApplicationTypeInfo.ApplicationTypeID;
-                _localApplication.CreatedByUserID = clsBusinessSettings.CurrentUser.UserID;
+                _localApplication.CreatedByUserID = clsGlobal.CurrentUser.UserID;
             }
             else
             {
@@ -170,7 +171,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
 
             try
             {
-                if (_localApplication.Save())
+                if (_localApplication.Save(clsGlobal.CurrentUser))
                 {
                     MessageBox.Show("Data saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _mode = enMode.eUpdateMode;

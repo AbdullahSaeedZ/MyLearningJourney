@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using Microsoft.VisualBasic.ApplicationServices;
+using PresentationLayer.Global_Classes;
 using PresentationLayer.MainForm;
 using PresentationLayer.PeopleFormsAndControls;
 using PresentationLayer.Properties;
@@ -40,7 +41,7 @@ namespace PresentationLayer.Users.Forms
 
             try
             {
-                if (ctrlUserCard1.SelectedUser.ChangePassword(tbNewPassword.Text))
+                if (ctrlUserCard1.SelectedUser.ChangePassword(tbNewPassword.Text.Trim(), clsGlobal.CurrentUser))
                 {
                     MessageBox.Show("Data saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ctrlUserCard1.SelectedUser.Password = tbNewPassword.Text; // to update new password in the current session if form not closed and need to change password again

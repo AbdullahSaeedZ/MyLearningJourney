@@ -8,11 +8,31 @@ namespace BusinessLayer
 {
     public static class clsBusinessSettings
     {
-        public static clsUserBusiness CurrentUser;
 
         // all permissions
         [Flags]
-        public enum enPermissions { eAll = -1, eNone = 0, eListUsers = 2, eAddUser = 4, eUpdateUser = 8, eDeleteUser = 16, eListPeople = 32, eAddPerson = 64, eUpdatePerson = 128, eDeletePerson = 256 };
+        public enum enPermissions
+        {
+            eAll = -1,
+            eNone = 0,
+            eListUsers = 1 << 1,
+            eAddUser = 1 << 2,
+            eUpdateUser = 1 << 3,
+            eDeleteUser = 1 << 4,
+            eListPeople = 1 << 5,
+            eAddPerson = 1 << 6,
+            eUpdatePerson = 1 << 7,
+            eDeletePerson = 1 << 8,
+            eIssueLicense = 1 << 9,
+            eDetainLicense = 1 << 10,
+            eReleaseLicense = 1 << 11,
+            eListApplications = 1 << 12,
+            eAddApplications = 1 << 13,
+            eUpdateApplications = 1 << 14,
+            eDeleteApplications = 1 << 15,
+            eUpdateApplicationType = 1 << 16,
+            eUpdateTestType = 1 << 17
+        };
 
         // Add/Edit person form
         public static  string  _ServerPicturesFolder = @"D:\UsersPictures\";

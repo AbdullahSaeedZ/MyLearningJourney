@@ -31,7 +31,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
         private void _FillDetentionDefaultInfo()
         {
             lblDetentionDate.Text = DateTime.Now.ToShortDateString();
-            lblCreatedByUser.Text = clsBusinessSettings.CurrentUser.Username;
+            lblCreatedByUser.Text = clsGlobal.CurrentUser.Username;
         }
 
 
@@ -77,7 +77,16 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             if (MessageBox.Show("Are you sure to proceed with license detention?", "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.Cancel)
                 return;
 
-            _DetainID = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.DetainLicense(Convert.ToSingle(tbFineFees.Text.Trim()), clsBusinessSettings.CurrentUser.UserID);
+            try
+            {
+                _DetainID = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.DetainLicense(Convert.ToSingle(tbFineFees.Text.Trim()), clsGlobal.CurrentUser);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+           
             if (_DetainID != -1)
             {
                 lblDetainID.Text = _DetainID.ToString();

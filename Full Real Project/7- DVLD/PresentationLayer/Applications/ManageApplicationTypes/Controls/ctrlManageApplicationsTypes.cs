@@ -38,6 +38,11 @@ namespace PresentationLayer.Applications.ManageApplicationTypes.Controls
 
         private void editApplicationTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateApplicationType))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             frmEditApplicationType editApplicationType = new frmEditApplicationType((int)dgvApplicationTypes.SelectedCells[0].Value);
             editApplicationType.delRefreshDgv += _RefreshDgv;
             clsUtilities.AddToBreadcrumb("> Edit Type Info");

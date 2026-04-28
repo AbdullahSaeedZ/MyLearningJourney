@@ -111,8 +111,12 @@ namespace BusinessLayer
         }
 
         // override incase of upcasting multiple applications in a list then do a loop (like in IT401)
-        public override bool DeleteApplication()
+        public bool DeleteApplication(clsUserBusiness CurrentUser)
         {
+            if (!CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eDeleteApplications))
+                throw new UnauthorizedAccessException("You do not have permission to delete applications");
+
+
             if (this.ApplicationStatus != enApplicationStatus.New)
                 return false;
 
@@ -128,13 +132,17 @@ namespace BusinessLayer
             return clsLocalDrivingLicenseApplicationsDataAccess.GetAllLocalDrivingLicenseApplications();
         }
 
-        public override bool Save() // override base Save method
+        public bool Save(clsUserBusiness CurrentUser) // override base Save method
         {
             if (base.Save()) // adding or updating the baseApplication first then do the derived application
             {
                 switch (this._mode)
                 {
                     case enMode.eAddMode:
+
+                        if (!CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eAddApplications))
+                            throw new UnauthorizedAccessException("You do not have permission to add applications");
+
                         if (_AddNewLocalDrivingLicenseApplication())
                         {
                             this._mode = enMode.eUpdateMode;
@@ -144,6 +152,10 @@ namespace BusinessLayer
                             return false;
 
                     case enMode.eUpdateMode:
+
+                        if (!CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateApplications))
+                            throw new UnauthorizedAccessException("You do not have permission to update applications");
+
                         return _UpdateLocalDrivingLicenseApplication();
 
                     default: return false;
@@ -159,10 +171,13 @@ namespace BusinessLayer
         }
 
         // if issuing license replacements is not linked to local driiving applications, then see where this method fits 
-        public int IssueNewLicense(string Notes, int CreatedByUserID)
+        public int IssueNewLicense(string Notes, clsUserBusiness CreatedByUser)
         {
             if (this.TestsStatus.PassedTestsCount < 3 || IsLicenseIssued())
                 return -1;
+
+            if (!CreatedByUser.HasPermission(clsBusinessSettings.enPermissions.eIssueLicense))
+                throw new UnauthorizedAccessException("You do not have permission to issue licenses");
 
             // we check if person is listed as driver, cuz person can be listed as driver only once in the system
             // if person is already a driver, then use his driver id in the new license (licenses of different class for one driver)
@@ -175,7 +190,7 @@ namespace BusinessLayer
                 // adding driver record first, cuz new license record requires a driver id
                 Driver = new clsDriversBusiness();
                 Driver.PersonID = this.ApplicantPersonID;
-                Driver.CreatedByUserID = CreatedByUserID; 
+                Driver.CreatedByUserID = CreatedByUser.UserID; 
 
                 if (!Driver.Save())
                     return -1;
@@ -188,7 +203,7 @@ namespace BusinessLayer
             NewLicense.ApplicationID = this.ApplicationID;
             NewLicense.DriverID = DriverID;
             NewLicense.Notes = Notes;
-            NewLicense.CreatedByUserID = CreatedByUserID;
+            NewLicense.CreatedByUserID = CreatedByUser.UserID;
             NewLicense.IssueReason = clsLicensesBusiness.enIssueReason.FirstTime;
             NewLicense.IsActive = true;
             NewLicense.LicenseClassID = this.LicenseClassID;

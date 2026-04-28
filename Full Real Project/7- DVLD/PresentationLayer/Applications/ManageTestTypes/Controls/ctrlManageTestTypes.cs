@@ -40,6 +40,11 @@ namespace PresentationLayer.Applications.ManageTestTypes.Controls
 
         private void editTestTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateTestType))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             frmEditTestType editTestType = new frmEditTestType((int)dgvTestTypes.SelectedCells[0].Value);
             editTestType.delRefreshDgv += _RefreshDgv;
             clsUtilities.AddToBreadcrumb("> Edit Type Info");

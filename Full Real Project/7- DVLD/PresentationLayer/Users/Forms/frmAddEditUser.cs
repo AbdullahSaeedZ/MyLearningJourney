@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using PresentationLayer.Properties;
+using PresentationLayer.Global_Classes;
 using System;
 using System.ComponentModel;
 using System.Drawing;
@@ -111,7 +112,7 @@ namespace PresentationLayer.UsersFormsAndControls
 
             try
             {
-                if (_user.Save())
+                if (_user.Save(clsGlobal.CurrentUser))
                 {
                     MessageBox.Show("Data saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _mode = enMode.eUpdateMode; // to allow next button to proceed when updating a user

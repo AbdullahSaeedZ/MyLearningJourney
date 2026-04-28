@@ -30,7 +30,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             lblIssueDate.Text = DateTime.Now.ToShortDateString();
             lblFees.Text = (clsApplicationTypesBusiness.FindApplicationType(clsApplicationTypesBusiness.enApplicationTypes.eNewInternationalLicense)).ApplicationTypeFees.ToString();
             lblExpirationDate.Text = DateTime.Now.AddYears(1).ToShortDateString();
-            lblCreatedByUser.Text = clsBusinessSettings.CurrentUser.Username;
+            lblCreatedByUser.Text = clsGlobal.CurrentUser.Username;
         }
 
 
@@ -101,7 +101,16 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
                 return;
             }
 
-            _InternationalLicenseID = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.IssueInternationalLicense(NewInternationalApplicationID, clsBusinessSettings.CurrentUser.UserID);
+            try
+            {
+                _InternationalLicenseID = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.IssueInternationalLicense(NewInternationalApplicationID, clsGlobal.CurrentUser);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+
             if (_InternationalLicenseID != -1)
             {
                 MessageBox.Show($"International License is successfully issued with ID {_InternationalLicenseID}", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -123,7 +132,7 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
             InternationalApplication.ApplicationTypeID = clsApplicationTypesBusiness.enApplicationTypes.eNewInternationalLicense;
             InternationalApplication.ApplicationStatus = clsApplicationsBusiness.enApplicationStatus.New;
             InternationalApplication.ApplicantPersonID = ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.DriverInfo.PersonID;
-            InternationalApplication.CreatedByUserID = clsBusinessSettings.CurrentUser.UserID;
+            InternationalApplication.CreatedByUserID = clsGlobal.CurrentUser.UserID;
             InternationalApplication.PaidFees = Convert.ToSingle(lblFees.Text);
 
             if (InternationalApplication.Save())

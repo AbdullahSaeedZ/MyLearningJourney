@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using PresentationLayer.Global_Classes;
 using System;
 using System.Windows.Forms;
 
@@ -217,9 +218,9 @@ namespace PresentationLayer.Applications.TestAppointments
                 RetakeTestApplication.ApplicationTypeID = clsApplicationTypesBusiness.enApplicationTypes.eRetakeTest;
                 RetakeTestApplication.ApplicationStatus = clsApplicationsBusiness.enApplicationStatus.New;
                 RetakeTestApplication.ApplicantPersonID = _LocalApplication.ApplicantPersonID;
-                RetakeTestApplication.CreatedByUserID = clsBusinessSettings.CurrentUser.UserID;
+                RetakeTestApplication.CreatedByUserID = clsGlobal.CurrentUser.UserID;
                 RetakeTestApplication.PaidFees = Convert.ToSingle(lblRetakeAppFees.Text);
-
+                
                 if (RetakeTestApplication.Save())
                 {
                     _TestAppointment.RetakeTestApplicationID = RetakeTestApplication.ApplicationID;
@@ -243,7 +244,7 @@ namespace PresentationLayer.Applications.TestAppointments
             _TestAppointment.TestTypeID = _TestType;
             _TestAppointment.AppointmentDate = dtpAppointmentDate.Value;
             _TestAppointment.PaidFees = Convert.ToSingle(lblTestFees.Text); // test appointment fees only
-            _TestAppointment.CreatedByUserID = clsBusinessSettings.CurrentUser.UserID;
+            _TestAppointment.CreatedByUserID = clsGlobal.CurrentUser.UserID;
             _TestAppointment.IsLocked = false;
 
             if (_TestAppointment.Save())

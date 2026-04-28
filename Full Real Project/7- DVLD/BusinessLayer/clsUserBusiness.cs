@@ -67,32 +67,26 @@ namespace BusinessLayer
 
         private bool _AddNewUser()
         {
-            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eAddUser))
-                throw new UnauthorizedAccessException("You do not have permission to Add users");
-
             this.UserID = clsUserDataAccess.AddNewUser(this.PersonID, this.Username, this.Password, this.isActive, this.Permissions);
 
             return (this.UserID != -1);
         }
         private bool _UpdateUser()
         {
-            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateUser) && clsBusinessSettings.CurrentUser.UserID != this.UserID) // to allow user editing his own profile
-                throw new UnauthorizedAccessException("You do not have permission to edit users");
-
             return clsUserDataAccess.UpdateUser(this.UserID, this.Username, this.Password, this.isActive, this.Permissions);
         }
 
-        public bool ChangePassword(string NewPassword)
+        public bool ChangePassword(string NewPassword, clsUserBusiness CurrentUser)
         {
-            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateUser) && clsBusinessSettings.CurrentUser.UserID != this.UserID) // to allow user editing his own password
+            if (!CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateUser) && CurrentUser.UserID != this.UserID) // to allow user editing his own password
                 throw new UnauthorizedAccessException("You do not have permission to edit users");
 
             return clsUserDataAccess.ChangePassword(this.UserID, NewPassword);
         }
 
-        public static bool DeleteUser(int UserID)
+        public static bool DeleteUser(int UserID, clsUserBusiness CurrentUser)
         {
-            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eDeleteUser))
+            if (!CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eDeleteUser))
                 throw new UnauthorizedAccessException("You do not have permission to delete users");
 
             return clsUserDataAccess.DeleteUser(UserID);
@@ -141,11 +135,15 @@ namespace BusinessLayer
             return clsUserDataAccess.GetAllUsers();
         }
 
-        public bool Save()
+        public bool Save(clsUserBusiness CurrentUser)
         {
             switch(_mode)
             {
                 case enMode.eAddMode:
+
+                    if (!CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eAddUser))
+                        throw new UnauthorizedAccessException("You do not have permission to Add users");
+
                     if (_AddNewUser())
                     {
                         _mode = enMode.eUpdateMode;
@@ -155,6 +153,10 @@ namespace BusinessLayer
                         return false;
 
                 case enMode.eUpdateMode:
+
+                    if (!CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateUser) && CurrentUser.UserID != this.UserID) // to allow user editing his own profile
+                        throw new UnauthorizedAccessException("You do not have permission to edit users");
+
                     return _UpdateUser();
 
                 default: return false;

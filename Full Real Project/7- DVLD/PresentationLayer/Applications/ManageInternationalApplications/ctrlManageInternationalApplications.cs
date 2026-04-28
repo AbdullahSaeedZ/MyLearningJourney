@@ -100,8 +100,13 @@ namespace PresentationLayer.Applications.ManageInternationalApplications
         }
 
 
-        private void btnNewApplication_Click(object sender, EventArgs e)
+        private void btnNewLicesnse_Click(object sender, EventArgs e)
         {
+            if (!clsGlobal.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eIssueLicense))
+            {
+                MessageBox.Show("Access Denied, contact your admin to get permission.", "Access Denied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             frmIssueInternationalLicense issueInternationalLicense = new frmIssueInternationalLicense();
             issueInternationalLicense.UpdateDGVOnLicenseIssued += RefreshDataGridView;
             clsUtilities.AddToBreadcrumb("> Add New Application");

@@ -118,9 +118,6 @@ namespace BusinessLayer
 
         private bool _AddNewPerson()
         {
-            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eAddPerson))
-                throw new UnauthorizedAccessException("You do not have permission to add People");
-
             this.PersonID = clsPeopleDataAccess.AddNewPerson(this.NationalID, this.FirstName, this.SecondName, this.ThirdName,
                      this.LastName, (byte)this.Gender, this.NationalityCountryID, this.Phone, this.Email, this.Address, this.ImagePath, this.BirthDate);
 
@@ -129,18 +126,19 @@ namespace BusinessLayer
 
         private bool _UpdatePerson()
         {
-            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdatePerson) && clsBusinessSettings.CurrentUser.PersonID != this.PersonID) // to allow user editing his own profile
-                throw new UnauthorizedAccessException("You do not have permission to edit People");
-
             return clsPeopleDataAccess.UpdatePerson(this.PersonID, this.NationalID, this.FirstName, this.SecondName, this.ThirdName,
                      this.LastName, (byte)this.Gender, this.NationalityCountryID, this.Phone, this.Email, this.Address, this.ImagePath, this.BirthDate);
         }
 
-        public bool Save()
+        public bool Save(clsUserBusiness CurrentUser)
         {
             switch (_mode)
             {
                 case enMode.eAddMode:
+
+                    if (!CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eAddPerson))
+                        throw new UnauthorizedAccessException("You do not have permission to add People");
+
                     if (_AddNewPerson())
                     {
                         _mode = enMode.eUpdateMode;
@@ -150,15 +148,19 @@ namespace BusinessLayer
                         return false;
 
                 case enMode.eUpdateMode:
+
+                    if (!CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdatePerson) && CurrentUser.PersonID != this.PersonID) // to allow user editing his own profile
+                        throw new UnauthorizedAccessException("You do not have permission to edit People");
+
                     return _UpdatePerson();
 
                 default: return false;
             }
         }
 
-        public static bool DeletePerson(int PersonID)
+        public static bool DeletePerson(int PersonID, clsUserBusiness CurrentUser)
         {
-            if (!clsBusinessSettings.CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eDeletePerson))
+            if (!CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eDeletePerson))
                 throw new UnauthorizedAccessException("You do not have permission to delete People");
 
             return clsPeopleDataAccess.DeletePerson(PersonID);
