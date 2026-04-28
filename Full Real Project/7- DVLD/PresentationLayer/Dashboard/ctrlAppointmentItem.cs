@@ -3,6 +3,7 @@ using PresentationLayer.Applications.TestAppointments.Forms;
 using PresentationLayer.Global_Classes;
 using PresentationLayer.Properties;
 using System;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Windows.Forms;
 using static System.Windows.Forms.DataGrid;
@@ -56,11 +57,17 @@ namespace PresentationLayer.Dashboard
                 lblStatus.Text = "Completed";
                 lblStatus.ForeColor = Color.LimeGreen;
             }
+            else if (!_IsLocked && Date < DateTime.Now) // appointment time has come and no one locked i yet
+            {
+                lblStatus.Text = "Missed";
+                lblStatus.ForeColor = Color.Crimson;
+            }
             else
             {
                 lblStatus.Text = "Upcoming";
                 lblStatus.ForeColor = Color.Orange;
             }
+            
 
         }
 

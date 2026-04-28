@@ -228,7 +228,7 @@
             this.lblName.AutoSize = true;
             this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.lblName.ForeColor = System.Drawing.Color.DimGray;
+            this.lblName.ForeColor = System.Drawing.Color.Firebrick;
             this.lblName.Location = new System.Drawing.Point(433, 72);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(27, 18);

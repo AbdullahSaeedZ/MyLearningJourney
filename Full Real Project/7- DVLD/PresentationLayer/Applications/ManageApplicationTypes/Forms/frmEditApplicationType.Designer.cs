@@ -41,11 +41,11 @@
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.guna2ShadowPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -117,7 +117,7 @@
             // tbApplicationTypeFees
             // 
             this.tbApplicationTypeFees.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.tbApplicationTypeFees.BackColor = System.Drawing.Color.Transparent;
+            this.tbApplicationTypeFees.BackColor = System.Drawing.Color.White;
             this.tbApplicationTypeFees.BorderColor = System.Drawing.Color.Silver;
             this.tbApplicationTypeFees.BorderRadius = 10;
             this.tbApplicationTypeFees.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -127,7 +127,6 @@
             this.tbApplicationTypeFees.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbApplicationTypeFees.DisabledState.Parent = this.tbApplicationTypeFees;
             this.tbApplicationTypeFees.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbApplicationTypeFees.FillColor = System.Drawing.Color.WhiteSmoke;
             this.tbApplicationTypeFees.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbApplicationTypeFees.FocusedState.Parent = this.tbApplicationTypeFees;
             this.tbApplicationTypeFees.ForeColor = System.Drawing.Color.Black;
@@ -147,7 +146,7 @@
             // tbApplicationTypeTitle
             // 
             this.tbApplicationTypeTitle.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.tbApplicationTypeTitle.BackColor = System.Drawing.Color.Transparent;
+            this.tbApplicationTypeTitle.BackColor = System.Drawing.Color.White;
             this.tbApplicationTypeTitle.BorderColor = System.Drawing.Color.Silver;
             this.tbApplicationTypeTitle.BorderRadius = 10;
             this.tbApplicationTypeTitle.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -157,7 +156,6 @@
             this.tbApplicationTypeTitle.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbApplicationTypeTitle.DisabledState.Parent = this.tbApplicationTypeTitle;
             this.tbApplicationTypeTitle.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbApplicationTypeTitle.FillColor = System.Drawing.Color.WhiteSmoke;
             this.tbApplicationTypeTitle.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbApplicationTypeTitle.FocusedState.Parent = this.tbApplicationTypeTitle;
             this.tbApplicationTypeTitle.ForeColor = System.Drawing.Color.Black;
@@ -259,10 +257,6 @@
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(506, 334);
             this.guna2ShadowPanel1.TabIndex = 20;
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
@@ -273,6 +267,10 @@
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.guna2PictureBox1.TabIndex = 29;
             this.guna2PictureBox1.TabStop = false;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmEditApplicationType
             // 
@@ -289,8 +287,8 @@
             this.Shown += new System.EventHandler(this.frmEditApplicationType_Shown);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.guna2ShadowPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }

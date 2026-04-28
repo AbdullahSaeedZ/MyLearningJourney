@@ -29,6 +29,8 @@ namespace PresentationLayer.PeopleFormsAndControls
                 return;
             
             dgvPeople.DataSource = dt;
+            dgvPeople.Columns["colThirdName"].DefaultCellStyle.NullValue = "N/A";
+            dgvPeople.Columns["colEmail"].DefaultCellStyle.NullValue = "N/A";
             lblNumberOfRecords.Text = dgvPeople.RowCount.ToString();
         }
  

@@ -348,12 +348,12 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DimGray;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDetainedLicenses.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDetainedLicenses.EnableHeadersVisualStyles = false;
-            this.dgvDetainedLicenses.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvDetainedLicenses.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvDetainedLicenses.Location = new System.Drawing.Point(18, 152);
             this.dgvDetainedLicenses.Name = "dgvDetainedLicenses";
             this.dgvDetainedLicenses.ReadOnly = true;
@@ -368,7 +368,7 @@
             this.dgvDetainedLicenses.RowHeadersVisible = false;
             this.dgvDetainedLicenses.RowHeadersWidth = 45;
             this.dgvDetainedLicenses.RowTemplate.DividerHeight = 1;
-            this.dgvDetainedLicenses.RowTemplate.Height = 50;
+            this.dgvDetainedLicenses.RowTemplate.Height = 30;
             this.dgvDetainedLicenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetainedLicenses.Size = new System.Drawing.Size(1405, 716);
             this.dgvDetainedLicenses.TabIndex = 0;
@@ -379,7 +379,7 @@
             this.dgvDetainedLicenses.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgvDetainedLicenses.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.dgvDetainedLicenses.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvDetainedLicenses.ThemeStyle.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvDetainedLicenses.ThemeStyle.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvDetainedLicenses.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.White;
             this.dgvDetainedLicenses.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvDetainedLicenses.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -391,8 +391,8 @@
             this.dgvDetainedLicenses.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDetainedLicenses.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.dgvDetainedLicenses.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvDetainedLicenses.ThemeStyle.RowsStyle.Height = 50;
-            this.dgvDetainedLicenses.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
+            this.dgvDetainedLicenses.ThemeStyle.RowsStyle.Height = 30;
+            this.dgvDetainedLicenses.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DimGray;
             this.dgvDetainedLicenses.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvDetainedLicenses.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvDetainedLicenses_MouseDoubleClick);
             // 

@@ -48,7 +48,6 @@
             this.tbConfirmPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.tbNewPassword = new Guna.UI2.WinForms.Guna2TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.ctrlAddEditUserPermissions1 = new PresentationLayer.Users.Controls.ctrlAddEditUserPermissions();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.btnRemoveImage = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddImage = new Guna.UI2.WinForms.Guna2Button();
@@ -84,6 +83,7 @@
             this.btnSaveChanges = new Guna.UI2.WinForms.Guna2Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.ctrlAddEditUserPermissions1 = new PresentationLayer.Users.Controls.ctrlAddEditUserPermissions();
             this.guna2Panel1.SuspendLayout();
             this.pnlLoginInfo.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
@@ -97,9 +97,9 @@
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Panel1.BorderRadius = 20;
+            this.guna2Panel1.Controls.Add(this.ctrlAddEditUserPermissions1);
             this.guna2Panel1.Controls.Add(this.pnlLoginInfo);
             this.guna2Panel1.Controls.Add(this.guna2Panel2);
-            this.guna2Panel1.Controls.Add(this.ctrlAddEditUserPermissions1);
             this.guna2Panel1.Controls.Add(this.guna2Panel3);
             this.guna2Panel1.Controls.Add(this.guna2Panel4);
             this.guna2Panel1.Controls.Add(this.btnSaveChanges);
@@ -124,7 +124,7 @@
             this.pnlLoginInfo.Controls.Add(this.lblUserID);
             this.pnlLoginInfo.Controls.Add(this.label18);
             this.pnlLoginInfo.Controls.Add(this.label19);
-            this.pnlLoginInfo.Location = new System.Drawing.Point(323, 348);
+            this.pnlLoginInfo.Location = new System.Drawing.Point(323, 343);
             this.pnlLoginInfo.Name = "pnlLoginInfo";
             this.pnlLoginInfo.ShadowDecoration.Parent = this.pnlLoginInfo;
             this.pnlLoginInfo.Size = new System.Drawing.Size(1103, 94);
@@ -223,10 +223,10 @@
             this.guna2Panel2.Controls.Add(this.tbNewPassword);
             this.guna2Panel2.Controls.Add(this.label4);
             this.guna2Panel2.FillColor = System.Drawing.Color.White;
-            this.guna2Panel2.Location = new System.Drawing.Point(323, 672);
+            this.guna2Panel2.Location = new System.Drawing.Point(323, 698);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
-            this.guna2Panel2.Size = new System.Drawing.Size(1104, 149);
+            this.guna2Panel2.Size = new System.Drawing.Size(1104, 123);
             this.guna2Panel2.TabIndex = 29;
             // 
             // tbCurrentPassword
@@ -248,7 +248,7 @@
             this.tbCurrentPassword.ForeColor = System.Drawing.Color.Black;
             this.tbCurrentPassword.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbCurrentPassword.HoverState.Parent = this.tbCurrentPassword;
-            this.tbCurrentPassword.Location = new System.Drawing.Point(176, 82);
+            this.tbCurrentPassword.Location = new System.Drawing.Point(176, 69);
             this.tbCurrentPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbCurrentPassword.Name = "tbCurrentPassword";
             this.tbCurrentPassword.PasswordChar = '\0';
@@ -276,7 +276,7 @@
             this.btnShowHidePassword2.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnShowHidePassword2.HoverState.Parent = this.btnShowHidePassword2;
             this.btnShowHidePassword2.Image = global::PresentationLayer.Properties.Resources.showPasswordEye;
-            this.btnShowHidePassword2.Location = new System.Drawing.Point(865, 86);
+            this.btnShowHidePassword2.Location = new System.Drawing.Point(867, 74);
             this.btnShowHidePassword2.Name = "btnShowHidePassword2";
             this.btnShowHidePassword2.ShadowDecoration.Parent = this.btnShowHidePassword2;
             this.btnShowHidePassword2.Size = new System.Drawing.Size(25, 23);
@@ -302,7 +302,7 @@
             this.label2.BackColor = System.Drawing.Color.White;
             this.label2.Font = new System.Drawing.Font("Tahoma", 10F);
             this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(173, 58);
+            this.label2.Location = new System.Drawing.Point(174, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(127, 18);
             this.label2.TabIndex = 19;
@@ -325,7 +325,7 @@
             this.btnShowHidePassword1.HoverState.ForeColor = System.Drawing.Color.Black;
             this.btnShowHidePassword1.HoverState.Parent = this.btnShowHidePassword1;
             this.btnShowHidePassword1.Image = global::PresentationLayer.Properties.Resources.showPasswordEye;
-            this.btnShowHidePassword1.Location = new System.Drawing.Point(617, 86);
+            this.btnShowHidePassword1.Location = new System.Drawing.Point(619, 74);
             this.btnShowHidePassword1.Name = "btnShowHidePassword1";
             this.btnShowHidePassword1.ShadowDecoration.Parent = this.btnShowHidePassword1;
             this.btnShowHidePassword1.Size = new System.Drawing.Size(25, 23);
@@ -338,7 +338,7 @@
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Tahoma", 10F);
             this.label3.ForeColor = System.Drawing.Color.DimGray;
-            this.label3.Location = new System.Drawing.Point(423, 58);
+            this.label3.Location = new System.Drawing.Point(424, 48);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 18);
             this.label3.TabIndex = 17;
@@ -364,7 +364,7 @@
             this.tbConfirmPassword.ForeColor = System.Drawing.Color.Black;
             this.tbConfirmPassword.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbConfirmPassword.HoverState.Parent = this.tbConfirmPassword;
-            this.tbConfirmPassword.Location = new System.Drawing.Point(674, 82);
+            this.tbConfirmPassword.Location = new System.Drawing.Point(674, 69);
             this.tbConfirmPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbConfirmPassword.Name = "tbConfirmPassword";
             this.tbConfirmPassword.PasswordChar = '\0';
@@ -396,7 +396,7 @@
             this.tbNewPassword.ForeColor = System.Drawing.Color.Black;
             this.tbNewPassword.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbNewPassword.HoverState.Parent = this.tbNewPassword;
-            this.tbNewPassword.Location = new System.Drawing.Point(426, 82);
+            this.tbNewPassword.Location = new System.Drawing.Point(426, 69);
             this.tbNewPassword.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbNewPassword.Name = "tbNewPassword";
             this.tbNewPassword.PasswordChar = '\0';
@@ -415,22 +415,12 @@
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Tahoma", 10F);
             this.label4.ForeColor = System.Drawing.Color.DimGray;
-            this.label4.Location = new System.Drawing.Point(671, 58);
+            this.label4.Location = new System.Drawing.Point(672, 48);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(129, 18);
             this.label4.TabIndex = 16;
             this.label4.Text = "Confirm Password:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // ctrlAddEditUserPermissions1
-            // 
-            this.ctrlAddEditUserPermissions1.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlAddEditUserPermissions1.Location = new System.Drawing.Point(322, 453);
-            this.ctrlAddEditUserPermissions1.Name = "ctrlAddEditUserPermissions1";
-            this.ctrlAddEditUserPermissions1.PermissionsCardBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlAddEditUserPermissions1.PermissionsCardBorderThickness = 1;
-            this.ctrlAddEditUserPermissions1.Size = new System.Drawing.Size(1104, 208);
-            this.ctrlAddEditUserPermissions1.TabIndex = 28;
             // 
             // guna2Panel3
             // 
@@ -1088,6 +1078,16 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // ctrlAddEditUserPermissions1
+            // 
+            this.ctrlAddEditUserPermissions1.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlAddEditUserPermissions1.Location = new System.Drawing.Point(324, 446);
+            this.ctrlAddEditUserPermissions1.Name = "ctrlAddEditUserPermissions1";
+            this.ctrlAddEditUserPermissions1.PermissionsCardBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlAddEditUserPermissions1.PermissionsCardBorderThickness = 1;
+            this.ctrlAddEditUserPermissions1.Size = new System.Drawing.Size(1101, 243);
+            this.ctrlAddEditUserPermissions1.TabIndex = 31;
+            // 
             // ctrlSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1146,7 +1146,6 @@
         private Guna.UI2.WinForms.Guna2TextBox tbThirdName;
         private Guna.UI2.WinForms.Guna2TextBox tbFirstName;
         private Guna.UI2.WinForms.Guna2Button btnSaveChanges;
-        private Users.Controls.ctrlAddEditUserPermissions ctrlAddEditUserPermissions1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2TextBox tbCurrentPassword;
         private Guna.UI2.WinForms.Guna2Button btnShowHidePassword2;
@@ -1167,5 +1166,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private Users.Controls.ctrlAddEditUserPermissions ctrlAddEditUserPermissions1;
     }
 }

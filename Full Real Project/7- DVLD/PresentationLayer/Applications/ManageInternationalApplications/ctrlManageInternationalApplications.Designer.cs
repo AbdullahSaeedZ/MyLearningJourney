@@ -53,8 +53,8 @@
             this.IsActive = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showPersonInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showLicensesHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showLicenseInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showLicensesHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvApplications)).BeginInit();
@@ -312,12 +312,12 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DimGray;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvApplications.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvApplications.EnableHeadersVisualStyles = false;
-            this.dgvApplications.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvApplications.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvApplications.Location = new System.Drawing.Point(18, 152);
             this.dgvApplications.Name = "dgvApplications";
             this.dgvApplications.ReadOnly = true;
@@ -332,7 +332,7 @@
             this.dgvApplications.RowHeadersVisible = false;
             this.dgvApplications.RowHeadersWidth = 45;
             this.dgvApplications.RowTemplate.DividerHeight = 1;
-            this.dgvApplications.RowTemplate.Height = 50;
+            this.dgvApplications.RowTemplate.Height = 30;
             this.dgvApplications.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvApplications.Size = new System.Drawing.Size(1405, 716);
             this.dgvApplications.TabIndex = 0;
@@ -343,7 +343,7 @@
             this.dgvApplications.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgvApplications.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.dgvApplications.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvApplications.ThemeStyle.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvApplications.ThemeStyle.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvApplications.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.White;
             this.dgvApplications.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvApplications.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -355,8 +355,8 @@
             this.dgvApplications.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvApplications.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.dgvApplications.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvApplications.ThemeStyle.RowsStyle.Height = 50;
-            this.dgvApplications.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
+            this.dgvApplications.ThemeStyle.RowsStyle.Height = 30;
+            this.dgvApplications.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DimGray;
             this.dgvApplications.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvApplications.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvApplications_MouseDoubleClick);
             // 
@@ -440,7 +440,7 @@
             this.showLicenseInfoToolStripMenuItem,
             this.showLicensesHistoryToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(264, 118);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(264, 94);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // showPersonInfoToolStripMenuItem
@@ -451,14 +451,6 @@
             this.showPersonInfoToolStripMenuItem.Text = "Show Person Info";
             this.showPersonInfoToolStripMenuItem.Click += new System.EventHandler(this.showPersonInfoToolStripMenuItem_Click);
             // 
-            // showLicensesHistoryToolStripMenuItem
-            // 
-            this.showLicensesHistoryToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.LicenseHistoryNoFill24;
-            this.showLicensesHistoryToolStripMenuItem.Name = "showLicensesHistoryToolStripMenuItem";
-            this.showLicensesHistoryToolStripMenuItem.Size = new System.Drawing.Size(263, 30);
-            this.showLicensesHistoryToolStripMenuItem.Text = "Show Person Licenses History";
-            this.showLicensesHistoryToolStripMenuItem.Click += new System.EventHandler(this.showLicensesHistoryToolStripMenuItem_Click);
-            // 
             // showLicenseInfoToolStripMenuItem
             // 
             this.showLicenseInfoToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.internationalLicensesNoFill24;
@@ -466,6 +458,14 @@
             this.showLicenseInfoToolStripMenuItem.Size = new System.Drawing.Size(263, 30);
             this.showLicenseInfoToolStripMenuItem.Text = "Show International License Info";
             this.showLicenseInfoToolStripMenuItem.Click += new System.EventHandler(this.showLicenseInfoToolStripMenuItem_Click);
+            // 
+            // showLicensesHistoryToolStripMenuItem
+            // 
+            this.showLicensesHistoryToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.LicenseHistoryNoFill24;
+            this.showLicensesHistoryToolStripMenuItem.Name = "showLicensesHistoryToolStripMenuItem";
+            this.showLicensesHistoryToolStripMenuItem.Size = new System.Drawing.Size(263, 30);
+            this.showLicensesHistoryToolStripMenuItem.Text = "Show Person Licenses History";
+            this.showLicensesHistoryToolStripMenuItem.Click += new System.EventHandler(this.showLicensesHistoryToolStripMenuItem_Click);
             // 
             // ctrlManageInternationalApplications
             // 

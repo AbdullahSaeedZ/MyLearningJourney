@@ -16,6 +16,9 @@ namespace PresentationLayer.Settings
 
         public event Action OnProfileUpdate;
 
+        // person object in user is readonly
+        private clsPeopleBusiness _PersonInfo;
+
 
         // same logicc of addEditPerson form but i wanted to change UI with extra stuff
         public ctrlSettings()
@@ -85,26 +88,26 @@ namespace PresentationLayer.Settings
 
         private void _HandlePersonImage()
         {
-            string oldPath = string.IsNullOrEmpty(clsBusinessSettings.CurrentUser.Person.ImagePath) ? "" : clsBusinessSettings.CurrentUser.Person.ImagePath; // if empty means no pic before
+            string oldPath = string.IsNullOrEmpty(_PersonInfo.ImagePath) ? "" : _PersonInfo.ImagePath; // if empty means no pic before
             string newPath = string.IsNullOrEmpty(pbImage.ImageLocation) ? "" : pbImage.ImageLocation; // if empty means removed or no pic added in this session.
 
             // if paths dont match, user changed something.
             if (oldPath != newPath)
-                clsBusinessSettings.CurrentUser.Person.ImagePath = clsBusinessSettings.CopyImageToServer(pbImage.ImageLocation, clsBusinessSettings.CurrentUser.Person.ImagePath);
+                _PersonInfo.ImagePath = clsBusinessSettings.CopyImageToServer(pbImage.ImageLocation, _PersonInfo.ImagePath);
         }
         private void _SavePersonInfo()
         {
-            clsBusinessSettings.CurrentUser.Person.NationalID = tbNationalNumber.Text.Trim();
-            clsBusinessSettings.CurrentUser.Person.FirstName = tbFirstName.Text.Trim();
-            clsBusinessSettings.CurrentUser.Person.SecondName = tbSecondName.Text.Trim();
-            clsBusinessSettings.CurrentUser.Person.ThirdName = string.IsNullOrEmpty(tbThirdName.Text) ? "" : tbThirdName.Text.Trim();
-            clsBusinessSettings.CurrentUser.Person.LastName = tbLastName.Text.Trim();
-            clsBusinessSettings.CurrentUser.Person.Email = tbEmail.Text.Trim();
-            clsBusinessSettings.CurrentUser.Person.Phone = tbPhone.Text.Trim();
-            clsBusinessSettings.CurrentUser.Person.Address = tbAddress.Text.Trim();
-            clsBusinessSettings.CurrentUser.Person.BirthDate = dtpBirthDate.Value;
-            clsBusinessSettings.CurrentUser.Person.Gender = rbMale.Checked ? clsPeopleBusiness.enGender.Male : clsPeopleBusiness.enGender.Female;
-            clsBusinessSettings.CurrentUser.Person.NationalityCountryID = (clsCountriesBusiness.GetCountry(cbCountry.Text)).CountryID;
+            _PersonInfo.NationalID = tbNationalNumber.Text.Trim();
+            _PersonInfo.FirstName = tbFirstName.Text.Trim();
+            _PersonInfo.SecondName = tbSecondName.Text.Trim();
+            _PersonInfo.ThirdName = string.IsNullOrEmpty(tbThirdName.Text) ? "" : tbThirdName.Text.Trim();
+            _PersonInfo.LastName = tbLastName.Text.Trim();
+            _PersonInfo.Email = tbEmail.Text.Trim();
+            _PersonInfo.Phone = tbPhone.Text.Trim();
+            _PersonInfo.Address = tbAddress.Text.Trim();
+            _PersonInfo.BirthDate = dtpBirthDate.Value;
+            _PersonInfo.Gender = rbMale.Checked ? clsPeopleBusiness.enGender.Male : clsPeopleBusiness.enGender.Female;
+            _PersonInfo.NationalityCountryID = (clsCountriesBusiness.GetCountry(cbCountry.Text)).CountryID;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -116,14 +119,22 @@ namespace PresentationLayer.Settings
             }
 
             if (!string.IsNullOrEmpty(tbCurrentPassword.Text))
-                clsBusinessSettings.CurrentUser.Password = tbNewPassword.Text;
+                clsBusinessSettings.CurrentUser.Password = tbNewPassword.Text.Trim();
+
+            _PersonInfo = clsPeopleBusiness.FindPerson(clsBusinessSettings.CurrentUser.Person.PersonID);
+
+            if (_PersonInfo == null)
+            {
+                MessageBox.Show("Could not find person info ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
 
             _HandlePersonImage();
             _SavePersonInfo();
 
             try 
             {
-                if (clsBusinessSettings.CurrentUser.Person.Save())
+                if (_PersonInfo.Save())
                 {
                     MessageBox.Show("Data Saved Successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     OnProfileUpdate?.Invoke();
@@ -136,6 +147,7 @@ namespace PresentationLayer.Settings
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+       
 
      
 

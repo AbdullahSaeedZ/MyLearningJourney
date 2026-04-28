@@ -83,6 +83,7 @@ namespace PresentationLayer.Applications.DrivingLicenses
         // buttons
         private void btnNewLocalLicenseApplication_Click(object sender, EventArgs e)
         {
+            
             clsUtilities.AddToBreadcrumb("> New Local Driving License");
             frmAddEditLocalLicenseApplication addLocalLicense = new frmAddEditLocalLicenseApplication();
             addLocalLicense.ShowDialog();

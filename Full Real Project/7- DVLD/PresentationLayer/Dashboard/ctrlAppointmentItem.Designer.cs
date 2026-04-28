@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.pnlOuterBorder = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblID = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
-            this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnlOuterBorder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox6)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +59,21 @@
             this.pnlOuterBorder.Click += new System.EventHandler(this.pnlOuterBorder_Click);
             this.pnlOuterBorder.MouseEnter += new System.EventHandler(this.pnlOuterBorder_MouseEnter);
             this.pnlOuterBorder.MouseLeave += new System.EventHandler(this.pnlOuterBorder_MouseLeave);
+            // 
+            // guna2PictureBox6
+            // 
+            this.guna2PictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2PictureBox6.Image = global::PresentationLayer.Properties.Resources.appointmentNoFill;
+            this.guna2PictureBox6.Location = new System.Drawing.Point(15, 11);
+            this.guna2PictureBox6.Name = "guna2PictureBox6";
+            this.guna2PictureBox6.ShadowDecoration.Parent = this.guna2PictureBox6;
+            this.guna2PictureBox6.Size = new System.Drawing.Size(24, 24);
+            this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox6.TabIndex = 3;
+            this.guna2PictureBox6.TabStop = false;
+            this.guna2PictureBox6.Click += new System.EventHandler(this.pnlOuterBorder_Click);
+            this.guna2PictureBox6.MouseEnter += new System.EventHandler(this.pnlOuterBorder_MouseEnter);
+            this.guna2PictureBox6.MouseLeave += new System.EventHandler(this.pnlOuterBorder_MouseLeave);
             // 
             // lblID
             // 
@@ -105,21 +120,6 @@
             this.lblDate.Click += new System.EventHandler(this.pnlOuterBorder_Click);
             this.lblDate.MouseEnter += new System.EventHandler(this.pnlOuterBorder_MouseEnter);
             this.lblDate.MouseLeave += new System.EventHandler(this.pnlOuterBorder_MouseLeave);
-            // 
-            // guna2PictureBox6
-            // 
-            this.guna2PictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.guna2PictureBox6.Image = global::PresentationLayer.Properties.Resources.appointmentNoFill;
-            this.guna2PictureBox6.Location = new System.Drawing.Point(15, 11);
-            this.guna2PictureBox6.Name = "guna2PictureBox6";
-            this.guna2PictureBox6.ShadowDecoration.Parent = this.guna2PictureBox6;
-            this.guna2PictureBox6.Size = new System.Drawing.Size(24, 24);
-            this.guna2PictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox6.TabIndex = 3;
-            this.guna2PictureBox6.TabStop = false;
-            this.guna2PictureBox6.Click += new System.EventHandler(this.pnlOuterBorder_Click);
-            this.guna2PictureBox6.MouseEnter += new System.EventHandler(this.pnlOuterBorder_MouseEnter);
-            this.guna2PictureBox6.MouseLeave += new System.EventHandler(this.pnlOuterBorder_MouseLeave);
             // 
             // ctrlAppointmentItem
             // 

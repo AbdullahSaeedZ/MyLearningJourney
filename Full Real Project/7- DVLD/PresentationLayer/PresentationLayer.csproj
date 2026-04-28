@@ -261,6 +261,7 @@
     <Compile Include="Drivers\Forms\frmDriverLicensesHistory.Designer.cs">
       <DependentUpon>frmDriverLicensesHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global Classes\clsGlobal.cs" />
     <Compile Include="Global Classes\clsUtilities.cs" />
     <Compile Include="LoginForm\frmLogin.cs">
       <SubType>Form</SubType>

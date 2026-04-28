@@ -39,7 +39,7 @@ namespace PresentationLayer.Applications.ManageApplicationTypes.Forms
 
         private void _FillApplicationTypeInfo()
         {
-            lblApplicationTypeID.Text = _appType.ApplicationTypeID.ToString();
+            lblApplicationTypeID.Text = ((int)_appType.ApplicationTypeID).ToString();
             tbApplicationTypeTitle.Text = _appType.ApplicationTypeTitle;
             tbApplicationTypeFees.Text = _appType.ApplicationTypeFees.ToString();
         }

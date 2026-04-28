@@ -111,6 +111,16 @@
             this.btnBack.Visible = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // ctrlAddEditUserPermissions1
+            // 
+            this.ctrlAddEditUserPermissions1.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlAddEditUserPermissions1.Location = new System.Drawing.Point(3, 168);
+            this.ctrlAddEditUserPermissions1.Name = "ctrlAddEditUserPermissions1";
+            this.ctrlAddEditUserPermissions1.PermissionsCardBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlAddEditUserPermissions1.PermissionsCardBorderThickness = 1;
+            this.ctrlAddEditUserPermissions1.Size = new System.Drawing.Size(838, 243);
+            this.ctrlAddEditUserPermissions1.TabIndex = 17;
+            // 
             // pnlLoginInfo
             // 
             this.pnlLoginInfo.BackColor = System.Drawing.Color.White;
@@ -124,16 +134,6 @@
             this.pnlLoginInfo.Size = new System.Drawing.Size(844, 422);
             this.pnlLoginInfo.TabIndex = 16;
             this.pnlLoginInfo.Visible = false;
-            // 
-            // ctrlAddEditUserPermissions1
-            // 
-            this.ctrlAddEditUserPermissions1.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlAddEditUserPermissions1.Location = new System.Drawing.Point(3, 168);
-            this.ctrlAddEditUserPermissions1.Name = "ctrlAddEditUserPermissions1";
-            this.ctrlAddEditUserPermissions1.PermissionsCardBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlAddEditUserPermissions1.PermissionsCardBorderThickness = 1;
-            this.ctrlAddEditUserPermissions1.Size = new System.Drawing.Size(838, 243);
-            this.ctrlAddEditUserPermissions1.TabIndex = 17;
             // 
             // guna2Panel1
             // 

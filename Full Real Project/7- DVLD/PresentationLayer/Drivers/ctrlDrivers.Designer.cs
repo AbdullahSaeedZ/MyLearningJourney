@@ -40,20 +40,18 @@
             this.tbSearchDrivers = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblNumberOfRecords = new System.Windows.Forms.Label();
             this.cbSearchBy = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.dgvDrivers = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showPersonInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showLicensesHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DriverID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PersonID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NationalNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NumberofActiveLicenses = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showPersonInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showLicensesHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
-            this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -62,8 +60,8 @@
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.guna2Panel1.BorderRadius = 20;
+            this.guna2Panel1.Controls.Add(this.dgvDrivers);
             this.guna2Panel1.Controls.Add(this.guna2Panel2);
-            this.guna2Panel1.Controls.Add(this.guna2Panel3);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.FillColor = System.Drawing.Color.White;
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
@@ -84,10 +82,10 @@
             this.guna2Panel2.Controls.Add(this.lblNumberOfRecords);
             this.guna2Panel2.Controls.Add(this.cbSearchBy);
             this.guna2Panel2.FillColor = System.Drawing.Color.White;
-            this.guna2Panel2.Location = new System.Drawing.Point(42, 27);
+            this.guna2Panel2.Location = new System.Drawing.Point(18, 27);
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
-            this.guna2Panel2.Size = new System.Drawing.Size(1347, 57);
+            this.guna2Panel2.Size = new System.Drawing.Size(1405, 57);
             this.guna2Panel2.TabIndex = 8;
             // 
             // label2
@@ -130,7 +128,7 @@
             this.tbSearchDrivers.ForeColor = System.Drawing.Color.Black;
             this.tbSearchDrivers.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbSearchDrivers.HoverState.Parent = this.tbSearchDrivers;
-            this.tbSearchDrivers.Location = new System.Drawing.Point(693, 9);
+            this.tbSearchDrivers.Location = new System.Drawing.Point(751, 9);
             this.tbSearchDrivers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbSearchDrivers.Name = "tbSearchDrivers";
             this.tbSearchDrivers.PasswordChar = '\0';
@@ -184,20 +182,6 @@
             this.cbSearchBy.TabIndex = 2;
             this.cbSearchBy.SelectedIndexChanged += new System.EventHandler(this.cbSearchBy_SelectedIndexChanged);
             // 
-            // guna2Panel3
-            // 
-            this.guna2Panel3.BackColor = System.Drawing.Color.White;
-            this.guna2Panel3.BorderColor = System.Drawing.Color.Gainsboro;
-            this.guna2Panel3.BorderRadius = 15;
-            this.guna2Panel3.BorderThickness = 1;
-            this.guna2Panel3.Controls.Add(this.dgvDrivers);
-            this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(42, 103);
-            this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.ShadowDecoration.Parent = this.guna2Panel3;
-            this.guna2Panel3.Size = new System.Drawing.Size(1347, 778);
-            this.guna2Panel3.TabIndex = 11;
-            // 
             // dgvDrivers
             // 
             this.dgvDrivers.AllowUserToAddRows = false;
@@ -237,13 +221,13 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DimGray;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvDrivers.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDrivers.EnableHeadersVisualStyles = false;
-            this.dgvDrivers.GridColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvDrivers.Location = new System.Drawing.Point(84, 16);
+            this.dgvDrivers.GridColor = System.Drawing.Color.Gainsboro;
+            this.dgvDrivers.Location = new System.Drawing.Point(18, 109);
             this.dgvDrivers.Name = "dgvDrivers";
             this.dgvDrivers.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -257,9 +241,9 @@
             this.dgvDrivers.RowHeadersVisible = false;
             this.dgvDrivers.RowHeadersWidth = 45;
             this.dgvDrivers.RowTemplate.DividerHeight = 1;
-            this.dgvDrivers.RowTemplate.Height = 50;
+            this.dgvDrivers.RowTemplate.Height = 30;
             this.dgvDrivers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDrivers.Size = new System.Drawing.Size(1192, 742);
+            this.dgvDrivers.Size = new System.Drawing.Size(1405, 742);
             this.dgvDrivers.TabIndex = 0;
             this.dgvDrivers.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvDrivers.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -268,7 +252,7 @@
             this.dgvDrivers.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgvDrivers.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.dgvDrivers.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvDrivers.ThemeStyle.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvDrivers.ThemeStyle.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvDrivers.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.White;
             this.dgvDrivers.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvDrivers.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -280,70 +264,10 @@
             this.dgvDrivers.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDrivers.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.dgvDrivers.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvDrivers.ThemeStyle.RowsStyle.Height = 50;
-            this.dgvDrivers.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
+            this.dgvDrivers.ThemeStyle.RowsStyle.Height = 30;
+            this.dgvDrivers.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DimGray;
             this.dgvDrivers.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvDrivers.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvDrivers_MouseDoubleClick);
-            // 
-            // DriverID
-            // 
-            this.DriverID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.DriverID.DataPropertyName = "DriverID";
-            this.DriverID.HeaderText = "Driver ID";
-            this.DriverID.MinimumWidth = 6;
-            this.DriverID.Name = "DriverID";
-            this.DriverID.ReadOnly = true;
-            this.DriverID.Width = 130;
-            // 
-            // PersonID
-            // 
-            this.PersonID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.PersonID.DataPropertyName = "PersonID";
-            this.PersonID.HeaderText = "Person ID";
-            this.PersonID.MinimumWidth = 6;
-            this.PersonID.Name = "PersonID";
-            this.PersonID.ReadOnly = true;
-            this.PersonID.Width = 130;
-            // 
-            // NationalNo
-            // 
-            this.NationalNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.NationalNo.DataPropertyName = "NationalNo";
-            this.NationalNo.HeaderText = "National No";
-            this.NationalNo.MinimumWidth = 6;
-            this.NationalNo.Name = "NationalNo";
-            this.NationalNo.ReadOnly = true;
-            this.NationalNo.Width = 130;
-            // 
-            // FullName
-            // 
-            this.FullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.FullName.DataPropertyName = "FullName";
-            this.FullName.HeaderText = "Full Name";
-            this.FullName.MinimumWidth = 6;
-            this.FullName.Name = "FullName";
-            this.FullName.ReadOnly = true;
-            this.FullName.Width = 400;
-            // 
-            // CreatedDate
-            // 
-            this.CreatedDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CreatedDate.DataPropertyName = "CreatedDate";
-            this.CreatedDate.HeaderText = "Created Date";
-            this.CreatedDate.MinimumWidth = 6;
-            this.CreatedDate.Name = "CreatedDate";
-            this.CreatedDate.ReadOnly = true;
-            this.CreatedDate.Width = 260;
-            // 
-            // NumberofActiveLicenses
-            // 
-            this.NumberofActiveLicenses.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.NumberofActiveLicenses.DataPropertyName = "NumberOfActiveLicenses";
-            this.NumberofActiveLicenses.HeaderText = "Active Licenses";
-            this.NumberofActiveLicenses.MinimumWidth = 6;
-            this.NumberofActiveLicenses.Name = "NumberofActiveLicenses";
-            this.NumberofActiveLicenses.ReadOnly = true;
-            this.NumberofActiveLicenses.Width = 140;
             // 
             // contextMenuStrip1
             // 
@@ -370,6 +294,66 @@
             this.showLicensesHistoryToolStripMenuItem.Text = "Show Licenses History";
             this.showLicensesHistoryToolStripMenuItem.Click += new System.EventHandler(this.showLicensesHistoryToolStripMenuItem_Click);
             // 
+            // DriverID
+            // 
+            this.DriverID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.DriverID.DataPropertyName = "DriverID";
+            this.DriverID.HeaderText = "Driver ID";
+            this.DriverID.MinimumWidth = 6;
+            this.DriverID.Name = "DriverID";
+            this.DriverID.ReadOnly = true;
+            this.DriverID.Width = 140;
+            // 
+            // PersonID
+            // 
+            this.PersonID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.PersonID.DataPropertyName = "PersonID";
+            this.PersonID.HeaderText = "Person ID";
+            this.PersonID.MinimumWidth = 6;
+            this.PersonID.Name = "PersonID";
+            this.PersonID.ReadOnly = true;
+            this.PersonID.Width = 140;
+            // 
+            // NationalNo
+            // 
+            this.NationalNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.NationalNo.DataPropertyName = "NationalNo";
+            this.NationalNo.HeaderText = "National No";
+            this.NationalNo.MinimumWidth = 6;
+            this.NationalNo.Name = "NationalNo";
+            this.NationalNo.ReadOnly = true;
+            this.NationalNo.Width = 140;
+            // 
+            // FullName
+            // 
+            this.FullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.FullName.DataPropertyName = "FullName";
+            this.FullName.HeaderText = "Full Name";
+            this.FullName.MinimumWidth = 6;
+            this.FullName.Name = "FullName";
+            this.FullName.ReadOnly = true;
+            this.FullName.Width = 575;
+            // 
+            // CreatedDate
+            // 
+            this.CreatedDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.CreatedDate.DataPropertyName = "CreatedDate";
+            this.CreatedDate.HeaderText = "Created Date";
+            this.CreatedDate.MinimumWidth = 6;
+            this.CreatedDate.Name = "CreatedDate";
+            this.CreatedDate.ReadOnly = true;
+            this.CreatedDate.Width = 260;
+            // 
+            // NumberofActiveLicenses
+            // 
+            this.NumberofActiveLicenses.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.NumberofActiveLicenses.DataPropertyName = "NumberOfActiveLicenses";
+            this.NumberofActiveLicenses.HeaderText = "Active Licenses";
+            this.NumberofActiveLicenses.MinimumWidth = 6;
+            this.NumberofActiveLicenses.Name = "NumberofActiveLicenses";
+            this.NumberofActiveLicenses.ReadOnly = true;
+            this.NumberofActiveLicenses.Width = 147;
+            // 
             // ctrlDrivers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -381,7 +365,6 @@
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
-            this.guna2Panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -398,15 +381,14 @@
         private System.Windows.Forms.Label lblNumberOfRecords;
         private Guna.UI2.WinForms.Guna2ComboBox cbSearchBy;
         private Guna.UI2.WinForms.Guna2DataGridView dgvDrivers;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem showPersonInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showLicensesHistoryToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn DriverID;
         private System.Windows.Forms.DataGridViewTextBoxColumn PersonID;
         private System.Windows.Forms.DataGridViewTextBoxColumn NationalNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatedDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn NumberofActiveLicenses;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem showPersonInfoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showLicensesHistoryToolStripMenuItem;
     }
 }

@@ -324,12 +324,12 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DimGray;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvApplications.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvApplications.EnableHeadersVisualStyles = false;
-            this.dgvApplications.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvApplications.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvApplications.Location = new System.Drawing.Point(18, 152);
             this.dgvApplications.Name = "dgvApplications";
             this.dgvApplications.ReadOnly = true;
@@ -344,7 +344,7 @@
             this.dgvApplications.RowHeadersVisible = false;
             this.dgvApplications.RowHeadersWidth = 45;
             this.dgvApplications.RowTemplate.DividerHeight = 1;
-            this.dgvApplications.RowTemplate.Height = 50;
+            this.dgvApplications.RowTemplate.Height = 30;
             this.dgvApplications.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvApplications.Size = new System.Drawing.Size(1405, 716);
             this.dgvApplications.TabIndex = 0;
@@ -355,7 +355,7 @@
             this.dgvApplications.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.dgvApplications.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.dgvApplications.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.dgvApplications.ThemeStyle.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvApplications.ThemeStyle.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvApplications.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.White;
             this.dgvApplications.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvApplications.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -367,8 +367,8 @@
             this.dgvApplications.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvApplications.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.dgvApplications.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dgvApplications.ThemeStyle.RowsStyle.Height = 50;
-            this.dgvApplications.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
+            this.dgvApplications.ThemeStyle.RowsStyle.Height = 30;
+            this.dgvApplications.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DimGray;
             this.dgvApplications.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             this.dgvApplications.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvApplications_MouseDoubleClick);
             // 
