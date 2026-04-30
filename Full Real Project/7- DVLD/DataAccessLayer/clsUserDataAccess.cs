@@ -7,7 +7,7 @@ namespace DataAccessLayer
     public class clsUserDataAccess
     {
 
-        public static bool FindUser(string Username, string Password, ref int UserID, ref int PersonID, ref bool isActive, ref int Permissions)
+        public static bool FindUser(string Username, ref string Password, ref int UserID, ref int PersonID, ref bool isActive, ref int Permissions, ref string PasswordSalt)
         {
             bool isFound = false;
 
@@ -15,11 +15,10 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    string query = "select * from Users where UserName = @Username and Password = @Password;";
+                    string query = "select * from Users where UserName = @Username;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@Username", Username);
-                        command.Parameters.AddWithValue("@Password", Password);
                         connection.Open();
 
                         SqlDataReader reader = command.ExecuteReader();
@@ -27,9 +26,11 @@ namespace DataAccessLayer
                         if (reader.Read())
                         {
                             UserID = (int)reader["UserID"];
+                            Password = (string)reader["Password"];
                             PersonID = (int)reader["PersonID"];
                             isActive = (bool)reader["IsActive"];
                             Permissions = (int)reader["Permissions"];
+                            PasswordSalt = (string)reader["PasswordSalt"];
                             isFound = true;
                         }
                     }
@@ -42,7 +43,7 @@ namespace DataAccessLayer
             }
             return isFound;
         }
-        public static bool FindUser(int UserID, ref string Username, ref string Password, ref int PersonID, ref bool IsActive, ref int Permissions)
+        public static bool FindUser(int UserID, ref string Username, ref string Password, ref int PersonID, ref bool IsActive, ref int Permissions, ref string PasswordSalt)
         {
             bool isFound = false;
 
@@ -65,6 +66,7 @@ namespace DataAccessLayer
                             Password = (string)reader["Password"];
                             IsActive = (bool)reader["IsActive"];
                             Permissions = (int)reader["Permissions"];
+                            PasswordSalt = (string)reader["PasswordSalt"];
                             isFound = true;
                         }
                     }
@@ -77,7 +79,7 @@ namespace DataAccessLayer
             }
             return isFound;
         }
-        public static int AddNewUser(int PersonID, string Username, string Password, bool IsActive, int Permissions)
+        public static int AddNewUser(int PersonID, string Username, string Password, bool IsActive, int Permissions, string PasswordSalt)
         {
             int NewID = -1;
 
@@ -86,7 +88,7 @@ namespace DataAccessLayer
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
                     string query = @"insert into Users 
-                                     values (@PersonID, @Username, @Password, @IsActive, @Permissions);
+                                     values (@PersonID, @Username, @Password, @IsActive, @Permissions, @PasswordSalt);
                                      select scope_identity();";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -95,6 +97,7 @@ namespace DataAccessLayer
                         command.Parameters.AddWithValue("@Password", Password);
                         command.Parameters.AddWithValue("@IsActive", IsActive);
                         command.Parameters.AddWithValue("@Permissions", Permissions);
+                        command.Parameters.AddWithValue("@PasswordSalt", PasswordSalt);
 
                         connection.Open();
 
@@ -113,7 +116,7 @@ namespace DataAccessLayer
             return NewID;
         }
 
-        public static bool UpdateUser(int UserID, string Username, string Password, bool IsActive, int Permissions)
+        public static bool UpdateUser(int UserID, string Username, string Password, bool IsActive, int Permissions, string PasswordSalt)
         {
             int rowsAffected = 0;
 
@@ -122,7 +125,7 @@ namespace DataAccessLayer
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
                     string query = @"update Users 
-                                     set UserName = @Username, Password = @Password, IsActive = @IsActive, Permissions = @Permissions
+                                     set UserName = @Username, Password = @Password, IsActive = @IsActive, Permissions = @Permissions, PasswordSalt = @PasswordSalt
                                      where UserID = @ID;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
@@ -131,6 +134,7 @@ namespace DataAccessLayer
                         command.Parameters.AddWithValue("@Password", Password);
                         command.Parameters.AddWithValue("@IsActive", IsActive);
                         command.Parameters.AddWithValue("@Permissions", Permissions);
+                        command.Parameters.AddWithValue("@PasswordSalt", PasswordSalt);
 
                         connection.Open();
                         rowsAffected = command.ExecuteNonQuery();

@@ -1,17 +1,9 @@
 ﻿using BusinessLayer;
-using Microsoft.VisualBasic.ApplicationServices;
 using PresentationLayer.Global_Classes;
-using PresentationLayer.MainForm;
-using PresentationLayer.PeopleFormsAndControls;
 using PresentationLayer.Properties;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PresentationLayer.Users.Forms
@@ -44,7 +36,7 @@ namespace PresentationLayer.Users.Forms
                 if (ctrlUserCard1.SelectedUser.ChangePassword(tbNewPassword.Text.Trim(), clsGlobal.CurrentUser))
                 {
                     MessageBox.Show("Data saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ctrlUserCard1.SelectedUser.Password = tbNewPassword.Text; // to update new password in the current session if form not closed and need to change password again
+                    ctrlUserCard1.SelectedUser.Password = tbNewPassword.Text.Trim(); // to update new password in the current session if form not closed and need to change password again
                 }
                 else
                     MessageBox.Show("Data was not saved successfully", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -75,7 +67,7 @@ namespace PresentationLayer.Users.Forms
             }
 
             // current password correct ?
-            if (ctrlUserCard1.SelectedUser.Password != tbCurrentPassword.Text)
+            if (ctrlUserCard1.SelectedUser.Password != clsBusinessSecurity.ComputeHash(tbCurrentPassword.Text.Trim(), ctrlUserCard1.SelectedUser.PasswordSalt))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(tbCurrentPassword, "Password is not correct!");
@@ -108,7 +100,7 @@ namespace PresentationLayer.Users.Forms
             }
 
             // pattern validation
-            if (!clsBusinessSettings.IsPasswordFormatValid(tbNewPassword.Text))
+            if (!clsBusinessSettings.IsPasswordFormatValid(tbNewPassword.Text.Trim()))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(tbNewPassword, "Password must include at least: one lowercase, one uppercase, one digit, and one special character (8-20 Length).");
@@ -141,7 +133,7 @@ namespace PresentationLayer.Users.Forms
             }
 
             // is matching new password?
-            if (tbConfirmPassword.Text != tbNewPassword.Text)
+            if (tbConfirmPassword.Text.Trim() != tbNewPassword.Text.Trim())
             {
                 e.Cancel = true;
                 errorProvider1.SetError(tbConfirmPassword, "Password does not match!");

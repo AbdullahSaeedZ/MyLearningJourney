@@ -122,7 +122,7 @@ namespace PresentationLayer.Settings
             if (!string.IsNullOrEmpty(tbCurrentPassword.Text))
                 clsGlobal.CurrentUser.Password = tbNewPassword.Text.Trim();
 
-            _PersonInfo = clsPeopleBusiness.FindPerson(clsGlobal.CurrentUser.Person.PersonID);
+            _PersonInfo = clsPeopleBusiness.FindPerson(clsGlobal.CurrentUser.Person.PersonID); // the person object inside user object is readonly
 
             if (_PersonInfo == null)
             {
@@ -270,7 +270,7 @@ namespace PresentationLayer.Settings
         private void tbCurrentPassword_Validating(object sender, CancelEventArgs e)
         {
             // current password correct ?
-            if (!string.IsNullOrWhiteSpace(tbCurrentPassword.Text) && clsGlobal.CurrentUser.Password != tbCurrentPassword.Text)
+            if (!string.IsNullOrWhiteSpace(tbCurrentPassword.Text) && clsGlobal.CurrentUser.Password != clsBusinessSecurity.ComputeHash(tbCurrentPassword.Text.Trim(), clsGlobal.CurrentUser.PasswordSalt))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(tbCurrentPassword, "Current Password is not correct!");
@@ -303,7 +303,7 @@ namespace PresentationLayer.Settings
             }
 
             // pattern validation when this field is not empty only
-            if (!string.IsNullOrWhiteSpace(tbNewPassword.Text) && !clsBusinessSettings.IsPasswordFormatValid(tbNewPassword.Text))
+            if (!string.IsNullOrWhiteSpace(tbNewPassword.Text) && !clsBusinessSettings.IsPasswordFormatValid(tbNewPassword.Text.Trim()))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(tbNewPassword, "Password must include at least: one lowercase, one uppercase, one digit, and one special character (8-20 Length).");
@@ -336,7 +336,7 @@ namespace PresentationLayer.Settings
             }
 
             // is matching new password?
-            if (tbConfirmPassword.Text != tbNewPassword.Text)
+            if (tbConfirmPassword.Text.Trim() != tbNewPassword.Text.Trim())
             {
                 e.Cancel = true;
                 errorProvider1.SetError(tbConfirmPassword, "Password does not match!");

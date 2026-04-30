@@ -42,8 +42,7 @@ namespace BusinessLayer
         public static string _RememberMeFile = @"D:\UserLogin.txt"; // later will be saved professionally
 
 
-        // must be in DataAccess ?
-        // this is copying files from users computers to our server, so need business and data layers, not helper class in UI.
+        // this is copying files from users computers to our server, so need business layer, not helper class in UI.
         public static string CopyImageToServer(string newPicPath, string oldPicPath) 
         {
             try

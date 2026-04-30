@@ -26,7 +26,17 @@ namespace BusinessLayer
         }
 
         public string Username { get; set; }
-        public string Password { get; set; }
+
+        private string _hashedPassword;
+        public string Password
+        {
+            get { return _hashedPassword; }
+            set
+            {
+                _hashedPassword = clsBusinessSecurity.ComputeHash(value, this.PasswordSalt);
+            }
+        }
+        public string PasswordSalt { get; private set; }
         public bool isActive { get; set; }
         public int Permissions { get; set; }
 
@@ -43,18 +53,20 @@ namespace BusinessLayer
             this.UserID = -1;
             this._personID = -1;
             this.Username = "";
-            this.Password = "";
+            this.PasswordSalt = Guid.NewGuid().ToString().Replace("-","").ToLower();
+            this._hashedPassword = "";
             this.isActive = false;
             this.Permissions = 0;
             this._mode = enMode.eAddMode;
         }
 
-        clsUserBusiness(int UserID, int PersonID, string Username, string Password, bool isActive, int Permissions)
+        clsUserBusiness(int UserID, int PersonID, string Username, string Password, bool isActive, int Permissions, string PasswordSalt)
         {
             this.UserID = UserID;
             this._personID = PersonID;
             this.Username = Username;
-            this.Password = Password;
+            this._hashedPassword = Password;
+            this.PasswordSalt = PasswordSalt;
             this.isActive = isActive;
             this.Permissions = Permissions;
             this._mode = enMode.eUpdateMode;
@@ -67,13 +79,13 @@ namespace BusinessLayer
 
         private bool _AddNewUser()
         {
-            this.UserID = clsUserDataAccess.AddNewUser(this.PersonID, this.Username, this.Password, this.isActive, this.Permissions);
+            this.UserID = clsUserDataAccess.AddNewUser(this.PersonID, this.Username, this.Password, this.isActive, this.Permissions, this.PasswordSalt);
 
             return (this.UserID != -1);
         }
         private bool _UpdateUser()
         {
-            return clsUserDataAccess.UpdateUser(this.UserID, this.Username, this.Password, this.isActive, this.Permissions);
+            return clsUserDataAccess.UpdateUser(this.UserID, this.Username, this.Password, this.isActive, this.Permissions, this.PasswordSalt);
         }
 
         public bool ChangePassword(string NewPassword, clsUserBusiness CurrentUser)
@@ -81,7 +93,7 @@ namespace BusinessLayer
             if (!CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eUpdateUser) && CurrentUser.UserID != this.UserID) // to allow user editing his own password
                 throw new UnauthorizedAccessException("You do not have permission to edit users");
 
-            return clsUserDataAccess.ChangePassword(this.UserID, NewPassword);
+            return clsUserDataAccess.ChangePassword(this.UserID, clsBusinessSecurity.ComputeHash(NewPassword, this.PasswordSalt));
         }
 
         public static bool DeleteUser(int UserID, clsUserBusiness CurrentUser)
@@ -94,23 +106,36 @@ namespace BusinessLayer
 
         public static clsUserBusiness FindUser(string Username, string Password)
         {
-            int UserID = -1, PersonID = -1, Permissions = 0;
-            bool isActive = false;
+            clsUserBusiness user = FindUser(Username);
 
-            if (clsUserDataAccess.FindUser(Username, Password, ref UserID, ref PersonID, ref isActive, ref Permissions))
-                return new clsUserBusiness( UserID, PersonID, Username, Password, isActive, Permissions);
+            if (user == null)
+                return null;
+
+            if (user.Password == clsBusinessSecurity.ComputeHash(Password, user.PasswordSalt))
+                return user;
             else
                 return null;
         }
 
+        public static clsUserBusiness FindUser(string Username)
+        {
+            int UserID = -1, PersonID = -1, Permissions = 0;
+            string hashedPassword = "", PasswordSalt = "";
+            bool isActive = false;
+
+            if (clsUserDataAccess.FindUser(Username , ref hashedPassword, ref UserID, ref PersonID, ref isActive, ref Permissions, ref PasswordSalt))
+                return new clsUserBusiness( UserID, PersonID, Username, hashedPassword, isActive, Permissions, PasswordSalt);
+            else
+                return null;
+        }
         public static clsUserBusiness FindUser(int UserID)
         {
             int PersonID = -1, Permissions = 0;
-            string Username = "", Password = "";
+            string Username = "", Password = "", PasswordSalt = "";
             bool isActive = false;
 
-            if (clsUserDataAccess.FindUser(UserID , ref Username, ref Password, ref PersonID, ref isActive, ref Permissions))
-                return new clsUserBusiness( UserID, PersonID, Username, Password, isActive, Permissions);
+            if (clsUserDataAccess.FindUser(UserID , ref Username, ref Password, ref PersonID, ref isActive, ref Permissions, ref PasswordSalt))
+                return new clsUserBusiness( UserID, PersonID, Username, Password, isActive, Permissions, PasswordSalt);
             else
                 return null;
         }

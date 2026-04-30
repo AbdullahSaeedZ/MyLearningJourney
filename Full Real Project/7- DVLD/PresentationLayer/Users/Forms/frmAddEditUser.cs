@@ -56,8 +56,6 @@ namespace PresentationLayer.UsersFormsAndControls
             lblUserID.Text = _user.PersonID.ToString();
 
             tbUsername.Text = _user.Username;
-            tbPassword.Text = _user.Password;
-            tbConfirmPassword.Text = tbPassword.Text;
             chbIsActive.Checked = _user.isActive;
             ctrlAddEditUserPermissions1.LoadPermissionsForUpdate(_user.Permissions);
         }
@@ -115,12 +113,11 @@ namespace PresentationLayer.UsersFormsAndControls
                 if (_user.Save(clsGlobal.CurrentUser))
                 {
                     MessageBox.Show("Data saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    _mode = enMode.eUpdateMode; // to allow next button to proceed when updating a user
                     ctrlPersonCardWithSearch1.FilterVisible = false;
                     lblUserID.Text = _user.UserID.ToString();
-                    lblTitle.Text = $"Edit User with ID = {_user.UserID}";
 
                     OnUpdateDone?.Invoke(); // to refresh dgv if user info is updated
+                    this.Close(); // to prevent users who have adding users permission with no update Users permission
                 }
                 else
                     MessageBox.Show("Data was not saved successfully", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -185,7 +182,7 @@ namespace PresentationLayer.UsersFormsAndControls
             }
 
             // pattern validation
-            if (!clsBusinessSettings.IsPasswordFormatValid(tbPassword.Text))
+            if (!clsBusinessSettings.IsPasswordFormatValid(tbPassword.Text.Trim()))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(tbPassword, "Password must include at least: one lowercase, one uppercase, one digit, and one special character (8-20 Length).");
@@ -218,7 +215,7 @@ namespace PresentationLayer.UsersFormsAndControls
             }
 
             // password matching validation
-            if (tbConfirmPassword.Text != tbPassword.Text)
+            if (tbConfirmPassword.Text.Trim() != tbPassword.Text.Trim())
             {
                 e.Cancel = true;
                 errorProvider1.SetError(tbConfirmPassword, "Password does not match!");
