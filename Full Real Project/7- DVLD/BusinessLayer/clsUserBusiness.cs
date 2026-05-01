@@ -195,7 +195,7 @@ namespace BusinessLayer
             if (tokenValue == null)
                 return null;
 
-            clsUserTokensBusiness token = clsUserTokensBusiness.FindByTokenValue(tokenValue);
+            clsUserTokensBusiness token = clsUserTokensBusiness.FindByTokenValue(clsBusinessSecurity.ComputeHash(tokenValue));
 
             if (token == null)
                 return null;
@@ -208,11 +208,13 @@ namespace BusinessLayer
         {
             clsUserTokensBusiness token = new clsUserTokensBusiness();
             token.UserID = this.UserID;
+            string rawTokenValue = token.TokenValue;
 
+            token.TokenValue = clsBusinessSecurity.ComputeHash(token.TokenValue);
             if (!token.Save())
                 throw new Exception("Failed to create a token record");
 
-            clsBusinessSettings.SaveTokenToRegistry(token.TokenValue);
+            clsBusinessSettings.SaveTokenToRegistry(rawTokenValue);
         }
 
         public void RemoveLoginToken()
@@ -221,7 +223,7 @@ namespace BusinessLayer
             if (tokenValue == null)
                 return;
 
-            if (!clsUserTokensBusiness.SetTokenExpired(tokenValue))
+            if (!clsUserTokensBusiness.SetTokenExpired(clsBusinessSecurity.ComputeHash(tokenValue)))
                 throw new Exception("Failed to deactivate token record");
 
             clsBusinessSettings.RemoveTokenFromRegistry();

@@ -29,7 +29,32 @@ namespace BusinessLayer
             }
         }
 
+        public static string ComputeHash(string Input)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(Input));
+                
+                return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+            }
+        }
 
+        // to encrypt and decrypt token when saving in registry using DPAPI (data protection api)
+        public static string EncryptToken(string rawToken)
+        {
+            byte[] tokenBytes = Encoding.UTF8.GetBytes(rawToken);
+            byte[] encryptedTokenBytes = ProtectedData.Protect(tokenBytes, null, DataProtectionScope.CurrentUser);
+
+            return Convert.ToBase64String(encryptedTokenBytes);
+        }
+
+        public static string DecryptToken(string encryptedToken)
+        {
+            byte[] dataToDecrypt = Convert.FromBase64String(encryptedToken);
+            byte[] decryptedData = ProtectedData.Unprotect(dataToDecrypt, null, DataProtectionScope.CurrentUser);
+
+            return Encoding.UTF8.GetString(decryptedData);
+        }
 
     }
 }

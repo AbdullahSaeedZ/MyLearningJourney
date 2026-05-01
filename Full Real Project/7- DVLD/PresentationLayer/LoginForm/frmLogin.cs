@@ -16,8 +16,15 @@ namespace PresentationLayer.LoginForm
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            clsGlobal.CurrentUser = clsUserBusiness.FindUserByToken(clsBusinessSettings.GetTokenFromRegistry());
-
+            try
+            {
+                clsGlobal.CurrentUser = clsUserBusiness.FindUserByToken(clsBusinessSettings.GetTokenFromRegistry());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
             if (clsGlobal.CurrentUser == null)
                 return;
 

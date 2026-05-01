@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.IO;
+using System.Text;
 using System.Text.RegularExpressions;
-using Microsoft.Win32;
 
 
 
@@ -125,53 +126,8 @@ namespace BusinessLayer
 
 
         // login remember me methods
-        public static void SaveLoginInfoToFile(string Username, string Password)
-        {
-            string del = "#//#";
-            string str = Username + del + Password;
-            try  
-            {
-                if (!File.Exists(_RememberMeFile))
-                    File.Create(_RememberMeFile);
 
-                if (Username == "" || Password == "")
-                    str = "";
-
-                File.WriteAllText(_RememberMeFile, str);
-            }
-            catch (Exception e)
-            {
-                throw;
-            }
-        }
-
-        public static bool LoadLoginInfoFromFile(ref string Username, ref string Password)
-        {
-            try
-            {
-                if (File.Exists(_RememberMeFile))
-                {
-                    string del = "#//#";
-                    string Line = File.ReadAllText(_RememberMeFile);
-
-                    if (string.IsNullOrEmpty(Line))
-                        return false;
-
-                    Username = Line.Substring(0, Line.IndexOf(del));
-                    Line = Line.Remove(0, Username.Length + del.Length);
-
-                    Password = Line;
-                    return true;
-                }
-                else
-                    return false;
-            }
-            catch (Exception e)
-            {
-                throw new Exception("Error while loading stored credentials");
-            }
-        }
-
+      
 
 
         public static void SaveTokenToRegistry(string tokenValue)
@@ -179,9 +135,11 @@ namespace BusinessLayer
             string keyPath = @"HKEY_CURRENT_USER\SOFTWARE\DVLD";
             string valueName = "Login Token";
 
+            string encryptedTokenValue = clsBusinessSecurity.EncryptToken(tokenValue);
+
             try
             {
-                Registry.SetValue(keyPath, valueName, tokenValue, RegistryValueKind.String);
+                Registry.SetValue(keyPath, valueName, encryptedTokenValue, RegistryValueKind.String);
             }
             catch (Exception)
             {
@@ -198,10 +156,14 @@ namespace BusinessLayer
             try
             {
                 value = Registry.GetValue(keyPath, valueName, null) as string;
+
+                if (value != null)
+                    value = clsBusinessSecurity.DecryptToken(value);
             }
             catch (Exception)
             {
-                throw new Exception("Failed to read token from registry");
+                RemoveTokenFromRegistry();
+                throw new Exception("Failed to read token from registry, registry is cleared now.");
             }
 
             return value;

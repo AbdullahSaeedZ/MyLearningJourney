@@ -11,7 +11,7 @@ namespace BusinessLayer
 
         public int TokenID { get; private set; }
         public int UserID { get; set; }
-        public string TokenValue { get; private set; }
+        public string TokenValue { get; set; }
         public DateTime CreatedDate { get; private set; }
         public DateTime ExpirationDate { get; private set; }
 
