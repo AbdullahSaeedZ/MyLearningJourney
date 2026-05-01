@@ -9,35 +9,25 @@ namespace PresentationLayer.LoginForm
 {
     public partial class frmLogin : Form
     {
-        
-        private string _Username;
-        private string _Password;
         public frmLogin()
         {
             InitializeComponent();
         }
 
-
         private void frmLogin_Load(object sender, EventArgs e)
         {
-           _LoadCredentials();
-        }
-      
- 
-        private void _LoadCredentials()
-        {
-            if (clsBusinessSettings.LoadLoginInfoFromFile(ref _Username, ref _Password))
+            clsGlobal.CurrentUser = clsUserBusiness.FindUserByToken(clsBusinessSettings.GetTokenFromRegistry());
+
+            if (clsGlobal.CurrentUser == null)
+                return;
+
+            if (!clsGlobal.CurrentUser.isActive)
             {
-                tbUsername.Text = _Username;
-                tbPassword.Text = _Password;
-                chbRememberMe.Checked = true;
+                MessageBox.Show("Your account is not active, please contact your admin", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            else
-            {
-                tbUsername.Text = "";
-                tbPassword.Text = "";
-                chbRememberMe.Checked = false;
-            }
+
+            OpenMainForm();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -58,10 +48,16 @@ namespace PresentationLayer.LoginForm
                 return;
             }
 
-            if (chbRememberMe.Checked)
-                clsBusinessSettings.SaveLoginInfoToFile(tbUsername.Text.Trim(), tbPassword.Text.Trim());
-            else
-                clsBusinessSettings.SaveLoginInfoToFile("", "");
+            try
+            {
+                if (chbKeepMeLoggedIn.Checked)
+                    clsGlobal.CurrentUser.CreateLoginToken();
+            }    
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
             if (!clsGlobal.CurrentUser.isActive)
             {
@@ -69,12 +65,16 @@ namespace PresentationLayer.LoginForm
                 return;
             }
 
+            OpenMainForm();
+        }
+
+        private void OpenMainForm()
+        {
             frmMain main = new frmMain();
             this.Hide();
             main.ShowDialog(); // dialog to wait for main form to close then continue to next line
             this.Show(); // once logged out from Main form, this will unhide instead of new object created in memory
         }
-
 
         private void btnShowHidePassword_Click(object sender, EventArgs e)
         {
@@ -100,11 +100,7 @@ namespace PresentationLayer.LoginForm
         {
             tbUsername.Text = "";
             tbPassword.Text = "";
-
-            if (!chbRememberMe.Checked)
-                return;
-
-            _LoadCredentials();
+            chbKeepMeLoggedIn.Checked = false;
         }
     } 
 }

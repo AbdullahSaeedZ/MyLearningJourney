@@ -33,7 +33,7 @@
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btnShowHidePassword1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox6 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.chbRememberMe = new Guna.UI2.WinForms.Guna2CheckBox();
+            this.chbKeepMeLoggedIn = new Guna.UI2.WinForms.Guna2CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
@@ -56,7 +56,7 @@
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2ShadowPanel1.Controls.Add(this.btnShowHidePassword1);
             this.guna2ShadowPanel1.Controls.Add(this.guna2PictureBox6);
-            this.guna2ShadowPanel1.Controls.Add(this.chbRememberMe);
+            this.guna2ShadowPanel1.Controls.Add(this.chbKeepMeLoggedIn);
             this.guna2ShadowPanel1.Controls.Add(this.label1);
             this.guna2ShadowPanel1.Controls.Add(this.guna2ControlBox1);
             this.guna2ShadowPanel1.Controls.Add(this.btnLogin);
@@ -107,25 +107,25 @@
             this.guna2PictureBox6.TabIndex = 21;
             this.guna2PictureBox6.TabStop = false;
             // 
-            // chbRememberMe
+            // chbKeepMeLoggedIn
             // 
-            this.chbRememberMe.Animated = true;
-            this.chbRememberMe.AutoSize = true;
-            this.chbRememberMe.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbRememberMe.CheckedState.BorderRadius = 2;
-            this.chbRememberMe.CheckedState.BorderThickness = 0;
-            this.chbRememberMe.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.chbRememberMe.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.chbRememberMe.Location = new System.Drawing.Point(84, 377);
-            this.chbRememberMe.Name = "chbRememberMe";
-            this.chbRememberMe.Size = new System.Drawing.Size(103, 18);
-            this.chbRememberMe.TabIndex = 18;
-            this.chbRememberMe.Text = "Remember Me";
-            this.chbRememberMe.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbRememberMe.UncheckedState.BorderRadius = 2;
-            this.chbRememberMe.UncheckedState.BorderThickness = 0;
-            this.chbRememberMe.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.chbRememberMe.UseVisualStyleBackColor = true;
+            this.chbKeepMeLoggedIn.Animated = true;
+            this.chbKeepMeLoggedIn.AutoSize = true;
+            this.chbKeepMeLoggedIn.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbKeepMeLoggedIn.CheckedState.BorderRadius = 2;
+            this.chbKeepMeLoggedIn.CheckedState.BorderThickness = 0;
+            this.chbKeepMeLoggedIn.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chbKeepMeLoggedIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.chbKeepMeLoggedIn.Location = new System.Drawing.Point(84, 377);
+            this.chbKeepMeLoggedIn.Name = "chbKeepMeLoggedIn";
+            this.chbKeepMeLoggedIn.Size = new System.Drawing.Size(132, 18);
+            this.chbKeepMeLoggedIn.TabIndex = 18;
+            this.chbKeepMeLoggedIn.Text = "Keep Me Logged In";
+            this.chbKeepMeLoggedIn.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbKeepMeLoggedIn.UncheckedState.BorderRadius = 2;
+            this.chbKeepMeLoggedIn.UncheckedState.BorderThickness = 0;
+            this.chbKeepMeLoggedIn.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.chbKeepMeLoggedIn.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -266,7 +266,7 @@
         private Guna.UI2.WinForms.Guna2TextBox tbUsername;
         private Guna.UI2.WinForms.Guna2TextBox tbPassword;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2CheckBox chbRememberMe;
+        private Guna.UI2.WinForms.Guna2CheckBox chbKeepMeLoggedIn;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox6;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox8;
         private Guna.UI2.WinForms.Guna2Button btnShowHidePassword1;

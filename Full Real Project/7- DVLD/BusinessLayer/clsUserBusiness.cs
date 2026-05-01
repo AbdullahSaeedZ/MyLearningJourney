@@ -116,6 +116,7 @@ namespace BusinessLayer
             else
                 return null;
         }
+      
 
         public static clsUserBusiness FindUser(string Username)
         {
@@ -187,6 +188,45 @@ namespace BusinessLayer
                 default: return false;
             }
         }
+
+
+        public static clsUserBusiness FindUserByToken(string tokenValue)
+        {
+            if (tokenValue == null)
+                return null;
+
+            clsUserTokensBusiness token = clsUserTokensBusiness.FindByTokenValue(tokenValue);
+
+            if (token == null)
+                return null;
+
+            clsUserBusiness user = FindUser(token.UserID);
+            return user;
+        }
+
+        public void CreateLoginToken()
+        {
+            clsUserTokensBusiness token = new clsUserTokensBusiness();
+            token.UserID = this.UserID;
+
+            if (!token.Save())
+                throw new Exception("Failed to create a token record");
+
+            clsBusinessSettings.SaveTokenToRegistry(token.TokenValue);
+        }
+
+        public void RemoveLoginToken()
+        {
+            string tokenValue = clsBusinessSettings.GetTokenFromRegistry();
+            if (tokenValue == null)
+                return;
+
+            if (!clsUserTokensBusiness.SetTokenExpired(tokenValue))
+                throw new Exception("Failed to deactivate token record");
+
+            clsBusinessSettings.RemoveTokenFromRegistry();
+        }
+
 
     }
 }

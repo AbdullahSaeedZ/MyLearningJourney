@@ -61,6 +61,7 @@
     <Compile Include="clsTestsBusiness.cs" />
     <Compile Include="clsTestTypesBusiness.cs" />
     <Compile Include="clsUserBusiness.cs" />
+    <Compile Include="clsUserTokensBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

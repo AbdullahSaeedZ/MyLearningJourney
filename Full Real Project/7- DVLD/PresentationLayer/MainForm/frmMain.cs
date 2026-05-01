@@ -157,8 +157,17 @@ namespace PresentationLayer.MainForm
         }
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Close();
+            try
+            {
+                clsGlobal.CurrentUser.RemoveLoginToken();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             clsGlobal.CurrentUser = null;
+            this.Close();
         }
 
 

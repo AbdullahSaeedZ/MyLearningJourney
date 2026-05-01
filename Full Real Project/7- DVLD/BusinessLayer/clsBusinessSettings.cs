@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text.RegularExpressions;
+using Microsoft.Win32;
 
 
 
@@ -170,6 +171,71 @@ namespace BusinessLayer
                 throw new Exception("Error while loading stored credentials");
             }
         }
+
+
+
+        public static void SaveTokenToRegistry(string tokenValue)
+        {
+            string keyPath = @"HKEY_CURRENT_USER\SOFTWARE\DVLD";
+            string valueName = "Login Token";
+
+            try
+            {
+                Registry.SetValue(keyPath, valueName, tokenValue, RegistryValueKind.String);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Failed to write token to registry");
+            }
+        }
+
+        public static string GetTokenFromRegistry()
+        {
+            string keyPath = @"HKEY_CURRENT_USER\SOFTWARE\DVLD";
+            string valueName = "Login Token";
+
+            string value = "";
+            try
+            {
+                value = Registry.GetValue(keyPath, valueName, null) as string;
+            }
+            catch (Exception)
+            {
+                throw new Exception("Failed to read token from registry");
+            }
+
+            return value;
+        }
+
+        public static void RemoveTokenFromRegistry()
+        {
+            string keyPath = @"SOFTWARE\DVLD";
+            string valueName = "Login Token";
+            try
+            {
+                // Open the registry key in read/write mode with explicit registry view
+                using (RegistryKey baseKey = RegistryKey.OpenBaseKey(RegistryHive.CurrentUser, RegistryView.Registry64))
+                {
+                    using (RegistryKey key = baseKey.OpenSubKey(keyPath, true))
+                    {
+                        if (key != null)
+                            key.DeleteValue(valueName);
+                        else
+                            throw new Exception("Failed to find token in registry");
+                    }
+                }
+            }
+            catch (UnauthorizedAccessException)
+            {
+                throw new UnauthorizedAccessException("Run the program with administrative privileges to remove login info");
+            }
+            catch (Exception)
+            {
+                throw new Exception("Failed to delete token from registry");
+            }
+        }
+
+
 
     }
 }
