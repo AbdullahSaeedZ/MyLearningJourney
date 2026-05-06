@@ -11,12 +11,12 @@ namespace BusinessLayer
         enMode _mode;
 
         public int TestAppointmentID { get; private set; }
-        public clsTestTypesBusiness.enTestType TestTypeID { get; set; }  //do private variable
-        public int LocalDrivingLicenseApplicationID { get; set; }  //do private variable
+        public clsTestTypesBusiness.enTestType TestTypeID { get; set; }  
+        public int LocalDrivingLicenseApplicationID { get; set; }  
         public DateTime AppointmentDate { get; set; }
         public float PaidFees { get; set; }
-        public int CreatedByUserID { get; set; }  //do private variable
-        public bool IsLocked { get; set; }  //do private variable 
+        public int CreatedByUserID { get; set; }  
+        public bool IsLocked { get; set; }  
         public int RetakeTestApplicationID { get; set; }
         public clsApplicationsBusiness RetakeTestAppInfo // this is a basic application with a test retake type
         {
@@ -24,8 +24,6 @@ namespace BusinessLayer
             {
                 return clsApplicationsBusiness.FindBaseApplicationByID(RetakeTestApplicationID);
             }
-
-            set {}
         } 
 
 
@@ -77,7 +75,7 @@ namespace BusinessLayer
 
         private bool _AddNewTestAppointment()
         {
-            this.TestAppointmentID = clsTestAppointmentsDataAccess.AddNewTestAppointment((byte)this.TestTypeID, this.LocalDrivingLicenseApplicationID, DateTime.Now, this.PaidFees,
+            this.TestAppointmentID = clsTestAppointmentsDataAccess.AddNewTestAppointment((byte)this.TestTypeID, this.LocalDrivingLicenseApplicationID, this.AppointmentDate, this.PaidFees,
                                      this.CreatedByUserID, this.IsLocked, this.RetakeTestApplicationID);
 
             return (this.TestAppointmentID != -1);

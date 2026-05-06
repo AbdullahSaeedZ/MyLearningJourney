@@ -42,9 +42,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblTestTypeID = new System.Windows.Forms.Label();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tbTestTypeDescription = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -157,7 +157,6 @@
             this.tbTestTypeTitle.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbTestTypeTitle.DisabledState.Parent = this.tbTestTypeTitle;
             this.tbTestTypeTitle.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbTestTypeTitle.FillColor = System.Drawing.Color.WhiteSmoke;
             this.tbTestTypeTitle.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbTestTypeTitle.FocusedState.Parent = this.tbTestTypeTitle;
             this.tbTestTypeTitle.ForeColor = System.Drawing.Color.Black;
@@ -200,7 +199,6 @@
             this.tbTestTypeFees.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbTestTypeFees.DisabledState.Parent = this.tbTestTypeFees;
             this.tbTestTypeFees.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbTestTypeFees.FillColor = System.Drawing.Color.WhiteSmoke;
             this.tbTestTypeFees.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbTestTypeFees.FocusedState.Parent = this.tbTestTypeFees;
             this.tbTestTypeFees.ForeColor = System.Drawing.Color.Black;
@@ -267,6 +265,17 @@
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(512, 448);
             this.guna2ShadowPanel1.TabIndex = 21;
             // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(463, 323);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(20, 26);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 29;
+            this.guna2PictureBox1.TabStop = false;
+            // 
             // tbTestTypeDescription
             // 
             this.tbTestTypeDescription.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
@@ -280,7 +289,6 @@
             this.tbTestTypeDescription.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tbTestTypeDescription.DisabledState.Parent = this.tbTestTypeDescription;
             this.tbTestTypeDescription.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbTestTypeDescription.FillColor = System.Drawing.Color.WhiteSmoke;
             this.tbTestTypeDescription.FocusedState.BorderColor = System.Drawing.Color.DimGray;
             this.tbTestTypeDescription.FocusedState.Parent = this.tbTestTypeDescription;
             this.tbTestTypeDescription.ForeColor = System.Drawing.Color.Black;
@@ -310,17 +318,6 @@
             this.label3.Size = new System.Drawing.Size(157, 18);
             this.label3.TabIndex = 14;
             this.label3.Text = "Test Type Description:";
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(463, 323);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(20, 26);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 29;
-            this.guna2PictureBox1.TabStop = false;
             // 
             // frmEditTestType
             // 

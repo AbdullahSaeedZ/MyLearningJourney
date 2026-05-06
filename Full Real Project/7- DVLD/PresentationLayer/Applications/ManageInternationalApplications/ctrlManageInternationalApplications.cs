@@ -122,6 +122,7 @@ namespace PresentationLayer.Applications.ManageInternationalApplications
 
         private void dgvApplications_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            _PersonID = clsApplicationsBusiness.FindBaseApplicationByID((int)dgvApplications.CurrentRow.Cells[1].Value).ApplicantPersonID;
             showPersonInfoToolStripMenuItem_Click(sender, EventArgs.Empty);
         }
 

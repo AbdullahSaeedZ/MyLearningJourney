@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.pnlBasicInfo = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblLocalApplicationID = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -51,16 +52,15 @@
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnlBasicInfo.SuspendLayout();
-            this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBasicInfo
             // 
             this.pnlBasicInfo.BackColor = System.Drawing.Color.White;
-            this.pnlBasicInfo.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlBasicInfo.BorderColor = System.Drawing.Color.Silver;
             this.pnlBasicInfo.BorderRadius = 15;
             this.pnlBasicInfo.BorderThickness = 1;
             this.pnlBasicInfo.Controls.Add(this.guna2PictureBox2);
@@ -87,6 +87,17 @@
             this.pnlBasicInfo.ShadowDecoration.Parent = this.pnlBasicInfo;
             this.pnlBasicInfo.Size = new System.Drawing.Size(784, 291);
             this.pnlBasicInfo.TabIndex = 17;
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(676, 149);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
+            this.guna2PictureBox2.Size = new System.Drawing.Size(18, 24);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 27;
+            this.guna2PictureBox2.TabStop = false;
             // 
             // lblLocalApplicationID
             // 
@@ -257,7 +268,7 @@
             this.lblApplicantName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblApplicantName.AutoSize = true;
             this.lblApplicantName.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApplicantName.ForeColor = System.Drawing.Color.Black;
+            this.lblApplicantName.ForeColor = System.Drawing.Color.Firebrick;
             this.lblApplicantName.Location = new System.Drawing.Point(303, 223);
             this.lblApplicantName.Name = "lblApplicantName";
             this.lblApplicantName.Size = new System.Drawing.Size(27, 18);
@@ -359,17 +370,6 @@
             this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
             this.ControlBoxClose.TabIndex = 9;
             // 
-            // guna2PictureBox2
-            // 
-            this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(676, 149);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
-            this.guna2PictureBox2.Size = new System.Drawing.Size(18, 24);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox2.TabIndex = 27;
-            this.guna2PictureBox2.TabStop = false;
-            // 
             // frmShowAppointmentInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -384,8 +384,8 @@
             this.Load += new System.EventHandler(this.frmShowAppointmentInfo_Load);
             this.pnlBasicInfo.ResumeLayout(false);
             this.pnlBasicInfo.PerformLayout();
-            this.guna2ShadowPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            this.guna2ShadowPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

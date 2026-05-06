@@ -52,7 +52,7 @@ namespace PresentationLayer.Users.Controls
 
             foreach (Guna2CheckBox chb in pnlCheckboxes.Controls.OfType<Guna2CheckBox>())
             {
-                if ( (Permissions & (1 << int.Parse(chb.Tag.ToString()))) != 0)
+                if ( (Permissions & (1 << Convert.ToInt32(chb.Tag.ToString()))) != 0)
                     chb.Checked = true;
             }
         }
@@ -78,7 +78,7 @@ namespace PresentationLayer.Users.Controls
             foreach (Guna2CheckBox chb in pnlCheckboxes.Controls.OfType<Guna2CheckBox>())
             {
                 if (chb.Checked)
-                    Permissions |=  (int)chb.Tag;
+                    Permissions |=  Convert.ToInt32(chb.Tag);
             }
 
             return Permissions;

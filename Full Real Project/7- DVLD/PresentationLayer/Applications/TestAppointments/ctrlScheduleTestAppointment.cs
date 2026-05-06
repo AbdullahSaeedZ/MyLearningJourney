@@ -77,6 +77,8 @@ namespace PresentationLayer.Applications.TestAppointments
                 lblTestFees.Text = clsTestTypesBusiness.FindTestType(_TestType).TestTypeFees.ToString();
                 dtpAppointmentDate.MinDate = DateTime.Now;
                 dtpAppointmentDate.Value = DateTime.Now;
+                dtpTimePicker.MinDate = DateTime.Now;
+                dtpTimePicker.Value = DateTime.Now;
 
             }
             else
@@ -103,7 +105,6 @@ namespace PresentationLayer.Applications.TestAppointments
         private bool _LoadTestAppointmentInfoForUpdate()
         {
             _TestAppointment = clsTestAppointmentsBusiness.FindByTestAppointmentID(_testAppointmentID);
-
             if (_TestAppointment == null)
             {
                 MessageBox.Show($"Could not find test appointment with ID{_testAppointmentID}.", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -112,18 +113,22 @@ namespace PresentationLayer.Applications.TestAppointments
 
             lblTestFees.Text = _TestAppointment.PaidFees.ToString();
 
-            // using .Date to ignore comparing time, it depends on requirements
-            if (DateTime.Compare(DateTime.Now.Date, _TestAppointment.AppointmentDate.Date) < 0)
+            if (DateTime.Compare(DateTime.Now, _TestAppointment.AppointmentDate) < 0)
+            {
                 dtpAppointmentDate.MinDate = DateTime.Now;
+                dtpTimePicker.MinDate = DateTime.Now;
+            }
             else
             {
                 // this case is when appointment date is in the past , so i dont want to enable editing cuz new appointment need to be scheduled
-                lblUserMessage.Text = "You cannot change date of current or locked appointments";
+                lblUserMessage.Text = "You cannot change date of due or locked appointments";
                 lblUserMessage.Visible = true;
                 btnSave.Enabled = false;
+                dtpTimePicker.Enabled = false;
                 dtpAppointmentDate.Enabled = false;
             }
 
+            dtpTimePicker.Value = _TestAppointment.AppointmentDate;
             dtpAppointmentDate.Value = _TestAppointment.AppointmentDate;
 
             if (_TestAppointment.RetakeTestApplicationID == -1) // the appointment which is shown for update might be from a retake test application type
@@ -152,6 +157,7 @@ namespace PresentationLayer.Applications.TestAppointments
                 lblUserMessage.Text = $"Person already has an active appointment of {TestType} test, cannot schedule a new appointment";
                 btnSave.Enabled = false;
                 dtpAppointmentDate.Enabled = false;
+                dtpTimePicker.Enabled = false;
                 return false;
             }
             return true;
@@ -163,9 +169,10 @@ namespace PresentationLayer.Applications.TestAppointments
             if (_TestAppointment.IsLocked)
             {
                 lblUserMessage.Visible = true;
-                lblUserMessage.Text = $"Person already attended this appointment, cannot edit info";
+                lblUserMessage.Text = $"Appointment is locked, cannot edit info";
                 btnSave.Enabled = false;
                 dtpAppointmentDate.Enabled = false;
+                dtpTimePicker.Enabled = false;
                 return false;
             }
             return true;
@@ -187,6 +194,7 @@ namespace PresentationLayer.Applications.TestAppointments
                         lblUserMessage.Visible = true;
                         btnSave.Enabled = false;
                         dtpAppointmentDate.Enabled = false;
+                        dtpTimePicker.Enabled = false;
                         return false;
                     }
                     else
@@ -194,12 +202,13 @@ namespace PresentationLayer.Applications.TestAppointments
 
                 case clsTestTypesBusiness.enTestType.Street:
 
-                    if (!_LocalApplication.TestsStatus.IsStreetTestPassed)
+                    if (!_LocalApplication.TestsStatus.IsWrittenTestPassed)
                     {
                         lblUserMessage.Text = "Person needs to pass Written test first to be able to proceed with next tests";
                         lblUserMessage.Visible = true;
                         btnSave.Enabled = false;
                         dtpAppointmentDate.Enabled = false;
+                        dtpTimePicker.Enabled = false;
                         return false;
                     }
                     else
@@ -242,16 +251,18 @@ namespace PresentationLayer.Applications.TestAppointments
 
             _TestAppointment.LocalDrivingLicenseApplicationID = _LocalApplication.LocalDrivingLicenseApplicationID;
             _TestAppointment.TestTypeID = _TestType;
-            _TestAppointment.AppointmentDate = dtpAppointmentDate.Value;
             _TestAppointment.PaidFees = Convert.ToSingle(lblTestFees.Text); // test appointment fees only
             _TestAppointment.CreatedByUserID = clsGlobal.CurrentUser.UserID;
             _TestAppointment.IsLocked = false;
+
+            dtpAppointmentDate.Value = dtpAppointmentDate.Value.Date + dtpTimePicker.Value.TimeOfDay;
+            _TestAppointment.AppointmentDate = dtpAppointmentDate.Value;
 
             if (_TestAppointment.Save())
             {
                 _FormMode = enMode.eUpdateMode;
                 MessageBox.Show("Data saved successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                lblTitle.Text = "Edit " + _TestType.ToString() + " Appointment";
+                this.btnClose.PerformClick();
                 delUpdateAppointmentsDGV?.Invoke();
             }
             else

@@ -61,9 +61,9 @@
             // ctrlLocalApplicationInfo1
             // 
             this.ctrlLocalApplicationInfo1.BackColor = System.Drawing.Color.White;
-            this.ctrlLocalApplicationInfo1.BasicApplicationBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalApplicationInfo1.BasicApplicationBorderColor = System.Drawing.Color.Silver;
             this.ctrlLocalApplicationInfo1.BasicApplicationBorderThickness = 1;
-            this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderColor = System.Drawing.Color.Silver;
             this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderThickness = 1;
             this.ctrlLocalApplicationInfo1.Location = new System.Drawing.Point(12, 47);
             this.ctrlLocalApplicationInfo1.Name = "ctrlLocalApplicationInfo1";

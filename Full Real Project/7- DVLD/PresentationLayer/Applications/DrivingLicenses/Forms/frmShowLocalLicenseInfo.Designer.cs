@@ -56,7 +56,7 @@
             // ctrlLocalDrivingLicenseInfo1
             // 
             this.ctrlLocalDrivingLicenseInfo1.BackColor = System.Drawing.Color.White;
-            this.ctrlLocalDrivingLicenseInfo1.BorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalDrivingLicenseInfo1.BorderColor = System.Drawing.Color.Silver;
             this.ctrlLocalDrivingLicenseInfo1.BorderThickness = 1;
             this.ctrlLocalDrivingLicenseInfo1.Location = new System.Drawing.Point(12, 47);
             this.ctrlLocalDrivingLicenseInfo1.Name = "ctrlLocalDrivingLicenseInfo1";

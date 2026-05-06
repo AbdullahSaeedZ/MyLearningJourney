@@ -164,10 +164,16 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    string query = @"select TestAppointmentID, AppointmentDate, IsLocked 
-                                     from TestAppointments 
-                                     where cast(AppointmentDate as date) = cast(getdate() as date)
-                                     order by TestAppointmentID desc;";
+                    string query = @"select TestAppointmentID, AppointmentDate, IsLocked, IsTestTaken = 
+                                    cast(
+	                                    case 
+                                            when EXISTS (select foud = 1 from Tests where Tests.TestAppointmentID = TestAppointments.TestAppointmentID) 
+                                            then 1 
+                                            else 0 
+                                        end as bit)
+                                    from TestAppointments 
+                                    where cast(AppointmentDate as date) = cast(GETDATE() as date)
+                                    order by TestAppointmentID desc;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         connection.Open();

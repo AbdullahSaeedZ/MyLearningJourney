@@ -57,6 +57,20 @@ namespace BusinessLayer
                 return null;
         }
 
+        public static clsTestsBusiness FindByTestAppointmentID(int TestAppointmentID)
+        {
+            int TestID = -1, CreatedByUserID = -1;
+            string Notes = "";
+            bool TestResult = false;
+
+            if (clsTestsDataAccess.FindByTestAppointmentID(TestAppointmentID, ref TestID, ref TestResult, ref Notes, ref CreatedByUserID))
+            {
+                return new clsTestsBusiness(TestID, TestAppointmentID, TestResult, Notes, CreatedByUserID);
+            }
+            else
+                return null;
+        }
+
         private bool _AddNewTest()
         {
             this.TestID = clsTestsDataAccess.AddNewTest(this.TestAppointmentID, this.TestResult, this.Notes, this.CreatedByUserID);

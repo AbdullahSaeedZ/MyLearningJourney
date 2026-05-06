@@ -63,18 +63,18 @@ namespace PresentationLayer.Applications.DrivingLicenses.Forms
 
         private bool _HandleBusinessConstraints()
         {
-            if (!ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.IsLicenseExpired())
-            {
-                MessageBox.Show($"Selected License is not expired yet, expiration date is: {ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.ExpirationDate.ToShortDateString()}",
-                                  "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
             // expired licenses are still active, we cant do any kind of operations on inactive licenses.
 
             if (!ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.IsActive)
             {
                 MessageBox.Show($"Selected License is not Active, cannot renew inactive licenses", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.IsLicenseExpired())
+            {
+                MessageBox.Show($"Selected License is not expired yet, expiration date is: {ctrlLocalDrivingLicenseInfoWithFilter1.SelectedLicenseInfo.ExpirationDate.ToShortDateString()}",
+                                  "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 

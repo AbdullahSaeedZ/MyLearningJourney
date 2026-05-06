@@ -125,11 +125,7 @@ namespace BusinessLayer
         }
 
 
-        // login remember me methods
-
-      
-
-
+        // keep me logged methods
         public static void SaveTokenToRegistry(string tokenValue)
         {
             string keyPath = @"HKEY_CURRENT_USER\SOFTWARE\DVLD";

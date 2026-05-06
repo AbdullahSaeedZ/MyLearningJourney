@@ -31,11 +31,11 @@
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
-            this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.ctrlPersonCard1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCard();
             this.ctrlListDriverLicenses1 = new PresentationLayer.Drivers.Controls.ctrlListDriverLicenses();
+            this.btnClose = new Guna.UI2.WinForms.Guna2Button();
+            this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +61,42 @@
             this.guna2ShadowPanel1.ShadowDepth = 240;
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(1179, 893);
             this.guna2ShadowPanel1.TabIndex = 5;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Tahoma", 18.33962F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTitle.Location = new System.Drawing.Point(425, 12);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(328, 33);
+            this.lblTitle.TabIndex = 13;
+            this.lblTitle.Text = "Driver Licenses History";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ctrlPersonCard1
+            // 
+            this.ctrlPersonCard1.BackColor = System.Drawing.Color.White;
+            this.ctrlPersonCard1.BorderColor = System.Drawing.Color.Silver;
+            this.ctrlPersonCard1.BorderThickness = 1;
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(169, 75);
+            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(840, 348);
+            this.ctrlPersonCard1.TabIndex = 12;
+            // 
+            // ctrlListDriverLicenses1
+            // 
+            this.ctrlListDriverLicenses1.BackColor = System.Drawing.Color.White;
+            this.ctrlListDriverLicenses1.DGVBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlListDriverLicenses1.DGVBorderThickness = 1;
+            this.ctrlListDriverLicenses1.Location = new System.Drawing.Point(17, 429);
+            this.ctrlListDriverLicenses1.Name = "ctrlListDriverLicenses1";
+            this.ctrlListDriverLicenses1.OuterBorderColor = System.Drawing.Color.Silver;
+            this.ctrlListDriverLicenses1.OuterBorderThickness = 1;
+            this.ctrlListDriverLicenses1.Size = new System.Drawing.Size(1145, 391);
+            this.ctrlListDriverLicenses1.TabBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlListDriverLicenses1.TabBorderThickness = 1;
+            this.ctrlListDriverLicenses1.TabIndex = 11;
             // 
             // btnClose
             // 
@@ -99,42 +135,6 @@
             this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
             this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
             this.ControlBoxClose.TabIndex = 9;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Tahoma", 18.33962F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.DimGray;
-            this.lblTitle.Location = new System.Drawing.Point(425, 12);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(328, 33);
-            this.lblTitle.TabIndex = 13;
-            this.lblTitle.Text = "Driver Licenses History";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // ctrlPersonCard1
-            // 
-            this.ctrlPersonCard1.BackColor = System.Drawing.Color.White;
-            this.ctrlPersonCard1.BorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlPersonCard1.BorderThickness = 1;
-            this.ctrlPersonCard1.Location = new System.Drawing.Point(169, 75);
-            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
-            this.ctrlPersonCard1.Size = new System.Drawing.Size(840, 348);
-            this.ctrlPersonCard1.TabIndex = 12;
-            // 
-            // ctrlListDriverLicenses1
-            // 
-            this.ctrlListDriverLicenses1.BackColor = System.Drawing.Color.White;
-            this.ctrlListDriverLicenses1.DGVBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlListDriverLicenses1.DGVBorderThickness = 1;
-            this.ctrlListDriverLicenses1.Location = new System.Drawing.Point(17, 429);
-            this.ctrlListDriverLicenses1.Name = "ctrlListDriverLicenses1";
-            this.ctrlListDriverLicenses1.OuterBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlListDriverLicenses1.OuterBorderThickness = 1;
-            this.ctrlListDriverLicenses1.Size = new System.Drawing.Size(1145, 391);
-            this.ctrlListDriverLicenses1.TabBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlListDriverLicenses1.TabBorderThickness = 1;
-            this.ctrlListDriverLicenses1.TabIndex = 11;
             // 
             // frmDriverLicensesHistory
             // 

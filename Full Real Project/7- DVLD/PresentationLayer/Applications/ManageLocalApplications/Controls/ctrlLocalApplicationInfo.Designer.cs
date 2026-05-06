@@ -38,6 +38,7 @@
             this.lblLocalApplicationID = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlBaseApplicationInfo = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnShowPersonInfo = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@
             this.lblApplicationFees = new System.Windows.Forms.Label();
             this.lblApplicationType = new System.Windows.Forms.Label();
             this.lblApplicationStatus = new System.Windows.Forms.Label();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnlLocalApplicationInfo.SuspendLayout();
             this.pnlBaseApplicationInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
@@ -69,7 +69,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlLocalApplicationInfo.AutoSize = true;
             this.pnlLocalApplicationInfo.BackColor = System.Drawing.Color.White;
-            this.pnlLocalApplicationInfo.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlLocalApplicationInfo.BorderColor = System.Drawing.Color.Silver;
             this.pnlLocalApplicationInfo.BorderRadius = 15;
             this.pnlLocalApplicationInfo.BorderThickness = 1;
             this.pnlLocalApplicationInfo.Controls.Add(this.btnShowLicenseInfo);
@@ -206,7 +206,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlBaseApplicationInfo.AutoSize = true;
             this.pnlBaseApplicationInfo.BackColor = System.Drawing.Color.White;
-            this.pnlBaseApplicationInfo.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlBaseApplicationInfo.BorderColor = System.Drawing.Color.Silver;
             this.pnlBaseApplicationInfo.BorderRadius = 15;
             this.pnlBaseApplicationInfo.BorderThickness = 1;
             this.pnlBaseApplicationInfo.Controls.Add(this.guna2PictureBox2);
@@ -234,6 +234,17 @@
             this.pnlBaseApplicationInfo.ShadowDecoration.Parent = this.pnlBaseApplicationInfo;
             this.pnlBaseApplicationInfo.Size = new System.Drawing.Size(894, 266);
             this.pnlBaseApplicationInfo.TabIndex = 11;
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(233, 170);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
+            this.guna2PictureBox2.Size = new System.Drawing.Size(18, 24);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 27;
+            this.guna2PictureBox2.TabStop = false;
             // 
             // btnShowPersonInfo
             // 
@@ -471,17 +482,6 @@
             this.lblApplicationStatus.Size = new System.Drawing.Size(27, 18);
             this.lblApplicationStatus.TabIndex = 3;
             this.lblApplicationStatus.Text = "NA";
-            // 
-            // guna2PictureBox2
-            // 
-            this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(233, 170);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
-            this.guna2PictureBox2.Size = new System.Drawing.Size(18, 24);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox2.TabIndex = 27;
-            this.guna2PictureBox2.TabStop = false;
             // 
             // ctrlLocalApplicationInfo
             // 

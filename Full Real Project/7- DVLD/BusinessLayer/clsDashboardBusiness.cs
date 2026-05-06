@@ -21,8 +21,6 @@ namespace BusinessLayer
         public float TotalPaidFeesThisMonth{ get; private set; } = -1;
         public float TotalPaidFeesAllTime{ get; private set; } = -1;
 
-        // public DataTable AllTodayAppointments { get { return clsTestAppointmentsBusiness.GetAllTodayAppointments(); } }
-
 
         clsDashboardBusiness(int TotalTests, int TotalPassedTests, int TotalApplications, int TotalApplicationsCompleted, int TotalDrivers, 
                                 int TotalPeople, int TotalUsers, int TotalLicenses, float TotalPaidFeesThisMonth, float TotalPaidFeesAllTime)

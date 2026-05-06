@@ -237,7 +237,13 @@ namespace DataAccessLayer
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
             {
-                string query = @"select * from ListPeople_View;";
+                string query = @"select PersonID,NationalNo, FirstName , SecondName, ThirdName , LastName , 
+                                case 
+                                    when People.Gender = 0 then 'Male' 
+                                    else 'Female' 
+                                end as Gender, DateOfBirth, Countries.CountryName, Phone, Email
+                                from People
+                                inner join Countries on Countries.CountryID = People.NationalityCountryID;";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {

@@ -1,6 +1,7 @@
 ﻿using BusinessLayer;
 using PresentationLayer.Global_Classes;
 using PresentationLayer.MainForm;
+using PresentationLayer.Users.Controls;
 using PresentationLayer.Users.Forms;
 using System;
 using System.Data;
@@ -183,13 +184,20 @@ namespace PresentationLayer.UsersFormsAndControls
 
             if (MessageBox.Show($"Are you sure to delete User wIth ID {UserID}?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
-                if (clsUserBusiness.DeleteUser(UserID, clsGlobal.CurrentUser))
+                try
                 {
-                    MessageBox.Show($"User with ID {UserID} was successfully deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RefreshDataGridView();
+                    if (clsUserBusiness.DeleteUser(UserID, clsGlobal.CurrentUser))
+                    {
+                        MessageBox.Show($"User with ID {UserID} was successfully deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        RefreshDataGridView();
+                    }
+                    else
+                        MessageBox.Show($"User with ID {UserID} CAN NOT be deleted due to linked data to be deleted first.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else
-                    MessageBox.Show($"User with ID {UserID} CAN NOT be deleted due to linked data to be deleted first.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

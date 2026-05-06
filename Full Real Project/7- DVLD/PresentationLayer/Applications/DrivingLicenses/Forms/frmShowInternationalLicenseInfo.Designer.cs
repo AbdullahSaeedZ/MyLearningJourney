@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.ctrlInternationalLicenseInfo1 = new PresentationLayer.Applications.DrivingLicenses.Controls.ctrlInternationalLicenseInfo();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.ctrlInternationalLicenseInfo1 = new PresentationLayer.Applications.DrivingLicenses.Controls.ctrlInternationalLicenseInfo();
             this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +57,15 @@
             this.guna2ShadowPanel1.ShadowDepth = 240;
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(1006, 437);
             this.guna2ShadowPanel1.TabIndex = 6;
+            // 
+            // ctrlInternationalLicenseInfo1
+            // 
+            this.ctrlInternationalLicenseInfo1.BorderColor = System.Drawing.Color.Silver;
+            this.ctrlInternationalLicenseInfo1.BorderThickness = 1;
+            this.ctrlInternationalLicenseInfo1.Location = new System.Drawing.Point(20, 46);
+            this.ctrlInternationalLicenseInfo1.Name = "ctrlInternationalLicenseInfo1";
+            this.ctrlInternationalLicenseInfo1.Size = new System.Drawing.Size(966, 331);
+            this.ctrlInternationalLicenseInfo1.TabIndex = 11;
             // 
             // btnClose
             // 
@@ -95,15 +104,6 @@
             this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
             this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
             this.ControlBoxClose.TabIndex = 9;
-            // 
-            // ctrlInternationalLicenseInfo1
-            // 
-            this.ctrlInternationalLicenseInfo1.BorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlInternationalLicenseInfo1.BorderThickness = 1;
-            this.ctrlInternationalLicenseInfo1.Location = new System.Drawing.Point(20, 46);
-            this.ctrlInternationalLicenseInfo1.Name = "ctrlInternationalLicenseInfo1";
-            this.ctrlInternationalLicenseInfo1.Size = new System.Drawing.Size(966, 331);
-            this.ctrlInternationalLicenseInfo1.TabIndex = 11;
             // 
             // frmShowInternationalLicenseInfo
             // 

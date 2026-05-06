@@ -213,14 +213,21 @@ namespace PresentationLayer.Applications.ManageLocalApplications
                 clsLocalDrivingLicenseApplicationsBusiness _selectedApplication = clsLocalDrivingLicenseApplicationsBusiness.FindLocalLicenseApplicationByID((int)dgvApplications.CurrentRow.Cells[0].Value);
                 if (_selectedApplication != null)
                 {
-                    if (_selectedApplication.DeleteApplication(clsGlobal.CurrentUser)) // will only delete applications of new status
+                    try
                     {
-                        _selectedApplication = null;
-                        MessageBox.Show("Application is Deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        RefreshDataGridView();
+                        if (_selectedApplication.DeleteApplication(clsGlobal.CurrentUser)) // will only delete applications of new status
+                        {
+                            _selectedApplication = null;
+                            MessageBox.Show("Application is Deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            RefreshDataGridView();
+                        }
+                        else
+                            MessageBox.Show("Could not delete the application, it has linked data to it, can only delete new applications with no records linked.", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    else
-                        MessageBox.Show("Could not delete the application, it has linked data to it, can only delete new applications", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"{ex.Message}", "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                     MessageBox.Show("Could not find the selected application info", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

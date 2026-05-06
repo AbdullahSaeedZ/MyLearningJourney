@@ -32,9 +32,9 @@
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.ctrlPersonCard1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCard();
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.ctrlPersonCard1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCard();
             this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +73,17 @@
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(862, 461);
             this.guna2ShadowPanel1.TabIndex = 5;
             // 
+            // ctrlPersonCard1
+            // 
+            this.ctrlPersonCard1.BackColor = System.Drawing.Color.White;
+            this.ctrlPersonCard1.BorderColor = System.Drawing.Color.Silver;
+            this.ctrlPersonCard1.BorderThickness = 1;
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(12, 50);
+            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(838, 346);
+            this.ctrlPersonCard1.TabIndex = 2;
+            this.ctrlPersonCard1.PersonCardUpdated += new System.Action(this.ctrlPersonCard1_PersonCardUpdated);
+            // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -109,17 +120,6 @@
             this.guna2ControlBox1.ShadowDecoration.Parent = this.guna2ControlBox1;
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox1.TabIndex = 9;
-            // 
-            // ctrlPersonCard1
-            // 
-            this.ctrlPersonCard1.BackColor = System.Drawing.Color.White;
-            this.ctrlPersonCard1.BorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlPersonCard1.BorderThickness = 1;
-            this.ctrlPersonCard1.Location = new System.Drawing.Point(12, 50);
-            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
-            this.ctrlPersonCard1.Size = new System.Drawing.Size(838, 346);
-            this.ctrlPersonCard1.TabIndex = 2;
-            this.ctrlPersonCard1.PersonCardUpdated += new System.Action(this.ctrlPersonCard1_PersonCardUpdated);
             // 
             // frmPersonInfo
             // 

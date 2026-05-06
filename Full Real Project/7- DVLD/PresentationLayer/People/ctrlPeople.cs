@@ -136,13 +136,20 @@ namespace PresentationLayer.PeopleFormsAndControls
             int PersonID = (int)dgvPeople.SelectedCells[0].Value;
             if (MessageBox.Show($"Are you sure to delete person wIth ID{PersonID}?", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
             {
-                if (clsPeopleBusiness.DeletePerson(PersonID, clsGlobal.CurrentUser))
+                try
                 {
-                    MessageBox.Show($"Person with ID {PersonID} was successfully deleted.", "Success", MessageBoxButtons.OK);
-                    RefreshDataGridView();
+                    if (clsPeopleBusiness.DeletePerson(PersonID, clsGlobal.CurrentUser))
+                    {
+                        MessageBox.Show($"Person with ID {PersonID} was successfully deleted.", "Success", MessageBoxButtons.OK);
+                        RefreshDataGridView();
+                    }
+                    else
+                        MessageBox.Show($"Person with ID{PersonID} CAN NOT be deleted due to linked data to be deleted first.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else
-                    MessageBox.Show($"Person with ID{PersonID} CAN NOT be deleted due to linked data to be deleted first.", "Failure", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
        

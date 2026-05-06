@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.ctrlAddEditUserPermissions1 = new PresentationLayer.Users.Controls.ctrlAddEditUserPermissions();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
-            this.ctrlUserCard1 = new PresentationLayer.Users.Controls.ctrlUserCard();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.ctrlAddEditUserPermissions1 = new PresentationLayer.Users.Controls.ctrlAddEditUserPermissions();
+            this.ctrlUserCard1 = new PresentationLayer.Users.Controls.ctrlUserCard();
             this.guna2ShadowPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,16 +58,6 @@
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(861, 805);
             this.guna2ShadowPanel1.TabIndex = 1;
-            // 
-            // ctrlAddEditUserPermissions1
-            // 
-            this.ctrlAddEditUserPermissions1.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlAddEditUserPermissions1.Location = new System.Drawing.Point(21, 501);
-            this.ctrlAddEditUserPermissions1.Name = "ctrlAddEditUserPermissions1";
-            this.ctrlAddEditUserPermissions1.PermissionsCardBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlAddEditUserPermissions1.PermissionsCardBorderThickness = 1;
-            this.ctrlAddEditUserPermissions1.Size = new System.Drawing.Size(821, 242);
-            this.ctrlAddEditUserPermissions1.TabIndex = 11;
             // 
             // btnCancel
             // 
@@ -94,18 +84,6 @@
             this.btnCancel.Text = "Close";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // ctrlUserCard1
-            // 
-            this.ctrlUserCard1.BackColor = System.Drawing.Color.White;
-            this.ctrlUserCard1.Location = new System.Drawing.Point(8, 47);
-            this.ctrlUserCard1.LoginInfoCardBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlUserCard1.LoginInfoCardBorderThickness = 1;
-            this.ctrlUserCard1.Name = "ctrlUserCard1";
-            this.ctrlUserCard1.PersonCardBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlUserCard1.PersonCardBorderThickness = 1;
-            this.ctrlUserCard1.Size = new System.Drawing.Size(843, 449);
-            this.ctrlUserCard1.TabIndex = 9;
-            // 
             // ControlBoxClose
             // 
             this.ControlBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -118,6 +96,28 @@
             this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
             this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
             this.ControlBoxClose.TabIndex = 8;
+            // 
+            // ctrlAddEditUserPermissions1
+            // 
+            this.ctrlAddEditUserPermissions1.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlAddEditUserPermissions1.Location = new System.Drawing.Point(12, 501);
+            this.ctrlAddEditUserPermissions1.Name = "ctrlAddEditUserPermissions1";
+            this.ctrlAddEditUserPermissions1.PermissionsCardBorderColor = System.Drawing.Color.Silver;
+            this.ctrlAddEditUserPermissions1.PermissionsCardBorderThickness = 1;
+            this.ctrlAddEditUserPermissions1.Size = new System.Drawing.Size(836, 242);
+            this.ctrlAddEditUserPermissions1.TabIndex = 11;
+            // 
+            // ctrlUserCard1
+            // 
+            this.ctrlUserCard1.BackColor = System.Drawing.Color.White;
+            this.ctrlUserCard1.Location = new System.Drawing.Point(8, 47);
+            this.ctrlUserCard1.LoginInfoCardBorderColor = System.Drawing.Color.Silver;
+            this.ctrlUserCard1.LoginInfoCardBorderThickness = 1;
+            this.ctrlUserCard1.Name = "ctrlUserCard1";
+            this.ctrlUserCard1.PersonCardBorderColor = System.Drawing.Color.Silver;
+            this.ctrlUserCard1.PersonCardBorderThickness = 1;
+            this.ctrlUserCard1.Size = new System.Drawing.Size(841, 449);
+            this.ctrlUserCard1.TabIndex = 9;
             // 
             // frmUserInfo
             // 

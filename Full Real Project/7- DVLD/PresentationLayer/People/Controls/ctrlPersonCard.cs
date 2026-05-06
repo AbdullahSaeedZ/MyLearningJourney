@@ -103,7 +103,7 @@ namespace PresentationLayer.PeopleFormsAndControls
             lblPersonID.Text = _person.PersonID.ToString();
             lblNationalID.Text = _person.NationalID.ToString();
             lblCountry.Text = _person.CountryInfo.CountryName;
-            lblEmail.Text = _person.Email;
+            lblEmail.Text = string.IsNullOrEmpty(_person.Email) ? "NA" : _person.Email;
             lblBirthDate.Text = _person.BirthDate.ToShortDateString();
             lblAddress.Text = _person.Address;
             lblGender.Text = ((enGender)_person.Gender).ToString();

@@ -84,7 +84,7 @@
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.White;
-            this.guna2Panel3.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2Panel3.BorderColor = System.Drawing.Color.Silver;
             this.guna2Panel3.BorderRadius = 15;
             this.guna2Panel3.BorderThickness = 1;
             this.guna2Panel3.Controls.Add(this.label2);
@@ -93,10 +93,10 @@
             this.guna2Panel3.Controls.Add(this.label1);
             this.guna2Panel3.Controls.Add(this.dgvTestAppointments);
             this.guna2Panel3.FillColor = System.Drawing.Color.White;
-            this.guna2Panel3.Location = new System.Drawing.Point(13, 564);
+            this.guna2Panel3.Location = new System.Drawing.Point(17, 564);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.Parent = this.guna2Panel3;
-            this.guna2Panel3.Size = new System.Drawing.Size(901, 349);
+            this.guna2Panel3.Size = new System.Drawing.Size(895, 349);
             this.guna2Panel3.TabIndex = 13;
             // 
             // label2
@@ -138,7 +138,7 @@
             this.btnNewAppointment.HoverState.Parent = this.btnNewAppointment;
             this.btnNewAppointment.Image = global::PresentationLayer.Properties.Resources.addNoFill;
             this.btnNewAppointment.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnNewAppointment.Location = new System.Drawing.Point(627, 76);
+            this.btnNewAppointment.Location = new System.Drawing.Point(615, 76);
             this.btnNewAppointment.Name = "btnNewAppointment";
             this.btnNewAppointment.PressedColor = System.Drawing.Color.DimGray;
             this.btnNewAppointment.ShadowDecoration.Parent = this.btnNewAppointment;
@@ -203,7 +203,7 @@
             this.dgvTestAppointments.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTestAppointments.EnableHeadersVisualStyles = false;
             this.dgvTestAppointments.GridColor = System.Drawing.Color.WhiteSmoke;
-            this.dgvTestAppointments.Location = new System.Drawing.Point(95, 119);
+            this.dgvTestAppointments.Location = new System.Drawing.Point(87, 119);
             this.dgvTestAppointments.Name = "dgvTestAppointments";
             this.dgvTestAppointments.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -219,7 +219,7 @@
             this.dgvTestAppointments.RowTemplate.DividerHeight = 1;
             this.dgvTestAppointments.RowTemplate.Height = 30;
             this.dgvTestAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTestAppointments.Size = new System.Drawing.Size(724, 200);
+            this.dgvTestAppointments.Size = new System.Drawing.Size(732, 200);
             this.dgvTestAppointments.TabIndex = 0;
             this.dgvTestAppointments.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
             this.dgvTestAppointments.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
@@ -327,9 +327,9 @@
             // ctrlLocalApplicationInfo1
             // 
             this.ctrlLocalApplicationInfo1.BackColor = System.Drawing.Color.White;
-            this.ctrlLocalApplicationInfo1.BasicApplicationBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalApplicationInfo1.BasicApplicationBorderColor = System.Drawing.Color.Silver;
             this.ctrlLocalApplicationInfo1.BasicApplicationBorderThickness = 1;
-            this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderColor = System.Drawing.Color.Silver;
             this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderThickness = 1;
             this.ctrlLocalApplicationInfo1.Location = new System.Drawing.Point(13, 71);
             this.ctrlLocalApplicationInfo1.Name = "ctrlLocalApplicationInfo1";

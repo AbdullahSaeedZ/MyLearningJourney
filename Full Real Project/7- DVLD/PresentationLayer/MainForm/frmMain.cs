@@ -25,7 +25,7 @@ namespace PresentationLayer.MainForm
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            guna2ShadowForm1.SetShadowForm(this);
+            //guna2ShadowForm1.SetShadowForm(this);
 
             // to start app with overview
             btnOverview_Click(btnOverview, EventArgs.Empty);

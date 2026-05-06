@@ -297,7 +297,12 @@ namespace DataAccessLayer
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
                 {
-                    string query = "select * from ListUsers_View;";
+                    string query = @"select Users.UserID, Users.PersonID,People.FirstName + ' ' + People.SecondName + ' ' + isnull(People.ThirdName + ' ', '') + People.LastName as FullName,
+                                    Users.UserName,
+                                    Users.IsActive
+                                    from Users
+                                    inner join People on Users.PersonID = People.PersonID
+                                    order by UserID asc;";
                     using (SqlCommand command = new SqlCommand(query, connection))
                     {
                         connection.Open();

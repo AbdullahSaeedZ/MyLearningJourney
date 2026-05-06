@@ -12,7 +12,7 @@ namespace BusinessLayer
         enMode _mode;
 
         public int DetainID { get; private set; } 
-        public int LicenseID { get; set; } // private variable
+        public int LicenseID { get; set; } 
         public DateTime DetainDate { get; private set; } 
         public float FineFees { get; set; } 
         public int CreatedByUserID { get; set; } 

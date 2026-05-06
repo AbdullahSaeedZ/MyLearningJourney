@@ -19,7 +19,6 @@ namespace PresentationLayer.PeopleFormsAndControls
 
         private int _personID = -1;
         clsPeopleBusiness person;
-        private string _finalImagePath;
         public enum enGender { Male = 0, Female = 1 };
 
         public frmAddEditPerson()
@@ -122,7 +121,7 @@ namespace PresentationLayer.PeopleFormsAndControls
             person.Email = tbEmail.Text.Trim();
             person.Phone = tbPhone.Text.Trim();
             person.Address = tbAddress.Text.Trim();
-            person.BirthDate = dtpBirthDate.Value;
+            person.BirthDate = dtpBirthDate.Value.Date;
             person.Gender = rbMale.Checked ? clsPeopleBusiness.enGender.Male : clsPeopleBusiness.enGender.Female;
             person.NationalityCountryID = (clsCountriesBusiness.GetCountry(cbCountry.Text)).CountryID;
         }
@@ -286,6 +285,11 @@ namespace PresentationLayer.PeopleFormsAndControls
                 pbImage.Image.Dispose();
                 pbImage.Image = null;
             }
+        }
+
+        private void frmAddEditPerson_Activated(object sender, EventArgs e)
+        {
+            tbFirstName.Focus();
         }
     }
 }

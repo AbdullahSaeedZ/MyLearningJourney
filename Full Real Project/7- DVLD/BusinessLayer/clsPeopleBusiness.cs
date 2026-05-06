@@ -59,7 +59,7 @@ namespace BusinessLayer
             this._mode = enMode.eAddMode;
         }
 
-        // for getting existing persons
+        // for getting existing person
         clsPeopleBusiness(int PersonID, string NationalID, string FirstName, string SecondName, string ThirdName, string LastName, enGender Gender,
             int NationalityCountryID, string Phone, string Email, string Address, string ImagePath, DateTime BirthDate)
         {

@@ -39,7 +39,7 @@
             // ctrlLocalDrivingLicenseInfo1
             // 
             this.ctrlLocalDrivingLicenseInfo1.BackColor = System.Drawing.Color.White;
-            this.ctrlLocalDrivingLicenseInfo1.BorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalDrivingLicenseInfo1.BorderColor = System.Drawing.Color.Silver;
             this.ctrlLocalDrivingLicenseInfo1.BorderThickness = 1;
             this.ctrlLocalDrivingLicenseInfo1.Location = new System.Drawing.Point(3, 66);
             this.ctrlLocalDrivingLicenseInfo1.Name = "ctrlLocalDrivingLicenseInfo1";
@@ -49,7 +49,7 @@
             // pnlFilter
             // 
             this.pnlFilter.BackColor = System.Drawing.Color.Transparent;
-            this.pnlFilter.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlFilter.BorderColor = System.Drawing.Color.Silver;
             this.pnlFilter.BorderRadius = 15;
             this.pnlFilter.BorderThickness = 1;
             this.pnlFilter.Controls.Add(this.btnSearch);

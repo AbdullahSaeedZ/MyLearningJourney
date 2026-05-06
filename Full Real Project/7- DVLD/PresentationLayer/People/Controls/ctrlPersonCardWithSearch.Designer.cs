@@ -41,7 +41,7 @@
             // pnlFilter
             // 
             this.pnlFilter.BackColor = System.Drawing.Color.Transparent;
-            this.pnlFilter.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlFilter.BorderColor = System.Drawing.Color.Silver;
             this.pnlFilter.BorderRadius = 15;
             this.pnlFilter.BorderThickness = 1;
             this.pnlFilter.Controls.Add(this.btnSearch);
@@ -185,7 +185,7 @@
             // ctrlPersonCard1
             // 
             this.ctrlPersonCard1.BackColor = System.Drawing.Color.White;
-            this.ctrlPersonCard1.BorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlPersonCard1.BorderColor = System.Drawing.Color.Silver;
             this.ctrlPersonCard1.BorderThickness = 1;
             this.ctrlPersonCard1.Location = new System.Drawing.Point(8, 71);
             this.ctrlPersonCard1.Name = "ctrlPersonCard1";

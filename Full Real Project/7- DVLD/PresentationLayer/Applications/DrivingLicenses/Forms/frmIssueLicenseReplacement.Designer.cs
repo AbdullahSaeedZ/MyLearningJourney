@@ -41,6 +41,7 @@
             this.btnShowLicensesHistory = new Guna.UI2.WinForms.Guna2Button();
             this.ctrlLocalDrivingLicenseInfoWithFilter1 = new PresentationLayer.Applications.DrivingLicenses.Controls.ctrlLocalDrivingLicenseInfoWithFilter();
             this.pnlApplicationInfo = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -58,7 +59,6 @@
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2ShadowPanel1.SuspendLayout();
             this.pnlFilter.SuspendLayout();
             this.pnlApplicationInfo.SuspendLayout();
@@ -89,7 +89,7 @@
             // pnlFilter
             // 
             this.pnlFilter.BackColor = System.Drawing.Color.Transparent;
-            this.pnlFilter.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlFilter.BorderColor = System.Drawing.Color.Silver;
             this.pnlFilter.BorderRadius = 15;
             this.pnlFilter.BorderThickness = 1;
             this.pnlFilter.Controls.Add(this.label9);
@@ -262,11 +262,11 @@
             // 
             // ctrlLocalDrivingLicenseInfoWithFilter1
             // 
-            this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterBorderColor = System.Drawing.Color.Silver;
             this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterBorderThickness = 1;
             this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterEnabled = true;
             this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterVisible = true;
-            this.ctrlLocalDrivingLicenseInfoWithFilter1.LicenseCardBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalDrivingLicenseInfoWithFilter1.LicenseCardBorderColor = System.Drawing.Color.Silver;
             this.ctrlLocalDrivingLicenseInfoWithFilter1.LicenseCardBorderThickness = 1;
             this.ctrlLocalDrivingLicenseInfoWithFilter1.Location = new System.Drawing.Point(13, 87);
             this.ctrlLocalDrivingLicenseInfoWithFilter1.Name = "ctrlLocalDrivingLicenseInfoWithFilter1";
@@ -277,7 +277,7 @@
             // pnlApplicationInfo
             // 
             this.pnlApplicationInfo.BackColor = System.Drawing.Color.White;
-            this.pnlApplicationInfo.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlApplicationInfo.BorderColor = System.Drawing.Color.Silver;
             this.pnlApplicationInfo.BorderRadius = 20;
             this.pnlApplicationInfo.BorderThickness = 1;
             this.pnlApplicationInfo.Controls.Add(this.guna2PictureBox2);
@@ -299,6 +299,17 @@
             this.pnlApplicationInfo.ShadowDecoration.Parent = this.pnlApplicationInfo;
             this.pnlApplicationInfo.Size = new System.Drawing.Size(964, 195);
             this.pnlApplicationInfo.TabIndex = 17;
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(356, 138);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
+            this.guna2PictureBox2.Size = new System.Drawing.Size(18, 24);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 27;
+            this.guna2PictureBox2.TabStop = false;
             // 
             // label17
             // 
@@ -517,17 +528,6 @@
             // 
             this.guna2Elipse1.BorderRadius = 40;
             this.guna2Elipse1.TargetControl = this;
-            // 
-            // guna2PictureBox2
-            // 
-            this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(356, 138);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
-            this.guna2PictureBox2.Size = new System.Drawing.Size(18, 24);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox2.TabIndex = 27;
-            this.guna2PictureBox2.TabStop = false;
             // 
             // frmIssueLicenseReplacement
             // 

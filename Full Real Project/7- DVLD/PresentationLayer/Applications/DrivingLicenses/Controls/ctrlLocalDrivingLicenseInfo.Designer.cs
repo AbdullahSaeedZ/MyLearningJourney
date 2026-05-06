@@ -65,7 +65,7 @@
             // 
             this.pnlCardBorder.AutoSize = true;
             this.pnlCardBorder.BackColor = System.Drawing.Color.White;
-            this.pnlCardBorder.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlCardBorder.BorderColor = System.Drawing.Color.Silver;
             this.pnlCardBorder.BorderRadius = 15;
             this.pnlCardBorder.BorderThickness = 1;
             this.pnlCardBorder.Controls.Add(this.pbPersonPic);

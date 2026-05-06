@@ -15,6 +15,7 @@ namespace PresentationLayer.Dashboard
         int _ID = -1;
         DateTime _Date = DateTime.MinValue;
         bool _IsLocked = false;
+        bool _IsTestTaken = false;
 
         public int BorderThickness
         {
@@ -44,20 +45,21 @@ namespace PresentationLayer.Dashboard
             InitializeComponent();
         }
 
-        public void LoadInfo(int ID, DateTime Date, bool IsLocked)
+        public void LoadInfo(int ID, DateTime Date, bool IsLocked, bool IsTestTaken)
         {
             _ID = ID;
             _Date = Date;
             _IsLocked = IsLocked;
+            _IsTestTaken = IsTestTaken;
 
             lblID.Text = "ID " + _ID.ToString();
             lblDate.Text = _Date.ToString();
-            if (_IsLocked)
+            if (_IsLocked && _IsTestTaken)
             {
                 lblStatus.Text = "Completed";
                 lblStatus.ForeColor = Color.LimeGreen;
             }
-            else if (!_IsLocked && Date < DateTime.Now) // appointment time has come and no one locked i yet
+            else if (_IsLocked && !_IsTestTaken) // appointment time has come and and sql server agent locked the appointment with no test record
             {
                 lblStatus.Text = "Missed";
                 lblStatus.ForeColor = Color.Crimson;

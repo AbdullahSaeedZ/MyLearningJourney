@@ -34,6 +34,7 @@
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.lblDeniedUpdate = new System.Windows.Forms.Label();
             this.pnlApplicationInfo = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.cbLocalLicenseClasses = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.lblCreatedByUser = new System.Windows.Forms.Label();
@@ -51,7 +52,6 @@
             this.ctrlPersonCardWithSearch1 = new PresentationLayer.PeopleFormsAndControls.ctrlPersonCardWithSearch();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.guna2ShadowPanel1.SuspendLayout();
             this.pnlApplicationInfo.SuspendLayout();
@@ -105,7 +105,7 @@
             // pnlApplicationInfo
             // 
             this.pnlApplicationInfo.BackColor = System.Drawing.Color.White;
-            this.pnlApplicationInfo.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlApplicationInfo.BorderColor = System.Drawing.Color.Silver;
             this.pnlApplicationInfo.BorderRadius = 20;
             this.pnlApplicationInfo.BorderThickness = 1;
             this.pnlApplicationInfo.Controls.Add(this.guna2PictureBox1);
@@ -125,6 +125,17 @@
             this.pnlApplicationInfo.Size = new System.Drawing.Size(838, 415);
             this.pnlApplicationInfo.TabIndex = 17;
             this.pnlApplicationInfo.Visible = false;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(447, 226);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(18, 24);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 28;
+            this.guna2PictureBox1.TabStop = false;
             // 
             // cbLocalLicenseClasses
             // 
@@ -365,9 +376,9 @@
             // ctrlPersonCardWithSearch1
             // 
             this.ctrlPersonCardWithSearch1.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlPersonCardWithSearch1.CardBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlPersonCardWithSearch1.CardBorderColor = System.Drawing.Color.Silver;
             this.ctrlPersonCardWithSearch1.CardBorderThickness = 1;
-            this.ctrlPersonCardWithSearch1.FilterBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlPersonCardWithSearch1.FilterBorderColor = System.Drawing.Color.Silver;
             this.ctrlPersonCardWithSearch1.FilterBorderThickness = 1;
             this.ctrlPersonCardWithSearch1.FilterEnabled = true;
             this.ctrlPersonCardWithSearch1.FilterVisible = true;
@@ -400,17 +411,6 @@
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "New Local Driving License Application";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(447, 226);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(18, 24);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 28;
-            this.guna2PictureBox1.TabStop = false;
             // 
             // frmAddEditLocalLicenseApplication
             // 

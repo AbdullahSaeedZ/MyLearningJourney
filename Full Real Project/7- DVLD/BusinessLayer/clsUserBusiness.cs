@@ -196,11 +196,13 @@ namespace BusinessLayer
                 return null;
 
             clsUserTokensBusiness token = clsUserTokensBusiness.FindByTokenValue(clsBusinessSecurity.ComputeHash(tokenValue));
-
             if (token == null)
                 return null;
 
             clsUserBusiness user = FindUser(token.UserID);
+            if (user == null)
+                return null;
+
             return user;
         }
 

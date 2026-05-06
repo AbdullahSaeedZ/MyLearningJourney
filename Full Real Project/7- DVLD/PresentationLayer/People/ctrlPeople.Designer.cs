@@ -441,7 +441,7 @@
             // colGender
             // 
             this.colGender.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.colGender.DataPropertyName = "GenderCaption";
+            this.colGender.DataPropertyName = "Gender";
             this.colGender.HeaderText = "Gender";
             this.colGender.MinimumWidth = 6;
             this.colGender.Name = "colGender";
@@ -452,7 +452,7 @@
             // 
             this.colBirthDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colBirthDate.DataPropertyName = "DateOfBirth";
-            this.colBirthDate.HeaderText = "BirthDate";
+            this.colBirthDate.HeaderText = "Birth Date";
             this.colBirthDate.MinimumWidth = 6;
             this.colBirthDate.Name = "colBirthDate";
             this.colBirthDate.ReadOnly = true;

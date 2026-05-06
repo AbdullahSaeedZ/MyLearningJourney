@@ -73,7 +73,7 @@ namespace PresentationLayer.DashboardControls
             foreach (DataRow row in _dtTodaysAppointments.Rows)
             {
                 ctrlAppointmentItem appointment = new ctrlAppointmentItem();
-                appointment.LoadInfo((int)row["TestAppointmentID"], (DateTime)row["AppointmentDate"], (bool)row["IsLocked"]);
+                appointment.LoadInfo((int)row["TestAppointmentID"], (DateTime)row["AppointmentDate"], (bool)row["IsLocked"], (bool)row["IsTestTaken"]);
                 fpnlTodaysAppointments.Controls.Add(appointment);
             }
         }
@@ -93,9 +93,6 @@ namespace PresentationLayer.DashboardControls
                 lblTotalLicenses.Text = $"{_TimerInitial}";
                 lblTotalFeesThisMonth.Text = $"{_TimerInitial}";
                 lblTotalFeesAllTime.Text = $"{_TimerInitial}";
-
-                progbTotalTestsPassed.Value = _TimerInitial;
-                progbTotalCompletedApplications.Value = _TimerInitial;
             }
             else
             {

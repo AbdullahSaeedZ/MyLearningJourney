@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlBasicInfo = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblUserMessage = new System.Windows.Forms.Label();
             this.dtpAppointmentDate = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.lblLocalApplicationID = new System.Windows.Forms.Label();
@@ -44,6 +45,8 @@
             this.lblLicenseDrivingClass = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlRetakeAppInfo = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblTotalFees = new System.Windows.Forms.Label();
             this.lblRetakeAppFees = new System.Windows.Forms.Label();
             this.lblRetakeAppID = new System.Windows.Forms.Label();
@@ -54,22 +57,22 @@
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dtpTimePicker = new System.Windows.Forms.DateTimePicker();
             this.pnlBasicInfo.SuspendLayout();
-            this.pnlRetakeAppInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            this.pnlRetakeAppInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBasicInfo
             // 
             this.pnlBasicInfo.BackColor = System.Drawing.Color.White;
-            this.pnlBasicInfo.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlBasicInfo.BorderColor = System.Drawing.Color.Silver;
             this.pnlBasicInfo.BorderRadius = 15;
             this.pnlBasicInfo.BorderThickness = 1;
+            this.pnlBasicInfo.Controls.Add(this.dtpTimePicker);
             this.pnlBasicInfo.Controls.Add(this.guna2PictureBox1);
             this.pnlBasicInfo.Controls.Add(this.lblUserMessage);
             this.pnlBasicInfo.Controls.Add(this.dtpAppointmentDate);
@@ -77,6 +80,7 @@
             this.pnlBasicInfo.Controls.Add(this.label13);
             this.pnlBasicInfo.Controls.Add(this.label11);
             this.pnlBasicInfo.Controls.Add(this.label14);
+            this.pnlBasicInfo.Controls.Add(this.label4);
             this.pnlBasicInfo.Controls.Add(this.label12);
             this.pnlBasicInfo.Controls.Add(this.label5);
             this.pnlBasicInfo.Controls.Add(this.lblTestFees);
@@ -91,6 +95,17 @@
             this.pnlBasicInfo.ShadowDecoration.Parent = this.pnlBasicInfo;
             this.pnlBasicInfo.Size = new System.Drawing.Size(784, 318);
             this.pnlBasicInfo.TabIndex = 16;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(347, 261);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+            this.guna2PictureBox1.Size = new System.Drawing.Size(18, 24);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox1.TabIndex = 27;
+            this.guna2PictureBox1.TabStop = false;
             // 
             // lblUserMessage
             // 
@@ -116,14 +131,14 @@
             this.dtpAppointmentDate.FillColor = System.Drawing.Color.White;
             this.dtpAppointmentDate.Font = new System.Drawing.Font("Tahoma", 10F);
             this.dtpAppointmentDate.ForeColor = System.Drawing.Color.Black;
-            this.dtpAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dtpAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpAppointmentDate.HoverState.Parent = this.dtpAppointmentDate;
             this.dtpAppointmentDate.Location = new System.Drawing.Point(309, 183);
             this.dtpAppointmentDate.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
             this.dtpAppointmentDate.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
             this.dtpAppointmentDate.Name = "dtpAppointmentDate";
             this.dtpAppointmentDate.ShadowDecoration.Parent = this.dtpAppointmentDate;
-            this.dtpAppointmentDate.Size = new System.Drawing.Size(249, 33);
+            this.dtpAppointmentDate.Size = new System.Drawing.Size(141, 33);
             this.dtpAppointmentDate.TabIndex = 14;
             this.dtpAppointmentDate.Value = new System.DateTime(2026, 4, 12, 0, 0, 0, 0);
             // 
@@ -280,7 +295,7 @@
             // pnlRetakeAppInfo
             // 
             this.pnlRetakeAppInfo.BackColor = System.Drawing.Color.White;
-            this.pnlRetakeAppInfo.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlRetakeAppInfo.BorderColor = System.Drawing.Color.Silver;
             this.pnlRetakeAppInfo.BorderRadius = 15;
             this.pnlRetakeAppInfo.BorderThickness = 1;
             this.pnlRetakeAppInfo.Controls.Add(this.guna2PictureBox3);
@@ -298,6 +313,28 @@
             this.pnlRetakeAppInfo.ShadowDecoration.Parent = this.pnlRetakeAppInfo;
             this.pnlRetakeAppInfo.Size = new System.Drawing.Size(784, 141);
             this.pnlRetakeAppInfo.TabIndex = 17;
+            // 
+            // guna2PictureBox3
+            // 
+            this.guna2PictureBox3.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
+            this.guna2PictureBox3.Location = new System.Drawing.Point(641, 61);
+            this.guna2PictureBox3.Name = "guna2PictureBox3";
+            this.guna2PictureBox3.ShadowDecoration.Parent = this.guna2PictureBox3;
+            this.guna2PictureBox3.Size = new System.Drawing.Size(18, 24);
+            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox3.TabIndex = 32;
+            this.guna2PictureBox3.TabStop = false;
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(347, 98);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
+            this.guna2PictureBox2.Size = new System.Drawing.Size(18, 24);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 31;
+            this.guna2PictureBox2.TabStop = false;
             // 
             // lblTotalFees
             // 
@@ -448,38 +485,28 @@
             this.lblTitle.Text = "Appointment";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // guna2PictureBox1
+            // label4
             // 
-            this.guna2PictureBox1.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(347, 261);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-            this.guna2PictureBox1.Size = new System.Drawing.Size(18, 24);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox1.TabIndex = 27;
-            this.guna2PictureBox1.TabStop = false;
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Location = new System.Drawing.Point(469, 189);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 18);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Time:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // guna2PictureBox2
+            // dtpTimePicker
             // 
-            this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(347, 98);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
-            this.guna2PictureBox2.Size = new System.Drawing.Size(18, 24);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox2.TabIndex = 31;
-            this.guna2PictureBox2.TabStop = false;
-            // 
-            // guna2PictureBox3
-            // 
-            this.guna2PictureBox3.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
-            this.guna2PictureBox3.Location = new System.Drawing.Point(641, 61);
-            this.guna2PictureBox3.Name = "guna2PictureBox3";
-            this.guna2PictureBox3.ShadowDecoration.Parent = this.guna2PictureBox3;
-            this.guna2PictureBox3.Size = new System.Drawing.Size(18, 24);
-            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox3.TabIndex = 32;
-            this.guna2PictureBox3.TabStop = false;
+            this.dtpTimePicker.CustomFormat = "hh:mm tt";
+            this.dtpTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpTimePicker.Location = new System.Drawing.Point(525, 188);
+            this.dtpTimePicker.Name = "dtpTimePicker";
+            this.dtpTimePicker.ShowUpDown = true;
+            this.dtpTimePicker.Size = new System.Drawing.Size(97, 22);
+            this.dtpTimePicker.TabIndex = 28;
             // 
             // ctrlScheduleTestAppointment
             // 
@@ -495,11 +522,11 @@
             this.Size = new System.Drawing.Size(791, 578);
             this.pnlBasicInfo.ResumeLayout(false);
             this.pnlBasicInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.pnlRetakeAppInfo.ResumeLayout(false);
             this.pnlRetakeAppInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -536,5 +563,7 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dtpTimePicker;
     }
 }

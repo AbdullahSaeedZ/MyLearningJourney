@@ -36,6 +36,7 @@
             this.btnShowLicensesHistory = new Guna.UI2.WinForms.Guna2Button();
             this.ctrlLocalDrivingLicenseInfoWithFilter1 = new PresentationLayer.Applications.DrivingLicenses.Controls.ctrlLocalDrivingLicenseInfoWithFilter();
             this.pnlApplicationInfo = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.tbFineFees = new Guna.UI2.WinForms.Guna2TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -51,11 +52,10 @@
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2ShadowPanel1.SuspendLayout();
             this.pnlApplicationInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -166,11 +166,11 @@
             // 
             // ctrlLocalDrivingLicenseInfoWithFilter1
             // 
-            this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterBorderColor = System.Drawing.Color.Silver;
             this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterBorderThickness = 1;
             this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterEnabled = true;
             this.ctrlLocalDrivingLicenseInfoWithFilter1.FilterVisible = true;
-            this.ctrlLocalDrivingLicenseInfoWithFilter1.LicenseCardBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalDrivingLicenseInfoWithFilter1.LicenseCardBorderColor = System.Drawing.Color.Silver;
             this.ctrlLocalDrivingLicenseInfoWithFilter1.LicenseCardBorderThickness = 1;
             this.ctrlLocalDrivingLicenseInfoWithFilter1.Location = new System.Drawing.Point(13, 87);
             this.ctrlLocalDrivingLicenseInfoWithFilter1.Name = "ctrlLocalDrivingLicenseInfoWithFilter1";
@@ -181,7 +181,7 @@
             // pnlApplicationInfo
             // 
             this.pnlApplicationInfo.BackColor = System.Drawing.Color.White;
-            this.pnlApplicationInfo.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlApplicationInfo.BorderColor = System.Drawing.Color.Silver;
             this.pnlApplicationInfo.BorderRadius = 20;
             this.pnlApplicationInfo.BorderThickness = 1;
             this.pnlApplicationInfo.Controls.Add(this.guna2PictureBox2);
@@ -196,11 +196,22 @@
             this.pnlApplicationInfo.Controls.Add(this.lblDetentionDate);
             this.pnlApplicationInfo.Controls.Add(this.lblDetainID);
             this.pnlApplicationInfo.Controls.Add(this.label2);
-            this.pnlApplicationInfo.Location = new System.Drawing.Point(17, 506);
+            this.pnlApplicationInfo.Location = new System.Drawing.Point(19, 506);
             this.pnlApplicationInfo.Name = "pnlApplicationInfo";
             this.pnlApplicationInfo.ShadowDecoration.Parent = this.pnlApplicationInfo;
-            this.pnlApplicationInfo.Size = new System.Drawing.Size(964, 195);
+            this.pnlApplicationInfo.Size = new System.Drawing.Size(962, 195);
             this.pnlApplicationInfo.TabIndex = 17;
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(452, 135);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
+            this.guna2PictureBox2.Size = new System.Drawing.Size(18, 24);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 29;
+            this.guna2PictureBox2.TabStop = false;
             // 
             // tbFineFees
             // 
@@ -221,7 +232,7 @@
             this.tbFineFees.ForeColor = System.Drawing.Color.Black;
             this.tbFineFees.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbFineFees.HoverState.Parent = this.tbFineFees;
-            this.tbFineFees.Location = new System.Drawing.Point(315, 135);
+            this.tbFineFees.Location = new System.Drawing.Point(313, 135);
             this.tbFineFees.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbFineFees.Name = "tbFineFees";
             this.tbFineFees.PasswordChar = '\0';
@@ -239,7 +250,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.DimGray;
-            this.label17.Location = new System.Drawing.Point(646, 107);
+            this.label17.Location = new System.Drawing.Point(645, 107);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(95, 18);
             this.label17.TabIndex = 4;
@@ -252,7 +263,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.DimGray;
-            this.label11.Location = new System.Drawing.Point(156, 107);
+            this.label11.Location = new System.Drawing.Point(155, 107);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(125, 18);
             this.label11.TabIndex = 13;
@@ -265,7 +276,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.DimGray;
-            this.label10.Location = new System.Drawing.Point(649, 74);
+            this.label10.Location = new System.Drawing.Point(648, 74);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(92, 18);
             this.label10.TabIndex = 16;
@@ -278,7 +289,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.DimGray;
-            this.label13.Location = new System.Drawing.Point(173, 74);
+            this.label13.Location = new System.Drawing.Point(172, 74);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(108, 18);
             this.label13.TabIndex = 12;
@@ -291,7 +302,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(197, 140);
+            this.label1.Location = new System.Drawing.Point(196, 140);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 18);
             this.label1.TabIndex = 7;
@@ -304,7 +315,7 @@
             this.lblCreatedByUser.AutoSize = true;
             this.lblCreatedByUser.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCreatedByUser.ForeColor = System.Drawing.Color.Black;
-            this.lblCreatedByUser.Location = new System.Drawing.Point(769, 107);
+            this.lblCreatedByUser.Location = new System.Drawing.Point(768, 107);
             this.lblCreatedByUser.Name = "lblCreatedByUser";
             this.lblCreatedByUser.Size = new System.Drawing.Size(27, 18);
             this.lblCreatedByUser.TabIndex = 20;
@@ -316,7 +327,7 @@
             this.lblLicenseID.AutoSize = true;
             this.lblLicenseID.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLicenseID.ForeColor = System.Drawing.Color.Black;
-            this.lblLicenseID.Location = new System.Drawing.Point(769, 74);
+            this.lblLicenseID.Location = new System.Drawing.Point(768, 74);
             this.lblLicenseID.Name = "lblLicenseID";
             this.lblLicenseID.Size = new System.Drawing.Size(118, 18);
             this.lblLicenseID.TabIndex = 18;
@@ -328,7 +339,7 @@
             this.lblDetentionDate.AutoSize = true;
             this.lblDetentionDate.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDetentionDate.ForeColor = System.Drawing.Color.Black;
-            this.lblDetentionDate.Location = new System.Drawing.Point(316, 107);
+            this.lblDetentionDate.Location = new System.Drawing.Point(315, 107);
             this.lblDetentionDate.Name = "lblDetentionDate";
             this.lblDetentionDate.Size = new System.Drawing.Size(27, 18);
             this.lblDetentionDate.TabIndex = 17;
@@ -340,7 +351,7 @@
             this.lblDetainID.AutoSize = true;
             this.lblDetainID.Font = new System.Drawing.Font("Tahoma", 10.18868F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDetainID.ForeColor = System.Drawing.Color.Black;
-            this.lblDetainID.Location = new System.Drawing.Point(316, 74);
+            this.lblDetainID.Location = new System.Drawing.Point(315, 74);
             this.lblDetainID.Name = "lblDetainID";
             this.lblDetainID.Size = new System.Drawing.Size(121, 18);
             this.lblDetainID.TabIndex = 25;
@@ -413,17 +424,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // guna2PictureBox2
-            // 
-            this.guna2PictureBox2.Image = global::PresentationLayer.Properties.Resources.Saudi_Riyal_Symbol1;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(452, 135);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
-            this.guna2PictureBox2.Size = new System.Drawing.Size(18, 24);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox2.TabIndex = 29;
-            this.guna2PictureBox2.TabStop = false;
-            // 
             // frmDetainLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -440,8 +440,8 @@
             this.guna2ShadowPanel1.PerformLayout();
             this.pnlApplicationInfo.ResumeLayout(false);
             this.pnlApplicationInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }

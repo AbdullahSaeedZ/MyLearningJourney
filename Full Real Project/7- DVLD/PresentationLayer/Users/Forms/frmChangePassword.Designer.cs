@@ -75,7 +75,7 @@
             // 
             // guna2Panel1
             // 
-            this.guna2Panel1.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2Panel1.BorderColor = System.Drawing.Color.Silver;
             this.guna2Panel1.BorderRadius = 20;
             this.guna2Panel1.BorderThickness = 1;
             this.guna2Panel1.Controls.Add(this.tbCurrentPassword);
@@ -334,10 +334,10 @@
             // 
             this.ctrlUserCard1.BackColor = System.Drawing.Color.White;
             this.ctrlUserCard1.Location = new System.Drawing.Point(12, 47);
-            this.ctrlUserCard1.LoginInfoCardBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlUserCard1.LoginInfoCardBorderColor = System.Drawing.Color.Silver;
             this.ctrlUserCard1.LoginInfoCardBorderThickness = 1;
             this.ctrlUserCard1.Name = "ctrlUserCard1";
-            this.ctrlUserCard1.PersonCardBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlUserCard1.PersonCardBorderColor = System.Drawing.Color.Silver;
             this.ctrlUserCard1.PersonCardBorderThickness = 1;
             this.ctrlUserCard1.Size = new System.Drawing.Size(846, 449);
             this.ctrlUserCard1.TabIndex = 9;

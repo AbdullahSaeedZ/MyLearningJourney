@@ -24,7 +24,7 @@ namespace PresentationLayer.LoginForm
             {
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
             if (clsGlobal.CurrentUser == null)
                 return;
 
@@ -81,6 +81,9 @@ namespace PresentationLayer.LoginForm
             this.Hide();
             main.ShowDialog(); // dialog to wait for main form to close then continue to next line
             this.Show(); // once logged out from Main form, this will unhide instead of new object created in memory
+            tbUsername.Text = "";
+            tbPassword.Text = "";
+            chbKeepMeLoggedIn.Checked = false;
         }
 
         private void btnShowHidePassword_Click(object sender, EventArgs e)
@@ -103,11 +106,5 @@ namespace PresentationLayer.LoginForm
             Application.Exit();
         }
 
-        private void frmLogin_Activated(object sender, EventArgs e)
-        {
-            tbUsername.Text = "";
-            tbPassword.Text = "";
-            chbKeepMeLoggedIn.Checked = false;
-        }
     } 
 }

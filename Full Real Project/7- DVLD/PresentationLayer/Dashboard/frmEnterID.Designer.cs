@@ -32,8 +32,8 @@
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.guna2Panel8 = new Guna.UI2.WinForms.Guna2Panel();
             this.tbID = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblEnterID = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.btnSearch = new Guna.UI2.WinForms.Guna2Button();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -48,7 +48,7 @@
             // 
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
             this.guna2ShadowPanel1.Controls.Add(this.guna2Panel8);
-            this.guna2ShadowPanel1.Controls.Add(this.label1);
+            this.guna2ShadowPanel1.Controls.Add(this.lblTitle);
             this.guna2ShadowPanel1.Controls.Add(this.btnCancel);
             this.guna2ShadowPanel1.Controls.Add(this.btnSearch);
             this.guna2ShadowPanel1.Controls.Add(this.ControlBoxClose);
@@ -68,12 +68,12 @@
             this.guna2Panel8.BorderRadius = 10;
             this.guna2Panel8.BorderThickness = 1;
             this.guna2Panel8.Controls.Add(this.tbID);
-            this.guna2Panel8.Controls.Add(this.label6);
+            this.guna2Panel8.Controls.Add(this.lblEnterID);
             this.guna2Panel8.FillColor = System.Drawing.Color.White;
-            this.guna2Panel8.Location = new System.Drawing.Point(18, 63);
+            this.guna2Panel8.Location = new System.Drawing.Point(12, 63);
             this.guna2Panel8.Name = "guna2Panel8";
             this.guna2Panel8.ShadowDecoration.Parent = this.guna2Panel8;
-            this.guna2Panel8.Size = new System.Drawing.Size(400, 82);
+            this.guna2Panel8.Size = new System.Drawing.Size(409, 82);
             this.guna2Panel8.TabIndex = 11;
             // 
             // tbID
@@ -95,7 +95,7 @@
             this.tbID.ForeColor = System.Drawing.Color.Black;
             this.tbID.HoverState.BorderColor = System.Drawing.Color.DimGray;
             this.tbID.HoverState.Parent = this.tbID;
-            this.tbID.Location = new System.Drawing.Point(136, 28);
+            this.tbID.Location = new System.Drawing.Point(104, 36);
             this.tbID.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbID.Name = "tbID";
             this.tbID.PasswordChar = '\0';
@@ -109,29 +109,29 @@
             this.tbID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbID_KeyPress);
             this.tbID.Validating += new System.ComponentModel.CancelEventHandler(this.tbID_Validating);
             // 
-            // label6
+            // lblEnterID
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.DimGray;
-            this.label6.Location = new System.Drawing.Point(32, 28);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 23);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Enter ID:";
+            this.lblEnterID.AutoSize = true;
+            this.lblEnterID.BackColor = System.Drawing.Color.Transparent;
+            this.lblEnterID.Font = new System.Drawing.Font("Tahoma", 10.22642F, System.Drawing.FontStyle.Bold);
+            this.lblEnterID.ForeColor = System.Drawing.Color.DimGray;
+            this.lblEnterID.Location = new System.Drawing.Point(100, 14);
+            this.lblEnterID.Name = "lblEnterID";
+            this.lblEnterID.Size = new System.Drawing.Size(83, 19);
+            this.lblEnterID.TabIndex = 0;
+            this.lblEnterID.Text = "Enter ID:";
             // 
-            // label1
+            // lblTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(160, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Show Info";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitle.Font = new System.Drawing.Font("Tahoma", 12.22642F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.DimGray;
+            this.lblTitle.Location = new System.Drawing.Point(160, 18);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(109, 23);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Show Info";
             // 
             // btnCancel
             // 
@@ -232,10 +232,10 @@
         private Guna.UI2.WinForms.Guna2ControlBox ControlBoxClose;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel8;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblEnterID;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
         private Guna.UI2.WinForms.Guna2TextBox tbID;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

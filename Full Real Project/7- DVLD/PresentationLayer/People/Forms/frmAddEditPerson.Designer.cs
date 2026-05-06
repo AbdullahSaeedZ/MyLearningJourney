@@ -85,7 +85,7 @@
             this.ControlBoxClose.Name = "ControlBoxClose";
             this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
             this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
-            this.ControlBoxClose.TabIndex = 1;
+            this.ControlBoxClose.TabIndex = 44;
             this.ControlBoxClose.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // guna2Panel1
@@ -129,7 +129,7 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
             this.guna2Panel1.Size = new System.Drawing.Size(630, 650);
-            this.guna2Panel1.TabIndex = 2;
+            this.guna2Panel1.TabIndex = 19;
             // 
             // rbFemale
             // 
@@ -143,7 +143,7 @@
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.ShadowDecoration.Parent = this.rbFemale;
             this.rbFemale.Size = new System.Drawing.Size(20, 20);
-            this.rbFemale.TabIndex = 10;
+            this.rbFemale.TabIndex = 11;
             this.rbFemale.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rbFemale.UncheckedState.BorderThickness = 2;
             this.rbFemale.UncheckedState.FillColor = System.Drawing.Color.Transparent;
@@ -162,7 +162,7 @@
             this.rbMale.Name = "rbMale";
             this.rbMale.ShadowDecoration.Parent = this.rbMale;
             this.rbMale.Size = new System.Drawing.Size(20, 20);
-            this.rbMale.TabIndex = 9;
+            this.rbMale.TabIndex = 10;
             this.rbMale.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.rbMale.UncheckedState.BorderThickness = 2;
             this.rbMale.UncheckedState.FillColor = System.Drawing.Color.Transparent;
@@ -190,7 +190,7 @@
             this.cbCountry.Name = "cbCountry";
             this.cbCountry.ShadowDecoration.Parent = this.cbCountry;
             this.cbCountry.Size = new System.Drawing.Size(282, 36);
-            this.cbCountry.TabIndex = 7;
+            this.cbCountry.TabIndex = 9;
             // 
             // dtpBirthDate
             // 
@@ -210,7 +210,7 @@
             this.dtpBirthDate.Name = "dtpBirthDate";
             this.dtpBirthDate.ShadowDecoration.Parent = this.dtpBirthDate;
             this.dtpBirthDate.Size = new System.Drawing.Size(282, 36);
-            this.dtpBirthDate.TabIndex = 5;
+            this.dtpBirthDate.TabIndex = 8;
             this.dtpBirthDate.Value = new System.DateTime(2026, 2, 26, 7, 25, 36, 174);
             // 
             // label6
@@ -222,7 +222,7 @@
             this.label6.Location = new System.Drawing.Point(322, 128);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(112, 18);
-            this.label6.TabIndex = 10;
+            this.label6.TabIndex = 21;
             this.label6.Text = "Second Name *";
             // 
             // label10
@@ -234,7 +234,7 @@
             this.label10.Location = new System.Drawing.Point(321, 267);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(104, 18);
-            this.label10.TabIndex = 10;
+            this.label10.TabIndex = 21;
             this.label10.Text = "Date of Birth *";
             // 
             // label11
@@ -246,7 +246,7 @@
             this.label11.Location = new System.Drawing.Point(321, 334);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(72, 18);
-            this.label11.TabIndex = 10;
+            this.label11.TabIndex = 21;
             this.label11.Text = "Country *";
             // 
             // label12
@@ -258,7 +258,7 @@
             this.label12.Location = new System.Drawing.Point(18, 472);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(73, 18);
-            this.label12.TabIndex = 10;
+            this.label12.TabIndex = 21;
             this.label12.Text = "Address *";
             // 
             // label5
@@ -270,7 +270,7 @@
             this.label5.Location = new System.Drawing.Point(18, 404);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 18);
-            this.label5.TabIndex = 10;
+            this.label5.TabIndex = 21;
             this.label5.Text = "Phone *";
             // 
             // label9
@@ -282,7 +282,7 @@
             this.label9.Location = new System.Drawing.Point(18, 334);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(110, 18);
-            this.label9.TabIndex = 10;
+            this.label9.TabIndex = 21;
             this.label9.Text = "Email (Optional)";
             // 
             // label8
@@ -293,9 +293,9 @@
             this.label8.ForeColor = System.Drawing.Color.DimGray;
             this.label8.Location = new System.Drawing.Point(19, 266);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 18);
-            this.label8.TabIndex = 10;
-            this.label8.Text = "National ID *";
+            this.label8.Size = new System.Drawing.Size(129, 18);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "National Number *";
             // 
             // label4
             // 
@@ -306,7 +306,7 @@
             this.label4.Location = new System.Drawing.Point(321, 195);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(92, 18);
-            this.label4.TabIndex = 10;
+            this.label4.TabIndex = 21;
             this.label4.Text = "Last Name *";
             // 
             // label3
@@ -318,7 +318,7 @@
             this.label3.Location = new System.Drawing.Point(18, 195);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(154, 18);
-            this.label3.TabIndex = 10;
+            this.label3.TabIndex = 21;
             this.label3.Text = "Third Name (Optional)";
             // 
             // label2
@@ -330,7 +330,7 @@
             this.label2.Location = new System.Drawing.Point(18, 128);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 18);
-            this.label2.TabIndex = 10;
+            this.label2.TabIndex = 21;
             this.label2.Text = "First Name *";
             // 
             // lblFormTitle
@@ -342,7 +342,7 @@
             this.lblFormTitle.Location = new System.Drawing.Point(18, 15);
             this.lblFormTitle.Name = "lblFormTitle";
             this.lblFormTitle.Size = new System.Drawing.Size(167, 23);
-            this.lblFormTitle.TabIndex = 10;
+            this.lblFormTitle.TabIndex = 21;
             this.lblFormTitle.Text = "Add New Person";
             // 
             // lblFemaleRb
@@ -354,7 +354,7 @@
             this.lblFemaleRb.Location = new System.Drawing.Point(519, 442);
             this.lblFemaleRb.Name = "lblFemaleRb";
             this.lblFemaleRb.Size = new System.Drawing.Size(55, 18);
-            this.lblFemaleRb.TabIndex = 10;
+            this.lblFemaleRb.TabIndex = 55;
             this.lblFemaleRb.Text = "Female";
             // 
             // lblMaleRb
@@ -366,7 +366,7 @@
             this.lblMaleRb.Location = new System.Drawing.Point(378, 442);
             this.lblMaleRb.Name = "lblMaleRb";
             this.lblMaleRb.Size = new System.Drawing.Size(38, 18);
-            this.lblMaleRb.TabIndex = 10;
+            this.lblMaleRb.TabIndex = 21;
             this.lblMaleRb.Text = "Male";
             // 
             // lblPersonID
@@ -420,7 +420,7 @@
             this.tbAddress.SelectedText = "";
             this.tbAddress.ShadowDecoration.Parent = this.tbAddress;
             this.tbAddress.Size = new System.Drawing.Size(586, 83);
-            this.tbAddress.TabIndex = 11;
+            this.tbAddress.TabIndex = 7;
             this.tbAddress.Validating += new System.ComponentModel.CancelEventHandler(this.EmptyTextBox_Validating);
             // 
             // tbSecondName
@@ -479,7 +479,7 @@
             this.tbPhone.SelectedText = "";
             this.tbPhone.ShadowDecoration.Parent = this.tbPhone;
             this.tbPhone.Size = new System.Drawing.Size(282, 37);
-            this.tbPhone.TabIndex = 8;
+            this.tbPhone.TabIndex = 6;
             this.tbPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPhone_KeyPress);
             this.tbPhone.Validating += new System.ComponentModel.CancelEventHandler(this.EmptyTextBox_Validating);
             // 
@@ -509,7 +509,7 @@
             this.tbEmail.SelectedText = "";
             this.tbEmail.ShadowDecoration.Parent = this.tbEmail;
             this.tbEmail.Size = new System.Drawing.Size(282, 37);
-            this.tbEmail.TabIndex = 6;
+            this.tbEmail.TabIndex = 5;
             this.tbEmail.Validating += new System.ComponentModel.CancelEventHandler(this.tbEmail_Validating);
             // 
             // tbNationalNumber
@@ -648,7 +648,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.ShadowDecoration.Parent = this.btnCancel;
             this.btnCancel.Size = new System.Drawing.Size(200, 37);
-            this.btnCancel.TabIndex = 13;
+            this.btnCancel.TabIndex = 14;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -671,7 +671,8 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.ShadowDecoration.Parent = this.btnSave;
             this.btnSave.Size = new System.Drawing.Size(200, 37);
-            this.btnSave.TabIndex = 12;
+            this.btnSave.TabIndex = 15;
+            this.btnSave.TabStop = false;
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -690,7 +691,7 @@
             this.guna2Panel2.Name = "guna2Panel2";
             this.guna2Panel2.ShadowDecoration.Parent = this.guna2Panel2;
             this.guna2Panel2.Size = new System.Drawing.Size(306, 650);
-            this.guna2Panel2.TabIndex = 2;
+            this.guna2Panel2.TabIndex = 24;
             // 
             // btnRemoveImage
             // 
@@ -713,7 +714,7 @@
             this.btnRemoveImage.Name = "btnRemoveImage";
             this.btnRemoveImage.ShadowDecoration.Parent = this.btnRemoveImage;
             this.btnRemoveImage.Size = new System.Drawing.Size(200, 37);
-            this.btnRemoveImage.TabIndex = 15;
+            this.btnRemoveImage.TabIndex = 13;
             this.btnRemoveImage.Text = "Remove Image";
             this.btnRemoveImage.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnRemoveImage.Visible = false;
@@ -740,7 +741,7 @@
             this.btnAddImage.Name = "btnAddImage";
             this.btnAddImage.ShadowDecoration.Parent = this.btnAddImage;
             this.btnAddImage.Size = new System.Drawing.Size(200, 37);
-            this.btnAddImage.TabIndex = 14;
+            this.btnAddImage.TabIndex = 12;
             this.btnAddImage.Text = "Add Image";
             this.btnAddImage.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnAddImage.Click += new System.EventHandler(this.btnAddImage_Click);
@@ -782,7 +783,7 @@
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel1.ShadowDepth = 240;
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(977, 674);
-            this.guna2ShadowPanel1.TabIndex = 3;
+            this.guna2ShadowPanel1.TabIndex = 33;
             // 
             // frmAddEditPerson
             // 
@@ -800,6 +801,7 @@
             this.Name = "frmAddEditPerson";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add \\ Edit Person";
+            this.Activated += new System.EventHandler(this.frmAddEditPerson_Activated);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAddEditPerson_FormClosing);
             this.Load += new System.EventHandler(this.frmAddEditPerson_Load);
             this.guna2Panel1.ResumeLayout(false);

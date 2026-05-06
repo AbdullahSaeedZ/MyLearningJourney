@@ -125,7 +125,7 @@
             // 
             // progbTotalCompletedApplications
             // 
-            this.progbTotalCompletedApplications.AnimationSpeed = 0.1F;
+            this.progbTotalCompletedApplications.AnimationSpeed = 3F;
             this.progbTotalCompletedApplications.BackColor = System.Drawing.Color.Transparent;
             this.progbTotalCompletedApplications.FillThickness = 15;
             this.progbTotalCompletedApplications.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
@@ -472,7 +472,7 @@
             // 
             // progbTotalTestsPassed
             // 
-            this.progbTotalTestsPassed.AnimationSpeed = 0.1F;
+            this.progbTotalTestsPassed.AnimationSpeed = 3F;
             this.progbTotalTestsPassed.BackColor = System.Drawing.Color.Transparent;
             this.progbTotalTestsPassed.FillThickness = 15;
             this.progbTotalTestsPassed.Location = new System.Drawing.Point(424, 33);

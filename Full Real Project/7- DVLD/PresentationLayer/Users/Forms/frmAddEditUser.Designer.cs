@@ -111,16 +111,6 @@
             this.btnBack.Visible = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // ctrlAddEditUserPermissions1
-            // 
-            this.ctrlAddEditUserPermissions1.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlAddEditUserPermissions1.Location = new System.Drawing.Point(3, 168);
-            this.ctrlAddEditUserPermissions1.Name = "ctrlAddEditUserPermissions1";
-            this.ctrlAddEditUserPermissions1.PermissionsCardBorderColor = System.Drawing.Color.Gainsboro;
-            this.ctrlAddEditUserPermissions1.PermissionsCardBorderThickness = 1;
-            this.ctrlAddEditUserPermissions1.Size = new System.Drawing.Size(838, 243);
-            this.ctrlAddEditUserPermissions1.TabIndex = 17;
-            // 
             // pnlLoginInfo
             // 
             this.pnlLoginInfo.BackColor = System.Drawing.Color.White;
@@ -135,10 +125,20 @@
             this.pnlLoginInfo.TabIndex = 16;
             this.pnlLoginInfo.Visible = false;
             // 
+            // ctrlAddEditUserPermissions1
+            // 
+            this.ctrlAddEditUserPermissions1.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlAddEditUserPermissions1.Location = new System.Drawing.Point(3, 168);
+            this.ctrlAddEditUserPermissions1.Name = "ctrlAddEditUserPermissions1";
+            this.ctrlAddEditUserPermissions1.PermissionsCardBorderColor = System.Drawing.Color.Silver;
+            this.ctrlAddEditUserPermissions1.PermissionsCardBorderThickness = 1;
+            this.ctrlAddEditUserPermissions1.Size = new System.Drawing.Size(838, 243);
+            this.ctrlAddEditUserPermissions1.TabIndex = 17;
+            // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.White;
-            this.guna2Panel1.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2Panel1.BorderColor = System.Drawing.Color.Silver;
             this.guna2Panel1.BorderRadius = 20;
             this.guna2Panel1.BorderThickness = 1;
             this.guna2Panel1.Controls.Add(this.btnShowHidePassword2);
@@ -464,9 +464,9 @@
             // ctrlPersonCardWithSearch1
             // 
             this.ctrlPersonCardWithSearch1.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlPersonCardWithSearch1.CardBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlPersonCardWithSearch1.CardBorderColor = System.Drawing.Color.Silver;
             this.ctrlPersonCardWithSearch1.CardBorderThickness = 1;
-            this.ctrlPersonCardWithSearch1.FilterBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlPersonCardWithSearch1.FilterBorderColor = System.Drawing.Color.Silver;
             this.ctrlPersonCardWithSearch1.FilterBorderThickness = 1;
             this.ctrlPersonCardWithSearch1.FilterEnabled = true;
             this.ctrlPersonCardWithSearch1.FilterVisible = true;

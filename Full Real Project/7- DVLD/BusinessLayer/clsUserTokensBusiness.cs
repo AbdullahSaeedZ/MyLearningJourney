@@ -19,7 +19,7 @@ namespace BusinessLayer
         {
             this.TokenID = -1;
             this.UserID = -1;
-            this.TokenValue = Guid.NewGuid().ToString().Replace("-", "").ToLower(); ;
+            this.TokenValue = Guid.NewGuid().ToString().Replace("-", "").ToLower();
             this.CreatedDate = DateTime.MinValue;
             this.ExpirationDate = DateTime.MinValue;
             this._mode = enMode.eAddMode;

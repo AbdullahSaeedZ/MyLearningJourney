@@ -42,6 +42,45 @@ namespace DataAccessLayer
             return isFound;
         }
 
+        public static bool FindByTestAppointmentID(int TestAppointmentID, ref int TestID, ref bool TestResult, ref string Notes, ref int CreatedByUserID)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.connectionString))
+                {
+                    string query = "select * from Tests where TestAppointmentID = @AppID;";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@AppID", TestAppointmentID);
+                        connection.Open();
+
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                TestID = (int)reader["TestID"];
+                                TestResult = (bool)reader["TestResult"];
+                                Notes = reader["Notes"] == DBNull.Value ? "" : (string)reader["Notes"];
+                                CreatedByUserID = (int)reader["CreatedByUserID"];
+
+                                isFound = true;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+
+            return isFound;
+        }
+
+
         public static bool FindLastTestPerPersonAndLicenseClass(int ApplicantPersonID, byte LicenseClassID, int TestTypeID,
                                         ref int TestID, ref int TestAppointmentID, ref bool TestResult, ref string Notes, ref int CreatedByUserID)
         {

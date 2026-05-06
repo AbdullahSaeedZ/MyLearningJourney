@@ -31,8 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.lblDeniedUpdate = new System.Windows.Forms.Label();
+            this.ctrlScheduledTestInfo1 = new PresentationLayer.Applications.TestAppointments.ctrlScheduledTestInfo();
             this.pnlTakeTest = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblDeniedUpdate = new System.Windows.Forms.Label();
             this.tbTestNotes = new Guna.UI2.WinForms.Guna2TextBox();
             this.rbFail = new Guna.UI2.WinForms.Guna2RadioButton();
             this.rbPass = new Guna.UI2.WinForms.Guna2RadioButton();
@@ -42,7 +43,6 @@
             this.btnClose = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.ctrlScheduledTestInfo1 = new PresentationLayer.Applications.TestAppointments.ctrlScheduledTestInfo();
             this.guna2ShadowPanel1.SuspendLayout();
             this.pnlTakeTest.SuspendLayout();
             this.SuspendLayout();
@@ -70,24 +70,18 @@
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(814, 594);
             this.guna2ShadowPanel1.TabIndex = 7;
             // 
-            // lblDeniedUpdate
+            // ctrlScheduledTestInfo1
             // 
-            this.lblDeniedUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblDeniedUpdate.AutoSize = true;
-            this.lblDeniedUpdate.Font = new System.Drawing.Font("Tahoma", 11.18868F, System.Drawing.FontStyle.Bold);
-            this.lblDeniedUpdate.ForeColor = System.Drawing.Color.Red;
-            this.lblDeniedUpdate.Location = new System.Drawing.Point(163, 18);
-            this.lblDeniedUpdate.Name = "lblDeniedUpdate";
-            this.lblDeniedUpdate.Size = new System.Drawing.Size(503, 21);
-            this.lblDeniedUpdate.TabIndex = 15;
-            this.lblDeniedUpdate.Text = "Person has performed the test, cannot change test result.";
-            this.lblDeniedUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblDeniedUpdate.Visible = false;
+            this.ctrlScheduledTestInfo1.BackColor = System.Drawing.Color.White;
+            this.ctrlScheduledTestInfo1.Location = new System.Drawing.Point(11, 36);
+            this.ctrlScheduledTestInfo1.Name = "ctrlScheduledTestInfo1";
+            this.ctrlScheduledTestInfo1.Size = new System.Drawing.Size(791, 369);
+            this.ctrlScheduledTestInfo1.TabIndex = 14;
             // 
             // pnlTakeTest
             // 
             this.pnlTakeTest.BackColor = System.Drawing.Color.White;
-            this.pnlTakeTest.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlTakeTest.BorderColor = System.Drawing.Color.Silver;
             this.pnlTakeTest.BorderRadius = 15;
             this.pnlTakeTest.BorderThickness = 1;
             this.pnlTakeTest.Controls.Add(this.lblDeniedUpdate);
@@ -103,6 +97,20 @@
             this.pnlTakeTest.ShadowDecoration.Parent = this.pnlTakeTest;
             this.pnlTakeTest.Size = new System.Drawing.Size(784, 114);
             this.pnlTakeTest.TabIndex = 13;
+            // 
+            // lblDeniedUpdate
+            // 
+            this.lblDeniedUpdate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDeniedUpdate.AutoSize = true;
+            this.lblDeniedUpdate.Font = new System.Drawing.Font("Tahoma", 11.18868F, System.Drawing.FontStyle.Bold);
+            this.lblDeniedUpdate.ForeColor = System.Drawing.Color.Red;
+            this.lblDeniedUpdate.Location = new System.Drawing.Point(163, 18);
+            this.lblDeniedUpdate.Name = "lblDeniedUpdate";
+            this.lblDeniedUpdate.Size = new System.Drawing.Size(503, 21);
+            this.lblDeniedUpdate.TabIndex = 15;
+            this.lblDeniedUpdate.Text = "Person has performed the test, cannot change test result.";
+            this.lblDeniedUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblDeniedUpdate.Visible = false;
             // 
             // tbTestNotes
             // 
@@ -276,14 +284,6 @@
             this.ControlBoxClose.ShadowDecoration.Parent = this.ControlBoxClose;
             this.ControlBoxClose.Size = new System.Drawing.Size(45, 29);
             this.ControlBoxClose.TabIndex = 9;
-            // 
-            // ctrlScheduledTestInfo1
-            // 
-            this.ctrlScheduledTestInfo1.BackColor = System.Drawing.Color.White;
-            this.ctrlScheduledTestInfo1.Location = new System.Drawing.Point(11, 36);
-            this.ctrlScheduledTestInfo1.Name = "ctrlScheduledTestInfo1";
-            this.ctrlScheduledTestInfo1.Size = new System.Drawing.Size(791, 369);
-            this.ctrlScheduledTestInfo1.TabIndex = 14;
             // 
             // frmTakeTest
             // 

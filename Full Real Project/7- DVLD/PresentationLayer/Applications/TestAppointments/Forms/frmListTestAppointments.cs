@@ -84,7 +84,18 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
                 return;
             else
             {
-                if ((bool)dgvTestAppointments.CurrentRow.Cells[3].Value == true)
+                int SelectedAppointmentID = (int)dgvTestAppointments.CurrentRow.Cells[0].Value;
+                bool IsAppointmentLocked = (bool)dgvTestAppointments.CurrentRow.Cells[3].Value == true;
+
+                clsTestsBusiness test = clsTestsBusiness.FindByTestAppointmentID(SelectedAppointmentID);
+                if (test == null)
+                {
+                    takeTestToolStripMenuItem.Text = "Take Test (Appointment Missed)";
+                    takeTestToolStripMenuItem.Enabled = false;
+                    return;
+                }
+
+                if (IsAppointmentLocked)
                     takeTestToolStripMenuItem.Text = "Show Taken Test Info";
                 else
                     takeTestToolStripMenuItem.Text = "Take Test";

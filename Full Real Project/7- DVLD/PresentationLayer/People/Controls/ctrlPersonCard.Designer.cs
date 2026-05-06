@@ -321,7 +321,7 @@
             // 
             // pnlFullBorder
             // 
-            this.pnlFullBorder.BorderColor = System.Drawing.Color.Gainsboro;
+            this.pnlFullBorder.BorderColor = System.Drawing.Color.Silver;
             this.pnlFullBorder.BorderRadius = 15;
             this.pnlFullBorder.Controls.Add(this.lblPersonID);
             this.pnlFullBorder.Controls.Add(this.lblAddress);

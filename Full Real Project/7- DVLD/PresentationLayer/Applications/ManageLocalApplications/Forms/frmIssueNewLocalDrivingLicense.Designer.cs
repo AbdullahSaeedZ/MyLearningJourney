@@ -115,7 +115,7 @@
             // guna2Panel3
             // 
             this.guna2Panel3.BackColor = System.Drawing.Color.White;
-            this.guna2Panel3.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2Panel3.BorderColor = System.Drawing.Color.Silver;
             this.guna2Panel3.BorderRadius = 15;
             this.guna2Panel3.BorderThickness = 1;
             this.guna2Panel3.Controls.Add(this.tbNotes);
@@ -184,9 +184,9 @@
             // ctrlLocalApplicationInfo1
             // 
             this.ctrlLocalApplicationInfo1.BackColor = System.Drawing.Color.White;
-            this.ctrlLocalApplicationInfo1.BasicApplicationBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalApplicationInfo1.BasicApplicationBorderColor = System.Drawing.Color.Silver;
             this.ctrlLocalApplicationInfo1.BasicApplicationBorderThickness = 1;
-            this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderColor = System.Drawing.Color.Gainsboro;
+            this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderColor = System.Drawing.Color.Silver;
             this.ctrlLocalApplicationInfo1.DrivingLicenseApplicationBorderThickness = 1;
             this.ctrlLocalApplicationInfo1.Location = new System.Drawing.Point(13, 71);
             this.ctrlLocalApplicationInfo1.Name = "ctrlLocalApplicationInfo1";

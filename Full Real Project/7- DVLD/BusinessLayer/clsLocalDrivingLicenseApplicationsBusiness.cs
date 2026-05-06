@@ -110,7 +110,6 @@ namespace BusinessLayer
             return clsLocalDrivingLicenseApplicationsDataAccess.UpdateLocalLicenseApplication(this.LocalDrivingLicenseApplicationID, (byte)this.LicenseClassID);
         }
 
-        // override incase of upcasting multiple applications in a list then do a loop (like in IT401)
         public bool DeleteApplication(clsUserBusiness CurrentUser)
         {
             if (!CurrentUser.HasPermission(clsBusinessSettings.enPermissions.eDeleteApplications))
@@ -132,7 +131,7 @@ namespace BusinessLayer
             return clsLocalDrivingLicenseApplicationsDataAccess.GetAllLocalDrivingLicenseApplications();
         }
 
-        public bool Save(clsUserBusiness CurrentUser) // override base Save method
+        public bool Save(clsUserBusiness CurrentUser)
         {
             if (base.Save()) // adding or updating the baseApplication first then do the derived application
             {
@@ -170,14 +169,13 @@ namespace BusinessLayer
             return clsLocalDrivingLicenseApplicationsDataAccess.GetActiveLocalApplicationID(ApplicantPersonID, (byte)LicenseClassID);
         }
 
-        // if issuing license replacements is not linked to local driiving applications, then see where this method fits 
         public int IssueNewLicense(string Notes, clsUserBusiness CreatedByUser)
         {
-            if (this.TestsStatus.PassedTestsCount < 3 || IsLicenseIssued())
-                return -1;
-
             if (!CreatedByUser.HasPermission(clsBusinessSettings.enPermissions.eIssueLicense))
                 throw new UnauthorizedAccessException("You do not have permission to issue licenses");
+
+            if (this.TestsStatus.PassedTestsCount < 3 || IsLicenseIssued())
+                return -1;
 
             // we check if person is listed as driver, cuz person can be listed as driver only once in the system
             // if person is already a driver, then use his driver id in the new license (licenses of different class for one driver)

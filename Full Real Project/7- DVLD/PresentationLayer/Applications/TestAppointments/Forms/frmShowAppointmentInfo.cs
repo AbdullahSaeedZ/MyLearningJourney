@@ -42,7 +42,7 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
 
             lblAppointmentID.Text = _TestAppointment.TestAppointmentID.ToString();
             lblLocalApplicationID.Text = _LocalApplication.LocalDrivingLicenseApplicationID.ToString();
-            lblAppointmentDate.Text = _TestAppointment.AppointmentDate.ToShortDateString();
+            lblAppointmentDate.Text = _TestAppointment.AppointmentDate.ToString();
             lblLicenseDrivingClass.Text = _LocalApplication.LicenseClassInfo.ClassName;
             lblApplicantName.Text = _LocalApplication.ApplicantPersonInfo.FullName;
 

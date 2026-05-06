@@ -22,6 +22,10 @@ namespace PresentationLayer.Dashboard
 
         private void frmEnterID_Activated(object sender, EventArgs e)
         {
+            if (_Mode == enInfoMode.eApplicationInfo)
+                lblEnterID.Text = "Application ID:";
+            else
+                lblEnterID.Text = "License ID:";
             tbID.Focus();
         }
 
