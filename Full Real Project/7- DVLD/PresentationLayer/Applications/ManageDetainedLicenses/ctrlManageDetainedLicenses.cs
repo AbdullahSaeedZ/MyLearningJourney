@@ -81,6 +81,8 @@ namespace PresentationLayer.Applications.ManageDetainedLicenses
         }
         private void cbIsReleased_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (dt == null) return;
+
             if (cbIsReleased.Text == "All")
             {
                 dt.DefaultView.RowFilter = "";

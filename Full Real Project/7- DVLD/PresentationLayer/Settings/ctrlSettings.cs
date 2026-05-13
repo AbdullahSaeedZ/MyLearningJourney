@@ -154,7 +154,7 @@ namespace PresentationLayer.Settings
 
         private void btnAddImage_Click(object sender, EventArgs e)
         {
-            openFileDialog1.InitialDirectory = @"D:\"; // which folder or place to show when dialog opens
+            openFileDialog1.FileName = "Profile_Pic";
             openFileDialog1.Title = "Choose a Profile Picture";
             openFileDialog1.DefaultExt = "png"; // default extension of file to be saved, user just enters file name then .txt will be attached to it
             openFileDialog1.Filter = "Image Files|*.png;*.jpeg;*.jpg;*.gif";

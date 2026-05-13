@@ -107,6 +107,7 @@
             this.btnClose.Size = new System.Drawing.Size(119, 37);
             this.btnClose.TabIndex = 10;
             this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // guna2ControlBox1
             // 

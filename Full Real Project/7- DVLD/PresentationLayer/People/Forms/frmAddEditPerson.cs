@@ -100,7 +100,7 @@ namespace PresentationLayer.PeopleFormsAndControls
             }
         }
 
-
+        
         private void _HandlePersonImage()
         {
             string oldPath = string.IsNullOrEmpty(person.ImagePath) ? "" : person.ImagePath; // if empty means no pic before
@@ -130,7 +130,7 @@ namespace PresentationLayer.PeopleFormsAndControls
         {
              if (!this.ValidateChildren()) // runs all validations linked to the error Provider
              {
-                 MessageBox.Show("Fields with * must be filled with valid data and not empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                 MessageBox.Show("Fields with * must be filled with valid data", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                  return;
              }
 
@@ -166,7 +166,7 @@ namespace PresentationLayer.PeopleFormsAndControls
 
         private void btnAddImage_Click(object sender, EventArgs e)
         {
-            openFileDialog1.InitialDirectory = @"D:\"; // which folder or place to show when dialog opens
+            openFileDialog1.FileName = "Profile_Pic";
             openFileDialog1.Title = "Choose a Profile Picture";
             openFileDialog1.DefaultExt = "png"; // default extension of file to be saved, user just enters file name then .txt will be attached to it
             openFileDialog1.Filter = "Image Files|*.png;*.jpeg;*.jpg;*.gif";
@@ -290,6 +290,7 @@ namespace PresentationLayer.PeopleFormsAndControls
         private void frmAddEditPerson_Activated(object sender, EventArgs e)
         {
             tbFirstName.Focus();
+            tbFirstName.SelectionStart = tbFirstName.Text.Length;
         }
     }
 }

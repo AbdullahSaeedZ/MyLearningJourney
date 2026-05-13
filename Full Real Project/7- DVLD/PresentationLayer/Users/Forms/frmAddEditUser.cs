@@ -103,8 +103,8 @@ namespace PresentationLayer.UsersFormsAndControls
             if (_mode == enMode.eAddNewMode)
                 _user.PersonID = ctrlPersonCardWithSearch1.PersonID; // will not reach here without a valid personID
 
-            _user.Username = tbUsername.Text.Trim();
-            _user.Password = tbPassword.Text.Trim();
+            _user.Username = string.IsNullOrWhiteSpace(tbUsername.Text) && _mode == enMode.eUpdateMode ? _user.Username : tbUsername.Text.Trim();
+            _user.Password = string.IsNullOrWhiteSpace(tbPassword.Text) && _mode == enMode.eUpdateMode ? _user.Password : tbPassword.Text.Trim();
             _user.isActive = chbIsActive.Checked;
             _user.Permissions = ctrlAddEditUserPermissions1.GetSelectedPermissions();
 
@@ -167,27 +167,17 @@ namespace PresentationLayer.UsersFormsAndControls
         private void tbPassword_Validating(object sender, CancelEventArgs e)
         {
             // emptiness validation
-            if (string.IsNullOrWhiteSpace(tbPassword.Text))
+            if (string.IsNullOrWhiteSpace(tbPassword.Text) && _mode == enMode.eAddNewMode)
             {
                 e.Cancel = true;
                 errorProvider1.SetError(tbPassword, "Field is required!");
                 tbPassword.BorderColor = Color.Red;
-                return;
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider1.SetError(tbPassword, null);
-                tbPassword.BorderColor = Color.Silver;
-            }
-
-            // pattern validation
-            if (!clsBusinessSettings.IsPasswordFormatValid(tbPassword.Text.Trim()))
+            }// pattern validation
+            else if (!string.IsNullOrWhiteSpace(tbPassword.Text) && !clsBusinessSettings.IsPasswordFormatValid(tbPassword.Text.Trim()))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(tbPassword, "Password must include at least: one lowercase, one uppercase, one digit, and one special character (8-20 Length).");
                 tbPassword.BorderColor = Color.Red;
-                return;
             }
             else
             {
@@ -200,22 +190,13 @@ namespace PresentationLayer.UsersFormsAndControls
         private void tbConfirmPassword_Validating(object sender, CancelEventArgs e)
         {
             // emptiness validation
-            if (string.IsNullOrWhiteSpace(tbConfirmPassword.Text))
+            if (string.IsNullOrWhiteSpace(tbConfirmPassword.Text) && !string.IsNullOrWhiteSpace(tbPassword.Text))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(tbConfirmPassword, "Field is required!");
                 tbConfirmPassword.BorderColor = Color.Red;
-                return;
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProvider1.SetError(tbConfirmPassword, null);
-                tbConfirmPassword.BorderColor = Color.Silver;
-            }
-
-            // password matching validation
-            if (tbConfirmPassword.Text.Trim() != tbPassword.Text.Trim())
+            } // password matching validation
+            else if (tbConfirmPassword.Text.Trim() != tbPassword.Text.Trim())
             {
                 e.Cancel = true;
                 errorProvider1.SetError(tbConfirmPassword, "Password does not match!");

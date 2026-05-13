@@ -75,11 +75,9 @@ namespace PresentationLayer.Applications.TestAppointments
                 _FormMode = enMode.eAddMode;
                 _TestAppointment = new clsTestAppointmentsBusiness();
                 lblTestFees.Text = clsTestTypesBusiness.FindTestType(_TestType).TestTypeFees.ToString();
-                dtpAppointmentDate.MinDate = DateTime.Now;
-                dtpAppointmentDate.Value = DateTime.Now;
-                dtpTimePicker.MinDate = DateTime.Now;
-                dtpTimePicker.Value = DateTime.Now;
-
+                dtpAppointmentDate.MinDate = DateTime.Today;
+                dtpAppointmentDate.Value = DateTime.Now.AddMinutes(10);
+                dtpTimePicker.Value = DateTime.Now.AddMinutes(10);
             }
             else
             {
@@ -255,8 +253,14 @@ namespace PresentationLayer.Applications.TestAppointments
             _TestAppointment.CreatedByUserID = clsGlobal.CurrentUser.UserID;
             _TestAppointment.IsLocked = false;
 
-            dtpAppointmentDate.Value = dtpAppointmentDate.Value.Date + dtpTimePicker.Value.TimeOfDay;
-            _TestAppointment.AppointmentDate = dtpAppointmentDate.Value;
+            DateTime selectedAppointmentDate = dtpAppointmentDate.Value.Date + dtpTimePicker.Value.TimeOfDay;
+            if (selectedAppointmentDate < DateTime.Now)
+            {
+                MessageBox.Show("Selected time cannot be in the past", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            _TestAppointment.AppointmentDate = selectedAppointmentDate;
 
             if (_TestAppointment.Save())
             {

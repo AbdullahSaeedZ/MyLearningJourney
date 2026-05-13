@@ -197,7 +197,7 @@
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkGray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvTestAppointments.DefaultCellStyle = dataGridViewCellStyle3;
@@ -241,7 +241,7 @@
             this.dgvTestAppointments.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
             this.dgvTestAppointments.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.dgvTestAppointments.ThemeStyle.RowsStyle.Height = 30;
-            this.dgvTestAppointments.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.DarkGray;
+            this.dgvTestAppointments.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.Gray;
             this.dgvTestAppointments.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
             // 
             // TestAppointmentID

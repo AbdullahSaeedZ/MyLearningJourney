@@ -60,7 +60,6 @@ namespace PresentationLayer.PeopleFormsAndControls
                 return;
             }
             btnEditInfo.Visible = true;
-            PersonCardUpdated?.Invoke(); // after editPerson is done , this will eventually update DGV
             _FillPersonInfo();
         }
 
@@ -74,7 +73,6 @@ namespace PresentationLayer.PeopleFormsAndControls
                 return;
             }
             btnEditInfo.Visible = true;
-            PersonCardUpdated?.Invoke();
             _FillPersonInfo();
         }
 
@@ -94,7 +92,11 @@ namespace PresentationLayer.PeopleFormsAndControls
 
         }
 
-
+        private void _UpdateDGVandCard(int ID)
+        {
+            LoadInfo(ID); // to update info here in personCard when info is updated in AddEdit form
+            PersonCardUpdated?.Invoke(); // to update dgv in people form
+        }
 
         private void _FillPersonInfo()
         {
@@ -136,7 +138,7 @@ namespace PresentationLayer.PeopleFormsAndControls
                 return;
             }
             frmAddEditPerson editPerson = new frmAddEditPerson(_personID);
-            editPerson.OnUpdateDoneForPersonCard += LoadInfo;// to update info here in personCard when info is updated in AddEdit form
+            editPerson.OnUpdateDoneForPersonCard += _UpdateDGVandCard;
             clsUtilities.AddToBreadcrumb("> Edit Person Info");
             editPerson.ShowDialog();
             clsUtilities.RemoveFromBreadcrumb("> Edit Person Info");

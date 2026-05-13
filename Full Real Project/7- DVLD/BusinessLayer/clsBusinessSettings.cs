@@ -15,25 +15,25 @@ namespace BusinessLayer
         [Flags]
         public enum enPermissions
         {
-            eAll = -1,
-            eNone = 0,
-            eListUsers = 1 << 1,
-            eAddUser = 1 << 2,
-            eUpdateUser = 1 << 3,
-            eDeleteUser = 1 << 4,
-            eListPeople = 1 << 5,
-            eAddPerson = 1 << 6,
-            eUpdatePerson = 1 << 7,
-            eDeletePerson = 1 << 8,
-            eIssueLicense = 1 << 9,
-            eDetainLicense = 1 << 10,
-            eReleaseLicense = 1 << 11,
-            eListApplications = 1 << 12,
-            eAddApplications = 1 << 13,
-            eUpdateApplications = 1 << 14,
-            eDeleteApplications = 1 << 15,
-            eUpdateApplicationType = 1 << 16,
-            eUpdateTestType = 1 << 17
+            eAll = -1,          
+            eNone = 0,          
+            eListUsers = 1 << 0,   
+            eAddUser = 1 << 1,     
+            eUpdateUser = 1 << 2,  
+            eDeleteUser = 1 << 3,  
+            eListPeople = 1 << 4,  
+            eAddPerson = 1 << 5,
+            eUpdatePerson = 1 << 6,
+            eDeletePerson = 1 << 7,
+            eIssueLicense = 1 << 8,
+            eDetainLicense = 1 << 9,
+            eReleaseLicense = 1 << 10,
+            eListApplications = 1 << 11,
+            eAddApplications = 1 << 12,
+            eUpdateApplications = 1 << 13,
+            eDeleteApplications = 1 << 14,
+            eUpdateApplicationType = 1 << 15,
+            eUpdateTestType = 1 << 16
         };
 
         // Add/Edit person form

@@ -88,7 +88,7 @@ namespace PresentationLayer.Applications.TestAppointments.Forms
                 bool IsAppointmentLocked = (bool)dgvTestAppointments.CurrentRow.Cells[3].Value == true;
 
                 clsTestsBusiness test = clsTestsBusiness.FindByTestAppointmentID(SelectedAppointmentID);
-                if (test == null)
+                if (test == null && IsAppointmentLocked)
                 {
                     takeTestToolStripMenuItem.Text = "Take Test (Appointment Missed)";
                     takeTestToolStripMenuItem.Enabled = false;

@@ -38,6 +38,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Separator2 = new Guna.UI2.WinForms.Guna2Separator();
             this.pnlCheckboxes = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.chbListUsers = new Guna.UI2.WinForms.Guna2CheckBox();
             this.chbUpdateUsers = new Guna.UI2.WinForms.Guna2CheckBox();
             this.chbAddNewUsers = new Guna.UI2.WinForms.Guna2CheckBox();
@@ -59,7 +60,6 @@
             this.chbNone = new Guna.UI2.WinForms.Guna2CheckBox();
             this.chbAllPermissions = new Guna.UI2.WinForms.Guna2CheckBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.pnlPermissions.SuspendLayout();
             this.pnlCheckboxes.SuspendLayout();
             this.guna2Panel8.SuspendLayout();
@@ -201,6 +201,14 @@
             this.pnlCheckboxes.Size = new System.Drawing.Size(814, 127);
             this.pnlCheckboxes.TabIndex = 53;
             // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.guna2Separator1.Location = new System.Drawing.Point(472, 59);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(322, 10);
+            this.guna2Separator1.TabIndex = 50;
+            // 
             // chbListUsers
             // 
             this.chbListUsers.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -215,7 +223,7 @@
             this.chbListUsers.Name = "chbListUsers";
             this.chbListUsers.Size = new System.Drawing.Size(81, 20);
             this.chbListUsers.TabIndex = 22;
-            this.chbListUsers.Tag = "1";
+            this.chbListUsers.Tag = "0";
             this.chbListUsers.Text = "List Users";
             this.chbListUsers.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chbListUsers.UncheckedState.BorderRadius = 2;
@@ -237,7 +245,7 @@
             this.chbUpdateUsers.Name = "chbUpdateUsers";
             this.chbUpdateUsers.Size = new System.Drawing.Size(102, 20);
             this.chbUpdateUsers.TabIndex = 25;
-            this.chbUpdateUsers.Tag = "3";
+            this.chbUpdateUsers.Tag = "2";
             this.chbUpdateUsers.Text = "Update Users";
             this.chbUpdateUsers.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chbUpdateUsers.UncheckedState.BorderRadius = 2;
@@ -259,7 +267,7 @@
             this.chbAddNewUsers.Name = "chbAddNewUsers";
             this.chbAddNewUsers.Size = new System.Drawing.Size(84, 20);
             this.chbAddNewUsers.TabIndex = 24;
-            this.chbAddNewUsers.Tag = "2";
+            this.chbAddNewUsers.Tag = "1";
             this.chbAddNewUsers.Text = "Add Users";
             this.chbAddNewUsers.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chbAddNewUsers.UncheckedState.BorderRadius = 2;
@@ -281,7 +289,7 @@
             this.chbDeleteUsers.Name = "chbDeleteUsers";
             this.chbDeleteUsers.Size = new System.Drawing.Size(98, 20);
             this.chbDeleteUsers.TabIndex = 23;
-            this.chbDeleteUsers.Tag = "4";
+            this.chbDeleteUsers.Tag = "3";
             this.chbDeleteUsers.Text = "Delete Users";
             this.chbDeleteUsers.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chbDeleteUsers.UncheckedState.BorderRadius = 2;
@@ -303,7 +311,7 @@
             this.chbUpdateTestTypes.Name = "chbUpdateTestTypes";
             this.chbUpdateTestTypes.Size = new System.Drawing.Size(133, 20);
             this.chbUpdateTestTypes.TabIndex = 43;
-            this.chbUpdateTestTypes.Tag = "17";
+            this.chbUpdateTestTypes.Tag = "16";
             this.chbUpdateTestTypes.Text = "Update Test Types";
             this.chbUpdateTestTypes.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chbUpdateTestTypes.UncheckedState.BorderRadius = 2;
@@ -325,7 +333,7 @@
             this.chbAddNewPeople.Name = "chbAddNewPeople";
             this.chbAddNewPeople.Size = new System.Drawing.Size(90, 20);
             this.chbAddNewPeople.TabIndex = 35;
-            this.chbAddNewPeople.Tag = "6";
+            this.chbAddNewPeople.Tag = "5";
             this.chbAddNewPeople.Text = "Add People";
             this.chbAddNewPeople.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chbAddNewPeople.UncheckedState.BorderRadius = 2;
@@ -347,7 +355,7 @@
             this.chbDeleteApplications.Name = "chbDeleteApplications";
             this.chbDeleteApplications.Size = new System.Drawing.Size(134, 20);
             this.chbDeleteApplications.TabIndex = 44;
-            this.chbDeleteApplications.Tag = "15";
+            this.chbDeleteApplications.Tag = "14";
             this.chbDeleteApplications.Text = "Delete Applications";
             this.chbDeleteApplications.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chbDeleteApplications.UncheckedState.BorderRadius = 2;
@@ -369,7 +377,7 @@
             this.chbUpdatePeople.Name = "chbUpdatePeople";
             this.chbUpdatePeople.Size = new System.Drawing.Size(108, 20);
             this.chbUpdatePeople.TabIndex = 34;
-            this.chbUpdatePeople.Tag = "7";
+            this.chbUpdatePeople.Tag = "6";
             this.chbUpdatePeople.Text = "Update People";
             this.chbUpdatePeople.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chbUpdatePeople.UncheckedState.BorderRadius = 2;
@@ -391,7 +399,7 @@
             this.chbListApplications.Name = "chbListApplications";
             this.chbListApplications.Size = new System.Drawing.Size(117, 20);
             this.chbListApplications.TabIndex = 45;
-            this.chbListApplications.Tag = "12";
+            this.chbListApplications.Tag = "11";
             this.chbListApplications.Text = "List Applications";
             this.chbListApplications.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chbListApplications.UncheckedState.BorderRadius = 2;
@@ -413,7 +421,7 @@
             this.chbListPeople.Name = "chbListPeople";
             this.chbListPeople.Size = new System.Drawing.Size(87, 20);
             this.chbListPeople.TabIndex = 33;
-            this.chbListPeople.Tag = "5";
+            this.chbListPeople.Tag = "4";
             this.chbListPeople.Text = "List People";
             this.chbListPeople.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chbListPeople.UncheckedState.BorderRadius = 2;
@@ -435,7 +443,7 @@
             this.chbUpdateApplicationTypes.Name = "chbUpdateApplicationTypes";
             this.chbUpdateApplicationTypes.Size = new System.Drawing.Size(170, 20);
             this.chbUpdateApplicationTypes.TabIndex = 46;
-            this.chbUpdateApplicationTypes.Tag = "16";
+            this.chbUpdateApplicationTypes.Tag = "15";
             this.chbUpdateApplicationTypes.Text = "Update Application Types";
             this.chbUpdateApplicationTypes.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chbUpdateApplicationTypes.UncheckedState.BorderRadius = 2;
@@ -457,7 +465,7 @@
             this.chbDeletePeople.Name = "chbDeletePeople";
             this.chbDeletePeople.Size = new System.Drawing.Size(104, 20);
             this.chbDeletePeople.TabIndex = 32;
-            this.chbDeletePeople.Tag = "8";
+            this.chbDeletePeople.Tag = "7";
             this.chbDeletePeople.Text = "Delete People";
             this.chbDeletePeople.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chbDeletePeople.UncheckedState.BorderRadius = 2;
@@ -479,7 +487,7 @@
             this.chbUpdateApplications.Name = "chbUpdateApplications";
             this.chbUpdateApplications.Size = new System.Drawing.Size(138, 20);
             this.chbUpdateApplications.TabIndex = 47;
-            this.chbUpdateApplications.Tag = "14";
+            this.chbUpdateApplications.Tag = "13";
             this.chbUpdateApplications.Text = "Update Applications";
             this.chbUpdateApplications.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chbUpdateApplications.UncheckedState.BorderRadius = 2;
@@ -501,7 +509,7 @@
             this.chbDeainLicense.Name = "chbDeainLicense";
             this.chbDeainLicense.Size = new System.Drawing.Size(114, 20);
             this.chbDeainLicense.TabIndex = 40;
-            this.chbDeainLicense.Tag = "10";
+            this.chbDeainLicense.Tag = "9";
             this.chbDeainLicense.Text = "Detain Licenses";
             this.chbDeainLicense.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chbDeainLicense.UncheckedState.BorderRadius = 2;
@@ -523,7 +531,7 @@
             this.chbAddApplications.Name = "chbAddApplications";
             this.chbAddApplications.Size = new System.Drawing.Size(120, 20);
             this.chbAddApplications.TabIndex = 48;
-            this.chbAddApplications.Tag = "13";
+            this.chbAddApplications.Tag = "12";
             this.chbAddApplications.Text = "Add Applications";
             this.chbAddApplications.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chbAddApplications.UncheckedState.BorderRadius = 2;
@@ -545,7 +553,7 @@
             this.chbReleaseLicense.Name = "chbReleaseLicense";
             this.chbReleaseLicense.Size = new System.Drawing.Size(123, 20);
             this.chbReleaseLicense.TabIndex = 39;
-            this.chbReleaseLicense.Tag = "11";
+            this.chbReleaseLicense.Tag = "10";
             this.chbReleaseLicense.Text = "Release Licenses";
             this.chbReleaseLicense.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chbReleaseLicense.UncheckedState.BorderRadius = 2;
@@ -567,7 +575,7 @@
             this.chbIssueLicense.Name = "chbIssueLicense";
             this.chbIssueLicense.Size = new System.Drawing.Size(108, 20);
             this.chbIssueLicense.TabIndex = 38;
-            this.chbIssueLicense.Tag = "9";
+            this.chbIssueLicense.Tag = "8";
             this.chbIssueLicense.Text = "Issue Licenses";
             this.chbIssueLicense.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.chbIssueLicense.UncheckedState.BorderRadius = 2;
@@ -648,14 +656,6 @@
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Permissions";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // guna2Separator1
-            // 
-            this.guna2Separator1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.guna2Separator1.Location = new System.Drawing.Point(472, 59);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(322, 10);
-            this.guna2Separator1.TabIndex = 50;
             // 
             // ctrlAddEditUserPermissions
             // 
