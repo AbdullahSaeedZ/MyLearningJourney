@@ -37,6 +37,6 @@ namespace DataAccessLayer
 
        
         private static string _DBPassword { get { return GetDBPasswordFromRegistry(); } }
-        public static string connectionString { get; } = $"Server=.;Database=DVLD;User Id=sa;Password={_DBPassword};";
+        public static string connectionString { get; } = $"Server=ABDULLAH;Database=DVLD;User Id=sa;Password={_DBPassword};";
     }
 }

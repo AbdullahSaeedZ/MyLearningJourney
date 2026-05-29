@@ -1,0 +1,93 @@
+```text
+Component
+- A non-visual class used to add functionality to the application.
+- Usually does not appear as a visible UI element on the form.
+- It works in the background and provides services or logic.
+
+Examples
+- Timer               → Executes code every interval.
+- OpenFileDialog      → Opens a file selection window.
+- SaveFileDialog      → Opens a save file window.
+- BackgroundWorker    → Runs tasks on another thread.
+- ErrorProvider       → Shows validation errors beside controls.
+
+Main idea
+- Adds behavior and functionality without drawing itself on the screen.
+
+
+Control
+- A visual UI element that the user can see and interact with.
+- Inherits from Component.
+- Used to build the graphical interface of the application.
+
+Examples
+- Button
+- TextBox
+- Label
+- ComboBox
+- DataGridView
+
+Main idea
+- Anything visible on the form is usually a Control.
+
+
+Relationship
+Component
+   ↓
+Control
+   ↓
+Button  TextBox  Label  etc
+
+
+UserControl
+- A reusable control built by combining multiple existing controls together.
+- Used to group related UI elements into one reusable component.
+- Based mainly on Composition (combining objects together).
+
+Example
+A User Card may contain
+- PictureBox
+- Labels
+- Buttons
+
+All placed inside one UserControl.
+
+After creating it
+- You can drag and drop it into any form like a normal control.
+- This helps avoid repeating the same UI design many times.
+
+Main idea
+- Combine existing controls into one reusable control.
+
+
+Custom Control
+- A control created by inheriting from an existing control and modifying it.
+- Used when you want new behavior or a custom appearance.
+- Based mainly on Inheritance.
+
+Examples
+- Circular Button
+- Rounded TextBox
+- Custom ProgressBar
+- Animated Panel
+
+Example
+class RoundedButton  Button
+
+Here
+- You are not combining controls.
+- You are extending or changing the original Button behavior or drawing.
+
+
+Difference between UserControl and Custom Control
+
+UserControl
+- Combines existing controls together.
+- Easier to build.
+- Best for reusable UI layouts.
+
+Custom Control
+- Inherits from an existing control.
+- Modifies behavior, drawing, or functionality.
+- More advanced and flexible.
+
