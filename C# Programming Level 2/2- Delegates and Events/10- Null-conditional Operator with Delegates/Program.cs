@@ -18,10 +18,15 @@
             // which will avoid invoking null delegates, check DVLD where i used events
             OnPersonSelected?.Invoke(5);
 
-
             // this will run without using the null operator, cuz there is aleardy a subscribed method
             OnPersonSelected += PrintPersonID;
             OnPersonSelected.Invoke(5);
+
+
+            // old way of doing it, was to use if statement with local delegate like this:
+            Action<int> Handler = OnPersonSelected;
+            if (Handler != null)
+                Handler(5); // reason is that even if another thread unsubscribes the method we are calling from the original event (OnPersonSelected), the local event (Handler) is still pointing to that method
 
         }
 
