@@ -24,7 +24,7 @@ namespace _3__Anonymous_Methods___Lambda_Expressions
             // but in c# v2 in about 2005, they introduced anonymous methods
             // anonymous methods allow us to define a method in the delegate declaration without having to declare methods outside:
             // we became able to write less code with anonymous methods:
-            delOperations del3 = delegate (int x, int y) // called anonymous, cuz no name, only parameters list and logic to execute
+            delOperations del3 = delegate (int x, int y) // called anonymous, cuz no name, only parameters list and logic to execute, the normal methods are called named methods,
             {
                 return x + y;
             };
@@ -41,6 +41,7 @@ namespace _3__Anonymous_Methods___Lambda_Expressions
             // later in C# v3 in about 2008, they introduced Lambda expressions to write even less code, and this became more popular in modern c# code
             // parameter list + => to refer to the logic + the logic
             delOperations delLambda = (int x, int y) => x * y;
+
             Console.WriteLine(delLambda(2, 3));
 
             // if more logic code, we open curly brackets and the logic, if we have parameters then we put return:
@@ -74,6 +75,8 @@ namespace _3__Anonymous_Methods___Lambda_Expressions
     }
 
     /*
+     * ===================================== type inference ================================
+   
     In lambda expressions, parameter types are usually not required.
     If the lambda is assigned to a known delegate type (like Func or Action),
     the compiler uses type inference to automatically determine
