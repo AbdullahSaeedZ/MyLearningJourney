@@ -205,7 +205,7 @@
 
        public class UserService
        {
-           private readonly ILogger _logger;
+           private readonly ILogger _logger;  --> Holds a reference to the injected object, typically upcasted to ILogger
 
            public UserService(ILogger logger)
            {
@@ -361,6 +361,8 @@
 
     "A class should focus on using its dependencies,
      not creating them."
+
+    see this : https://www.youtube.com/watch?v=ttza41X-O6k
 */
 
 }
