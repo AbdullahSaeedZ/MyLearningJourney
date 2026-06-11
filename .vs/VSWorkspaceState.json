@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\C# Programming Level 2",
+    "\\C# Programming Level 2\\20- Reflection - Reflection in C#",
+    "\\C# Programming Level 2\\21- Reflection - 'Type' Class",
+    "\\C# Programming Level 2\\22- Reflection - Navigate String Library Using Reflection",
+    "\\Csharp-Level1"
   ],
-  "SelectedNode": "\\82 - Context Menu.sln",
+  "SelectedNode": "\\C# Programming Level 2\\21- Reflection - 'Type' Class\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
