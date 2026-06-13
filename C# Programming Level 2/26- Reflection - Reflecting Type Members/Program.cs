@@ -44,9 +44,17 @@ namespace TestProject
             foreach (PropertyInfo property in properties)
             {
                 Console.WriteLine(property);
-                // since properties and syntactic sugar which will be setters and getters methods, we can see them here:
+                // since properties are syntactic sugar which will be setters and getters methods, we can see them here:
                 Console.WriteLine(property.GetGetMethod());
                 Console.WriteLine(property.GetSetMethod());
+            }
+
+
+            Console.WriteLine("\n\n=========== Reflecting all methods ============");
+            MethodInfo[] methods = typeof(BankAccount).GetMethods(BindingFlags.Public | BindingFlags.Instance);
+            foreach (MethodInfo m in methods)
+            {
+                Console.WriteLine(m);
             }
 
 
