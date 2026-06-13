@@ -24,13 +24,12 @@ namespace TestProject
             // - if T is a reference type (like class): it instantiates it on the heap normally
             int newApproach = Activator.CreateInstance<int>();
 
-
-
             //   THE TRADE-OFF (Generics vs Old method with casting)
             // - Activator.CreateInstance<T>() is highly optimized but limited to types known at compile-time 
             //   and primarily handles default (parameterless) constructors.
             // - The Non-Generic Activator can face the boxing/unboxing overhead buy it has many overloads allowing ultimate flexibility at runtime, 
             //   such as passing constructor arguments, invoking private constructors, or instantiating types via strings.
+
 
             // another way to instantiate a reference type with parameterless ctor:
             object emp = Activator.CreateInstance(typeof(Employee));
@@ -61,7 +60,7 @@ namespace TestProject
             string externalAssemblyName = "TestProject";
             string userInput = $"{externalAssemblyName}." + Console.ReadLine();
 
-            // The Activator will look for the assembly using a searching method called the Probing Process (Application directory, shared runtimes, and configured dependency paths)
+            // The Activator will look for the assembly using a searching method called the Probing Process (in Application directory, shared runtimes, and configured dependency paths)
             // It returns an ObjectHandle (a wrapper), which keeps the object isolated until we explicitly unwrap it to our current domain context.
             ObjectHandle chosenMonsterHandle = Activator.CreateInstance(externalAssemblyName, userInput);
 
