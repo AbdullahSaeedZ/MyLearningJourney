@@ -1,6 +1,30 @@
 ﻿using System.IO;
 using System.Text;
 
+// ===================================================================================
+// FILE HANDLING GUIDELINES: File Class vs. Streams
+// ===================================================================================
+//
+// 1. THE FILE CLASS (High-Level Utility)
+//    - Use for: Small to medium files (e.g., config files, simple logs, small texts).
+//    - How it works: It is a facade that handles the internal Stream lifecycle 
+//      (Open, Write/Read, Close, and Dispose) automatically in a single atomic line.
+//    - Best Practices: Use 'File.AppendAllText' or 'File.WriteAllText' directly.
+//      Avoid manual 'File.Exists' -> 'File.Create' patterns as they cause resource 
+//      locks and race conditions (TOCTOU bugs).
+//
+// 2. STREAMS (Low-Level Sequential I/O)
+//    - Use for: Large files (GBs), network data, or when data arrives in chunks.
+//    - How it works: Acts as a pipeline transferring data sequentially byte-by-byte
+//      using a small fixed buffer in memory, preventing 'OutOfMemoryException'.
+//    - Best Practices: Always wrap Streams in a 'using' block to guarantee that 
+//      the OS File Handle is safely closed and memory is liberated immediately.
+//
+// 3. PRAGMATIC RULE OF THUMB:
+//    Keep it simple. Do not over-engineer with manual FileStreams unless file sizes 
+//    or performance constraints explicitly demand chunk-by-chunk processing.
+// ===================================================================================
+
 namespace _8__Streams
 {
 
