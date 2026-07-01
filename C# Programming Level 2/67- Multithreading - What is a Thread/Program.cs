@@ -75,8 +75,94 @@
   while another thread waits for a slow Hard Drive or Network I/O).
 
   - it is multi-threading, although they work in CONCURRENCY, not PARALLELISM.
-
-
-
-
  */
+
+
+
+// this example is showing how a program is executed in a Sequential Synchronous Approach
+// one thread executing the code Sequentially
+using System.Diagnostics;
+
+internal class Test
+{
+    public static void PrintInfo()
+    {
+        // these info can be seen in the task manager as well
+        Console.WriteLine($"Process ID: {Process.GetCurrentProcess().Id}");
+        Console.WriteLine($"Default Thread of process ID: {Thread.CurrentThread.ManagedThreadId}");
+
+        // this is the processor (the core) in which the thread is executed
+        Console.WriteLine($"processor ID: {Thread.GetCurrentProcessorId()}");
+    }
+
+    public static void Main()
+    {
+        // just to show info
+        PrintInfo();
+
+        // ------------------------------------
+
+        var wallet = new Wallet("Issam", 80);
+
+        
+        Console.WriteLine("\n\n\n----------------");
+        wallet.RunRandomTransactions();
+        Console.WriteLine($"\n{wallet}\n"); // initialy has 80 bitcoins, then random added 80
+
+        Console.WriteLine("\n\n\n----------------");
+        wallet.RunRandomTransactions();
+        Console.WriteLine($"\n{wallet}\n"); // had 160 bitcoins, then random added 80
+
+
+        // see how the same thread is handled by different processors
+        // this is because of the CPU Thread Scheduler:
+        // Scheduler is responsible for scheduling threads on processors based on certain algorithms or calculations
+    }
+}
+
+
+class Wallet
+{
+    public Wallet(string name, int bitcoins)
+    {
+        Name = name;
+        Bitcoins = bitcoins;
+    }
+
+    public string Name { get; private set; }
+    public int Bitcoins { get; private set; }
+
+
+    public void Debit(int amount)
+    {
+        Bitcoins -= amount;
+    }
+
+    public void Credit(int amount)
+    {
+        Bitcoins += amount;
+    }
+
+    // will perform random trasactions on the account just to see how they are handled by thread and processor
+    public void RunRandomTransactions()
+    {
+        // random numbers to simulate a randoom transaction, negatives will be Debit transaction
+        int[] amounts = { 10, 20, 30, -20, 10, -10, 30, -10, 40, -20 }; // total = 80
+
+        foreach (var amount in amounts)
+        {
+            var absValue = Math.Abs(amount);
+            if (amount < 0)
+                Debit(absValue);
+            else
+                Credit(absValue);
+
+            Console.WriteLine($"[Thread: {Thread.CurrentThread.ManagedThreadId}" + $", Processor Id: {Thread.GetCurrentProcessorId()}] {amount}");
+        }
+    }
+
+    public override string ToString()
+    {
+        return $"[{Name} -> {Bitcoins} Bitcoins]";
+    }
+}

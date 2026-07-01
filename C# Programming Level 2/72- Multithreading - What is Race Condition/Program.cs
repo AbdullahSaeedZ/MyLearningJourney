@@ -5,7 +5,7 @@
 
 1. THE MULTITHREADING TERMINOLOGY MYTH
 ----------------------------------------------------------------------------------------------------
-A common misconception is that Concurrency, Parallelism, and Asynchrony are identical terms. 
+A common misconception is that Concurrency, Parallelism are identical terms. 
 They are distinct engineering concepts that overlap in multithreaded systems:
 
 * CONCURRENCY: Managing multiple tasks by interleaving their execution. The OS context-switches 
@@ -70,5 +70,5 @@ B. IMMUTABLE TYPES (The Safe Zone):
 
 4. THE REMEDY: SYNCHRONIZATION
 ----------------------------------------------------------------------------------------------------
-The solution to this phenomenon is Synchronization, which will be explained in next lessons.
+The solution to this phenomenon is Synchronization mechanisms, which will be explained in next lessons.
 */
