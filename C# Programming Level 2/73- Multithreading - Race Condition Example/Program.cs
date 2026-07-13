@@ -35,7 +35,7 @@
 
             Console.WriteLine($"withdrew 40");
             Console.WriteLine($"withdrew 30");
-            Console.WriteLine(wallet1);
+            Console.WriteLine(wallet1); // cuz of cpu scheduler, race condition might not occur, re run the app multiple times to see the race condition causnig negative balance
 
             // RACE CONDITION!! see below for timing issue that caused negative balance
 

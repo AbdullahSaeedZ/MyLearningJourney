@@ -42,7 +42,7 @@ Imagine two threads running on separate CPU cores try to withdraw $80 at the exa
 
 The Disaster:
 The application does NOT crash. Both withdrawals successfully complete and $160 total is dispensed, 
-but the final remaining balance in RAM is saved as $20. Without synchronization, the application 
+but the final remaining balance in RAM is saved as $20. Without synchronization (sequentioal ecexution), the application 
 silently loses track of $80.
 
 

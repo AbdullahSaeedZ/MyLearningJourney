@@ -65,7 +65,6 @@ namespace _79__Multithreading___Pooled_thread
             Console.WriteLine($"Default Max Pool Threads (Absolute Safety Cap): {maxWorker}\n");
 
             Console.WriteLine("=== STEP 2: Queueing Work via Legacy ThreadPool Class ===");
-            Console.WriteLine("=== STEP 2: Queueing Work via Legacy ThreadPool Class ===");
 
             // "Queueing" means dropping a job into a FIFO (First-In, First-Out) shared waiting line (thread pool).
             // You are NOT assigning this job to a specific thread. Instead, whichever thread pool thread 

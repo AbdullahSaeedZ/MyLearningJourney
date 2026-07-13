@@ -57,6 +57,9 @@
             // lock keyword is like a box where we put our code block and shared resource to be protected
             // the balanceLock object will act as the lock of that box,
             // once a thread gets inside the box, the box is locked and no other threads can enter untill it is unlocked
+
+            // this will result in one withdrawl operation, sinc one will execut and the second will be waiting, then once the second is allowed to check the condition
+            // it will find insufficient balacne and withdrawl will fail and no data currption will happen
             lock (balanceLock)
             {
                 if (Bitcoins >= amount)
