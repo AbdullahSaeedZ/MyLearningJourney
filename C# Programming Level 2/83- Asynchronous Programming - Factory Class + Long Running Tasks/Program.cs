@@ -38,7 +38,9 @@ namespace _83__Asynchronous_Programming___Long_Running_Tasks
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("--- Starting Pooled Task ---");
+            ShowThreadInfo();
+
+            Console.WriteLine("\n\n--- Starting Pooled Task ---");
             // Running the task using a standard pooled thread
             Task.Run(RunLongTask).Wait();
 

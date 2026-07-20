@@ -140,7 +140,7 @@ namespace AsyncLesson1
             // It does NOT wait for DownloadUser().
 
             // main thread reaches here cuz it was not blocked waiting for above callbacks
-            // once callback are ready, main thread will go execute them, which will happen if we run and see the results
+            // once callbacks are ready, any free thread will go execute them, which will happen if we run and see the results
             Console.WriteLine("Main thread is already free.");
             Console.WriteLine("Press any key to exit...");
             Console.ReadKey();

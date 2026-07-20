@@ -169,7 +169,7 @@ namespace AsyncLesson2
         static Task<string> ReadWebPage()
         {
             HttpClient client = new HttpClient();
-
+            Log($"Returned a web task.");
             return client.GetStringAsync("https://postman-echo.com/get?foo=Hello");
         }
 
@@ -179,4 +179,51 @@ namespace AsyncLesson2
                 $"[Thread {Thread.CurrentThread.ManagedThreadId}] {message}");
         }
     }
+
+    /* 
+    =======================================================================
+                   THE DEFINITIVE C# AWAIT TRACKING GUIDE
+    =======================================================================
+
+    STEP 1: THE APPROACH (The Pre-Await Drive)
+    ------------------------------------------
+    • The calling thread drives STRAIGHT into the invoked method synchronously.
+    • It executes line-by-line until it hits a 'return' or an internal await.
+    • The method hands a Task object back to the await keyword.
+
+    STEP 2: THE SPLIT (Evaluating the Task Status)
+    -----------------------------------------------
+    When the thread hits the 'await' keyword, it checks: IsCompleted?
+
+      ► PATH A: FAST PATH (Task is ALREADY Complete)
+        • Occurs if data is cached, uses Task.FromResult, or completed instantly.
+        • The thread DOES NOT yield and DOES NOT return to its caller.
+        • It keeps driving straight down to the next line in the same method.
+
+      ► PATH B: SLOW PATH (Task is INCOMPLETE)
+        • Occurs during active network I/O, Task.Run, or Task.Delay.
+        • The remaining lines of this method are packaged as a callback.
+        • FREEING MOMENT: The thread exits this method and returns to its caller.
+
+    STEP 3: THE CALLER RESPONSE (Where the Thread Lands)
+    ----------------------------------------------------
+    When the thread returns to the calling method, its next move depends on:
+
+      • Case A: Caller used 'await' -> The thread sees this parent task is 
+        also incomplete. It yields again, returning to the caller's caller.
+        (Exception: In a Console Main(), it blocks to keep the app alive).
+
+      • Case B: Caller omitted 'await' (Fire-and-Forget = a task with no await keyword before it) -> The thread 
+        ignores the task and instantly runs the very next line in the caller.
+
+    STEP 4: THE RESURRECTION (Running the Continuation)
+    ---------------------------------------------------
+    When the background operation finally finishes, the callback must run:
+
+      • Console / ASP.NET Core: ANY available ThreadPool thread wakes up 
+        and executes the lines following the original await.
+      • UI Apps (WPF/WinForms): The execution is routed back to the Main 
+        UI thread via the SynchronizationContext to allow safe UI updates.
+    */
+
 }
