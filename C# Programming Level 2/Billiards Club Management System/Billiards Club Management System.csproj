@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{82A8C220-B290-41FA-A026-B27C98ABFDBD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Billiards_Club_Management_System</RootNamespace>
+    <AssemblyName>Billiards Club Management System</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI2">
+      <HintPath>..\..\..\Desktop\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna_UI_Framework_Ultimate_v2.0.0.1\Guna.UI-Framework-Lib-master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ctrlTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrlTable.Designer.cs">
+      <DependentUpon>ctrlTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ctrlTable.resx">
+      <DependentUpon>ctrlTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\foodBlackNoFIll512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\tablesBlackNoFill512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\tables1BlackNoFill512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\addTableBlackNoFill512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\historyBlackNoFill512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\history1NoFillBlack512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\history2NoFillBlack512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\history3NoFillBlack512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\tablesWhiteNoFill512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\foodWhiteNoFIll512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\addTableWhiteNoFill512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\history3NoFillWhite512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\addTable1WhiteNoFill512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\tablesDarkNoFill512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\Saudi_Riyal_Symbol-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\tablesAreaDark512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\hourlyRateDark512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\editDark512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\editWhite512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\revenueDark512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\foodDarkNoFIll512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\busyDark512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\freeTablesDark512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\startWhite512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\stopWhite512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\start1White512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\startDark512.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
