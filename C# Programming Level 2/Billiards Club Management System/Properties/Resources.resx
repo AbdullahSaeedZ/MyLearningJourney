@@ -136,6 +136,9 @@
   <data name="history3NoFillWhite512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\history3NoFillWhite512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="historyDark512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\historyDark512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="orderBillDark512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\orderBillDark512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -163,11 +166,11 @@
   <data name="start1White512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\start1White512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="revenueDark512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\revenueDark512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="busyDark512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\busyDark512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="history1NoFillBlack512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\history1NoFillBlack512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="history3NoFillBlack512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\history3NoFillBlack512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -177,6 +180,9 @@
   </data>
   <data name="historyBlackNoFill512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\historyBlackNoFill512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Saudi_Riyal_Symbol-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\Saudi_Riyal_Symbol-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="addTableWhiteNoFill512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\addTableWhiteNoFill512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,8 +199,8 @@
   <data name="editWhite512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\editWhite512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="revenueDark512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\revenueDark512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="history1NoFillBlack512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\history1NoFillBlack512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="addWhite512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\addWhite512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,16 +217,16 @@
   <data name="startWhite512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\startWhite512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="history2NoFillBlack512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\history2NoFillBlack512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Saudi_Riyal_Symbol-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\assets\Saudi_Riyal_Symbol-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="removeDark512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\removeDark512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="history2NoFillBlack512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\history2NoFillBlack512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="removeWhite512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\removeWhite512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="statsDark512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\statsDark512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

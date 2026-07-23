@@ -253,6 +253,16 @@ namespace Billiards_Club_Management_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap historyDark512 {
+            get {
+                object obj = ResourceManager.GetObject("historyDark512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap hourlyRateDark512 {
             get {
                 object obj = ResourceManager.GetObject("hourlyRateDark512", resourceCulture);
@@ -346,6 +356,16 @@ namespace Billiards_Club_Management_System.Properties {
         internal static System.Drawing.Bitmap startWhite512 {
             get {
                 object obj = ResourceManager.GetObject("startWhite512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap statsDark512 {
+            get {
+                object obj = ResourceManager.GetObject("statsDark512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

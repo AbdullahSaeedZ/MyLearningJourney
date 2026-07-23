@@ -83,6 +83,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionsHistory\ctrlLogItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SessionsHistory\ctrlLogItem.Designer.cs">
+      <DependentUpon>ctrlLogItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SessionsHistory\ctrlSessionsHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SessionsHistory\ctrlSessionsHistory.Designer.cs">
+      <DependentUpon>ctrlSessionsHistory.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FoodOrders\ctrlFoodItem.resx">
       <DependentUpon>ctrlFoodItem.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,6 +120,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SessionsHistory\ctrlLogItem.resx">
+      <DependentUpon>ctrlLogItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SessionsHistory\ctrlSessionsHistory.resx">
+      <DependentUpon>ctrlSessionsHistory.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -225,6 +243,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\removeWhite512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\historyDark512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\statsDark512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
