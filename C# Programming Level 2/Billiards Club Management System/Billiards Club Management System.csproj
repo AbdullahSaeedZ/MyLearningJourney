@@ -51,11 +51,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FoodOrders\ctrlFoodItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoodOrders\ctrlFoodItem.Designer.cs">
+      <DependentUpon>ctrlFoodItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoodOrders\ctrlFoodOrders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoodOrders\ctrlFoodOrders.Designer.cs">
+      <DependentUpon>ctrlFoodOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="ctrlTable.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ctrlTable.Designer.cs">
       <DependentUpon>ctrlTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FoodOrders\ctrlOrderItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FoodOrders\ctrlOrderItem.Designer.cs">
+      <DependentUpon>ctrlOrderItem.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -65,8 +83,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FoodOrders\ctrlFoodItem.resx">
+      <DependentUpon>ctrlFoodItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoodOrders\ctrlFoodOrders.resx">
+      <DependentUpon>ctrlFoodOrders.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ctrlTable.resx">
       <DependentUpon>ctrlTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FoodOrders\ctrlOrderItem.resx">
+      <DependentUpon>ctrlOrderItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -177,6 +204,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\startDark512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\addDark512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\addWhite512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\ChickenBurger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\ChickenBurger1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\orderBillDark512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\removeDark512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\removeWhite512.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

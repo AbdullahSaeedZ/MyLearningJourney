@@ -63,6 +63,16 @@ namespace Billiards_Club_Management_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addDark512 {
+            get {
+                object obj = ResourceManager.GetObject("addDark512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap addTable1WhiteNoFill512 {
             get {
                 object obj = ResourceManager.GetObject("addTable1WhiteNoFill512", resourceCulture);
@@ -93,9 +103,39 @@ namespace Billiards_Club_Management_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addWhite512 {
+            get {
+                object obj = ResourceManager.GetObject("addWhite512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap busyDark512 {
             get {
                 object obj = ResourceManager.GetObject("busyDark512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChickenBurger {
+            get {
+                object obj = ResourceManager.GetObject("ChickenBurger", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ChickenBurger1 {
+            get {
+                object obj = ResourceManager.GetObject("ChickenBurger1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -226,6 +266,36 @@ namespace Billiards_Club_Management_System.Properties {
         internal static System.Drawing.Bitmap Logo {
             get {
                 object obj = ResourceManager.GetObject("Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap orderBillDark512 {
+            get {
+                object obj = ResourceManager.GetObject("orderBillDark512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap removeDark512 {
+            get {
+                object obj = ResourceManager.GetObject("removeDark512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap removeWhite512 {
+            get {
+                object obj = ResourceManager.GetObject("removeWhite512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
