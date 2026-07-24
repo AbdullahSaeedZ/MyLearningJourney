@@ -95,6 +95,7 @@
     <Compile Include="SessionsHistory\ctrlSessionsHistory.Designer.cs">
       <DependentUpon>ctrlSessionsHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utility.cs" />
     <EmbeddedResource Include="FoodOrders\ctrlFoodItem.resx">
       <DependentUpon>ctrlFoodItem.cs</DependentUpon>
     </EmbeddedResource>
