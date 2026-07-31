@@ -1,24 +1,15 @@
 ﻿using Billiards_Club_Management_System.Properties;
+using Billiards_Club_Management_System.SessionsHistory;
 using Guna.UI2.WinForms;
 using System.Drawing;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Billiards_Club_Management_System
 {
     public partial class Form1 : Form
     {
-        // temp for flow panel to render smoothly
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000;
-                return cp;
-            }
-        }
-
-
         private int _totalTables = 8;
         private int _freeTables = 8;
         private int _busyTables = 0;
@@ -27,7 +18,8 @@ namespace Billiards_Club_Management_System
         private int _hourlyRate = 35;
 
         private Guna2Button[] _buttons;
-
+        private ctrlFoodOrders ctrlfoodOrders;
+        private ctrlSessionsHistory ctrlSessionsHistory;
 
         
 
@@ -39,6 +31,13 @@ namespace Billiards_Club_Management_System
         private void Form1_Load(object sender, System.EventArgs e)
         {
             _buttons = new Guna2Button[] { btnTables, btnFoodOrders, btnSessionsHistory };
+
+            ctrlfoodOrders = new ctrlFoodOrders();
+            pnlSectionsContainer.Controls.Add(ctrlfoodOrders);
+
+            ctrlSessionsHistory = new ctrlSessionsHistory();
+            pnlSectionsContainer.Controls.Add(ctrlSessionsHistory);
+
             btnTables.PerformClick();
             lblDateTime.Text = Utility.GetCurrentDateTimeFormatted();
             timer1.Start();
@@ -66,25 +65,33 @@ namespace Billiards_Club_Management_System
         {
             ClearSelectionFromButtons();
             SetSelectedButton((Guna2Button)sender);
+
+            ctrlfoodOrders.SendToBack();
+            ctrlSessionsHistory.SendToBack();
         }
 
         private void btnFoodOrders_Click(object sender, System.EventArgs e)
         {
             ClearSelectionFromButtons();
             SetSelectedButton((Guna2Button)sender);
+
+           ctrlfoodOrders.BringToFront();
+           ctrlSessionsHistory.SendToBack();
         }
 
         private void btnSessionsHistory_Click(object sender, System.EventArgs e)
         {
             ClearSelectionFromButtons();
             SetSelectedButton((Guna2Button)sender);
+
+            ctrlSessionsHistory.BringToFront();
+            ctrlfoodOrders.SendToBack();
         }
 
         private void timer1_Tick(object sender, System.EventArgs e)
         {
             lblDateTime.Text = Utility.GetCurrentDateTimeFormatted();
         }
-
 
 
         private void IncreaseFreeTables(int number)
