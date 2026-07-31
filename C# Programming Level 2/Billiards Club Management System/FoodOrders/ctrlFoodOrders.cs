@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace Billiards_Club_Management_System
 {
     public partial class ctrlFoodOrders : UserControl
     {
+        public string DateTime { set { lblDateTime.Text = value; } }
         public ctrlFoodOrders()
         {
             InitializeComponent();

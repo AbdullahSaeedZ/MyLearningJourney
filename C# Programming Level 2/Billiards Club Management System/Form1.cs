@@ -13,10 +13,11 @@ namespace Billiards_Club_Management_System
         private int _totalTables = 8;
         private int _freeTables = 8;
         private int _busyTables = 0;
-        private int _revenue = 0;
+        private decimal _revenue = 0;
         private int _foodOrders = 0;
-        private int _hourlyRate = 35;
+        public static int HourlyRate { private set; get; } = 35;
 
+        private ctrlTable[] _tables;
         private Guna2Button[] _buttons;
         private ctrlFoodOrders ctrlfoodOrders;
         private ctrlSessionsHistory ctrlSessionsHistory;
@@ -30,16 +31,37 @@ namespace Billiards_Club_Management_System
 
         private void Form1_Load(object sender, System.EventArgs e)
         {
-            _buttons = new Guna2Button[] { btnTables, btnFoodOrders, btnSessionsHistory };
-
             ctrlfoodOrders = new ctrlFoodOrders();
             pnlSectionsContainer.Controls.Add(ctrlfoodOrders);
-
             ctrlSessionsHistory = new ctrlSessionsHistory();
             pnlSectionsContainer.Controls.Add(ctrlSessionsHistory);
 
+            _buttons = new Guna2Button[] { btnTables, btnFoodOrders, btnSessionsHistory };
+            _tables = new ctrlTable[] { ctrlTable1, ctrlTable2, ctrlTable3, ctrlTable4, ctrlTable5, ctrlTable6, ctrlTable7, ctrlTable8 };
+
+            foreach (ctrlTable table in _tables)
+            {
+                table.OnSessionStarted += () => {
+
+                    --_freeTables;
+                    ++_busyTables;
+                    lblFreeTables.Text = _freeTables.ToString();
+                    lblBusyTables.Text = _busyTables.ToString();
+                    lblFreeBusyTables.Text = $"{_busyTables} / {_totalTables} BUSY";
+                };
+                table.OnSessionEnded += () => {
+
+                    ++_freeTables;
+                    --_busyTables;
+                    lblFreeTables.Text = _freeTables.ToString();
+                    lblBusyTables.Text = _busyTables.ToString();
+                    lblFreeBusyTables.Text = $"{_busyTables} / {_totalTables} BUSY";
+                };
+                table.OnCompleteSession += IncreaseRevenue;
+            }
+
             btnTables.PerformClick();
-            lblDateTime.Text = Utility.GetCurrentDateTimeFormatted();
+            timer1_Tick(null, System.EventArgs.Empty);
             timer1.Start();
         }
 
@@ -90,47 +112,24 @@ namespace Billiards_Club_Management_System
 
         private void timer1_Tick(object sender, System.EventArgs e)
         {
-            lblDateTime.Text = Utility.GetCurrentDateTimeFormatted();
+            lblDateTime.Text = ctrlfoodOrders.DateTime = ctrlSessionsHistory.DateTime = Utility.GetCurrentDateTimeFormatted();
         }
 
-
-        private void IncreaseFreeTables(int number)
-        {
-            ++_freeTables;
-            lblFreeTables.Text = _freeTables.ToString();
-        }
-        private void DencreaseFreeTables(int number)
-        {
-            --_freeTables;
-            lblFreeTables.Text = _freeTables.ToString();
-        }
-
-        private void IncreaseBusyTables(int number)
-        {
-            ++_busyTables;
-            lblFreeTables.Text = _busyTables.ToString();
-        }
-
-        private void DencreaseBusyTables(int number)
-        {
-            --_busyTables;
-            lblBusyTables.Text = _busyTables.ToString();
-        }
 
         private void IncreaseFoodOrders()
         {
             ++_foodOrders;
             lblFoodOrders.Text = _foodOrders.ToString();
         }
-        private void IncreaseRevenue(int number)
+        private void IncreaseRevenue(decimal amount)
         {
-            _revenue+= number;
-            lblRevenue.Text = _revenue.ToString();
+            _revenue+= amount;
+            lblRevenue.Text = _revenue.ToString("F2");
         }
-        private void UpdateHourlyRate(int number)
+        private void UpdateHourlyRate(int newRate)
         {
-            _hourlyRate = number;
-            lblHourlyRate.Text = $"{_hourlyRate} / Hour";
+            HourlyRate = newRate;
+            lblHourlyRate.Text = $"{HourlyRate} / Hour";
         }
 
     }

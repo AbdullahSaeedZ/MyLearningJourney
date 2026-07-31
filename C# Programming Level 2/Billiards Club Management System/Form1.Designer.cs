@@ -308,13 +308,14 @@
             this.guna2ShadowPanel2.Controls.Add(this.label14);
             this.guna2ShadowPanel2.Controls.Add(this.lblFreeBusyTables);
             this.guna2ShadowPanel2.Controls.Add(this.label15);
+            this.guna2ShadowPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2ShadowPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
-            this.guna2ShadowPanel2.Location = new System.Drawing.Point(10, 3);
+            this.guna2ShadowPanel2.Location = new System.Drawing.Point(0, 0);
             this.guna2ShadowPanel2.Name = "guna2ShadowPanel2";
             this.guna2ShadowPanel2.Radius = 10;
             this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel2.ShadowDepth = 150;
-            this.guna2ShadowPanel2.Size = new System.Drawing.Size(1664, 650);
+            this.guna2ShadowPanel2.Size = new System.Drawing.Size(1665, 650);
             this.guna2ShadowPanel2.TabIndex = 10;
             // 
             // ctrlTable8
@@ -324,6 +325,7 @@
             this.ctrlTable8.Name = "ctrlTable8";
             this.ctrlTable8.Size = new System.Drawing.Size(379, 240);
             this.ctrlTable8.TabIndex = 33;
+            this.ctrlTable8.TableNumber = "08";
             // 
             // ctrlTable4
             // 
@@ -332,6 +334,7 @@
             this.ctrlTable4.Name = "ctrlTable4";
             this.ctrlTable4.Size = new System.Drawing.Size(379, 240);
             this.ctrlTable4.TabIndex = 33;
+            this.ctrlTable4.TableNumber = "04";
             // 
             // ctrlTable7
             // 
@@ -340,6 +343,7 @@
             this.ctrlTable7.Name = "ctrlTable7";
             this.ctrlTable7.Size = new System.Drawing.Size(379, 240);
             this.ctrlTable7.TabIndex = 33;
+            this.ctrlTable7.TableNumber = "07";
             // 
             // ctrlTable3
             // 
@@ -348,6 +352,7 @@
             this.ctrlTable3.Name = "ctrlTable3";
             this.ctrlTable3.Size = new System.Drawing.Size(379, 240);
             this.ctrlTable3.TabIndex = 33;
+            this.ctrlTable3.TableNumber = "03";
             // 
             // ctrlTable6
             // 
@@ -356,6 +361,7 @@
             this.ctrlTable6.Name = "ctrlTable6";
             this.ctrlTable6.Size = new System.Drawing.Size(379, 240);
             this.ctrlTable6.TabIndex = 33;
+            this.ctrlTable6.TableNumber = "06";
             // 
             // ctrlTable2
             // 
@@ -364,6 +370,7 @@
             this.ctrlTable2.Name = "ctrlTable2";
             this.ctrlTable2.Size = new System.Drawing.Size(379, 240);
             this.ctrlTable2.TabIndex = 33;
+            this.ctrlTable2.TableNumber = "02";
             // 
             // ctrlTable5
             // 
@@ -372,6 +379,7 @@
             this.ctrlTable5.Name = "ctrlTable5";
             this.ctrlTable5.Size = new System.Drawing.Size(379, 240);
             this.ctrlTable5.TabIndex = 33;
+            this.ctrlTable5.TableNumber = "05";
             // 
             // ctrlTable1
             // 
@@ -380,6 +388,7 @@
             this.ctrlTable1.Name = "ctrlTable1";
             this.ctrlTable1.Size = new System.Drawing.Size(379, 240);
             this.ctrlTable1.TabIndex = 33;
+            this.ctrlTable1.TableNumber = "01";
             // 
             // btnEditHourlyRate
             // 
@@ -515,9 +524,9 @@
             this.lblFreeBusyTables.ForeColor = System.Drawing.Color.DimGray;
             this.lblFreeBusyTables.Location = new System.Drawing.Point(103, 63);
             this.lblFreeBusyTables.Name = "lblFreeBusyTables";
-            this.lblFreeBusyTables.Size = new System.Drawing.Size(86, 20);
+            this.lblFreeBusyTables.Size = new System.Drawing.Size(80, 20);
             this.lblFreeBusyTables.TabIndex = 0;
-            this.lblFreeBusyTables.Text = "0 / 14 BUSY";
+            this.lblFreeBusyTables.Text = "0 / 8 BUSY";
             // 
             // label15
             // 
@@ -756,7 +765,7 @@
             this.guna2Panel7.BorderThickness = 1;
             this.guna2Panel7.Controls.Add(this.guna2PictureBox10);
             this.guna2Panel7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
-            this.guna2Panel7.Location = new System.Drawing.Point(26, 26);
+            this.guna2Panel7.Location = new System.Drawing.Point(42, 27);
             this.guna2Panel7.Name = "guna2Panel7";
             this.guna2Panel7.ShadowDecoration.Parent = this.guna2Panel7;
             this.guna2Panel7.Size = new System.Drawing.Size(49, 43);
@@ -779,12 +788,12 @@
             // 
             this.lblFoodOrders.AutoSize = true;
             this.lblFoodOrders.BackColor = System.Drawing.Color.Transparent;
-            this.lblFoodOrders.Font = new System.Drawing.Font("Segoe UI Variable Display", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFoodOrders.Font = new System.Drawing.Font("Segoe UI Variable Display", 24.75F, System.Drawing.FontStyle.Bold);
             this.lblFoodOrders.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.lblFoodOrders.Location = new System.Drawing.Point(402, 20);
+            this.lblFoodOrders.Location = new System.Drawing.Point(359, 23);
             this.lblFoodOrders.Name = "lblFoodOrders";
-            this.lblFoodOrders.Size = new System.Drawing.Size(43, 49);
-            this.lblFoodOrders.TabIndex = 0;
+            this.lblFoodOrders.Size = new System.Drawing.Size(38, 44);
+            this.lblFoodOrders.TabIndex = 3;
             this.lblFoodOrders.Text = "0";
             // 
             // label9
@@ -793,7 +802,7 @@
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.DimGray;
-            this.label9.Location = new System.Drawing.Point(98, 36);
+            this.label9.Location = new System.Drawing.Point(114, 37);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(120, 21);
             this.label9.TabIndex = 0;
@@ -805,7 +814,7 @@
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.DimGray;
-            this.label8.Location = new System.Drawing.Point(100, 38);
+            this.label8.Location = new System.Drawing.Point(116, 38);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 21);
             this.label8.TabIndex = 0;
@@ -815,11 +824,11 @@
             // 
             this.lblRevenue.AutoSize = true;
             this.lblRevenue.BackColor = System.Drawing.Color.Transparent;
-            this.lblRevenue.Font = new System.Drawing.Font("Segoe UI Variable Display", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRevenue.Font = new System.Drawing.Font("Segoe UI Variable Display", 24.75F, System.Drawing.FontStyle.Bold);
             this.lblRevenue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.lblRevenue.Location = new System.Drawing.Point(404, 24);
+            this.lblRevenue.Location = new System.Drawing.Point(361, 27);
             this.lblRevenue.Name = "lblRevenue";
-            this.lblRevenue.Size = new System.Drawing.Size(43, 49);
+            this.lblRevenue.Size = new System.Drawing.Size(38, 44);
             this.lblRevenue.TabIndex = 0;
             this.lblRevenue.Text = "0";
             // 
@@ -847,7 +856,7 @@
             this.guna2Panel3.BorderThickness = 1;
             this.guna2Panel3.Controls.Add(this.guna2PictureBox8);
             this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
-            this.guna2Panel3.Location = new System.Drawing.Point(28, 29);
+            this.guna2Panel3.Location = new System.Drawing.Point(44, 29);
             this.guna2Panel3.Name = "guna2Panel3";
             this.guna2Panel3.ShadowDecoration.Parent = this.guna2Panel3;
             this.guna2Panel3.Size = new System.Drawing.Size(49, 43);
@@ -871,7 +880,7 @@
             this.guna2PictureBox12.BorderRadius = 10;
             this.guna2PictureBox12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
             this.guna2PictureBox12.Image = global::Billiards_Club_Management_System.Properties.Resources.Saudi_Riyal_Symbol_1;
-            this.guna2PictureBox12.Location = new System.Drawing.Point(378, 38);
+            this.guna2PictureBox12.Location = new System.Drawing.Point(335, 36);
             this.guna2PictureBox12.Name = "guna2PictureBox12";
             this.guna2PictureBox12.ShadowDecoration.Parent = this.guna2PictureBox12;
             this.guna2PictureBox12.Size = new System.Drawing.Size(30, 30);
@@ -890,12 +899,11 @@
             this.pnlSectionsContainer.BackColor = System.Drawing.Color.Transparent;
             this.pnlSectionsContainer.BorderColor = System.Drawing.Color.Gainsboro;
             this.pnlSectionsContainer.Controls.Add(this.guna2ShadowPanel2);
-            this.pnlSectionsContainer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlSectionsContainer.FillColor = System.Drawing.Color.Transparent;
-            this.pnlSectionsContainer.Location = new System.Drawing.Point(0, 339);
+            this.pnlSectionsContainer.Location = new System.Drawing.Point(12, 339);
             this.pnlSectionsContainer.Name = "pnlSectionsContainer";
             this.pnlSectionsContainer.ShadowDecoration.Parent = this.pnlSectionsContainer;
-            this.pnlSectionsContainer.Size = new System.Drawing.Size(1684, 664);
+            this.pnlSectionsContainer.Size = new System.Drawing.Size(1665, 650);
             this.pnlSectionsContainer.TabIndex = 32;
             // 
             // guna2Panel9

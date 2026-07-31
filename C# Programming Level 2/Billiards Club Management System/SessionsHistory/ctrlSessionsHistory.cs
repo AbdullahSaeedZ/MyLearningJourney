@@ -12,9 +12,12 @@ namespace Billiards_Club_Management_System.SessionsHistory
 {
     public partial class ctrlSessionsHistory : UserControl
     {
+        public string DateTime { set { lblDateTime.Text = value; } }
+
         public ctrlSessionsHistory()
         {
             InitializeComponent();
         }
+
     }
 }

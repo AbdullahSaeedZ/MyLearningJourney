@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.guna2PictureBox12 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.label16 = new System.Windows.Forms.Label();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label11 = new System.Windows.Forms.Label();
+            this.guna2PictureBox21 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.lblDateTime = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label16 = new System.Windows.Forms.Label();
-            this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
-            this.label1 = new System.Windows.Forms.Label();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2PictureBox12 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox21 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.ctrlOrderItem6 = new Billiards_Club_Management_System.FoodOrders.ctrlOrderItem();
             this.ctrlOrderItem5 = new Billiards_Club_Management_System.FoodOrders.ctrlOrderItem();
             this.ctrlOrderItem4 = new Billiards_Club_Management_System.FoodOrders.ctrlOrderItem();
@@ -57,11 +57,11 @@
             this.ctrlFoodItem2 = new Billiards_Club_Management_System.FoodOrders.ctrlFoodItem();
             this.ctrlFoodItem1 = new Billiards_Club_Management_System.FoodOrders.ctrlFoodItem();
             this.guna2ShadowPanel2.SuspendLayout();
-            this.guna2Panel4.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
-            this.guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox12)).BeginInit();
+            this.guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox21)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +76,7 @@
             this.guna2ShadowPanel2.Controls.Add(this.ctrlFoodItem2);
             this.guna2ShadowPanel2.Controls.Add(this.ctrlFoodItem1);
             this.guna2ShadowPanel2.Controls.Add(this.guna2Panel4);
-            this.guna2ShadowPanel2.Controls.Add(this.label11);
+            this.guna2ShadowPanel2.Controls.Add(this.lblDateTime);
             this.guna2ShadowPanel2.Controls.Add(this.label13);
             this.guna2ShadowPanel2.Controls.Add(this.label15);
             this.guna2ShadowPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -88,55 +88,6 @@
             this.guna2ShadowPanel2.ShadowDepth = 150;
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(1664, 650);
             this.guna2ShadowPanel2.TabIndex = 11;
-            // 
-            // guna2Panel4
-            // 
-            this.guna2Panel4.BorderColor = System.Drawing.Color.Gainsboro;
-            this.guna2Panel4.BorderRadius = 10;
-            this.guna2Panel4.BorderThickness = 1;
-            this.guna2Panel4.Controls.Add(this.guna2PictureBox21);
-            this.guna2Panel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
-            this.guna2Panel4.Location = new System.Drawing.Point(30, 33);
-            this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.ShadowDecoration.Parent = this.guna2Panel4;
-            this.guna2Panel4.Size = new System.Drawing.Size(62, 59);
-            this.guna2Panel4.TabIndex = 30;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.DimGray;
-            this.label11.Location = new System.Drawing.Point(1328, 45);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(311, 26);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Monday, June, 2026     |   04:23 AM";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Font = new System.Drawing.Font("Segoe UI Variable Small", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.DimGray;
-            this.label13.Location = new System.Drawing.Point(103, 63);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(63, 20);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "6 ITEMS";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.DimGray;
-            this.label15.Location = new System.Drawing.Point(100, 33);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(218, 26);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "FOOD AND BEVERAGES";
             // 
             // guna2Panel1
             // 
@@ -164,17 +115,70 @@
             this.guna2Panel1.Size = new System.Drawing.Size(504, 486);
             this.guna2Panel1.TabIndex = 34;
             // 
-            // label16
+            // guna2ComboBox1
             // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Segoe UI Variable Display", 14F, System.Drawing.FontStyle.Bold);
-            this.label16.ForeColor = System.Drawing.Color.DimGray;
-            this.label16.Location = new System.Drawing.Point(90, 23);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(176, 26);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "ORDER SUMMARY";
+            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.BorderRadius = 5;
+            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.Empty;
+            this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox1.FormattingEnabled = true;
+            this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.ItemHeight = 30;
+            this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.Location = new System.Drawing.Point(178, 361);
+            this.guna2ComboBox1.Name = "guna2ComboBox1";
+            this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
+            this.guna2ComboBox1.Size = new System.Drawing.Size(140, 36);
+            this.guna2ComboBox1.TabIndex = 36;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(30, 367);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 21);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "ADD TO TABLE:";
+            // 
+            // guna2Separator1
+            // 
+            this.guna2Separator1.Location = new System.Drawing.Point(34, 413);
+            this.guna2Separator1.Name = "guna2Separator1";
+            this.guna2Separator1.Size = new System.Drawing.Size(444, 10);
+            this.guna2Separator1.TabIndex = 34;
+            // 
+            // guna2PictureBox12
+            // 
+            this.guna2PictureBox12.BorderRadius = 10;
+            this.guna2PictureBox12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
+            this.guna2PictureBox12.Image = global::Billiards_Club_Management_System.Properties.Resources.Saudi_Riyal_Symbol_1;
+            this.guna2PictureBox12.Location = new System.Drawing.Point(34, 436);
+            this.guna2PictureBox12.Name = "guna2PictureBox12";
+            this.guna2PictureBox12.ShadowDecoration.Parent = this.guna2PictureBox12;
+            this.guna2PictureBox12.Size = new System.Drawing.Size(30, 30);
+            this.guna2PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox12.TabIndex = 33;
+            this.guna2PictureBox12.TabStop = false;
+            this.guna2PictureBox12.UseTransparentBackground = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Variable Display", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.label7.Location = new System.Drawing.Point(60, 422);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 49);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "8";
             // 
             // guna2Panel5
             // 
@@ -188,6 +192,19 @@
             this.guna2Panel5.ShadowDecoration.Parent = this.guna2Panel5;
             this.guna2Panel5.Size = new System.Drawing.Size(49, 43);
             this.guna2Panel5.TabIndex = 31;
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
+            this.guna2PictureBox2.Image = global::Billiards_Club_Management_System.Properties.Resources.orderBillDark512;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(9, 6);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
+            this.guna2PictureBox2.Size = new System.Drawing.Size(30, 30);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 26;
+            this.guna2PictureBox2.TabStop = false;
+            this.guna2PictureBox2.UseTransparentBackground = true;
             // 
             // guna2Button2
             // 
@@ -214,83 +231,30 @@
             this.guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button2.TextOffset = new System.Drawing.Point(10, 0);
             // 
-            // label7
+            // label16
             // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Variable Display", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.label7.Location = new System.Drawing.Point(60, 422);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 49);
-            this.label7.TabIndex = 32;
-            this.label7.Text = "8";
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.Transparent;
+            this.label16.Font = new System.Drawing.Font("Segoe UI Variable Display", 14F, System.Drawing.FontStyle.Bold);
+            this.label16.ForeColor = System.Drawing.Color.DimGray;
+            this.label16.Location = new System.Drawing.Point(90, 23);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(176, 26);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "ORDER SUMMARY";
             // 
-            // guna2Separator1
+            // guna2Panel4
             // 
-            this.guna2Separator1.Location = new System.Drawing.Point(34, 413);
-            this.guna2Separator1.Name = "guna2Separator1";
-            this.guna2Separator1.Size = new System.Drawing.Size(444, 10);
-            this.guna2Separator1.TabIndex = 34;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(30, 367);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 21);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "ADD TO TABLE:";
-            // 
-            // guna2ComboBox1
-            // 
-            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.BorderRadius = 5;
-            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.Empty;
-            this.guna2ComboBox1.FocusedState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.guna2ComboBox1.FormattingEnabled = true;
-            this.guna2ComboBox1.HoverState.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.ItemsAppearance.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(178, 361);
-            this.guna2ComboBox1.Name = "guna2ComboBox1";
-            this.guna2ComboBox1.ShadowDecoration.Parent = this.guna2ComboBox1;
-            this.guna2ComboBox1.Size = new System.Drawing.Size(140, 36);
-            this.guna2ComboBox1.TabIndex = 36;
-            // 
-            // guna2PictureBox12
-            // 
-            this.guna2PictureBox12.BorderRadius = 10;
-            this.guna2PictureBox12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
-            this.guna2PictureBox12.Image = global::Billiards_Club_Management_System.Properties.Resources.Saudi_Riyal_Symbol_1;
-            this.guna2PictureBox12.Location = new System.Drawing.Point(34, 436);
-            this.guna2PictureBox12.Name = "guna2PictureBox12";
-            this.guna2PictureBox12.ShadowDecoration.Parent = this.guna2PictureBox12;
-            this.guna2PictureBox12.Size = new System.Drawing.Size(30, 30);
-            this.guna2PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox12.TabIndex = 33;
-            this.guna2PictureBox12.TabStop = false;
-            this.guna2PictureBox12.UseTransparentBackground = true;
-            // 
-            // guna2PictureBox2
-            // 
-            this.guna2PictureBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
-            this.guna2PictureBox2.Image = global::Billiards_Club_Management_System.Properties.Resources.orderBillDark512;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(9, 6);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
-            this.guna2PictureBox2.Size = new System.Drawing.Size(30, 30);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox2.TabIndex = 26;
-            this.guna2PictureBox2.TabStop = false;
-            this.guna2PictureBox2.UseTransparentBackground = true;
+            this.guna2Panel4.BorderColor = System.Drawing.Color.Gainsboro;
+            this.guna2Panel4.BorderRadius = 10;
+            this.guna2Panel4.BorderThickness = 1;
+            this.guna2Panel4.Controls.Add(this.guna2PictureBox21);
+            this.guna2Panel4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
+            this.guna2Panel4.Location = new System.Drawing.Point(30, 33);
+            this.guna2Panel4.Name = "guna2Panel4";
+            this.guna2Panel4.ShadowDecoration.Parent = this.guna2Panel4;
+            this.guna2Panel4.Size = new System.Drawing.Size(62, 59);
+            this.guna2Panel4.TabIndex = 30;
             // 
             // guna2PictureBox21
             // 
@@ -304,6 +268,42 @@
             this.guna2PictureBox21.TabIndex = 28;
             this.guna2PictureBox21.TabStop = false;
             this.guna2PictureBox21.UseTransparentBackground = true;
+            // 
+            // lblDateTime
+            // 
+            this.lblDateTime.AutoSize = true;
+            this.lblDateTime.BackColor = System.Drawing.Color.Transparent;
+            this.lblDateTime.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateTime.ForeColor = System.Drawing.Color.DimGray;
+            this.lblDateTime.Location = new System.Drawing.Point(1328, 45);
+            this.lblDateTime.Name = "lblDateTime";
+            this.lblDateTime.Size = new System.Drawing.Size(311, 26);
+            this.lblDateTime.TabIndex = 1;
+            this.lblDateTime.Text = "Monday, June, 2026     |   04:23 AM";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Font = new System.Drawing.Font("Segoe UI Variable Small", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.DimGray;
+            this.label13.Location = new System.Drawing.Point(103, 63);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(63, 20);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "6 ITEMS";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.Transparent;
+            this.label15.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.DimGray;
+            this.label15.Location = new System.Drawing.Point(100, 33);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(218, 26);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "FOOD AND BEVERAGES";
             // 
             // ctrlOrderItem6
             // 
@@ -411,12 +411,12 @@
             this.Size = new System.Drawing.Size(1664, 650);
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
-            this.guna2Panel4.ResumeLayout(false);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            this.guna2Panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox12)).EndInit();
+            this.guna2Panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            this.guna2Panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox21)).EndInit();
             this.ResumeLayout(false);
 
@@ -427,7 +427,7 @@
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel4;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox21;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblDateTime;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
         private FoodOrders.ctrlFoodItem ctrlFoodItem2;
