@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.btnSettings = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2PictureBox21 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.lblFoodItemPrice = new System.Windows.Forms.Label();
+            this.lblFoodItemName = new System.Windows.Forms.Label();
+            this.btnAddFoodItem = new Guna.UI2.WinForms.Guna2Button();
+            this.pbFoodPicture = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2PictureBox12 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoodPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox12)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,11 +44,11 @@
             this.guna2Panel1.BorderColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.BorderThickness = 1;
-            this.guna2Panel1.Controls.Add(this.btnSettings);
-            this.guna2Panel1.Controls.Add(this.guna2PictureBox21);
+            this.guna2Panel1.Controls.Add(this.btnAddFoodItem);
+            this.guna2Panel1.Controls.Add(this.pbFoodPicture);
             this.guna2Panel1.Controls.Add(this.guna2PictureBox12);
-            this.guna2Panel1.Controls.Add(this.label3);
-            this.guna2Panel1.Controls.Add(this.label16);
+            this.guna2Panel1.Controls.Add(this.lblFoodItemPrice);
+            this.guna2Panel1.Controls.Add(this.lblFoodItemName);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2Panel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
             this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
@@ -57,66 +57,66 @@
             this.guna2Panel1.Size = new System.Drawing.Size(208, 233);
             this.guna2Panel1.TabIndex = 31;
             // 
-            // label3
+            // lblFoodItemPrice
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 18.75F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.label3.Location = new System.Drawing.Point(137, 183);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 33);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "15";
+            this.lblFoodItemPrice.AutoSize = true;
+            this.lblFoodItemPrice.BackColor = System.Drawing.Color.Transparent;
+            this.lblFoodItemPrice.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 18.75F, System.Drawing.FontStyle.Bold);
+            this.lblFoodItemPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.lblFoodItemPrice.Location = new System.Drawing.Point(137, 183);
+            this.lblFoodItemPrice.Name = "lblFoodItemPrice";
+            this.lblFoodItemPrice.Size = new System.Drawing.Size(39, 33);
+            this.lblFoodItemPrice.TabIndex = 0;
+            this.lblFoodItemPrice.Text = "15";
             // 
-            // label16
+            // lblFoodItemName
             // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.DimGray;
-            this.label16.Location = new System.Drawing.Point(32, 19);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(144, 21);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "CHICKEN BURGER";
+            this.lblFoodItemName.AutoSize = true;
+            this.lblFoodItemName.BackColor = System.Drawing.Color.Transparent;
+            this.lblFoodItemName.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFoodItemName.ForeColor = System.Drawing.Color.DimGray;
+            this.lblFoodItemName.Location = new System.Drawing.Point(32, 19);
+            this.lblFoodItemName.Name = "lblFoodItemName";
+            this.lblFoodItemName.Size = new System.Drawing.Size(144, 21);
+            this.lblFoodItemName.TabIndex = 0;
+            this.lblFoodItemName.Text = "CHICKEN BURGER";
             // 
-            // btnSettings
+            // btnAddFoodItem
             // 
-            this.btnSettings.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSettings.BorderRadius = 2;
-            this.btnSettings.CheckedState.Parent = this.btnSettings;
-            this.btnSettings.CustomImages.Parent = this.btnSettings;
-            this.btnSettings.FillColor = System.Drawing.Color.Transparent;
-            this.btnSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.btnSettings.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.btnSettings.HoverState.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSettings.HoverState.Image = global::Billiards_Club_Management_System.Properties.Resources.addWhite512;
-            this.btnSettings.HoverState.Parent = this.btnSettings;
-            this.btnSettings.Image = global::Billiards_Club_Management_System.Properties.Resources.addDark512;
-            this.btnSettings.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnSettings.Location = new System.Drawing.Point(36, 183);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.ShadowDecoration.Parent = this.btnSettings;
-            this.btnSettings.Size = new System.Drawing.Size(33, 33);
-            this.btnSettings.TabIndex = 38;
-            this.btnSettings.Tag = "Settings";
+            this.btnAddFoodItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnAddFoodItem.BorderRadius = 2;
+            this.btnAddFoodItem.CheckedState.Parent = this.btnAddFoodItem;
+            this.btnAddFoodItem.CustomImages.Parent = this.btnAddFoodItem;
+            this.btnAddFoodItem.FillColor = System.Drawing.Color.Transparent;
+            this.btnAddFoodItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnAddFoodItem.ForeColor = System.Drawing.Color.White;
+            this.btnAddFoodItem.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnAddFoodItem.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.btnAddFoodItem.HoverState.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAddFoodItem.HoverState.Image = global::Billiards_Club_Management_System.Properties.Resources.addWhite512;
+            this.btnAddFoodItem.HoverState.Parent = this.btnAddFoodItem;
+            this.btnAddFoodItem.Image = global::Billiards_Club_Management_System.Properties.Resources.addDark512;
+            this.btnAddFoodItem.ImageSize = new System.Drawing.Size(25, 25);
+            this.btnAddFoodItem.Location = new System.Drawing.Point(36, 183);
+            this.btnAddFoodItem.Name = "btnAddFoodItem";
+            this.btnAddFoodItem.ShadowDecoration.Parent = this.btnAddFoodItem;
+            this.btnAddFoodItem.Size = new System.Drawing.Size(33, 33);
+            this.btnAddFoodItem.TabIndex = 38;
+            this.btnAddFoodItem.Tag = "Settings";
             // 
-            // guna2PictureBox21
+            // pbFoodPicture
             // 
-            this.guna2PictureBox21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.guna2PictureBox21.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
-            this.guna2PictureBox21.Image = global::Billiards_Club_Management_System.Properties.Resources.ChickenBurger1;
-            this.guna2PictureBox21.Location = new System.Drawing.Point(36, 52);
-            this.guna2PictureBox21.Name = "guna2PictureBox21";
-            this.guna2PictureBox21.ShadowDecoration.Parent = this.guna2PictureBox21;
-            this.guna2PictureBox21.Size = new System.Drawing.Size(140, 114);
-            this.guna2PictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox21.TabIndex = 37;
-            this.guna2PictureBox21.TabStop = false;
-            this.guna2PictureBox21.UseTransparentBackground = true;
+            this.pbFoodPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbFoodPicture.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
+            this.pbFoodPicture.Image = global::Billiards_Club_Management_System.Properties.Resources.ChickenBurger1;
+            this.pbFoodPicture.Location = new System.Drawing.Point(36, 52);
+            this.pbFoodPicture.Name = "pbFoodPicture";
+            this.pbFoodPicture.ShadowDecoration.Parent = this.pbFoodPicture;
+            this.pbFoodPicture.Size = new System.Drawing.Size(140, 114);
+            this.pbFoodPicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFoodPicture.TabIndex = 37;
+            this.pbFoodPicture.TabStop = false;
+            this.pbFoodPicture.UseTransparentBackground = true;
             // 
             // guna2PictureBox12
             // 
@@ -143,7 +143,7 @@
             this.Size = new System.Drawing.Size(208, 233);
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoodPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox12)).EndInit();
             this.ResumeLayout(false);
 
@@ -153,9 +153,9 @@
 
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox12;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label16;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox21;
-        private Guna.UI2.WinForms.Guna2Button btnSettings;
+        private System.Windows.Forms.Label lblFoodItemPrice;
+        private System.Windows.Forms.Label lblFoodItemName;
+        private Guna.UI2.WinForms.Guna2PictureBox pbFoodPicture;
+        private Guna.UI2.WinForms.Guna2Button btnAddFoodItem;
     }
 }

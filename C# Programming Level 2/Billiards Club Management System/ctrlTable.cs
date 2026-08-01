@@ -18,7 +18,6 @@ namespace Billiards_Club_Management_System
         public event Action<decimal> OnCompleteSession;
 
         private decimal _moneyAmount = 0;
-        public int HourlyRate = Form1.HourlyRate;
         private string _tableNumber = "00";
         public string TableNumber {
             get 
@@ -44,6 +43,12 @@ namespace Billiards_Club_Management_System
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (_minutes >= 60)
+            {
+                EndTableSession();
+                return;
+            }
+
             if (_seconds < 59)
                 ++_seconds;
             else
@@ -52,7 +57,7 @@ namespace Billiards_Club_Management_System
                 ++_minutes;
                 pbTimeProgress.Increment(1);
 
-                _moneyAmount = ( _minutes / 60.0m ) * HourlyRate;
+                _moneyAmount = ( _minutes / 60.0m ) * Form1.HourlyRate;
                 lblMonyAmount.Text = _moneyAmount.ToString("F2");
             }
 

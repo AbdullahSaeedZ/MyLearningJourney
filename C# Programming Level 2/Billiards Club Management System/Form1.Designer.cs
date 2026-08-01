@@ -40,14 +40,6 @@
             this.btnTables = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.ctrlTable8 = new Billiards_Club_Management_System.ctrlTable();
-            this.ctrlTable4 = new Billiards_Club_Management_System.ctrlTable();
-            this.ctrlTable7 = new Billiards_Club_Management_System.ctrlTable();
-            this.ctrlTable3 = new Billiards_Club_Management_System.ctrlTable();
-            this.ctrlTable6 = new Billiards_Club_Management_System.ctrlTable();
-            this.ctrlTable2 = new Billiards_Club_Management_System.ctrlTable();
-            this.ctrlTable5 = new Billiards_Club_Management_System.ctrlTable();
-            this.ctrlTable1 = new Billiards_Club_Management_System.ctrlTable();
             this.btnEditHourlyRate = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox16 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
@@ -89,6 +81,16 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlSectionsContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
+            this.tbEditRate = new Guna.UI2.WinForms.Guna2TextBox();
+            this.lblEditRateText = new System.Windows.Forms.Label();
+            this.ctrlTable8 = new Billiards_Club_Management_System.ctrlTable();
+            this.ctrlTable4 = new Billiards_Club_Management_System.ctrlTable();
+            this.ctrlTable7 = new Billiards_Club_Management_System.ctrlTable();
+            this.ctrlTable3 = new Billiards_Club_Management_System.ctrlTable();
+            this.ctrlTable6 = new Billiards_Club_Management_System.ctrlTable();
+            this.ctrlTable2 = new Billiards_Club_Management_System.ctrlTable();
+            this.ctrlTable5 = new Billiards_Club_Management_System.ctrlTable();
+            this.ctrlTable1 = new Billiards_Club_Management_System.ctrlTable();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2ShadowPanel2.SuspendLayout();
@@ -291,6 +293,8 @@
             // guna2ShadowPanel2
             // 
             this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel2.Controls.Add(this.lblEditRateText);
+            this.guna2ShadowPanel2.Controls.Add(this.tbEditRate);
             this.guna2ShadowPanel2.Controls.Add(this.ctrlTable8);
             this.guna2ShadowPanel2.Controls.Add(this.ctrlTable4);
             this.guna2ShadowPanel2.Controls.Add(this.ctrlTable7);
@@ -318,78 +322,6 @@
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(1665, 650);
             this.guna2ShadowPanel2.TabIndex = 10;
             // 
-            // ctrlTable8
-            // 
-            this.ctrlTable8.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlTable8.Location = new System.Drawing.Point(1260, 384);
-            this.ctrlTable8.Name = "ctrlTable8";
-            this.ctrlTable8.Size = new System.Drawing.Size(379, 240);
-            this.ctrlTable8.TabIndex = 33;
-            this.ctrlTable8.TableNumber = "08";
-            // 
-            // ctrlTable4
-            // 
-            this.ctrlTable4.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlTable4.Location = new System.Drawing.Point(1260, 122);
-            this.ctrlTable4.Name = "ctrlTable4";
-            this.ctrlTable4.Size = new System.Drawing.Size(379, 240);
-            this.ctrlTable4.TabIndex = 33;
-            this.ctrlTable4.TableNumber = "04";
-            // 
-            // ctrlTable7
-            // 
-            this.ctrlTable7.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlTable7.Location = new System.Drawing.Point(851, 384);
-            this.ctrlTable7.Name = "ctrlTable7";
-            this.ctrlTable7.Size = new System.Drawing.Size(379, 240);
-            this.ctrlTable7.TabIndex = 33;
-            this.ctrlTable7.TableNumber = "07";
-            // 
-            // ctrlTable3
-            // 
-            this.ctrlTable3.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlTable3.Location = new System.Drawing.Point(851, 122);
-            this.ctrlTable3.Name = "ctrlTable3";
-            this.ctrlTable3.Size = new System.Drawing.Size(379, 240);
-            this.ctrlTable3.TabIndex = 33;
-            this.ctrlTable3.TableNumber = "03";
-            // 
-            // ctrlTable6
-            // 
-            this.ctrlTable6.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlTable6.Location = new System.Drawing.Point(438, 384);
-            this.ctrlTable6.Name = "ctrlTable6";
-            this.ctrlTable6.Size = new System.Drawing.Size(379, 240);
-            this.ctrlTable6.TabIndex = 33;
-            this.ctrlTable6.TableNumber = "06";
-            // 
-            // ctrlTable2
-            // 
-            this.ctrlTable2.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlTable2.Location = new System.Drawing.Point(438, 122);
-            this.ctrlTable2.Name = "ctrlTable2";
-            this.ctrlTable2.Size = new System.Drawing.Size(379, 240);
-            this.ctrlTable2.TabIndex = 33;
-            this.ctrlTable2.TableNumber = "02";
-            // 
-            // ctrlTable5
-            // 
-            this.ctrlTable5.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlTable5.Location = new System.Drawing.Point(31, 384);
-            this.ctrlTable5.Name = "ctrlTable5";
-            this.ctrlTable5.Size = new System.Drawing.Size(379, 240);
-            this.ctrlTable5.TabIndex = 33;
-            this.ctrlTable5.TableNumber = "05";
-            // 
-            // ctrlTable1
-            // 
-            this.ctrlTable1.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlTable1.Location = new System.Drawing.Point(31, 122);
-            this.ctrlTable1.Name = "ctrlTable1";
-            this.ctrlTable1.Size = new System.Drawing.Size(379, 240);
-            this.ctrlTable1.TabIndex = 33;
-            this.ctrlTable1.TableNumber = "01";
-            // 
             // btnEditHourlyRate
             // 
             this.btnEditHourlyRate.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -412,6 +344,7 @@
             this.btnEditHourlyRate.Size = new System.Drawing.Size(23, 23);
             this.btnEditHourlyRate.TabIndex = 32;
             this.btnEditHourlyRate.Tag = "Settings";
+            this.btnEditHourlyRate.Click += new System.EventHandler(this.btnEditHourlyRate_Click);
             // 
             // guna2PictureBox16
             // 
@@ -918,6 +851,118 @@
             this.guna2Panel9.Size = new System.Drawing.Size(1684, 336);
             this.guna2Panel9.TabIndex = 33;
             // 
+            // tbEditRate
+            // 
+            this.tbEditRate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.tbEditRate.BorderRadius = 5;
+            this.tbEditRate.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbEditRate.DefaultText = "";
+            this.tbEditRate.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbEditRate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbEditRate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbEditRate.DisabledState.Parent = this.tbEditRate;
+            this.tbEditRate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbEditRate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.tbEditRate.FocusedState.Parent = this.tbEditRate;
+            this.tbEditRate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbEditRate.HoverState.Parent = this.tbEditRate;
+            this.tbEditRate.Location = new System.Drawing.Point(335, 64);
+            this.tbEditRate.Name = "tbEditRate";
+            this.tbEditRate.PasswordChar = '\0';
+            this.tbEditRate.PlaceholderText = "NEW RATE";
+            this.tbEditRate.SelectedText = "";
+            this.tbEditRate.ShadowDecoration.Parent = this.tbEditRate;
+            this.tbEditRate.Size = new System.Drawing.Size(76, 24);
+            this.tbEditRate.TabIndex = 34;
+            this.tbEditRate.Visible = false;
+            this.tbEditRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbEditRate_KeyPress);
+            // 
+            // lblEditRateText
+            // 
+            this.lblEditRateText.AutoSize = true;
+            this.lblEditRateText.BackColor = System.Drawing.Color.Transparent;
+            this.lblEditRateText.Font = new System.Drawing.Font("Segoe UI Variable Small", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEditRateText.ForeColor = System.Drawing.Color.DimGray;
+            this.lblEditRateText.Location = new System.Drawing.Point(417, 65);
+            this.lblEditRateText.Name = "lblEditRateText";
+            this.lblEditRateText.Size = new System.Drawing.Size(65, 20);
+            this.lblEditRateText.TabIndex = 35;
+            this.lblEditRateText.Text = " / HOUR";
+            this.lblEditRateText.UseWaitCursor = true;
+            this.lblEditRateText.Visible = false;
+            // 
+            // ctrlTable8
+            // 
+            this.ctrlTable8.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlTable8.Location = new System.Drawing.Point(1260, 384);
+            this.ctrlTable8.Name = "ctrlTable8";
+            this.ctrlTable8.Size = new System.Drawing.Size(379, 240);
+            this.ctrlTable8.TabIndex = 33;
+            this.ctrlTable8.TableNumber = "08";
+            // 
+            // ctrlTable4
+            // 
+            this.ctrlTable4.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlTable4.Location = new System.Drawing.Point(1260, 122);
+            this.ctrlTable4.Name = "ctrlTable4";
+            this.ctrlTable4.Size = new System.Drawing.Size(379, 240);
+            this.ctrlTable4.TabIndex = 33;
+            this.ctrlTable4.TableNumber = "04";
+            // 
+            // ctrlTable7
+            // 
+            this.ctrlTable7.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlTable7.Location = new System.Drawing.Point(851, 384);
+            this.ctrlTable7.Name = "ctrlTable7";
+            this.ctrlTable7.Size = new System.Drawing.Size(379, 240);
+            this.ctrlTable7.TabIndex = 33;
+            this.ctrlTable7.TableNumber = "07";
+            // 
+            // ctrlTable3
+            // 
+            this.ctrlTable3.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlTable3.Location = new System.Drawing.Point(851, 122);
+            this.ctrlTable3.Name = "ctrlTable3";
+            this.ctrlTable3.Size = new System.Drawing.Size(379, 240);
+            this.ctrlTable3.TabIndex = 33;
+            this.ctrlTable3.TableNumber = "03";
+            // 
+            // ctrlTable6
+            // 
+            this.ctrlTable6.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlTable6.Location = new System.Drawing.Point(438, 384);
+            this.ctrlTable6.Name = "ctrlTable6";
+            this.ctrlTable6.Size = new System.Drawing.Size(379, 240);
+            this.ctrlTable6.TabIndex = 33;
+            this.ctrlTable6.TableNumber = "06";
+            // 
+            // ctrlTable2
+            // 
+            this.ctrlTable2.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlTable2.Location = new System.Drawing.Point(438, 122);
+            this.ctrlTable2.Name = "ctrlTable2";
+            this.ctrlTable2.Size = new System.Drawing.Size(379, 240);
+            this.ctrlTable2.TabIndex = 33;
+            this.ctrlTable2.TableNumber = "02";
+            // 
+            // ctrlTable5
+            // 
+            this.ctrlTable5.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlTable5.Location = new System.Drawing.Point(31, 384);
+            this.ctrlTable5.Name = "ctrlTable5";
+            this.ctrlTable5.Size = new System.Drawing.Size(379, 240);
+            this.ctrlTable5.TabIndex = 33;
+            this.ctrlTable5.TableNumber = "05";
+            // 
+            // ctrlTable1
+            // 
+            this.ctrlTable1.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlTable1.Location = new System.Drawing.Point(31, 122);
+            this.ctrlTable1.Name = "ctrlTable1";
+            this.ctrlTable1.Size = new System.Drawing.Size(379, 240);
+            this.ctrlTable1.TabIndex = 33;
+            this.ctrlTable1.TableNumber = "01";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1034,6 +1079,8 @@
         private ctrlTable ctrlTable2;
         private ctrlTable ctrlTable5;
         private ctrlTable ctrlTable1;
+        private System.Windows.Forms.Label lblEditRateText;
+        private Guna.UI2.WinForms.Guna2TextBox tbEditRate;
     }
 }
 

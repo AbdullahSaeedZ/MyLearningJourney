@@ -1,7 +1,9 @@
 ﻿using Billiards_Club_Management_System.Properties;
 using Billiards_Club_Management_System.SessionsHistory;
 using Guna.UI2.WinForms;
+using System;
 using System.Drawing;
+using System.Management.Instrumentation;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -132,5 +134,24 @@ namespace Billiards_Club_Management_System
             lblHourlyRate.Text = $"{HourlyRate} / Hour";
         }
 
+        private void tbEditRate_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back && e.KeyChar != (char)Keys.Enter;
+
+            if (e.KeyChar == (char)Keys.Enter && !string.IsNullOrWhiteSpace(tbEditRate.Text))
+            {
+                UpdateHourlyRate(Convert.ToInt32(tbEditRate.Text));
+                tbEditRate.Text = "";
+                tbEditRate.Visible = false;
+                lblEditRateText.Visible = false;
+            }
+        }
+
+        private void btnEditHourlyRate_Click(object sender, EventArgs e)
+        {
+            tbEditRate.Visible = !tbEditRate.Visible;
+            lblEditRateText.Visible = !lblEditRateText.Visible;
+            tbEditRate.Focus();
+        }
     }
 }

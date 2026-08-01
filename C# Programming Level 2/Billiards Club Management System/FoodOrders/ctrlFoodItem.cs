@@ -12,6 +12,41 @@ namespace Billiards_Club_Management_System.FoodOrders
 {
     public partial class ctrlFoodItem : UserControl
     {
+        private string _foodItemName;
+        private string _foodItemPrice;
+        private Image _foodItemPicture;
+
+        public string FoodItemName
+        {
+            get { return _foodItemName; }
+            set
+            {
+                _foodItemName = value;
+                lblFoodItemName.Text = _foodItemName;
+            }
+        }
+
+        public string FoodItemPrice
+        {
+            get { return _foodItemPrice; }
+            set
+            {
+                _foodItemPrice = value;
+                lblFoodItemPrice.Text = _foodItemPrice;
+            }
+        }
+
+        public Image FoodItemPicture
+        {
+            get { return _foodItemPicture; }
+            set
+            {
+                _foodItemPicture = value;
+                pbFoodPicture.Image = _foodItemPicture;
+            }
+        }
+        
+
         public ctrlFoodItem()
         {
             InitializeComponent();

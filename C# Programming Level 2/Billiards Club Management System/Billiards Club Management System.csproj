@@ -251,5 +251,20 @@
   <ItemGroup>
     <None Include="assets\statsDark512.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\beefBurger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\fries.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\friesWithS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\pepsi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\water.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
