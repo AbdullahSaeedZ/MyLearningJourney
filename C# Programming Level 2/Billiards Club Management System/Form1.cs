@@ -30,15 +30,9 @@ namespace Billiards_Club_Management_System
         {
             InitializeComponent();
         }
-
-        private void Form1_Load(object sender, System.EventArgs e)
+        
+        private void InitializeTables()
         {
-            ctrlfoodOrders = new ctrlFoodOrders();
-            pnlSectionsContainer.Controls.Add(ctrlfoodOrders);
-            ctrlSessionsHistory = new ctrlSessionsHistory();
-            pnlSectionsContainer.Controls.Add(ctrlSessionsHistory);
-
-            _buttons = new Guna2Button[] { btnTables, btnFoodOrders, btnSessionsHistory };
             _tables = new ctrlTable[] { ctrlTable1, ctrlTable2, ctrlTable3, ctrlTable4, ctrlTable5, ctrlTable6, ctrlTable7, ctrlTable8 };
 
             foreach (ctrlTable table in _tables)
@@ -61,6 +55,32 @@ namespace Billiards_Club_Management_System
                 };
                 table.OnCompleteSession += IncreaseRevenue;
             }
+        }
+
+        private void InitializeFoodOrdersCtrl()
+        {
+            ctrlfoodOrders = new ctrlFoodOrders();
+            pnlSectionsContainer.Controls.Add(ctrlfoodOrders);
+
+            ctrlfoodOrders.OnFoodOrderConfirmed += (revenue) =>
+            {
+                IncreaseFoodOrders();
+                IncreaseRevenue(revenue);
+            };
+        }
+        private void InitializeSessionsHistoryCtrl()
+        {
+            ctrlSessionsHistory = new ctrlSessionsHistory();
+            pnlSectionsContainer.Controls.Add(ctrlSessionsHistory);
+        }
+
+        private void Form1_Load(object sender, System.EventArgs e)
+        {
+            _buttons = new Guna2Button[] { btnTables, btnFoodOrders, btnSessionsHistory };
+
+            InitializeTables();
+            InitializeFoodOrdersCtrl();
+            InitializeSessionsHistoryCtrl();
 
             btnTables.PerformClick();
             timer1_Tick(null, System.EventArgs.Empty);

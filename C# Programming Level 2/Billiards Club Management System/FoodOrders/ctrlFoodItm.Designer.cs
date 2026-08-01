@@ -61,7 +61,7 @@
             // 
             this.btnAddFoodItem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnAddFoodItem.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddFoodItem.BorderRadius = 2;
+            this.btnAddFoodItem.BorderRadius = 5;
             this.btnAddFoodItem.CheckedState.Parent = this.btnAddFoodItem;
             this.btnAddFoodItem.CustomImages.Parent = this.btnAddFoodItem;
             this.btnAddFoodItem.FillColor = System.Drawing.Color.Transparent;
@@ -73,13 +73,15 @@
             this.btnAddFoodItem.HoverState.Image = global::Billiards_Club_Management_System.Properties.Resources.addWhite512;
             this.btnAddFoodItem.HoverState.Parent = this.btnAddFoodItem;
             this.btnAddFoodItem.Image = global::Billiards_Club_Management_System.Properties.Resources.addDark512;
-            this.btnAddFoodItem.ImageSize = new System.Drawing.Size(25, 25);
-            this.btnAddFoodItem.Location = new System.Drawing.Point(36, 183);
+            this.btnAddFoodItem.ImageSize = new System.Drawing.Size(26, 25);
+            this.btnAddFoodItem.Location = new System.Drawing.Point(34, 181);
             this.btnAddFoodItem.Name = "btnAddFoodItem";
+            this.btnAddFoodItem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.btnAddFoodItem.ShadowDecoration.Parent = this.btnAddFoodItem;
-            this.btnAddFoodItem.Size = new System.Drawing.Size(33, 33);
+            this.btnAddFoodItem.Size = new System.Drawing.Size(49, 38);
             this.btnAddFoodItem.TabIndex = 38;
             this.btnAddFoodItem.Tag = "Settings";
+            this.btnAddFoodItem.Click += new System.EventHandler(this.btnAddFoodItem_Click);
             // 
             // pbFoodPicture
             // 

@@ -153,6 +153,16 @@ namespace Billiards_Club_Management_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap confirmed512 {
+            get {
+                object obj = ResourceManager.GetObject("confirmed512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap editDark512 {
             get {
                 object obj = ResourceManager.GetObject("editDark512", resourceCulture);
