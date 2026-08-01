@@ -40,6 +40,8 @@
             this.btnTables = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.lblEditRateText = new System.Windows.Forms.Label();
+            this.tbEditRate = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnEditHourlyRate = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox16 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
@@ -81,8 +83,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlSectionsContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
-            this.tbEditRate = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblEditRateText = new System.Windows.Forms.Label();
             this.ctrlTable8 = new Billiards_Club_Management_System.ctrlTable();
             this.ctrlTable4 = new Billiards_Club_Management_System.ctrlTable();
             this.ctrlTable7 = new Billiards_Club_Management_System.ctrlTable();
@@ -322,6 +322,46 @@
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(1665, 650);
             this.guna2ShadowPanel2.TabIndex = 10;
             // 
+            // lblEditRateText
+            // 
+            this.lblEditRateText.AutoSize = true;
+            this.lblEditRateText.BackColor = System.Drawing.Color.Transparent;
+            this.lblEditRateText.Font = new System.Drawing.Font("Segoe UI Variable Small", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEditRateText.ForeColor = System.Drawing.Color.DimGray;
+            this.lblEditRateText.Location = new System.Drawing.Point(417, 65);
+            this.lblEditRateText.Name = "lblEditRateText";
+            this.lblEditRateText.Size = new System.Drawing.Size(65, 20);
+            this.lblEditRateText.TabIndex = 35;
+            this.lblEditRateText.Text = " / HOUR";
+            this.lblEditRateText.UseWaitCursor = true;
+            this.lblEditRateText.Visible = false;
+            // 
+            // tbEditRate
+            // 
+            this.tbEditRate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.tbEditRate.BorderRadius = 5;
+            this.tbEditRate.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbEditRate.DefaultText = "";
+            this.tbEditRate.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.tbEditRate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.tbEditRate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbEditRate.DisabledState.Parent = this.tbEditRate;
+            this.tbEditRate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.tbEditRate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.tbEditRate.FocusedState.Parent = this.tbEditRate;
+            this.tbEditRate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.tbEditRate.HoverState.Parent = this.tbEditRate;
+            this.tbEditRate.Location = new System.Drawing.Point(335, 64);
+            this.tbEditRate.Name = "tbEditRate";
+            this.tbEditRate.PasswordChar = '\0';
+            this.tbEditRate.PlaceholderText = "NEW RATE";
+            this.tbEditRate.SelectedText = "";
+            this.tbEditRate.ShadowDecoration.Parent = this.tbEditRate;
+            this.tbEditRate.Size = new System.Drawing.Size(76, 24);
+            this.tbEditRate.TabIndex = 34;
+            this.tbEditRate.Visible = false;
+            this.tbEditRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbEditRate_KeyPress);
+            // 
             // btnEditHourlyRate
             // 
             this.btnEditHourlyRate.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -426,16 +466,16 @@
             // 
             // lblDateTime
             // 
-            this.lblDateTime.AutoSize = true;
             this.lblDateTime.BackColor = System.Drawing.Color.Transparent;
             this.lblDateTime.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateTime.ForeColor = System.Drawing.Color.DimGray;
-            this.lblDateTime.Location = new System.Drawing.Point(1328, 45);
+            this.lblDateTime.Location = new System.Drawing.Point(1178, 45);
             this.lblDateTime.Name = "lblDateTime";
-            this.lblDateTime.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblDateTime.Size = new System.Drawing.Size(311, 26);
+            this.lblDateTime.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblDateTime.Size = new System.Drawing.Size(461, 26);
             this.lblDateTime.TabIndex = 1;
             this.lblDateTime.Text = "Monday, June, 2026     |   04:23 AM";
+            this.lblDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label14
             // 
@@ -850,46 +890,6 @@
             this.guna2Panel9.ShadowDecoration.Parent = this.guna2Panel9;
             this.guna2Panel9.Size = new System.Drawing.Size(1684, 336);
             this.guna2Panel9.TabIndex = 33;
-            // 
-            // tbEditRate
-            // 
-            this.tbEditRate.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.tbEditRate.BorderRadius = 5;
-            this.tbEditRate.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbEditRate.DefaultText = "";
-            this.tbEditRate.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.tbEditRate.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.tbEditRate.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbEditRate.DisabledState.Parent = this.tbEditRate;
-            this.tbEditRate.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.tbEditRate.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.tbEditRate.FocusedState.Parent = this.tbEditRate;
-            this.tbEditRate.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.tbEditRate.HoverState.Parent = this.tbEditRate;
-            this.tbEditRate.Location = new System.Drawing.Point(335, 64);
-            this.tbEditRate.Name = "tbEditRate";
-            this.tbEditRate.PasswordChar = '\0';
-            this.tbEditRate.PlaceholderText = "NEW RATE";
-            this.tbEditRate.SelectedText = "";
-            this.tbEditRate.ShadowDecoration.Parent = this.tbEditRate;
-            this.tbEditRate.Size = new System.Drawing.Size(76, 24);
-            this.tbEditRate.TabIndex = 34;
-            this.tbEditRate.Visible = false;
-            this.tbEditRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbEditRate_KeyPress);
-            // 
-            // lblEditRateText
-            // 
-            this.lblEditRateText.AutoSize = true;
-            this.lblEditRateText.BackColor = System.Drawing.Color.Transparent;
-            this.lblEditRateText.Font = new System.Drawing.Font("Segoe UI Variable Small", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEditRateText.ForeColor = System.Drawing.Color.DimGray;
-            this.lblEditRateText.Location = new System.Drawing.Point(417, 65);
-            this.lblEditRateText.Name = "lblEditRateText";
-            this.lblEditRateText.Size = new System.Drawing.Size(65, 20);
-            this.lblEditRateText.TabIndex = 35;
-            this.lblEditRateText.Text = " / HOUR";
-            this.lblEditRateText.UseWaitCursor = true;
-            this.lblEditRateText.Visible = false;
             // 
             // ctrlTable8
             // 

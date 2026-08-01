@@ -29,34 +29,44 @@
         private void InitializeComponent()
         {
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.ctrlFoodItm6 = new Billiards_Club_Management_System.FoodOrders.ctrlFoodItm();
+            this.ctrlFoodItm4 = new Billiards_Club_Management_System.FoodOrders.ctrlFoodItm();
+            this.ctrlFoodItm5 = new Billiards_Club_Management_System.FoodOrders.ctrlFoodItm();
+            this.ctrlFoodItm2 = new Billiards_Club_Management_System.FoodOrders.ctrlFoodItm();
+            this.ctrlFoodItm3 = new Billiards_Club_Management_System.FoodOrders.ctrlFoodItm();
+            this.ctrlFoodItm1 = new Billiards_Club_Management_System.FoodOrders.ctrlFoodItm();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
+            this.guna2PictureBox12 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.guna2Panel5 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.label16 = new System.Windows.Forms.Label();
             this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2PictureBox21 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.lblDateTime = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.guna2PictureBox12 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2PictureBox21 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.ctrlFoodItm1 = new Billiards_Club_Management_System.FoodOrders.ctrlFoodItm();
             this.guna2ShadowPanel2.SuspendLayout();
             this.guna2Panel1.SuspendLayout();
-            this.guna2Panel5.SuspendLayout();
-            this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox12)).BeginInit();
+            this.guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox21)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2ShadowPanel2
             // 
             this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel2.Controls.Add(this.ctrlFoodItm6);
+            this.guna2ShadowPanel2.Controls.Add(this.ctrlFoodItm4);
+            this.guna2ShadowPanel2.Controls.Add(this.ctrlFoodItm5);
+            this.guna2ShadowPanel2.Controls.Add(this.ctrlFoodItm2);
+            this.guna2ShadowPanel2.Controls.Add(this.ctrlFoodItm3);
             this.guna2ShadowPanel2.Controls.Add(this.ctrlFoodItm1);
             this.guna2ShadowPanel2.Controls.Add(this.guna2Panel1);
             this.guna2ShadowPanel2.Controls.Add(this.guna2Panel4);
@@ -72,6 +82,90 @@
             this.guna2ShadowPanel2.ShadowDepth = 150;
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(1664, 650);
             this.guna2ShadowPanel2.TabIndex = 11;
+            // 
+            // ctrlFoodItm6
+            // 
+            this.ctrlFoodItm6.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlFoodItm6.FoodItemName = "WATER";
+            this.ctrlFoodItm6.FoodItemPrice = new decimal(new int[] {
+            15,
+            0,
+            0,
+            65536});
+            this.ctrlFoodItm6.Location = new System.Drawing.Point(510, 385);
+            this.ctrlFoodItm6.Name = "ctrlFoodItm6";
+            this.ctrlFoodItm6.Size = new System.Drawing.Size(208, 233);
+            this.ctrlFoodItm6.TabIndex = 35;
+            // 
+            // ctrlFoodItm4
+            // 
+            this.ctrlFoodItm4.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlFoodItm4.FoodItemName = "FRIES";
+            this.ctrlFoodItm4.FoodItemPrice = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.ctrlFoodItm4.Location = new System.Drawing.Point(269, 385);
+            this.ctrlFoodItm4.Name = "ctrlFoodItm4";
+            this.ctrlFoodItm4.Size = new System.Drawing.Size(208, 233);
+            this.ctrlFoodItm4.TabIndex = 35;
+            // 
+            // ctrlFoodItm5
+            // 
+            this.ctrlFoodItm5.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlFoodItm5.FoodItemName = "PEPSI";
+            this.ctrlFoodItm5.FoodItemPrice = new decimal(new int[] {
+            275,
+            0,
+            0,
+            131072});
+            this.ctrlFoodItm5.Location = new System.Drawing.Point(510, 132);
+            this.ctrlFoodItm5.Name = "ctrlFoodItm5";
+            this.ctrlFoodItm5.Size = new System.Drawing.Size(208, 233);
+            this.ctrlFoodItm5.TabIndex = 35;
+            // 
+            // ctrlFoodItm2
+            // 
+            this.ctrlFoodItm2.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlFoodItm2.FoodItemName = "FRIES + SAUSE";
+            this.ctrlFoodItm2.FoodItemPrice = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            this.ctrlFoodItm2.Location = new System.Drawing.Point(269, 132);
+            this.ctrlFoodItm2.Name = "ctrlFoodItm2";
+            this.ctrlFoodItm2.Size = new System.Drawing.Size(208, 233);
+            this.ctrlFoodItm2.TabIndex = 35;
+            // 
+            // ctrlFoodItm3
+            // 
+            this.ctrlFoodItm3.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlFoodItm3.FoodItemName = "BEEF BURGER";
+            this.ctrlFoodItm3.FoodItemPrice = new decimal(new int[] {
+            14,
+            0,
+            0,
+            0});
+            this.ctrlFoodItm3.Location = new System.Drawing.Point(30, 385);
+            this.ctrlFoodItm3.Name = "ctrlFoodItm3";
+            this.ctrlFoodItm3.Size = new System.Drawing.Size(208, 233);
+            this.ctrlFoodItm3.TabIndex = 35;
+            // 
+            // ctrlFoodItm1
+            // 
+            this.ctrlFoodItm1.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlFoodItm1.FoodItemName = "CHICKEN BURGER";
+            this.ctrlFoodItm1.FoodItemPrice = new decimal(new int[] {
+            13,
+            0,
+            0,
+            0});
+            this.ctrlFoodItm1.Location = new System.Drawing.Point(30, 132);
+            this.ctrlFoodItm1.Name = "ctrlFoodItm1";
+            this.ctrlFoodItm1.Size = new System.Drawing.Size(208, 233);
+            this.ctrlFoodItm1.TabIndex = 35;
             // 
             // guna2Panel1
             // 
@@ -132,6 +226,20 @@
             this.guna2Separator1.Size = new System.Drawing.Size(444, 10);
             this.guna2Separator1.TabIndex = 34;
             // 
+            // guna2PictureBox12
+            // 
+            this.guna2PictureBox12.BorderRadius = 10;
+            this.guna2PictureBox12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
+            this.guna2PictureBox12.Image = global::Billiards_Club_Management_System.Properties.Resources.Saudi_Riyal_Symbol_1;
+            this.guna2PictureBox12.Location = new System.Drawing.Point(34, 436);
+            this.guna2PictureBox12.Name = "guna2PictureBox12";
+            this.guna2PictureBox12.ShadowDecoration.Parent = this.guna2PictureBox12;
+            this.guna2PictureBox12.Size = new System.Drawing.Size(30, 30);
+            this.guna2PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox12.TabIndex = 33;
+            this.guna2PictureBox12.TabStop = false;
+            this.guna2PictureBox12.UseTransparentBackground = true;
+            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -156,6 +264,19 @@
             this.guna2Panel5.ShadowDecoration.Parent = this.guna2Panel5;
             this.guna2Panel5.Size = new System.Drawing.Size(49, 43);
             this.guna2Panel5.TabIndex = 31;
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
+            this.guna2PictureBox2.Image = global::Billiards_Club_Management_System.Properties.Resources.orderBillDark512;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(9, 6);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
+            this.guna2PictureBox2.Size = new System.Drawing.Size(30, 30);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox2.TabIndex = 26;
+            this.guna2PictureBox2.TabStop = false;
+            this.guna2PictureBox2.UseTransparentBackground = true;
             // 
             // guna2Button2
             // 
@@ -207,17 +328,30 @@
             this.guna2Panel4.Size = new System.Drawing.Size(62, 59);
             this.guna2Panel4.TabIndex = 30;
             // 
+            // guna2PictureBox21
+            // 
+            this.guna2PictureBox21.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
+            this.guna2PictureBox21.Image = global::Billiards_Club_Management_System.Properties.Resources.foodDarkNoFIll512;
+            this.guna2PictureBox21.Location = new System.Drawing.Point(11, 11);
+            this.guna2PictureBox21.Name = "guna2PictureBox21";
+            this.guna2PictureBox21.ShadowDecoration.Parent = this.guna2PictureBox21;
+            this.guna2PictureBox21.Size = new System.Drawing.Size(40, 36);
+            this.guna2PictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.guna2PictureBox21.TabIndex = 28;
+            this.guna2PictureBox21.TabStop = false;
+            this.guna2PictureBox21.UseTransparentBackground = true;
+            // 
             // lblDateTime
             // 
-            this.lblDateTime.AutoSize = true;
             this.lblDateTime.BackColor = System.Drawing.Color.Transparent;
             this.lblDateTime.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateTime.ForeColor = System.Drawing.Color.DimGray;
-            this.lblDateTime.Location = new System.Drawing.Point(1328, 45);
+            this.lblDateTime.Location = new System.Drawing.Point(1230, 45);
             this.lblDateTime.Name = "lblDateTime";
-            this.lblDateTime.Size = new System.Drawing.Size(311, 26);
+            this.lblDateTime.Size = new System.Drawing.Size(409, 26);
             this.lblDateTime.TabIndex = 1;
             this.lblDateTime.Text = "Monday, June, 2026     |   04:23 AM";
+            this.lblDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label13
             // 
@@ -243,54 +377,6 @@
             this.label15.TabIndex = 0;
             this.label15.Text = "FOOD AND BEVERAGES";
             // 
-            // guna2PictureBox12
-            // 
-            this.guna2PictureBox12.BorderRadius = 10;
-            this.guna2PictureBox12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
-            this.guna2PictureBox12.Image = global::Billiards_Club_Management_System.Properties.Resources.Saudi_Riyal_Symbol_1;
-            this.guna2PictureBox12.Location = new System.Drawing.Point(34, 436);
-            this.guna2PictureBox12.Name = "guna2PictureBox12";
-            this.guna2PictureBox12.ShadowDecoration.Parent = this.guna2PictureBox12;
-            this.guna2PictureBox12.Size = new System.Drawing.Size(30, 30);
-            this.guna2PictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox12.TabIndex = 33;
-            this.guna2PictureBox12.TabStop = false;
-            this.guna2PictureBox12.UseTransparentBackground = true;
-            // 
-            // guna2PictureBox2
-            // 
-            this.guna2PictureBox2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
-            this.guna2PictureBox2.Image = global::Billiards_Club_Management_System.Properties.Resources.orderBillDark512;
-            this.guna2PictureBox2.Location = new System.Drawing.Point(9, 6);
-            this.guna2PictureBox2.Name = "guna2PictureBox2";
-            this.guna2PictureBox2.ShadowDecoration.Parent = this.guna2PictureBox2;
-            this.guna2PictureBox2.Size = new System.Drawing.Size(30, 30);
-            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox2.TabIndex = 26;
-            this.guna2PictureBox2.TabStop = false;
-            this.guna2PictureBox2.UseTransparentBackground = true;
-            // 
-            // guna2PictureBox21
-            // 
-            this.guna2PictureBox21.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
-            this.guna2PictureBox21.Image = global::Billiards_Club_Management_System.Properties.Resources.foodDarkNoFIll512;
-            this.guna2PictureBox21.Location = new System.Drawing.Point(11, 11);
-            this.guna2PictureBox21.Name = "guna2PictureBox21";
-            this.guna2PictureBox21.ShadowDecoration.Parent = this.guna2PictureBox21;
-            this.guna2PictureBox21.Size = new System.Drawing.Size(40, 36);
-            this.guna2PictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.guna2PictureBox21.TabIndex = 28;
-            this.guna2PictureBox21.TabStop = false;
-            this.guna2PictureBox21.UseTransparentBackground = true;
-            // 
-            // ctrlFoodItm1
-            // 
-            this.ctrlFoodItm1.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlFoodItm1.Location = new System.Drawing.Point(126, 209);
-            this.ctrlFoodItm1.Name = "ctrlFoodItm1";
-            this.ctrlFoodItm1.Size = new System.Drawing.Size(208, 233);
-            this.ctrlFoodItm1.TabIndex = 35;
-            // 
             // ctrlFoodOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,10 +389,10 @@
             this.guna2ShadowPanel2.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
-            this.guna2Panel5.ResumeLayout(false);
-            this.guna2Panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox12)).EndInit();
+            this.guna2Panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            this.guna2Panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox21)).EndInit();
             this.ResumeLayout(false);
 
@@ -337,5 +423,10 @@
         private FoodOrders.ctrlOrderItem ctrlOrderItem2;
         private FoodOrders.ctrlOrderItem ctrlOrderItem1;
         private FoodOrders.ctrlFoodItm ctrlFoodItm1;
+        private FoodOrders.ctrlFoodItm ctrlFoodItm2;
+        private FoodOrders.ctrlFoodItm ctrlFoodItm6;
+        private FoodOrders.ctrlFoodItm ctrlFoodItm4;
+        private FoodOrders.ctrlFoodItm ctrlFoodItm5;
+        private FoodOrders.ctrlFoodItm ctrlFoodItm3;
     }
 }

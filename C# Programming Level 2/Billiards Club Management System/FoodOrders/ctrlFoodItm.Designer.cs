@@ -86,7 +86,6 @@
             this.pbFoodPicture.BackColor = System.Drawing.Color.Transparent;
             this.pbFoodPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbFoodPicture.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
-            this.pbFoodPicture.Image = global::Billiards_Club_Management_System.Properties.Resources.ChickenBurger1;
             this.pbFoodPicture.Location = new System.Drawing.Point(36, 52);
             this.pbFoodPicture.Name = "pbFoodPicture";
             this.pbFoodPicture.ShadowDecoration.Parent = this.pbFoodPicture;
@@ -102,7 +101,7 @@
             this.guna2PictureBox12.BorderRadius = 10;
             this.guna2PictureBox12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(235)))), ((int)(((byte)(229)))));
             this.guna2PictureBox12.Image = global::Billiards_Club_Management_System.Properties.Resources.Saudi_Riyal_Symbol_1;
-            this.guna2PictureBox12.Location = new System.Drawing.Point(117, 190);
+            this.guna2PictureBox12.Location = new System.Drawing.Point(92, 190);
             this.guna2PictureBox12.Name = "guna2PictureBox12";
             this.guna2PictureBox12.ShadowDecoration.Parent = this.guna2PictureBox12;
             this.guna2PictureBox12.Size = new System.Drawing.Size(22, 22);
@@ -117,21 +116,22 @@
             this.lblFoodItemPrice.BackColor = System.Drawing.Color.Transparent;
             this.lblFoodItemPrice.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 18.75F, System.Drawing.FontStyle.Bold);
             this.lblFoodItemPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
-            this.lblFoodItemPrice.Location = new System.Drawing.Point(137, 183);
+            this.lblFoodItemPrice.Location = new System.Drawing.Point(112, 183);
             this.lblFoodItemPrice.Name = "lblFoodItemPrice";
-            this.lblFoodItemPrice.Size = new System.Drawing.Size(39, 33);
+            this.lblFoodItemPrice.Size = new System.Drawing.Size(73, 33);
             this.lblFoodItemPrice.TabIndex = 0;
-            this.lblFoodItemPrice.Text = "15";
+            this.lblFoodItemPrice.Text = "15.00";
             // 
             // lblFoodItemName
             // 
-            this.lblFoodItemName.AutoSize = true;
+            this.lblFoodItemName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFoodItemName.BackColor = System.Drawing.Color.Transparent;
             this.lblFoodItemName.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFoodItemName.ForeColor = System.Drawing.Color.DimGray;
-            this.lblFoodItemName.Location = new System.Drawing.Point(32, 19);
+            this.lblFoodItemName.Location = new System.Drawing.Point(0, 19);
             this.lblFoodItemName.Name = "lblFoodItemName";
-            this.lblFoodItemName.Size = new System.Drawing.Size(144, 21);
+            this.lblFoodItemName.Size = new System.Drawing.Size(208, 21);
             this.lblFoodItemName.TabIndex = 0;
             this.lblFoodItemName.Text = "CHICKEN BURGER";
             this.lblFoodItemName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
