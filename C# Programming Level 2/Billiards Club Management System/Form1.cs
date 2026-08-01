@@ -2,6 +2,7 @@
 using Billiards_Club_Management_System.SessionsHistory;
 using Guna.UI2.WinForms;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Management.Instrumentation;
 using System.Threading;
@@ -19,7 +20,7 @@ namespace Billiards_Club_Management_System
         private int _foodOrders = 0;
         public static int HourlyRate { private set; get; } = 35;
 
-        private ctrlTable[] _tables;
+        private Dictionary<string, ctrlTable> _tables;
         private Guna2Button[] _buttons;
         private ctrlFoodOrders ctrlfoodOrders;
         private ctrlSessionsHistory ctrlSessionsHistory;
@@ -33,9 +34,11 @@ namespace Billiards_Club_Management_System
         
         private void InitializeTables()
         {
-            _tables = new ctrlTable[] { ctrlTable1, ctrlTable2, ctrlTable3, ctrlTable4, ctrlTable5, ctrlTable6, ctrlTable7, ctrlTable8 };
+            _tables = new Dictionary<string, ctrlTable> { { ctrlTable1.TableNumber, ctrlTable1 }, { ctrlTable2.TableNumber, ctrlTable2 }, 
+                { ctrlTable3.TableNumber, ctrlTable3 }, { ctrlTable4.TableNumber, ctrlTable4 }, { ctrlTable5.TableNumber, ctrlTable5 },
+                { ctrlTable6.TableNumber, ctrlTable6 }, { ctrlTable7.TableNumber, ctrlTable7 }, { ctrlTable8.TableNumber, ctrlTable8 } };
 
-            foreach (ctrlTable table in _tables)
+            foreach (ctrlTable table in _tables.Values)
             {
                 table.OnSessionStarted += () => {
 
@@ -44,6 +47,7 @@ namespace Billiards_Club_Management_System
                     lblFreeTables.Text = _freeTables.ToString();
                     lblBusyTables.Text = _busyTables.ToString();
                     lblFreeBusyTables.Text = $"{_busyTables} / {_totalTables} BUSY";
+                    ctrlfoodOrders.AddActiveTableToComboBox(table.TableNumber);
                 };
                 table.OnSessionEnded += () => {
 
@@ -52,6 +56,7 @@ namespace Billiards_Club_Management_System
                     lblFreeTables.Text = _freeTables.ToString();
                     lblBusyTables.Text = _busyTables.ToString();
                     lblFreeBusyTables.Text = $"{_busyTables} / {_totalTables} BUSY";
+                    ctrlfoodOrders.RemoveActiveTableFromComboBox(table.TableNumber);
                 };
                 table.OnCompleteSession += IncreaseRevenue;
             }
@@ -62,10 +67,15 @@ namespace Billiards_Club_Management_System
             ctrlfoodOrders = new ctrlFoodOrders();
             pnlSectionsContainer.Controls.Add(ctrlfoodOrders);
 
-            ctrlfoodOrders.OnFoodOrderConfirmed += (revenue) =>
+            ctrlfoodOrders.OnFoodOrderConfirmed += (revenue, tableNumber) =>
             {
                 IncreaseFoodOrders();
                 IncreaseRevenue(revenue);
+
+                if (tableNumber != null && tableNumber != "TAKE AWAY")
+                {
+                    _tables[$"{tableNumber}"].FoodOrders++;
+                }
             };
         }
         private void InitializeSessionsHistoryCtrl()

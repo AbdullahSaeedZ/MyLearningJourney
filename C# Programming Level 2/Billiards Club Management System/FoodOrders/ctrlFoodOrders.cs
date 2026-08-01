@@ -7,7 +7,7 @@ namespace Billiards_Club_Management_System
 {
     public partial class ctrlFoodOrders : UserControl
     {
-        public event Action<decimal> OnFoodOrderConfirmed;
+        public event Action<decimal, string> OnFoodOrderConfirmed;
         public string DateTime { set { lblDateTime.Text = value; } }
 
         private decimal _totalPrice = 0m;
@@ -39,6 +39,17 @@ namespace Billiards_Club_Management_System
             {
                 item.OnFoodItemAdded += OnOrderItemAdded;
             }
+        }
+
+        public void AddActiveTableToComboBox(string tableNumber)
+        {
+            cbAvailableTables.Items.Add(tableNumber);
+            cbAvailableTables.SelectedIndex = cbAvailableTables.Items.Count - 1;
+        }
+        public void RemoveActiveTableFromComboBox(string tableNumber)
+        {
+            cbAvailableTables.Items.Remove(tableNumber);
+            cbAvailableTables.SelectedIndex = cbAvailableTables.Items.Count - 1;
         }
 
         private void OnOrderItemAdded(string name, decimal price)
@@ -85,7 +96,7 @@ namespace Billiards_Club_Management_System
 
         private void btnConfirmOrder_Click(object sender, EventArgs e)
         {
-            OnFoodOrderConfirmed?.Invoke(_totalPrice);
+            OnFoodOrderConfirmed?.Invoke(_totalPrice, cbAvailableTables.SelectedItem?.ToString());
             ResetOrder();
             ShowConfirmationNotification();
         }

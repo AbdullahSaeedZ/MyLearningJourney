@@ -42,6 +42,14 @@
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.lblEditRateText = new System.Windows.Forms.Label();
             this.tbEditRate = new Guna.UI2.WinForms.Guna2TextBox();
+            this.ctrlTable8 = new Billiards_Club_Management_System.ctrlTable();
+            this.ctrlTable4 = new Billiards_Club_Management_System.ctrlTable();
+            this.ctrlTable7 = new Billiards_Club_Management_System.ctrlTable();
+            this.ctrlTable3 = new Billiards_Club_Management_System.ctrlTable();
+            this.ctrlTable6 = new Billiards_Club_Management_System.ctrlTable();
+            this.ctrlTable2 = new Billiards_Club_Management_System.ctrlTable();
+            this.ctrlTable5 = new Billiards_Club_Management_System.ctrlTable();
+            this.ctrlTable1 = new Billiards_Club_Management_System.ctrlTable();
             this.btnEditHourlyRate = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox16 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Panel6 = new Guna.UI2.WinForms.Guna2Panel();
@@ -83,14 +91,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlSectionsContainer = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel9 = new Guna.UI2.WinForms.Guna2Panel();
-            this.ctrlTable8 = new Billiards_Club_Management_System.ctrlTable();
-            this.ctrlTable4 = new Billiards_Club_Management_System.ctrlTable();
-            this.ctrlTable7 = new Billiards_Club_Management_System.ctrlTable();
-            this.ctrlTable3 = new Billiards_Club_Management_System.ctrlTable();
-            this.ctrlTable6 = new Billiards_Club_Management_System.ctrlTable();
-            this.ctrlTable2 = new Billiards_Club_Management_System.ctrlTable();
-            this.ctrlTable5 = new Billiards_Club_Management_System.ctrlTable();
-            this.ctrlTable1 = new Billiards_Club_Management_System.ctrlTable();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.guna2ShadowPanel2.SuspendLayout();
@@ -361,6 +361,86 @@
             this.tbEditRate.TabIndex = 34;
             this.tbEditRate.Visible = false;
             this.tbEditRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbEditRate_KeyPress);
+            // 
+            // ctrlTable8
+            // 
+            this.ctrlTable8.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlTable8.FoodOrders = 0;
+            this.ctrlTable8.Location = new System.Drawing.Point(1260, 384);
+            this.ctrlTable8.Name = "ctrlTable8";
+            this.ctrlTable8.Size = new System.Drawing.Size(379, 240);
+            this.ctrlTable8.TabIndex = 33;
+            this.ctrlTable8.TableNumber = "08";
+            // 
+            // ctrlTable4
+            // 
+            this.ctrlTable4.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlTable4.FoodOrders = 0;
+            this.ctrlTable4.Location = new System.Drawing.Point(1260, 122);
+            this.ctrlTable4.Name = "ctrlTable4";
+            this.ctrlTable4.Size = new System.Drawing.Size(379, 240);
+            this.ctrlTable4.TabIndex = 33;
+            this.ctrlTable4.TableNumber = "04";
+            // 
+            // ctrlTable7
+            // 
+            this.ctrlTable7.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlTable7.FoodOrders = 0;
+            this.ctrlTable7.Location = new System.Drawing.Point(851, 384);
+            this.ctrlTable7.Name = "ctrlTable7";
+            this.ctrlTable7.Size = new System.Drawing.Size(379, 240);
+            this.ctrlTable7.TabIndex = 33;
+            this.ctrlTable7.TableNumber = "07";
+            // 
+            // ctrlTable3
+            // 
+            this.ctrlTable3.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlTable3.FoodOrders = 0;
+            this.ctrlTable3.Location = new System.Drawing.Point(851, 122);
+            this.ctrlTable3.Name = "ctrlTable3";
+            this.ctrlTable3.Size = new System.Drawing.Size(379, 240);
+            this.ctrlTable3.TabIndex = 33;
+            this.ctrlTable3.TableNumber = "03";
+            // 
+            // ctrlTable6
+            // 
+            this.ctrlTable6.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlTable6.FoodOrders = 0;
+            this.ctrlTable6.Location = new System.Drawing.Point(438, 384);
+            this.ctrlTable6.Name = "ctrlTable6";
+            this.ctrlTable6.Size = new System.Drawing.Size(379, 240);
+            this.ctrlTable6.TabIndex = 33;
+            this.ctrlTable6.TableNumber = "06";
+            // 
+            // ctrlTable2
+            // 
+            this.ctrlTable2.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlTable2.FoodOrders = 0;
+            this.ctrlTable2.Location = new System.Drawing.Point(438, 122);
+            this.ctrlTable2.Name = "ctrlTable2";
+            this.ctrlTable2.Size = new System.Drawing.Size(379, 240);
+            this.ctrlTable2.TabIndex = 33;
+            this.ctrlTable2.TableNumber = "02";
+            // 
+            // ctrlTable5
+            // 
+            this.ctrlTable5.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlTable5.FoodOrders = 0;
+            this.ctrlTable5.Location = new System.Drawing.Point(31, 384);
+            this.ctrlTable5.Name = "ctrlTable5";
+            this.ctrlTable5.Size = new System.Drawing.Size(379, 240);
+            this.ctrlTable5.TabIndex = 33;
+            this.ctrlTable5.TableNumber = "05";
+            // 
+            // ctrlTable1
+            // 
+            this.ctrlTable1.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlTable1.FoodOrders = 0;
+            this.ctrlTable1.Location = new System.Drawing.Point(31, 122);
+            this.ctrlTable1.Name = "ctrlTable1";
+            this.ctrlTable1.Size = new System.Drawing.Size(379, 240);
+            this.ctrlTable1.TabIndex = 33;
+            this.ctrlTable1.TableNumber = "01";
             // 
             // btnEditHourlyRate
             // 
@@ -801,9 +881,9 @@
             this.lblRevenue.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
             this.lblRevenue.Location = new System.Drawing.Point(361, 27);
             this.lblRevenue.Name = "lblRevenue";
-            this.lblRevenue.Size = new System.Drawing.Size(38, 44);
+            this.lblRevenue.Size = new System.Drawing.Size(85, 44);
             this.lblRevenue.TabIndex = 0;
-            this.lblRevenue.Text = "0";
+            this.lblRevenue.Text = "0.00";
             // 
             // guna2ShadowPanel6
             // 
@@ -890,78 +970,6 @@
             this.guna2Panel9.ShadowDecoration.Parent = this.guna2Panel9;
             this.guna2Panel9.Size = new System.Drawing.Size(1684, 336);
             this.guna2Panel9.TabIndex = 33;
-            // 
-            // ctrlTable8
-            // 
-            this.ctrlTable8.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlTable8.Location = new System.Drawing.Point(1260, 384);
-            this.ctrlTable8.Name = "ctrlTable8";
-            this.ctrlTable8.Size = new System.Drawing.Size(379, 240);
-            this.ctrlTable8.TabIndex = 33;
-            this.ctrlTable8.TableNumber = "08";
-            // 
-            // ctrlTable4
-            // 
-            this.ctrlTable4.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlTable4.Location = new System.Drawing.Point(1260, 122);
-            this.ctrlTable4.Name = "ctrlTable4";
-            this.ctrlTable4.Size = new System.Drawing.Size(379, 240);
-            this.ctrlTable4.TabIndex = 33;
-            this.ctrlTable4.TableNumber = "04";
-            // 
-            // ctrlTable7
-            // 
-            this.ctrlTable7.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlTable7.Location = new System.Drawing.Point(851, 384);
-            this.ctrlTable7.Name = "ctrlTable7";
-            this.ctrlTable7.Size = new System.Drawing.Size(379, 240);
-            this.ctrlTable7.TabIndex = 33;
-            this.ctrlTable7.TableNumber = "07";
-            // 
-            // ctrlTable3
-            // 
-            this.ctrlTable3.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlTable3.Location = new System.Drawing.Point(851, 122);
-            this.ctrlTable3.Name = "ctrlTable3";
-            this.ctrlTable3.Size = new System.Drawing.Size(379, 240);
-            this.ctrlTable3.TabIndex = 33;
-            this.ctrlTable3.TableNumber = "03";
-            // 
-            // ctrlTable6
-            // 
-            this.ctrlTable6.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlTable6.Location = new System.Drawing.Point(438, 384);
-            this.ctrlTable6.Name = "ctrlTable6";
-            this.ctrlTable6.Size = new System.Drawing.Size(379, 240);
-            this.ctrlTable6.TabIndex = 33;
-            this.ctrlTable6.TableNumber = "06";
-            // 
-            // ctrlTable2
-            // 
-            this.ctrlTable2.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlTable2.Location = new System.Drawing.Point(438, 122);
-            this.ctrlTable2.Name = "ctrlTable2";
-            this.ctrlTable2.Size = new System.Drawing.Size(379, 240);
-            this.ctrlTable2.TabIndex = 33;
-            this.ctrlTable2.TableNumber = "02";
-            // 
-            // ctrlTable5
-            // 
-            this.ctrlTable5.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlTable5.Location = new System.Drawing.Point(31, 384);
-            this.ctrlTable5.Name = "ctrlTable5";
-            this.ctrlTable5.Size = new System.Drawing.Size(379, 240);
-            this.ctrlTable5.TabIndex = 33;
-            this.ctrlTable5.TableNumber = "05";
-            // 
-            // ctrlTable1
-            // 
-            this.ctrlTable1.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlTable1.Location = new System.Drawing.Point(31, 122);
-            this.ctrlTable1.Name = "ctrlTable1";
-            this.ctrlTable1.Size = new System.Drawing.Size(379, 240);
-            this.ctrlTable1.TabIndex = 33;
-            this.ctrlTable1.TableNumber = "01";
             // 
             // Form1
             // 

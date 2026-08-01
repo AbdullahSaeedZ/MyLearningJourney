@@ -18,7 +18,9 @@ namespace Billiards_Club_Management_System
         public event Action<decimal> OnCompleteSession;
 
         private decimal _moneyAmount = 0;
+        private int _foodOrders = 0;
         private string _tableNumber = "00";
+        private bool _isActive;
         public string TableNumber {
             get 
             {
@@ -31,6 +33,8 @@ namespace Billiards_Club_Management_System
             } 
         }
         public decimal MoneyAmount { get { return _moneyAmount; } private set { _moneyAmount = value; } }
+        public bool IsActive { get { return _isActive; } private set { _isActive = value; } }
+        public int FoodOrders { get { return _foodOrders; } set { _foodOrders = value; lblFoodOrders.Text = $"{_foodOrders} FOOD ORDER(S)"; } }
 
 
         private int _seconds = 0;

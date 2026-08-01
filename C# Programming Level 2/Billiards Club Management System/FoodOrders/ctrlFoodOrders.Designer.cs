@@ -129,7 +129,7 @@
             this.cbAvailableTables.HoverState.Parent = this.cbAvailableTables;
             this.cbAvailableTables.ItemHeight = 30;
             this.cbAvailableTables.Items.AddRange(new object[] {
-            "TAKEAWAY"});
+            "TAKE AWAY"});
             this.cbAvailableTables.ItemsAppearance.Parent = this.cbAvailableTables;
             this.cbAvailableTables.ItemsAppearance.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
             this.cbAvailableTables.ItemsAppearance.SelectedForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
