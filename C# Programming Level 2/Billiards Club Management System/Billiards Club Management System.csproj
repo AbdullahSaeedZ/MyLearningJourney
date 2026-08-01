@@ -51,11 +51,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FoodOrders\ctrlFoodItem.cs">
+    <Compile Include="FoodOrders\ctrlFoodItm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FoodOrders\ctrlFoodItem.Designer.cs">
-      <DependentUpon>ctrlFoodItem.cs</DependentUpon>
+    <Compile Include="FoodOrders\ctrlFoodItm.Designer.cs">
+      <DependentUpon>ctrlFoodItm.cs</DependentUpon>
     </Compile>
     <Compile Include="FoodOrders\ctrlFoodOrders.cs">
       <SubType>UserControl</SubType>
@@ -96,8 +96,8 @@
       <DependentUpon>ctrlSessionsHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility.cs" />
-    <EmbeddedResource Include="FoodOrders\ctrlFoodItem.resx">
-      <DependentUpon>ctrlFoodItem.cs</DependentUpon>
+    <EmbeddedResource Include="FoodOrders\ctrlFoodItm.resx">
+      <DependentUpon>ctrlFoodItm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FoodOrders\ctrlFoodOrders.resx">
       <DependentUpon>ctrlFoodOrders.cs</DependentUpon>
