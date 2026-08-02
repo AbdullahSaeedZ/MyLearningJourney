@@ -3,9 +3,8 @@ using Billiards_Club_Management_System.SessionsHistory;
 using Guna.UI2.WinForms;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
-using System.Management.Instrumentation;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -65,6 +64,7 @@ namespace Billiards_Club_Management_System
         private void InitializeFoodOrdersCtrl()
         {
             ctrlfoodOrders = new ctrlFoodOrders();
+            ctrlfoodOrders.Initialize();
             pnlSectionsContainer.Controls.Add(ctrlfoodOrders);
 
             ctrlfoodOrders.OnFoodOrderConfirmed += (revenue, tableNumber) =>
@@ -78,10 +78,12 @@ namespace Billiards_Club_Management_System
                 }
             };
         }
-        private void InitializeSessionsHistoryCtrl()
+        private async Task InitializeSessionsHistoryCtrl()
         {
             ctrlSessionsHistory = new ctrlSessionsHistory();
             pnlSectionsContainer.Controls.Add(ctrlSessionsHistory);
+            await ctrlSessionsHistory.Initialize();
+
         }
 
         private void Form1_Load(object sender, System.EventArgs e)
@@ -138,6 +140,7 @@ namespace Billiards_Club_Management_System
             ClearSelectionFromButtons();
             SetSelectedButton((Guna2Button)sender);
 
+            ctrlSessionsHistory.Initialize();
             ctrlSessionsHistory.BringToFront();
             ctrlfoodOrders.SendToBack();
         }
@@ -160,8 +163,17 @@ namespace Billiards_Club_Management_System
         }
         private void UpdateHourlyRate(int newRate)
         {
+            string oldRate = HourlyRate.ToString();
             HourlyRate = newRate;
             lblHourlyRate.Text = $"{HourlyRate} / Hour";
+            try
+            {
+                Log.LogEvent(Log.LogType.General, $"Hourly rate updated from {oldRate} to {HourlyRate}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to log hourly rate update event. {ex.Message}", "Logging Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void tbEditRate_KeyPress(object sender, KeyPressEventArgs e)

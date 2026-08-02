@@ -1,13 +1,8 @@
 ﻿using Billiards_Club_Management_System.Properties;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Billiards_Club_Management_System
 {
@@ -94,6 +89,14 @@ namespace Billiards_Club_Management_System
             ActivateTable();
             OnSessionStarted?.Invoke();
             timer1.Start();
+            try
+            {
+                Log.LogEvent(Log.LogType.Session, $"Table {TableNumber} session started");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to log session event. {ex.Message}", "Logging Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void EndTableSession()
@@ -101,6 +104,14 @@ namespace Billiards_Club_Management_System
             ShowSessionSummary();
             OnSessionEnded?.Invoke();
             timer1.Stop();
+            try
+            {
+                Log.LogEvent(Log.LogType.Session, $"Table {TableNumber} session ended");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to log session event. {ex.Message}", "Logging Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ShowSessionSummary()
@@ -148,6 +159,7 @@ namespace Billiards_Club_Management_System
 
         private void btnCompleteSession_Click(object sender, EventArgs e)
         {
+            Log.LogEvent(Log.LogType.TablesPayment, $"Table {TableNumber} session completed with payment of {_moneyAmount.ToString("F2")}");
             OnCompleteSession?.Invoke(_moneyAmount);
             pnlSessionSummary.Visible = false;
             ResetTable();
@@ -155,6 +167,7 @@ namespace Billiards_Club_Management_System
 
         private void btnDiscardSession_Click(object sender, EventArgs e)
         {
+            Log.LogEvent(Log.LogType.Session, $"Table {TableNumber} session discarded");
             pnlSessionSummary.Visible = false;
             ResetTable();
         }

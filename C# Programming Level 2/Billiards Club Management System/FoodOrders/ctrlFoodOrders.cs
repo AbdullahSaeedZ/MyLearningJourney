@@ -1,6 +1,7 @@
 ﻿using Billiards_Club_Management_System.FoodOrders;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Billiards_Club_Management_System
@@ -30,9 +31,9 @@ namespace Billiards_Club_Management_System
             InitializeComponent();
         }
 
-        private void ctrlFoodOrders_Load(object sender, EventArgs e)
+        public void Initialize()
         {
-            _foodItems = new ctrlFoodItm[] { ctrlFoodItm1, ctrlFoodItm2, ctrlFoodItm3, ctrlFoodItm4, ctrlFoodItm5, ctrlFoodItm6};
+            _foodItems = new ctrlFoodItm[] { ctrlFoodItm1, ctrlFoodItm2, ctrlFoodItm3, ctrlFoodItm4, ctrlFoodItm5, ctrlFoodItm6 };
             _orderItems = new List<ctrlOrderItem>();
 
             foreach (ctrlFoodItm item in _foodItems)
@@ -96,6 +97,14 @@ namespace Billiards_Club_Management_System
 
         private void btnConfirmOrder_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Log.LogEvent(Log.LogType.FoodPayment, $"Food order confirmed for table {cbAvailableTables.SelectedItem?.ToString()} with payment of {_totalPrice.ToString("F2")}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to log food order confirmation event. {ex.Message}", "Logging Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             OnFoodOrderConfirmed?.Invoke(_totalPrice, cbAvailableTables.SelectedItem?.ToString());
             ResetOrder();
             ShowConfirmationNotification();

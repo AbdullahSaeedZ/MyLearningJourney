@@ -464,7 +464,6 @@
             this.Controls.Add(this.guna2ShadowPanel2);
             this.Name = "ctrlFoodOrders";
             this.Size = new System.Drawing.Size(1664, 650);
-            this.Load += new System.EventHandler(this.ctrlFoodOrders_Load);
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
             this.guna2Panel1.ResumeLayout(false);
