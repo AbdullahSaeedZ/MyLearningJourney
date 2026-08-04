@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -35,16 +32,12 @@ namespace Billiards_Club_Management_System
         }
 
         private static readonly string FilePath = "data.json";
-        private static JsonSerializerOptions JsonOptions = new JsonSerializerOptions()
-        {
-            WriteIndented = true
-        };
 
         public static async Task SerializeDataAsync(Data obj)
         {
             using (FileStream writeStream = File.Create(FilePath))
             {
-                await JsonSerializer.SerializeAsync(writeStream, obj, JsonOptions);
+                await JsonSerializer.SerializeAsync(writeStream, obj);
             }
         }
 
@@ -57,7 +50,7 @@ namespace Billiards_Club_Management_System
 
             using (FileStream readStream = File.OpenRead(FilePath))
             {
-                return await JsonSerializer.DeserializeAsync<Data>(readStream, JsonOptions);
+                return await JsonSerializer.DeserializeAsync<Data>(readStream);
             }
 
         }

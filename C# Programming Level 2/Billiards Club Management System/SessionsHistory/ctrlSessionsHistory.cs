@@ -10,6 +10,7 @@ namespace Billiards_Club_Management_System.SessionsHistory
         private int _totalSessions = 0;
         private int _totalFoodOrdersPayments = 0;
         private int _totalTablesPayments = 0;
+        private int _rateUpdates = 0;
 
         private string[] _logs;
 
@@ -34,9 +35,18 @@ namespace Billiards_Club_Management_System.SessionsHistory
             catch (Exception ex)
             {
                 MessageBox.Show($"Failed to get logs: {ex.Message}", "Logging Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.LogEvent(Log.LogType.Error, $"Failed to get logs: {ex.Message}", ex.StackTrace);
                 return;
             }
-            dgvLogs.RowCount = _logs.Length;
+
+            if (_logs != null)
+            {
+                dgvLogs.RowCount = _logs.Length;
+                dgvLogs.ClearSelection();
+                dgvLogs.Rows[dgvLogs.Rows.Count - 1].Selected = true;
+                dgvLogs.FirstDisplayedScrollingRowIndex = dgvLogs.Rows.Count - 1;
+            }
+
             UpdateStatsUI();
         }
 
@@ -46,6 +56,7 @@ namespace Billiards_Club_Management_System.SessionsHistory
             _totalSessions = 0;
             _totalFoodOrdersPayments = 0;
             _totalTablesPayments = 0;
+            _rateUpdates = 0;
 
             if (_logs != null)
             {
@@ -57,6 +68,8 @@ namespace Billiards_Club_Management_System.SessionsHistory
                         _totalFoodOrdersPayments++;
                     else if (log.Contains("[Tables Payment]"))
                         _totalTablesPayments++;
+                    else if (log.Contains("[General]"))
+                        _rateUpdates++;
                 }
             }
         }
@@ -67,6 +80,7 @@ namespace Billiards_Club_Management_System.SessionsHistory
             lblTotalSessions.Text = _totalSessions.ToString();
             lblTotalOrdersPayments.Text = _totalFoodOrdersPayments.ToString();
             lblTotalTablesPayments.Text = _totalTablesPayments.ToString();
+            lblRateUpdates.Text = _rateUpdates.ToString();
         }
 
         private void dgvLogs_CellValueNeeded(object sender, DataGridViewCellValueEventArgs e)

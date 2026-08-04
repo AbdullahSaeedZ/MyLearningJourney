@@ -37,7 +37,19 @@ namespace Billiards_Club_Management_System
                 else
                     formattedMessage = FormattedInfoMessage(entryType, message);
 
-                File.AppendAllText(_logFilePath, formattedMessage + Environment.NewLine);
+                if (File.Exists(_logFilePath))
+                {
+                    FileInfo fileInfo = new FileInfo(_logFilePath);
+
+                    long bytes = fileInfo.Length;
+                    double megabytes = bytes / ( 1024.0 * 1024.0 );
+
+                    if (megabytes >= 5) // overrite the file if it exceeds 5 MB
+                        File.WriteAllText(_logFilePath, formattedMessage + Environment.NewLine);
+                    else
+                        File.AppendAllText(_logFilePath, formattedMessage + Environment.NewLine);
+                }
+
             }
             catch (Exception e)
             {

@@ -33,9 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.dgvLogs = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flpSessionItemsContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.dgvLogs = new Guna.UI2.WinForms.Guna2DataGridView();
             this.ctrlLogItem10 = new Billiards_Club_Management_System.SessionsHistory.ctrlLogItem();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblTotalTablesPayments = new System.Windows.Forms.Label();
@@ -55,6 +54,9 @@
             this.lblDateTime = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label23 = new System.Windows.Forms.Label();
+            this.lblRateUpdates = new System.Windows.Forms.Label();
             this.guna2ShadowPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -85,6 +87,13 @@
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(1664, 650);
             this.guna2ShadowPanel2.TabIndex = 11;
             // 
+            // flpSessionItemsContainer
+            // 
+            this.flpSessionItemsContainer.Location = new System.Drawing.Point(858, 37);
+            this.flpSessionItemsContainer.Name = "flpSessionItemsContainer";
+            this.flpSessionItemsContainer.Size = new System.Drawing.Size(79, 43);
+            this.flpSessionItemsContainer.TabIndex = 37;
+            // 
             // dgvLogs
             // 
             this.dgvLogs.AllowUserToAddRows = false;
@@ -100,7 +109,7 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -159,19 +168,6 @@
             this.dgvLogs.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
             this.dgvLogs.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dgvLogs_CellValueNeeded);
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 1073;
-            // 
-            // flpSessionItemsContainer
-            // 
-            this.flpSessionItemsContainer.Location = new System.Drawing.Point(858, 37);
-            this.flpSessionItemsContainer.Name = "flpSessionItemsContainer";
-            this.flpSessionItemsContainer.Size = new System.Drawing.Size(79, 43);
-            this.flpSessionItemsContainer.TabIndex = 37;
-            // 
             // ctrlLogItem10
             // 
             this.ctrlLogItem10.BackColor = System.Drawing.Color.Transparent;
@@ -185,11 +181,13 @@
             this.guna2Panel1.BorderColor = System.Drawing.Color.Gainsboro;
             this.guna2Panel1.BorderRadius = 10;
             this.guna2Panel1.BorderThickness = 1;
+            this.guna2Panel1.Controls.Add(this.lblRateUpdates);
             this.guna2Panel1.Controls.Add(this.lblTotalTablesPayments);
             this.guna2Panel1.Controls.Add(this.lblTotalOrdersPayments);
             this.guna2Panel1.Controls.Add(this.lblTotalSessions);
             this.guna2Panel1.Controls.Add(this.lblTotalEvents);
             this.guna2Panel1.Controls.Add(this.guna2Separator1);
+            this.guna2Panel1.Controls.Add(this.label23);
             this.guna2Panel1.Controls.Add(this.label4);
             this.guna2Panel1.Controls.Add(this.label3);
             this.guna2Panel1.Controls.Add(this.label1);
@@ -406,6 +404,36 @@
             this.label15.TabIndex = 0;
             this.label15.Text = "SESSIONS HISTORY";
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 1073;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.BackColor = System.Drawing.Color.Transparent;
+            this.label23.Font = new System.Drawing.Font("Segoe UI Variable Display", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.DimGray;
+            this.label23.Location = new System.Drawing.Point(332, 249);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(121, 21);
+            this.label23.TabIndex = 36;
+            this.label23.Text = "RATE UPDATES";
+            // 
+            // lblRateUpdates
+            // 
+            this.lblRateUpdates.AutoSize = true;
+            this.lblRateUpdates.BackColor = System.Drawing.Color.Transparent;
+            this.lblRateUpdates.Font = new System.Drawing.Font("Segoe UI Variable Display", 22.75F, System.Drawing.FontStyle.Bold);
+            this.lblRateUpdates.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.lblRateUpdates.Location = new System.Drawing.Point(335, 270);
+            this.lblRateUpdates.Name = "lblRateUpdates";
+            this.lblRateUpdates.Size = new System.Drawing.Size(49, 41);
+            this.lblRateUpdates.TabIndex = 38;
+            this.lblRateUpdates.Text = "19";
+            // 
             // ctrlSessionsHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,5 +480,7 @@
         private ctrlLogItem ctrlLogItem10;
         private Guna.UI2.WinForms.Guna2DataGridView dgvLogs;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.Label lblRateUpdates;
+        private System.Windows.Forms.Label label23;
     }
 }
