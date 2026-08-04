@@ -96,7 +96,6 @@ namespace Billiards_Club_Management_System
 
             try
             {
-                // large file sizes are not handled
                 return File.ReadAllLines(_logFilePath);
             }
             catch (Exception ex)
