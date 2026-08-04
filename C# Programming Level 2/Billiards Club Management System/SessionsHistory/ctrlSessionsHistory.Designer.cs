@@ -31,8 +31,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.dgvLogs = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.flpSessionItemsContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.ctrlLogItem10 = new Billiards_Club_Management_System.SessionsHistory.ctrlLogItem();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.lblTotalTablesPayments = new System.Windows.Forms.Label();
             this.lblTotalOrdersPayments = new System.Windows.Forms.Label();
@@ -51,23 +55,20 @@
             this.lblDateTime = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.dgvLogs = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.ctrlLogItem10 = new Billiards_Club_Management_System.SessionsHistory.ctrlLogItem();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2ShadowPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             this.guna2Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.guna2Panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2ShadowPanel2
             // 
             this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel2.Controls.Add(this.dgvLogs);
             this.guna2ShadowPanel2.Controls.Add(this.flpSessionItemsContainer);
+            this.guna2ShadowPanel2.Controls.Add(this.dgvLogs);
             this.guna2ShadowPanel2.Controls.Add(this.ctrlLogItem10);
             this.guna2ShadowPanel2.Controls.Add(this.guna2Panel1);
             this.guna2ShadowPanel2.Controls.Add(this.guna2Panel4);
@@ -84,12 +85,100 @@
             this.guna2ShadowPanel2.Size = new System.Drawing.Size(1664, 650);
             this.guna2ShadowPanel2.TabIndex = 11;
             // 
+            // dgvLogs
+            // 
+            this.dgvLogs.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.dgvLogs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvLogs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvLogs.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
+            this.dgvLogs.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvLogs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvLogs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLogs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvLogs.ColumnHeadersHeight = 4;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLogs.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvLogs.EnableHeadersVisualStyles = false;
+            this.dgvLogs.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.dgvLogs.Location = new System.Drawing.Point(41, 132);
+            this.dgvLogs.Name = "dgvLogs";
+            this.dgvLogs.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLogs.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvLogs.RowHeadersVisible = false;
+            this.dgvLogs.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.dgvLogs.RowTemplate.Height = 30;
+            this.dgvLogs.RowTemplate.ReadOnly = true;
+            this.dgvLogs.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvLogs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLogs.Size = new System.Drawing.Size(1073, 486);
+            this.dgvLogs.TabIndex = 38;
+            this.dgvLogs.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
+            this.dgvLogs.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
+            this.dgvLogs.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Bold);
+            this.dgvLogs.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.dgvLogs.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.dgvLogs.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.dgvLogs.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
+            this.dgvLogs.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.dgvLogs.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.dgvLogs.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvLogs.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            this.dgvLogs.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvLogs.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.dgvLogs.ThemeStyle.HeaderStyle.Height = 4;
+            this.dgvLogs.ThemeStyle.ReadOnly = false;
+            this.dgvLogs.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
+            this.dgvLogs.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvLogs.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 9.25F, System.Drawing.FontStyle.Bold);
+            this.dgvLogs.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.dgvLogs.ThemeStyle.RowsStyle.Height = 30;
+            this.dgvLogs.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(90)))), ((int)(((byte)(37)))));
+            this.dgvLogs.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
+            this.dgvLogs.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dgvLogs_CellValueNeeded);
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            this.Column1.Width = 1073;
+            // 
             // flpSessionItemsContainer
             // 
-            this.flpSessionItemsContainer.Location = new System.Drawing.Point(1084, 44);
+            this.flpSessionItemsContainer.Location = new System.Drawing.Point(858, 37);
             this.flpSessionItemsContainer.Name = "flpSessionItemsContainer";
             this.flpSessionItemsContainer.Size = new System.Drawing.Size(79, 43);
             this.flpSessionItemsContainer.TabIndex = 37;
+            // 
+            // ctrlLogItem10
+            // 
+            this.ctrlLogItem10.BackColor = System.Drawing.Color.Transparent;
+            this.ctrlLogItem10.Location = new System.Drawing.Point(866, 650);
+            this.ctrlLogItem10.Name = "ctrlLogItem10";
+            this.ctrlLogItem10.Size = new System.Drawing.Size(675, 39);
+            this.ctrlLogItem10.TabIndex = 36;
             // 
             // guna2Panel1
             // 
@@ -283,15 +372,15 @@
             // 
             // lblDateTime
             // 
-            this.lblDateTime.AutoSize = true;
             this.lblDateTime.BackColor = System.Drawing.Color.Transparent;
             this.lblDateTime.Font = new System.Drawing.Font("Segoe UI Variable Display", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateTime.ForeColor = System.Drawing.Color.DimGray;
-            this.lblDateTime.Location = new System.Drawing.Point(1328, 45);
+            this.lblDateTime.Location = new System.Drawing.Point(1199, 45);
             this.lblDateTime.Name = "lblDateTime";
-            this.lblDateTime.Size = new System.Drawing.Size(311, 26);
+            this.lblDateTime.Size = new System.Drawing.Size(440, 26);
             this.lblDateTime.TabIndex = 1;
             this.lblDateTime.Text = "Monday, June, 2026     |   04:23 AM";
+            this.lblDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label13
             // 
@@ -317,79 +406,6 @@
             this.label15.TabIndex = 0;
             this.label15.Text = "SESSIONS HISTORY";
             // 
-            // dgvLogs
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dgvLogs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvLogs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvLogs.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
-            this.dgvLogs.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvLogs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvLogs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLogs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvLogs.ColumnHeadersHeight = 4;
-            this.dgvLogs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvLogs.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvLogs.EnableHeadersVisualStyles = false;
-            this.dgvLogs.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvLogs.Location = new System.Drawing.Point(41, 132);
-            this.dgvLogs.Name = "dgvLogs";
-            this.dgvLogs.RowHeadersVisible = false;
-            this.dgvLogs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLogs.Size = new System.Drawing.Size(1073, 486);
-            this.dgvLogs.TabIndex = 38;
-            this.dgvLogs.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
-            this.dgvLogs.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvLogs.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dgvLogs.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dgvLogs.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgvLogs.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dgvLogs.ThemeStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(249)))), ((int)(((byte)(246)))));
-            this.dgvLogs.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvLogs.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.dgvLogs.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgvLogs.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.dgvLogs.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvLogs.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dgvLogs.ThemeStyle.HeaderStyle.Height = 4;
-            this.dgvLogs.ThemeStyle.ReadOnly = false;
-            this.dgvLogs.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.dgvLogs.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvLogs.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            this.dgvLogs.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvLogs.ThemeStyle.RowsStyle.Height = 22;
-            this.dgvLogs.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dgvLogs.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dgvLogs.CellValueNeeded += new System.Windows.Forms.DataGridViewCellValueEventHandler(this.dgvLogs_CellValueNeeded);
-            // 
-            // ctrlLogItem10
-            // 
-            this.ctrlLogItem10.BackColor = System.Drawing.Color.Transparent;
-            this.ctrlLogItem10.Location = new System.Drawing.Point(866, 650);
-            this.ctrlLogItem10.Name = "ctrlLogItem10";
-            this.ctrlLogItem10.Size = new System.Drawing.Size(675, 39);
-            this.ctrlLogItem10.TabIndex = 36;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            // 
             // ctrlSessionsHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,13 +416,13 @@
             this.Size = new System.Drawing.Size(1664, 650);
             this.guna2ShadowPanel2.ResumeLayout(false);
             this.guna2ShadowPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
             this.guna2Panel1.PerformLayout();
             this.guna2Panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.guna2Panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).EndInit();
             this.ResumeLayout(false);
 
         }

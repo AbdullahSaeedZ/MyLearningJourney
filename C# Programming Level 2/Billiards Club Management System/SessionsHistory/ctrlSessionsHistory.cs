@@ -23,7 +23,6 @@ namespace Billiards_Club_Management_System.SessionsHistory
 
         public async Task Initialize()
         {
-          
             try
             {
                 await Task.Run(() => { 

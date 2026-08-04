@@ -23,6 +23,7 @@ namespace Billiards_Club_Management_System
         private Guna2Button[] _buttons;
         private ctrlFoodOrders ctrlfoodOrders;
         private ctrlSessionsHistory ctrlSessionsHistory;
+        private Serializer.Data _data;
 
         
 
@@ -82,8 +83,22 @@ namespace Billiards_Club_Management_System
         {
             ctrlSessionsHistory = new ctrlSessionsHistory();
             pnlSectionsContainer.Controls.Add(ctrlSessionsHistory);
-            await ctrlSessionsHistory.Initialize();
+            _ = ctrlSessionsHistory.Initialize();
+        }
 
+        private async Task LoadData()
+        {
+            _data = await Serializer.DeserializeDataAsync();
+            if (_data != null)
+            {
+                _revenue = _data.Revenue;
+                HourlyRate = _data.HourlyRate;
+                _foodOrders = _data.FoodOrders; 
+
+                lblRevenue.Text = _revenue.ToString("F2");
+                lblHourlyRate.Text = $"{HourlyRate} / Hour";
+                lblFoodOrders.Text = _foodOrders.ToString();
+            }
         }
 
         private void Form1_Load(object sender, System.EventArgs e)
@@ -92,7 +107,8 @@ namespace Billiards_Club_Management_System
 
             InitializeTables();
             InitializeFoodOrdersCtrl();
-            InitializeSessionsHistoryCtrl();
+            _ = InitializeSessionsHistoryCtrl();
+            _ = LoadData();
 
             btnTables.PerformClick();
             timer1_Tick(null, System.EventArgs.Empty);
@@ -140,7 +156,7 @@ namespace Billiards_Club_Management_System
             ClearSelectionFromButtons();
             SetSelectedButton((Guna2Button)sender);
 
-            ctrlSessionsHistory.Initialize();
+            _ = ctrlSessionsHistory.Initialize();
             ctrlSessionsHistory.BringToFront();
             ctrlfoodOrders.SendToBack();
         }
@@ -155,17 +171,27 @@ namespace Billiards_Club_Management_System
         {
             ++_foodOrders;
             lblFoodOrders.Text = _foodOrders.ToString();
+
+            _data.FoodOrders = _foodOrders;
+            _ = Serializer.SerializeDataAsync(_data);
         }
         private void IncreaseRevenue(decimal amount)
         {
             _revenue+= amount;
             lblRevenue.Text = _revenue.ToString("F2");
+
+            _data.Revenue = _revenue;
+            _ = Serializer.SerializeDataAsync(_data);
         }
         private void UpdateHourlyRate(int newRate)
         {
             string oldRate = HourlyRate.ToString();
             HourlyRate = newRate;
             lblHourlyRate.Text = $"{HourlyRate} / Hour";
+
+            _data.HourlyRate = HourlyRate;
+            _ = Serializer.SerializeDataAsync(_data);
+
             try
             {
                 Log.LogEvent(Log.LogType.General, $"Hourly rate updated from {oldRate} to {HourlyRate}");
