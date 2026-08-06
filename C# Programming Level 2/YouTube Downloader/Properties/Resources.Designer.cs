@@ -63,6 +63,16 @@ namespace YouTube_Downloader.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DVLD {
+            get {
+                object obj = ResourceManager.GetObject("DVLD", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gradient_1080_1080 {
             get {
                 object obj = ResourceManager.GetObject("gradient_1080_1080", resourceCulture);
@@ -86,6 +96,16 @@ namespace YouTube_Downloader.Properties {
         internal static System.Drawing.Bitmap Template_24 {
             get {
                 object obj = ResourceManager.GetObject("Template 24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TN5 {
+            get {
+                object obj = ResourceManager.GetObject("TN5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

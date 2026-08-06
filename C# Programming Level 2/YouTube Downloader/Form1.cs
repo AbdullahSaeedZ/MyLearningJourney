@@ -15,6 +15,17 @@ namespace YouTube_Downloader
         public Form1()
         {
             InitializeComponent();
+            dgvDownloads.ScrollBars = ScrollBars.Vertical;
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            pnlVidInfo.Visible = true;
+        }
+
+        private void btnDownload_Click(object sender, EventArgs e)
+        {
+            dgvDownloads.Rows.Add("Video Title", "Video URL", "Download Status", "230 MB", "23/12/2023");
         }
     }
 }
