@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.tbURL = new Guna.UI2.WinForms.Guna2TextBox();
@@ -67,6 +67,7 @@
             this.lblVidTitle = new System.Windows.Forms.Label();
             this.btnDownload = new Guna.UI2.WinForms.Guna2Button();
             this.btnCloseVidInfo = new Guna.UI2.WinForms.Guna2Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDownloads)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -182,22 +183,22 @@
             this.dgvDownloads.AllowUserToDeleteRows = false;
             this.dgvDownloads.AllowUserToResizeColumns = false;
             this.dgvDownloads.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
-            this.dgvDownloads.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
+            this.dgvDownloads.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle29;
             this.dgvDownloads.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDownloads.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDownloads.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
             this.dgvDownloads.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDownloads.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDownloads.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDownloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDownloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle30;
             this.dgvDownloads.ColumnHeadersHeight = 60;
             this.dgvDownloads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDownloads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -206,14 +207,14 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDownloads.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDownloads.DefaultCellStyle = dataGridViewCellStyle31;
             this.dgvDownloads.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDownloads.EnableHeadersVisualStyles = false;
             this.dgvDownloads.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
@@ -221,11 +222,11 @@
             this.dgvDownloads.Name = "dgvDownloads";
             this.dgvDownloads.ReadOnly = true;
             this.dgvDownloads.RowHeadersVisible = false;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.dgvDownloads.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.dgvDownloads.RowsDefaultCellStyle = dataGridViewCellStyle32;
             this.dgvDownloads.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
             this.dgvDownloads.RowTemplate.DividerHeight = 1;
             this.dgvDownloads.RowTemplate.Height = 40;
@@ -468,7 +469,7 @@
             this.lblChannelName.BackColor = System.Drawing.Color.Transparent;
             this.lblChannelName.Font = new System.Drawing.Font("Segoe UI Variable Text", 12.75F);
             this.lblChannelName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.lblChannelName.Location = new System.Drawing.Point(492, 109);
+            this.lblChannelName.Location = new System.Drawing.Point(586, 109);
             this.lblChannelName.Name = "lblChannelName";
             this.lblChannelName.Size = new System.Drawing.Size(165, 27);
             this.lblChannelName.TabIndex = 9;
@@ -480,11 +481,10 @@
             this.lblVidSize.BackColor = System.Drawing.Color.Transparent;
             this.lblVidSize.Font = new System.Drawing.Font("Segoe UI Variable Text", 12.75F);
             this.lblVidSize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.lblVidSize.Location = new System.Drawing.Point(387, 109);
+            this.lblVidSize.Location = new System.Drawing.Point(449, 109);
             this.lblVidSize.Name = "lblVidSize";
             this.lblVidSize.Size = new System.Drawing.Size(99, 27);
             this.lblVidSize.TabIndex = 9;
-            this.lblVidSize.Text = "43 MB";
             this.lblVidSize.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlVidDuration
@@ -560,10 +560,11 @@
             this.cbQualities.Location = new System.Drawing.Point(248, 105);
             this.cbQualities.Name = "cbQualities";
             this.cbQualities.ShadowDecoration.Parent = this.cbQualities;
-            this.cbQualities.Size = new System.Drawing.Size(96, 36);
+            this.cbQualities.Size = new System.Drawing.Size(154, 36);
             this.cbQualities.StartIndex = 0;
             this.cbQualities.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.cbQualities.TabIndex = 6;
+            this.cbQualities.SelectedIndexChanged += new System.EventHandler(this.cbQualities_SelectedIndexChanged);
             // 
             // lblVidTitle
             // 
@@ -681,6 +682,7 @@
         private System.Windows.Forms.Label lblChannelName;
         private Guna.UI2.WinForms.Guna2CircleProgressBar prgbarLoadingInfo;
         private Guna.UI2.WinForms.Guna2Button btnCloseVidInfo;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
