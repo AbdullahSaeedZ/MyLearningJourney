@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,8 +13,16 @@ using YoutubeExplode.Videos.Streams;
 
 namespace YouTube_Downloader.Services
 {
-    internal class YouTubeVideo
+    internal class YouTubeVideo : INotifyPropertyChanged
     {
+        public enum enStatus
+        {
+            Downloading,
+            Cancelled,
+            Completed,
+            Failed
+        }
+
         private readonly YoutubeClient _YouTubeClient;
         private StreamManifest _manifest;
         private CancellationTokenSource _cts;
@@ -22,7 +31,11 @@ namespace YouTube_Downloader.Services
         private IEnumerable<VideoOnlyStreamInfo> _videoOnlyStreams;
         private IStreamInfo[] _selectedStreamsInfo;
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public VideoId? VideoID { get; private set; }
         public string VideoURL { get; private set; }
+
         public string Title { get; private set; }
         public string Description { get; private set; }
         public string ChannelTitle { get; private set; }
@@ -33,6 +46,36 @@ namespace YouTube_Downloader.Services
         public string DownloadPath { get; private set; }
 
 
+        private string _progress = "0%";
+        public string Progress
+        {
+            get { return _progress; }
+            set
+            {
+                if (_progress != value)
+                {
+                    _progress = value;
+                    PropertyChanged?.Invoke(this, null);
+                }
+            }
+        }
+
+        private enStatus _status = enStatus.Downloading;
+        public enStatus Status
+        {
+            get { return _status; }
+            set
+            {
+                if (_status != value)
+                {
+                    _status = value;
+                    PropertyChanged?.Invoke(this, null);
+                }
+            }
+        }
+
+        public string Date { get; set; }
+        public string Size { get; set; }
 
         public YouTubeVideo()
         {
@@ -45,8 +88,8 @@ namespace YouTube_Downloader.Services
         {
             VideoURL = URL;
 
-            VideoId? vidID = VideoId.TryParse(URL);
-            if (vidID == null)
+            VideoID = VideoId.TryParse(URL);
+            if (VideoID == null)
                 throw new ArgumentException("Invalid YouTube video URL.", nameof(URL));
 
             Video videoInfo;
@@ -63,47 +106,49 @@ namespace YouTube_Downloader.Services
             PrepareVideoInfo(videoInfo);
         }
 
-        public async Task DownloadVideoAsync(string selectedQuality, string downloadPath, IProgress<double> progress)
+        public async Task DownloadVideoAsync(string selectedQuality, string downloadPath)
         {
             DownloadPath = downloadPath;
+            Date = DateTime.Now.ToShortDateString();
             PrepareSelectedStreams(selectedQuality);
-
-            string tempPath = Path.GetTempPath();
-            string tempAudioFile = Path.Combine(tempPath, $"{Guid.NewGuid()}_audio.tmp");
-            string tempVideoFile = Path.Combine(tempPath, $"{Guid.NewGuid()}_video.tmp");
 
             try
             {
-                // downloading video and audio streams separately to be local temporary files for better ffmpeg merging
-                Progress<double> videoProgress = new Progress<double>(p => progress.Report(p * 0.5));
-                await _YouTubeClient.Videos.Streams.DownloadAsync(_selectedStreamsInfo[0], tempVideoFile, videoProgress, _cts.Token);
+                var Progress = new Progress<double>(p =>
+                {
+                    this.Progress = $"{(int)( p * 100 )}%";
+                });
 
-                Progress<double> audioProgress = new Progress<double>(p => progress.Report(0.5 + ( p * 0.4 )));
-                await _YouTubeClient.Videos.Streams.DownloadAsync(_selectedStreamsInfo[1], tempAudioFile, audioProgress, _cts.Token);
-
-                // ffmpeg merging both local temp file into final file
-                progress.Report(0.95);
-
-                IStreamInfo[] localStreams = new IStreamInfo[] { _selectedStreamsInfo[0], _selectedStreamsInfo[1] };
-                await _YouTubeClient.Videos.DownloadAsync(localStreams, new ConversionRequestBuilder(downloadPath).Build(), null, _cts.Token);
-
-                progress.Report(1.0);
+                await _YouTubeClient.Videos.DownloadAsync(_selectedStreamsInfo, new ConversionRequestBuilder(downloadPath).Build(), Progress, _cts.Token);
+                this.Status = enStatus.Completed;
             }
             catch (OperationCanceledException)
             {
-                throw new OperationCanceledException("Download was cancelled.");
+                this.Status = enStatus.Cancelled;
+                throw;
+            }
+            catch (NotSupportedException ex)
+            {
+                // this is a bug where youtube explode throws a exception when cleaning up after FFmpeg finishes
+                // but the file is already downloaded and muxed and ready,
+                if (File.Exists(downloadPath) && new FileInfo(downloadPath).Length > 0)
+                {
+                    this.Progress = "100%";
+                    this.Status = enStatus.Completed;
+                    return;
+                }
+
+                this.Status = enStatus.Failed;
+                throw new Exception(ex.Message);
             }
             catch (Exception ex)
             {
+                this.Status = enStatus.Failed;
                 throw new Exception(ex.Message);
             }
-            finally
-            {
-                DeleteFileIfExists(tempAudioFile);
-                DeleteFileIfExists(tempVideoFile);
-            }
-
+           
         }
+
         public void CancelDownload()
         {
             _cts?.Cancel();
@@ -112,14 +157,18 @@ namespace YouTube_Downloader.Services
         public string GetFileSize(string selectedQuality)
         {
             PrepareSelectedStreams(selectedQuality);
-            return ((_selectedStreamsInfo[0].Size.Bytes + _selectedStreamsInfo[1].Size.Bytes) / (1024 * 1024)).ToString() + " MB";
-        }
+            if (_selectedStreamsInfo[0] == null || _selectedStreamsInfo[1] == null)
+                return "N/A";
 
+            double totalBytes = _selectedStreamsInfo[0].Size.Bytes + _selectedStreamsInfo[1].Size.Bytes;
+            return this.Size = $"{( totalBytes / ( 1024 * 1024 ) ):F2} MB";
+        }
 
         private void PrepareSelectedStreams(string selectedQuality)
         {
             AudioOnlyStreamInfo selectedAudioStream = (AudioOnlyStreamInfo)_audioOnlyStreams.GetWithHighestBitrate();
             VideoOnlyStreamInfo selectedVideoStream = null;
+
             foreach (VideoOnlyStreamInfo stream in _videoOnlyStreams)
             {
                 // to prioritize mp4 over webm if both are available for the same quality
@@ -135,8 +184,8 @@ namespace YouTube_Downloader.Services
             }
             _selectedStreamsInfo = new IStreamInfo[] { selectedVideoStream, selectedAudioStream };
         }
-       
-        private void PrepareVideoInfo(YoutubeExplode.Videos.Video videoInfo)
+
+        private void PrepareVideoInfo(Video videoInfo)
         {
             Title = videoInfo.Title;
             Description = videoInfo.Description;
@@ -146,28 +195,14 @@ namespace YouTube_Downloader.Services
             _audioOnlyStreams = _manifest.GetAudioOnlyStreams();
             _videoOnlyStreams = _manifest.GetVideoOnlyStreams();
 
-            // it returns same quality in mp4 and webm , and some are duplicated
             foreach (VideoOnlyStreamInfo vid in _videoOnlyStreams)
             {
+                // it returns same quality in mp4 and webm , and some are duplicated
                 if (!AvailableQualities.Contains(vid.VideoQuality.Label))
                 {
                     AvailableQualities.Add(vid.VideoQuality.Label);
                 }
             }
         }
-
-        private void DeleteFileIfExists(string filePath)
-        {
-            try
-            {
-                if (File.Exists(filePath))
-                    File.Delete(filePath);
-            }
-            catch
-            {
-                return;
-            }
-        }
-
     }
 }

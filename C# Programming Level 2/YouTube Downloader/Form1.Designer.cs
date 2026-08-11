@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.tbURL = new Guna.UI2.WinForms.Guna2TextBox();
@@ -40,11 +40,6 @@
             this.prgbarLoadingInfo = new Guna.UI2.WinForms.Guna2CircleProgressBar();
             this.btnGetVidInfo = new Guna.UI2.WinForms.Guna2Button();
             this.dgvDownloads = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -57,6 +52,7 @@
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
             this.pnlVidInfo = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnCloseVidInfo = new Guna.UI2.WinForms.Guna2Button();
             this.lblChannelName = new System.Windows.Forms.Label();
             this.lblVidSize = new System.Windows.Forms.Label();
             this.pnlVidDuration = new Guna.UI2.WinForms.Guna2Panel();
@@ -66,8 +62,16 @@
             this.cbQualities = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblVidTitle = new System.Windows.Forms.Label();
             this.btnDownload = new Guna.UI2.WinForms.Guna2Button();
-            this.btnCloseVidInfo = new Guna.UI2.WinForms.Guna2Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmsVidItemOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmCancel = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmOpenFolder = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDownloads)).BeginInit();
             this.guna2Panel2.SuspendLayout();
@@ -75,6 +79,7 @@
             this.pnlVidInfo.SuspendLayout();
             this.pnlVidDuration.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbVidThumbnail)).BeginInit();
+            this.cmsVidItemOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -183,38 +188,39 @@
             this.dgvDownloads.AllowUserToDeleteRows = false;
             this.dgvDownloads.AllowUserToResizeColumns = false;
             this.dgvDownloads.AllowUserToResizeRows = false;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
-            this.dgvDownloads.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
+            this.dgvDownloads.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDownloads.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDownloads.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDownloads.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
             this.dgvDownloads.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDownloads.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDownloads.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDownloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDownloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDownloads.ColumnHeadersHeight = 60;
             this.dgvDownloads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDownloads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5});
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDownloads.DefaultCellStyle = dataGridViewCellStyle31;
+            this.col1,
+            this.col2,
+            this.col3,
+            this.col4,
+            this.col5});
+            this.dgvDownloads.ContextMenuStrip = this.cmsVidItemOptions;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDownloads.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDownloads.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDownloads.EnableHeadersVisualStyles = false;
             this.dgvDownloads.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
@@ -222,11 +228,11 @@
             this.dgvDownloads.Name = "dgvDownloads";
             this.dgvDownloads.ReadOnly = true;
             this.dgvDownloads.RowHeadersVisible = false;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.dgvDownloads.RowsDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.dgvDownloads.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDownloads.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
             this.dgvDownloads.RowTemplate.DividerHeight = 1;
             this.dgvDownloads.RowTemplate.Height = 40;
@@ -257,51 +263,6 @@
             this.dgvDownloads.ThemeStyle.RowsStyle.Height = 40;
             this.dgvDownloads.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
             this.dgvDownloads.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column1.FillWeight = 36.31561F;
-            this.Column1.HeaderText = "FILE NAME";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 525;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column2.FillWeight = 40.61155F;
-            this.Column2.HeaderText = "STATUS";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column3.FillWeight = 81.42152F;
-            this.Column3.HeaderText = "PROGRESS";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 130;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column4.FillWeight = 87.84423F;
-            this.Column4.HeaderText = "SIZE";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Width = 95;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column5.FillWeight = 253.8071F;
-            this.Column5.HeaderText = "DATE";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 122;
             // 
             // guna2Panel2
             // 
@@ -464,6 +425,25 @@
             this.pnlVidInfo.TabIndex = 7;
             this.pnlVidInfo.Visible = false;
             // 
+            // btnCloseVidInfo
+            // 
+            this.btnCloseVidInfo.BackColor = System.Drawing.Color.Transparent;
+            this.btnCloseVidInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnCloseVidInfo.BorderRadius = 7;
+            this.btnCloseVidInfo.CheckedState.Parent = this.btnCloseVidInfo;
+            this.btnCloseVidInfo.CustomImages.Parent = this.btnCloseVidInfo;
+            this.btnCloseVidInfo.FillColor = System.Drawing.Color.Transparent;
+            this.btnCloseVidInfo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseVidInfo.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCloseVidInfo.HoverState.Parent = this.btnCloseVidInfo;
+            this.btnCloseVidInfo.Image = global::YouTube_Downloader.Properties.Resources.close;
+            this.btnCloseVidInfo.Location = new System.Drawing.Point(939, 6);
+            this.btnCloseVidInfo.Name = "btnCloseVidInfo";
+            this.btnCloseVidInfo.ShadowDecoration.Parent = this.btnCloseVidInfo;
+            this.btnCloseVidInfo.Size = new System.Drawing.Size(32, 26);
+            this.btnCloseVidInfo.TabIndex = 10;
+            this.btnCloseVidInfo.Click += new System.EventHandler(this.btnCloseVidInfo_Click);
+            // 
             // lblChannelName
             // 
             this.lblChannelName.BackColor = System.Drawing.Color.Transparent;
@@ -561,7 +541,6 @@
             this.cbQualities.Name = "cbQualities";
             this.cbQualities.ShadowDecoration.Parent = this.cbQualities;
             this.cbQualities.Size = new System.Drawing.Size(154, 36);
-            this.cbQualities.StartIndex = 0;
             this.cbQualities.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
             this.cbQualities.TabIndex = 6;
             this.cbQualities.SelectedIndexChanged += new System.EventHandler(this.cbQualities_SelectedIndexChanged);
@@ -595,24 +574,86 @@
             this.btnDownload.Text = "Download";
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
-            // btnCloseVidInfo
+            // col1
             // 
-            this.btnCloseVidInfo.BackColor = System.Drawing.Color.Transparent;
-            this.btnCloseVidInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnCloseVidInfo.BorderRadius = 7;
-            this.btnCloseVidInfo.CheckedState.Parent = this.btnCloseVidInfo;
-            this.btnCloseVidInfo.CustomImages.Parent = this.btnCloseVidInfo;
-            this.btnCloseVidInfo.FillColor = System.Drawing.Color.Transparent;
-            this.btnCloseVidInfo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCloseVidInfo.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCloseVidInfo.HoverState.Parent = this.btnCloseVidInfo;
-            this.btnCloseVidInfo.Image = global::YouTube_Downloader.Properties.Resources.close;
-            this.btnCloseVidInfo.Location = new System.Drawing.Point(939, 6);
-            this.btnCloseVidInfo.Name = "btnCloseVidInfo";
-            this.btnCloseVidInfo.ShadowDecoration.Parent = this.btnCloseVidInfo;
-            this.btnCloseVidInfo.Size = new System.Drawing.Size(32, 26);
-            this.btnCloseVidInfo.TabIndex = 10;
-            this.btnCloseVidInfo.Click += new System.EventHandler(this.btnCloseVidInfo_Click);
+            this.col1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col1.DataPropertyName = "Title";
+            this.col1.FillWeight = 36.31561F;
+            this.col1.HeaderText = "FILE NAME";
+            this.col1.Name = "col1";
+            this.col1.ReadOnly = true;
+            this.col1.Width = 525;
+            // 
+            // col2
+            // 
+            this.col2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col2.DataPropertyName = "Status";
+            this.col2.FillWeight = 40.61155F;
+            this.col2.HeaderText = "STATUS";
+            this.col2.Name = "col2";
+            this.col2.ReadOnly = true;
+            this.col2.Width = 150;
+            // 
+            // col3
+            // 
+            this.col3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col3.DataPropertyName = "Progress";
+            this.col3.FillWeight = 81.42152F;
+            this.col3.HeaderText = "PROGRESS";
+            this.col3.Name = "col3";
+            this.col3.ReadOnly = true;
+            this.col3.Width = 130;
+            // 
+            // col4
+            // 
+            this.col4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col4.DataPropertyName = "Size";
+            this.col4.FillWeight = 87.84423F;
+            this.col4.HeaderText = "SIZE";
+            this.col4.Name = "col4";
+            this.col4.ReadOnly = true;
+            this.col4.Width = 95;
+            // 
+            // col5
+            // 
+            this.col5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col5.DataPropertyName = "Date";
+            this.col5.FillWeight = 253.8071F;
+            this.col5.HeaderText = "DATE";
+            this.col5.Name = "col5";
+            this.col5.ReadOnly = true;
+            this.col5.Width = 122;
+            // 
+            // cmsVidItemOptions
+            // 
+            this.cmsVidItemOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmCancel,
+            this.tsmDelete,
+            this.tsmOpenFolder});
+            this.cmsVidItemOptions.Name = "cmsVidItemOptions";
+            this.cmsVidItemOptions.Size = new System.Drawing.Size(181, 92);
+            this.cmsVidItemOptions.Opening += new System.ComponentModel.CancelEventHandler(this.cmsVidItemOptions_Opening);
+            // 
+            // tsmCancel
+            // 
+            this.tsmCancel.Name = "tsmCancel";
+            this.tsmCancel.Size = new System.Drawing.Size(180, 22);
+            this.tsmCancel.Text = "Cancel";
+            this.tsmCancel.Click += new System.EventHandler(this.tsmCancel_Click);
+            // 
+            // tsmOpenFolder
+            // 
+            this.tsmOpenFolder.Name = "tsmOpenFolder";
+            this.tsmOpenFolder.Size = new System.Drawing.Size(180, 22);
+            this.tsmOpenFolder.Text = "Open Folder";
+            this.tsmOpenFolder.Click += new System.EventHandler(this.tsmOpenFolder_Click);
+            // 
+            // tsmDelete
+            // 
+            this.tsmDelete.Name = "tsmDelete";
+            this.tsmDelete.Size = new System.Drawing.Size(180, 22);
+            this.tsmDelete.Text = "Delete";
+            this.tsmDelete.Click += new System.EventHandler(this.tsmDelete_Click);
             // 
             // Form1
             // 
@@ -642,6 +683,7 @@
             this.pnlVidInfo.ResumeLayout(false);
             this.pnlVidDuration.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbVidThumbnail)).EndInit();
+            this.cmsVidItemOptions.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -665,11 +707,6 @@
         private Guna.UI2.WinForms.Guna2Separator guna2Separator1;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private Guna.UI2.WinForms.Guna2Panel pnlVidInfo;
         private Guna.UI2.WinForms.Guna2Button btnDownload;
         private System.Windows.Forms.Label lblVidTitle;
@@ -683,6 +720,15 @@
         private Guna.UI2.WinForms.Guna2CircleProgressBar prgbarLoadingInfo;
         private Guna.UI2.WinForms.Guna2Button btnCloseVidInfo;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col5;
+        private System.Windows.Forms.ContextMenuStrip cmsVidItemOptions;
+        private System.Windows.Forms.ToolStripMenuItem tsmCancel;
+        private System.Windows.Forms.ToolStripMenuItem tsmOpenFolder;
+        private System.Windows.Forms.ToolStripMenuItem tsmDelete;
     }
 }
 

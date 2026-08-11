@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -6,16 +9,17 @@ using YouTube_Downloader.Services;
 
 namespace YouTube_Downloader
 {
+
+    // active downloads dictionary
+    // limit the number of active downloads to 5
+    // serialize and deserialize the downloads list 
+    // delete cms logic
+
     public partial class Form1 : Form
     {
-        private enum enStatus
-        {
-            Downloading,
-            Cancelled,
-            Completed,
-        }
+        private BindingList<YouTubeVideo> _downloadsList;
+        private Dictionary<string, YouTubeVideo> _activeDownloads;
         private YouTubeVideo _youTubeVideo;
-        private Progress<double> _progress;
 
         public Form1()
         {
@@ -26,17 +30,54 @@ namespace YouTube_Downloader
             saveFileDialog1.InitialDirectory = @"C:\";
             saveFileDialog1.FilterIndex = 1;
             saveFileDialog1.RestoreDirectory = true;
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             _youTubeVideo = new YouTubeVideo();
-            _progress = new Progress<double>(value =>
-            {
-                dgvDownloads.Rows[0].Cells[2].Value = $"{(int)(value * 100)}%";
-            });
+            _downloadsList = new BindingList<YouTubeVideo>();
+            _activeDownloads = new Dictionary<string, YouTubeVideo>();
+
+            dgvDownloads.DataSource = _downloadsList;
         }
+
+
+        private async void btnDownload_Click(object sender, EventArgs e)
+        {
+            string selectedQuality = cbQualities.SelectedItem?.ToString();
+            saveFileDialog1.FileName = _youTubeVideo.Title;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            // to capture the current vid object with his context before resetting for next download
+            YouTubeVideo downloadObj = _youTubeVideo;
+
+            // to reset the youtube object to allow next download object to be captured in next context
+            _youTubeVideo = new YouTubeVideo();
+            pnlVidInfo.Visible = false;
+            ResetInfoCard();
+
+            _downloadsList.Add(downloadObj);
+
+            if (downloadObj.VideoID != null)
+                _activeDownloads[downloadObj.VideoID.ToString()] = downloadObj;
+
+            try
+            {
+                await downloadObj.DownloadVideoAsync(selectedQuality, saveFileDialog1.FileName);
+                _activeDownloads.Remove(downloadObj.VideoID.ToString());
+            }
+            catch (OperationCanceledException)
+            {
+                downloadObj = null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Video: {downloadObj.Title}\nException: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private async void btnGetVidInfo_Click(object sender, EventArgs e)
         {
@@ -49,35 +90,7 @@ namespace YouTube_Downloader
             _ = StartFetchingInfo();
         }
 
-        private async void btnDownload_Click(object sender, EventArgs e)
-        {
-            string selectedQuality = cbQualities.SelectedItem?.ToString();
-            saveFileDialog1.FileName = _youTubeVideo.Title;
-
-            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
-                return;
-
-            dgvDownloads.Rows.Add(_youTubeVideo.Title, enStatus.Downloading, "0%", "5MB", DateTime.Now.ToShortDateString());
-            pnlVidInfo.Visible = false;
-            ResetInfoCard();
-            try
-            {
-                await _youTubeVideo.DownloadVideoAsync(selectedQuality, saveFileDialog1.FileName, _progress);
-            }
-            catch (OperationCanceledException)
-            {
-                dgvDownloads.Rows[0].Cells[1].Value = enStatus.Cancelled;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Video: {_youTubeVideo.Title}\nException: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ResetInfoCard();
-                pnlVidInfo.Visible = false;
-                return;
-            }
-            
-            dgvDownloads.Rows[0].Cells[1].Value = enStatus.Completed;
-        }
+       
 
         private void btnCloseVidInfo_Click(object sender, EventArgs e)
         {
@@ -144,6 +157,45 @@ namespace YouTube_Downloader
         private void cbQualities_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblVidSize.Text = _youTubeVideo.GetFileSize(cbQualities.SelectedItem.ToString())?? "N/A";
+        }
+
+        private void cmsVidItemOptions_Opening(object sender, CancelEventArgs e)
+        {
+            if (dgvDownloads.CurrentRow?.DataBoundItem is YouTubeVideo selectedVid)
+            {
+                if (selectedVid.Status != YouTubeVideo.enStatus.Downloading)
+                    tsmCancel.Enabled = false;
+                else
+                    tsmCancel.Enabled = true;
+            }
+        }
+
+        private void tsmCancel_Click(object sender, EventArgs e)
+        {
+            if (dgvDownloads.CurrentRow?.DataBoundItem is YouTubeVideo selectedVid)
+                selectedVid.CancelDownload();
+        }
+
+        private void tsmOpenFolder_Click(object sender, EventArgs e)
+        {
+            if (dgvDownloads.CurrentRow?.DataBoundItem is YouTubeVideo selectedVid)
+            {
+                if (!string.IsNullOrEmpty(selectedVid.DownloadPath))
+                {
+                    string folderPath = System.IO.Path.GetDirectoryName(selectedVid.DownloadPath);
+                    if (Directory.Exists(folderPath))
+                        Process.Start("explorer.exe", folderPath);
+                    else
+                        MessageBox.Show("The download folder does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                    MessageBox.Show("The download path is not available.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void tsmDelete_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
