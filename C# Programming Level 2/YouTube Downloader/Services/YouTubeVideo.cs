@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using YoutubeExplode;
@@ -13,7 +14,7 @@ using YoutubeExplode.Videos.Streams;
 
 namespace YouTube_Downloader.Services
 {
-    internal class YouTubeVideo : INotifyPropertyChanged
+    public class YouTubeVideo : INotifyPropertyChanged
     {
         public enum enStatus
         {
@@ -32,21 +33,33 @@ namespace YouTube_Downloader.Services
         private IStreamInfo[] _selectedStreamsInfo;
 
         public event PropertyChangedEventHandler PropertyChanged;
+        public event Action OnDownloadStarted;
+        public event Action OnDownloadFinished;
 
+        [JsonIgnore]
         public VideoId? VideoID { get; private set; }
+        [JsonIgnore]
         public string VideoURL { get; private set; }
 
+        [JsonInclude]
         public string Title { get; private set; }
+        [JsonIgnore]
         public string Description { get; private set; }
+        [JsonIgnore]
         public string ChannelTitle { get; private set; }
+        [JsonIgnore]
         public TimeSpan? VideoLength { get; private set; }
+        [JsonIgnore]
         public string ThumbnailURL { get; private set; }
 
+        [JsonIgnore]
         public List<string> AvailableQualities { get; private set; }
+        [JsonInclude]
         public string DownloadPath { get; private set; }
 
-
+        
         private string _progress = "0%";
+        [JsonInclude]
         public string Progress
         {
             get { return _progress; }
@@ -55,12 +68,14 @@ namespace YouTube_Downloader.Services
                 if (_progress != value)
                 {
                     _progress = value;
-                    PropertyChanged?.Invoke(this, null);
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Progress)));
                 }
             }
         }
 
+        [JsonIgnore]
         private enStatus _status = enStatus.Downloading;
+        [JsonInclude]
         public enStatus Status
         {
             get { return _status; }
@@ -69,12 +84,15 @@ namespace YouTube_Downloader.Services
                 if (_status != value)
                 {
                     _status = value;
-                    PropertyChanged?.Invoke(this, null);
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
                 }
             }
         }
 
+        [JsonInclude]
         public string Date { get; set; }
+
+        [JsonInclude]
         public string Size { get; set; }
 
         public YouTubeVideo()
@@ -96,14 +114,17 @@ namespace YouTube_Downloader.Services
             try
             {
                 videoInfo = await _YouTubeClient.Videos.GetAsync(URL);
+                _manifest = await _YouTubeClient.Videos.Streams.GetManifestAsync(URL);
+                PrepareVideoInfo(videoInfo);
             }
             catch (VideoUnavailableException)
             {
                 throw new ArgumentException("This video is unavailable, private, or has been deleted.", nameof(URL));
             }
-
-            _manifest = await _YouTubeClient.Videos.Streams.GetManifestAsync(URL);
-            PrepareVideoInfo(videoInfo);
+            catch (Exception ex)
+            {
+               throw new Exception($"Fetching Error: {ex.Message}", ex);
+            }
         }
 
         public async Task DownloadVideoAsync(string selectedQuality, string downloadPath)
@@ -114,6 +135,7 @@ namespace YouTube_Downloader.Services
 
             try
             {
+                OnDownloadStarted?.Invoke();
                 var Progress = new Progress<double>(p =>
                 {
                     this.Progress = $"{(int)( p * 100 )}%";
@@ -129,7 +151,7 @@ namespace YouTube_Downloader.Services
             }
             catch (NotSupportedException ex)
             {
-                // this is a bug where youtube explode throws a exception when cleaning up after FFmpeg finishes
+                // this is a bug where youtube explode throws an exception when cleaning up after FFmpeg finishes
                 // but the file is already downloaded and muxed and ready,
                 if (File.Exists(downloadPath) && new FileInfo(downloadPath).Length > 0)
                 {
@@ -146,7 +168,11 @@ namespace YouTube_Downloader.Services
                 this.Status = enStatus.Failed;
                 throw new Exception(ex.Message);
             }
-           
+            finally
+            {
+                OnDownloadFinished?.Invoke();
+            }
+
         }
 
         public void CancelDownload()

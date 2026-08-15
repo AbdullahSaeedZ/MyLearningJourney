@@ -29,17 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.tbURL = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.prgbarLoadingInfo = new Guna.UI2.WinForms.Guna2CircleProgressBar();
+            this.lblDownloadsLimitReached = new System.Windows.Forms.Label();
             this.btnGetVidInfo = new Guna.UI2.WinForms.Guna2Button();
             this.dgvDownloads = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmsVidItemOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmCancel = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmOpenFolder = new System.Windows.Forms.ToolStripMenuItem();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.ControlBoxClose = new Guna.UI2.WinForms.Guna2ControlBox();
@@ -63,23 +73,16 @@
             this.lblVidTitle = new System.Windows.Forms.Label();
             this.btnDownload = new Guna.UI2.WinForms.Guna2Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmsVidItemOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmCancel = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmOpenFolder = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblNoDownloadsYet = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
+            this.prgbarLoadingInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDownloads)).BeginInit();
+            this.cmsVidItemOptions.SuspendLayout();
             this.guna2Panel2.SuspendLayout();
             this.guna2Panel3.SuspendLayout();
             this.pnlVidInfo.SuspendLayout();
             this.pnlVidDuration.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbVidThumbnail)).BeginInit();
-            this.cmsVidItemOptions.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -147,6 +150,7 @@
             this.prgbarLoadingInfo.Animated = true;
             this.prgbarLoadingInfo.AnimationSpeed = 1.5F;
             this.prgbarLoadingInfo.BackColor = System.Drawing.Color.Transparent;
+            this.prgbarLoadingInfo.Controls.Add(this.lblDownloadsLimitReached);
             this.prgbarLoadingInfo.Enabled = false;
             this.prgbarLoadingInfo.FillColor = System.Drawing.Color.Transparent;
             this.prgbarLoadingInfo.FillThickness = 7;
@@ -164,6 +168,20 @@
             this.prgbarLoadingInfo.TabIndex = 9;
             this.prgbarLoadingInfo.Value = 74;
             this.prgbarLoadingInfo.Visible = false;
+            // 
+            // lblDownloadsLimitReached
+            // 
+            this.lblDownloadsLimitReached.AutoSize = true;
+            this.lblDownloadsLimitReached.BackColor = System.Drawing.Color.Transparent;
+            this.lblDownloadsLimitReached.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDownloadsLimitReached.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
+            this.lblDownloadsLimitReached.Location = new System.Drawing.Point(-177, 9);
+            this.lblDownloadsLimitReached.Name = "lblDownloadsLimitReached";
+            this.lblDownloadsLimitReached.Size = new System.Drawing.Size(396, 28);
+            this.lblDownloadsLimitReached.TabIndex = 4;
+            this.lblDownloadsLimitReached.Text = "Only 5 simultaneous downloads allowed";
+            this.lblDownloadsLimitReached.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDownloadsLimitReached.Visible = false;
             // 
             // btnGetVidInfo
             // 
@@ -188,22 +206,22 @@
             this.dgvDownloads.AllowUserToDeleteRows = false;
             this.dgvDownloads.AllowUserToResizeColumns = false;
             this.dgvDownloads.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
-            this.dgvDownloads.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(48)))), ((int)(((byte)(52)))));
+            this.dgvDownloads.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDownloads.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDownloads.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDownloads.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
             this.dgvDownloads.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDownloads.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvDownloads.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDownloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDownloads.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDownloads.ColumnHeadersHeight = 60;
             this.dgvDownloads.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvDownloads.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -213,14 +231,14 @@
             this.col4,
             this.col5});
             this.dgvDownloads.ContextMenuStrip = this.cmsVidItemOptions;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.5F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDownloads.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.5F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDownloads.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvDownloads.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvDownloads.EnableHeadersVisualStyles = false;
             this.dgvDownloads.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(37)))), ((int)(((byte)(37)))));
@@ -228,11 +246,11 @@
             this.dgvDownloads.Name = "dgvDownloads";
             this.dgvDownloads.ReadOnly = true;
             this.dgvDownloads.RowHeadersVisible = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.dgvDownloads.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.dgvDownloads.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvDownloads.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
             this.dgvDownloads.RowTemplate.DividerHeight = 1;
             this.dgvDownloads.RowTemplate.Height = 40;
@@ -263,6 +281,87 @@
             this.dgvDownloads.ThemeStyle.RowsStyle.Height = 40;
             this.dgvDownloads.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
             this.dgvDownloads.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            // 
+            // col1
+            // 
+            this.col1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col1.DataPropertyName = "Title";
+            this.col1.FillWeight = 36.31561F;
+            this.col1.HeaderText = "FILE NAME";
+            this.col1.Name = "col1";
+            this.col1.ReadOnly = true;
+            this.col1.Width = 525;
+            // 
+            // col2
+            // 
+            this.col2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col2.DataPropertyName = "Status";
+            this.col2.FillWeight = 40.61155F;
+            this.col2.HeaderText = "STATUS";
+            this.col2.Name = "col2";
+            this.col2.ReadOnly = true;
+            this.col2.Width = 150;
+            // 
+            // col3
+            // 
+            this.col3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col3.DataPropertyName = "Progress";
+            this.col3.FillWeight = 81.42152F;
+            this.col3.HeaderText = "PROGRESS";
+            this.col3.Name = "col3";
+            this.col3.ReadOnly = true;
+            this.col3.Width = 130;
+            // 
+            // col4
+            // 
+            this.col4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col4.DataPropertyName = "Size";
+            this.col4.FillWeight = 87.84423F;
+            this.col4.HeaderText = "SIZE";
+            this.col4.Name = "col4";
+            this.col4.ReadOnly = true;
+            this.col4.Width = 95;
+            // 
+            // col5
+            // 
+            this.col5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col5.DataPropertyName = "Date";
+            this.col5.FillWeight = 253.8071F;
+            this.col5.HeaderText = "DATE";
+            this.col5.Name = "col5";
+            this.col5.ReadOnly = true;
+            this.col5.Width = 122;
+            // 
+            // cmsVidItemOptions
+            // 
+            this.cmsVidItemOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmCancel,
+            this.tsmDelete,
+            this.tsmOpenFolder});
+            this.cmsVidItemOptions.Name = "cmsVidItemOptions";
+            this.cmsVidItemOptions.Size = new System.Drawing.Size(140, 70);
+            this.cmsVidItemOptions.Opening += new System.ComponentModel.CancelEventHandler(this.cmsVidItemOptions_Opening);
+            // 
+            // tsmCancel
+            // 
+            this.tsmCancel.Name = "tsmCancel";
+            this.tsmCancel.Size = new System.Drawing.Size(139, 22);
+            this.tsmCancel.Text = "Cancel";
+            this.tsmCancel.Click += new System.EventHandler(this.tsmCancel_Click);
+            // 
+            // tsmDelete
+            // 
+            this.tsmDelete.Name = "tsmDelete";
+            this.tsmDelete.Size = new System.Drawing.Size(139, 22);
+            this.tsmDelete.Text = "Delete";
+            this.tsmDelete.Click += new System.EventHandler(this.tsmDelete_Click);
+            // 
+            // tsmOpenFolder
+            // 
+            this.tsmOpenFolder.Name = "tsmOpenFolder";
+            this.tsmOpenFolder.Size = new System.Drawing.Size(139, 22);
+            this.tsmOpenFolder.Text = "Open Folder";
+            this.tsmOpenFolder.Click += new System.EventHandler(this.tsmOpenFolder_Click);
             // 
             // guna2Panel2
             // 
@@ -365,10 +464,9 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
             this.label2.Location = new System.Drawing.Point(381, 185);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(631, 97);
+            this.label2.Size = new System.Drawing.Size(631, 47);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Paste your YouTube link below then click the download button then wait for it to " +
-    "be done";
+            this.label2.Text = "Paste your YouTube link below to start the downloading process";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // guna2Separator1
@@ -387,6 +485,7 @@
             this.guna2Panel3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(41)))), ((int)(((byte)(41)))));
             this.guna2Panel3.BorderRadius = 10;
             this.guna2Panel3.BorderThickness = 1;
+            this.guna2Panel3.Controls.Add(this.lblNoDownloadsYet);
             this.guna2Panel3.Controls.Add(this.dgvDownloads);
             this.guna2Panel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
             this.guna2Panel3.Location = new System.Drawing.Point(187, 493);
@@ -415,7 +514,7 @@
             this.pnlVidInfo.Controls.Add(this.lblVidTitle);
             this.pnlVidInfo.Controls.Add(this.btnDownload);
             this.pnlVidInfo.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
-            this.pnlVidInfo.Location = new System.Drawing.Point(213, 275);
+            this.pnlVidInfo.Location = new System.Drawing.Point(213, 260);
             this.pnlVidInfo.Name = "pnlVidInfo";
             this.pnlVidInfo.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
             this.pnlVidInfo.ShadowDecoration.Depth = 140;
@@ -574,86 +673,18 @@
             this.btnDownload.Text = "Download";
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
-            // col1
+            // lblNoDownloadsYet
             // 
-            this.col1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.col1.DataPropertyName = "Title";
-            this.col1.FillWeight = 36.31561F;
-            this.col1.HeaderText = "FILE NAME";
-            this.col1.Name = "col1";
-            this.col1.ReadOnly = true;
-            this.col1.Width = 525;
-            // 
-            // col2
-            // 
-            this.col2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.col2.DataPropertyName = "Status";
-            this.col2.FillWeight = 40.61155F;
-            this.col2.HeaderText = "STATUS";
-            this.col2.Name = "col2";
-            this.col2.ReadOnly = true;
-            this.col2.Width = 150;
-            // 
-            // col3
-            // 
-            this.col3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.col3.DataPropertyName = "Progress";
-            this.col3.FillWeight = 81.42152F;
-            this.col3.HeaderText = "PROGRESS";
-            this.col3.Name = "col3";
-            this.col3.ReadOnly = true;
-            this.col3.Width = 130;
-            // 
-            // col4
-            // 
-            this.col4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.col4.DataPropertyName = "Size";
-            this.col4.FillWeight = 87.84423F;
-            this.col4.HeaderText = "SIZE";
-            this.col4.Name = "col4";
-            this.col4.ReadOnly = true;
-            this.col4.Width = 95;
-            // 
-            // col5
-            // 
-            this.col5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.col5.DataPropertyName = "Date";
-            this.col5.FillWeight = 253.8071F;
-            this.col5.HeaderText = "DATE";
-            this.col5.Name = "col5";
-            this.col5.ReadOnly = true;
-            this.col5.Width = 122;
-            // 
-            // cmsVidItemOptions
-            // 
-            this.cmsVidItemOptions.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmCancel,
-            this.tsmDelete,
-            this.tsmOpenFolder});
-            this.cmsVidItemOptions.Name = "cmsVidItemOptions";
-            this.cmsVidItemOptions.Size = new System.Drawing.Size(181, 92);
-            this.cmsVidItemOptions.Opening += new System.ComponentModel.CancelEventHandler(this.cmsVidItemOptions_Opening);
-            // 
-            // tsmCancel
-            // 
-            this.tsmCancel.Name = "tsmCancel";
-            this.tsmCancel.Size = new System.Drawing.Size(180, 22);
-            this.tsmCancel.Text = "Cancel";
-            this.tsmCancel.Click += new System.EventHandler(this.tsmCancel_Click);
-            // 
-            // tsmOpenFolder
-            // 
-            this.tsmOpenFolder.Name = "tsmOpenFolder";
-            this.tsmOpenFolder.Size = new System.Drawing.Size(180, 22);
-            this.tsmOpenFolder.Text = "Open Folder";
-            this.tsmOpenFolder.Click += new System.EventHandler(this.tsmOpenFolder_Click);
-            // 
-            // tsmDelete
-            // 
-            this.tsmDelete.Name = "tsmDelete";
-            this.tsmDelete.Size = new System.Drawing.Size(180, 22);
-            this.tsmDelete.Text = "Delete";
-            this.tsmDelete.Click += new System.EventHandler(this.tsmDelete_Click);
+            this.lblNoDownloadsYet.AutoSize = true;
+            this.lblNoDownloadsYet.BackColor = System.Drawing.Color.Transparent;
+            this.lblNoDownloadsYet.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 12.75F, System.Drawing.FontStyle.Bold);
+            this.lblNoDownloadsYet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
+            this.lblNoDownloadsYet.Location = new System.Drawing.Point(423, 198);
+            this.lblNoDownloadsYet.Name = "lblNoDownloadsYet";
+            this.lblNoDownloadsYet.Size = new System.Drawing.Size(151, 22);
+            this.lblNoDownloadsYet.TabIndex = 5;
+            this.lblNoDownloadsYet.Text = "No Downloads Yet";
+            this.lblNoDownloadsYet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -676,14 +707,17 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.guna2Panel1.ResumeLayout(false);
+            this.prgbarLoadingInfo.ResumeLayout(false);
+            this.prgbarLoadingInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDownloads)).EndInit();
+            this.cmsVidItemOptions.ResumeLayout(false);
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
             this.guna2Panel3.ResumeLayout(false);
+            this.guna2Panel3.PerformLayout();
             this.pnlVidInfo.ResumeLayout(false);
             this.pnlVidDuration.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbVidThumbnail)).EndInit();
-            this.cmsVidItemOptions.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -720,15 +754,17 @@
         private Guna.UI2.WinForms.Guna2CircleProgressBar prgbarLoadingInfo;
         private Guna.UI2.WinForms.Guna2Button btnCloseVidInfo;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ContextMenuStrip cmsVidItemOptions;
+        private System.Windows.Forms.ToolStripMenuItem tsmCancel;
+        private System.Windows.Forms.ToolStripMenuItem tsmOpenFolder;
+        private System.Windows.Forms.ToolStripMenuItem tsmDelete;
+        private System.Windows.Forms.Label lblDownloadsLimitReached;
         private System.Windows.Forms.DataGridViewTextBoxColumn col1;
         private System.Windows.Forms.DataGridViewTextBoxColumn col2;
         private System.Windows.Forms.DataGridViewTextBoxColumn col3;
         private System.Windows.Forms.DataGridViewTextBoxColumn col4;
         private System.Windows.Forms.DataGridViewTextBoxColumn col5;
-        private System.Windows.Forms.ContextMenuStrip cmsVidItemOptions;
-        private System.Windows.Forms.ToolStripMenuItem tsmCancel;
-        private System.Windows.Forms.ToolStripMenuItem tsmOpenFolder;
-        private System.Windows.Forms.ToolStripMenuItem tsmDelete;
+        private System.Windows.Forms.Label lblNoDownloadsYet;
     }
 }
 

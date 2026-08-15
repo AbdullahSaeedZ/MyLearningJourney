@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
@@ -9,21 +8,31 @@ using YouTube_Downloader.Services;
 
 namespace YouTube_Downloader
 {
-
-    // active downloads dictionary
-    // limit the number of active downloads to 5
-    // serialize and deserialize the downloads list 
-    // delete cms logic
-
     public partial class Form1 : Form
     {
         private BindingList<YouTubeVideo> _downloadsList;
-        private Dictionary<string, YouTubeVideo> _activeDownloads;
         private YouTubeVideo _youTubeVideo;
+
+        private int _activeDownloadsCount = 0;
+        private readonly int _activeDownloadsLimit = 5;
 
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private async Task InitializeDownloadListAsync()
+        {
+            _downloadsList = await Serializer.LoadVideosAsync();
+
+            if (_downloadsList == null)
+                _downloadsList = new BindingList<YouTubeVideo>();
+
+            dgvDownloads.DataSource = _downloadsList;
+            lblNoDownloadsYet.Visible = dgvDownloads.RowCount == 0;
+        }
+        private void InitializeFileDialog()
+        {
             saveFileDialog1.DefaultExt = ".mp4";
             saveFileDialog1.Title = "Save Video";
             saveFileDialog1.Filter = "MP4 Video (*.mp4)|*.mp4";
@@ -31,54 +40,40 @@ namespace YouTube_Downloader
             saveFileDialog1.FilterIndex = 1;
             saveFileDialog1.RestoreDirectory = true;
         }
+        private void HandleDownloadFinished()
+        {
+            _activeDownloadsCount--;
+            if (_activeDownloadsCount < _activeDownloadsLimit)
+            {
+                lblDownloadsLimitReached.Visible = false;
+                tbURL.Visible = true;
+                btnGetVidInfo.Visible = true;
+            }
+        }
+        private void HandleDownloadStarted()
+        {
+            _activeDownloadsCount++;
+            if (_activeDownloadsCount >= _activeDownloadsLimit)
+            {
+                lblDownloadsLimitReached.Visible = true;
+                tbURL.Visible = false;
+                btnGetVidInfo.Visible = false;
+            }
+            lblNoDownloadsYet.Visible = dgvDownloads.RowCount == 0;
+        }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private async void Form1_Load(object sender, EventArgs e)
         {
             _youTubeVideo = new YouTubeVideo();
-            _downloadsList = new BindingList<YouTubeVideo>();
-            _activeDownloads = new Dictionary<string, YouTubeVideo>();
+            _youTubeVideo.OnDownloadStarted += HandleDownloadStarted;
+            _youTubeVideo.OnDownloadFinished += HandleDownloadFinished;
 
-            dgvDownloads.DataSource = _downloadsList;
+            InitializeFileDialog();
+            await InitializeDownloadListAsync();
         }
 
 
-        private async void btnDownload_Click(object sender, EventArgs e)
-        {
-            string selectedQuality = cbQualities.SelectedItem?.ToString();
-            saveFileDialog1.FileName = _youTubeVideo.Title;
-
-            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
-                return;
-
-            // to capture the current vid object with his context before resetting for next download
-            YouTubeVideo downloadObj = _youTubeVideo;
-
-            // to reset the youtube object to allow next download object to be captured in next context
-            _youTubeVideo = new YouTubeVideo();
-            pnlVidInfo.Visible = false;
-            ResetInfoCard();
-
-            _downloadsList.Add(downloadObj);
-
-            if (downloadObj.VideoID != null)
-                _activeDownloads[downloadObj.VideoID.ToString()] = downloadObj;
-
-            try
-            {
-                await downloadObj.DownloadVideoAsync(selectedQuality, saveFileDialog1.FileName);
-                _activeDownloads.Remove(downloadObj.VideoID.ToString());
-            }
-            catch (OperationCanceledException)
-            {
-                downloadObj = null;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Video: {downloadObj.Title}\nException: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
+        // buttons
         private async void btnGetVidInfo_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(tbURL.Text))
@@ -87,11 +82,24 @@ namespace YouTube_Downloader
                 return;
             }
 
-            _ = StartFetchingInfo();
+            await StartFetchingInfoAsync();
         }
+        private async void btnDownload_Click(object sender, EventArgs e)
+        {
+            if (!OpenSaveFileDialog())
+                return;
 
-       
+            // to capture the current vid object with his context before resetting to allow next concurrent download
+            YouTubeVideo downloadObj = _youTubeVideo;
 
+            // to reset the youtube object to allow next download object to be captured in next context
+            _youTubeVideo = new YouTubeVideo();
+            pnlVidInfo.Visible = false;
+            ResetInfoCard();
+
+            await StartDownloadingVideoAsync(downloadObj);
+
+        }
         private void btnCloseVidInfo_Click(object sender, EventArgs e)
         {
             ResetInfoCard();
@@ -100,7 +108,37 @@ namespace YouTube_Downloader
             _youTubeVideo = new YouTubeVideo();
         }
 
-        private async Task StartFetchingInfo()
+
+
+        private bool OpenSaveFileDialog()
+        {
+            saveFileDialog1.FileName = _youTubeVideo.Title;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+                return false;
+            return true;
+        }
+
+        private async Task StartDownloadingVideoAsync(YouTubeVideo video)
+        {
+            try
+            {
+                _downloadsList.Add(video);
+                string selectedQuality = cbQualities.SelectedItem?.ToString();
+                await video.DownloadVideoAsync(selectedQuality, saveFileDialog1.FileName);
+                _ = Serializer.SerializeObjectAsync(video);
+            }
+            catch (OperationCanceledException)
+            {
+                video = null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Video: {video.Title}\nException: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task StartFetchingInfoAsync()
         {
             ShowHideLoadingIndicator();
 
@@ -159,14 +197,22 @@ namespace YouTube_Downloader
             lblVidSize.Text = _youTubeVideo.GetFileSize(cbQualities.SelectedItem.ToString())?? "N/A";
         }
 
+
+        // context menu
         private void cmsVidItemOptions_Opening(object sender, CancelEventArgs e)
         {
             if (dgvDownloads.CurrentRow?.DataBoundItem is YouTubeVideo selectedVid)
             {
                 if (selectedVid.Status != YouTubeVideo.enStatus.Downloading)
+                {
                     tsmCancel.Enabled = false;
+                    tsmDelete.Enabled = true;
+                }
                 else
+                {
                     tsmCancel.Enabled = true;
+                    tsmDelete.Enabled = false;
+                }
             }
         }
 
@@ -182,7 +228,7 @@ namespace YouTube_Downloader
             {
                 if (!string.IsNullOrEmpty(selectedVid.DownloadPath))
                 {
-                    string folderPath = System.IO.Path.GetDirectoryName(selectedVid.DownloadPath);
+                    string folderPath = Path.GetDirectoryName(selectedVid.DownloadPath);
                     if (Directory.Exists(folderPath))
                         Process.Start("explorer.exe", folderPath);
                     else
@@ -193,9 +239,20 @@ namespace YouTube_Downloader
             }
         }
 
-        private void tsmDelete_Click(object sender, EventArgs e)
+        private async void tsmDelete_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Are you sure you want to delete this download from history?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+                return;
 
+            if (dgvDownloads.CurrentRow?.DataBoundItem is YouTubeVideo selectedVid)
+            {
+                _downloadsList.Remove(selectedVid);
+                await Serializer.SerializeListAsync(_downloadsList);
+            }
+
+            lblNoDownloadsYet.Visible = dgvDownloads.RowCount == 0;
         }
+
+      
     }
 }
