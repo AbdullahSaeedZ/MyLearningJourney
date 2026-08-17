@@ -1,53 +1,121 @@
 ﻿using Serializer.Attributes;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace Serializer
 {
     public static class Serializer
     {
-        public static void SerializeList(object obj, string filePath)
+        // multiple items serialization
+        public static void Serialize(IEnumerable<object> items, string filePath)
         {
+            using StreamWriter writer = new StreamWriter(filePath, false);
+            writer.Write(ConvertItemsToJson(items));
+        }
+        private static string ConvertItemsToJson(IEnumerable<object> items)
+        {
+            StringBuilder jsonList = new StringBuilder("[\n");
+
+            for (int i = 0; i < items.Count(); i++)
+            {
+                if (i == items.Count() - 1)
+                {
+                    jsonList.Append(GetOneObjectJson(items.ElementAt(i), true));
+                    break;
+                }
+                jsonList.Append(GetOneObjectJson(items.ElementAt(i), true) + ",\n");
+            }
+            jsonList.Append("\n]");
+            return jsonList.ToString();
         }
 
-        public static void SerializeObject(object obj, string filePath)
+
+        // single item serialization
+        public static void Serialize(object obj, string filePath)
         {
             if (obj == null) return;
 
             using StreamWriter writer = new StreamWriter(filePath, false);
-            string ConvertedObject = GetOneObjectJson(obj);
+            string jsonObject = GetOneObjectJson(obj);
 
-            writer.Write(ConvertedObject);
+            writer.Write(jsonObject);
         }
 
-        private static string GetOneObjectJson(object obj)
+        private static string GetOneObjectJson(object obj, bool isPartOfItems = false)
         {
-            Type type = obj.GetType();
-
-            // this will pick up both public and private fields and properties, but not static ones
-            MemberInfo[] members = type.GetMembers(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-
-            // to be fixed
+            MemberInfo[] members = GetMembers(obj);
             if (members.Length == 0)
                 return "{}";
 
-            StringBuilder oneObjectJson = new StringBuilder("{");
+            return ConvertMembersToJson(obj, members, isPartOfItems);
+        }
+
+        private static MemberInfo[] GetMembers(object obj)
+        {
+            Type type = obj.GetType();
+
+            // this will pick up both public and private fields and properties 
+            return type.FindMembers(MemberTypes.Property | MemberTypes.Field,
+                BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance,
+                HandleRestrictions, null);
+        }
+        // this is a filtering method for FindMembers, it will be called for each member of the type so that only members that pass the filter will be returned
+        private static bool HandleRestrictions(MemberInfo member, object? criteria)
+        {
+            // to exclude backing fields of properties (which are marked CompilerGeneratedAttribute by compiler)
+            if (member.IsDefined(typeof(CompilerGeneratedAttribute)) || member.IsDefined(typeof(JsonIgnoreAttribute)))
+                return false;
+           
+            if (member.IsDefined(typeof(JsonIncludeAttribute)))
+                return true;
+
+            // to skip private fields and properties that are not marked with either
+            if (member is FieldInfo field && !field.IsPublic)
+                return false;
+            if (member is PropertyInfo prop && prop.CanRead && prop.GetMethod?.IsPublic == false)
+                return false;
+
+            return true;
+        }
+
+
+        private static string ConvertMembersToJson(object obj, MemberInfo[] members, bool isPartOfItems)
+        {
+            StringBuilder oneObjectJson = new StringBuilder(isPartOfItems ? "\t{" : "{");
             foreach (MemberInfo member in members)
             {
-                if (!HandleRestrictions(member))
-                    continue;
-
-                // preparing the name section. not handling nested objects yet
+                // preparing the name section
                 string customName = member.GetCustomAttribute<JsonPropertyName>()?.Name ?? member.Name;
+                oneObjectJson.Append(isPartOfItems ? $"\n\t\t\"{customName}\": " : $"\n\t\"{customName}\": ");
 
-                oneObjectJson.Append($"\n\t\"{customName}\": ");
-                AppendMemberValue(obj, member, oneObjectJson); 
+                if (HandleNestedObjects(obj, member, oneObjectJson))
+                {
+                    oneObjectJson.Append(",");
+                    continue;
+                }
+
+                // value section
+                AppendMemberValue(obj, member, oneObjectJson);
             }
 
-            oneObjectJson.Length -= 1; // to remove the last comma
-            oneObjectJson.Append("\n}");
-
+            oneObjectJson.Length--; // to remove the last comma
+            oneObjectJson.Append(isPartOfItems ? "\n\t}" : "\n}");
             return oneObjectJson.ToString();
+        }
+        private static bool HandleNestedObjects(object parentObj, MemberInfo member, StringBuilder oneObjectJson)
+        {
+            // to check if member is a nested class, other checks are done in HandleRestrictions
+            if (!( member is PropertyInfo nestedClass && !nestedClass.PropertyType.IsPrimitive && nestedClass.PropertyType != typeof(string) ))
+                return false;
+
+            object? childObj = nestedClass.GetValue(parentObj);
+
+            if (childObj == null)
+                return false;
+
+            oneObjectJson.Append(GetOneObjectJson(childObj, true));
+            return true;
         }
 
         private static void AppendMemberValue(object obj, MemberInfo member, StringBuilder oneObjectJson)
@@ -79,32 +147,11 @@ namespace Serializer
             }
             else if (itemType == typeof(bool))
             {
-                oneObjectJson.Append($"{value.ToString().ToLower()},");
-            }
-            else
-            {
-                // nested objects, recursion??
+                oneObjectJson.Append($"{value.ToString()!.ToLower()},");
             }
         }
 
-        private static bool HandleRestrictions(MemberInfo member)
-        {
-            // to only include properties and fields
-            if (member.MemberType != MemberTypes.Property && member.MemberType != MemberTypes.Field)
-                return false;
-
-            // to skip private fields and properties that are not marked with [JsonInclude] attribute
-            if (member is FieldInfo field && !field.IsPublic && member.GetCustomAttribute<JsonIncludeAttribute>() == null)
-                return false;
-            if (member is PropertyInfo prop && prop.CanRead && prop.GetMethod?.IsPublic == false && member.GetCustomAttribute<JsonIncludeAttribute>() == null)
-                return false;
-
-            // to skip properties that are marked with [JsonIgnore] attribute
-            if (member.GetCustomAttribute<JsonIgnoreAttribute>() != null)
-                return false;
-
-            return true;
-        }
+       
 
 
 
