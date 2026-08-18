@@ -3,52 +3,71 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 
+// c# comments on methods
+
 namespace Serializer
 {
     public static class Serializer
     {
-        // multiple items serialization
-        public static void Serialize(IEnumerable<object> items, string filePath)
+        // Total Space Offset = Depth X SpacesPerIndent
+        // depth is the level, spaces number or tabs, which increasses with an open bracket and decreasses with a closing bracket
+
+        // removed static depth and totalSpaces fields here to avoid resetting with multiple serializations at same app life time,
+        // and to avoid race condition issues
+        private static readonly int _spacesPerDepth = 4;
+        
+
+
+
+        // multiple elements serialization
+        public static void Serialize(IEnumerable<object> elements, string filePath)
         {
             using StreamWriter writer = new StreamWriter(filePath, false);
-            writer.Write(ConvertItemsToJson(items));
+            writer.Write(ConvertelementsToJson(elements));
         }
-        private static string ConvertItemsToJson(IEnumerable<object> items)
+        private static string ConvertelementsToJson(IEnumerable<object> elements)
         {
             StringBuilder jsonList = new StringBuilder("[\n");
 
-            for (int i = 0; i < items.Count(); i++)
+            for (int i = 0; i < elements.Count(); i++)
             {
-                if (i == items.Count() - 1)
+                object? element = elements.ElementAt(i);
+                if (element == null)
                 {
-                    jsonList.Append(GetOneObjectJson(items.ElementAt(i), true));
-                    break;
+                    // to remove the last comma and newline, if last object is null
+                    if (i == elements.Count() - 1)
+                        jsonList.Length -=2; 
+
+                    continue;
                 }
-                jsonList.Append(GetOneObjectJson(items.ElementAt(i), true) + ",\n");
+
+                if (i == elements.Count() - 1)
+                    jsonList.Append(GetOneObjectJson(element, 1)); // depth is 1 cuz there is alreasy an array starting bracket
+                else
+                    jsonList.Append(GetOneObjectJson(element, 1) + ",\n");
             }
             jsonList.Append("\n]");
             return jsonList.ToString();
         }
 
 
-        // single item serialization
+        // single element serialization
         public static void Serialize(object obj, string filePath)
         {
             if (obj == null) return;
 
             using StreamWriter writer = new StreamWriter(filePath, false);
-            string jsonObject = GetOneObjectJson(obj);
+            string jsonObject = GetOneObjectJson(obj , 0);
 
             writer.Write(jsonObject);
         }
 
-        private static string GetOneObjectJson(object obj, bool isPartOfItems = false)
+        private static string GetOneObjectJson(object obj, int depthLevel, bool isNested = false)
         {
             MemberInfo[] members = GetMembers(obj);
-            if (members.Length == 0)
-                return "{}";
+            if (members.Length == 0) return "{}";
 
-            return ConvertMembersToJson(obj, members, isPartOfItems);
+            return ConvertMembersToJson(obj, members, depthLevel, isNested);
         }
 
         private static MemberInfo[] GetMembers(object obj)
@@ -79,31 +98,44 @@ namespace Serializer
             return true;
         }
 
-
-        private static string ConvertMembersToJson(object obj, MemberInfo[] members, bool isPartOfItems)
+        private static string ConvertMembersToJson(object obj, MemberInfo[] members, int depthLevel, bool isNested)
         {
-            StringBuilder oneObjectJson = new StringBuilder(isPartOfItems ? "\t{" : "{");
+            int _depthLevel = depthLevel;
+            string spaces = GetSpeaces(_depthLevel);
+
+            StringBuilder oneObjectJson = new StringBuilder(isNested ? "{" : $"{spaces}{{");
+            spaces = GetSpeaces(++_depthLevel);
+
             foreach (MemberInfo member in members)
             {
-                // preparing the name section
+                // preparing the json property section
                 string customName = member.GetCustomAttribute<JsonPropertyName>()?.Name ?? member.Name;
-                oneObjectJson.Append(isPartOfItems ? $"\n\t\t\"{customName}\": " : $"\n\t\"{customName}\": ");
+                oneObjectJson.Append($"\n{spaces}\"{customName}\": ");
 
-                if (HandleNestedObjects(obj, member, oneObjectJson))
+                // to hanle value if a nesdted objcet
+                if (HandleNestedObject(obj, member, oneObjectJson, _depthLevel))
                 {
                     oneObjectJson.Append(",");
                     continue;
                 }
 
-                // value section
+                // preparing the json value section
                 AppendMemberValue(obj, member, oneObjectJson);
             }
-
             oneObjectJson.Length--; // to remove the last comma
-            oneObjectJson.Append(isPartOfItems ? "\n\t}" : "\n}");
+            spaces = GetSpeaces(--_depthLevel);
+
+            oneObjectJson.Append( $"\n{spaces}}}");
             return oneObjectJson.ToString();
         }
-        private static bool HandleNestedObjects(object parentObj, MemberInfo member, StringBuilder oneObjectJson)
+
+        private static string GetSpeaces(int newDepthLevel)
+        {
+            int TotalSpaces = newDepthLevel * _spacesPerDepth;
+            return new string(' ', TotalSpaces);
+        }
+
+        private static bool HandleNestedObject(object parentObj, MemberInfo member, StringBuilder oneObjectJson, int depthLevel)
         {
             // to check if member is a nested class, other checks are done in HandleRestrictions
             if (!( member is PropertyInfo nestedClass && !nestedClass.PropertyType.IsPrimitive && nestedClass.PropertyType != typeof(string) ))
@@ -114,7 +146,7 @@ namespace Serializer
             if (childObj == null)
                 return false;
 
-            oneObjectJson.Append(GetOneObjectJson(childObj, true));
+            oneObjectJson.Append(GetOneObjectJson(childObj, depthLevel, true));
             return true;
         }
 
@@ -126,7 +158,7 @@ namespace Serializer
                 FieldInfo f => f.GetValue(obj),
                 _ => null
             };
-            Type? itemType = member switch
+            Type? elementType = member switch
             {
                 PropertyInfo p => p.PropertyType,
                 FieldInfo f => f.FieldType,
@@ -137,15 +169,15 @@ namespace Serializer
             {
                 oneObjectJson.Append("null,");
             }
-            else if (itemType == typeof(string))
+            else if (elementType == typeof(string))
             {
                 oneObjectJson.Append($"\"{value}\",");
             }
-            else if (itemType!.IsPrimitive && itemType != typeof(bool) && itemType != typeof(char) || itemType == typeof(decimal))
+            else if (elementType!.IsPrimitive && elementType != typeof(bool) && elementType != typeof(char) || elementType == typeof(decimal))
             {
                 oneObjectJson.Append($"{value},");
             }
-            else if (itemType == typeof(bool))
+            else if (elementType == typeof(bool))
             {
                 oneObjectJson.Append($"{value.ToString()!.ToLower()},");
             }
