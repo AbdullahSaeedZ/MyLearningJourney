@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 
 // asynchronous methods
+// put proper data in objects
 
 namespace Serializer
 {
@@ -207,21 +208,55 @@ namespace Serializer
             using StreamReader reader = new StreamReader(filePath);
             List<T> list = new List<T>();
 
-            string? line;
-            while ( (line = reader.ReadLine()) != null || !reader.EndOfStream )
+            IEnumerable<string> jsonObjects = ReadOneObjectJson(reader);
+
+            foreach (string jsonObject in jsonObjects)
             {
-                if (line == "[" || line == "]")
-                    continue;
-
-
+                T? obj = ConvertJsonToObject<T>(jsonObject);
+                if (obj != null)
+                    list.Add(obj);
             }
-            // read from file one object at a time
-            // deserialize it and add it to the list
-
             return list;
         }
 
-       
+        private static IEnumerable<string> ReadOneObjectJson(StreamReader reader)
+        {
+            StringBuilder builder = new StringBuilder();
+            string line;
+            int depth = 0;
+            int charInteger = 0;
+            bool inQuotes = false;
+
+            char previousChar = '\\';
+            while ( ( charInteger = reader.Read()) != -1)
+            {
+                char currentChar = (char)charInteger;
+
+                // toggling inQuotes mode:
+                if (currentChar == '"' && (previousChar != '\\'))
+                    inQuotes = !inQuotes;
+
+                // when not in quotes:
+                if (!inQuotes)
+                {
+                    if (currentChar == '{')
+                        depth++;
+                    else if (currentChar == '}')
+                        depth--;
+                }
+
+                if (depth > 0)
+                    builder.Append(currentChar);
+
+                if (depth == 0 && currentChar == '}')
+                {
+                    builder.Append(currentChar);
+                    yield return builder.ToString();
+                    builder.Clear();
+                }
+                previousChar = currentChar;
+            }
+        }
 
 
         /// <summary>
@@ -375,9 +410,11 @@ namespace Serializer
             return propertyPairs;
         }
 
+
+        // stringbuilder
         private static List<string> GetPairs(string jsonContent)
         {
-            var results = new List<string>();
+            List<string> results = new List<string>();
             jsonContent = jsonContent.TrimStart('{').TrimEnd('}');
 
             int startIndex = 0;
