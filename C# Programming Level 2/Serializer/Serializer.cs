@@ -3,7 +3,6 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-// c# comments on methods
 // asynchronous methods
 
 namespace Serializer
@@ -19,7 +18,11 @@ namespace Serializer
 
 
 
-        // multiple elements serialization
+        /// <summary>
+        /// Serializes a collection of objects to a JSON file.
+        /// </summary>
+        /// <param name="elements"></param>
+        /// <param name="filePath"></param>
         public static void Serialize(IEnumerable<object> elements, string filePath)
         {
             using StreamWriter writer = new StreamWriter(filePath, false);
@@ -51,7 +54,11 @@ namespace Serializer
         }
 
 
-        // single element serialization
+        /// <summary>
+        /// Serializes a single object to a JSON file.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <param name="filePath"></param>
         public static void Serialize(object obj, string filePath)
         {
             if (obj == null) return;
@@ -186,7 +193,12 @@ namespace Serializer
         //--------------
 
 
-
+        /// <summary>
+        /// Deserializes a JSON file into a list of objects of type T.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public static List<T> DeserializeList<T>(string filePath)
         {
             if (!File.Exists(filePath))
@@ -195,55 +207,83 @@ namespace Serializer
             using StreamReader reader = new StreamReader(filePath);
             List<T> list = new List<T>();
 
+            string? line;
+            while ( (line = reader.ReadLine()) != null || !reader.EndOfStream )
+            {
+                if (line == "[" || line == "]")
+                    continue;
+
+
+            }
             // read from file one object at a time
             // deserialize it and add it to the list
 
             return list;
         }
 
+       
 
 
-        public static T? DeserializeObject<T>(string filePath)
+        /// <summary>
+        /// Deserializes a JSON file into an object of type T.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
+        public static T? Deserialize<T>(string filePath)
         {
             if (!File.Exists(filePath))
-                return default(T);
+                return default;
 
             using StreamReader reader = new StreamReader(filePath);
             string jsonContent = reader.ReadToEnd();
 
+            if (jsonContent == null || jsonContent.StartsWith('['))
+                return default;
+
             return ConvertJsonToObject<T>(jsonContent);
         }
 
-        private static T? ConvertJsonToObject<T>(string jsonContent)
+        private static T? ConvertJsonToObject<T>(string jsonContent, Type nestedType = null)
         {
             Dictionary<string, string> jsonKeyAndValues = ParseJsonContent(jsonContent);
+            Type type;
 
-            Type type = typeof(T);
+            if (nestedType != null)
+                type = nestedType;
+            else
+                type = typeof(T);
 
             ConstructorInfo[] constructors = type.GetConstructors();
             ConstructorInfo validConstructor = GetValidConstructor(constructors);
             ParameterInfo[] parameters = validConstructor.GetParameters();
 
-            T obj = InvokeInitialObject<T>(validConstructor, parameters);
-            MapParsedValuesToObject(obj, type, jsonKeyAndValues);
+            T obj = InvokeInitialObject<T>(validConstructor, parameters)!;
+            MapParsedValuesToObject<T>(obj, type, jsonKeyAndValues);
 
             return obj;
         }
 
         private static void MapParsedValuesToObject<T>(T? obj, Type type, Dictionary<string, string> jsonKeyAndValues)
         {
-            // neseted objects are not handled yet
             MemberInfo[] members = GetMembers(type);
 
             foreach (MemberInfo member in members)
             {
                 string name = member.GetCustomAttribute<JsonPropertyName>()?.Name ?? member.Name;
                 
-                if (jsonKeyAndValues.TryGetValue(name, out string value))
+                if (jsonKeyAndValues.TryGetValue(name, out string? value))
                 {
                     if (value == "null")
                         value = null;
-                    if (member is PropertyInfo property)
+
+                    // to handle nested objects
+                    if (member is PropertyInfo nestedObject && nestedObject.PropertyType.IsClass && nestedObject.PropertyType != typeof(string))
+                    {
+                        object? objInstance = ConvertJsonToObject<object>(value, nestedObject.PropertyType);
+                        nestedObject.SetValue(obj, objInstance);
+                    }
+                    else if (member is PropertyInfo property)
                     {
                         property.SetValue(obj, Convert.ChangeType(value, property.PropertyType));
                     }
@@ -252,10 +292,7 @@ namespace Serializer
                         field.SetValue(obj, Convert.ChangeType(value, field.FieldType));
                     }
                 }
-
-                    
             }
-
         }
 
         private static T? InvokeInitialObject<T>(ConstructorInfo validConstructor, ParameterInfo[] parameters)
@@ -265,8 +302,6 @@ namespace Serializer
             else
             {
                 object[] readyParameters = new object[parameters.Length];
-                //Dictionary<Type, object> typesWithValues = new Dictionary<Type, object>();
-
                 for (int i = 0; i < parameters.Length; i++)
                 {
                     readyParameters[i] = parameters[i].ParameterType.IsValueType ?
@@ -323,17 +358,15 @@ namespace Serializer
             return null;
         }
 
-
         private static Dictionary<string, string> ParseJsonContent(string jsonContent)
         {
             Dictionary<string, string> propertyPairs = new Dictionary<string, string>();
-
-            jsonContent = jsonContent.TrimStart('{').TrimEnd('}');
-            string[] pairs = jsonContent.Split(',');
+            List<string> pairs = GetPairs(jsonContent);
 
             foreach (string pair in pairs)
             {
-                string[] key_Value = pair.Split(':');
+                string[] key_Value = pair.Split(':', 2, StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+                
                 string key = key_Value[0].Trim().Trim('"');
                 string value = key_Value[1].Trim().Trim('"');
 
@@ -341,24 +374,47 @@ namespace Serializer
             }
             return propertyPairs;
         }
-    }
-}
 
-/*
- foreach (ConstructorInfo constructor in constructors)
+        private static List<string> GetPairs(string jsonContent)
+        {
+            var results = new List<string>();
+            jsonContent = jsonContent.TrimStart('{').TrimEnd('}');
+
+            int startIndex = 0;
+            int depth = 0;
+            bool inQuotes = false;
+
+            for (int i = 0; i < jsonContent.Length; i++)
             {
+                char c = jsonContent[i];
 
-                Console.WriteLine(constructor);
-
-                ParameterInfo[] parameters = constructor.GetParameters();
-                foreach (ParameterInfo parameter in parameters)
+                if (c == '"' && ( i == 0 || jsonContent[i - 1] != '\\' ))
                 {
-                    Console.WriteLine($"Parameter: {parameter.Name}, Type: {parameter.ParameterType}");
+                    inQuotes = !inQuotes;
                 }
 
-                foreach (MemberInfo member in members)
+                if (!inQuotes)
                 {
-                    Console.WriteLine($"Member: {member.Name}, Type: {member.MemberType}");
+                    if (c == '{' || c == '[') 
+                        depth++;
+                    else if (c == '}' || c == ']')
+                        depth--;
+                    else if (c == ',' && depth == 0)
+                    {
+                        results.Add(jsonContent.Substring(startIndex, i - startIndex));
+                        startIndex = i + 1;
+                    }
                 }
             }
- */
+
+            if (startIndex < jsonContent.Length)
+                results.Add(jsonContent.Substring(startIndex));
+
+            return results;
+        }
+    }
+    }
+
+
+
+
