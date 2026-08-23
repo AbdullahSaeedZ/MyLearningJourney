@@ -3,8 +3,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 
-// asynchronous methods
-// put proper data in objects
+
 
 namespace Serializer
 {
@@ -24,34 +23,37 @@ namespace Serializer
         /// </summary>
         /// <param name="elements"></param>
         /// <param name="filePath"></param>
-        public static void Serialize(IEnumerable<object> elements, string filePath)
+        public static async Task SerializeAsync(IEnumerable<object> elements, string filePath)
         {
             using StreamWriter writer = new StreamWriter(filePath, false);
-            writer.Write(ConvertElementsToJson(elements));
-        }
-        private static string ConvertElementsToJson(IEnumerable<object> elements)
-        {
-            StringBuilder jsonList = new StringBuilder("[\n");
+            IEnumerable<string> elemnts = ConvertElementsToJson(elements);
 
-            for (int i = 0; i < elements.Count(); i++)
+            foreach (string element in elemnts)
             {
-                object? element = elements.ElementAt(i);
-                if (element == null)
-                {
-                    // to remove the last comma and newline, if last object is null
-                    if (i == elements.Count() - 1)
-                        jsonList.Length -= 2;
+                if (element == null) continue;
+                await writer.WriteAsync(element);
+            }
 
-                    continue;
+        }
+        private static IEnumerable<string> ConvertElementsToJson(IEnumerable<object> elements)
+        {
+            yield return "[\n";
+            bool isFirst = true;
+
+            foreach (object element in elements)
+            {
+                if (element == null) continue;
+
+                if (!isFirst)
+                {
+                    yield return ",\n";
                 }
 
-                if (i == elements.Count() - 1)
-                    jsonList.Append(GetOneObjectJson(element, 1)); // depth is 1 cuz there is alreasy an array starting bracket
-                else
-                    jsonList.Append(GetOneObjectJson(element, 1) + ",\n");
+                isFirst = false;
+                yield return GetOneObjectJson(element, 1); // depth is 1 cuz there is alreasy an array starting bracket
             }
-            jsonList.Append("\n]");
-            return jsonList.ToString();
+
+            yield return "\n]";
         }
 
 
@@ -60,14 +62,14 @@ namespace Serializer
         /// </summary>
         /// <param name="obj"></param>
         /// <param name="filePath"></param>
-        public static void Serialize(object obj, string filePath)
+        public static async Task SerializeAsync(object obj, string filePath)
         {
             if (obj == null) return;
 
             using StreamWriter writer = new StreamWriter(filePath, false);
             string jsonObject = GetOneObjectJson(obj, 0);
 
-            writer.Write(jsonObject);
+            await writer.WriteAsync(jsonObject);
         }
 
         private static string GetOneObjectJson(object obj, int depthLevel, bool isNested = false)
@@ -107,10 +109,10 @@ namespace Serializer
         private static string ConvertMembersToJson(object obj, MemberInfo[] members, int depthLevel, bool isNested)
         {
             int _depthLevel = depthLevel;
-            string spaces = GetSpeaces(_depthLevel);
+            string spaces = GetSpaces(_depthLevel);
 
             StringBuilder oneObjectJson = new StringBuilder(isNested ? "{" : $"{spaces}{{");
-            spaces = GetSpeaces(++_depthLevel);
+            spaces = GetSpaces(++_depthLevel);
 
             foreach (MemberInfo member in members)
             {
@@ -129,13 +131,13 @@ namespace Serializer
                 AppendMemberValue(obj, member, oneObjectJson);
             }
             oneObjectJson.Length--; // to remove the last comma
-            spaces = GetSpeaces(--_depthLevel);
+            spaces = GetSpaces(--_depthLevel);
 
             oneObjectJson.Append($"\n{spaces}}}");
             return oneObjectJson.ToString();
         }
 
-        private static string GetSpeaces(int newDepthLevel)
+        private static string GetSpaces(int newDepthLevel)
         {
             int TotalSpaces = newDepthLevel * _spacesPerDepth;
             return new string(' ', TotalSpaces);
@@ -144,7 +146,7 @@ namespace Serializer
         private static bool HandleNestedObject(object parentObj, MemberInfo member, StringBuilder oneObjectJson, int depthLevel)
         {
             // to check if member is a nested class, other checks are done in HandleRestrictions
-            if (!( member is PropertyInfo nestedClass && !nestedClass.PropertyType.IsPrimitive && nestedClass.PropertyType != typeof(string) ))
+            if (!( member is PropertyInfo nestedClass && !nestedClass.PropertyType.IsPrimitive && nestedClass.PropertyType != typeof(string) && nestedClass.PropertyType != typeof(decimal)))
                 return false;
 
             object? childObj = nestedClass.GetValue(parentObj);
@@ -200,17 +202,17 @@ namespace Serializer
         /// <typeparam name="T"></typeparam>
         /// <param name="filePath"></param>
         /// <returns></returns>
-        public static List<T> DeserializeList<T>(string filePath)
+        public static async Task<List<T>> DeserializeListAsync<T>(string filePath)
         {
             if (!File.Exists(filePath))
-                return null;
+                return default;
 
             using StreamReader reader = new StreamReader(filePath);
             List<T> list = new List<T>();
 
-            IEnumerable<string> jsonObjects = ReadOneObjectJson(reader);
+            IAsyncEnumerable<string> jsonObjects = ReadOneObjectJson(reader);
 
-            foreach (string jsonObject in jsonObjects)
+            await foreach (string jsonObject in jsonObjects)
             {
                 T? obj = ConvertJsonToObject<T>(jsonObject);
                 if (obj != null)
@@ -219,42 +221,50 @@ namespace Serializer
             return list;
         }
 
-        private static IEnumerable<string> ReadOneObjectJson(StreamReader reader)
+        private static async IAsyncEnumerable<string> ReadOneObjectJson(StreamReader reader)
         {
-            StringBuilder builder = new StringBuilder();
-            string line;
+            StringBuilder oneObjString = new StringBuilder();
             int depth = 0;
-            int charInteger = 0;
             bool inQuotes = false;
+            char previousChar = '\0';
 
-            char previousChar = '\\';
-            while ( ( charInteger = reader.Read()) != -1)
+            // to read 4kb at a time
+            char[] buffer = new char[4096];
+            int totalCharsRead;
+
+            while (( totalCharsRead = await reader.ReadAsync(buffer, 0, buffer.Length) ) > 0)
             {
-                char currentChar = (char)charInteger;
-
-                // toggling inQuotes mode:
-                if (currentChar == '"' && (previousChar != '\\'))
-                    inQuotes = !inQuotes;
-
-                // when not in quotes:
-                if (!inQuotes)
+                for (int i = 0; i < totalCharsRead; i++)
                 {
-                    if (currentChar == '{')
-                        depth++;
-                    else if (currentChar == '}')
-                        depth--;
-                }
+                    char currentChar = buffer[i];
 
-                if (depth > 0)
-                    builder.Append(currentChar);
+                    // toggling inQuotes mode
+                    if (currentChar == '"' && previousChar != '\\')
+                    {
+                        inQuotes = !inQuotes;
+                    }
 
-                if (depth == 0 && currentChar == '}')
-                {
-                    builder.Append(currentChar);
-                    yield return builder.ToString();
-                    builder.Clear();
+                    if (!inQuotes)
+                    {
+                        if (currentChar == '{')
+                            depth++;
+                        else if (currentChar == '}')
+                            depth--;
+                    }
+
+                    if (depth > 0)
+                    {
+                        oneObjString.Append(currentChar);
+                    }
+                    else if (depth == 0 && currentChar == '}')
+                    {
+                        oneObjString.Append(currentChar);
+                        yield return oneObjString.ToString();
+                        oneObjString.Clear();
+                    }
+
+                    previousChar = currentChar;
                 }
-                previousChar = currentChar;
             }
         }
 
@@ -265,17 +275,18 @@ namespace Serializer
         /// <typeparam name="T"></typeparam>
         /// <param name="filePath"></param>
         /// <returns></returns>
-        public static T? Deserialize<T>(string filePath)
+        public static async Task<T?> DeserializeAsync<T>(string filePath)
         {
             if (!File.Exists(filePath))
                 return default;
 
             using StreamReader reader = new StreamReader(filePath);
-            string jsonContent = reader.ReadToEnd();
 
-            if (jsonContent == null || jsonContent.StartsWith('['))
+            char firstChar = (char)reader.Peek();
+            if (firstChar == '[' || firstChar == -1)
                 return default;
 
+            string jsonContent = await reader.ReadToEndAsync();
             return ConvertJsonToObject<T>(jsonContent);
         }
 
@@ -318,7 +329,7 @@ namespace Serializer
                         object? objInstance = ConvertJsonToObject<object>(value, nestedObject.PropertyType);
                         nestedObject.SetValue(obj, objInstance);
                     }
-                    else if (member is PropertyInfo property)
+                    else if (member is PropertyInfo property && property.CanWrite) //to make sure the property has a setter before setting its value
                     {
                         property.SetValue(obj, Convert.ChangeType(value, property.PropertyType));
                     }
@@ -378,14 +389,14 @@ namespace Serializer
             if (JsonConstructorAttribute > 1)
                 throw new InvalidOperationException("Multiple constructors with [JsonConstructor] attribute found.");
 
-            if (parameterizedConstructors > 1)
-                throw new InvalidOperationException("Multiple parameterized constructors found.");
-
             if (markedConstructor != null)
                 return markedConstructor;
 
             if (parameterlessConstructor != null)
                 return parameterlessConstructor;
+
+            if (parameterizedConstructors > 1)
+                throw new InvalidOperationException("Multiple parameterized constructors found.");
 
             if (parameterizedConstructor != null)
                 return parameterizedConstructor;

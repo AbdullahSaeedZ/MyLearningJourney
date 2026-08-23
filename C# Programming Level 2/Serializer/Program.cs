@@ -5,11 +5,11 @@ namespace Serializer
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             // --------------- serialization ----------------
             Employee employee = new Employee("Abdullah Alzahrani", 20_000.43f, null);
-            //Serializer.Serialize(employee, "employee.json");
+            _ = Serializer.SerializeAsync(employee, "employee.json");
 
 
             Employee employee1 = new Employee("Ali", 40_000.50f, "Manager");
@@ -17,21 +17,30 @@ namespace Serializer
             Employee employee3 = new Employee("Fahad", 10_030.25f, "Designer");
             Employee employee4 = null;
 
-            Employee[] employeeArray = { employee1, employee2, employee3, employee4 };
-            //Serializer.Serialize(employeeArray, "employee.json");
+            Employee[] employees1 = { employee1, employee2, employee3, employee4 };
+            //_ = Serializer.SerializeAsync(employees1, "employee.json");
 
 
             // --------------- deserialization ----------------
 
-            //Employee? employee5 = Serializer.Deserialize<Employee>("employee.json");
-            //Console.WriteLine(employee5);
 
-            List<Employee> employeeArray2 = Serializer.DeserializeList<Employee>("employee.json");
-            foreach (var emp in employeeArray2)
+            try
             {
-                Console.WriteLine(emp + "\n\n---------------------\n\n");
+                Employee? employee5 = await Serializer.DeserializeAsync<Employee>("employee.json");
+                Console.WriteLine(employee5);
 
+                //List<Employee> employees2 = await Serializer.DeserializeListAsync<Employee>("employee.json");
+                //foreach (var emp in employees2)
+                //{
+                //    Console.WriteLine(emp + "\n\n---------------------\n\n");
+
+                //}
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
         }
 
     }
