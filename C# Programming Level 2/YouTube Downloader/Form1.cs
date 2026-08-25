@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using YouTube_Downloader.Services;
@@ -28,6 +29,7 @@ namespace YouTube_Downloader
             if (_downloadsList == null)
                 _downloadsList = new BindingList<YouTubeVideo>();
 
+            dgvDownloads.AutoGenerateColumns = false;
             dgvDownloads.DataSource = _downloadsList;
             lblNoDownloadsYet.Visible = dgvDownloads.RowCount == 0;
         }
@@ -91,13 +93,13 @@ namespace YouTube_Downloader
 
             // to capture the current vid object with his context before resetting to allow next concurrent download
             YouTubeVideo downloadObj = _youTubeVideo;
-
+            string selectedQuality = cbQualities.SelectedItem?.ToString();
             // to reset the youtube object to allow next download object to be captured in next context
             _youTubeVideo = new YouTubeVideo();
             pnlVidInfo.Visible = false;
             ResetInfoCard();
 
-            await StartDownloadingVideoAsync(downloadObj);
+            await StartDownloadingVideoAsync(downloadObj, selectedQuality);
 
         }
         private void btnCloseVidInfo_Click(object sender, EventArgs e)
@@ -119,22 +121,22 @@ namespace YouTube_Downloader
             return true;
         }
 
-        private async Task StartDownloadingVideoAsync(YouTubeVideo video)
+        private async Task StartDownloadingVideoAsync(YouTubeVideo video, string selectedQuality)
         {
             try
             {
                 _downloadsList.Add(video);
-                string selectedQuality = cbQualities.SelectedItem?.ToString();
                 await video.DownloadVideoAsync(selectedQuality, saveFileDialog1.FileName);
-                _ = Serializer.SerializeObjectAsync(video);
-            }
-            catch (OperationCanceledException)
-            {
-                video = null;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Video: {video.Title}\nException: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                video.Status = YouTubeVideo.enStatus.Failed;
+            }
+            finally
+            {
+                _ = Serializer.SerializeObjectAsync(video);
+                video.Dispose();
             }
         }
 
@@ -165,9 +167,10 @@ namespace YouTube_Downloader
             lblVidDescription.Text = _youTubeVideo.Description ?? "N/A";
             lblChannelName.Text = _youTubeVideo.ChannelTitle ?? "N/A";
             lblVidDuration.Text = _youTubeVideo.VideoLength?.ToString(@"hh\:mm\:ss") ?? "N/A";
-            pbVidThumbnail.LoadAsync(_youTubeVideo.ThumbnailURL ?? string.Empty);
+
             pnlVidDuration.Invalidate();
-            cbQualities.Items.AddRange(_youTubeVideo.AvailableQualities.ToArray());
+            pbVidThumbnail.LoadAsync(_youTubeVideo.ThumbnailURL ?? string.Empty);
+            cbQualities.DataSource = _youTubeVideo.QualitiesAndSizes.Keys.ToList();
             cbQualities.SelectedIndex = 0;
 
             lblVidSize.Text = _youTubeVideo.GetFileSize(cbQualities.SelectedItem.ToString()) ?? "N/A";
@@ -189,12 +192,13 @@ namespace YouTube_Downloader
             lblChannelName.Text = string.Empty;
             lblVidDuration.Text = string.Empty;
             pbVidThumbnail.Image = null;
-            cbQualities.Items.Clear();
+            cbQualities.DataSource = null;
         }
 
         private void cbQualities_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblVidSize.Text = _youTubeVideo.GetFileSize(cbQualities.SelectedItem.ToString())?? "N/A";
+            if (cbQualities.SelectedItem != null) // cuz this event will be triggered when resetting the info card and setting the datasource to null
+                lblVidSize.Text = _youTubeVideo.GetFileSize(cbQualities.SelectedItem.ToString())?? "N/A";
         }
 
 

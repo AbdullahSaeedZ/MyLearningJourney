@@ -1,43 +1,37 @@
-﻿using System;
+﻿using Microsoft.CodeAnalysis;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
+using System.Security.Policy;
+using System.Text;
+using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using YoutubeExplode;
-using YoutubeExplode.Common;
-using YoutubeExplode.Converter;
-using YoutubeExplode.Exceptions;
-using YoutubeExplode.Videos;
-using YoutubeExplode.Videos.Streams;
+
 
 namespace YouTube_Downloader.Services
 {
-    public class YouTubeVideo : INotifyPropertyChanged
+    public class YouTubeVideo : INotifyPropertyChanged, IDisposable
     {
         public enum enStatus
         {
+            Waiting,
             Downloading,
             Cancelled,
             Completed,
             Failed
         }
 
-        private readonly YoutubeClient _YouTubeClient;
-        private StreamManifest _manifest;
+      
         private CancellationTokenSource _cts;
-
-        private IEnumerable<AudioOnlyStreamInfo> _audioOnlyStreams;
-        private IEnumerable<VideoOnlyStreamInfo> _videoOnlyStreams;
-        private IStreamInfo[] _selectedStreamsInfo;
-
         public event PropertyChangedEventHandler PropertyChanged;
         public event Action OnDownloadStarted;
         public event Action OnDownloadFinished;
-
-        [JsonIgnore]
-        public VideoId? VideoID { get; private set; }
+        
         [JsonIgnore]
         public string VideoURL { get; private set; }
 
@@ -51,13 +45,11 @@ namespace YouTube_Downloader.Services
         public TimeSpan? VideoLength { get; private set; }
         [JsonIgnore]
         public string ThumbnailURL { get; private set; }
-
-        [JsonIgnore]
-        public List<string> AvailableQualities { get; private set; }
         [JsonInclude]
         public string DownloadPath { get; private set; }
 
-        
+
+        private static readonly Regex _progressRegex = new Regex(@"(\d+(\.\d+)?)%", RegexOptions.Compiled);
         private string _progress = "0%";
         [JsonInclude]
         public string Progress
@@ -74,7 +66,7 @@ namespace YouTube_Downloader.Services
         }
 
         [JsonIgnore]
-        private enStatus _status = enStatus.Downloading;
+        private enStatus _status = enStatus.Waiting;
         [JsonInclude]
         public enStatus Status
         {
@@ -93,86 +85,165 @@ namespace YouTube_Downloader.Services
         public string Date { get; set; }
 
         [JsonInclude]
-        public string Size { get; set; }
+        public string Size { get; set; } = "0 MB";
+
+        [JsonIgnore]
+        public Dictionary<string, long> QualitiesAndSizes = new Dictionary<string, long>();
+        [JsonIgnore]
+        private long _maxAudioBytes = 0;
 
         public YouTubeVideo()
         {
-            _YouTubeClient = new YoutubeClient();
             _cts = new CancellationTokenSource();
-            AvailableQualities = new List<string>();
+            QualitiesAndSizes = new Dictionary<string, long>();
         }
 
         public async Task GetVideoDataAsync(string URL)
         {
             VideoURL = URL;
+            string exePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Tools", "yt-dlp.exe");
 
-            VideoID = VideoId.TryParse(URL);
-            if (VideoID == null)
-                throw new ArgumentException("Invalid YouTube video URL.", nameof(URL));
+            ProcessStartInfo fetchingInfo = new ProcessStartInfo()
+            {
+                // args and flags for yt-dlp
+                FileName = exePath,
+                Arguments = $"--dump-json --no-playlist --skip-download \"{URL}\"",
 
-            Video videoInfo;
-            try
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            };
+
+            using( Process fetchingProcess = new Process() { StartInfo = fetchingInfo })
             {
-                videoInfo = await _YouTubeClient.Videos.GetAsync(URL);
-                _manifest = await _YouTubeClient.Videos.Streams.GetManifestAsync(URL);
-                PrepareVideoInfo(videoInfo);
-            }
-            catch (VideoUnavailableException)
-            {
-                throw new ArgumentException("This video is unavailable, private, or has been deleted.", nameof(URL));
-            }
-            catch (Exception ex)
-            {
-               throw new Exception($"Fetching Error: {ex.Message}", ex);
+                fetchingProcess.Start();
+                string output = await fetchingProcess.StandardOutput.ReadToEndAsync();
+                string error = await fetchingProcess.StandardError.ReadToEndAsync();
+
+                // to wait for the process to exit and get the exit code to make sure all went good
+                await Task.Run(() => fetchingProcess.WaitForExit());
+                if (fetchingProcess.ExitCode != 0 || string.IsNullOrEmpty(output))
+                {
+                    throw new Exception($"Fetching {Title} data failed.\nError: {error}");
+                }
+
+                PrepareVideoInfo(output);
             }
         }
 
-        public async Task DownloadVideoAsync(string selectedQuality, string downloadPath)
+        public async Task DownloadVideoAsync(string selectedQuality, string fullDownloadPath)
         {
-            DownloadPath = downloadPath;
+            string exePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Tools", "yt-dlp.exe");
+            selectedQuality = selectedQuality.Replace("P", "");
             Date = DateTime.Now.ToShortDateString();
-            PrepareSelectedStreams(selectedQuality);
+            Status = enStatus.Downloading;
+            DownloadPath = fullDownloadPath;
 
-            try
+            ProcessStartInfo downloadInfo = new ProcessStartInfo()
             {
-                OnDownloadStarted?.Invoke();
-                var Progress = new Progress<double>(p =>
-                {
-                    this.Progress = $"{(int)( p * 100 )}%";
-                });
+                // args and flags for yt-dlp
+                FileName = exePath,
+                Arguments = $"--no-playlist --force-overwrites --merge-output-format mp4 -f \"bv*[height<={selectedQuality}]+ba/b[height<={selectedQuality}]/best\" -o \"{fullDownloadPath}\" --newline \"{VideoURL}\"",
 
-                await _YouTubeClient.Videos.DownloadAsync(_selectedStreamsInfo, new ConversionRequestBuilder(downloadPath).Build(), Progress, _cts.Token);
-                this.Status = enStatus.Completed;
-            }
-            catch (OperationCanceledException)
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            };
+            OnDownloadStarted?.Invoke();
+            await StartDownloadProcessAsync(downloadInfo);
+            OnDownloadFinished?.Invoke();
+        }
+
+        private async Task StartDownloadProcessAsync(ProcessStartInfo downloadInfo)
+        {
+            using (Process downloadProcess = new Process() { StartInfo = downloadInfo })
             {
-                this.Status = enStatus.Cancelled;
-                throw;
-            }
-            catch (NotSupportedException ex)
-            {
-                // this is a bug where youtube explode throws an exception when cleaning up after FFmpeg finishes
-                // but the file is already downloaded and muxed and ready,
-                if (File.Exists(downloadPath) && new FileInfo(downloadPath).Length > 0)
+                downloadProcess.OutputDataReceived += OnDataReceived;
+                StringBuilder errorMessege = new StringBuilder();
+                downloadProcess.ErrorDataReceived += (sender, e) => OnErrorReceived(sender, e, errorMessege);
+                CancellationTokenRegistration cancellationRegistration = _cts.Token.Register(() => OnCancellationRequested(downloadProcess));
+
+                try
                 {
-                    this.Progress = "100%";
-                    this.Status = enStatus.Completed;
+                    downloadProcess.Start();
+                    downloadProcess.BeginOutputReadLine();
+                    downloadProcess.BeginErrorReadLine();
+                    // to wait for the process to exit and get the exit code to make sure all went good
+                    await Task.Run(() => downloadProcess.WaitForExit(), _cts.Token);
+                }
+                // will only throw if the token was already canceled when passed to the lambda
+                // other than that, the cancellation will be handled by the OnCancellationRequested event
+                catch (OperationCanceledException)
+                {
+                    Status = enStatus.Cancelled;
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    Status = enStatus.Failed;
+                    throw new Exception($"Downloading {Title} failed.\nError: {ex.Message}");
+                }
+                finally
+                {
+                    cancellationRegistration.Dispose();
+                }
+
+                if (_cts.Token.IsCancellationRequested)
+                {
+                    Status = enStatus.Cancelled;
                     return;
                 }
 
-                this.Status = enStatus.Failed;
-                throw new Exception(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                this.Status = enStatus.Failed;
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                OnDownloadFinished?.Invoke();
-            }
+                if (downloadProcess.ExitCode != 0)
+                {
+                    Status = enStatus.Failed;
+                    throw new Exception($"Downloading {Title} failed.\nError: {errorMessege.ToString()}");
+                }
 
+                Status = enStatus.Completed;
+            }
+        }
+
+        private void OnCancellationRequested(Process downloadProcess)
+        {
+            try
+            {
+                if (downloadProcess != null && !downloadProcess.HasExited)
+                {
+                    // /F = Force, /T = Tree (kills all child processes which is ffmpeg when merging)
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = "taskkill",
+                        Arguments = $"/F /T /PID {downloadProcess.Id}",
+                        CreateNoWindow = true,
+                        UseShellExecute = false
+                    })?.WaitForExit();
+
+                    if (File.Exists(DownloadPath))
+                        File.Delete(DownloadPath);
+                }
+            }
+            catch // incase the process has already exited right before the kill command, we just ignore
+            {
+            }
+        }
+
+        private void OnDataReceived(object sender, DataReceivedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(e.Data) && e.Data.StartsWith("[download]"))
+            {
+                Match match = _progressRegex.Match(e.Data);
+                if (match.Success)
+                    Progress = match.Value;
+            }    
+        }
+
+        private void OnErrorReceived(object sender, DataReceivedEventArgs e, StringBuilder errorMessege)
+        {
+            if (!string.IsNullOrEmpty(e.Data))
+                errorMessege.Append(e.Data);
         }
 
         public void CancelDownload()
@@ -180,55 +251,78 @@ namespace YouTube_Downloader.Services
             _cts?.Cancel();
         }
 
+
+
+
         public string GetFileSize(string selectedQuality)
         {
-            PrepareSelectedStreams(selectedQuality);
-            if (_selectedStreamsInfo[0] == null || _selectedStreamsInfo[1] == null)
-                return "N/A";
-
-            double totalBytes = _selectedStreamsInfo[0].Size.Bytes + _selectedStreamsInfo[1].Size.Bytes;
-            return this.Size = $"{( totalBytes / ( 1024 * 1024 ) ):F2} MB";
+            long selectedVideoSize = QualitiesAndSizes[selectedQuality];
+            return this.Size = $"{( selectedVideoSize + _maxAudioBytes ) / ( 1024 * 1024 )} MB";
         }
 
-        private void PrepareSelectedStreams(string selectedQuality)
-        {
-            AudioOnlyStreamInfo selectedAudioStream = (AudioOnlyStreamInfo)_audioOnlyStreams.GetWithHighestBitrate();
-            VideoOnlyStreamInfo selectedVideoStream = null;
 
-            foreach (VideoOnlyStreamInfo stream in _videoOnlyStreams)
+        private void PrepareVideoInfo(string jsonContent)
+        {
+            using (JsonDocument jsonDoc = JsonDocument.Parse(jsonContent))
             {
-                // to prioritize mp4 over webm if both are available for the same quality
-                if (stream.VideoQuality.Label == selectedQuality)
+                Title = jsonDoc.RootElement.GetProperty("title").GetString();
+                Description = jsonDoc.RootElement.TryGetProperty("description", out JsonElement visdescription) ? visdescription.GetString() : "No Description Found";
+                ChannelTitle = jsonDoc.RootElement.TryGetProperty("uploader", out JsonElement channelTitle) ? channelTitle.GetString() : "No Channel Title Found";
+                ThumbnailURL = jsonDoc.RootElement.TryGetProperty("thumbnail", out JsonElement thumbnailUrl) ? thumbnailUrl.GetString() : "No Thumbnail URL Found";
+
+                if (jsonDoc.RootElement.TryGetProperty("duration", out JsonElement vidLength))
+                    VideoLength = TimeSpan.FromSeconds(vidLength.GetDouble());
+                // qualities
+                PrepareQualities(jsonDoc);
+            }
+        }
+        private void PrepareQualities(JsonDocument jsonDoc)
+        {
+            if (!jsonDoc.RootElement.TryGetProperty("formats", out JsonElement formats) || formats.ValueKind != JsonValueKind.Array)
+                return;
+
+            foreach (JsonElement format in formats.EnumerateArray())
+            {
+                string vidStream = format.TryGetProperty("vcodec", out JsonElement vcodec) ? vcodec.GetString() : null;
+                string audStream = format.TryGetProperty("acodec", out JsonElement acodec) ? acodec.GetString() : null;
+
+                // if this is an audio stream, just track largest audio stream size, cuz eventually all vid streams will have same largest audio size
+                if (vidStream == "none" && audStream != "none" && audStream != null)
                 {
-                    if (selectedVideoStream == null)
-                        selectedVideoStream = stream;
-                    else if (stream.Container.Name.Equals("mp4", StringComparison.OrdinalIgnoreCase))
+                    long audioSize = GetFormatSize(format);
+                    if (audioSize > _maxAudioBytes)
+                        _maxAudioBytes = audioSize;
+                    continue; 
+                }
+
+                // to get the quality if it is a vid stream, and store its size
+                if (vidStream != "none" && vidStream != null)
+                {
+                    if (format.TryGetProperty("height", out JsonElement heightElement) && heightElement.TryGetInt32(out int height) && height > 0)
                     {
-                        selectedVideoStream = stream;
+                        string quality = $"{height}p";
+                        long videoSize = GetFormatSize(format);
+
+                        if (!QualitiesAndSizes.ContainsKey(quality) || videoSize > QualitiesAndSizes[quality])
+                            QualitiesAndSizes[quality] = videoSize;
                     }
                 }
             }
-            _selectedStreamsInfo = new IStreamInfo[] { selectedVideoStream, selectedAudioStream };
+        }
+        private long GetFormatSize(JsonElement format)
+        {
+            if (format.TryGetProperty("filesize", out var fs) && fs.TryGetInt64(out long size) && size > 0)
+                return size;
+
+            if (format.TryGetProperty("filesize_approx", out var fsa) && fsa.TryGetInt64(out long approxSize) && approxSize > 0)
+                return approxSize;
+
+            return 0;
         }
 
-        private void PrepareVideoInfo(Video videoInfo)
+        public void Dispose()
         {
-            Title = videoInfo.Title;
-            Description = videoInfo.Description;
-            ChannelTitle = videoInfo.Author.ChannelTitle;
-            VideoLength = videoInfo.Duration;
-            ThumbnailURL = videoInfo.Thumbnails.GetWithHighestResolution()?.Url;
-            _audioOnlyStreams = _manifest.GetAudioOnlyStreams();
-            _videoOnlyStreams = _manifest.GetVideoOnlyStreams();
-
-            foreach (VideoOnlyStreamInfo vid in _videoOnlyStreams)
-            {
-                // it returns same quality in mp4 and webm , and some are duplicated
-                if (!AvailableQualities.Contains(vid.VideoQuality.Label))
-                {
-                    AvailableQualities.Add(vid.VideoQuality.Label);
-                }
-            }
+            _cts?.Dispose();
         }
     }
 }

@@ -33,7 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.tbURL = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -41,11 +40,6 @@
             this.lblDownloadsLimitReached = new System.Windows.Forms.Label();
             this.btnGetVidInfo = new Guna.UI2.WinForms.Guna2Button();
             this.dgvDownloads = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmsVidItemOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmCancel = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmDelete = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,6 +55,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Separator1 = new Guna.UI2.WinForms.Guna2Separator();
             this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lblNoDownloadsYet = new System.Windows.Forms.Label();
             this.pnlVidInfo = new Guna.UI2.WinForms.Guna2Panel();
             this.btnCloseVidInfo = new Guna.UI2.WinForms.Guna2Button();
             this.lblChannelName = new System.Windows.Forms.Label();
@@ -73,7 +68,11 @@
             this.lblVidTitle = new System.Windows.Forms.Label();
             this.btnDownload = new Guna.UI2.WinForms.Guna2Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.lblNoDownloadsYet = new System.Windows.Forms.Label();
+            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1.SuspendLayout();
             this.prgbarLoadingInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDownloads)).BeginInit();
@@ -153,7 +152,7 @@
             this.prgbarLoadingInfo.Controls.Add(this.lblDownloadsLimitReached);
             this.prgbarLoadingInfo.Enabled = false;
             this.prgbarLoadingInfo.FillColor = System.Drawing.Color.Transparent;
-            this.prgbarLoadingInfo.FillThickness = 7;
+            this.prgbarLoadingInfo.FillThickness = 5;
             this.prgbarLoadingInfo.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
             this.prgbarLoadingInfo.Location = new System.Drawing.Point(453, 8);
             this.prgbarLoadingInfo.Maximum = 75;
@@ -161,7 +160,7 @@
             this.prgbarLoadingInfo.Name = "prgbarLoadingInfo";
             this.prgbarLoadingInfo.ProgressColor = System.Drawing.Color.Red;
             this.prgbarLoadingInfo.ProgressColor2 = System.Drawing.Color.Transparent;
-            this.prgbarLoadingInfo.ProgressThickness = 7;
+            this.prgbarLoadingInfo.ProgressThickness = 5;
             this.prgbarLoadingInfo.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.prgbarLoadingInfo.ShadowDecoration.Parent = this.prgbarLoadingInfo;
             this.prgbarLoadingInfo.Size = new System.Drawing.Size(48, 47);
@@ -248,7 +247,7 @@
             this.dgvDownloads.RowHeadersVisible = false;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
             dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.dgvDownloads.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvDownloads.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
@@ -281,56 +280,6 @@
             this.dgvDownloads.ThemeStyle.RowsStyle.Height = 40;
             this.dgvDownloads.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
             this.dgvDownloads.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
-            // 
-            // col1
-            // 
-            this.col1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.col1.DataPropertyName = "Title";
-            this.col1.FillWeight = 36.31561F;
-            this.col1.HeaderText = "FILE NAME";
-            this.col1.Name = "col1";
-            this.col1.ReadOnly = true;
-            this.col1.Width = 525;
-            // 
-            // col2
-            // 
-            this.col2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.col2.DataPropertyName = "Status";
-            this.col2.FillWeight = 40.61155F;
-            this.col2.HeaderText = "STATUS";
-            this.col2.Name = "col2";
-            this.col2.ReadOnly = true;
-            this.col2.Width = 150;
-            // 
-            // col3
-            // 
-            this.col3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.col3.DataPropertyName = "Progress";
-            this.col3.FillWeight = 81.42152F;
-            this.col3.HeaderText = "PROGRESS";
-            this.col3.Name = "col3";
-            this.col3.ReadOnly = true;
-            this.col3.Width = 130;
-            // 
-            // col4
-            // 
-            this.col4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.col4.DataPropertyName = "Size";
-            this.col4.FillWeight = 87.84423F;
-            this.col4.HeaderText = "SIZE";
-            this.col4.Name = "col4";
-            this.col4.ReadOnly = true;
-            this.col4.Width = 95;
-            // 
-            // col5
-            // 
-            this.col5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.col5.DataPropertyName = "Date";
-            this.col5.FillWeight = 253.8071F;
-            this.col5.HeaderText = "DATE";
-            this.col5.Name = "col5";
-            this.col5.ReadOnly = true;
-            this.col5.Width = 122;
             // 
             // cmsVidItemOptions
             // 
@@ -498,6 +447,19 @@
             this.guna2Panel3.Size = new System.Drawing.Size(1035, 419);
             this.guna2Panel3.TabIndex = 6;
             // 
+            // lblNoDownloadsYet
+            // 
+            this.lblNoDownloadsYet.AutoSize = true;
+            this.lblNoDownloadsYet.BackColor = System.Drawing.Color.Transparent;
+            this.lblNoDownloadsYet.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 12.75F, System.Drawing.FontStyle.Bold);
+            this.lblNoDownloadsYet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
+            this.lblNoDownloadsYet.Location = new System.Drawing.Point(423, 198);
+            this.lblNoDownloadsYet.Name = "lblNoDownloadsYet";
+            this.lblNoDownloadsYet.Size = new System.Drawing.Size(151, 22);
+            this.lblNoDownloadsYet.TabIndex = 5;
+            this.lblNoDownloadsYet.Text = "No Downloads Yet";
+            this.lblNoDownloadsYet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pnlVidInfo
             // 
             this.pnlVidInfo.BackColor = System.Drawing.Color.Transparent;
@@ -548,11 +510,10 @@
             this.lblChannelName.BackColor = System.Drawing.Color.Transparent;
             this.lblChannelName.Font = new System.Drawing.Font("Segoe UI Variable Text", 12.75F);
             this.lblChannelName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.lblChannelName.Location = new System.Drawing.Point(586, 109);
+            this.lblChannelName.Location = new System.Drawing.Point(555, 109);
             this.lblChannelName.Name = "lblChannelName";
-            this.lblChannelName.Size = new System.Drawing.Size(165, 27);
+            this.lblChannelName.Size = new System.Drawing.Size(213, 27);
             this.lblChannelName.TabIndex = 9;
-            this.lblChannelName.Text = "Channel name";
             this.lblChannelName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblVidSize
@@ -562,29 +523,28 @@
             this.lblVidSize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
             this.lblVidSize.Location = new System.Drawing.Point(449, 109);
             this.lblVidSize.Name = "lblVidSize";
-            this.lblVidSize.Size = new System.Drawing.Size(99, 27);
+            this.lblVidSize.Size = new System.Drawing.Size(87, 27);
             this.lblVidSize.TabIndex = 9;
             this.lblVidSize.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pnlVidDuration
             // 
             this.pnlVidDuration.BackColor = System.Drawing.Color.Transparent;
-            this.pnlVidDuration.BorderRadius = 5;
             this.pnlVidDuration.Controls.Add(this.lblVidDuration);
             this.pnlVidDuration.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnlVidDuration.ForeColor = System.Drawing.Color.Transparent;
             this.pnlVidDuration.Location = new System.Drawing.Point(162, 112);
             this.pnlVidDuration.Name = "pnlVidDuration";
             this.pnlVidDuration.ShadowDecoration.Parent = this.pnlVidDuration;
             this.pnlVidDuration.Size = new System.Drawing.Size(67, 24);
             this.pnlVidDuration.TabIndex = 8;
-            this.pnlVidDuration.UseTransparentBackground = true;
             // 
             // lblVidDuration
             // 
             this.lblVidDuration.BackColor = System.Drawing.Color.Transparent;
             this.lblVidDuration.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblVidDuration.Font = new System.Drawing.Font("Segoe UI Variable Display", 10F, System.Drawing.FontStyle.Bold);
-            this.lblVidDuration.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
+            this.lblVidDuration.ForeColor = System.Drawing.Color.Transparent;
             this.lblVidDuration.Location = new System.Drawing.Point(0, 0);
             this.lblVidDuration.Name = "lblVidDuration";
             this.lblVidDuration.Size = new System.Drawing.Size(67, 24);
@@ -601,7 +561,6 @@
             this.lblVidDescription.Name = "lblVidDescription";
             this.lblVidDescription.Size = new System.Drawing.Size(721, 43);
             this.lblVidDescription.TabIndex = 4;
-            this.lblVidDescription.Text = resources.GetString("lblVidDescription.Text");
             this.lblVidDescription.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pbVidThumbnail
@@ -653,7 +612,6 @@
             this.lblVidTitle.Name = "lblVidTitle";
             this.lblVidTitle.Size = new System.Drawing.Size(722, 30);
             this.lblVidTitle.TabIndex = 5;
-            this.lblVidTitle.Text = "Robert Miles – Children (Slowed — Best Part Looped)";
             this.lblVidTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnDownload
@@ -673,18 +631,55 @@
             this.btnDownload.Text = "Download";
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
-            // lblNoDownloadsYet
+            // col1
             // 
-            this.lblNoDownloadsYet.AutoSize = true;
-            this.lblNoDownloadsYet.BackColor = System.Drawing.Color.Transparent;
-            this.lblNoDownloadsYet.Font = new System.Drawing.Font("Segoe UI Variable Text Semibold", 12.75F, System.Drawing.FontStyle.Bold);
-            this.lblNoDownloadsYet.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(123)))), ((int)(((byte)(119)))));
-            this.lblNoDownloadsYet.Location = new System.Drawing.Point(423, 198);
-            this.lblNoDownloadsYet.Name = "lblNoDownloadsYet";
-            this.lblNoDownloadsYet.Size = new System.Drawing.Size(151, 22);
-            this.lblNoDownloadsYet.TabIndex = 5;
-            this.lblNoDownloadsYet.Text = "No Downloads Yet";
-            this.lblNoDownloadsYet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.col1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col1.DataPropertyName = "Title";
+            this.col1.FillWeight = 36.31561F;
+            this.col1.HeaderText = "FILE NAME";
+            this.col1.Name = "col1";
+            this.col1.ReadOnly = true;
+            this.col1.Width = 525;
+            // 
+            // col2
+            // 
+            this.col2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col2.DataPropertyName = "Status";
+            this.col2.FillWeight = 40.61155F;
+            this.col2.HeaderText = "STATUS";
+            this.col2.Name = "col2";
+            this.col2.ReadOnly = true;
+            this.col2.Width = 150;
+            // 
+            // col3
+            // 
+            this.col3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col3.DataPropertyName = "Progress";
+            this.col3.FillWeight = 81.42152F;
+            this.col3.HeaderText = "PROGRESS";
+            this.col3.Name = "col3";
+            this.col3.ReadOnly = true;
+            this.col3.Width = 130;
+            // 
+            // col4
+            // 
+            this.col4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col4.DataPropertyName = "Size";
+            this.col4.FillWeight = 87.84423F;
+            this.col4.HeaderText = "SIZE";
+            this.col4.Name = "col4";
+            this.col4.ReadOnly = true;
+            this.col4.Width = 99;
+            // 
+            // col5
+            // 
+            this.col5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col5.DataPropertyName = "Date";
+            this.col5.FillWeight = 253.8071F;
+            this.col5.HeaderText = "DATE";
+            this.col5.Name = "col5";
+            this.col5.ReadOnly = true;
+            this.col5.Width = 122;
             // 
             // Form1
             // 
@@ -759,12 +754,12 @@
         private System.Windows.Forms.ToolStripMenuItem tsmOpenFolder;
         private System.Windows.Forms.ToolStripMenuItem tsmDelete;
         private System.Windows.Forms.Label lblDownloadsLimitReached;
+        private System.Windows.Forms.Label lblNoDownloadsYet;
         private System.Windows.Forms.DataGridViewTextBoxColumn col1;
         private System.Windows.Forms.DataGridViewTextBoxColumn col2;
         private System.Windows.Forms.DataGridViewTextBoxColumn col3;
         private System.Windows.Forms.DataGridViewTextBoxColumn col4;
         private System.Windows.Forms.DataGridViewTextBoxColumn col5;
-        private System.Windows.Forms.Label lblNoDownloadsYet;
     }
 }
 
