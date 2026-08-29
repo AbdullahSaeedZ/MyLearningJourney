@@ -1,7 +1,9 @@
 ﻿using Billiards_Club_Management_System.SessionsHistory;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Billiards_Club_Management_System
 {
@@ -20,63 +22,64 @@ namespace Billiards_Club_Management_System
         private static readonly string _logName = "Application";
 
         private static readonly string _logFilePath = "Logs.txt"; // in the debug folder
+        private const long _maxFileSizeBytes = 5 * 1024 * 1024;
+
+
 
         public static void LogEvent(LogType entryType, string message, string stackTrace = "")
         {
-            LogToFile(entryType, message, stackTrace);
-            LogToEventViewer(entryType, message, stackTrace);
+            try
+            {
+                LogToFile(entryType, message, stackTrace);
+    }
+            catch (Exception ex)
+            {
+                // we can handle the logging exception in multiple ways, just for demo
+            }
+
+            try
+            {
+                LogToEventViewer(entryType, message, stackTrace);
+    }
+            catch (Exception ex)
+            {
+            }
         }
 
         private static void LogToFile(LogType entryType, string message, string stackTrace = "")
         {
-            try
-            {
-                string formattedMessage = "";
-                if (entryType == LogType.Error)
-                    formattedMessage = FormattedErrorMessage(entryType, message, stackTrace);
-                else
-                    formattedMessage = FormattedInfoMessage(entryType, message);
+            string formattedMessage = "";
+            if (entryType == LogType.Error)
+                formattedMessage = FormattedErrorMessage(entryType, message, stackTrace);
+            else
+                formattedMessage = FormattedInfoMessage(entryType, message);
 
-                if (File.Exists(_logFilePath))
+            if (File.Exists(_logFilePath))
+            {
+                FileInfo fileInfo = new FileInfo(_logFilePath);
+                if (fileInfo.Length >= _maxFileSizeBytes)
                 {
-                    FileInfo fileInfo = new FileInfo(_logFilePath);
-
-                    long bytes = fileInfo.Length;
-                    double megabytes = bytes / ( 1024.0 * 1024.0 );
-
-                    if (megabytes >= 5) // overrite the file if it exceeds 5 MB
-                        File.WriteAllText(_logFilePath, formattedMessage + Environment.NewLine);
-                    else
-                        File.AppendAllText(_logFilePath, formattedMessage + Environment.NewLine);
+                    File.WriteAllText(_logFilePath, formattedMessage + Environment.NewLine);
+                    return;
                 }
+            }
 
-            }
-            catch (Exception e)
-            {
-                throw new Exception($"Writing to Log File Error: {e.Message}");
-            }
+            File.AppendAllText(_logFilePath, formattedMessage + Environment.NewLine);
         }
 
         private static void LogToEventViewer(LogType entryType, string message, string stackTrace = "")
         {
-            try
-            {
-                if (!EventLog.SourceExists(_sourceName))
-                    EventLog.CreateEventSource(_sourceName, _logName);
+            if (!EventLog.SourceExists(_sourceName))
+                EventLog.CreateEventSource(_sourceName, _logName);
 
-                string formattedMessage = "";
-                if (entryType == LogType.Error)
-                    formattedMessage = FormattedErrorMessage(entryType, message, stackTrace);
-                else
-                    formattedMessage = FormattedInfoMessage(entryType, message);
+            string formattedMessage = "";
+            if (entryType == LogType.Error)
+                formattedMessage = FormattedErrorMessage(entryType, message, stackTrace);
+            else
+                formattedMessage = FormattedInfoMessage(entryType, message);
 
-                // added manifest file to ask for adminstrator permission
-                EventLog.WriteEntry(_sourceName, formattedMessage, entryType == LogType.Error ? EventLogEntryType.Error : EventLogEntryType.Information);
-            }
-            catch (Exception e)
-            {
-                throw new Exception($"Writing to Event Viewer error: {e.Message}");
-            }
+            // added manifest file to ask for adminstrator permission
+            EventLog.WriteEntry(_sourceName, formattedMessage, entryType == LogType.Error ? EventLogEntryType.Error : EventLogEntryType.Information);
         }
 
         private static string FormattedErrorMessage(LogType entryType, string message, string stackTrace = "")
@@ -90,17 +93,27 @@ namespace Billiards_Club_Management_System
             return $"[{DateTime.Now}][{entryTypeString}][{message}]";
         }
 
-        public static string[] GetLogs()
+        public static async Task<string[]> GetLogsAsync()
         {
             if (!File.Exists(_logFilePath)) return null;
 
             try
             {
-                return File.ReadAllLines(_logFilePath);
+                List<string> lines = new List<string>();
+                using (StreamReader reader = new StreamReader(_logFilePath))
+                {
+                    string line;
+                    while (( line = await reader.ReadLineAsync() ) != null)
+                    {
+                        lines.Add(line);
+                    }
+                }
+
+                return lines.ToArray();
             }
             catch (Exception ex)
             {
-                throw new Exception($"Failed to read from logs file: {ex.Message}");
+                throw new Exception($"Failed to read from logs file.", ex);
             }
         }
     }

@@ -22,30 +22,35 @@ namespace Billiards_Club_Management_System.SessionsHistory
             dgvLogs.VirtualMode = true;
         }
 
-        public async Task Initialize()
+        public async Task LoadLogsAsync()
         {
             try
             {
-                await Task.Run(() => { 
-                    _logs = Log.GetLogs();
+                _logs = null;
+                _logs = await Log.GetLogsAsync();
+                await Task.Run(() =>
+                {
                     CalculateStats();
                 });
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to get logs: {ex.Message}", "Logging Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.LogEvent(Log.LogType.Error, $"Failed to get logs: {ex.Message}", ex.StackTrace);
+                MessageBox.Show($"Failed to get logs: {ex}", "Logging Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (_logs != null)
+            if (_logs != null && _logs.Length > 0)
             {
                 dgvLogs.RowCount = _logs.Length;
                 dgvLogs.ClearSelection();
                 dgvLogs.Rows[dgvLogs.Rows.Count - 1].Selected = true;
                 dgvLogs.FirstDisplayedScrollingRowIndex = dgvLogs.Rows.Count - 1;
             }
+            else
+            {
+                _logs = new string[0];
+                dgvLogs.RowCount = 0;
+            }    
 
             UpdateStatsUI();
         }
@@ -58,9 +63,9 @@ namespace Billiards_Club_Management_System.SessionsHistory
             _totalTablesPayments = 0;
             _rateUpdates = 0;
 
-            if (_logs != null)
+            if (_logs != null && _logs.Length > 0)
             {
-                foreach (var log in _logs)
+                foreach (string log in _logs)
                 {
                     if (log.Contains("[Session]"))
                         _totalSessions++;

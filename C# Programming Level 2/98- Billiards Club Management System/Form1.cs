@@ -73,20 +73,19 @@ namespace Billiards_Club_Management_System
                 IncreaseFoodOrders();
                 IncreaseRevenue(revenue);
 
-                if (tableNumber != null && tableNumber != "TAKE AWAY")
+                if (tableNumber != null && tableNumber != "TAKEAWAY")
                 {
                     _tables[$"{tableNumber}"].FoodOrders++;
                 }
             };
         }
-        private async Task InitializeSessionsHistoryCtrl()
+        private void InitializeSessionsHistoryCtrl()
         {
             ctrlSessionsHistory = new ctrlSessionsHistory();
             pnlSectionsContainer.Controls.Add(ctrlSessionsHistory);
-            _ = ctrlSessionsHistory.Initialize();
         }
 
-        private async Task LoadData()
+        private async Task LoadDataAsync()
         {
             _data = await Serializer.DeserializeDataAsync();
             if (_data != null)
@@ -105,14 +104,26 @@ namespace Billiards_Club_Management_System
         {
             _buttons = new Guna2Button[] { btnTables, btnFoodOrders, btnSessionsHistory };
 
-            InitializeTables();
             InitializeFoodOrdersCtrl();
-            _ = InitializeSessionsHistoryCtrl();
-            _ = LoadData();
+            InitializeTables();
+            InitializeSessionsHistoryCtrl();
 
             btnTables.PerformClick();
             timer1_Tick(null, System.EventArgs.Empty);
             timer1.Start();
+        }
+
+        private async void Form1_Shown(object sender, EventArgs e)
+        {
+            try
+            {
+                await LoadDataAsync();
+                await ctrlSessionsHistory.LoadLogsAsync();
+            }
+            catch (Exception ex)
+            {
+                Log.LogEvent(Log.LogType.Error, "Initialization error", ex.ToString());
+            }
         }
 
         private void SetSelectedButton(Guna2Button button)
@@ -151,14 +162,14 @@ namespace Billiards_Club_Management_System
            ctrlSessionsHistory.SendToBack();
         }
 
-        private void btnSessionsHistory_Click(object sender, System.EventArgs e)
+        private async void btnSessionsHistory_Click(object sender, System.EventArgs e)
         {
             ClearSelectionFromButtons();
             SetSelectedButton((Guna2Button)sender);
 
-            _ = ctrlSessionsHistory.Initialize();
             ctrlSessionsHistory.BringToFront();
             ctrlfoodOrders.SendToBack();
+            await ctrlSessionsHistory.LoadLogsAsync();
         }
 
         private void timer1_Tick(object sender, System.EventArgs e)
@@ -167,13 +178,25 @@ namespace Billiards_Club_Management_System
         }
 
 
+        private async Task SaveDataAsync()
+        {
+            try
+            {
+                await Serializer.SerializeDataAsync(_data);
+            }
+            catch (Exception ex)
+            {
+                Log.LogEvent(Log.LogType.Error, "Failed to save data", ex.ToString());
+            }
+        }
+
         private void IncreaseFoodOrders()
         {
             ++_foodOrders;
             lblFoodOrders.Text = _foodOrders.ToString();
 
             _data.FoodOrders = _foodOrders;
-            _ = Serializer.SerializeDataAsync(_data);
+            SaveDataAsync();
         }
         private void IncreaseRevenue(decimal amount)
         {
@@ -181,7 +204,7 @@ namespace Billiards_Club_Management_System
             lblRevenue.Text = _revenue.ToString("F2");
 
             _data.Revenue = _revenue;
-            _ = Serializer.SerializeDataAsync(_data);
+            SaveDataAsync();
         }
         private void UpdateHourlyRate(int newRate)
         {
@@ -190,16 +213,9 @@ namespace Billiards_Club_Management_System
             lblHourlyRate.Text = $"{HourlyRate} / Hour";
 
             _data.HourlyRate = HourlyRate;
-            _ = Serializer.SerializeDataAsync(_data);
-
-            try
-            {
-                Log.LogEvent(Log.LogType.General, $"Hourly rate updated from {oldRate} to {HourlyRate}");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Failed to log hourly rate update event. {ex.Message}", "Logging Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            SaveDataAsync();
+            
+            Log.LogEvent(Log.LogType.General, $"Hourly rate updated from {oldRate} to {HourlyRate}");
         }
 
         private void tbEditRate_KeyPress(object sender, KeyPressEventArgs e)
@@ -221,5 +237,7 @@ namespace Billiards_Club_Management_System
             lblEditRateText.Visible = !lblEditRateText.Visible;
             tbEditRate.Focus();
         }
+
+        
     }
 }

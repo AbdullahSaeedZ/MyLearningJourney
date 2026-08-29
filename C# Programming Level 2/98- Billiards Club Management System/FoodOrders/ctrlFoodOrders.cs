@@ -97,17 +97,11 @@ namespace Billiards_Club_Management_System
 
         private void btnConfirmOrder_Click(object sender, EventArgs e)
         {
-            try
-            {
-                Log.LogEvent(Log.LogType.FoodPayment, $"Food order confirmed for table {cbAvailableTables.SelectedItem?.ToString()} with payment of {_totalPrice.ToString("F2")}");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Failed to log food order confirmation event. {ex.Message}", "Logging Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
             OnFoodOrderConfirmed?.Invoke(_totalPrice, cbAvailableTables.SelectedItem?.ToString());
             ResetOrder();
             ShowConfirmationNotification();
+
+            Log.LogEvent(Log.LogType.FoodPayment, $"Food order confirmed for table {cbAvailableTables.SelectedItem?.ToString()} with payment of {_totalPrice.ToString("F2")}");
         }
 
         private void ResetOrder()
@@ -128,10 +122,7 @@ namespace Billiards_Club_Management_System
         }
         private void lblTotalPrice_TextChanged(object sender, EventArgs e)
         {
-            if (_totalPrice > 0)
-                btnConfirmOrder.Enabled = true;
-            else
-                btnConfirmOrder.Enabled = false;
+            btnConfirmOrder.Enabled = ( _totalPrice > 0 );
         }
     }
 }
