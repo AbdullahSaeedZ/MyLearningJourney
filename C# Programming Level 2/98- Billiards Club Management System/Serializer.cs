@@ -43,7 +43,7 @@ namespace Billiards_Club_Management_System
 
         public static async Task<Data> DeserializeDataAsync()
         {
-            if (!File.Exists(FilePath))
+            if (!File.Exists(FilePath) || File.ReadAllText(FilePath).Length == 0)
             {
                 await SerializeDataAsync(new Data(0, 35, 0));
             }

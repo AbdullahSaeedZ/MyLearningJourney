@@ -70,7 +70,9 @@ namespace Billiards_Club_Management_System
 
             ctrlfoodOrders.OnFoodOrderConfirmed += (revenue, tableNumber) =>
             {
-                IncreaseFoodOrders();
+                ++_foodOrders;
+                lblFoodOrders.Text = _foodOrders.ToString();
+                _data.FoodOrders = _foodOrders;
                 IncreaseRevenue(revenue);
 
                 if (tableNumber != null && tableNumber != "TAKEAWAY")
@@ -92,7 +94,7 @@ namespace Billiards_Club_Management_System
             {
                 _revenue = _data.Revenue;
                 HourlyRate = _data.HourlyRate;
-                _foodOrders = _data.FoodOrders; 
+                _foodOrders = _data.FoodOrders;
 
                 lblRevenue.Text = _revenue.ToString("F2");
                 lblHourlyRate.Text = $"{HourlyRate} / Hour";
@@ -190,21 +192,13 @@ namespace Billiards_Club_Management_System
             }
         }
 
-        private void IncreaseFoodOrders()
-        {
-            ++_foodOrders;
-            lblFoodOrders.Text = _foodOrders.ToString();
-
-            _data.FoodOrders = _foodOrders;
-            SaveDataAsync();
-        }
         private void IncreaseRevenue(decimal amount)
         {
             _revenue+= amount;
             lblRevenue.Text = _revenue.ToString("F2");
 
             _data.Revenue = _revenue;
-            SaveDataAsync();
+            _ = SaveDataAsync();
         }
         private void UpdateHourlyRate(int newRate)
         {
@@ -213,7 +207,7 @@ namespace Billiards_Club_Management_System
             lblHourlyRate.Text = $"{HourlyRate} / Hour";
 
             _data.HourlyRate = HourlyRate;
-            SaveDataAsync();
+            _ = SaveDataAsync();
             
             Log.LogEvent(Log.LogType.General, $"Hourly rate updated from {oldRate} to {HourlyRate}");
         }

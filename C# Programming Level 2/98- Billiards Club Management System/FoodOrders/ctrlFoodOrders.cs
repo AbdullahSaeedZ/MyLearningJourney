@@ -97,11 +97,11 @@ namespace Billiards_Club_Management_System
 
         private void btnConfirmOrder_Click(object sender, EventArgs e)
         {
+            Log.LogEvent(Log.LogType.FoodPayment, $"Food order confirmed for table {cbAvailableTables.SelectedItem?.ToString()} with payment of {_totalPrice.ToString("F2")}");
+
             OnFoodOrderConfirmed?.Invoke(_totalPrice, cbAvailableTables.SelectedItem?.ToString());
             ResetOrder();
             ShowConfirmationNotification();
-
-            Log.LogEvent(Log.LogType.FoodPayment, $"Food order confirmed for table {cbAvailableTables.SelectedItem?.ToString()} with payment of {_totalPrice.ToString("F2")}");
         }
 
         private void ResetOrder()
