@@ -124,7 +124,7 @@ namespace Billiards_Club_Management_System
             }
             catch (Exception ex)
             {
-                Log.LogEvent(Log.LogType.Error, "Initialization error", ex.ToString());
+                _ = Log.LogEvent(Log.LogType.Error, "Initialization error", ex.ToString());
             }
         }
 
@@ -188,7 +188,7 @@ namespace Billiards_Club_Management_System
             }
             catch (Exception ex)
             {
-                Log.LogEvent(Log.LogType.Error, "Failed to save data", ex.ToString());
+                _ = Log.LogEvent(Log.LogType.Error, "Failed to save data", ex.ToString());
             }
         }
 
@@ -208,8 +208,7 @@ namespace Billiards_Club_Management_System
 
             _data.HourlyRate = HourlyRate;
             _ = SaveDataAsync();
-            
-            Log.LogEvent(Log.LogType.General, $"Hourly rate updated from {oldRate} to {HourlyRate}");
+            _ = Log.LogEvent(Log.LogType.General, $"Hourly rate updated from {oldRate} to {HourlyRate}");
         }
 
         private void tbEditRate_KeyPress(object sender, KeyPressEventArgs e)

@@ -26,11 +26,11 @@ namespace Billiards_Club_Management_System
 
 
 
-        public static void LogEvent(LogType entryType, string message, string stackTrace = "")
+        public static async Task LogEvent(LogType entryType, string message, string stackTrace = "")
         {
             try
             {
-                LogToFile(entryType, message, stackTrace);
+                await LogToFile(entryType, message, stackTrace);
     }
             catch (Exception ex)
             {
@@ -46,7 +46,7 @@ namespace Billiards_Club_Management_System
             }
         }
 
-        private static void LogToFile(LogType entryType, string message, string stackTrace = "")
+        private static async Task LogToFile(LogType entryType, string message, string stackTrace = "")
         {
             string formattedMessage = "";
             if (entryType == LogType.Error)
@@ -54,17 +54,18 @@ namespace Billiards_Club_Management_System
             else
                 formattedMessage = FormattedInfoMessage(entryType, message);
 
+            bool append = true;
             if (File.Exists(_logFilePath))
             {
                 FileInfo fileInfo = new FileInfo(_logFilePath);
                 if (fileInfo.Length >= _maxFileSizeBytes)
-                {
-                    File.WriteAllText(_logFilePath, formattedMessage + Environment.NewLine);
-                    return;
-                }
+                    append = false;
             }
 
-            File.AppendAllText(_logFilePath, formattedMessage + Environment.NewLine);
+            using (StreamWriter writer = new StreamWriter(_logFilePath, append))
+            {
+                await writer.WriteLineAsync(formattedMessage);
+            }
         }
 
         private static void LogToEventViewer(LogType entryType, string message, string stackTrace = "")

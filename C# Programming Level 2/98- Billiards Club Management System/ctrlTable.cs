@@ -90,7 +90,7 @@ namespace Billiards_Club_Management_System
             OnSessionStarted?.Invoke();
             timer1.Start();
             
-            Log.LogEvent(Log.LogType.Session, $"Table {TableNumber} session started");
+            _ = Log.LogEvent(Log.LogType.Session, $"Table {TableNumber} session started");
         }
 
         private void EndTableSession()
@@ -99,7 +99,7 @@ namespace Billiards_Club_Management_System
             OnSessionEnded?.Invoke();
             timer1.Stop();
             
-            Log.LogEvent(Log.LogType.Session, $"Table {TableNumber} session ended");
+            _ = Log.LogEvent(Log.LogType.Session, $"Table {TableNumber} session ended");
         }
 
         private void ShowSessionSummary()
@@ -147,20 +147,19 @@ namespace Billiards_Club_Management_System
 
         private void btnCompleteSession_Click(object sender, EventArgs e)
         {
+            _ = Log.LogEvent(Log.LogType.TablesPayment, $"Table {TableNumber} session completed with payment of {_moneyAmount.ToString("F2")}");
+
             OnCompleteSession?.Invoke(_moneyAmount);
             pnlSessionSummary.Visible = false;
             ResetTable();
-
-            Log.LogEvent(Log.LogType.TablesPayment, $"Table {TableNumber} session completed with payment of {_moneyAmount.ToString("F2")}");
-
         }
 
         private void btnDiscardSession_Click(object sender, EventArgs e)
         {
+            _ = Log.LogEvent(Log.LogType.Session, $"Table {TableNumber} session discarded");
+
             pnlSessionSummary.Visible = false;
             ResetTable();
-
-            Log.LogEvent(Log.LogType.Session, $"Table {TableNumber} session discarded");
         }
     }
 }
