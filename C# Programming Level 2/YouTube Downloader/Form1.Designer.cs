@@ -40,6 +40,11 @@
             this.lblDownloadsLimitReached = new System.Windows.Forms.Label();
             this.btnGetVidInfo = new Guna.UI2.WinForms.Guna2Button();
             this.dgvDownloads = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmsVidItemOptions = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmCancel = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmDelete = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,11 +73,6 @@
             this.lblVidTitle = new System.Windows.Forms.Label();
             this.btnDownload = new Guna.UI2.WinForms.Guna2Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.guna2Panel1.SuspendLayout();
             this.prgbarLoadingInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDownloads)).BeginInit();
@@ -280,6 +280,56 @@
             this.dgvDownloads.ThemeStyle.RowsStyle.Height = 40;
             this.dgvDownloads.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(117)))), ((int)(((byte)(119)))));
             this.dgvDownloads.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+            // 
+            // col1
+            // 
+            this.col1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col1.DataPropertyName = "Title";
+            this.col1.FillWeight = 36.31561F;
+            this.col1.HeaderText = "FILE NAME";
+            this.col1.Name = "col1";
+            this.col1.ReadOnly = true;
+            this.col1.Width = 525;
+            // 
+            // col2
+            // 
+            this.col2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col2.DataPropertyName = "Status";
+            this.col2.FillWeight = 40.61155F;
+            this.col2.HeaderText = "STATUS";
+            this.col2.Name = "col2";
+            this.col2.ReadOnly = true;
+            this.col2.Width = 150;
+            // 
+            // col3
+            // 
+            this.col3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col3.DataPropertyName = "Progress";
+            this.col3.FillWeight = 81.42152F;
+            this.col3.HeaderText = "PROGRESS";
+            this.col3.Name = "col3";
+            this.col3.ReadOnly = true;
+            this.col3.Width = 130;
+            // 
+            // col4
+            // 
+            this.col4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col4.DataPropertyName = "Size";
+            this.col4.FillWeight = 87.84423F;
+            this.col4.HeaderText = "SIZE";
+            this.col4.Name = "col4";
+            this.col4.ReadOnly = true;
+            this.col4.Width = 99;
+            // 
+            // col5
+            // 
+            this.col5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.col5.DataPropertyName = "Date";
+            this.col5.FillWeight = 253.8071F;
+            this.col5.HeaderText = "DATE";
+            this.col5.Name = "col5";
+            this.col5.ReadOnly = true;
+            this.col5.Width = 122;
             // 
             // cmsVidItemOptions
             // 
@@ -497,7 +547,7 @@
             this.btnCloseVidInfo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseVidInfo.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnCloseVidInfo.HoverState.Parent = this.btnCloseVidInfo;
-            this.btnCloseVidInfo.Image = global::YouTube_Downloader.Properties.Resources.close;
+            this.btnCloseVidInfo.Image = global::YouTube_Downloader.Properties.Resources.close1;
             this.btnCloseVidInfo.Location = new System.Drawing.Point(939, 6);
             this.btnCloseVidInfo.Name = "btnCloseVidInfo";
             this.btnCloseVidInfo.ShadowDecoration.Parent = this.btnCloseVidInfo;
@@ -630,56 +680,6 @@
             this.btnDownload.TabIndex = 1;
             this.btnDownload.Text = "Download";
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
-            // 
-            // col1
-            // 
-            this.col1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.col1.DataPropertyName = "Title";
-            this.col1.FillWeight = 36.31561F;
-            this.col1.HeaderText = "FILE NAME";
-            this.col1.Name = "col1";
-            this.col1.ReadOnly = true;
-            this.col1.Width = 525;
-            // 
-            // col2
-            // 
-            this.col2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.col2.DataPropertyName = "Status";
-            this.col2.FillWeight = 40.61155F;
-            this.col2.HeaderText = "STATUS";
-            this.col2.Name = "col2";
-            this.col2.ReadOnly = true;
-            this.col2.Width = 150;
-            // 
-            // col3
-            // 
-            this.col3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.col3.DataPropertyName = "Progress";
-            this.col3.FillWeight = 81.42152F;
-            this.col3.HeaderText = "PROGRESS";
-            this.col3.Name = "col3";
-            this.col3.ReadOnly = true;
-            this.col3.Width = 130;
-            // 
-            // col4
-            // 
-            this.col4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.col4.DataPropertyName = "Size";
-            this.col4.FillWeight = 87.84423F;
-            this.col4.HeaderText = "SIZE";
-            this.col4.Name = "col4";
-            this.col4.ReadOnly = true;
-            this.col4.Width = 99;
-            // 
-            // col5
-            // 
-            this.col5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.col5.DataPropertyName = "Date";
-            this.col5.FillWeight = 253.8071F;
-            this.col5.HeaderText = "DATE";
-            this.col5.Name = "col5";
-            this.col5.ReadOnly = true;
-            this.col5.Width = 122;
             // 
             // Form1
             // 
