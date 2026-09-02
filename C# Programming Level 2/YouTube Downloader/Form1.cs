@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms.Suite;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
@@ -20,6 +21,7 @@ namespace YouTube_Downloader
         public Form1()
         {
             InitializeComponent();
+            pbVidThumbnail.InitialImage = null;
         }
 
         private async Task InitializeDownloadListAsync()
@@ -64,12 +66,17 @@ namespace YouTube_Downloader
             lblNoDownloadsYet.Visible = dgvDownloads.RowCount == 0;
         }
 
+        private YouTubeVideo CreateNewVideoObject()
+        {
+            YouTubeVideo video = new YouTubeVideo();
+            video.OnDownloadStarted += HandleDownloadStarted;
+            video.OnDownloadFinished += HandleDownloadFinished;
+            return video;
+        }
+
         private async void Form1_Load(object sender, EventArgs e)
         {
-            _youTubeVideo = new YouTubeVideo();
-            _youTubeVideo.OnDownloadStarted += HandleDownloadStarted;
-            _youTubeVideo.OnDownloadFinished += HandleDownloadFinished;
-
+            _youTubeVideo = CreateNewVideoObject();
             InitializeFileDialog();
             await InitializeDownloadListAsync();
         }
@@ -95,7 +102,7 @@ namespace YouTube_Downloader
             YouTubeVideo downloadObj = _youTubeVideo;
             string selectedQuality = cbQualities.SelectedItem?.ToString();
             // to reset the youtube object to allow next download object to be captured in next context
-            _youTubeVideo = new YouTubeVideo();
+            _youTubeVideo = CreateNewVideoObject();
             pnlVidInfo.Visible = false;
             ResetInfoCard();
 
@@ -106,8 +113,6 @@ namespace YouTube_Downloader
         {
             ResetInfoCard();
             pnlVidInfo.Visible = false;
-            _youTubeVideo = null;
-            _youTubeVideo = new YouTubeVideo();
         }
 
 
@@ -126,17 +131,18 @@ namespace YouTube_Downloader
             try
             {
                 _downloadsList.Add(video);
+                SelectNewlyAddedRow();
                 await video.DownloadVideoAsync(selectedQuality, saveFileDialog1.FileName);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                video.Date = DateTime.Now.ToShortDateString();
                 video.Status = YouTubeVideo.enStatus.Failed;
             }
             finally
             {
-                _ = Serializer.SerializeObjectAsync(video);
-                video.Dispose();
+                await Serializer.SerializeObjectAsync(video);
             }
         }
 
@@ -156,12 +162,21 @@ namespace YouTube_Downloader
                 return;
             }
             
+            await FillInfoCard();
             ShowHideLoadingIndicator();
-            FillInfoCard();
             pnlVidInfo.Visible = true;
         }
 
-        private void FillInfoCard()
+        private void SelectNewlyAddedRow()
+        {
+            if (dgvDownloads.Rows.Count > 0)
+            {
+                dgvDownloads.ClearSelection();
+                dgvDownloads.Rows[dgvDownloads.Rows.Count - 1].Selected = true;
+            }
+        }
+
+        private async Task FillInfoCard()
         {
             lblVidTitle.Text = _youTubeVideo.Title ?? "N/A";
             lblVidDescription.Text = _youTubeVideo.Description ?? "N/A";
@@ -169,11 +184,12 @@ namespace YouTube_Downloader
             lblVidDuration.Text = _youTubeVideo.VideoLength?.ToString(@"hh\:mm\:ss") ?? "N/A";
 
             pnlVidDuration.Invalidate();
+            
             pbVidThumbnail.LoadAsync(_youTubeVideo.ThumbnailURL ?? string.Empty);
-            cbQualities.DataSource = _youTubeVideo.QualitiesAndSizes.Keys.ToList();
+            cbQualities.DataSource = _youTubeVideo.Qualities;
             cbQualities.SelectedIndex = 0;
 
-            lblVidSize.Text = _youTubeVideo.GetFileSize(cbQualities.SelectedItem.ToString()) ?? "N/A";
+            lblVidSize.Text = await _youTubeVideo.GetAproxFileSize(cbQualities.SelectedItem.ToString()) ?? "N/A";
         }
 
         private void ShowHideLoadingIndicator()
@@ -191,14 +207,18 @@ namespace YouTube_Downloader
             lblVidDescription.Text = string.Empty;
             lblChannelName.Text = string.Empty;
             lblVidDuration.Text = string.Empty;
+            lblVidSize.Text = string.Empty; 
             pbVidThumbnail.Image = null;
             cbQualities.DataSource = null;
         }
 
-        private void cbQualities_SelectedIndexChanged(object sender, EventArgs e)
+        private async void cbQualities_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbQualities.SelectedItem != null) // cuz this event will be triggered when resetting the info card and setting the datasource to null
-                lblVidSize.Text = _youTubeVideo.GetFileSize(cbQualities.SelectedItem.ToString())?? "N/A";
+            {
+                lblVidSize.Text = "Loading...";
+                lblVidSize.Text = await _youTubeVideo.GetAproxFileSize(cbQualities.SelectedItem?.ToString()) ?? "N/A";
+            }
         }
 
 

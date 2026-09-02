@@ -1,10 +1,9 @@
-﻿using Microsoft.CodeAnalysis;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-using System.Security.Policy;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -15,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace YouTube_Downloader.Services
 {
-    public class YouTubeVideo : INotifyPropertyChanged, IDisposable
+    public class YouTubeVideo : INotifyPropertyChanged
     {
         public enum enStatus
         {
@@ -26,7 +25,7 @@ namespace YouTube_Downloader.Services
             Failed
         }
 
-      
+        private readonly string exePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Tools", "yt-dlp.exe");
         private CancellationTokenSource _cts;
         public event PropertyChangedEventHandler PropertyChanged;
         public event Action OnDownloadStarted;
@@ -81,21 +80,36 @@ namespace YouTube_Downloader.Services
             }
         }
 
+       
+
+        [JsonIgnore]
+        private string _size = "0 MB";
+        [JsonInclude]
+        public string Size 
+        {
+            get { return _size; }
+            set
+            {
+                if (_size != value)
+                {
+                    _size = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Size)));
+                }
+            }
+
+        }
+
         [JsonInclude]
         public string Date { get; set; }
-
-        [JsonInclude]
-        public string Size { get; set; } = "0 MB";
-
         [JsonIgnore]
-        public Dictionary<string, long> QualitiesAndSizes = new Dictionary<string, long>();
+        public List<string> Qualities = new List<string>();
         [JsonIgnore]
-        private long _maxAudioBytes = 0;
+        private string _cachedJsonPath;
 
         public YouTubeVideo()
         {
             _cts = new CancellationTokenSource();
-            QualitiesAndSizes = new Dictionary<string, long>();
+            Qualities = new List<string>();
         }
 
         public async Task GetVideoDataAsync(string URL)
@@ -128,14 +142,16 @@ namespace YouTube_Downloader.Services
                     throw new Exception($"Fetching {Title} data failed.\nError: {error}");
                 }
 
+                // cash the json file to run offline download simulation to get file size for the selected quality
+                await CachJsonFileAsync(output);
                 PrepareVideoInfo(output);
             }
         }
 
         public async Task DownloadVideoAsync(string selectedQuality, string fullDownloadPath)
         {
-            string exePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Tools", "yt-dlp.exe");
-            selectedQuality = selectedQuality.Replace("P", "");
+            
+            selectedQuality = selectedQuality.Replace("p", "");
             Date = DateTime.Now.ToShortDateString();
             Status = enStatus.Downloading;
             DownloadPath = fullDownloadPath;
@@ -172,6 +188,8 @@ namespace YouTube_Downloader.Services
                     downloadProcess.BeginErrorReadLine();
                     // to wait for the process to exit and get the exit code to make sure all went good
                     await Task.Run(() => downloadProcess.WaitForExit(), _cts.Token);
+                    
+
                 }
                 // will only throw if the token was already canceled when passed to the lambda
                 // other than that, the cancellation will be handled by the OnCancellationRequested event
@@ -203,6 +221,7 @@ namespace YouTube_Downloader.Services
                 }
 
                 Status = enStatus.Completed;
+                _cts?.Dispose();
             }
         }
 
@@ -229,37 +248,104 @@ namespace YouTube_Downloader.Services
             {
             }
         }
-
-        private void OnDataReceived(object sender, DataReceivedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(e.Data) && e.Data.StartsWith("[download]"))
-            {
-                Match match = _progressRegex.Match(e.Data);
-                if (match.Success)
-                    Progress = match.Value;
-            }    
-        }
-
-        private void OnErrorReceived(object sender, DataReceivedEventArgs e, StringBuilder errorMessege)
-        {
-            if (!string.IsNullOrEmpty(e.Data))
-                errorMessege.Append(e.Data);
-        }
-
         public void CancelDownload()
         {
             _cts?.Cancel();
         }
 
 
+        private int _currentStream = 0; // 1 = Vid, 2 = Aud
 
-
-        public string GetFileSize(string selectedQuality)
+        private void OnDataReceived(object sender, DataReceivedEventArgs e)
         {
-            long selectedVideoSize = QualitiesAndSizes[selectedQuality];
-            return this.Size = $"{( selectedVideoSize + _maxAudioBytes ) / ( 1024 * 1024 )} MB";
+            if (string.IsNullOrEmpty(e.Data))
+                return;
+
+            // when yl-dlp finishes a stream, it shows a destination line for the next stream
+            if (e.Data.StartsWith("[download] Destination:"))
+            {
+                _currentStream++;
+                return;
+            }
+
+            // updating progress bassed on current stream being downloaded
+            if (e.Data.StartsWith("[download]") && _progressRegex.Match(e.Data) is Match match)
+            {
+                double newPercent = 0;
+                if (double.TryParse(match.Groups[1].Value, out double recievedPercent))
+                {
+                    // scaling from 0 to 85% for video stream, 85% to 100% for audio stream
+                    if (_currentStream <= 1)
+                        newPercent = ( recievedPercent / 100 ) * 85.00;
+                    else
+                        newPercent = 85 + (( recievedPercent / 100 ) * 15.00);
+                }
+
+                Progress = $"{Math.Min(100, Math.Round(newPercent, 1))}%";
+            }
+
+        }
+        private void OnErrorReceived(object sender, DataReceivedEventArgs e, StringBuilder errorMessege)
+        {
+            if (!string.IsNullOrEmpty(e.Data))
+                errorMessege.Append(e.Data);
         }
 
+
+
+        private async Task CachJsonFileAsync(string JsonContent)
+        {
+            _cachedJsonPath = Path.Combine(Path.GetTempPath(), $"ytdlp_{Guid.NewGuid():N}.json");
+            using (StreamWriter writer = new StreamWriter(_cachedJsonPath))
+            {
+                await writer.WriteAsync(JsonContent);
+            }
+        }
+
+        public async Task<string> GetAproxFileSize(string selectedQuality)
+        {
+            if (string.IsNullOrEmpty(_cachedJsonPath) || !File.Exists(_cachedJsonPath))
+                return "Unknown";
+
+            selectedQuality = selectedQuality.Replace("p", "");
+            ProcessStartInfo simulationInfo = new ProcessStartInfo()
+            {
+                FileName = exePath,
+                // using the cached JSON for offline simulation
+                Arguments = $"--load-info-json \"{_cachedJsonPath}\" --simulate --print \"%(filesize,filesize_approx)s\" -f \"bv*[height<={selectedQuality}]+ba/b[height<={selectedQuality}]/best\"",
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                UseShellExecute = false,
+                CreateNoWindow = true
+            };
+
+            using (Process queryProcess = new Process { StartInfo = simulationInfo })
+            {
+                queryProcess.Start();
+                string output = await queryProcess.StandardOutput.ReadToEndAsync();
+                await Task.Run(() => queryProcess.WaitForExit());
+
+                // simulation output will return the file size in bytes, we need to parse
+                string[] lines = output.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                long totalBytes = 0;
+
+                foreach (string line in lines)
+                {
+                    if (long.TryParse(line.Trim(), out long bytes))
+                        totalBytes += bytes;
+                }
+
+                if (totalBytes > 0)
+                {
+                    double mb = totalBytes / ( 1024.0 * 1024.0 );
+                    this.Size = $"{Math.Round(mb, 1)} MB";
+                    return "~" + this.Size;
+                }
+            }
+
+            return "Unknown";
+        }
+       
 
         private void PrepareVideoInfo(string jsonContent)
         {
@@ -278,51 +364,25 @@ namespace YouTube_Downloader.Services
         }
         private void PrepareQualities(JsonDocument jsonDoc)
         {
+            Qualities.Clear();
             if (!jsonDoc.RootElement.TryGetProperty("formats", out JsonElement formats) || formats.ValueKind != JsonValueKind.Array)
                 return;
 
-            foreach (JsonElement format in formats.EnumerateArray())
+            foreach (JsonElement f in formats.EnumerateArray())
             {
-                string vidStream = format.TryGetProperty("vcodec", out JsonElement vcodec) ? vcodec.GetString() : null;
-                string audStream = format.TryGetProperty("acodec", out JsonElement acodec) ? acodec.GetString() : null;
-
-                // if this is an audio stream, just track largest audio stream size, cuz eventually all vid streams will have same largest audio size
-                if (vidStream == "none" && audStream != "none" && audStream != null)
+                if (f.TryGetProperty("vcodec", out JsonElement vcodec))
                 {
-                    long audioSize = GetFormatSize(format);
-                    if (audioSize > _maxAudioBytes)
-                        _maxAudioBytes = audioSize;
-                    continue; 
-                }
-
-                // to get the quality if it is a vid stream, and store its size
-                if (vidStream != "none" && vidStream != null)
-                {
-                    if (format.TryGetProperty("height", out JsonElement heightElement) && heightElement.TryGetInt32(out int height) && height > 0)
+                    string vidStream = vcodec.GetString();
+                    if (vidStream != "none" && vidStream != null)
                     {
-                        string quality = $"{height}p";
-                        long videoSize = GetFormatSize(format);
-
-                        if (!QualitiesAndSizes.ContainsKey(quality) || videoSize > QualitiesAndSizes[quality])
-                            QualitiesAndSizes[quality] = videoSize;
+                        if (f.TryGetProperty("height", out JsonElement hElem) && hElem.ValueKind == JsonValueKind.Number 
+                            && hElem.TryGetInt32(out int height) && height > 0 && !Qualities.Contains($"{height}p"))
+                        {
+                                Qualities.Add($"{height}p");
+                        }
                     }
                 }
             }
-        }
-        private long GetFormatSize(JsonElement format)
-        {
-            if (format.TryGetProperty("filesize", out var fs) && fs.TryGetInt64(out long size) && size > 0)
-                return size;
-
-            if (format.TryGetProperty("filesize_approx", out var fsa) && fsa.TryGetInt64(out long approxSize) && approxSize > 0)
-                return approxSize;
-
-            return 0;
-        }
-
-        public void Dispose()
-        {
-            _cts?.Dispose();
         }
     }
 }
