@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -14,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace YouTube_Downloader.Services
 {
-    public class YouTubeVideo : INotifyPropertyChanged
+    public class YouTubeVideo
     {
         public enum enStatus
         {
@@ -25,9 +23,8 @@ namespace YouTube_Downloader.Services
             Failed
         }
 
-        private readonly string exePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Tools", "yt-dlp.exe");
+        private readonly string _exePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Tools", "yt-dlp.exe");
         private CancellationTokenSource _cts;
-        public event PropertyChangedEventHandler PropertyChanged;
         public event Action OnDownloadStarted;
         public event Action OnDownloadFinished;
         
@@ -47,6 +44,12 @@ namespace YouTube_Downloader.Services
         [JsonInclude]
         public string DownloadPath { get; private set; }
 
+        [JsonInclude]
+        public string Date { get; set; }
+
+        private string _cachedJson;
+        [JsonIgnore]
+        public List<string> Qualities = new List<string>();
 
         private static readonly Regex _progressRegex = new Regex(@"(\d+(\.\d+)?)%", RegexOptions.Compiled);
         private string _progress = "0%";
@@ -59,7 +62,6 @@ namespace YouTube_Downloader.Services
                 if (_progress != value)
                 {
                     _progress = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Progress)));
                 }
             }
         }
@@ -75,12 +77,9 @@ namespace YouTube_Downloader.Services
                 if (_status != value)
                 {
                     _status = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Status)));
                 }
             }
         }
-
-       
 
         [JsonIgnore]
         private string _size = "0 MB";
@@ -93,18 +92,11 @@ namespace YouTube_Downloader.Services
                 if (_size != value)
                 {
                     _size = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Size)));
                 }
             }
 
         }
-
-        [JsonInclude]
-        public string Date { get; set; }
-        [JsonIgnore]
-        public List<string> Qualities = new List<string>();
-        [JsonIgnore]
-        private string _cachedJsonPath;
+      
 
         public YouTubeVideo()
         {
@@ -115,12 +107,11 @@ namespace YouTube_Downloader.Services
         public async Task GetVideoDataAsync(string URL)
         {
             VideoURL = URL;
-            string exePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Tools", "yt-dlp.exe");
 
             ProcessStartInfo fetchingInfo = new ProcessStartInfo()
             {
                 // args and flags for yt-dlp
-                FileName = exePath,
+                FileName = _exePath,
                 Arguments = $"--dump-json --no-playlist --skip-download \"{URL}\"",
 
                 RedirectStandardOutput = true,
@@ -143,7 +134,7 @@ namespace YouTube_Downloader.Services
                 }
 
                 // cash the json file to run offline download simulation to get file size for the selected quality
-                await CachJsonFileAsync(output);
+                _cachedJson = output;
                 PrepareVideoInfo(output);
             }
         }
@@ -159,7 +150,7 @@ namespace YouTube_Downloader.Services
             ProcessStartInfo downloadInfo = new ProcessStartInfo()
             {
                 // args and flags for yt-dlp
-                FileName = exePath,
+                FileName = _exePath,
                 Arguments = $"--no-playlist --force-overwrites --merge-output-format mp4 -f \"bv*[height<={selectedQuality}]+ba/b[height<={selectedQuality}]/best\" -o \"{fullDownloadPath}\" --newline \"{VideoURL}\"",
 
                 RedirectStandardOutput = true,
@@ -167,9 +158,16 @@ namespace YouTube_Downloader.Services
                 UseShellExecute = false,
                 CreateNoWindow = true
             };
+
             OnDownloadStarted?.Invoke();
-            await StartDownloadProcessAsync(downloadInfo);
-            OnDownloadFinished?.Invoke();
+            try
+            {
+                await StartDownloadProcessAsync(downloadInfo);
+            }
+            finally
+            {
+                OnDownloadFinished?.Invoke();
+            }
         }
 
         private async Task StartDownloadProcessAsync(ProcessStartInfo downloadInfo)
@@ -188,8 +186,6 @@ namespace YouTube_Downloader.Services
                     downloadProcess.BeginErrorReadLine();
                     // to wait for the process to exit and get the exit code to make sure all went good
                     await Task.Run(() => downloadProcess.WaitForExit(), _cts.Token);
-                    
-
                 }
                 // will only throw if the token was already canceled when passed to the lambda
                 // other than that, the cancellation will be handled by the OnCancellationRequested event
@@ -211,6 +207,7 @@ namespace YouTube_Downloader.Services
                 if (_cts.Token.IsCancellationRequested)
                 {
                     Status = enStatus.Cancelled;
+                    CleanupTempFiles(DownloadPath);
                     return;
                 }
 
@@ -221,6 +218,7 @@ namespace YouTube_Downloader.Services
                 }
 
                 Status = enStatus.Completed;
+                SetRealFileSize();
                 _cts?.Dispose();
             }
         }
@@ -239,9 +237,6 @@ namespace YouTube_Downloader.Services
                         CreateNoWindow = true,
                         UseShellExecute = false
                     })?.WaitForExit();
-
-                    if (File.Exists(DownloadPath))
-                        File.Delete(DownloadPath);
                 }
             }
             catch // incase the process has already exited right before the kill command, we just ignore
@@ -253,7 +248,7 @@ namespace YouTube_Downloader.Services
             _cts?.Cancel();
         }
 
-
+        [JsonIgnore]
         private int _currentStream = 0; // 1 = Vid, 2 = Aud
 
         private void OnDataReceived(object sender, DataReceivedEventArgs e)
@@ -290,29 +285,41 @@ namespace YouTube_Downloader.Services
             if (!string.IsNullOrEmpty(e.Data))
                 errorMessege.Append(e.Data);
         }
+       
 
-
-
-        private async Task CachJsonFileAsync(string JsonContent)
+        private void CleanupTempFiles(string path)
         {
-            _cachedJsonPath = Path.Combine(Path.GetTempPath(), $"ytdlp_{Guid.NewGuid():N}.json");
-            using (StreamWriter writer = new StreamWriter(_cachedJsonPath))
+            if (string.IsNullOrWhiteSpace(path))
+                return;
+            
+            string baseFileName = Path.GetFileNameWithoutExtension(path);
+            // to get all files in the same directory that start with the base file name
+            string[] tempFiles = Directory.GetFiles(Path.GetDirectoryName(path), $"{baseFileName}*");
+
+            try
             {
-                await writer.WriteAsync(JsonContent);
+                foreach (string file in tempFiles)
+                {
+                    File.Delete(file);
+                }
+            }
+            catch (Exception)
+            {
             }
         }
 
         public async Task<string> GetAproxFileSize(string selectedQuality)
         {
-            if (string.IsNullOrEmpty(_cachedJsonPath) || !File.Exists(_cachedJsonPath))
+            if (string.IsNullOrEmpty(_cachedJson))
                 return "Unknown";
 
             selectedQuality = selectedQuality.Replace("p", "");
             ProcessStartInfo simulationInfo = new ProcessStartInfo()
             {
-                FileName = exePath,
-                // using the cached JSON for offline simulation
-                Arguments = $"--load-info-json \"{_cachedJsonPath}\" --simulate --print \"%(filesize,filesize_approx)s\" -f \"bv*[height<={selectedQuality}]+ba/b[height<={selectedQuality}]/best\"",
+                FileName = _exePath,
+                // using the cached json for offline simulation
+                Arguments = $"--load-info-json - --simulate --print \"%(filesize,filesize_approx)s\" -f \"bv*[height<={selectedQuality}]+ba/b[height<={selectedQuality}]/best\"",
+                RedirectStandardInput = true,
                 RedirectStandardOutput = true,
                 RedirectStandardError = true,
                 UseShellExecute = false,
@@ -322,6 +329,13 @@ namespace YouTube_Downloader.Services
             using (Process queryProcess = new Process { StartInfo = simulationInfo })
             {
                 queryProcess.Start();
+
+                // we pass the cached json to yt-dlp through standard input of the process
+                using (StreamWriter writer = queryProcess.StandardInput)
+                {
+                    await writer.WriteAsync(_cachedJson);
+                }
+
                 string output = await queryProcess.StandardOutput.ReadToEndAsync();
                 await Task.Run(() => queryProcess.WaitForExit());
 
@@ -345,7 +359,20 @@ namespace YouTube_Downloader.Services
 
             return "Unknown";
         }
-       
+        private void SetRealFileSize()
+        {
+            if (string.IsNullOrEmpty(DownloadPath) || !File.Exists(DownloadPath))
+                return;
+            try
+            {
+                var fileInfo = new FileInfo(DownloadPath);
+                double mb = fileInfo.Length / ( 1024.0 * 1024.0 );
+                this.Size = $"{mb:F2} MB";
+            }
+            catch
+            {
+            }
+        }
 
         private void PrepareVideoInfo(string jsonContent)
         {

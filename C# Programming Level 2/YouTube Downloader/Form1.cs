@@ -1,9 +1,8 @@
-﻿using Guna.UI2.WinForms.Suite;
+﻿using Guna.UI2.WinForms;
 using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using YouTube_Downloader.Services;
@@ -12,6 +11,7 @@ namespace YouTube_Downloader
 {
     public partial class Form1 : Form
     {
+       
         private BindingList<YouTubeVideo> _downloadsList;
         private YouTubeVideo _youTubeVideo;
 
@@ -22,6 +22,7 @@ namespace YouTube_Downloader
         {
             InitializeComponent();
             pbVidThumbnail.InitialImage = null;
+            EnableDGVDoubleBuffering();
         }
 
         private async Task InitializeDownloadListAsync()
@@ -42,7 +43,7 @@ namespace YouTube_Downloader
             saveFileDialog1.Filter = "MP4 Video (*.mp4)|*.mp4";
             saveFileDialog1.InitialDirectory = @"C:\";
             saveFileDialog1.FilterIndex = 1;
-            saveFileDialog1.RestoreDirectory = true;
+            saveFileDialog1.RestoreDirectory = false;
         }
         private void HandleDownloadFinished()
         {
@@ -53,6 +54,11 @@ namespace YouTube_Downloader
                 tbURL.Visible = true;
                 btnGetVidInfo.Visible = true;
             }
+
+            if (_activeDownloadsCount == 0)
+                DGVRefreshTimre.Stop();
+
+            dgvDownloads.Invalidate();
         }
         private void HandleDownloadStarted()
         {
@@ -64,8 +70,18 @@ namespace YouTube_Downloader
                 btnGetVidInfo.Visible = false;
             }
             lblNoDownloadsYet.Visible = dgvDownloads.RowCount == 0;
-        }
 
+            if (!DGVRefreshTimre.Enabled)
+                DGVRefreshTimre.Start();
+        }
+        private void EnableDGVDoubleBuffering()
+        {
+            // to reduce flickering when updating the dgv
+            typeof(Control).GetProperty("DoubleBuffered",
+                System.Reflection.BindingFlags.NonPublic |
+                System.Reflection.BindingFlags.Instance)?
+                .SetValue(dgvDownloads, true);
+        }
         private YouTubeVideo CreateNewVideoObject()
         {
             YouTubeVideo video = new YouTubeVideo();
@@ -80,7 +96,6 @@ namespace YouTube_Downloader
             InitializeFileDialog();
             await InitializeDownloadListAsync();
         }
-
 
         // buttons
         private async void btnGetVidInfo_Click(object sender, EventArgs e)
@@ -107,14 +122,13 @@ namespace YouTube_Downloader
             ResetInfoCard();
 
             await StartDownloadingVideoAsync(downloadObj, selectedQuality);
-
         }
         private void btnCloseVidInfo_Click(object sender, EventArgs e)
         {
             ResetInfoCard();
             pnlVidInfo.Visible = false;
+            tbURL.Focus();
         }
-
 
 
         private bool OpenSaveFileDialog()
@@ -123,9 +137,10 @@ namespace YouTube_Downloader
 
             if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return false;
+
+            saveFileDialog1.InitialDirectory = Path.GetDirectoryName(saveFileDialog1.FileName);
             return true;
         }
-
         private async Task StartDownloadingVideoAsync(YouTubeVideo video, string selectedQuality)
         {
             try
@@ -145,7 +160,6 @@ namespace YouTube_Downloader
                 await Serializer.SerializeObjectAsync(video);
             }
         }
-
         private async Task StartFetchingInfoAsync()
         {
             ShowHideLoadingIndicator();
@@ -162,11 +176,10 @@ namespace YouTube_Downloader
                 return;
             }
             
-            await FillInfoCard();
+            await FillInfoCardAsync();
             ShowHideLoadingIndicator();
             pnlVidInfo.Visible = true;
         }
-
         private void SelectNewlyAddedRow()
         {
             if (dgvDownloads.Rows.Count > 0)
@@ -175,8 +188,7 @@ namespace YouTube_Downloader
                 dgvDownloads.Rows[dgvDownloads.Rows.Count - 1].Selected = true;
             }
         }
-
-        private async Task FillInfoCard()
+        private async Task FillInfoCardAsync()
         {
             lblVidTitle.Text = _youTubeVideo.Title ?? "N/A";
             lblVidDescription.Text = _youTubeVideo.Description ?? "N/A";
@@ -187,9 +199,7 @@ namespace YouTube_Downloader
             
             pbVidThumbnail.LoadAsync(_youTubeVideo.ThumbnailURL ?? string.Empty);
             cbQualities.DataSource = _youTubeVideo.Qualities;
-            cbQualities.SelectedIndex = 0;
-
-            lblVidSize.Text = await _youTubeVideo.GetAproxFileSize(cbQualities.SelectedItem.ToString()) ?? "N/A";
+            cbQualities.SelectedIndex = cbQualities.Items.Count > 1 ? cbQualities.Items.Count - 1 : 0;
         }
 
         private void ShowHideLoadingIndicator()
@@ -199,7 +209,6 @@ namespace YouTube_Downloader
             tbURL.Visible = !tbURL.Visible;
             btnGetVidInfo.Visible = !btnGetVidInfo.Visible;
         }
-
         private void ResetInfoCard()
         {
             tbURL.Text = string.Empty;
@@ -211,16 +220,15 @@ namespace YouTube_Downloader
             pbVidThumbnail.Image = null;
             cbQualities.DataSource = null;
         }
-
         private async void cbQualities_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbQualities.SelectedItem != null) // cuz this event will be triggered when resetting the info card and setting the datasource to null
             {
                 lblVidSize.Text = "Loading...";
+                await Task.Delay(100);
                 lblVidSize.Text = await _youTubeVideo.GetAproxFileSize(cbQualities.SelectedItem?.ToString()) ?? "N/A";
             }
         }
-
 
         // context menu
         private void cmsVidItemOptions_Opening(object sender, CancelEventArgs e)
@@ -239,13 +247,11 @@ namespace YouTube_Downloader
                 }
             }
         }
-
         private void tsmCancel_Click(object sender, EventArgs e)
         {
             if (dgvDownloads.CurrentRow?.DataBoundItem is YouTubeVideo selectedVid)
                 selectedVid.CancelDownload();
         }
-
         private void tsmOpenFolder_Click(object sender, EventArgs e)
         {
             if (dgvDownloads.CurrentRow?.DataBoundItem is YouTubeVideo selectedVid)
@@ -262,7 +268,6 @@ namespace YouTube_Downloader
                     MessageBox.Show("The download path is not available.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private async void tsmDelete_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure you want to delete this download from history?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
@@ -276,7 +281,9 @@ namespace YouTube_Downloader
 
             lblNoDownloadsYet.Visible = dgvDownloads.RowCount == 0;
         }
-
-      
+        private void DGVRefreshTimre_Tick(object sender, EventArgs e)
+        {
+            dgvDownloads.Invalidate();
+        }
     }
 }

@@ -1,0 +1,19 @@
+yt-dlp.exe is a completely independent operating system process with its own memory space, process ID (PID), and threads. It is not running inside the application's process at all.
+
+What is running on the application's thread pool is the code handling the output:
+
+The External Process: Windows launches yt-dlp.exe as a separate child process.
+
+The Inter-Process Communication (IPC): Data from yt-dlp is read using redirected standard output streams (RedirectStandardOutput = true).
+
+Where the Thread Pool Comes In: When calling downloadProcess.BeginOutputReadLine(), the .NET runtime listens to that redirected pipe. Every time yt-dlp writes a line of text, a worker thread from the application's thread pool is assigned to execute the OnDataReceived event handler.
+
+Although yt-dlp is an external process, OnDataReceived runs on a background thread-pool thread. Updating properties inside this handler invokes PropertyChanged, which causes the bound DataGridView to attempt a redraw from that background thread, resulting in a cross-thread marshaling issue.
+
+This is solved by using SynchronizationContext to capture the UI thread context during initialization, then dispatching the property change notification to the UI thread via _syncContext.Post().
+
+^
+|
+
+i just replaced this whole thing with a timer on the main form to invalidate the dgv if there is an active download and its
+progress property gets updated

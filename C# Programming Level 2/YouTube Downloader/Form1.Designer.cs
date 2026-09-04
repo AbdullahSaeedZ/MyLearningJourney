@@ -73,6 +73,7 @@
             this.lblVidTitle = new System.Windows.Forms.Label();
             this.btnDownload = new Guna.UI2.WinForms.Guna2Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.DGVRefreshTimre = new System.Windows.Forms.Timer(this.components);
             this.guna2Panel1.SuspendLayout();
             this.prgbarLoadingInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDownloads)).BeginInit();
@@ -165,7 +166,7 @@
             this.prgbarLoadingInfo.ShadowDecoration.Parent = this.prgbarLoadingInfo;
             this.prgbarLoadingInfo.Size = new System.Drawing.Size(48, 47);
             this.prgbarLoadingInfo.TabIndex = 9;
-            this.prgbarLoadingInfo.Value = 74;
+            this.prgbarLoadingInfo.Value = 73;
             this.prgbarLoadingInfo.Visible = false;
             // 
             // lblDownloadsLimitReached
@@ -526,7 +527,7 @@
             this.pnlVidInfo.Controls.Add(this.lblVidTitle);
             this.pnlVidInfo.Controls.Add(this.btnDownload);
             this.pnlVidInfo.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(28)))), ((int)(((byte)(29)))));
-            this.pnlVidInfo.Location = new System.Drawing.Point(213, 260);
+            this.pnlVidInfo.Location = new System.Drawing.Point(213, 261);
             this.pnlVidInfo.Name = "pnlVidInfo";
             this.pnlVidInfo.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
             this.pnlVidInfo.ShadowDecoration.Depth = 140;
@@ -571,9 +572,9 @@
             this.lblVidSize.BackColor = System.Drawing.Color.Transparent;
             this.lblVidSize.Font = new System.Drawing.Font("Segoe UI Variable Text", 12.75F);
             this.lblVidSize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(219)))), ((int)(((byte)(219)))));
-            this.lblVidSize.Location = new System.Drawing.Point(449, 109);
+            this.lblVidSize.Location = new System.Drawing.Point(426, 109);
             this.lblVidSize.Name = "lblVidSize";
-            this.lblVidSize.Size = new System.Drawing.Size(87, 27);
+            this.lblVidSize.Size = new System.Drawing.Size(114, 27);
             this.lblVidSize.TabIndex = 9;
             this.lblVidSize.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -681,6 +682,14 @@
             this.btnDownload.Text = "Download";
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.RestoreDirectory = true;
+            // 
+            // DGVRefreshTimre
+            // 
+            this.DGVRefreshTimre.Tick += new System.EventHandler(this.DGVRefreshTimre_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -761,6 +770,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col3;
         private System.Windows.Forms.DataGridViewTextBoxColumn col4;
         private System.Windows.Forms.DataGridViewTextBoxColumn col5;
+        private System.Windows.Forms.Timer DGVRefreshTimre;
     }
 }
 
