@@ -12,14 +12,12 @@ namespace Serializer
             Employee employee2 = new Employee("Mohammed", 14_500.75f, "Developer", "Jeddah");
             Employee employee3 = null!;
 
-            Employee[] employees1 = { employee, employee1, employee2, employee3 };
-            await Serializer.SerializeAsync(employees1, "employees.json");
-
+            Employee[] employeesToSerialize = { employee, employee1, employee2, employee3 };
+            await JsonSerializer.SerializeAsync(employeesToSerialize, "employees.json");
 
             // --------------- deserialization ----------------
-
-            List<Employee> employees2 = await Serializer.DeserializeListAsync<Employee>("employees.json");
-            foreach (Employee emp in employees2)
+            List<Employee> deserializedEmployees = await JsonSerializer.DeserializeListAsync<Employee>("employees.json");
+            foreach (Employee emp in deserializedEmployees)
             {
                 Console.Write(emp + "\n\n-----------------------------\n\n");
             }
@@ -102,6 +100,4 @@ namespace Serializer
             return $"CityDescription: {CityDescription}";
         }
     }
-
-
 }
