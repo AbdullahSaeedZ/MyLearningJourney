@@ -1,5 +1,4 @@
 ﻿using Serializer.Attributes;
-using System.Reflection.Emit;
 
 namespace Serializer
 {
@@ -8,106 +7,79 @@ namespace Serializer
         static async Task Main(string[] args)
         {
             // --------------- serialization ----------------
-            Employee employee = new Employee("Abdullah Alzahrani", 20_000.43f, null);
-            _ = Serializer.SerializeAsync(employee, "employee.json");
+            Employee employee = new Employee("Abdullah Alzahrani", 20_000.43f, null!, "Dammam");
+            Employee employee1 = new Employee("Ali", 40_000.50f, "Manager", "Riyadh");
+            Employee employee2 = new Employee("Mohammed", 14_500.75f, "Developer", "Jeddah");
+            Employee employee3 = null!;
 
-
-            Employee employee1 = new Employee("Ali", 40_000.50f, "Manager");
-            Employee employee2 = new Employee("Mohammed", 14_500.75f, "Developer");
-            Employee employee3 = new Employee("Fahad", 10_030.25f, "Designer");
-            Employee employee4 = null;
-
-            Employee[] employees1 = { employee1, employee2, employee3, employee4 };
-            //_ = Serializer.SerializeAsync(employees1, "employee.json");
+            Employee[] employees1 = { employee, employee1, employee2, employee3 };
+            await Serializer.SerializeAsync(employees1, "employees.json");
 
 
             // --------------- deserialization ----------------
 
-
-            try
+            List<Employee> employees2 = await Serializer.DeserializeListAsync<Employee>("employees.json");
+            foreach (Employee emp in employees2)
             {
-                Employee? employee5 = await Serializer.DeserializeAsync<Employee>("employee.json");
-                Console.WriteLine(employee5);
-
-                //List<Employee> employees2 = await Serializer.DeserializeListAsync<Employee>("employee.json");
-                //foreach (var emp in employees2)
-                //{
-                //    Console.WriteLine(emp + "\n\n---------------------\n\n");
-
-                //}
+                Console.Write(emp + "\n\n-----------------------------\n\n");
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            
         }
-
     }
 
-    //[JsonInclude]
-    //[JsonIgnore]
     public class Employee
     {
         // default: private fields and properties are not serialized, public fields and properties are serialized
+        public string EmployeeName { get; set; }
 
-        public Address EmployeeAddress { get; set; }
+        public AddressNested EmployeeAddress { get; set; }
+        public string Position { get; set; }
+        private string CarModel = "Elantra";
+        public string Nationality = "Saudi";
 
-        private string CarType = "Elantra";
-        public string StreetName = "st 64";
-
-
-        public string Name { get; set; }
-
-        [JsonPropertyName("Money")]
+        [JsonPropertyName("Wage")] // will override the property name 
         public float Salary { get; set; }
 
-        public string Position { get; set; }
+        [JsonInclude] // will include the private property, even though it is ignored by default
+        private bool IsActive { get; set; } 
 
-        public bool IsManager { get; set; }
+        [JsonIgnore]// will ignore the public property, even though it is included by default
+        public int Experience { get; set; } = 1; 
 
-        private bool IsActive { get; set; }
 
-        public Employee(string name, float salary, string position)
+
+        public Employee(string name, float salary, string position, string City)
         {
-            Name = name;
+            EmployeeName = name;
             Salary = salary;
             Position = position;
-            EmployeeAddress = new Address("Riyadh", "st 64", 12345);
+            EmployeeAddress = new AddressNested(City, "st, 64", 12345);
         }
-
 
         public void Promote(string newPosition)
         {
-
         }
-
-        //public override string ToString()
-        //{
-        //    return $"Name: {Name}\nSalary: {Salary}\nPosition: {Position}\nIsActive: {IsActive}\nIsManager: {IsManager}\nStreetName: {StreetName}\nCarType: {CarType}\n";
-        //}
 
         public override string ToString()
         {
-            return $"Name: {Name}\nSalary: {Salary}\nPosition: {Position}\nIsActive: {IsActive}\nIsManager: {IsManager}\nStreetName: {StreetName}\nCarType: {CarType}\n" +
-                $"\nEmployee Address:{EmployeeAddress}" +
-                $"\n\nCity:\n{EmployeeAddress.CityInfo}";
+            return $"--(Employee)--:\nEmployeeName: {EmployeeName}\nSalary: {Salary}\nPosition: {Position}\nIsActive: {IsActive}\nNationality: {Nationality}\nCarType: {CarModel}\n" +
+                $"\n--(Nested Employee Address)--:{EmployeeAddress}" +
+                $"\n\n--(Nested City Info)--:\n{EmployeeAddress.CityInfo}";
         }
     }
 
-    public class Address
+    public class AddressNested
     {
         public string City { get; set; }
         public string Street { get; set; }
         public int ZipCode { get; set; }
 
-        public City CityInfo { get; set; }
-        public Address(string city, string street, int zipCode)
+        public CityInfoNested CityInfo { get; set; }
+        public AddressNested(string city, string street, int zipCode)
         {
             City = city;
             Street = street;
             ZipCode = zipCode;
-            CityInfo = new City();
+            CityInfo = new CityInfoNested();
         }
 
         public override string ToString()
@@ -117,17 +89,17 @@ namespace Serializer
     }
 
 
-    public class City
+    public class CityInfoNested
     {
-        public string Name { get; set; }
+        public string CityDescription { get; set; }
 
-        public City()
+        public CityInfoNested()
         {
-            Name = "Riyadh";
+            CityDescription = "a city in: {Saudi Arabia}";
         }
         public override string ToString()
         {
-            return $"Name: {Name}";
+            return $"CityDescription: {CityDescription}";
         }
     }
 
