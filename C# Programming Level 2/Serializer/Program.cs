@@ -7,7 +7,7 @@ namespace Serializer
         static async Task Main(string[] args)
         {
             // --------------- serialization ----------------
-            Employee employee = new Employee("Abdullah Alzahrani", 20_000.43f, null!, "Dammam");
+            Employee employee = new Employee("Abdullah", 20_000.43f, null!, "Dammam");
             Employee employee1 = new Employee("Ali", 40_000.50f, "Manager", "Riyadh");
             Employee employee2 = new Employee("Mohammed", 14_500.75f, "Developer", "Jeddah");
             Employee employee3 = null!;
@@ -16,11 +16,15 @@ namespace Serializer
             await JsonSerializer.SerializeAsync(employeesToSerialize, "employees.json");
 
             // --------------- deserialization ----------------
-            List<Employee> deserializedEmployees = await JsonSerializer.DeserializeListAsync<Employee>("employees.json");
-            foreach (Employee emp in deserializedEmployees)
+            List<Employee>? deserializedEmployees = await JsonSerializer.DeserializeListAsync<Employee>("employees.json");
+            if (deserializedEmployees != null)
             {
-                Console.Write(emp + "\n\n-----------------------------\n\n");
+                foreach (Employee emp in deserializedEmployees)
+                {
+                    Console.Write(emp + "\n\n-----------------------------\n\n");
+                }
             }
+          
         }
     }
 

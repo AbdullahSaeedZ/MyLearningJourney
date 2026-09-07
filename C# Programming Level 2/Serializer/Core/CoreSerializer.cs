@@ -13,11 +13,6 @@ namespace Serializer.Core
         // and to avoid race condition issues
         private static readonly int _spacesPerDepth = 4;
 
-
-
-
-
-
         public static IEnumerable<string> ConvertElementsToJson(IEnumerable<object> elements)
         {
             yield return "[\n";
@@ -39,6 +34,8 @@ namespace Serializer.Core
             yield return "\n]";
         }
 
+        // 
+
         public static string GetOneObjectJson(object obj, int depthLevel, bool isNested = false)
         {
             MemberInfo[] members = ReflectionHelper.GetMembers(obj.GetType());
@@ -46,8 +43,6 @@ namespace Serializer.Core
 
             return ConvertMembersToJson(obj, members, depthLevel, isNested);
         }
-
-        
 
         private static string ConvertMembersToJson(object obj, MemberInfo[] members, int depthLevel, bool isNested)
         {
@@ -88,7 +83,7 @@ namespace Serializer.Core
 
         private static bool HandleNestedObject(object parentObj, MemberInfo member, StringBuilder oneObjectJson, int depthLevel)
         {
-            // to check if member is a nested class, other checks are done in HandleRestrictions
+            // to check if member is a nested class, other checks are done in HandleRestrictions in ReflectionHelper class
             if (!( member is PropertyInfo nestedClass && !nestedClass.PropertyType.IsPrimitive && nestedClass.PropertyType != typeof(string) && nestedClass.PropertyType != typeof(decimal) ))
                 return false;
 

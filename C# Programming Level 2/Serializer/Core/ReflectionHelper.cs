@@ -4,8 +4,10 @@ using System.Runtime.CompilerServices;
 
 namespace Serializer.Core
 {
-    internal class ReflectionHelper
+    internal static class ReflectionHelper
     {
+        // this is used in both CoreSerializer and CoreDeserializer to get the members of a type,
+        // was put here to avoid code duplication and to have a single place to change the logic and default behavior if needed
         public static MemberInfo[] GetMembers(Type type)
         {
             // this will pick up both public and private fields and properties 
@@ -16,7 +18,7 @@ namespace Serializer.Core
 
 
         // this is a filtering method for FindMembers, it will be called for each member of the type so that only members that pass the filter will be returned
-        public static bool HandleRestrictions(MemberInfo member, object? criteria)
+        private static bool HandleRestrictions(MemberInfo member, object? criteria)
         {
             // to exclude backing fields of properties (which are marked CompilerGeneratedAttribute by compiler)
             if (member.IsDefined(typeof(CompilerGeneratedAttribute)) || member.IsDefined(typeof(JsonIgnoreAttribute)))

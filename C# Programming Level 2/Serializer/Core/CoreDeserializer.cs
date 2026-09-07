@@ -1,6 +1,4 @@
 ﻿using Serializer.Attributes;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
 
@@ -57,7 +55,7 @@ namespace Serializer.Core
 
         public static T? ConvertJsonToObject<T>(string jsonContent, Type nestedType = null)
         {
-            Dictionary<string, string> jsonKeyAndValues = ParseJsonContent(jsonContent);
+            Dictionary<string, string> jsonKeysAndValues = ParseJsonContent(jsonContent);
             Type type;
 
             if (nestedType != null)
@@ -66,16 +64,19 @@ namespace Serializer.Core
                 type = typeof(T);
 
             ConstructorInfo[] constructors = type.GetConstructors();
-            ConstructorInfo validConstructor = GetValidConstructor(constructors);
-            ParameterInfo[] parameters = validConstructor.GetParameters();
+            ConstructorInfo? validConstructor = GetValidConstructor(constructors);
+            ParameterInfo[]? parameters = validConstructor?.GetParameters();
 
-            T obj = InvokeInitialObject<T>(validConstructor, parameters)!;
-            MapParsedValuesToObject<T>(obj, type, jsonKeyAndValues);
+            T? obj = InvokeInitialObject<T>(validConstructor, parameters);
 
+            if (obj == null)
+                return obj;
+
+            MapParsedValuesToObject<T>(obj, type, jsonKeysAndValues);
             return obj;
         }
 
-        private static void MapParsedValuesToObject<T>(T? obj, Type type, Dictionary<string, string> jsonKeyAndValues)
+        private static void MapParsedValuesToObject<T>(T obj, Type type, Dictionary<string, string> jsonKeysAndValues)
         {
             MemberInfo[] members = ReflectionHelper.GetMembers(type);
 
@@ -83,10 +84,10 @@ namespace Serializer.Core
             {
                 string name = member.GetCustomAttribute<JsonPropertyName>()?.Name ?? member.Name;
 
-                if (jsonKeyAndValues.TryGetValue(name, out string? value))
+                if (jsonKeysAndValues.TryGetValue(name, out string? value))
                 {
                     if (value == "null")
-                        value = null;
+                        continue;
 
                     // to handle nested objects
                     if (member is PropertyInfo nestedObject && nestedObject.PropertyType.IsClass && nestedObject.PropertyType != typeof(string))
@@ -106,13 +107,16 @@ namespace Serializer.Core
             }
         }
 
-        private static T? InvokeInitialObject<T>(ConstructorInfo validConstructor, ParameterInfo[] parameters)
+        private static T? InvokeInitialObject<T>(ConstructorInfo? validConstructor, ParameterInfo[]? parameters)
         {
+            if (validConstructor == null || parameters == null)
+                return default;
+
             if (parameters.Length == 0)
                 return (T?)validConstructor.Invoke(null);
             else
             {
-                object[] readyParameters = new object[parameters.Length];
+                object?[] readyParameters = new object?[parameters.Length];
                 for (int i = 0; i < parameters.Length; i++)
                 {
                     readyParameters[i] = parameters[i].ParameterType.IsValueType ?
@@ -123,7 +127,7 @@ namespace Serializer.Core
             }
         }
 
-        private static ConstructorInfo GetValidConstructor(ConstructorInfo[] constructors)
+        private static ConstructorInfo? GetValidConstructor(ConstructorInfo[] constructors)
         {
             if (constructors.Length == 0)
                 throw new InvalidOperationException("No public constructors found for the type.");
@@ -131,14 +135,14 @@ namespace Serializer.Core
             ConstructorInfo markedConstructor = null;
             ConstructorInfo parameterizedConstructor = null;
             ConstructorInfo parameterlessConstructor = null;
-            int JsonConstructorAttribute = 0;
+            int jsonConstructorAttribute = 0;
             int parameterizedConstructors = 0;
 
             foreach (ConstructorInfo constructor in constructors)
             {
                 if (constructor.IsDefined(typeof(JsonConstructorAttribute)))
                 {
-                    JsonConstructorAttribute++;
+                    jsonConstructorAttribute++;
                     markedConstructor = constructor;
                 }
 
@@ -151,7 +155,7 @@ namespace Serializer.Core
                 }
             }
 
-            if (JsonConstructorAttribute > 1)
+            if (jsonConstructorAttribute > 1)
                 throw new InvalidOperationException("Multiple constructors with [JsonConstructor] attribute found.");
 
             if (markedConstructor != null)
@@ -186,8 +190,6 @@ namespace Serializer.Core
             return propertyPairs;
         }
 
-
-        // stringbuilder
         private static List<string> GetPairs(string jsonContent)
         {
             List<string> results = new List<string>();

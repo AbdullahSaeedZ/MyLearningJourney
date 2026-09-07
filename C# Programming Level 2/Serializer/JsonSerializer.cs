@@ -47,7 +47,7 @@ namespace Serializer
         /// <typeparam name="T"></typeparam>
         /// <param name="filePath"></param>
         /// <returns></returns>
-        public static async Task<List<T>> DeserializeListAsync<T>(string filePath)
+        public static async Task<List<T>?> DeserializeListAsync<T>(string filePath)
         {
             if (!File.Exists(filePath))
                 return default;
