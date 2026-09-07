@@ -10,7 +10,7 @@ namespace Serializer
         /// </summary>
         /// <param name="elements"></param>
         /// <param name="filePath"></param>
-        public static async Task SerializeAsync(IEnumerable<object> elements, string filePath)
+        public static async Task SerializeAsync(IEnumerable<object?>? elements, string filePath)
         {
             using StreamWriter writer = new StreamWriter(filePath, false);
             IEnumerable<string> elemnts = CoreSerializer.ConvertElementsToJson(elements);

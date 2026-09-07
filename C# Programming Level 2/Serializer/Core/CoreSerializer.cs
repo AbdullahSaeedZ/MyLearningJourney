@@ -13,12 +13,18 @@ namespace Serializer.Core
         // and to avoid race condition issues
         private static readonly int _spacesPerDepth = 4;
 
-        public static IEnumerable<string> ConvertElementsToJson(IEnumerable<object> elements)
+        public static IEnumerable<string> ConvertElementsToJson(IEnumerable<object?>? elements)
         {
+            if (elements == null)
+            {
+                yield return "[]";
+                yield break;
+            }
+
             yield return "[\n";
             bool isFirst = true;
 
-            foreach (object element in elements)
+            foreach (object? element in elements)
             {
                 if (element == null) continue;
 
