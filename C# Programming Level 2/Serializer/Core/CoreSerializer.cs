@@ -61,7 +61,7 @@ namespace Serializer.Core
             foreach (MemberInfo member in members)
             {
                 // preparing the json property section
-                string name = member.GetCustomAttribute<JsonPropertyName>()?.Name ?? member.Name;
+                string name = member.GetCustomAttribute<JsonPropertyNameAttribute>()?.Name ?? member.Name;
                 oneObjectJson.Append($"\n{spaces}\"{name}\": ");
 
                 // to hanle value if a nesdted objcet

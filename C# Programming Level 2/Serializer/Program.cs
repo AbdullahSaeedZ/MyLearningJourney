@@ -58,7 +58,7 @@ namespace Serializer
 
         public override string ToString()
         {
-            Position = Position == null ? "None" : Position;
+            Position = Position == null ? "null" : Position;
             return $"--(Employee)--\nEmployeeName: {EmployeeName}\nSalary: {Salary}\nPosition: {Position}\nIsActive: {IsActive}\nNationality: {Nationality}\nCarModel: {_carModel}\n" +
                 $"\n--(Nested Employee Address)--{EmployeeAddress}" +
                 $"\n\n--(Nested City Info)--\n{EmployeeAddress.CityInfo}";

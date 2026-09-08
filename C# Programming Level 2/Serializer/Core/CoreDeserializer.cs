@@ -82,7 +82,7 @@ namespace Serializer.Core
 
             foreach (MemberInfo member in members)
             {
-                string name = member.GetCustomAttribute<JsonPropertyName>()?.Name ?? member.Name;
+                string name = member.GetCustomAttribute<JsonPropertyNameAttribute>()?.Name ?? member.Name;
 
                 if (jsonKeysAndValues.TryGetValue(name, out string? value))
                 {
