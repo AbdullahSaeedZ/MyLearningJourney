@@ -1,0 +1,21 @@
+
+
+
+
+
+# Ignore VS/SSDT build outputs
+bin/
+obj/
+
+# Ignore local settings and cache from SQL tools
+.vscode/
+.vs/
+.env
+*.user
+*.suo
+*.cache
+
+# Ignore OS/system files
+Thumbs.db
+.DS_Store
+desktop.ini
