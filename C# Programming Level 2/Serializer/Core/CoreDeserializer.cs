@@ -13,8 +13,8 @@ namespace Serializer.Core
             bool inQuotes = false;
             char previousChar = '\0';
 
-            // to read 4kb at a time
-            char[] buffer = new char[4096];
+            // to read 4kb at a time, each char is 2 bytes
+            char[] buffer = new char[2048];
             int totalCharsRead;
 
             while (( totalCharsRead = await reader.ReadAsync(buffer, 0, buffer.Length) ) > 0)
