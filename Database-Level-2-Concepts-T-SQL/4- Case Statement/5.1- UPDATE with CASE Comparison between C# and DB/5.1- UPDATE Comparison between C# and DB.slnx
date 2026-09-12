@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../DataLayer/DataLayer.csproj" Id="7afca574-45c3-4c06-ae6b-0b9c4605a359" />
+  <Project Path="EmployeesBusiness.csproj" />
+</Solution>
