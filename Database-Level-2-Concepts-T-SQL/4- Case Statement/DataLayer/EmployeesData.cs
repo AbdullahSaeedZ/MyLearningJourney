@@ -6,6 +6,42 @@ namespace DataLayer
     {
         private static readonly string connectionString = "Server=.;Database=C21_DB1;Integrated Security=true;TrustServerCertificate=True;";
 
+        public static DataTable? GetPerformanceTable()
+        {
+            DataTable? Employees = new DataTable();
+
+            try
+            {
+                using SqlConnection connection = new SqlConnection(connectionString);
+
+                string query = @"select PerformanceCategory,count(*) as NumberOfEmployees, avg(Salary) as AverageSalary
+                                from
+                                (
+                                select Name, Salary, 
+                                case
+	                                when PerformanceRating >= 80 then 'High'
+	                                when PerformanceRating >= 60 then 'Medium'
+	                                else 'Low'
+                                end as PerformanceCategory
+                                from Employees2
+                                ) as PerformanceTable group by PerformanceCategory;";
+                using SqlCommand command = new SqlCommand(query, connection);
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                    Employees.Load(reader);
+                else
+                    Employees = null;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return Employees;
+        }
+
         public static DataTable? GetAllEmployeesWithBonus()
         {
             DataTable? Employees = new DataTable();
