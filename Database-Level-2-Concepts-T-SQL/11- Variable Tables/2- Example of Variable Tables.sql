@@ -2,7 +2,7 @@
 use C21_DB1;
 
 GO
--- we used to delcate a variable using this syntax:
+-- we used to declare a variable using this syntax:
 declare @variable int;
 
 -- whith variable tables it is the same but we set the type as table and create the columns:
