@@ -47,7 +47,6 @@
 --     valid state according to its rules, keeping same constraints and rules.
 --
 -- Isolation:
---     CONCURRENT TRANSACTIONS
 --     Concurrent transactions should not incorrectly see each other's
 --     intermediate changes.
 --

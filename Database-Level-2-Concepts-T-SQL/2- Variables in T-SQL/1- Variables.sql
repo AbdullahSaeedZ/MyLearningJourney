@@ -82,11 +82,11 @@ DECLARE @DepartmentId INT = 2;
 DECLARE @RowsProcessed INT;
 
 -- 2. Use variable inside a query predicate
--- SELECT * FROM Students WHERE Name = @@StudentName;
+-- SELECT * FROM Students WHERE Name = @StudentName;
 
 -- 3. Working with system functions
 -- Example: Imagine an INSERT or UPDATE statement ran here:
--- UPDATE Students SET DepartmentId = @DepartmentId WHERE Name = @@StudentName;
+-- UPDATE Students SET DepartmentId = @DepartmentId WHERE Name = @StudentName;
 
 -- Capture the number of rows affected
 SET @RowsProcessed = @@ROWCOUNT;
