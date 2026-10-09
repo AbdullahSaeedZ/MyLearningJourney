@@ -68,7 +68,20 @@ Let's break down the diagram with simple, non-overwhelming examples.
      +---> [ 6. METAPROGRAMMING ]
            "Code that inspects, generates, or reads code."
            (Reflection, Attributes, source generators)
-===============================================================================
+           
+           
+-------------------------------------------------------------------------------
+   WHY C#? (GENERAL-PURPOSE & MULTI-PARADIGM)
+   -------------------------------------------------------------------------------
+   C# is classified as a GENERAL-PURPOSE language: it isn't restricted to a single
+   niche (like SQL for queries or HTML for markup). You can build web backends,
+   desktop software, mobile apps, games, and cloud microservices with it.
+   
+   It succeeds at this because it is MULTI-PARADIGM. Rather than locking you into
+   one dogma, C# allows you to blend paradigms depending on the problem at hand.
+   As practical evidence of this flexibility, every single paradigm mapped above
+   is implemented with a concise, working C# example below.
+   ===============================================================================
 */
 
 namespace ParadigmsIntro
@@ -105,7 +118,7 @@ namespace ParadigmsIntro
     {
         public static void Main()
         {
-            Console.WriteLine("=== PROGRAMMING PARADIGMS FOR BEGINNERS ===\n");
+            Console.WriteLine("=== PROGRAMMING PARADIGMS ===\n");
 
             // -----------------------------------------------------------------
             // 1. PROCEDURAL PROGRAMMING (From the diagram under "Imperative")
