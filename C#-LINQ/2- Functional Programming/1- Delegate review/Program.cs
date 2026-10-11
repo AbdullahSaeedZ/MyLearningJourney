@@ -2,7 +2,7 @@
 
 class Program
 {
-    // delegate void delMethod();
+    delegate void delMethod();
     // instead, those are generic abstraction:
     // Action, Func, Pred
     
