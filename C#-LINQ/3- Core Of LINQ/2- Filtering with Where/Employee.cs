@@ -1,4 +1,4 @@
-namespace _3__Functional_Approach;
+namespace _2__Filtering_with_Where;
 
 public class Employee
 {

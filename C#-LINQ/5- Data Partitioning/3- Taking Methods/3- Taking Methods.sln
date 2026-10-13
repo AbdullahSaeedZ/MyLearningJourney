@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3- Taking Methods", "3- Taking Methods.csproj", "{DC8DED3C-6345-4995-B2E8-739C9A7FFFC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataPartitioning.Shared", "..\DataPartitioning.Shared\DataPartitioning.Shared.csproj", "{C2BB4583-C9E5-4CFC-BA14-660833F3ED2B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC8DED3C-6345-4995-B2E8-739C9A7FFFC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC8DED3C-6345-4995-B2E8-739C9A7FFFC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC8DED3C-6345-4995-B2E8-739C9A7FFFC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC8DED3C-6345-4995-B2E8-739C9A7FFFC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2BB4583-C9E5-4CFC-BA14-660833F3ED2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2BB4583-C9E5-4CFC-BA14-660833F3ED2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2BB4583-C9E5-4CFC-BA14-660833F3ED2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2BB4583-C9E5-4CFC-BA14-660833F3ED2B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

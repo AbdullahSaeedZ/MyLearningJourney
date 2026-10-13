@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2- Skipping Methods", "2- Skipping Methods.csproj", "{F9DE0955-2D0E-40AD-B20D-117DAD61A444}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataPartitioning.Shared", "..\DataPartitioning.Shared\DataPartitioning.Shared.csproj", "{EC1A2601-16CC-4AEE-A15D-73EA22ECBB0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9DE0955-2D0E-40AD-B20D-117DAD61A444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9DE0955-2D0E-40AD-B20D-117DAD61A444}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9DE0955-2D0E-40AD-B20D-117DAD61A444}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9DE0955-2D0E-40AD-B20D-117DAD61A444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC1A2601-16CC-4AEE-A15D-73EA22ECBB0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC1A2601-16CC-4AEE-A15D-73EA22ECBB0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC1A2601-16CC-4AEE-A15D-73EA22ECBB0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC1A2601-16CC-4AEE-A15D-73EA22ECBB0A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

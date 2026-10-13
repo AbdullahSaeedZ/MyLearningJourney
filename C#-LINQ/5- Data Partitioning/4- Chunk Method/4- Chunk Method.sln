@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4- Chunk Method", "4- Chunk Method.csproj", "{57D41D0E-8DF9-43DE-B141-8CEE5F91D36A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataPartitioning.Shared", "..\DataPartitioning.Shared\DataPartitioning.Shared.csproj", "{F4AD53C2-1A24-48D0-920E-B22B582B5EA2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57D41D0E-8DF9-43DE-B141-8CEE5F91D36A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57D41D0E-8DF9-43DE-B141-8CEE5F91D36A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57D41D0E-8DF9-43DE-B141-8CEE5F91D36A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57D41D0E-8DF9-43DE-B141-8CEE5F91D36A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4AD53C2-1A24-48D0-920E-B22B582B5EA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4AD53C2-1A24-48D0-920E-B22B582B5EA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4AD53C2-1A24-48D0-920E-B22B582B5EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4AD53C2-1A24-48D0-920E-B22B582B5EA2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

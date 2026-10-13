@@ -1,4 +1,4 @@
-namespace _3__Functional_Approach;
+namespace _2__Filtering_with_Where;
 
 // this is just enhancing the methods, by using extension methods, to attach the methods we created to particular types
 
