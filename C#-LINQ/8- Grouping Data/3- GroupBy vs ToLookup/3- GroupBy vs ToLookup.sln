@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3- GroupBy vs ToLookup", "3- GroupBy vs ToLookup\3- GroupBy vs ToLookup.csproj", "{A1E671FA-2114-4332-9C71-C94D1245B5EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupingData.Shared", "..\GroupingData.Shared\GroupingData.Shared.csproj", "{FE5BBA5A-ECBF-4906-9434-2D2A87DDAF99}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1E671FA-2114-4332-9C71-C94D1245B5EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1E671FA-2114-4332-9C71-C94D1245B5EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1E671FA-2114-4332-9C71-C94D1245B5EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1E671FA-2114-4332-9C71-C94D1245B5EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE5BBA5A-ECBF-4906-9434-2D2A87DDAF99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE5BBA5A-ECBF-4906-9434-2D2A87DDAF99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE5BBA5A-ECBF-4906-9434-2D2A87DDAF99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE5BBA5A-ECBF-4906-9434-2D2A87DDAF99}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

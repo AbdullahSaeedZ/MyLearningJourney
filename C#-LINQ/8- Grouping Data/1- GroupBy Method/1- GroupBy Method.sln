@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1- GroupBy Method", "1- GroupBy Method.csproj", "{B49D52E6-CB0B-403D-B850-CAE93519A3CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupingData.Shared", "..\GroupingData.Shared\GroupingData.Shared.csproj", "{D72BF3C8-0BC7-48F0-B65B-22E789B3A148}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B49D52E6-CB0B-403D-B850-CAE93519A3CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B49D52E6-CB0B-403D-B850-CAE93519A3CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B49D52E6-CB0B-403D-B850-CAE93519A3CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B49D52E6-CB0B-403D-B850-CAE93519A3CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D72BF3C8-0BC7-48F0-B65B-22E789B3A148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D72BF3C8-0BC7-48F0-B65B-22E789B3A148}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D72BF3C8-0BC7-48F0-B65B-22E789B3A148}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D72BF3C8-0BC7-48F0-B65B-22E789B3A148}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

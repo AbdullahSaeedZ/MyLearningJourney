@@ -20,7 +20,7 @@ class Program
             Console.WriteLine("\n\n");
             Console.WriteLine(new string('-', 40));
             Console.WriteLine($"Total Records: {totalRecords}");
-            Console.WriteLine($"Records Shown: {recordsToShow.Count()}");
+            Console.WriteLine($"Records Shown: {recordsToShow.Count}");
             Console.WriteLine($"Current Page: {userNextPage}");
             Console.WriteLine(new string('-', 40));
             

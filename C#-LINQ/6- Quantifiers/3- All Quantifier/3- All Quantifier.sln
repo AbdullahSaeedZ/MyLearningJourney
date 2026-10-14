@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3- All Quantifier", "3- All Quantifier.csproj", "{38CDB577-4FDA-43ED-ADC1-6392DBB68C1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quantifiers.Shared", "..\Quantifiers.Shared\Quantifiers.Shared.csproj", "{F2C1984E-A003-4C2E-BEC6-70ABED5F06EE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38CDB577-4FDA-43ED-ADC1-6392DBB68C1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38CDB577-4FDA-43ED-ADC1-6392DBB68C1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38CDB577-4FDA-43ED-ADC1-6392DBB68C1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38CDB577-4FDA-43ED-ADC1-6392DBB68C1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2C1984E-A003-4C2E-BEC6-70ABED5F06EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2C1984E-A003-4C2E-BEC6-70ABED5F06EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2C1984E-A003-4C2E-BEC6-70ABED5F06EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2C1984E-A003-4C2E-BEC6-70ABED5F06EE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

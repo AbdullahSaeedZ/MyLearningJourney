@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1- What is Data Sorting", "1- What is Data Sorting.csproj", "{8DB6C97F-EE7D-4712-ACC3-B6CBF33394BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSorting.Shared", "..\DataSorting.Shared\DataSorting.Shared.csproj", "{BD66A764-BAAB-4554-8649-CD5ED88C3A1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8DB6C97F-EE7D-4712-ACC3-B6CBF33394BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DB6C97F-EE7D-4712-ACC3-B6CBF33394BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DB6C97F-EE7D-4712-ACC3-B6CBF33394BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DB6C97F-EE7D-4712-ACC3-B6CBF33394BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD66A764-BAAB-4554-8649-CD5ED88C3A1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD66A764-BAAB-4554-8649-CD5ED88C3A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD66A764-BAAB-4554-8649-CD5ED88C3A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD66A764-BAAB-4554-8649-CD5ED88C3A1E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
