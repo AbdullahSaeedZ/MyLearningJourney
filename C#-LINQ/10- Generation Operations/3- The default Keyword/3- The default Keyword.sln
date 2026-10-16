@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3- The default Keyword", "3- The default Keyword.csproj", "{B9A605BB-2BDC-49C4-AB79-7973B9B1471B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Generation.Shared", "..\Generation.Shared\Generation.Shared.csproj", "{4F29AF58-7844-4C6F-8849-A3098E350948}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9A605BB-2BDC-49C4-AB79-7973B9B1471B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9A605BB-2BDC-49C4-AB79-7973B9B1471B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9A605BB-2BDC-49C4-AB79-7973B9B1471B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9A605BB-2BDC-49C4-AB79-7973B9B1471B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F29AF58-7844-4C6F-8849-A3098E350948}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F29AF58-7844-4C6F-8849-A3098E350948}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F29AF58-7844-4C6F-8849-A3098E350948}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F29AF58-7844-4C6F-8849-A3098E350948}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

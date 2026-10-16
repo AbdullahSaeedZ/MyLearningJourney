@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3- GroupJoin Method", "3- GroupJoin Method.csproj", "{F6584C3C-0D5A-495D-BB6D-FE6D2074B2AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoinOperations.Shared", "..\JoinOperations.Shared\JoinOperations.Shared.csproj", "{E303C494-E4FC-416A-BB8D-CE2758C49E84}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F6584C3C-0D5A-495D-BB6D-FE6D2074B2AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6584C3C-0D5A-495D-BB6D-FE6D2074B2AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6584C3C-0D5A-495D-BB6D-FE6D2074B2AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6584C3C-0D5A-495D-BB6D-FE6D2074B2AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E303C494-E4FC-416A-BB8D-CE2758C49E84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E303C494-E4FC-416A-BB8D-CE2758C49E84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E303C494-E4FC-416A-BB8D-CE2758C49E84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E303C494-E4FC-416A-BB8D-CE2758C49E84}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

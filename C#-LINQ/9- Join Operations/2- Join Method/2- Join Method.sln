@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2- Join Method", "2- Join Method.csproj", "{B5169F74-C8DC-49C8-9445-39A21976AEE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JoinOperations.Shared", "..\JoinOperations.Shared\JoinOperations.Shared.csproj", "{0BD6B94A-854E-416D-9399-AD84F4A167CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5169F74-C8DC-49C8-9445-39A21976AEE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5169F74-C8DC-49C8-9445-39A21976AEE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5169F74-C8DC-49C8-9445-39A21976AEE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5169F74-C8DC-49C8-9445-39A21976AEE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BD6B94A-854E-416D-9399-AD84F4A167CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BD6B94A-854E-416D-9399-AD84F4A167CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BD6B94A-854E-416D-9399-AD84F4A167CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BD6B94A-854E-416D-9399-AD84F4A167CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
