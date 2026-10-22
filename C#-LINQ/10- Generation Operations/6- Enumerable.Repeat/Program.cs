@@ -64,7 +64,7 @@ namespace _6__Enumerable.Repeat
             // Use Case 2: Reusing the Same Reference (Enumerable.Repeat)
             // -------------------------------------------------------------------------
             // Yields the single Question.Default instance 5 times without allocating new objects:
-            IEnumerable<Question> repeatedQuestions = Enumerable.Repeat(new Question(), 5);
+            IEnumerable<Question> repeatedQuestions = Enumerable.Repeat(Question.Default, 5);
 
             Question firstItem = repeatedQuestions.ElementAt(0);
             Question secondItem = repeatedQuestions.ElementAt(1);

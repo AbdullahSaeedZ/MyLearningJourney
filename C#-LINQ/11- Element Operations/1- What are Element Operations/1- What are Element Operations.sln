@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1- What are Element Operations", "1- What are Element Operations.csproj", "{DA2300F6-DBDF-4C6C-9D1B-C823791C100A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elements.Shared", "..\Elements.Shared\Elements.Shared.csproj", "{D324C4D5-3F0A-481E-9FA5-1FE639458584}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA2300F6-DBDF-4C6C-9D1B-C823791C100A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA2300F6-DBDF-4C6C-9D1B-C823791C100A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA2300F6-DBDF-4C6C-9D1B-C823791C100A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA2300F6-DBDF-4C6C-9D1B-C823791C100A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D324C4D5-3F0A-481E-9FA5-1FE639458584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D324C4D5-3F0A-481E-9FA5-1FE639458584}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D324C4D5-3F0A-481E-9FA5-1FE639458584}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D324C4D5-3F0A-481E-9FA5-1FE639458584}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

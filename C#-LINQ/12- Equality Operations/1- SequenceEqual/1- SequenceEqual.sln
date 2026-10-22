@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1- SequenceEqual", "1- SequenceEqual.csproj", "{FF138D74-0A55-4A83-B086-1953E2F85363}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Equality.Shared", "..\Equality.Shared\Equality.Shared.csproj", "{CCDC91F2-B8DB-4C1B-9BB9-78F689A4994D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF138D74-0A55-4A83-B086-1953E2F85363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF138D74-0A55-4A83-B086-1953E2F85363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF138D74-0A55-4A83-B086-1953E2F85363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF138D74-0A55-4A83-B086-1953E2F85363}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCDC91F2-B8DB-4C1B-9BB9-78F689A4994D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCDC91F2-B8DB-4C1B-9BB9-78F689A4994D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCDC91F2-B8DB-4C1B-9BB9-78F689A4994D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCDC91F2-B8DB-4C1B-9BB9-78F689A4994D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

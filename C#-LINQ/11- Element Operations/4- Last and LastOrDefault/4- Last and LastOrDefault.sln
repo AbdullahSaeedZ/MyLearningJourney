@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4- Last and LastOrDefault", "4- Last and LastOrDefault.csproj", "{45C6A801-F6BC-4FE5-87DA-75F0C8E0A54D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elements.Shared", "..\Elements.Shared\Elements.Shared.csproj", "{3199B648-976A-4436-8BD5-E9E5ABED465B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45C6A801-F6BC-4FE5-87DA-75F0C8E0A54D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45C6A801-F6BC-4FE5-87DA-75F0C8E0A54D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45C6A801-F6BC-4FE5-87DA-75F0C8E0A54D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45C6A801-F6BC-4FE5-87DA-75F0C8E0A54D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3199B648-976A-4436-8BD5-E9E5ABED465B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3199B648-976A-4436-8BD5-E9E5ABED465B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3199B648-976A-4436-8BD5-E9E5ABED465B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3199B648-976A-4436-8BD5-E9E5ABED465B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
