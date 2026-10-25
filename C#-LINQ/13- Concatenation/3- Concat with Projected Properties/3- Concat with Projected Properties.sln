@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3- Concat with Projected Properties", "3- Concat with Projected Properties.csproj", "{751AE8DE-584A-4C34-9D4B-00919B2AF293}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Concat.Shared", "..\Concat.Shared\Concat.Shared.csproj", "{2B836AC6-BAE3-4CB9-BB45-8CD9F26A6731}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{751AE8DE-584A-4C34-9D4B-00919B2AF293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{751AE8DE-584A-4C34-9D4B-00919B2AF293}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{751AE8DE-584A-4C34-9D4B-00919B2AF293}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{751AE8DE-584A-4C34-9D4B-00919B2AF293}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B836AC6-BAE3-4CB9-BB45-8CD9F26A6731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B836AC6-BAE3-4CB9-BB45-8CD9F26A6731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B836AC6-BAE3-4CB9-BB45-8CD9F26A6731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B836AC6-BAE3-4CB9-BB45-8CD9F26A6731}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

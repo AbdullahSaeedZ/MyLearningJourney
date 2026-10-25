@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2- Concat two sequences", "2- Concat two sequences.csproj", "{3EDED958-DA63-4D16-B753-D5D12E7E64F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Concat.Shared", "..\Concat.Shared\Concat.Shared.csproj", "{94AD7676-EC19-4F4A-A951-EC7000184746}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3EDED958-DA63-4D16-B753-D5D12E7E64F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EDED958-DA63-4D16-B753-D5D12E7E64F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EDED958-DA63-4D16-B753-D5D12E7E64F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EDED958-DA63-4D16-B753-D5D12E7E64F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94AD7676-EC19-4F4A-A951-EC7000184746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94AD7676-EC19-4F4A-A951-EC7000184746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94AD7676-EC19-4F4A-A951-EC7000184746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94AD7676-EC19-4F4A-A951-EC7000184746}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
