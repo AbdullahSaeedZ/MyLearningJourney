@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6- Average Function", "6- Average Function.csproj", "{40A28F34-8F5A-4105-B0E2-80CB18DCAC68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aggregate.Shared", "..\Aggregate.Shared\Aggregate.Shared.csproj", "{84115288-5E94-432F-A8E1-E0FB1B99B484}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{40A28F34-8F5A-4105-B0E2-80CB18DCAC68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40A28F34-8F5A-4105-B0E2-80CB18DCAC68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40A28F34-8F5A-4105-B0E2-80CB18DCAC68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40A28F34-8F5A-4105-B0E2-80CB18DCAC68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84115288-5E94-432F-A8E1-E0FB1B99B484}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84115288-5E94-432F-A8E1-E0FB1B99B484}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84115288-5E94-432F-A8E1-E0FB1B99B484}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84115288-5E94-432F-A8E1-E0FB1B99B484}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

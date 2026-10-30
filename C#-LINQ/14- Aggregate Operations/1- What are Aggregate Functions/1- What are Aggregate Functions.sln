@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1- What are Aggregate Functions", "1- What are Aggregate Functions.csproj", "{A9D96899-7CEB-4D81-97FF-33A6D975623B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9D96899-7CEB-4D81-97FF-33A6D975623B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9D96899-7CEB-4D81-97FF-33A6D975623B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9D96899-7CEB-4D81-97FF-33A6D975623B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9D96899-7CEB-4D81-97FF-33A6D975623B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

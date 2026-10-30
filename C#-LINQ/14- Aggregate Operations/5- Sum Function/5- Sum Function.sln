@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5- Sum Function", "5- Sum Function.csproj", "{609A737E-8472-453D-ABD6-0AE87C5D4BAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aggregate.Shared", "..\Aggregate.Shared\Aggregate.Shared.csproj", "{A2BBEB4E-2CD3-43F3-8263-41E4291CB416}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{609A737E-8472-453D-ABD6-0AE87C5D4BAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{609A737E-8472-453D-ABD6-0AE87C5D4BAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{609A737E-8472-453D-ABD6-0AE87C5D4BAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{609A737E-8472-453D-ABD6-0AE87C5D4BAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2BBEB4E-2CD3-43F3-8263-41E4291CB416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2BBEB4E-2CD3-43F3-8263-41E4291CB416}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2BBEB4E-2CD3-43F3-8263-41E4291CB416}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2BBEB4E-2CD3-43F3-8263-41E4291CB416}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
