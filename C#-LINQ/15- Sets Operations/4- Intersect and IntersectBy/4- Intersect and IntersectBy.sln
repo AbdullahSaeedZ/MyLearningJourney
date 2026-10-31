@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4- Intersect and IntersectBy", "4- Intersect and IntersectBy.csproj", "{464C6C76-5C6F-471F-BBB8-7661AD7F7808}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sets.Shared", "..\Sets.Shared\Sets.Shared.csproj", "{3C756DD6-9CD0-4F11-BF59-45312B3C374E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{464C6C76-5C6F-471F-BBB8-7661AD7F7808}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{464C6C76-5C6F-471F-BBB8-7661AD7F7808}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{464C6C76-5C6F-471F-BBB8-7661AD7F7808}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{464C6C76-5C6F-471F-BBB8-7661AD7F7808}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C756DD6-9CD0-4F11-BF59-45312B3C374E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C756DD6-9CD0-4F11-BF59-45312B3C374E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C756DD6-9CD0-4F11-BF59-45312B3C374E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C756DD6-9CD0-4F11-BF59-45312B3C374E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

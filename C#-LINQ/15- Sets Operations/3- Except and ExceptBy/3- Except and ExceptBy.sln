@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3- Except and ExceptBy", "3- Except and ExceptBy.csproj", "{32922EEB-A171-4D27-B980-978E5515EF96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sets.Shared", "..\Sets.Shared\Sets.Shared.csproj", "{B8E9992F-25DC-485F-BDF7-9A35F2FADBDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{32922EEB-A171-4D27-B980-978E5515EF96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32922EEB-A171-4D27-B980-978E5515EF96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32922EEB-A171-4D27-B980-978E5515EF96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32922EEB-A171-4D27-B980-978E5515EF96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8E9992F-25DC-485F-BDF7-9A35F2FADBDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8E9992F-25DC-485F-BDF7-9A35F2FADBDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8E9992F-25DC-485F-BDF7-9A35F2FADBDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8E9992F-25DC-485F-BDF7-9A35F2FADBDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

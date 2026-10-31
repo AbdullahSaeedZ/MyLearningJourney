@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2- Distinct Function", "2- Distinct Function.csproj", "{46748AB7-5B19-4BFE-AC3D-D0C9F1EE5740}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sets.Shared", "..\Sets.Shared\Sets.Shared.csproj", "{4D797D19-F1D2-41B9-90EF-2A7D14C2E370}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46748AB7-5B19-4BFE-AC3D-D0C9F1EE5740}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46748AB7-5B19-4BFE-AC3D-D0C9F1EE5740}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46748AB7-5B19-4BFE-AC3D-D0C9F1EE5740}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46748AB7-5B19-4BFE-AC3D-D0C9F1EE5740}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D797D19-F1D2-41B9-90EF-2A7D14C2E370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D797D19-F1D2-41B9-90EF-2A7D14C2E370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D797D19-F1D2-41B9-90EF-2A7D14C2E370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D797D19-F1D2-41B9-90EF-2A7D14C2E370}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

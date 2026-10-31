@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5- Union and UnionBy", "5- Union and UnionBy.csproj", "{B8466E90-BCAF-4759-9E49-A05C81D84297}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sets.Shared", "..\Sets.Shared\Sets.Shared.csproj", "{44FB6074-E232-4D99-A250-CF5D6480BC51}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8466E90-BCAF-4759-9E49-A05C81D84297}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8466E90-BCAF-4759-9E49-A05C81D84297}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8466E90-BCAF-4759-9E49-A05C81D84297}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8466E90-BCAF-4759-9E49-A05C81D84297}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44FB6074-E232-4D99-A250-CF5D6480BC51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44FB6074-E232-4D99-A250-CF5D6480BC51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44FB6074-E232-4D99-A250-CF5D6480BC51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44FB6074-E232-4D99-A250-CF5D6480BC51}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
