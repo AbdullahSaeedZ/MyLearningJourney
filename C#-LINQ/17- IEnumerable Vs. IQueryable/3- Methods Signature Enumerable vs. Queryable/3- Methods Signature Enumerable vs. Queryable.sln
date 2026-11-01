@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3- Methods Signature Enumerable vs. Queryable", "3- Methods Signature Enumerable vs. Queryable.csproj", "{EEAF1906-9A96-451B-B7D2-EADE42578B7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Shared", "..\Data.Shared\Data.Shared.csproj", "{F9399ADF-26B6-42C8-B53C-F4A9C3C475DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEAF1906-9A96-451B-B7D2-EADE42578B7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEAF1906-9A96-451B-B7D2-EADE42578B7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEAF1906-9A96-451B-B7D2-EADE42578B7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEAF1906-9A96-451B-B7D2-EADE42578B7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9399ADF-26B6-42C8-B53C-F4A9C3C475DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9399ADF-26B6-42C8-B53C-F4A9C3C475DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9399ADF-26B6-42C8-B53C-F4A9C3C475DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9399ADF-26B6-42C8-B53C-F4A9C3C475DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

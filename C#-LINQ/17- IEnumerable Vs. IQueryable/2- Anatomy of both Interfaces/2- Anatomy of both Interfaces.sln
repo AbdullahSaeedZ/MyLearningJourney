@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2- Anatomy of both Interfaces", "2- Anatomy of both Interfaces.csproj", "{77635B08-9D91-46D9-BE22-F7AFF3AFD430}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data.Shared", "..\Data.Shared\Data.Shared.csproj", "{FAFA1581-FCEF-453D-94BB-9755835948BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77635B08-9D91-46D9-BE22-F7AFF3AFD430}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77635B08-9D91-46D9-BE22-F7AFF3AFD430}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77635B08-9D91-46D9-BE22-F7AFF3AFD430}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77635B08-9D91-46D9-BE22-F7AFF3AFD430}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAFA1581-FCEF-453D-94BB-9755835948BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAFA1581-FCEF-453D-94BB-9755835948BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAFA1581-FCEF-453D-94BB-9755835948BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAFA1581-FCEF-453D-94BB-9755835948BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
