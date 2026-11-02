@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3- Cast vs. OfType", "3- Cast vs. OfType.csproj", "{7EC88467-6C93-4E92-BD59-560783A66C1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conversion.Shared", "..\Conversion.Shared\Conversion.Shared.csproj", "{BFAA26C2-3ECA-495C-8471-EB186B370A60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EC88467-6C93-4E92-BD59-560783A66C1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC88467-6C93-4E92-BD59-560783A66C1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EC88467-6C93-4E92-BD59-560783A66C1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EC88467-6C93-4E92-BD59-560783A66C1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFAA26C2-3ECA-495C-8471-EB186B370A60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFAA26C2-3ECA-495C-8471-EB186B370A60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFAA26C2-3ECA-495C-8471-EB186B370A60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFAA26C2-3ECA-495C-8471-EB186B370A60}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

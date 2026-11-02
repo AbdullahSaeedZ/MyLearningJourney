@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4- ToArray vs. ToList", "4- ToArray vs. ToList.csproj", "{CAF70BDD-CA8E-4BF5-9805-641411D4B823}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conversion.Shared", "..\Conversion.Shared\Conversion.Shared.csproj", "{35610AB9-F190-4198-9E77-FC4201BF463B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAF70BDD-CA8E-4BF5-9805-641411D4B823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF70BDD-CA8E-4BF5-9805-641411D4B823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF70BDD-CA8E-4BF5-9805-641411D4B823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF70BDD-CA8E-4BF5-9805-641411D4B823}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35610AB9-F190-4198-9E77-FC4201BF463B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35610AB9-F190-4198-9E77-FC4201BF463B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35610AB9-F190-4198-9E77-FC4201BF463B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35610AB9-F190-4198-9E77-FC4201BF463B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
