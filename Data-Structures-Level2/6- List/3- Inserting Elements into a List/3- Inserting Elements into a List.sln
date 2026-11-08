@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3- Inserting Elements into a List", "3- Inserting Elements into a List.csproj", "{741B1B12-1BD3-4EAE-827A-7EA93D80248A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{741B1B12-1BD3-4EAE-827A-7EA93D80248A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{741B1B12-1BD3-4EAE-827A-7EA93D80248A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{741B1B12-1BD3-4EAE-827A-7EA93D80248A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{741B1B12-1BD3-4EAE-827A-7EA93D80248A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

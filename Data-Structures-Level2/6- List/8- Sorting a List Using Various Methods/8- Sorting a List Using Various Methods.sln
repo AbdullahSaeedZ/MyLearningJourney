@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8- Sorting a List Using Various Methods", "8- Sorting a List Using Various Methods.csproj", "{503E353D-45BF-42FE-9E07-26E7C7274A9C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{503E353D-45BF-42FE-9E07-26E7C7274A9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{503E353D-45BF-42FE-9E07-26E7C7274A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{503E353D-45BF-42FE-9E07-26E7C7274A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{503E353D-45BF-42FE-9E07-26E7C7274A9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
