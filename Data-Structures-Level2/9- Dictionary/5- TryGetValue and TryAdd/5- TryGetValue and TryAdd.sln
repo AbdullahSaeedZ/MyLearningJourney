@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5- TryGetValue and TryAdd", "5- TryGetValue and TryAdd.csproj", "{0881A75A-392E-4223-85E7-31C86E48501A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0881A75A-392E-4223-85E7-31C86E48501A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0881A75A-392E-4223-85E7-31C86E48501A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0881A75A-392E-4223-85E7-31C86E48501A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0881A75A-392E-4223-85E7-31C86E48501A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
