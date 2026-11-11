@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3- Using HashSet to Remove Duplicates", "3- Using HashSet to Remove Duplicates.csproj", "{D66E83E3-82CF-4D9C-AF17-3C60B08B5BC8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D66E83E3-82CF-4D9C-AF17-3C60B08B5BC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D66E83E3-82CF-4D9C-AF17-3C60B08B5BC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D66E83E3-82CF-4D9C-AF17-3C60B08B5BC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D66E83E3-82CF-4D9C-AF17-3C60B08B5BC8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
